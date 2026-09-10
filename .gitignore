@@ -1,0 +1,14 @@
+# Godot
+.godot/
+export/
+# export_presets.cfg can hold signing-key paths/passwords; add per-platform presets deliberately
+export_presets.cfg
+.mono/
+*.translation
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
