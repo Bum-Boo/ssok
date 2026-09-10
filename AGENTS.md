@@ -4,13 +4,39 @@ ssok is an educational 3D robot simulator: drag parts together (they snap "쏙" 
 wire motors to a board, then drive the robot with code modeled on real boards.
 Read `docs/ARCHITECTURE.md` before touching `src/`.
 
-## Stack (fixed)
+## Decisions are recorded — read before you propose one
 
-- Godot **4.7.2**, **GDScript only**. No C# — its web export is not reliable and web is a target.
-- Renderer: **GL Compatibility** (the only one that runs on web). Do not switch to Forward+/Mobile.
-- Physics: default GodotPhysics3D for now. Jolt is a candidate; evaluate in an issue, don't flip it silently.
-- Targets: web *and* desktop from the same project. Avoid anything unsupported on web export:
-  threads, `OS.execute`, filesystem outside `user://`, blocking network calls.
+`docs/adr/` holds every accepted architecture decision (MADR-lite: Context/Decision/Consequences).
+
+- You MUST read `docs/adr/` before proposing a change that touches an existing decision.
+- You MUST NOT re-litigate, silently reverse, or "improve past" an accepted ADR in code or in a
+  PR. If a decision genuinely needs to change, write a new ADR that supersedes it (mark the old
+  one superseded, link the new one) and say so explicitly in the PR description — do not just
+  change the code and hope it's noticed.
+- After any context compaction/summary, re-read `docs/adr/` and this file before resuming work —
+  drift happens most often right after context is compressed.
+
+## Stack (fixed — see ADR 0001)
+
+- Godot **4.7.2**, exact pin, **GDScript only**. Never use C# — its web export is unreliable and
+  web is a hard deployment target.
+- Renderer: **GL Compatibility** (the only one that runs on web). Never switch to Forward+/Mobile
+  without a superseding ADR.
+- Physics: default GodotPhysics3D for now. Jolt is a candidate; it needs its own ADR (confirm web
+  export support first) — never flip it silently.
+- Targets: web *and* desktop from the same project, always. Never use anything unsupported on web
+  export: threads, `OS.execute`, filesystem outside `user://`, blocking network calls.
+
+### Upgrading the Godot version
+
+Never bump the engine version as a side effect of another change.
+
+1. Do it on its own branch, nothing else in the diff.
+2. Open the project in the new editor version once and let it re-save whatever it touches.
+3. Review that re-save diff like any other PR — it is not a no-op to skip reading.
+4. Land it as a single "migration" commit.
+5. Bump the pin here and in `README.md`, and write an ADR recording the new version and anything
+   that broke.
 
 ## Layout
 
@@ -27,24 +53,40 @@ tests/           automated tests (GUT — see issues)
 docs/            architecture and decisions
 ```
 
-## Non-negotiable design rules
+## Non-negotiable design rules (see ADRs 0002–0004)
 
-1. **Three layers stay separate**: board profile / language runtime / block set. A runtime never
-   knows a specific board; a board profile never contains interpreter code; blocks are derived
-   from a board profile's API, not hand-written per language.
-2. **Pin numbers come from the wiring graph**, never from constants in runtime code. If the user
-   plugs the servo into pin 9, the code sees pin 9 because of the `ConnectionGraph`.
-3. **Assembly mode is kinematic, run mode is physics.** Both are derived from the same
-   `ConnectionGraph`; nothing in run mode should be authored by hand.
-4. `ConnectionGraph` is the single source of truth and the only thing presets serialize.
+1. **Three layers always stay separate**: board profile / language runtime / block set. A runtime
+   must never know a specific board; a board profile must never contain interpreter code; blocks
+   must always be derived from a board profile's API, never hand-written per language. (ADR 0004)
+2. **Pin numbers always come from the wiring graph**, never from constants in runtime code. If the
+   user plugs the servo into pin 9, the code sees pin 9 only because of the `ConnectionGraph`.
+   (ADR 0002)
+3. **Assembly mode is always kinematic, run mode is always physics.** Both must be derived from
+   the same `ConnectionGraph`; never hand-author anything in run mode. (ADR 0003)
+4. `ConnectionGraph` is always the single source of truth and the only thing presets serialize.
+   (ADR 0002)
 
 ## GDScript conventions
 
 - Follow the official GDScript style guide: tabs, `snake_case` members/files, `PascalCase` classes.
 - Static typing everywhere (`var x: int`, `-> void`). One `class_name` per file; file name is the
   snake_case of the class name.
-- No comments that restate the code. One short line only when the *why* is non-obvious.
-- Do not hand-edit `.tscn` beyond trivial property tweaks; scene composition is done in the editor.
+- Never write a comment that restates the code. One short line only when the *why* is non-obvious.
+- Never hand-edit `.tscn` beyond trivial property tweaks — scene composition is always done in the
+  editor, by a human.
+
+## Definition of done for an agent PR
+
+A PR is not done just because the code compiles. Before handing it over:
+
+- Run the verify commands below and paste their actual output/result in the PR description —
+  never just assert "tests pass" without having run something.
+- If the issue's "완료 기준" (acceptance criteria) describes a testable behavior, either add an
+  automated test for it or, if that's genuinely not possible yet (e.g. no test framework wired up
+  for that layer), say so explicitly in the PR and state exactly what you verified manually
+  instead. Silence on this point is treated as "not verified."
+- Confirm you did not touch a decision recorded in `docs/adr/` without writing a superseding ADR.
+- Confirm the PR stays inside the linked issue's scope — no drive-by refactors of unrelated code.
 
 ## Verify before you hand work over
 
@@ -52,11 +94,14 @@ docs/            architecture and decisions
 godot --headless --path . --import       # must finish without errors
 godot --headless --path . --quit         # scene must load
 ```
-Run GUT tests when they exist (`tests/`). Say explicitly if you could not run something.
+Run GUT tests when they exist (`tests/`). Always say explicitly, in the PR, when you could not run
+something — never imply it passed if you didn't run it.
 
 ## Workflow
 
-- One GitHub issue per task. Labels `owner:human` / `owner:claude` / `owner:codex` say who does it.
-- Branch `feat/<issue#>-<slug>`, PR back to `main`. Claude reviews, the human merges.
+- One GitHub issue per task. Labels `owner:human` / `owner:claude` / `owner:codex` /
+  `owner:cheap-llm` say who does it.
+- Branch `feat/<issue#>-<slug>`, PR back to `main`. Claude reviews, the human merges — never
+  self-merge.
 - Commits: short imperative subject, why in the body if needed.
-- Code, identifiers and comments in English. Issues, docs and PR text may be Korean.
+- Code, identifiers and comments always in English. Issues, docs and PR text may be Korean.

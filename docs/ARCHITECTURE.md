@@ -8,16 +8,20 @@
 
 ## 확정된 결정 (2026-09-10)
 
-| 항목 | 결정 |
+아래는 요약표. 각 결정의 맥락·이유·기각된 대안은 [docs/adr/](adr/)에 있고, 그쪽이 정본이다.
+결정을 뒤집으려면 여기 표를 고치기 전에 새 ADR로 supersede할 것.
+
+| 항목 | 결정 | ADR |
+|---|---|---|
 |---|---|
-| 첫 프로토타입 | 조립 + 코드 구동을 최소 기능으로 **동시에** 관통하는 얇은 슬라이스 |
-| 연결 방식 | **포트/소켓 기반 + 근접 스냅**. 기계 조인트뿐 아니라 **전기 배선(모터→보드 핀)** 도 포트 |
-| 물리 | **하이브리드** — 조립 모드는 키네마틱, 실행 모드는 실물리(RigidBody+Joint+중력) |
-| 타겟 보드 | 미정. 구조를 특정 보드에 종속시키지 않음 |
-| 코딩 인터페이스 | 블록 ↔ 실제 코드 토글, **둘 다** |
-| 코드 언어 | 유저가 보드/환경에 따라 선택. 플랫폼이 기본값을 추천. 첫 런타임은 Python(MicroPython 스타일) |
-| 배포 | 웹 + 데스크톱 모두 (→ GDScript, GL Compatibility) |
-| 첫 프리셋 | 서보 팔 1개 (베이스 + 서보 + 팔 링크) |
+| 첫 프로토타입 | 조립 + 코드 구동을 최소 기능으로 **동시에** 관통하는 얇은 슬라이스 | [0005](adr/0005-first-slice-scope.md) |
+| 연결 방식 | **포트/소켓 기반 + 근접 스냅**. 기계 조인트뿐 아니라 **전기 배선(모터→보드 핀)** 도 포트 | [0002](adr/0002-connection-graph-single-source-of-truth.md) |
+| 물리 | **하이브리드** — 조립 모드는 키네마틱, 실행 모드는 실물리(RigidBody+Joint+중력) | [0003](adr/0003-hybrid-physics-modes.md) |
+| 타겟 보드 | 미정. 구조를 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md) |
+| 코딩 인터페이스 | 블록 ↔ 실제 코드 토글, **둘 다** | [0004](adr/0004-hardware-abstraction-three-layers.md) |
+| 코드 언어 | 유저가 보드/환경에 따라 선택. 플랫폼이 기본값을 추천. 첫 런타임은 Python(MicroPython 스타일) | [0004](adr/0004-hardware-abstraction-three-layers.md) |
+| 배포 | 웹 + 데스크톱 모두 (→ GDScript, GL Compatibility) | [0001](adr/0001-engine-and-deployment-targets.md) |
+| 첫 프리셋 | 서보 팔 1개 (베이스 + 서보 + 팔 링크) | [0005](adr/0005-first-slice-scope.md) |
 
 ## 핵심 구조
 
