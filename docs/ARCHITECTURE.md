@@ -63,17 +63,19 @@
 `assets/parts/*.tres`로 생성돼 있다. 조립 느낌(스냅 반경, 위치 미세조정)은 issue #9에서 에디터로 다듬을 것 —
 여기 숫자를 최종으로 보지 말 것.
 
-| 파츠 | 메쉬(placeholder) | 질량 | 포트 | kind | tag | accepts |
-|---|---|---|---|---|---|---|
-| `base` | BoxMesh 0.08×0.02×0.08 | 0.08kg | `mount_top` | MECH | `base_mount` | `servo_mount` |
-| `servo` | BoxMesh 0.023×0.03×0.012 | 0.02kg | `mount_bottom` | MECH | `servo_mount` | `base_mount` |
-| | | | `output_shaft` | MECH | `servo_output` | `arm_mount` |
-| | | | `signal_pin` | ELEC | `pwm_signal` | `board_digital_pwm` |
-| `arm_link` | BoxMesh 0.01×0.08×0.01 | 0.01kg | `mount_base` | MECH | `arm_mount` | `servo_output` |
-| `board` | BoxMesh 0.07×0.005×0.05 | 0.03kg | `pin_9`, `pin_10` | ELEC | `board_digital_pwm` | `pwm_signal` |
+| 파츠 | 메쉬(placeholder) | 질량 | 포트 | kind | 위치 / 법선 | tag | accepts |
+|---|---|---|---|---|---|---|---|
+| `base` | BoxMesh 0.08×0.02×0.08 | 0.08kg | `mount_top` | MECH | 윗면 중앙 / +Y | `base_mount` | `servo_mount` |
+| `servo` | BoxMesh 0.023×0.03×0.012 | 0.02kg | `mount_bottom` | MECH | 아랫면 / −Y | `servo_mount` | `base_mount` |
+| | | | `output_shaft` | MECH, **rotates** | +X 옆면 / +X | `servo_output` | `arm_mount` |
+| | | | `signal_pin` | ELEC | −X 옆면 / −X | `pwm_signal` | `board_digital_pwm` |
+| `arm_link` | BoxMesh 0.01×0.08×0.01 | 0.01kg | `mount_base` | MECH | 아래끝 −Z 옆면 / −Z | `arm_mount` | `servo_output` |
+| `board` | BoxMesh 0.07×0.005×0.05 | 0.03kg | `pin_9`, `pin_10` | ELEC | 윗면 / +Y | `board_digital_pwm` | `pwm_signal` |
 
-유일한 움직이는 조인트는 `servo.output_shaft` ↔ `arm_link.mount_base` (서보가 구동). `base` ↔ `servo`는
-고정 마운트. `board`는 타겟 보드(issue #10)가 정해질 때까지의 플레이스홀더로, 핀 번호는 포트 id
+유일한 움직이는 조인트는 `servo.output_shaft` ↔ `arm_link.mount_base` (서보가 구동). 실제 서보 혼처럼
+축이 서보 **옆면**으로 나오고 팔은 축에 **수직**으로 붙는다 — 그래야 회전이 보인다. `Port.rotates`가 true인
+포트가 물린 링크만 힌지가 되고 나머지는 강체 결합이다(실행 모드가 태그 문자열이 아니라 이 플래그로
+판단). `base` ↔ `servo`는 고정 마운트. `board`는 타겟 보드(issue #10)가 정해질 때까지의 플레이스홀더로, 핀 번호는 포트 id
 (`pin_9` → 9)에서 읽는다 — 이 숫자가 배선 그래프를 거쳐 학습자 코드의 `Servo(9)`와 만난다.
 
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
