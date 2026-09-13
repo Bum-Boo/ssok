@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_504pp"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_n3221"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iq061"]
+size = Vector3(0.07, 0.005, 0.05)
+
+[sub_resource type="Resource" id="Resource_3d4q4"]
+script = ExtResource("1_504pp")
+id = &"pin_9"
+kind = 1
+local_position = Vector3(-0.03, 0.0025, -0.02)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_2kgub"]
+script = ExtResource("1_504pp")
+id = &"pin_10"
+kind = 1
+local_position = Vector3(-0.03, 0.0025, -0.01)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[resource]
+script = ExtResource("2_n3221")
+id = &"board"
+display_name = "Board (placeholder)"
+mesh = SubResource("BoxMesh_iq061")
+ports = Array[ExtResource("1_504pp")]([SubResource("Resource_3d4q4"), SubResource("Resource_2kgub")])
+mass_kg = 0.03

@@ -70,10 +70,11 @@
 | | | | `output_shaft` | MECH | `servo_output` | `arm_mount` |
 | | | | `signal_pin` | ELEC | `pwm_signal` | `board_digital_pwm` |
 | `arm_link` | BoxMesh 0.01×0.08×0.01 | 0.01kg | `mount_base` | MECH | `arm_mount` | `servo_output` |
+| `board` | BoxMesh 0.07×0.005×0.05 | 0.03kg | `pin_9`, `pin_10` | ELEC | `board_digital_pwm` | `pwm_signal` |
 
 유일한 움직이는 조인트는 `servo.output_shaft` ↔ `arm_link.mount_base` (서보가 구동). `base` ↔ `servo`는
-고정 마운트. `servo.signal_pin`은 보드 프로파일이 정의할 `board_digital_pwm` 태그를 accepts로 걸어뒀다 —
-실제 보드 후보(issue #10)가 정해지면 그 태그가 실존 핀 태그로 구체화된다.
+고정 마운트. `board`는 타겟 보드(issue #10)가 정해질 때까지의 플레이스홀더로, 핀 번호는 포트 id
+(`pin_9` → 9)에서 읽는다 — 이 숫자가 배선 그래프를 거쳐 학습자 코드의 `Servo(9)`와 만난다.
 
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)
