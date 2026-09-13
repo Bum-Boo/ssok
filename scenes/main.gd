@@ -23,11 +23,13 @@ func _ready() -> void:
 	var camera := $Camera3D as Camera3D
 	camera.look_at_from_position(Vector3(0.2, 0.18, 0.26), Vector3(0.05, 0.09, 0))
 	camera.fov = 45.0
+	_dress_scene()
 
 	assembly = AssemblyMode.new()
 	add_child(assembly)
 	assembly.load_graph(ServoArmPreset.build())
 	_colorize(assembly)
+	_mark_ports(assembly)
 
 	run_mode = RunMode.new()
 	add_child(run_mode)
@@ -105,9 +107,46 @@ func _set_status(text: String, is_error: bool = false) -> void:
 	status.modulate = Color(1, 0.4, 0.4) if is_error else Color.WHITE
 
 
+func _dress_scene() -> void:
+	var env := Environment.new()
+	env.background_mode = Environment.BG_COLOR
+	env.background_color = Color(0.82, 0.85, 0.9)
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	env.ambient_light_color = Color(1, 1, 1)
+	env.ambient_light_energy = 0.35
+	var world_env := WorldEnvironment.new()
+	world_env.environment = env
+	add_child(world_env)
+	var floor_mesh := $Floor/MeshInstance3D as MeshInstance3D
+	var floor_material := StandardMaterial3D.new()
+	floor_material.albedo_color = Color(0.55, 0.56, 0.55)
+	floor_material.roughness = 0.9
+	floor_mesh.material_override = floor_material
+
+
+## Small translucent spheres on every port so learners can see where parts snap.
+static func _mark_ports(root: Node) -> void:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color(1.0, 0.85, 0.2, 0.55)
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.emission_enabled = true
+	material.emission = Color(1.0, 0.8, 0.1)
+	var sphere := SphereMesh.new()
+	sphere.radius = 0.0025
+	sphere.height = 0.005
+	for marker in root.find_children("*", "Marker3D", true, false):
+		var dot := MeshInstance3D.new()
+		dot.mesh = sphere
+		dot.material_override = material
+		marker.add_child(dot)
+
+
+## Fallback tint for placeholder meshes that ship without materials.
 static func _colorize(root: Node) -> void:
 	for node in root.find_children("*", "MeshInstance3D", true, false):
 		var mesh := node as MeshInstance3D
+		if mesh.mesh.get_surface_count() > 0 and mesh.mesh.surface_get_material(0) != null:
+			continue
 		var owner_name := String(mesh.get_parent().name)
 		for part_id: StringName in PART_COLORS:
 			if owner_name.begins_with(String(part_id)):

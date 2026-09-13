@@ -1,10 +1,8 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
+[ext_resource type="ArrayMesh" path="res://assets/parts/arm_link.obj" id="1_sbeuq"]
 [ext_resource type="Script" path="res://src/core/port.gd" id="1_umpvq"]
 [ext_resource type="Script" path="res://src/core/part_def.gd" id="2_sbeuq"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_lhc26"]
-size = Vector3(0.01, 0.08, 0.01)
 
 [sub_resource type="Resource" id="Resource_lqkd5"]
 script = ExtResource("1_umpvq")
@@ -18,6 +16,6 @@ accepts = Array[StringName]([&"servo_output"])
 script = ExtResource("2_sbeuq")
 id = &"arm_link"
 display_name = "Arm Link"
-mesh = SubResource("BoxMesh_lhc26")
+mesh = ExtResource("1_sbeuq")
 ports = Array[ExtResource("1_umpvq")]([SubResource("Resource_lqkd5")])
 mass_kg = 0.01

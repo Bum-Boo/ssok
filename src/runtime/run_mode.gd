@@ -56,8 +56,10 @@ func _make_body(entry: Dictionary, index: int) -> RigidBody3D:
 	body.add_child(mesh)
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = def.mesh.get_aabb().size
+	var aabb := def.mesh.get_aabb()
+	box.size = aabb.size
 	shape.shape = box
+	shape.position = aabb.get_center()
 	body.add_child(shape)
 	if def.id in anchored_part_ids:
 		body.freeze = true
