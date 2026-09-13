@@ -57,7 +57,23 @@
 
 구현 순서와 담당은 GitHub Issues 참고.
 
-## 미결 사항
+## Part/Port 스펙 (issue #1, 초안 — 에디터 튜닝은 issue #9)
+
+첫 프리셋(서보 팔) 3파츠의 포트 정의. 치수는 실제 마이크로 서보(SG90류) 크기를 참고한 플레이스홀더이며,
+`assets/parts/*.tres`로 생성돼 있다. 조립 느낌(스냅 반경, 위치 미세조정)은 issue #9에서 에디터로 다듬을 것 —
+여기 숫자를 최종으로 보지 말 것.
+
+| 파츠 | 메쉬(placeholder) | 질량 | 포트 | kind | tag | accepts |
+|---|---|---|---|---|---|---|
+| `base` | BoxMesh 0.08×0.02×0.08 | 0.08kg | `mount_top` | MECH | `base_mount` | `servo_mount` |
+| `servo` | BoxMesh 0.023×0.03×0.012 | 0.02kg | `mount_bottom` | MECH | `servo_mount` | `base_mount` |
+| | | | `output_shaft` | MECH | `servo_output` | `arm_mount` |
+| | | | `signal_pin` | ELEC | `pwm_signal` | `board_digital_pwm` |
+| `arm_link` | BoxMesh 0.01×0.08×0.01 | 0.01kg | `mount_base` | MECH | `arm_mount` | `servo_output` |
+
+유일한 움직이는 조인트는 `servo.output_shaft` ↔ `arm_link.mount_base` (서보가 구동). `base` ↔ `servo`는
+고정 마운트. `servo.signal_pin`은 보드 프로파일이 정의할 `board_digital_pwm` 태그를 accepts로 걸어뒀다 —
+실제 보드 후보(issue #10)가 정해지면 그 태그가 실존 핀 태그로 구체화된다.
 
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)

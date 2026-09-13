@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_umpvq"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_sbeuq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lhc26"]
+size = Vector3(0.01, 0.08, 0.01)
+
+[sub_resource type="Resource" id="Resource_lqkd5"]
+script = ExtResource("1_umpvq")
+id = &"mount_base"
+local_position = Vector3(0, -0.04, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"arm_mount"
+accepts = Array[StringName]([&"servo_output"])
+
+[resource]
+script = ExtResource("2_sbeuq")
+id = &"arm_link"
+display_name = "Arm Link"
+mesh = SubResource("BoxMesh_lhc26")
+ports = Array[ExtResource("1_umpvq")]([SubResource("Resource_lqkd5")])
+mass_kg = 0.01
