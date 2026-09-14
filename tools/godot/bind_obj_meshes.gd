@@ -3,7 +3,7 @@ extends SceneTree
 ## Points each PartDef at its Blender-made OBJ. Run after tools/blender/make_parts.py:
 ##   godot --headless --path . --import && godot --headless --path . -s tools/godot/bind_obj_meshes.gd
 
-const PART_IDS := ["base", "servo", "arm_link", "board"]
+const PART_IDS := ["base", "servo", "arm_link", "board", "arduino_uno", "tt_motor", "wheel_65", "hc_sr04", "biped_body", "leg_link", "foot"]
 
 
 func _init() -> void:

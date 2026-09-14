@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
 [ext_resource type="ArrayMesh" path="res://assets/parts/servo.obj" id="1_3oht8"]
-[ext_resource type="Script" path="res://src/core/port.gd" id="1_mp5k6"]
-[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_3oht8"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_q2ydj"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_7qlrw"]
 
-[sub_resource type="Resource" id="Resource_7qlrw"]
-script = ExtResource("1_mp5k6")
+[sub_resource type="Resource" id="Resource_0vo2d"]
+script = ExtResource("2_q2ydj")
 id = &"mount_bottom"
 local_position = Vector3(0, -0.015, 0)
 local_normal = Vector3(0, -1, 0)
 tag = &"servo_mount"
 accepts = Array[StringName]([&"base_mount"])
 
-[sub_resource type="Resource" id="Resource_0vo2d"]
-script = ExtResource("1_mp5k6")
+[sub_resource type="Resource" id="Resource_psi8u"]
+script = ExtResource("2_q2ydj")
 id = &"output_shaft"
 local_position = Vector3(0.0115, 0.005, 0)
 local_normal = Vector3(1, 0, 0)
@@ -21,8 +21,8 @@ tag = &"servo_output"
 accepts = Array[StringName]([&"arm_mount"])
 rotates = true
 
-[sub_resource type="Resource" id="Resource_psi8u"]
-script = ExtResource("1_mp5k6")
+[sub_resource type="Resource" id="Resource_0cbry"]
+script = ExtResource("2_q2ydj")
 id = &"signal_pin"
 kind = 1
 local_position = Vector3(-0.0115, 0, 0)
@@ -31,9 +31,9 @@ tag = &"pwm_signal"
 accepts = Array[StringName]([&"board_digital_pwm"])
 
 [resource]
-script = ExtResource("2_3oht8")
+script = ExtResource("3_7qlrw")
 id = &"servo"
 display_name = "Servo Motor"
 mesh = ExtResource("1_3oht8")
-ports = Array[ExtResource("1_mp5k6")]([SubResource("Resource_7qlrw"), SubResource("Resource_0vo2d"), SubResource("Resource_psi8u")])
+ports = Array[ExtResource("2_q2ydj")]([SubResource("Resource_0vo2d"), SubResource("Resource_psi8u"), SubResource("Resource_0cbry")])
 mass_kg = 0.02

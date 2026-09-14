@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/parts/foot.obj" id="1_d8aie"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_scse4"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_ekk24"]
+
+[sub_resource type="Resource" id="Resource_73y3n"]
+script = ExtResource("2_scse4")
+id = &"ankle_front"
+local_position = Vector3(0, 0.024, 0.0115)
+local_normal = Vector3(0, 0, -1)
+tag = &"arm_mount"
+accepts = Array[StringName]([&"servo_output"])
+
+[sub_resource type="Resource" id="Resource_j6f7l"]
+script = ExtResource("2_scse4")
+id = &"ankle_back"
+local_position = Vector3(0, 0.024, -0.0115)
+local_normal = Vector3(0, 0, 1)
+tag = &"arm_mount"
+accepts = Array[StringName]([&"servo_output"])
+
+[resource]
+script = ExtResource("3_ekk24")
+id = &"foot"
+display_name = "Foot"
+mesh = ExtResource("1_d8aie")
+ports = Array[ExtResource("2_scse4")]([SubResource("Resource_73y3n"), SubResource("Resource_j6f7l")])
+mass_kg = 0.02

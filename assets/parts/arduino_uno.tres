@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/parts/arduino_uno.obj" id="1_k1p20"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_ignpw"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_0ssxu"]
+
+[sub_resource type="Resource" id="Resource_a8dku"]
+script = ExtResource("2_ignpw")
+id = &"pin_3"
+kind = 1
+local_position = Vector3(0.02158, 0.0093, 0.0229)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+
+[sub_resource type="Resource" id="Resource_3lsmg"]
+script = ExtResource("2_ignpw")
+id = &"pin_5"
+kind = 1
+local_position = Vector3(0.0165, 0.0093, 0.0229)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+
+[sub_resource type="Resource" id="Resource_u777n"]
+script = ExtResource("2_ignpw")
+id = &"pin_6"
+kind = 1
+local_position = Vector3(0.01396, 0.0093, 0.0229)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+
+[sub_resource type="Resource" id="Resource_7ro66"]
+script = ExtResource("2_ignpw")
+id = &"pin_9"
+kind = 1
+local_position = Vector3(0.00482, 0.0093, 0.0229)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+
+[sub_resource type="Resource" id="Resource_8064c"]
+script = ExtResource("2_ignpw")
+id = &"pin_10"
+kind = 1
+local_position = Vector3(0.00228, 0.0093, 0.0229)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+
+[sub_resource type="Resource" id="Resource_r8dvj"]
+script = ExtResource("2_ignpw")
+id = &"pin_11"
+kind = 1
+local_position = Vector3(-0.00026, 0.0093, 0.0229)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+
+[sub_resource type="Resource" id="Resource_gv22b"]
+script = ExtResource("2_ignpw")
+id = &"pin_2"
+kind = 1
+local_position = Vector3(0.02412, 0.0093, 0.0229)
+tag = &"board_digital"
+accepts = Array[StringName]([&"digital_io"])
+
+[sub_resource type="Resource" id="Resource_ujanb"]
+script = ExtResource("2_ignpw")
+id = &"pin_4"
+kind = 1
+local_position = Vector3(0.01904, 0.0093, 0.0229)
+tag = &"board_digital"
+accepts = Array[StringName]([&"digital_io"])
+
+[sub_resource type="Resource" id="Resource_kk3fp"]
+script = ExtResource("2_ignpw")
+id = &"pin_7"
+kind = 1
+local_position = Vector3(0.01142, 0.0093, 0.0229)
+tag = &"board_digital"
+accepts = Array[StringName]([&"digital_io"])
+
+[sub_resource type="Resource" id="Resource_myrwe"]
+script = ExtResource("2_ignpw")
+id = &"pin_8"
+kind = 1
+local_position = Vector3(0.00736, 0.0093, 0.0229)
+tag = &"board_digital"
+accepts = Array[StringName]([&"digital_io"])
+
+[sub_resource type="Resource" id="Resource_2t1g4"]
+script = ExtResource("2_ignpw")
+id = &"pin_12"
+kind = 1
+local_position = Vector3(-0.0028, 0.0093, 0.0229)
+tag = &"board_digital"
+accepts = Array[StringName]([&"digital_io"])
+
+[sub_resource type="Resource" id="Resource_kkblm"]
+script = ExtResource("2_ignpw")
+id = &"pin_13"
+kind = 1
+local_position = Vector3(-0.00534, 0.0093, 0.0229)
+tag = &"board_digital"
+accepts = Array[StringName]([&"digital_io"])
+
+[resource]
+script = ExtResource("3_0ssxu")
+id = &"arduino_uno"
+display_name = "Arduino Uno R3"
+mesh = ExtResource("1_k1p20")
+ports = Array[ExtResource("2_ignpw")]([SubResource("Resource_a8dku"), SubResource("Resource_3lsmg"), SubResource("Resource_u777n"), SubResource("Resource_7ro66"), SubResource("Resource_8064c"), SubResource("Resource_r8dvj"), SubResource("Resource_gv22b"), SubResource("Resource_ujanb"), SubResource("Resource_kk3fp"), SubResource("Resource_myrwe"), SubResource("Resource_2t1g4"), SubResource("Resource_kkblm")])
+mass_kg = 0.025

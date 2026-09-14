@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
-[ext_resource type="Script" path="res://src/core/port.gd" id="1_504pp"]
 [ext_resource type="ArrayMesh" path="res://assets/parts/board.obj" id="1_n3221"]
-[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_n3221"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_iq061"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_3d4q4"]
 
-[sub_resource type="Resource" id="Resource_3d4q4"]
-script = ExtResource("1_504pp")
+[sub_resource type="Resource" id="Resource_2kgub"]
+script = ExtResource("2_iq061")
 id = &"pin_9"
 kind = 1
 local_position = Vector3(-0.03, 0.0025, -0.02)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal"])
 
-[sub_resource type="Resource" id="Resource_2kgub"]
-script = ExtResource("1_504pp")
+[sub_resource type="Resource" id="Resource_v6cp3"]
+script = ExtResource("2_iq061")
 id = &"pin_10"
 kind = 1
 local_position = Vector3(-0.03, 0.0025, -0.01)
@@ -21,9 +21,9 @@ tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal"])
 
 [resource]
-script = ExtResource("2_n3221")
+script = ExtResource("3_3d4q4")
 id = &"board"
 display_name = "Board (placeholder)"
 mesh = ExtResource("1_n3221")
-ports = Array[ExtResource("1_504pp")]([SubResource("Resource_3d4q4"), SubResource("Resource_2kgub")])
+ports = Array[ExtResource("2_iq061")]([SubResource("Resource_2kgub"), SubResource("Resource_v6cp3")])
 mass_kg = 0.03

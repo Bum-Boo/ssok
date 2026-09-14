@@ -46,6 +46,70 @@ PARTS = {
 			"pin_10": (-0.03, 0.0025, -0.01),
 		},
 	},
+	"arduino_uno": {
+		"body_material": "UnoBlue",
+		"body_bounds": ((-0.03302, -0.0008, -0.0254), (0.03302, 0.0008, 0.0254)),
+		"protrusion": 0.0111,
+		"ports": {
+			"pin_9": (0.00482, 0.0093, 0.0229),
+			"pin_10": (0.00228, 0.0093, 0.0229),
+			"pin_11": (-0.00026, 0.0093, 0.0229),
+			"pin_3": (0.02158, 0.0093, 0.0229),
+			"pin_7": (0.01142, 0.0093, 0.0229),
+		},
+	},
+	"tt_motor": {
+		"body_material": "TtYellow",
+		"body_bounds": ((-0.035, -0.011, -0.009), (0.002, 0.011, 0.009)),
+		"protrusion": 0.035,
+		"ports": {
+			"shaft_left": (-0.024, 0.0, -0.009),
+			"shaft_right": (-0.024, 0.0, 0.009),
+			"mount": (-0.0165, -0.011, 0.0),
+		},
+	},
+	"wheel_65": {
+		"body_material": "Rubber",
+		"body_bounds": ((-0.0325, -0.0325, -0.013), (0.0325, 0.0325, 0.013)),
+		"protrusion": 0.0015,
+		"ports": {"hub": (0.0, 0.0, -0.013)},
+	},
+	"biped_body": {
+		"body_material": "Shell",
+		"body_bounds": ((-0.035, -0.03, -0.0225), (0.035, 0.03, 0.0225)),
+		"protrusion": 0.003,
+		"ports": {
+			"hip_left": (-0.02, -0.03, 0.0),
+			"hip_right": (0.02, -0.03, 0.0),
+			"face": (0.0, 0.01, 0.0225),
+		},
+	},
+	"leg_link": {
+		"body_material": "Shell",
+		"body_bounds": ((-0.006, -0.02, -0.008), (0.006, 0.02, 0.008)),
+		"ports": {
+			"hip_mount": (0.006, 0.014, 0.0),
+			"ankle_mount": (0.0, -0.02, 0.0),
+		},
+	},
+	"foot": {
+		"body_material": "Shell",
+		"body_bounds": ((-0.0325, -0.004, -0.0225), (0.0325, 0.033, 0.0225)),
+		"ports": {
+			"ankle_front": (0.0, 0.024, 0.0115),
+			"ankle_back": (0.0, 0.024, -0.0115),
+		},
+	},
+	"hc_sr04": {
+		"body_material": "SensorBlue",
+		"body_bounds": ((-0.0225, -0.010, -0.0008), (0.0225, 0.010, 0.0008)),
+		"protrusion": 0.0135,
+		"ports": {
+			"mount": (0.0, 0.0, -0.0008),
+			"trig_pin": (-0.00127, -0.0185, 0.0),
+			"echo_pin": (0.00127, -0.0185, 0.0),
+		},
+	},
 }
 
 
@@ -152,9 +216,10 @@ def check_part(directory: Path, name: str, spec: dict[str, object]) -> None:
 			assert abs(actual_value - expected_value) <= 0.0001, (
 				f"{name}: body {label} axis {axis} is {actual_value:.6f}, expected {expected_value:.6f}"
 			)
+	protrusion = float(spec.get("protrusion", 0.006)) + 0.0001
 	for axis in range(3):
-		assert actual_min[axis] >= expected_min[axis] - 0.0061, f"{name}: protrusion exceeds 6 mm on axis {axis}"
-		assert actual_max[axis] <= expected_max[axis] + 0.0061, f"{name}: protrusion exceeds 6 mm on axis {axis}"
+		assert actual_min[axis] >= expected_min[axis] - protrusion, f"{name}: protrusion exceeds {protrusion * 1000:.1f} mm on axis {axis}"
+		assert actual_max[axis] <= expected_max[axis] + protrusion, f"{name}: protrusion exceeds {protrusion * 1000:.1f} mm on axis {axis}"
 	for port_name, position in spec["ports"].items():
 		distance = surface_distance(mesh, position)
 		assert distance <= 0.002, f"{name}.{port_name}: nearest geometry is {distance * 1000:.3f} mm away"

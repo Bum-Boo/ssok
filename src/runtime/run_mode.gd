@@ -5,7 +5,7 @@ extends Node3D
 ## Every body and joint here is derived; teardown() must leave no trace.
 
 ## Parts that sit on the table and never move (frozen as static bodies).
-@export var anchored_part_ids: Array[StringName] = [&"base", &"board"]
+@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno"]
 
 var bodies: Array[RigidBody3D] = []
 ## graph part index -> ServoDrive, for every part that owns a rotating port in a link.
