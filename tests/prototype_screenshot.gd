@@ -20,6 +20,12 @@ func _tick() -> void:
 	match _step:
 		0:
 			if _frames > 10:
+				_shot("empty")
+				_main.answer_button.pressed.emit()
+				_step = 10
+				_frames = 0
+		10:
+			if _frames > 10:
 				_shot("assembly")
 				_main.mode_button.button_pressed = true
 				_step = 1
