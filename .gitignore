@@ -12,3 +12,15 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Blender generator caches and source-library backups
+__pycache__/
+*.blend1
+*.blend2
+
+# Optional motion-learning service: never export credentials or local environments.
+.venv/
+.venv-motion/
+.env
+.env.*
+!.env.example

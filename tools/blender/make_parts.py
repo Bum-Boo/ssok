@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the ssok part meshes (slice-1 placeholders + real-module parts) with Blender 4.5."""
+"""Generate detailed ssok robot meshes and an optional Blender asset library with Blender 5.2.1."""
 
 from __future__ import annotations
 
@@ -7,8 +7,15 @@ import argparse
 import math
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import bpy
+from mathutils import Vector
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from part_details import cleanup_export_mesh, decorate
+from part_materials import configure_material
+from robot_accessories import BUILDERS as ACCESSORY_BUILDERS
 
 
 # Blender's OBJ export with -Z forward and Y up maps Blender (x, y, z) to
@@ -30,16 +37,7 @@ def reset_scene() -> None:
 
 
 def make_material(name: str, color: tuple[float, float, float]) -> bpy.types.Material:
-	material = bpy.data.materials.get(name)
-	if material is None:
-		material = bpy.data.materials.new(name=name)
-	material.diffuse_color = (*color, 1.0)
-	material.use_nodes = True
-	principled = material.node_tree.nodes.get("Principled BSDF")
-	if principled is not None:
-		principled.inputs["Base Color"].default_value = (*color, 1.0)
-		principled.inputs["Roughness"].default_value = 0.48
-	return material
+	return configure_material(name, color)
 
 
 def assign_material(obj: bpy.types.Object, material: bpy.types.Material) -> None:
@@ -137,7 +135,8 @@ def add_tapered_arm(material: bpy.types.Material) -> bpy.types.Object:
 		(3, 7, 4, 0),
 	]
 	mesh = bpy.data.meshes.new("Arm tapered mesh")
-	mesh.from_pydata(vertices, [], faces)
+	# Outward winding keeps drilled holes and shallow surface recesses inside the arm.
+	mesh.from_pydata(vertices, [], [tuple(reversed(face)) for face in faces])
 	mesh.update()
 	obj = bpy.data.objects.new("Arm body", mesh)
 	bpy.context.collection.objects.link(obj)
@@ -151,7 +150,8 @@ def join_parts(name: str, objects: list[bpy.types.Object]) -> bpy.types.Object:
 	for obj in objects:
 		obj.select_set(True)
 	bpy.context.view_layer.objects.active = objects[0]
-	bpy.ops.object.join()
+	if len(objects) > 1:
+		bpy.ops.object.join()
 	joined = bpy.context.object
 	joined.name = name
 	return joined
@@ -366,6 +366,7 @@ def build_foot(materials: dict[str, bpy.types.Material]) -> bpy.types.Object:
 
 
 def export_part(obj: bpy.types.Object, filepath: Path) -> None:
+	cleanup_export_mesh(obj)
 	bpy.ops.object.select_all(action="DESELECT")
 	obj.select_set(True)
 	bpy.context.view_layer.objects.active = obj
@@ -377,15 +378,45 @@ def export_part(obj: bpy.types.Object, filepath: Path) -> None:
 		up_axis="Y",
 		apply_modifiers=True,
 		export_triangulated_mesh=True,
+		# Boolean-generated UVs vary between runs; these assets use only solid colors.
+		export_uv=False,
+		export_pbr_extensions=True,
 		export_materials=True,
 		path_mode="AUTO",
 	)
+
+
+def save_library(parts: list[bpy.types.Object], filepath: Path) -> None:
+	"""Keep the source meshes editable and discoverable in Blender's Asset Browser."""
+	filepath = filepath.expanduser().resolve()
+	filepath.parent.mkdir(parents=True, exist_ok=True)
+	scene = bpy.context.scene
+	scene.unit_settings.system = "METRIC"
+	scene.unit_settings.length_unit = "MILLIMETERS"
+	for index, part in enumerate(parts):
+		part.asset_mark()
+		part.asset_data.description = "ssok robot part; dimensions in metres; ports in make_part_defs.gd"
+		part["ssok_part_id"] = part.name
+		part["assembly_origin"] = list(part.location)
+		part.location += Vector(((index % 4) * 0.16, -(index // 4) * 0.13, 0.0))
+	for screen in bpy.data.screens:
+		for area in screen.areas:
+			if area.type == "VIEW_3D":
+				area.spaces.active.shading.type = "MATERIAL"
+				area.spaces.active.region_3d.view_location = Vector((0.24, -0.18, 0.0))
+				area.spaces.active.region_3d.view_distance = 0.85
+	bpy.ops.object.select_all(action="DESELECT")
+	bpy.context.view_layer.objects.active = None
+	scene.render.engine = "CYCLES"
+	bpy.ops.wm.save_as_mainfile(filepath=str(filepath), check_existing=False, compress=True)
+	print(f"Saved editable library: {filepath}")
 
 
 def parse_args() -> argparse.Namespace:
 	arguments = sys.argv[sys.argv.index("--") + 1 :] if "--" in sys.argv else []
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--out", type=Path, required=True, help="OBJ/MTL output directory")
+	parser.add_argument("--blend", type=Path, help="Optional editable .blend asset library (keep outside Godot import)")
 	return parser.parse_args(arguments)
 
 
@@ -393,6 +424,7 @@ def main() -> None:
 	args = parse_args()
 	output_dir = args.out.expanduser().resolve()
 	output_dir.mkdir(parents=True, exist_ok=True)
+	reset_scene()
 	materials = {
 		"BaseBody": make_material("BaseBody", (0.075, 0.085, 0.095)),
 		"Rubber": make_material("Rubber", (0.018, 0.020, 0.022)),
@@ -426,10 +458,21 @@ def main() -> None:
 		"leg_link": build_leg_link,
 		"foot": build_foot,
 	}
+	helpers = SimpleNamespace(**globals())
+	parts: list[bpy.types.Object] = []
 	for part_name, builder in builders.items():
-		reset_scene()
+		print(f"Building {part_name}", flush=True)
 		part = builder(materials)
+		part = decorate(part_name, part, materials, helpers)
 		export_part(part, output_dir / f"{part_name}.obj")
+		parts.append(part)
+	for part_name, builder in ACCESSORY_BUILDERS.items():
+		print(f"Building {part_name}", flush=True)
+		part = builder(materials, helpers)
+		export_part(part, output_dir / f"{part_name}.obj")
+		parts.append(part)
+	if args.blend:
+		save_library(parts, args.blend)
 
 
 if __name__ == "__main__":

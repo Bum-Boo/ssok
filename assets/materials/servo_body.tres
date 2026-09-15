@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_cqc7p"]
+
+[resource]
+resource_name = "ServoBody"
+albedo_color = Color(0.17184411, 0.46135613, 0.80946815, 1)
+metallic_specular = 0.45
+roughness = 0.29
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_cqc7p")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

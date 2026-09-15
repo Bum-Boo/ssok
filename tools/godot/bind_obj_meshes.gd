@@ -1,22 +1,41 @@
 extends SceneTree
 
-## Points each PartDef at its Blender-made OBJ. Run after tools/blender/make_parts.py:
-##   godot --headless --path . --import && godot --headless --path . -s tools/godot/bind_obj_meshes.gd
+## Rebinds existing PartDefs without replacing their port specifications.
+## Run tools/godot/make_materials.gd first; raw OBJs do not contain the shared PBR finishes.
 
-const PART_IDS := ["base", "servo", "arm_link", "board", "arduino_uno", "tt_motor", "wheel_65", "hc_sr04", "biped_body", "leg_link", "foot"]
+const PartMaterials = preload("res://tools/godot/part_materials.gd")
 
 
 func _init() -> void:
-	var failed := false
-	for id: String in PART_IDS:
-		var def: PartDef = load("res://assets/parts/%s.tres" % id)
-		var mesh: Mesh = load("res://assets/parts/%s.obj" % id)
-		if mesh == null:
-			push_error("missing or unimported OBJ for %s" % id)
+	var failed: bool = false
+	var definitions: Array[PartDef] = []
+	var meshes: Array[ArrayMesh] = []
+	var directory: DirAccess = DirAccess.open("res://assets/parts")
+	if directory == null:
+		push_error("Missing parts directory")
+		quit(1)
+		return
+	for filename: String in directory.get_files():
+		if not filename.ends_with(".tres"):
+			continue
+		var def: PartDef = load("res://assets/parts/" + filename) as PartDef
+		if def == null:
+			push_error("Invalid PartDef: %s" % filename)
 			failed = true
 			continue
-		def.mesh = mesh
-		var err := ResourceSaver.save(def, def.resource_path)
-		print("%s: save=%d surfaces=%d aabb=%s" % [id, err, mesh.get_surface_count(), mesh.get_aabb()])
+		var mesh: ArrayMesh = PartMaterials.load_mesh(def.id)
+		if mesh == null:
+			failed = true
+			continue
+		definitions.append(def)
+		meshes.append(mesh)
+	if failed or definitions.is_empty():
+		quit(1)
+		return
+	for index: int in definitions.size():
+		var def: PartDef = definitions[index]
+		def.mesh = meshes[index]
+		var err: Error = ResourceSaver.save(def, def.resource_path)
+		print("%s: save=%d surfaces=%d" % [def.id, err, def.mesh.get_surface_count()])
 		failed = failed or err != OK
 	quit(1 if failed else 0)

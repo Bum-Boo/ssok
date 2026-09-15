@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
-[ext_resource type="ArrayMesh" path="res://assets/parts/biped_body.obj" id="1_mp44e"]
+[ext_resource type="ArrayMesh" path="res://assets/meshes/biped_body.res" id="1_mp44e"]
 [ext_resource type="Script" path="res://src/core/port.gd" id="2_xx4rh"]
 [ext_resource type="Script" path="res://src/core/part_def.gd" id="3_hpxmx"]
 
-[sub_resource type="Resource" id="Resource_sl76l"]
+[sub_resource type="Resource" id="Port_hip_left"]
 script = ExtResource("2_xx4rh")
 id = &"hip_left"
 local_position = Vector3(-0.02, -0.03, 0)
@@ -12,7 +12,7 @@ local_normal = Vector3(0, -1, 0)
 tag = &"base_mount"
 accepts = Array[StringName]([&"servo_mount"])
 
-[sub_resource type="Resource" id="Resource_lrq0e"]
+[sub_resource type="Resource" id="Port_hip_right"]
 script = ExtResource("2_xx4rh")
 id = &"hip_right"
 local_position = Vector3(0.02, -0.03, 0)
@@ -20,7 +20,7 @@ local_normal = Vector3(0, -1, 0)
 tag = &"base_mount"
 accepts = Array[StringName]([&"servo_mount"])
 
-[sub_resource type="Resource" id="Resource_wnc68"]
+[sub_resource type="Resource" id="Port_face"]
 script = ExtResource("2_xx4rh")
 id = &"face"
 local_position = Vector3(0, 0.01, 0.0225)
@@ -33,5 +33,5 @@ script = ExtResource("3_hpxmx")
 id = &"biped_body"
 display_name = "Biped Body"
 mesh = ExtResource("1_mp44e")
-ports = Array[ExtResource("2_xx4rh")]([SubResource("Resource_sl76l"), SubResource("Resource_lrq0e"), SubResource("Resource_wnc68")])
+ports = Array[ExtResource("2_xx4rh")]([SubResource("Port_hip_left"), SubResource("Port_hip_right"), SubResource("Port_face")])
 mass_kg = 0.04

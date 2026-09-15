@@ -3,27 +3,40 @@ extends Node3D
 
 signal link_added(link: Dictionary)
 signal link_removed(link: Dictionary)
+signal graph_changed()
+signal selection_changed(part: PartNode)
+signal status_changed(message: String)
+signal transform_active_changed(active: bool)
+
+const MAX_NUMERIC_CHARACTERS := 16
 
 @export var snap_radius: float = 0.025
 
 var graph: ConnectionGraph = ConnectionGraph.new()
-
 var gizmo: TransformGizmo
+var selected_part: PartNode:
+	get:
+		return _selected_part
+var transform_active: bool:
+	get:
+		return _transform_kind != &""
 
 var _part_nodes: Array[PartNode] = []
-var _dragged_part: PartNode
-var _drag_plane := Plane(Vector3.UP)
-var _drag_offset := Vector3.ZERO
-var _drag_vertical := false
-var _drag_vertical_anchor := Vector3.ZERO
-
 var _selected_part: PartNode
-var _gizmo_kind: StringName = &""
-var _gizmo_axis := Vector3.ZERO
-var _gizmo_start_position := Vector3.ZERO
-var _gizmo_start_offset := 0.0
-var _gizmo_start_basis := Basis.IDENTITY
-var _gizmo_start_vector := Vector3.ZERO
+var _transform_kind: StringName = &""
+var _constraint: StringName = &""
+var _numeric_input: String = ""
+var _start_transform := Transform3D.IDENTITY
+var _start_mouse := Vector2.ZERO
+var _current_mouse := Vector2.ZERO
+var _view_basis := Basis.IDENTITY
+var _before_transform: Dictionary = {}
+var _detached := false
+var _gizmo_drag := false
+var _precision := false
+var _increment_snap := false
+var _undo_stack: Array[Dictionary] = []
+var _redo_stack: Array[Dictionary] = []
 
 
 func _ready() -> void:
@@ -31,34 +44,52 @@ func _ready() -> void:
 	add_child(gizmo)
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		cancel_transform()
+
+
 func _process(_delta: float) -> void:
-	gizmo.set_enabled(_selected_part != null)
-	if _selected_part != null:
-		gizmo.global_position = _selected_part.global_position
+	if gizmo != null:
+		gizmo.set_enabled(_selected_part != null and not transform_active)
+		if _selected_part != null:
+			gizmo.global_position = _selected_part.global_position
+	if transform_active and _text_has_focus():
+		cancel_transform()
 
 
 func spawn_part(definition: PartDef, xform: Transform3D) -> PartNode:
+	cancel_transform()
+	var before := _snapshot()
 	var graph_index := graph.parts.size()
 	graph.parts.append({"part_def": definition, "transform": xform})
-	return _create_part_node(definition, graph_index, xform)
+	var part := _create_part_node(definition, graph_index, xform)
+	_record_action(before)
+	graph_changed.emit()
+	return part
 
 
 func load_graph(source_graph: ConnectionGraph) -> void:
+	cancel_transform()
+	clear_history()
 	for part_node: PartNode in _part_nodes:
+		remove_child(part_node)
 		part_node.queue_free()
 	_part_nodes.clear()
 	_selected_part = null
-	_dragged_part = null
-	_gizmo_kind = &""
 	graph = source_graph
 	for index: int in range(graph.parts.size()):
 		var part_entry: Dictionary = graph.parts[index]
-		var definition: PartDef = part_entry["part_def"]
-		var xform: Transform3D = part_entry["transform"]
-		_create_part_node(definition, index, xform)
+		_create_part_node(part_entry["part_def"], index, part_entry["transform"])
+	selection_changed.emit(null)
+	graph_changed.emit()
 
 
 func remove_part(part: PartNode) -> void:
+	cancel_transform()
+	if part == null or part not in _part_nodes:
+		return
+	var before := _snapshot()
 	unsnap(part)
 	var removed_index := part.graph_index
 	graph.parts.remove_at(removed_index)
@@ -72,21 +103,178 @@ func remove_part(part: PartNode) -> void:
 		if link["b_part"] > removed_index:
 			link["b_part"] -= 1
 	if _selected_part == part:
-		_selected_part = null
-	if _dragged_part == part:
-		_dragged_part = null
+		select_part(null)
+	remove_child(part)
 	part.queue_free()
+	_record_action(before)
+	graph_changed.emit()
+	status_changed.emit("Part deleted · Ctrl+Z to undo")
 
 
 func remove_selected() -> bool:
-	if _selected_part == null:
+	if _selected_part == null or transform_active:
 		return false
 	remove_part(_selected_part)
 	return true
 
 
 func select_part(part: PartNode) -> void:
+	if transform_active:
+		cancel_transform()
 	_selected_part = part
+	selection_changed.emit(part)
+
+
+func get_selection_bounds() -> AABB:
+	if _selected_part == null:
+		return AABB()
+	return _selected_part.global_transform * _selected_part.part_def.mesh.get_aabb()
+
+
+func get_scene_bounds() -> AABB:
+	var bounds := AABB()
+	for index: int in range(_part_nodes.size()):
+		var part: PartNode = _part_nodes[index]
+		var part_bounds: AABB = part.global_transform * part.part_def.mesh.get_aabb()
+		bounds = part_bounds if index == 0 else bounds.merge(part_bounds)
+	return bounds
+
+
+func begin_transform(kind: StringName, screen_position := Vector2.INF) -> bool:
+	if _selected_part == null or transform_active or _text_has_focus():
+		return false
+	if kind != &"translate" and kind != &"rotate":
+		return false
+	var camera := get_viewport().get_camera_3d()
+	if camera == null:
+		return false
+	_before_transform = _snapshot()
+	_start_transform = _selected_part.global_transform
+	_start_mouse = get_viewport().get_mouse_position() if screen_position == Vector2.INF else screen_position
+	_current_mouse = _start_mouse
+	_view_basis = camera.global_basis.orthonormalized()
+	_transform_kind = kind
+	_constraint = &""
+	_numeric_input = ""
+	_detached = false
+	_gizmo_drag = false
+	_precision = false
+	_increment_snap = false
+	transform_active_changed.emit(true)
+	_report_transform()
+	return true
+
+
+func confirm_transform() -> void:
+	if not transform_active:
+		return
+	var before: Dictionary = _before_transform
+	var moved := not _selected_part.global_transform.is_equal_approx(_start_transform)
+	if moved:
+		try_snap(_selected_part)
+	else:
+		_restore_snapshot(before)
+	_finish_transform()
+	if moved:
+		_record_action(before)
+	graph_changed.emit()
+	status_changed.emit("Transform confirmed · Ctrl+Z to undo" if moved else "Transform unchanged")
+
+
+func cancel_transform() -> void:
+	if not transform_active:
+		return
+	_restore_snapshot(_before_transform)
+	_finish_transform()
+	graph_changed.emit()
+	status_changed.emit("Transform cancelled")
+
+
+func _finish_transform() -> void:
+	_transform_kind = &""
+	_constraint = &""
+	_numeric_input = ""
+	_before_transform = {}
+	_detached = false
+	_gizmo_drag = false
+	transform_active_changed.emit(false)
+
+
+func clear_history() -> void:
+	_undo_stack.clear()
+	_redo_stack.clear()
+
+
+func undo() -> bool:
+	if transform_active:
+		cancel_transform()
+		return true
+	if _undo_stack.is_empty():
+		return false
+	var action: Dictionary = _undo_stack.pop_back()
+	_restore_snapshot(action["before"])
+	_redo_stack.append(action)
+	graph_changed.emit()
+	status_changed.emit("Undo")
+	return true
+
+
+func redo() -> bool:
+	if transform_active or _redo_stack.is_empty():
+		return false
+	var action: Dictionary = _redo_stack.pop_back()
+	_restore_snapshot(action["after"])
+	_undo_stack.append(action)
+	graph_changed.emit()
+	status_changed.emit("Redo")
+	return true
+
+
+func _snapshot() -> Dictionary:
+	return {
+		"parts": graph.parts.duplicate(true),
+		"links": graph.links.duplicate(true),
+		"selected": _selected_part.graph_index if _selected_part != null else -1,
+	}
+
+
+func _record_action(before: Dictionary) -> void:
+	_undo_stack.append({"before": before, "after": _snapshot()})
+	if _undo_stack.size() > 64:
+		_undo_stack.pop_front()
+	_redo_stack.clear()
+
+
+func _restore_snapshot(snapshot: Dictionary) -> void:
+	var old_links: Array[Dictionary] = graph.links.duplicate(true)
+	var entries: Array = snapshot["parts"]
+	var rebuild := entries.size() != _part_nodes.size()
+	if not rebuild:
+		for index: int in range(entries.size()):
+			if entries[index]["part_def"] != _part_nodes[index].part_def:
+				rebuild = true
+				break
+	graph.parts.assign(entries.duplicate(true))
+	graph.links.assign(snapshot["links"].duplicate(true))
+	if rebuild:
+		for part: PartNode in _part_nodes:
+			remove_child(part)
+			part.queue_free()
+		_part_nodes.clear()
+		for index: int in range(graph.parts.size()):
+			_create_part_node(graph.parts[index]["part_def"], index, graph.parts[index]["transform"])
+	else:
+		for index: int in range(graph.parts.size()):
+			_part_nodes[index].global_transform = graph.parts[index]["transform"]
+	var selected_index: int = snapshot["selected"]
+	_selected_part = _part_nodes[selected_index] if selected_index >= 0 and selected_index < _part_nodes.size() else null
+	for link: Dictionary in old_links:
+		if link not in graph.links:
+			link_removed.emit(link)
+	for link: Dictionary in graph.links:
+		if link not in old_links:
+			link_added.emit(link)
+	selection_changed.emit(_selected_part)
 
 
 func try_snap(part: PartNode) -> bool:
@@ -100,7 +288,6 @@ func try_snap(part: PartNode) -> bool:
 func snap(part: PartNode, part_port_id: StringName, other_part: PartNode, other_port_id: StringName) -> void:
 	if _is_port_linked(part.graph_index, part_port_id) or _is_port_linked(other_part.graph_index, other_port_id):
 		return
-
 	var source_normal := part.get_port_global_normal(part_port_id)
 	var target_normal := -other_part.get_port_global_normal(other_port_id)
 	var rotation := Basis(Quaternion(source_normal, target_normal))
@@ -109,12 +296,9 @@ func snap(part: PartNode, part_port_id: StringName, other_part: PartNode, other_
 	part.global_transform = aligned_transform
 	part.global_position += other_part.get_port_global_position(other_port_id) - part.get_port_global_position(part_port_id)
 	_update_graph_transform(part)
-
 	var link: Dictionary = {
-		"a_part": part.graph_index,
-		"a_port": part_port_id,
-		"b_part": other_part.graph_index,
-		"b_port": other_port_id,
+		"a_part": part.graph_index, "a_port": part_port_id,
+		"b_part": other_part.graph_index, "b_port": other_port_id,
 	}
 	graph.links.append(link)
 	link_added.emit(link)
@@ -128,21 +312,201 @@ func unsnap(part: PartNode) -> void:
 			link_removed.emit(removed_link)
 
 
+func _text_has_focus() -> bool:
+	var focus: Control = get_viewport().gui_get_focus_owner()
+	return focus is LineEdit or focus is TextEdit or focus is SpinBox
+
+
+func _input(event: InputEvent) -> void:
+	# GUI controls may consume the release of a gizmo drag that began in the viewport.
+	if event is InputEventMouseButton and _gizmo_drag:
+		var button := event as InputEventMouseButton
+		if button.button_index == MOUSE_BUTTON_LEFT and not button.pressed:
+			if get_viewport().gui_get_hovered_control() != null:
+				cancel_transform()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		var button_event := event as InputEventMouseButton
-		if button_event.button_index != MOUSE_BUTTON_LEFT:
-			return
-		if button_event.pressed:
-			_begin_click(button_event.position)
+		var button := event as InputEventMouseButton
+		if button.button_index == MOUSE_BUTTON_LEFT and button.pressed:
+			if get_viewport().gui_get_hovered_control() == null:
+				get_viewport().gui_release_focus()
+	if _text_has_focus():
+		cancel_transform()
+		return
+	var handled := false
+	if event is InputEventKey:
+		handled = _handle_key(event as InputEventKey)
+	elif event is InputEventMouseButton:
+		var button := event as InputEventMouseButton
+		if transform_active:
+			if button.button_index == MOUSE_BUTTON_RIGHT and button.pressed:
+				cancel_transform()
+				handled = true
+			elif button.button_index == MOUSE_BUTTON_LEFT:
+				if (button.pressed and not _gizmo_drag) or (not button.pressed and _gizmo_drag):
+					confirm_transform()
+				handled = true
+		elif button.button_index == MOUSE_BUTTON_LEFT and button.pressed:
+			_begin_click(button.position)
+			handled = true
+	elif event is InputEventMouseMotion and transform_active:
+		var motion := event as InputEventMouseMotion
+		_current_mouse = motion.position
+		_precision = motion.shift_pressed
+		_increment_snap = motion.ctrl_pressed
+		_apply_transform()
+		handled = true
+	if handled:
+		get_viewport().set_input_as_handled()
+
+
+func _handle_key(event: InputEventKey) -> bool:
+	if event.echo:
+		return false
+	var key: Key = event.keycode if event.keycode != KEY_NONE else event.physical_keycode
+	if transform_active and (key == KEY_SHIFT or key == KEY_CTRL):
+		_precision = event.shift_pressed
+		_increment_snap = event.ctrl_pressed
+		_apply_transform()
+		return true
+	if not event.pressed:
+		return false
+	if event.ctrl_pressed and key == KEY_Z:
+		if event.shift_pressed:
+			redo()
 		else:
-			_end_click()
-	elif event is InputEventMouseMotion:
-		var motion_event := event as InputEventMouseMotion
-		if _dragged_part != null:
-			_move_dragged_part(motion_event.position)
-		elif _gizmo_kind != &"":
-			_move_gizmo_handle(motion_event.position)
+			undo()
+		return true
+	if transform_active:
+		if key == KEY_ESCAPE:
+			cancel_transform()
+		elif key == KEY_ENTER or key == KEY_KP_ENTER:
+			confirm_transform()
+		elif key == KEY_X or key == KEY_Y or key == KEY_Z:
+			var axis: StringName = &"X" if key == KEY_X else (&"Y" if key == KEY_Y else &"Z")
+			_constraint = &"" if _constraint == axis else axis
+			_apply_transform()
+		elif key == KEY_BACKSPACE:
+			_numeric_input = _numeric_input.left(-1)
+			_apply_transform()
+		elif key == KEY_MINUS or key == KEY_KP_SUBTRACT:
+			_numeric_input = _numeric_input.substr(1) if _numeric_input.begins_with("-") else "-" + _numeric_input
+			_apply_transform()
+		elif key == KEY_PERIOD or key == KEY_KP_PERIOD:
+			if "." not in _numeric_input:
+				_numeric_input += "."
+			_apply_transform()
+		elif (key >= KEY_0 and key <= KEY_9) or (key >= KEY_KP_0 and key <= KEY_KP_9):
+			if _numeric_input.length() >= MAX_NUMERIC_CHARACTERS:
+				status_changed.emit("Numeric input is limited to 16 characters")
+				return true
+			var digit := int(key) - int(KEY_0) if key <= KEY_9 else int(key) - int(KEY_KP_0)
+			_numeric_input += str(digit)
+			_apply_transform()
+		else:
+			return false
+		return true
+	if event.ctrl_pressed or event.alt_pressed or event.meta_pressed:
+		return false
+	if key == KEY_G or key == KEY_R:
+		return begin_transform(&"translate" if key == KEY_G else &"rotate")
+	if key == KEY_S and _selected_part != null:
+		status_changed.emit("Part dimensions are fixed · Scaling is unavailable")
+		return true
+	return false
+
+
+func _constraint_axis() -> Vector3:
+	match _constraint:
+		&"X": return Vector3.RIGHT
+		&"Y": return Vector3.UP
+		&"Z": return Vector3.BACK
+	return Vector3.ZERO
+
+
+func _apply_transform() -> void:
+	if not transform_active:
+		return
+	var camera := get_viewport().get_camera_3d()
+	if camera == null:
+		cancel_transform()
+		return
+	var result := _start_transform
+	var numeric := _numeric_input.is_valid_float()
+	var numeric_value := _numeric_input.to_float() if numeric else 0.0
+	if not is_finite(numeric_value):
+		status_changed.emit("Transform value must be finite")
+		return
+	var axis := _constraint_axis()
+	var factor := 0.1 if _precision else 1.0
+	if _transform_kind == &"translate":
+		var displacement := _mouse_displacement(camera, axis) * factor
+		if numeric:
+			var direction := axis
+			if direction.is_zero_approx():
+				direction = displacement.normalized() if not displacement.is_zero_approx() else _view_basis.x
+			displacement = direction * numeric_value * 0.001
+		elif _increment_snap:
+			displacement = displacement.snapped(Vector3.ONE * 0.001)
+		result.origin += displacement
+	else:
+		if axis.is_zero_approx():
+			axis = _view_basis.z
+		var angle := _mouse_rotation(camera, axis) * factor
+		if numeric:
+			angle = deg_to_rad(numeric_value)
+		elif _increment_snap:
+			angle = snappedf(angle, deg_to_rad(15.0))
+		result.basis = Basis(axis, angle) * _start_transform.basis
+	if not result.is_finite():
+		status_changed.emit("Transform exceeds the supported numeric range")
+		return
+	if not result.is_equal_approx(_start_transform) and not _detached:
+		unsnap(_selected_part)
+		_detached = true
+	_selected_part.global_transform = result
+	_update_graph_transform(_selected_part)
+	_report_transform()
+
+
+func _mouse_displacement(camera: Camera3D, axis: Vector3) -> Vector3:
+	var start_origin := camera.project_ray_origin(_start_mouse)
+	var start_direction := camera.project_ray_normal(_start_mouse)
+	var current_origin := camera.project_ray_origin(_current_mouse)
+	var current_direction := camera.project_ray_normal(_current_mouse)
+	if not axis.is_zero_approx():
+		var start := _closest_point_on_axis(_start_transform.origin, axis, start_origin, start_direction)
+		var current := _closest_point_on_axis(_start_transform.origin, axis, current_origin, current_direction)
+		return current - start
+	var plane := Plane(_view_basis.z, _start_transform.origin.dot(_view_basis.z))
+	var start: Variant = plane.intersects_ray(start_origin, start_direction)
+	var current: Variant = plane.intersects_ray(current_origin, current_direction)
+	if start is Vector3 and current is Vector3:
+		return (current as Vector3) - (start as Vector3)
+	return Vector3.ZERO
+
+
+func _mouse_rotation(camera: Camera3D, axis: Vector3) -> float:
+	var start := _vector_on_axis_plane(axis, _start_transform.origin, camera.project_ray_origin(_start_mouse), camera.project_ray_normal(_start_mouse))
+	var current := _vector_on_axis_plane(axis, _start_transform.origin, camera.project_ray_origin(_current_mouse), camera.project_ray_normal(_current_mouse))
+	if not start.is_zero_approx() and not current.is_zero_approx():
+		return atan2(start.cross(current).dot(axis), start.dot(current))
+	return (_current_mouse.x - _start_mouse.x) * 0.01
+
+
+func _report_transform() -> void:
+	var operation := "Move" if _transform_kind == &"translate" else "Rotate"
+	var unit := "mm" if _transform_kind == &"translate" else "°"
+	var axis := "View" if _constraint == &"" else String(_constraint)
+	var value := _numeric_input
+	if value.is_empty():
+		if _transform_kind == &"translate":
+			value = "%.2f" % ((_selected_part.global_position - _start_transform.origin).length() * 1000.0)
+		else:
+			value = "mouse"
+	status_changed.emit("%s · %s · %s %s | X/Y/Z axis · Enter/LMB confirm · Esc/RMB cancel · Ctrl snap · Shift precise" % [operation, axis, value, unit])
 
 
 func _create_part_node(definition: PartDef, index: int, xform: Transform3D) -> PartNode:
@@ -168,16 +532,10 @@ func _find_nearest_candidate(part: PartNode) -> Dictionary:
 					continue
 				if _is_port_linked(other_part.graph_index, other_port.id):
 					continue
-				var distance := part.get_port_global_position(my_port.id).distance_to(
-					other_part.get_port_global_position(other_port.id)
-				)
+				var distance := part.get_port_global_position(my_port.id).distance_to(other_part.get_port_global_position(other_port.id))
 				if distance < nearest_distance:
 					nearest_distance = distance
-					nearest = {
-						"my_port": my_port.id,
-						"other_part": other_part,
-						"other_port": other_port.id,
-					}
+					nearest = {"my_port": my_port.id, "other_part": other_part, "other_port": other_port.id}
 	return nearest
 
 
@@ -200,137 +558,40 @@ func _begin_click(screen_position: Vector2) -> void:
 		return
 	var ray_origin := camera.project_ray_origin(screen_position)
 	var ray_direction := camera.project_ray_normal(screen_position)
-	var ray_end := ray_origin + ray_direction * 1000.0
-	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	var query := PhysicsRayQueryParameters3D.create(ray_origin, ray_origin + ray_direction * 1000.0)
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
 	if hit.is_empty():
 		select_part(null)
 		return
 	var collider := hit["collider"] as Node
-
 	if _selected_part != null and collider.has_meta(&"gizmo_axis"):
-		var axis: Vector3 = collider.get_meta(&"gizmo_axis")
 		var kind: StringName = collider.get_meta(&"gizmo_kind")
-		unsnap(_selected_part)
-		if kind == &"translate":
-			_begin_gizmo_translate(axis, ray_origin, ray_direction)
-		else:
-			_begin_gizmo_rotate(axis, ray_origin, ray_direction)
+		if begin_transform(kind, screen_position):
+			var axis: Vector3 = collider.get_meta(&"gizmo_axis")
+			_constraint = &"X" if axis == Vector3.RIGHT else (&"Y" if axis == Vector3.UP else &"Z")
+			_gizmo_drag = true
+			_report_transform()
 		return
-
 	if collider.has_meta(&"part_node"):
-		var part := collider.get_meta(&"part_node") as PartNode
-		select_part(part)
-		_dragged_part = part
-		unsnap(part)
-		_drag_vertical = false
-		_drag_plane = Plane(Vector3.UP, part.global_position.y)
-		var plane_position: Variant = _drag_plane.intersects_ray(ray_origin, ray_direction)
-		if plane_position is Vector3:
-			_drag_offset = part.global_position - (plane_position as Vector3)
-		return
-
-	select_part(null)
+		select_part(collider.get_meta(&"part_node") as PartNode)
+	else:
+		select_part(null)
 
 
-func _end_click() -> void:
-	if _dragged_part != null:
-		try_snap(_dragged_part)
-		_dragged_part = null
-	elif _gizmo_kind != &"":
-		try_snap(_selected_part)
-		_gizmo_kind = &""
-
-
-func _begin_gizmo_translate(axis: Vector3, ray_origin: Vector3, ray_direction: Vector3) -> void:
-	_gizmo_kind = &"translate"
-	_gizmo_axis = axis
-	_gizmo_start_position = _selected_part.global_position
-	var hit_point := _closest_point_on_axis(_gizmo_start_position, axis, ray_origin, ray_direction)
-	_gizmo_start_offset = (hit_point - _gizmo_start_position).dot(axis)
-
-
-func _begin_gizmo_rotate(axis: Vector3, ray_origin: Vector3, ray_direction: Vector3) -> void:
-	_gizmo_kind = &"rotate"
-	_gizmo_axis = axis
-	_gizmo_start_basis = _selected_part.global_transform.basis
-	_gizmo_start_vector = _vector_on_axis_plane(axis, _selected_part.global_position, ray_origin, ray_direction)
-
-
-func _move_gizmo_handle(screen_position: Vector2) -> void:
-	var camera := get_viewport().get_camera_3d()
-	if camera == null:
-		return
-	var ray_origin := camera.project_ray_origin(screen_position)
-	var ray_direction := camera.project_ray_normal(screen_position)
-
-	if _gizmo_kind == &"translate":
-		var hit_point := _closest_point_on_axis(_gizmo_start_position, _gizmo_axis, ray_origin, ray_direction)
-		var t := (hit_point - _gizmo_start_position).dot(_gizmo_axis) - _gizmo_start_offset
-		_selected_part.global_position = _gizmo_start_position + _gizmo_axis * t
-		_update_graph_transform(_selected_part)
-	elif _gizmo_kind == &"rotate":
-		var current := _vector_on_axis_plane(_gizmo_axis, _selected_part.global_position, ray_origin, ray_direction)
-		if current.is_zero_approx() or _gizmo_start_vector.is_zero_approx():
-			return
-		var angle := atan2(_gizmo_start_vector.cross(current).dot(_gizmo_axis), _gizmo_start_vector.dot(current))
-		var new_transform := _selected_part.global_transform
-		new_transform.basis = Basis(_gizmo_axis, angle) * _gizmo_start_basis
-		_selected_part.global_transform = new_transform
-		_update_graph_transform(_selected_part)
-
-
-## Point on the mouse ray, radially out from `anchor` on the plane perpendicular
-## to `axis` -- the reference vector rotate-drag measures its angle against.
 func _vector_on_axis_plane(axis: Vector3, anchor: Vector3, ray_origin: Vector3, ray_direction: Vector3) -> Vector3:
 	var plane := Plane(axis, anchor.dot(axis))
 	var hit: Variant = plane.intersects_ray(ray_origin, ray_direction)
-	if hit is Vector3:
-		return (hit as Vector3) - anchor
-	return Vector3.ZERO
+	return (hit as Vector3) - anchor if hit is Vector3 else Vector3.ZERO
 
 
-func _move_dragged_part(screen_position: Vector2) -> void:
-	var camera := get_viewport().get_camera_3d()
-	if camera == null:
-		return
-	var ray_origin := camera.project_ray_origin(screen_position)
-	var ray_direction := camera.project_ray_normal(screen_position)
-
-	## Shift switches from the horizontal snap plane to the part's own vertical
-	## line, so height can be adjusted without also drifting on X/Z.
-	var shift_held := Input.is_key_pressed(KEY_SHIFT)
-	if shift_held != _drag_vertical:
-		_drag_vertical = shift_held
-		if _drag_vertical:
-			_drag_vertical_anchor = _dragged_part.global_position
-		else:
-			_drag_plane = Plane(Vector3.UP, _dragged_part.global_position.y)
-			_drag_offset = _dragged_part.global_position - (_drag_plane.intersects_ray(ray_origin, ray_direction) as Vector3)
-
-	if _drag_vertical:
-		var point := _closest_point_on_axis(_drag_vertical_anchor, Vector3.UP, ray_origin, ray_direction)
-		_dragged_part.global_position = Vector3(_drag_vertical_anchor.x, point.y, _drag_vertical_anchor.z)
-		_update_graph_transform(_dragged_part)
-	else:
-		var plane_position: Variant = _drag_plane.intersects_ray(ray_origin, ray_direction)
-		if plane_position is Vector3:
-			_dragged_part.global_position = (plane_position as Vector3) + _drag_offset
-			_update_graph_transform(_dragged_part)
-
-
-## Closest point to the mouse ray on the line through `anchor` running along
-## `axis` (closest-point-between-two-lines, specialized for a unit line dir).
 func _closest_point_on_axis(anchor: Vector3, axis: Vector3, ray_origin: Vector3, ray_direction: Vector3) -> Vector3:
-	var r := ray_origin - anchor
-	var b := ray_direction.dot(axis)
-	var f := r.dot(axis)
-	var c := ray_direction.dot(r)
-	var denom := 1.0 - b * b
-	if absf(denom) < 0.0001:
+	var offset := ray_origin - anchor
+	var alignment := ray_direction.dot(axis)
+	var denominator := 1.0 - alignment * alignment
+	if absf(denominator) < 0.0001:
 		return anchor
-	var t := (f - b * c) / denom
-	return anchor + axis * t
+	var distance := (offset.dot(axis) - alignment * ray_direction.dot(offset)) / denominator
+	return anchor + axis * distance
 
 
 func _update_graph_transform(part: PartNode) -> void:

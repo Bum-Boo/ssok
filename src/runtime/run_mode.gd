@@ -45,6 +45,46 @@ func servo_on_pin(pin: int) -> ServoDrive:
 	return servos.get(wired[pin].part)
 
 
+## Ambiguous numeric addresses cannot be controlled until the wiring is disambiguated.
+func wired_servo_channels() -> Array[Dictionary]:
+	var channels: Array[Dictionary] = []
+	if _graph == null:
+		return channels
+	var addresses: Dictionary = {}
+	for link: Dictionary in _graph.links:
+		for side: String in ["a", "b"]:
+			var part_index: int = link[side + "_part"]
+			var definition: PartDef = _graph.parts[part_index].part_def
+			var port := _port(definition, link[side + "_port"])
+			if port == null or port.kind != Port.Kind.ELEC:
+				continue
+			var pin := Wiring.pin_number(port)
+			if pin < 0:
+				continue
+			if not addresses.has(pin):
+				addresses[pin] = []
+			addresses[pin].append(part_index)
+	var wired := Wiring.pin_map(_graph)
+	var pins: Array = wired.keys()
+	pins.sort()
+	for pin: int in pins:
+		if not addresses.has(pin) or addresses[pin].size() != 1:
+			continue
+		var part_index: int = wired[pin].part
+		if not servos.has(part_index):
+			continue
+		var definition: PartDef = _graph.parts[part_index].part_def
+		var board_index: int = addresses[pin][0]
+		var board: PartDef = _graph.parts[board_index].part_def
+		channels.append({
+			"pin": pin, "part": part_index, "board_part": board_index,
+			"label": "%s #%d · %s #%d / D%d" % [
+				definition.display_name, part_index + 1,
+				board.display_name, board_index + 1, pin],
+		})
+	return channels
+
+
 func _make_body(entry: Dictionary, index: int) -> RigidBody3D:
 	var def: PartDef = entry.part_def
 	var body := RigidBody3D.new()

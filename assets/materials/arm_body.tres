@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_it2p1"]
+
+[resource]
+resource_name = "ArmBody"
+albedo_color = Color(0.9685766, 0.9546871, 0.8962439, 1)
+metallic_specular = 0.4
+roughness = 0.42
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_it2p1")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

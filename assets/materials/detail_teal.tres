@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_ca77l"]
+
+[resource]
+resource_name = "DetailTeal"
+albedo_color = Color(0.12835404, 0.7287319, 0.72202736, 1)
+metallic_specular = 0.45
+roughness = 0.32
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_ca77l")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

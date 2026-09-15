@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_iv63j"]
+
+[resource]
+resource_name = "Black"
+albedo_color = Color(0.12835404, 0.1428257, 0.15170372, 1)
+metallic_specular = 0.35
+roughness = 0.55
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_iv63j")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

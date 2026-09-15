@@ -15,7 +15,7 @@
 |---|---|---|
 |---|---|
 | 첫 프로토타입 | 조립 + 코드 구동을 최소 기능으로 **동시에** 관통하는 얇은 슬라이스 | [0005](adr/0005-first-slice-scope.md) |
-| 연결 방식 | **포트/소켓 기반 + 근접 스냅**. 기계 조인트뿐 아니라 **전기 배선(모터→보드 핀)** 도 포트 | [0002](adr/0002-connection-graph-single-source-of-truth.md) |
+| 연결 방식 | **포트/소켓 기반 + 근접 스냅**. 기계 조인트뿐 아니라 **전기 배선(모터→보드 핀)** 도 포트. 조립 중 변환은 그래프에 기록하고 스냅 위에 겹친다 | [0002](adr/0002-connection-graph-single-source-of-truth.md), [0007](adr/0007-blender-edit-and-manual-control.md) |
 | 물리 | **하이브리드** — 조립 모드는 키네마틱, 실행 모드는 실물리(RigidBody+Joint+중력) | [0003](adr/0003-hybrid-physics-modes.md) |
 | 타겟 보드 | 미정. 구조를 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 코딩 인터페이스 | 블록 ↔ 실제 코드 토글, **둘 다** | [0004](adr/0004-hardware-abstraction-three-layers.md) |
@@ -43,6 +43,31 @@
 
 세 층(보드 프로파일 / 언어 런타임 / 블록 세트)은 서로 몰라야 한다. 이래야 나중에 보드를 정하거나
 언어를 추가해도 갈아엎지 않는다.
+
+### 편집·조종 입력 (2026-09-15)
+
+사용자 요청에 따라 오른쪽 버튼 비행 카메라를 `BlenderCamera`의 가운데 버튼 회전/패닝으로
+교체한다. `AssemblyMode`의 G/R 변환은 취소·Undo 시 그래프 위치와 연결을 함께 복구한다.
+ADR 0007이 기존 ADR 0002의 "자유 배치 후순위" 범위만 변경하며, 포트·그래프 정본 규칙은 유지한다.
+
+실행 중 WASD/패드 입력은 `ManualController`의 이동 명령이며, `RobotMotionProgram`에
+미리 작성된 관절 동작 코드가 이를 소비한다. 입력 자체가 개별 관절이나 고정 핀을 선택하지 않는다.
+예제 `BipedMotion`은 그래프에서 2족 관절 역할과 배선을 해석한다. `MiniRuntime` 코드와 이동
+프로그램은 명령 권한을 동시에 갖지 않으며, 모드 변경 전에 `MiniRuntime.stop()`으로 이전
+비동기 실행을 무효화한다. 세부 조작법과 교체 지점은 [CONTROLS.md](CONTROLS.md) 참고.
+
+### 선택적 AI 동작 탐색 (2026-09-15)
+
+`MotionPolicy`의 제한된 4개 파라미터를 외부 `tools/motion_lab` 서비스가 GPT-5.6 Luna에
+제안받고, `MotionTrial`의 별도 World3D에서 `ConnectionGraph` 기반 물리로 평가한다.
+기준/후보의 측정값을 피드백으로 보내며, 정상적인 최선 결과만 사용자가 편집 모드에서
+WASD 프로그램에 명시적으로 적용한다. 모델 가중치 훈련·임의 생성 코드 실행은 하지 않는다.
+
+`MotionSnapshot`은 카탈로그 ID·강체 변환·검증한 연결만 전송한다. Godot 런타임은 여전히
+GDScript/비동기 HTTP이며 API 키·프로세스 실행은 선택적 외부 Python 도구에만 있다.
+MCP는 공식 SDK의 stdio describe/start/get/cancel로 제한한다. 기존 ADR을 변경하지 않는
+서비스 경계를 [ADR 0008](adr/0008-bounded-motion-learning-bridge.md)에 기록했다.
+사용법과 평가 한계는 [MOTION_LAB.md](MOTION_LAB.md) 참고.
 
 ### 데이터 모델 (`src/core/`)
 
@@ -81,7 +106,7 @@
 ### 실물 기반 모듈 (issue #9 보강, 치수는 공식 도면 기준)
 
 `tools/godot/make_part_defs.gd`가 이 표의 원본이고 `assets/parts/*.tres`를 재생성한다. 메쉬는
-`tools/blender/make_parts.py`(Blender 4.5), 검증은 `tools/blender/check_obj.py`. 팔레트(`scenes/main.gd`)는
+`tools/blender/make_parts.py`(Blender 5.2.1), 검증은 `tools/blender/check_obj.py`. 팔레트(`scenes/main.gd`)는
 `assets/parts/*.tres`를 스캔하므로 파츠 파일만 추가하면 버튼이 생긴다.
 
 | 파츠 | 실물 / 출처 | 포트 | kind | 위치 / 법선 | tag | accepts |
@@ -112,6 +137,42 @@ DC 모터는 드라이버 모듈이 있어야 런타임이 다룰 수 있고, �
 플레이스홀더는 그대로 둔다. 참고한 오픈소스 조립 예: [Otto DIY](https://github.com/OttoDIY/OttoDIYLib)(CC-BY-SA 4.0,
 SG90×4 + Nano), [MeArm](https://github.com/MeArm/MeArm)(CC-BY-SA, SG90×4, 3 mm 아크릴 — 링크 길이는 DXF에서 직접
 재야 해서 아직 미반영). EEZYbotARM은 CC-BY-NC라 제외.
+
+### 상세 메쉬와 추가 구조물 (2026-09-15)
+
+사용자의 최신 Blender 설치 요청에 따라 로컬 Blender **5.2.1 LTS**에서 OBJ/MTL을 생성한다.
+`tools/blender/part_details.py`가 기존 파츠에 외장 패널, 나사, 통풍구, 관절 장식과 전자 부품 디테일을
+더한다. 기존 포트·질량·메쉬 외곽 경계를 유지하며, 부품당 5,000 삼각형 미만이다. 현재 충돌 박스가
+메쉬 AABB에서 나오므로 디테일이 충돌 크기를 바꾸지 않도록 생성 시 검사한다.
+
+아래 두 파츠는 상용 제품 복제가 아닌 자체 설계 구조물이다. 원본은
+`tools/blender/robot_accessories.py`, 포트 정본은 `tools/godot/make_part_defs.gd`다.
+
+| 파츠 | 본체 치수 | 포트 | 위치 (m) / 법선 | tag | accepts |
+|---|---|---|---|---|---|
+| `chassis_plate` | 120×4×80 mm | 윗면 마운트 5개 | (0, 0.002, 0), (±0.04, 0.002, 0), (0, 0.002, ±0.025) / +Y | `base_mount` | `servo_mount`, `motor_mount`, `sensor_mount` |
+| `servo_bracket` | 36×32×30 mm | 바닥 마운트 | (0, −0.002, 0) / −Y | `servo_mount` | `base_mount` |
+| | | 선반 마운트 | (0, 0.002, 0) / +Y | `base_mount` | `servo_mount`, `motor_mount`, `sensor_mount` |
+| | | 뒷면 마운트 | (0, 0.016, −0.015) / −Z | `base_mount` | `servo_mount`, `motor_mount`, `sensor_mount` |
+
+마운트 표시 링은 해당 표면에서 0.3 mm 돌출한다.
+
+편집용 `assets/blender/ssok_parts.blend`는 `.gdignore`로 Godot 임포트에서 제외한다.
+실행 앱은 OBJ에서 생성한 Godot 메쉬와 재질 리소스를 사용한다. 재생성·미리보기 절차는
+`tools/blender/README.md` 참고.
+
+### 공유 PBR 재질 (2026-09-15)
+
+`assets/materials/catalog.json`이 Blender/Godot 재질 값의 정본이다. 플라스틱·고무·금속·기판
+코팅 등 26종과 내부 커터용 1종을 정의한다. Blender는 편집 가능한 Principled/Noise/Bump 노드,
+Godot은 외부 `StandardMaterial3D`와 128px 미세 노멀 맵 3장을 사용한다. 주황색 LED만 약하게
+발광한다. GL Compatibility와 기존 씬 조명은 유지한다.
+
+`tools/godot/make_materials.gd`는 임포트된 OBJ의 정점·인덱스·경계를 그대로 복제해
+`assets/meshes/*.res`에 외부 재질을 연결한다. `make_part_defs.gd`가 이 메쉬를 참조하므로
+조립/실행 양쪽이 같은 재질을 사용한다. 포트·질량·충돌·런타임 구조는 변경하지 않는다.
+UV 없는 기존 메쉬에 로컬 트라이플래너 매핑을 사용하며, 런타임 텍스처 생성이나 스레드는 없다.
+상세 워크플로는 `assets/materials/README.md` 참고.
 
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)

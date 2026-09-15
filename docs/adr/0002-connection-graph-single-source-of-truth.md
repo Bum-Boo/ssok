@@ -1,6 +1,6 @@
 # 0002 — ConnectionGraph is the single source of truth; ports cover mechanical and electrical links
 
-- Status: accepted
+- Status: accepted; assembly-placement scope partially superseded by [0007](0007-blender-edit-and-manual-control.md). The graph and port decisions remain accepted.
 - Date: 2026-09-10
 
 ## Context

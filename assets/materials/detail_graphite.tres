@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_hkghf"]
+
+[resource]
+resource_name = "DetailGraphite"
+albedo_color = Color(0.20598418, 0.26006746, 0.2827793, 1)
+metallic_specular = 0.38
+roughness = 0.5
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_hkghf")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

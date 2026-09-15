@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_5jf7t"]
+
+[resource]
+resource_name = "Cream"
+albedo_color = Color(0.9452769, 0.92607486, 0.8488706, 1)
+metallic_specular = 0.4
+roughness = 0.38
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_5jf7t")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

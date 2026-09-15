@@ -2,10 +2,11 @@ extends SceneTree
 
 ## Regenerates assets/parts/<id>.tres from the spec table below so the Part/Port
 ## numbers live in one reviewable place (docs/ARCHITECTURE.md mirrors it).
-## Meshes are bound from assets/parts/<id>.obj when the OBJ is imported.
-##   godot --headless --path . --import && godot --headless --path . -s tools/godot/make_part_defs.gd
+## Run tools/godot/make_materials.gd after importing the OBJ sources and before this script.
+## Meshes bind the shared PBR materials through assets/meshes/<id>.res.
 
 const OUT_DIR := "res://assets/parts"
+const PartMaterials = preload("res://tools/godot/part_materials.gd")
 
 const MECH := Port.Kind.MECH
 const ELEC := Port.Kind.ELEC
@@ -127,6 +128,36 @@ var _parts: Dictionary = {
 				"tag": &"digital_io", "accepts": [&"board_digital", &"board_digital_pwm"]},
 		],
 	},
+	# Original ssok chassis: 120 x 4 x 80 mm, with solid pads between the lightening holes.
+	&"chassis_plate": {
+		"display_name": "Chassis Plate 120 mm",
+		"mass_kg": 0.06,
+		"ports": [
+			{"id": &"mount_center", "kind": MECH, "position": Vector3(0, 0.002, 0), "normal": Vector3.UP,
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+			{"id": &"mount_left", "kind": MECH, "position": Vector3(-0.040, 0.002, 0), "normal": Vector3.UP,
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+			{"id": &"mount_right", "kind": MECH, "position": Vector3(0.040, 0.002, 0), "normal": Vector3.UP,
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+			{"id": &"mount_rear", "kind": MECH, "position": Vector3(0, 0.002, -0.025), "normal": Vector3.UP,
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+			{"id": &"mount_front", "kind": MECH, "position": Vector3(0, 0.002, 0.025), "normal": Vector3.UP,
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+		],
+	},
+	# Original right-angle adapter for the existing servo envelope; dimensions are design choices.
+	&"servo_bracket": {
+		"display_name": "Servo Angle Bracket",
+		"mass_kg": 0.015,
+		"ports": [
+			{"id": &"mount_bottom", "kind": MECH, "position": Vector3(0, -0.002, 0), "normal": Vector3.DOWN,
+				"tag": &"servo_mount", "accepts": [&"base_mount"]},
+			{"id": &"mount_top", "kind": MECH, "position": Vector3(0, 0.002, 0), "normal": Vector3.UP,
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+			{"id": &"mount_rear", "kind": MECH, "position": Vector3(0, 0.016, -0.015), "normal": Vector3(0, 0, -1),
+				"tag": &"base_mount", "accepts": [&"servo_mount", &"motor_mount", &"sensor_mount"]},
+		],
+	},
 }
 
 const UNO_PWM_PINS := [3, 5, 6, 9, 10, 11]
@@ -165,6 +196,7 @@ func _init() -> void:
 		for port_spec: Dictionary in spec["ports"]:
 			var port := Port.new()
 			port.id = port_spec["id"]
+			port.resource_scene_unique_id = "Port_%s" % port.id
 			port.kind = port_spec["kind"]
 			port.local_position = port_spec["position"]
 			port.local_normal = port_spec["normal"]
@@ -172,11 +204,10 @@ func _init() -> void:
 			port.accepts.assign(port_spec["accepts"])
 			port.rotates = port_spec.get("rotates", false)
 			def.ports.append(port)
-		var obj_path := "%s/%s.obj" % [OUT_DIR, id]
-		if ResourceLoader.exists(obj_path):
-			def.mesh = load(obj_path)
-		else:
-			push_warning("%s: no OBJ yet, saving without a mesh" % id)
+		def.mesh = PartMaterials.load_mesh(id)
+		if def.mesh == null:
+			failed = true
+			continue
 		var path := "%s/%s.tres" % [OUT_DIR, id]
 		var err := ResourceSaver.save(def, path)
 		print("%s: save=%d ports=%d mesh=%s" % [id, err, def.ports.size(), def.mesh != null])

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/brushed_normal.res" id="1_1sw18"]
+
+[resource]
+resource_name = "Silver"
+albedo_color = Color(0.785777, 0.80946815, 0.82665706, 1)
+metallic = 1.0
+roughness = 0.28
+normal_enabled = true
+normal_scale = 0.16
+normal_texture = ExtResource("1_1sw18")
+uv1_scale = Vector3(200, 200, 200)
+uv1_triplanar = true

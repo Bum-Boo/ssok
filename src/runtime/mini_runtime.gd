@@ -14,11 +14,13 @@ extends Node
 signal line_started(line_no: int)
 signal finished()
 signal failed(line_no: int, message: String)
+signal stopped()
 
 ## Object with `servo_on_pin(pin: int) -> ServoDrive`.
 var hardware: RunMode
 var _servos: Dictionary = {}
 var _running := false
+var _execution_id: int = 0
 
 var _re_assign := RegEx.create_from_string(r"^(\w+)\s*=\s*Servo\(\s*(?:pin\s*=\s*)?(\d+)\s*\)$")
 var _re_write := RegEx.create_from_string(r"^(\w+)\.write\(\s*(-?\d+(?:\.\d+)?)\s*\)$")
@@ -29,21 +31,39 @@ var _re_import := RegEx.create_from_string(r"^from\s+servo\s+import\s+Servo$")
 func run(source: String) -> void:
 	if _running:
 		return
+	_execution_id += 1
+	var execution_id: int = _execution_id
 	_running = true
 	_servos.clear()
 	var lines := source.split("\n")
 	for i in lines.size():
+		if execution_id != _execution_id:
+			return
 		var line := lines[i].strip_edges()
 		if line.is_empty() or line.begins_with("#"):
 			continue
 		line_started.emit(i + 1)
+		if execution_id != _execution_id:
+			return
 		var error := await _exec(line)
+		# A stopped sleep must not resume against a new graph or a newer program.
+		if execution_id != _execution_id:
+			return
 		if not error.is_empty():
 			_running = false
 			failed.emit(i + 1, error)
 			return
 	_running = false
 	finished.emit()
+
+
+func stop() -> void:
+	_execution_id += 1
+	var was_running: bool = _running
+	_running = false
+	_servos.clear()
+	if was_running:
+		stopped.emit()
 
 
 func is_running() -> bool:
@@ -56,6 +76,8 @@ func _exec(line: String) -> String:
 	var m := _re_assign.search(line)
 	if m:
 		var pin := int(m.get_string(2))
+		if not is_instance_valid(hardware) or not hardware.is_built():
+			return "Run mode is not active"
 		var servo := hardware.servo_on_pin(pin)
 		if servo == null:
 			return "Pin %d has nothing connected" % pin
@@ -66,6 +88,8 @@ func _exec(line: String) -> String:
 		var name := m.get_string(1)
 		if not _servos.has(name):
 			return "NameError: '%s' is not defined" % name
+		if not is_instance_valid(_servos[name]):
+			return "Servo '%s' is no longer available" % name
 		(_servos[name] as ServoDrive).write(float(m.get_string(2)))
 		return ""
 	m = _re_sleep.search(line)

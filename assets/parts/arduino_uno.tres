@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
-[ext_resource type="ArrayMesh" path="res://assets/parts/arduino_uno.obj" id="1_k1p20"]
+[ext_resource type="ArrayMesh" path="res://assets/meshes/arduino_uno.res" id="1_k1p20"]
 [ext_resource type="Script" path="res://src/core/port.gd" id="2_ignpw"]
 [ext_resource type="Script" path="res://src/core/part_def.gd" id="3_0ssxu"]
 
-[sub_resource type="Resource" id="Resource_a8dku"]
+[sub_resource type="Resource" id="Port_pin_3"]
 script = ExtResource("2_ignpw")
 id = &"pin_3"
 kind = 1
@@ -12,7 +12,7 @@ local_position = Vector3(0.02158, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
 
-[sub_resource type="Resource" id="Resource_3lsmg"]
+[sub_resource type="Resource" id="Port_pin_5"]
 script = ExtResource("2_ignpw")
 id = &"pin_5"
 kind = 1
@@ -20,7 +20,7 @@ local_position = Vector3(0.0165, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
 
-[sub_resource type="Resource" id="Resource_u777n"]
+[sub_resource type="Resource" id="Port_pin_6"]
 script = ExtResource("2_ignpw")
 id = &"pin_6"
 kind = 1
@@ -28,7 +28,7 @@ local_position = Vector3(0.01396, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
 
-[sub_resource type="Resource" id="Resource_7ro66"]
+[sub_resource type="Resource" id="Port_pin_9"]
 script = ExtResource("2_ignpw")
 id = &"pin_9"
 kind = 1
@@ -36,7 +36,7 @@ local_position = Vector3(0.00482, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
 
-[sub_resource type="Resource" id="Resource_8064c"]
+[sub_resource type="Resource" id="Port_pin_10"]
 script = ExtResource("2_ignpw")
 id = &"pin_10"
 kind = 1
@@ -44,7 +44,7 @@ local_position = Vector3(0.00228, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
 
-[sub_resource type="Resource" id="Resource_r8dvj"]
+[sub_resource type="Resource" id="Port_pin_11"]
 script = ExtResource("2_ignpw")
 id = &"pin_11"
 kind = 1
@@ -52,7 +52,7 @@ local_position = Vector3(-0.00026, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
 accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
 
-[sub_resource type="Resource" id="Resource_gv22b"]
+[sub_resource type="Resource" id="Port_pin_2"]
 script = ExtResource("2_ignpw")
 id = &"pin_2"
 kind = 1
@@ -60,7 +60,7 @@ local_position = Vector3(0.02412, 0.0093, 0.0229)
 tag = &"board_digital"
 accepts = Array[StringName]([&"digital_io"])
 
-[sub_resource type="Resource" id="Resource_ujanb"]
+[sub_resource type="Resource" id="Port_pin_4"]
 script = ExtResource("2_ignpw")
 id = &"pin_4"
 kind = 1
@@ -68,7 +68,7 @@ local_position = Vector3(0.01904, 0.0093, 0.0229)
 tag = &"board_digital"
 accepts = Array[StringName]([&"digital_io"])
 
-[sub_resource type="Resource" id="Resource_kk3fp"]
+[sub_resource type="Resource" id="Port_pin_7"]
 script = ExtResource("2_ignpw")
 id = &"pin_7"
 kind = 1
@@ -76,7 +76,7 @@ local_position = Vector3(0.01142, 0.0093, 0.0229)
 tag = &"board_digital"
 accepts = Array[StringName]([&"digital_io"])
 
-[sub_resource type="Resource" id="Resource_myrwe"]
+[sub_resource type="Resource" id="Port_pin_8"]
 script = ExtResource("2_ignpw")
 id = &"pin_8"
 kind = 1
@@ -84,7 +84,7 @@ local_position = Vector3(0.00736, 0.0093, 0.0229)
 tag = &"board_digital"
 accepts = Array[StringName]([&"digital_io"])
 
-[sub_resource type="Resource" id="Resource_2t1g4"]
+[sub_resource type="Resource" id="Port_pin_12"]
 script = ExtResource("2_ignpw")
 id = &"pin_12"
 kind = 1
@@ -92,7 +92,7 @@ local_position = Vector3(-0.0028, 0.0093, 0.0229)
 tag = &"board_digital"
 accepts = Array[StringName]([&"digital_io"])
 
-[sub_resource type="Resource" id="Resource_kkblm"]
+[sub_resource type="Resource" id="Port_pin_13"]
 script = ExtResource("2_ignpw")
 id = &"pin_13"
 kind = 1
@@ -105,5 +105,5 @@ script = ExtResource("3_0ssxu")
 id = &"arduino_uno"
 display_name = "Arduino Uno R3"
 mesh = ExtResource("1_k1p20")
-ports = Array[ExtResource("2_ignpw")]([SubResource("Resource_a8dku"), SubResource("Resource_3lsmg"), SubResource("Resource_u777n"), SubResource("Resource_7ro66"), SubResource("Resource_8064c"), SubResource("Resource_r8dvj"), SubResource("Resource_gv22b"), SubResource("Resource_ujanb"), SubResource("Resource_kk3fp"), SubResource("Resource_myrwe"), SubResource("Resource_2t1g4"), SubResource("Resource_kkblm")])
+ports = Array[ExtResource("2_ignpw")]([SubResource("Port_pin_3"), SubResource("Port_pin_5"), SubResource("Port_pin_6"), SubResource("Port_pin_9"), SubResource("Port_pin_10"), SubResource("Port_pin_11"), SubResource("Port_pin_2"), SubResource("Port_pin_4"), SubResource("Port_pin_7"), SubResource("Port_pin_8"), SubResource("Port_pin_12"), SubResource("Port_pin_13")])
 mass_kg = 0.025

@@ -15,7 +15,16 @@ var powered: bool = false
 
 
 func write(angle_deg: float) -> void:
-	target_deg = clampf(angle_deg, min_deg, max_deg)
+	_set_target(clampf(angle_deg, min_deg, max_deg))
+
+
+## Robot programs use signed angles around the assembly pose; learner write() stays 0..180.
+func write_relative(angle_deg: float) -> void:
+	_set_target(clampf(angle_deg, -90.0, 90.0))
+
+
+func _set_target(angle_deg: float) -> void:
+	target_deg = angle_deg
 	if not powered:
 		current_deg = target_deg
 		powered = true

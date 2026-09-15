@@ -6,6 +6,8 @@
 - 설계와 첫 마일스톤: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - 결정 기록(ADR): [docs/adr/](docs/adr/)
 - 기여 규칙(사람·에이전트 공통): [AGENTS.md](AGENTS.md)
+- Blender식 편집·WASD/게임패드 조종: [docs/CONTROLS.md](docs/CONTROLS.md)
+- GPT 동작 개선·로컬 MCP: [docs/MOTION_LAB.md](docs/MOTION_LAB.md)
 
 ## 실행
 

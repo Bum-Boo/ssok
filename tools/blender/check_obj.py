@@ -110,6 +110,28 @@ PARTS = {
 			"echo_pin": (0.00127, -0.0185, 0.0),
 		},
 	},
+	"chassis_plate": {
+		"body_material": "ChassisMetal",
+		"body_bounds": ((-0.060, -0.002, -0.040), (0.060, 0.002, 0.040)),
+		"protrusion": 0.0003,
+		"ports": {
+			"mount_center": (0.0, 0.002, 0.0),
+			"mount_left": (-0.040, 0.002, 0.0),
+			"mount_right": (0.040, 0.002, 0.0),
+			"mount_rear": (0.0, 0.002, -0.025),
+			"mount_front": (0.0, 0.002, 0.025),
+		},
+	},
+	"servo_bracket": {
+		"body_material": "BracketMetal",
+		"body_bounds": ((-0.018, -0.002, -0.015), (0.018, 0.030, 0.015)),
+		"protrusion": 0.0003,
+		"ports": {
+			"mount_bottom": (0.0, -0.002, 0.0),
+			"mount_top": (0.0, 0.002, 0.0),
+			"mount_rear": (0.0, 0.016, -0.015),
+		},
+	},
 }
 
 
@@ -209,6 +231,16 @@ def check_part(directory: Path, name: str, spec: dict[str, object]) -> None:
 	actual_min, actual_max = bounds(mesh.vertices)
 	print(f"{name:8s} min={actual_min!r} max={actual_max!r} vertices={len(mesh.vertices)} faces={len(mesh.faces)}")
 	assert len(mesh.faces) < 5000, f"{name}: {len(mesh.faces)} triangles exceeds the polygon budget"
+	for face_number, (indices, _material) in enumerate(mesh.faces, start=1):
+		assert len(indices) == 3, f"{name}: face {face_number} is not triangulated"
+		a, b, c = (mesh.vertices[index] for index in indices)
+		ab, ac = subtract(b, a), subtract(c, a)
+		normal = (
+			ab[1] * ac[2] - ab[2] * ac[1],
+			ab[2] * ac[0] - ab[0] * ac[2],
+			ab[0] * ac[1] - ab[1] * ac[0],
+		)
+		assert dot(normal, normal) > 1e-24, f"{name}: face {face_number} collapses at OBJ precision"
 	body_min, body_max = bounds(material_vertices(mesh, str(spec["body_material"])))
 	expected_min, expected_max = spec["body_bounds"]
 	for label, actual, expected in (("min", body_min, expected_min), ("max", body_max, expected_max)):

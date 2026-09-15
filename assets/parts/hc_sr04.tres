@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
-[ext_resource type="ArrayMesh" path="res://assets/parts/hc_sr04.obj" id="1_jbcnd"]
+[ext_resource type="ArrayMesh" path="res://assets/meshes/hc_sr04.res" id="1_jbcnd"]
 [ext_resource type="Script" path="res://src/core/port.gd" id="2_ccjwb"]
 [ext_resource type="Script" path="res://src/core/part_def.gd" id="3_rgp2a"]
 
-[sub_resource type="Resource" id="Resource_rgl1u"]
+[sub_resource type="Resource" id="Port_mount"]
 script = ExtResource("2_ccjwb")
 id = &"mount"
 local_position = Vector3(0, 0, -0.0008)
@@ -12,7 +12,7 @@ local_normal = Vector3(0, 0, -1)
 tag = &"sensor_mount"
 accepts = Array[StringName]([&"base_mount"])
 
-[sub_resource type="Resource" id="Resource_o3t6m"]
+[sub_resource type="Resource" id="Port_trig_pin"]
 script = ExtResource("2_ccjwb")
 id = &"trig_pin"
 kind = 1
@@ -21,7 +21,7 @@ local_normal = Vector3(0, -1, 0)
 tag = &"digital_io"
 accepts = Array[StringName]([&"board_digital", &"board_digital_pwm"])
 
-[sub_resource type="Resource" id="Resource_jwktu"]
+[sub_resource type="Resource" id="Port_echo_pin"]
 script = ExtResource("2_ccjwb")
 id = &"echo_pin"
 kind = 1
@@ -35,5 +35,5 @@ script = ExtResource("3_rgp2a")
 id = &"hc_sr04"
 display_name = "HC-SR04 Ultrasonic"
 mesh = ExtResource("1_jbcnd")
-ports = Array[ExtResource("2_ccjwb")]([SubResource("Resource_rgl1u"), SubResource("Resource_o3t6m"), SubResource("Resource_jwktu")])
+ports = Array[ExtResource("2_ccjwb")]([SubResource("Port_mount"), SubResource("Port_trig_pin"), SubResource("Port_echo_pin")])
 mass_kg = 0.009
