@@ -1383,3 +1383,36 @@ msgstr "저장하거나 내보내기 전에 블록 편집기의 오류를 해결
 
 msgid "Saving or exporting applies valid blocks to your code."
 msgstr "저장하거나 내보내면 올바른 블록이 코드에 반영돼요."
+
+msgid "Esc leaves the code editor. Tab moves between controls."
+msgstr "Esc로 코드 편집기를 벗어나고 Tab으로 다른 컨트롤로 이동해요."
+
+msgid "Build a program from blocks"
+msgstr "블록으로 프로그램 만들기"
+
+msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
+msgstr "블록 탭에서 코드를 블록으로 읽기를 선택하세요. 각도를 바꾸거나 기다리기 블록을 추가한 뒤 코드에 반영하세요. 코드 실행을 눌러야 로봇이 움직이며, 블록 반영만으로 자동 실행되지 않아요.\n\n저장하거나 내보낼 때도 올바른 미반영 블록이 포함돼요. 코드와 블록을 따로 수정했다면 충돌을 해결한 뒤 저장하세요. 지원하지 않는 코드는 그대로 보존돼요."
+
+msgid "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus."
+msgstr "Tab과 Shift+Tab으로 컨트롤 사이를 이동해요. Esc는 코드 편집기를 벗어나거나 대화상자를 닫아요. UI에 포커스가 있으면 로봇 조종이 멈춰요."
+
+msgid "Save and share your robot"
+msgstr "로봇 저장하고 공유하기"
+
+msgid "Open Projects or press Ctrl / Cmd + S. Name your robot and choose Save a snapshot. Each save keeps earlier versions. Select a saved project and Open selected to restore its assembly and code without running it.\n\nExport project gives you portable JSON; the browser downloads a file. To open a shared project, paste its JSON in Import / export and choose Import project, then confirm replacement."
+msgstr "프로젝트를 열거나 Ctrl/Cmd+S를 누르세요. 로봇 이름을 짓고 현재 상태 저장을 선택하세요. 저장할 때마다 이전 버전도 유지돼요. 저장한 프로젝트를 선택해 열면 조립과 코드를 복원하며 자동 실행하지 않아요.\n\n프로젝트 내보내기로 JSON을 얻을 수 있고, 브라우저에서는 파일을 다운로드해요. 공유받은 JSON을 가져오기/내보내기에 붙여 넣고 프로젝트 가져오기를 선택한 뒤 교체를 확인하세요."
+
+msgid "Projects are stored on this device. Keep an exported copy before clearing browser data or changing computers. Loading a starter asks before replacing unsaved work."
+msgstr "프로젝트는 이 기기에 저장돼요. 브라우저 데이터를 지우거나 컴퓨터를 바꾸기 전에 내보낸 사본을 보관하세요. 예제를 불러올 때 저장하지 않은 작업이 있으면 교체 전에 확인해요."
+
+msgid "Yaw Biped Body"
+msgstr "요 회전 2족 몸체"
+
+msgid "Yaw Leg Link"
+msgstr "요 회전 다리 링크"
+
+msgid "Torque Micro Servo"
+msgstr "토크 제한 마이크로 서보"
+
+msgid "Sixteen-channel controller"
+msgstr "16채널 컨트롤러"

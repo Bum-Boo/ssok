@@ -198,7 +198,7 @@ func _build_ui() -> void:
 	language_picker = OptionButton.new()
 	language_picker.name = "LanguagePicker"
 	language_picker.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	language_picker.focus_mode = Control.FOCUS_NONE
+	language_picker.focus_mode = Control.FOCUS_ALL
 	for language_name: String in SsokLocale.NAMES:
 		language_picker.add_item(language_name)
 	language_picker.select(SsokLocale.LOCALES.find(SsokLocale.normalize(TranslationServer.get_locale())))
@@ -223,7 +223,7 @@ func _build_ui() -> void:
 	control_source = OptionButton.new()
 	control_source.add_item("Control: WASD / gamepad movement", CONTROL_MANUAL)
 	control_source.add_item("Control: Learner code", CONTROL_CODE)
-	control_source.focus_mode = Control.FOCUS_NONE
+	control_source.focus_mode = Control.FOCUS_ALL
 	control_source.item_selected.connect(_on_control_source_selected)
 	box.add_child(control_source)
 
@@ -239,6 +239,7 @@ func _build_ui() -> void:
 	code_box.add_child(caption)
 	code_edit = CodeEdit.new()
 	code_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	code_edit.tooltip_text = "Esc leaves the code editor. Tab moves between controls."
 	code_edit.text = ServoArmPreset.ANSWER_CODE
 	code_edit.gutters_draw_line_numbers = true
 	code_edit.highlight_current_line = true
@@ -255,6 +256,7 @@ func _build_ui() -> void:
 	code_edit.syntax_highlighter = syntax
 	code_box.add_child(code_edit)
 	var controls_scroll := ScrollContainer.new()
+	controls_scroll.follow_focus = true
 	controls_scroll.name = "Controls"
 	controls_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	program_tabs.add_child(controls_scroll)
@@ -447,10 +449,11 @@ func _build_palette() -> void:
 	part_category = OptionButton.new()
 	for category: String in ["All parts", "Structure", "Actuators", "Electronics", "Construction kit"]:
 		part_category.add_item(category)
-	part_category.focus_mode = Control.FOCUS_NONE
+	part_category.focus_mode = Control.FOCUS_ALL
 	part_category.item_selected.connect(func(_index: int) -> void: _filter_parts())
 	box.add_child(part_category)
 	var scroll := ScrollContainer.new()
+	scroll.follow_focus = true
 	_parts_scroll = scroll
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -691,6 +694,19 @@ func _ensure_assembly_mode() -> void:
 		mode_button.button_pressed = false
 
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB \
+			and not event.is_command_or_control_pressed() and not event.alt_pressed \
+			and get_viewport().gui_get_focus_owner() == null \
+			and not (projects.visible or tutorial.visible or motion_lab.visible or pickup_lab.visible or _replace_dialog.visible or _delete_dialog.visible):
+		projects_button.grab_focus()
+		get_viewport().set_input_as_handled()
+		return
+	if event.is_action_pressed("ui_cancel") and get_viewport().gui_get_focus_owner() == code_edit:
+		program_tabs.get_tab_bar().grab_focus()
+		get_viewport().set_input_as_handled()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if mode_button.button_pressed and event is InputEventMouseButton:
 		var button: InputEventMouseButton = event as InputEventMouseButton
@@ -707,7 +723,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		_open_projects()
 		get_viewport().set_input_as_handled()
 		return
-	if focus is TextEdit or focus is LineEdit:
+	if focus != null:
+		if key_event.keycode == KEY_ESCAPE:
+			get_viewport().gui_release_focus()
+			get_viewport().set_input_as_handled()
 		return
 	if mode_button.button_pressed:
 		if key_event.keycode == KEY_ESCAPE:
@@ -877,7 +896,7 @@ func _open_projects() -> void:
 func _close_projects() -> void:
 	assembly.process_mode = Node.PROCESS_MODE_DISABLED if mode_button.button_pressed else Node.PROCESS_MODE_INHERIT
 	navigation.navigation_enabled = true
-	get_viewport().gui_release_focus()
+	projects_button.grab_focus()
 	_refresh_control_ui()
 
 

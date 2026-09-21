@@ -7,6 +7,10 @@ config_version=5
 [application]
 
 config/name="ssok"
+config/description="Build a robot. Wire its motors. Make it move."
+config/icon="res://assets/branding/ssok.svg"
+boot_splash/image="res://assets/branding/ssok.png"
+boot_splash/bg_color=Color(0.0901961, 0.109804, 0.141176, 1)
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 

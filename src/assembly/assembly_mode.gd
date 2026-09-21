@@ -320,7 +320,7 @@ func unsnap(part: PartNode) -> void:
 
 func _text_has_focus() -> bool:
 	var focus: Control = get_viewport().gui_get_focus_owner()
-	return focus is LineEdit or focus is TextEdit or focus is SpinBox
+	return focus != null
 
 
 func _input(event: InputEvent) -> void:

@@ -41,6 +41,18 @@ const STEPS: Array[Dictionary] = [
 		"hint": "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code.",
 	},
 	{
+		"title": "Build a program from blocks",
+		"icon": "code-xml",
+		"body": "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact.",
+		"hint": "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus.",
+	},
+	{
+		"title": "Save and share your robot",
+		"icon": "folder-open",
+		"body": "Open Projects or press Ctrl / Cmd + S. Name your robot and choose Save a snapshot. Each save keeps earlier versions. Select a saved project and Open selected to restore its assembly and code without running it.\n\nExport project gives you portable JSON; the browser downloads a file. To open a shared project, paste its JSON in Import / export and choose Import project, then confirm replacement.",
+		"hint": "Projects are stored on this device. Keep an exported copy before clearing browser data or changing computers. Loading a starter asks before replacing unsaved work.",
+	},
+	{
 		"title": "Explore the AI motion lab",
 		"icon": "flask-conical",
 		"body": "Open AI motion lab: Connect checks the optional external bridge; Search sets a goal and trial count; Results compares measured trials. Start with the bridge's mock mode without paid model calls.\n\nLive GPT calls require a server-side API key, model access and explicit paid consent. This searches bounded gait parameters, not model training. Apply a valid best result only in edit mode with the same robot assembly.",

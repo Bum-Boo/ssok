@@ -591,6 +591,12 @@ func _close_panel() -> void:
 	panel_closed.emit()
 
 
+func _input(event: InputEvent) -> void:
+	if visible and event.is_action_pressed("ui_cancel"):
+		set_input_as_handled()
+		_close_panel()
+
+
 func _exit_tree() -> void:
 	if client != null and not _remote_id.is_empty():
 		client.cancel_pickup(_remote_id)
@@ -619,6 +625,7 @@ func _status(message: String, arguments: Array = []) -> void:
 
 func _page(label: String) -> VBoxContainer:
 	var scroll := ScrollContainer.new()
+	scroll.follow_focus = true
 	scroll.name = label
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	tabs.add_child(scroll)

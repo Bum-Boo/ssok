@@ -35,7 +35,9 @@ static func valid(value: Variant) -> bool:
 
 static func graph_from(record: Dictionary) -> ConnectionGraph:
 	var data: Variant = record.get("graph")
-	if data is Dictionary and data == {"version": 1, "parts": [], "links": []}:
+	if data is Dictionary and MotionSnapshot._exact_keys(data, ["version", "parts", "links"]) \
+			and MotionSnapshot._is_integer(data.version) and int(data.version) == 1 \
+			and data.parts is Array and data.parts.is_empty() and data.links is Array and data.links.is_empty():
 		return ConnectionGraph.new()
 	return MotionSnapshot.decode(data)
 

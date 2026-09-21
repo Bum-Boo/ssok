@@ -45,6 +45,13 @@ policy failed the Godot transfer check. The project retains both results, the fr
 the reproduction commands in [the RL evidence](RL_LAB.md). Closing that discrepancy is ongoing work;
 the policy is not advertised as a working in-app learned controller.
 
+A controlled ablation held the policy and 30 Hz action rate fixed while changing the physics
+timestep: the policy that stayed upright at 240 Hz fell at the application's 60 Hz rate, even
+inside MuJoCo. Matching policy arithmetic was insufficient because the simulator contract differed.
+Follow-up experiments therefore use 60 Hz and verify each joint's physical axis and command sign.
+A separately identified yaw-hip robot preserves the old assembly and its failed evidence; it must
+pass the same task in Godot before appearing as a verified learned example.
+
 ## Product engineering beyond the demo
 
 The authoring workflow preserves source and graph together. Imported documents cannot specify
@@ -56,6 +63,13 @@ Web exports revealed a defect that source-level tests missed: on a short browser
 starter buttons consumed the entire parts panel and collapsed the catalog scroll area. Compact
 starter menus and a scrolling block editor fixed the actual exported application. Dedicated
 viewport checks now cover this condition across all four languages.
+
+Independent workflow review found two data-loss paths: unapplied block drafts were absent from a
+snapshot, and a serialized empty graph disappeared from the library because JSON read its version
+as a floating-point number. Saving now validates and includes block drafts, while schema validation
+accepts integral JSON numbers without accepting fractional versions. Disk round-trip tests cover
+both populated and empty workspaces. Keyboard tests use actual input events to save a snapshot,
+leave the code editor, reach offscreen block actions and close modal panels.
 
 CI discovers the functional checks, supplies an authenticated mock service for transport tests,
 isolates saved data, preserves individual logs and fails on any failed gate. Exports are audited

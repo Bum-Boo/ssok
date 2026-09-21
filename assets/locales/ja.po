@@ -1383,3 +1383,36 @@ msgstr "保存または書き出す前にブロックエディターのエラー
 
 msgid "Saving or exporting applies valid blocks to your code."
 msgstr "保存や書き出しの際、有効なブロックがコードに反映されます。"
+
+msgid "Esc leaves the code editor. Tab moves between controls."
+msgstr "Escでコードエディターを離れ、Tabでコントロール間を移動できます。"
+
+msgid "Build a program from blocks"
+msgstr "ブロックからプログラムを作る"
+
+msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
+msgstr "ブロックを開き、コードから読み込むを選びます。角度を変えるか待つブロックを追加し、コードに反映します。コードを実行するとロボットが動きます。反映だけでは自動実行されません。\n\n保存や書き出しには有効な未反映ブロックも含まれます。コードとブロックを別々に編集した場合は競合を解消してから保存してください。未対応のコードはそのまま保持されます。"
+
+msgid "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus."
+msgstr "TabとShift + Tabでコントロール間を移動します。Escでコードエディターを離れるかダイアログを閉じます。UIにフォーカスがある間、ロボット操作は停止します。"
+
+msgid "Save and share your robot"
+msgstr "ロボットを保存・共有する"
+
+msgid "Open Projects or press Ctrl / Cmd + S. Name your robot and choose Save a snapshot. Each save keeps earlier versions. Select a saved project and Open selected to restore its assembly and code without running it.\n\nExport project gives you portable JSON; the browser downloads a file. To open a shared project, paste its JSON in Import / export and choose Import project, then confirm replacement."
+msgstr "プロジェクトを開くかCtrl / Cmd + Sを押します。ロボットに名前を付けてスナップショットを保存します。以前の版も残ります。保存済みの項目を選んで開くと、組み立てとコードを実行せずに復元できます。\n\nプロジェクトを書き出すとJSONを取得でき、ブラウザーではファイルがダウンロードされます。共有されたJSONをインポート/エクスポートに貼り付け、読み込みを選んで置き換えを確認します。"
+
+msgid "Projects are stored on this device. Keep an exported copy before clearing browser data or changing computers. Loading a starter asks before replacing unsaved work."
+msgstr "プロジェクトはこの端末に保存されます。ブラウザーデータを消す前や別のパソコンへ移る前に、書き出したコピーを保管してください。例を開く際、未保存の作業があれば置き換え前に確認します。"
+
+msgid "Yaw Biped Body"
+msgstr "ヨー回転二足ボディ"
+
+msgid "Yaw Leg Link"
+msgstr "ヨー回転脚リンク"
+
+msgid "Torque Micro Servo"
+msgstr "トルク制限マイクロサーボ"
+
+msgid "Sixteen-channel controller"
+msgstr "16チャンネルコントローラー"

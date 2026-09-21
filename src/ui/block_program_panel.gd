@@ -17,6 +17,7 @@ var scroll: ScrollContainer
 
 func _ready() -> void:
 	scroll = ScrollContainer.new()
+	scroll.follow_focus = true
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	add_child(scroll)

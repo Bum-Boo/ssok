@@ -174,6 +174,7 @@ func _tab_page(title_text: String) -> VBoxContainer:
 	page.name = title_text
 	workflow_tabs.add_child(page)
 	var scroll := ScrollContainer.new()
+	scroll.follow_focus = true
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	page.add_child(scroll)
@@ -527,3 +528,9 @@ func _close_panel() -> void:
 		cancel_search()
 	hide()
 	panel_closed.emit()
+
+
+func _input(event: InputEvent) -> void:
+	if visible and event.is_action_pressed("ui_cancel"):
+		set_input_as_handled()
+		_close_panel()

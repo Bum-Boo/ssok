@@ -13,11 +13,10 @@
 
 | 항목 | 결정 | ADR |
 |---|---|---|
-|---|---|
 | 첫 프로토타입 | 조립 + 코드 구동을 최소 기능으로 **동시에** 관통하는 얇은 슬라이스 | [0005](adr/0005-first-slice-scope.md) |
 | 연결 방식 | **포트/소켓 기반 + 근접 스냅**. 기계 조인트뿐 아니라 **전기 배선(모터→보드 핀)** 도 포트. 조립 중 변환은 그래프에 기록하고 스냅 위에 겹친다 | [0002](adr/0002-connection-graph-single-source-of-truth.md), [0007](adr/0007-blender-edit-and-manual-control.md) |
 | 물리 | **하이브리드** — 조립 모드는 키네마틱, 실행 모드는 실물리(RigidBody+Joint+중력) | [0003](adr/0003-hybrid-physics-modes.md) |
-| 타겟 보드 | 미정. 구조를 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md) |
+| 타겟 보드 | 현재 가상 서보 보드 API를 제공하며 실제 보드 선정은 미정. 구조를 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 코딩 인터페이스 | 블록 ↔ 실제 코드 토글, **둘 다** | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 코드 언어 | 유저가 보드/환경에 따라 선택. 플랫폼이 기본값을 추천. 첫 런타임은 Python(MicroPython 스타일) | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 배포 | 웹 + 데스크톱 모두 (→ GDScript, GL Compatibility) | [0001](adr/0001-engine-and-deployment-targets.md) |
@@ -43,6 +42,17 @@
 
 세 층(보드 프로파일 / 언어 런타임 / 블록 세트)은 서로 몰라야 한다. 이래야 나중에 보드를 정하거나
 언어를 추가해도 갈아엎지 않는다.
+
+### 프로젝트와 블록 저작 (2026-09-22)
+
+`ProjectStore`는 그래프 스냅샷과 학습자 코드를 버전이 있는 JSON으로 보관한다. 검증된 카탈로그
+ID와 강체 변환만 읽으며, 불러오기는 편집 모드로 돌아가고 코드를 실행하지 않는다. 저장은 이전
+파일을 덮어쓰지 않는 독립 스냅샷이다. 빈 조립도 JSON 왕복과 목록 복원을 지원한다.
+
+`BoardProfile.api`는 선언적인 명령·인자·한계를 제공한다. `BlockProgramPanel`이 이를 읽어
+편집 카드를 만들고 `ServoProgram`이 지원하는 코드 부분집합과 왕복한다. 미수정 줄의 주석·공백을
+보존하고, 지원하지 않는 줄이나 코드/블록 충돌은 조용히 삭제하지 않는다. 저장·내보내기는 유효한
+블록 초안까지 반영한다. 구체적인 사용자 흐름과 제한은 [AUTHORING.md](AUTHORING.md) 참고.
 
 ### 편집·조종 입력 (2026-09-15)
 

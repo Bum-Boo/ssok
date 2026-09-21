@@ -37,6 +37,18 @@ pickup experiments. Optional external AI services keep their keys outside the ap
 [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
 [Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
 
+## Watch a real physics trial
+
+![Actual construction-kit robot making contact with and lifting a box under gravity](docs/media/pickup.gif)
+
+This recorded trial lifts the box **47.7 cm** and holds it for **1 second** using bounded joint
+motors and contact-triggered grasp constraints. The robot is assembled from the same individual
+parts available in the workshop. The final result stays on screen after evaluation; that pause
+does not count toward the measured hold.
+
+[720p recording](docs/media/pickup.webm) · [Measurements](docs/evidence/pickup-video.json) ·
+[Reproduce the capture](docs/media/PICKUP.md)
+
 ## What you can explore
 
 | Workflow | What actually happens |

@@ -1,8 +1,7 @@
 class_name SsokTheme
 extends RefCounted
 
-## Code-built Theme for the prototype shell so every panel, button and code
-## box shares one palette until a human composes the real UI in the editor.
+## Shared palette, typography and visible focus states for the workshop UI.
 
 const BG := Color("171c24")
 const BG_RAISED := Color("222a35")
@@ -98,7 +97,7 @@ static func button(text: String, icon_name: String = "") -> Button:
 	var control := Button.new()
 	control.text = text
 	control.custom_minimum_size.y = 36
-	control.focus_mode = Control.FOCUS_NONE
+	control.focus_mode = Control.FOCUS_ALL
 	if not icon_name.is_empty():
 		control.icon = icon(icon_name)
 	return control

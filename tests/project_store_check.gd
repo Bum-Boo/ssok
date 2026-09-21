@@ -43,6 +43,17 @@ func _run() -> void:
 	altered["token"] = "not-a-secret-test-field"
 	_check(not ProjectStore.valid(altered), "unexpected fields rejected")
 	_check(ProjectStore.valid(ProjectStore.document("Empty", ConnectionGraph.new(), "")), "empty workspace can be saved")
+	var empty_record: Dictionary = ProjectStore.document("Empty round-trip", ConnectionGraph.new(), "# code before adding parts")
+	var empty_result: Dictionary = ProjectStore.save(empty_record, _directory)
+	var empty_loaded: Dictionary = ProjectStore.load_project(empty_result.get("id", ""), _directory)
+	_check(not empty_loaded.is_empty() and empty_loaded.source == empty_record.source, "empty graph survives disk JSON numeric conversion with learner code")
+	_check(ProjectStore.list_projects(_directory).size() == 3, "empty project remains visible in the library")
+	var invalid_empty: Dictionary = empty_record.duplicate(true)
+	invalid_empty.graph.version = 1.5
+	_check(not ProjectStore.valid(invalid_empty), "empty graph still rejects fractional versions")
+	invalid_empty.graph.version = 1
+	invalid_empty.graph.links.append({})
+	_check(not ProjectStore.valid(invalid_empty), "empty graph cannot carry invalid dangling links")
 	_check(ProjectStore.document(" ", graph, source).is_empty(), "blank title rejected")
 	var main: Node3D = load("res://scenes/main.tscn").instantiate()
 	root.add_child(main)

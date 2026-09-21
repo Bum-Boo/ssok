@@ -23,9 +23,12 @@ The earlier educational modules cite these dimensional or layout references:
 
 - [Arduino Uno R3 A000066 datasheet](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf):
   board dimensions and header/pin placement used by the procedural Uno representation.
-- [Otto DIY](https://github.com/OttoDIY/OttoDIYLib): the four-servo educational biped layout and
+- [Otto DIY](https://www.ottodiy.com/) ([upstream library](https://github.com/OttoDIY/OttoDIYLib)):
+  the four-servo educational biped layout and
   shell proportions are described as references in `make_parts.py` and `make_part_defs.gd`.
-  Those generators build primitive geometry sized to ssok's servos; they do not import Otto STLs.
+  Those generators build primitive geometry sized to ssok's servos; they do not import Otto STLs
+  or bundle the Arduino library. Upstream software is GPL-3.0; its resource documentation also
+  identifies CC-BY-SA 4.0. The reference is attribution, not a relicensing of upstream material.
 - [Adafruit TT motor](https://www.adafruit.com/product/3777) and the dimensional references in
   [the architecture document](https://github.com/Bum-Boo/ssok/blob/main/docs/ARCHITECTURE.md): simplified motor, wheel and sensor dimensions.
 

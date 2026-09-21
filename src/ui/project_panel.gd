@@ -117,9 +117,15 @@ func _ready() -> void:
 	import_button = SsokTheme.button("Import project", "upload")
 	import_button.pressed.connect(request_import)
 	transfer_actions.add_child(import_button)
+	var footer := HBoxContainer.new()
+	layout.add_child(footer)
 	message = Label.new()
 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	layout.add_child(message)
+	message.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	footer.add_child(message)
+	var close_button: Button = SsokTheme.button("Close")
+	close_button.pressed.connect(close_panel)
+	footer.add_child(close_button)
 	_confirmation = ConfirmationDialog.new()
 	_confirmation.title = "Confirm project action"
 	_confirmation.confirmed.connect(_confirm_action)
@@ -139,6 +145,12 @@ func open_panel() -> void:
 func close_panel() -> void:
 	hide()
 	panel_closed.emit()
+
+
+func _input(event: InputEvent) -> void:
+	if visible and not _confirmation.visible and event.is_action_pressed("ui_cancel"):
+		set_input_as_handled()
+		close_panel()
 
 
 func save_current() -> void:
