@@ -52,7 +52,7 @@ jobs:
   build:
     needs: verify
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
@@ -64,17 +64,24 @@ jobs:
           key: godot-4.7.2-linux-and-templates-f298490b
       - run: python tools/ci/install_godot.py --templates
       - name: Export and audit both platforms
+        id: export
         env:
           BUILD_VERSION: ${{ github.event_name == 'release' && github.ref_name || github.sha }}
         run: python tools/ci/build.py --godot "$PWD/build/toolchain/godot" --version "$BUILD_VERSION"
       - name: Install the pinned browser test environment
+        id: browser_setup
         run: |
           python -m pip install -r tools/ci/requirements-lock.txt
           python -m playwright install --with-deps chromium
       - name: Exercise the exported WebGL application
-        run: python tools/ci/browser_smoke.py
+        if: ${{ !cancelled() && steps.export.outcome == 'success' && steps.browser_setup.outcome == 'success' }}
+        run: timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_smoke.py
       - name: Verify browser project persistence and import safety
-        run: python tools/ci/browser_authoring.py
+        if: ${{ !cancelled() && steps.export.outcome == 'success' && steps.browser_setup.outcome == 'success' }}
+        run: timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_authoring.py
+      - name: Measure real WebAssembly learned walking and stopping
+        if: ${{ !cancelled() && steps.export.outcome == 'success' && steps.browser_setup.outcome == 'success' }}
+        run: timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_physics.py
       - name: Retain real browser screenshots and console output
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -83,6 +90,7 @@ jobs:
           path: |
             build/browser-smoke/
             build/browser-authoring/
+            build/browser-physics/
           if-no-files-found: warn
       - name: Save downloadable builds and manifests
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

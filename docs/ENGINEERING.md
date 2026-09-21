@@ -42,15 +42,30 @@ and engine transfer are distinct steps. Improving training reward does not imply
 
 A trained ARS policy achieved 25/32 successful held-out MuJoCo evaluations with no falls. The same
 policy failed the Godot transfer check. The project retains both results, the frozen policy and
-the reproduction commands in [the RL evidence](RL_LAB.md). Closing that discrepancy is ongoing work;
-the policy is not advertised as a working in-app learned controller.
+the reproduction commands in [the RL evidence](RL_LAB.md). That MuJoCo policy remains a research
+artifact rather than the application's learned controller.
 
 A controlled ablation held the policy and 30 Hz action rate fixed while changing the physics
 timestep: the policy that stayed upright at 240 Hz fell at the application's 60 Hz rate, even
 inside MuJoCo. Matching policy arithmetic was insufficient because the simulator contract differed.
 Follow-up experiments therefore use 60 Hz and verify each joint's physical axis and command sign.
-A separately identified yaw-hip robot preserves the old assembly and its failed evidence; it must
-pass the same task in Godot before appearing as a verified learned example.
+A separately identified yaw-hip robot preserves the old assembly and its failed evidence. Direct
+Godot optimization learns twelve periodic coefficients and a frequency from episodic returns,
+starting from a disclosed hand-designed initialization. The frozen policy passes 31/32 held-out
+episodes with no falls and 42.2 cm mean forward travel in 12 seconds. Both feet lose contact with
+positive sole clearance; at least one foot stays grounded. This is learned periodic control,
+not learned sensor feedback or a general robot policy.
+
+Episode isolation exposed another misleading success: a candidate that passed 8/8 evaluations
+after another candidate had run passed 0/8 in fresh engine processes. Training and authoritative
+evaluation now launch one process per episode. The failed candidate and ablation remain in the
+evidence; the 31/32 result uses the corrected protocol and independent seeds.
+
+The application uses the evaluator's actual inference class and rejects changed graph or runtime
+fingerprints. Five native application start/restart flows pass. Broader rapid-restart tests retain
+122/128 successes and three falls, while attempted transition smoothing did not consistently
+improve them. Native results cover small initial perturbations in one Linux engine; WebAssembly
+walking is measured separately before release.
 
 ## Product engineering beyond the demo
 
@@ -80,8 +95,8 @@ requires actual browser interaction and desktop startup, not merely successful a
 
 The current language is a small servo teaching subset. The construction geometry is an original
 virtual standard. The gripper uses contact-triggered constraints instead of finger-friction
-planning. The legacy running experiment passes its measured flight and uprightness gates but
-retains substantial sideways drift. Robust kit locomotion and Godot-compatible learned walking
-remain unfinished release gates.
+planning. The legacy running experiment has measured flight but retains substantial sideways drift
+and an unresolved reverse-order regression. Robust kit locomotion, the remaining physical
+regressions and complete browser verification remain release gates.
 These boundaries are recorded in the product and its decision records so future work has an
 explicit starting point and reviewers can distinguish demonstrated behavior from ambition.

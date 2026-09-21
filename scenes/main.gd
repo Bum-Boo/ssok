@@ -110,6 +110,7 @@ func _ready() -> void:
 
 	_build_ui()
 	add_child(preload("res://src/ui/web_clipboard.gd").new())
+	add_child(preload("res://src/ui/browser_evidence.gd").new())
 	_build_palette()
 	_build_help_hud()
 	get_viewport().size_changed.connect(_adapt_layout)

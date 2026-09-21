@@ -10,10 +10,11 @@ import json
 from pathlib import Path
 import threading
 import time
+import traceback
 
 from playwright.sync_api import sync_playwright
 
-from browser_smoke import Handler
+from browser_smoke import Handler, capture_view, load_layout
 
 READ_DOCUMENTS = """async () => {
     const documents = [];
@@ -58,25 +59,72 @@ def main() -> None:
     url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
     logs, checks = [], []
     result = {"url": url, "passed": False, "checks": checks}
+
+    def persist():
+        (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+        (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
+        (output / "completed-checks.json").write_text(json.dumps(checks, indent=2) + "\n")
+
+    def stage(message):
+        result["stage"] = message
+        print(message, flush=True)
+        persist()
+
+    persist()
     try:
+        layout = load_layout(args.directory, output)
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
                 args=["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"])
-            page = browser.new_page(viewport={"width": 1400, "height": 950}, locale="en-US", accept_downloads=True)
-            page.on("console", lambda message: logs.append({"type": message.type, "text": message.text}))
+            context = browser.new_context(viewport=dict(zip(("width", "height"), layout["viewport"])),
+                locale="en-US", accept_downloads=True, permissions=["clipboard-read", "clipboard-write"])
+            page = context.new_page()
+            clipboard_page = context.new_page()
+            clipboard_url = url.rstrip("/") + "/__ssok_test_clipboard__"
+            clipboard_page.route(clipboard_url, lambda route: route.fulfill(body="<p>Synthetic project transfer</p>"))
+            clipboard_page.goto(clipboard_url)
+            def record_console(message):
+                logs.append({"type": message.type, "text": message.text})
+                if message.text.startswith("SSOK_TEST_PASTE"):
+                    print(message.text, flush=True)
+
+            page.on("console", record_console)
             page.on("pageerror", lambda error: logs.append({"type": "error", "text": str(error)}))
             page.add_init_script("window.readSsokDocuments = " + READ_DOCUMENTS)
+            page.add_init_script("window.addEventListener('paste', event => console.log('SSOK_TEST_PASTE ' + event.clipboardData.getData('text').length))")
+
+            def click(name):
+                stage(f"Click {name}")
+                page.mouse.click(*layout["points"][name])
+                # Browser input acknowledgements precede Godot's next canvas/UI frame.
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
 
             def ready():
                 page.wait_for_function("!document.querySelector('#status')", timeout=120000)
+                stage("Workshop ready")
 
             def capture(name):
-                page.screenshot(path=str(output / (name + ".png")))
-                print(name, flush=True)
+                stage(name)
+                capture_view(page, output / (name + ".png"))
+
+            def replace_text(name, value):
+                stage(f"Paste {len(value)} characters into {name}")
+                clipboard_page.bring_to_front()
+                clipboard_page.evaluate("""value => Promise.race([
+                    navigator.clipboard.writeText(value),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('Clipboard write timed out')), 5000))
+                ])""", value)
+                stage(f"Clipboard contains {len(value)} characters")
+                page.bring_to_front()
+                click(name)
+                page.keyboard.press("Control+A")
+                page.wait_for_timeout(250)
+                page.keyboard.press("Control+V")
+                stage(f"Paste dispatched to {name}")
 
             def export_document(name):
                 with page.expect_download(timeout=30000) as pending:
-                    page.mouse.click(565, 365)
+                    click("export")
                 download = pending.value
                 path = output / (name + ".json")
                 download.save_as(path)
@@ -84,78 +132,107 @@ def main() -> None:
 
             try:
                 page.goto(url, wait_until="networkidle", timeout=120000)
+                page.bring_to_front()
                 ready()
-                page.mouse.click(640, 528)  # Empty-workspace biped starter.
+                click("starter")
                 page.wait_for_timeout(400)
-                page.mouse.click(175, 43)
-                page.keyboard.press("Control+A")
-                page.keyboard.type("Browser saved biped")
-                page.mouse.click(410, 365)
+                click("projects")
+                replace_text("project_name", "Browser saved biped")
+                click("save")
                 deadline = time.monotonic() + 30
                 saved = None
+                documents = []
                 while time.monotonic() < deadline:
-                    saved = next((d for d in page.evaluate(READ_DOCUMENTS) if d["title"] == "Browser saved biped"), None)
+                    documents = page.evaluate(READ_DOCUMENTS)
+                    saved = next((d for d in documents if d["title"] == "Browser saved biped"), None)
                     if saved:
                         break
                     page.wait_for_timeout(250)
+                (output / "persisted-documents.json").write_text(json.dumps(documents, indent=2) + "\n")
                 assert saved is not None, "Named project was not persisted to IndexedDB"
                 assert len(saved["graph"]["parts"]) == 11, "The saved graph must be the actual biped"
                 assert "Servo(" in saved["source"], "Learner code is missing from saved project"
                 checks.append("Real user:// project persisted to browser IndexedDB")
                 capture("01-saved")
-                page.reload(wait_until="networkidle")
+                page.reload(wait_until="networkidle", timeout=120000)
                 ready()
                 assert page.evaluate(READ_DOCUMENTS)[0] == saved, "Project changed or disappeared after reload"
-                page.mouse.click(175, 43)
-                page.mouse.click(580, 460)
-                page.mouse.click(425, 655)
+                click("projects")
+                click("saved_first")
+                click("open")
                 capture("02-replace-confirmation")
                 page.keyboard.press("Enter")
                 page.wait_for_timeout(300)
                 capture("03-reopened")
-                page.mouse.click(175, 43)
+                click("projects")
                 reopened = export_document("reopened")
                 assert reopened["title"] == saved["title"], "Open failed to restore the project title"
                 assert reopened["graph"] == saved["graph"] and reopened["source"] == saved["source"], "Open failed to restore graph and source"
                 checks.append("Reload, open confirmation and exported JSON preserve graph and learner code")
                 capture("04-exported")
-                page.mouse.click(690, 530)
-                page.keyboard.press("Control+A")
-                page.keyboard.type('{"format":"ssok-project","version":999}')
-                page.mouse.click(565, 655)
-                capture("05-invalid-import-rejected")
+                transferred = dict(reopened, title="Browser imported biped")
+                replace_text("transfer_text", json.dumps(transferred))
+                click("import")
+                capture("05-import-confirmation")
+                page.keyboard.press("Enter")
+                page.wait_for_timeout(300)
+                click("projects")
+                imported = export_document("after-valid-import")
+                assert imported["title"] == transferred["title"], "Pasted JSON import failed to restore its distinct project title"
+                assert imported["graph"] == saved["graph"] and imported["source"] == saved["source"], "Clipboard JSON import changed graph or source"
+                checks.append("Actual clipboard paste, import confirmation and re-export preserve the shared project")
+                replace_text("transfer_text", '{"format":"ssok-project","version":999}')
+                click("import")
+                capture("06-invalid-import-rejected")
                 unchanged = export_document("after-invalid-import")
-                assert unchanged["graph"] == saved["graph"] and unchanged["source"] == saved["source"], "Invalid import changed current work"
+                assert unchanged["title"] == imported["title"] and unchanged["graph"] == saved["graph"] and unchanged["source"] == saved["source"], "Invalid import changed current work"
                 checks.append("Malformed/incompatible project import leaves the current project unchanged")
-                page.mouse.click(1070, 199)
-                page.mouse.click(1217, 198)
-                capture("06-blocks")
-                page.mouse.move(1260, 710)
+                click("close_projects")
+                click("blocks_tab")
+                capture("07-blocks")
+                page.mouse.move(*layout["points"]["blocks_scroll"])
                 page.mouse.wheel(0, 10000)
                 page.wait_for_timeout(300)
-                capture("07-blocks-bottom")
+                capture("08-blocks-bottom")
+                click("block_operation")
+                page.keyboard.press("End")
+                page.keyboard.press("Enter")
+                click("add_block")
+                page.mouse.move(*layout["points"]["blocks_scroll"])
+                page.mouse.wheel(0, 10000)
+                page.wait_for_timeout(300)
+                replace_text("block_seconds", "0.2")
+                click("apply_blocks")
+                capture("09-blocks-applied")
+                click("projects")
+                edited = export_document("after-block-edit")
+                assert edited["graph"] == saved["graph"], "Block edit changed assembly graph"
+                assert edited["source"].startswith(saved["source"]) and edited["source"].endswith("sleep(0.2)"), "Added/edited sleep block was not applied to learner code"
+                checks.append("Actual block addition, numeric editing and Apply preserve prior source and update exported code")
+                click("close_projects")
                 page.set_viewport_size({"width": 1152, "height": 577})
-                capture("08-compact-workshop")
+                capture("10-compact-workshop")
                 checks.append("Rendered Blocks tab and compact 1152×577 workshop captured for review")
                 errors = [entry for entry in logs if entry["type"] == "error" or entry["text"].startswith(("ERROR:", "SCRIPT ERROR:"))]
                 assert not errors, f"Browser reported errors: {errors}"
                 result.update(passed=True, errors=errors, browser=browser.version)
                 print(f"Browser authoring checks passed: {output}")
-            except BaseException:
+            except BaseException as error:
+                result["failure"] = f"{type(error).__name__}: {error}"
+                persist()
+                print(traceback.format_exc(), flush=True)
                 try:
-                    page.screenshot(path=str(output / "failure.png"), timeout=10000)
+                    capture_view(page, output / "failure.png")
                 except Exception:
                     pass  # A browser crash can prevent screenshots; preserve the original failure.
                 raise
             finally:
                 browser.close()
     except BaseException as error:
-        result["failure"] = f"{type(error).__name__}: {error}"
+        result.setdefault("failure", f"{type(error).__name__}: {error}")
         raise
     finally:
-        (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
-        (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
-        (output / "completed-checks.json").write_text(json.dumps(checks, indent=2) + "\n")
+        persist()
         if server:
             server.shutdown()
             server.server_close()

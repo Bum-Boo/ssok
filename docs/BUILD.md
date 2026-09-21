@@ -32,6 +32,8 @@ The build creates:
 - Versioned ZIP archives, `build/SHA256SUMS`, and `build/release.json` with engine/commit identity
   and a flag identifying any uncommitted source changes.
 - Export and desktop-startup logs, plus the exported resource manifests under `build/export-logs/`.
+- `build/export-logs/browser-layout.json` records actual control positions at the browser test
+  viewport, derived by Godot from the same UI source and fonts as the export.
 - `build/browser-smoke/` with real Chromium screenshots and console results.
 - `build/browser-authoring/` with saved/reopened project JSON, persistence/import results and
   screenshots of project controls, blocks and the compact desktop layout.
@@ -62,12 +64,29 @@ check deliberately removes executable lookup from `PATH` to cover the clean CI e
 For a focused development check, use `--match 'project|localization'`; `--list` prints the check
 inventory. A filtered run is not the complete release gate. The browser smoke verifies loading,
 WebGL startup and basic canvas input. Its screenshots still require visual review; complete
-save/reopen and invalid-import handling are verified by `browser_authoring.py` using actual
-IndexedDB persistence, page reload, confirmation and downloaded JSON comparisons. It sends real
-keyboard events because DOM text insertion does not enter Godot canvas text fields. Both browser
-checks are CI gates; screenshots and partial results are uploaded even when a check fails.
+save/reopen, JSON transfer and block editing are verified by `browser_authoring.py` using actual
+IndexedDB persistence, page reload, confirmation and downloaded JSON comparisons. An isolated
+browser context pastes synthetic JSON through the clipboard and Ctrl+V into the Godot canvas;
+DOM text insertion does not enter these fields. Browser checks are independent CI gates;
+each runs after a successful export/setup even if another browser check fails, and screenshots
+and partial results are uploaded on failure.
+Each CI browser command has a ten-minute overall deadline as well as its individual waits.
+Screenshots capture Chromium's actual view through CDP; Godot draws its own fonts, so these
+captures do not wait for DOM-font stabilization. Stages and partial results are written as work proceeds.
+The Web-only `WebClipboard` bridge preserves a trusted browser paste before Godot's native text
+editing action; it requests no clipboard permission in the product (see [ADR 0016](adr/0016-native-browser-paste.md)).
+Canvas clicks use the build's named control anchors rather than fixed button coordinates. When
+checking a deployed URL, keep the matching local build and its layout manifest available.
 Four-language UI and learning flows require their dedicated checks and release review.
 No finite test suite certifies real hardware, every browser or every possible learner assembly.
+
+`browser_physics.py` uses the `?ssok_verify=1` read-only observer to measure the actual bundled
+learned starter through real Run-mode clicks and W input. Its 720-interval walking snapshot and
+90-interval released-command snapshot do not grow when browser polling is delayed. It checks the
+same app displacement, heading, uprightness and height gates, unchanged graph/runtime fingerprints,
+and positive collision-sole clearance for both feet. The observer exposes no command/setter API
+and never pauses the simulation; ordinary URLs do not activate it. See [ADR 0017](adr/0017-read-only-browser-physics-evidence.md).
+Run this against the exact exported or deployed build; native policy evaluation alone is not Web evidence.
 
 ## Local Web preview
 

@@ -23,6 +23,8 @@ func _run() -> void:
 	_point("starter", _button(main._empty_panel, "Start with a biped"))
 	_point("projects", main.projects_button)
 	_point("run_mode", main.mode_button)
+	_point("learned_starter", main.learned_biped_button)
+	_points["world_focus"] = [root.size.x * 0.5, root.size.y * 0.5]
 	_point("run_code", main.run_button)
 	main._on_biped_pressed()
 	await _settle()
