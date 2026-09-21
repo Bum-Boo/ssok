@@ -51,6 +51,13 @@ fingerprints stayed unchanged. [Raw Web result and exact review-build hashes](ev
 retain the evidence. This one browser episode is separate from native held-out/restart statistics;
 the final clean release must repeat the browser gate, and other browsers remain unverified.
 
+The subsequent [clean `0b2fe24` browser run](evidence/browser_clean_0b2fe24_2026-09-22/README.md)
+**failed** the unchanged lateral gate: 0.421612 m forward, 0.101064 m lateral and 10.865577° yaw
+over 12 seconds. The robot remained upright and both feet lifted, but the 0.10 m lateral limit
+still applies. Native fresh-process settle-83 and settle-84 diagnostics passed 737 checks each;
+they did not reproduce or replace the Web failure. The frozen policy therefore needs improved
+start/platform robustness and new clean browser evidence before release approval.
+
 The first [24-episode stop/restart check](evidence/rl_2026-09-22/godot_yaw_restart_v1.json) passed
 22 episodes, with one fall. An expanded characterization used eight walking durations, four pause
 lengths and four new seeds (128 episodes). It passed **122/128 (95.3%)** when forward and heading

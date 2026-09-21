@@ -92,6 +92,12 @@ WebAssembly gate: 0.429881 m forward in 12 seconds, 0.070111 m lateral, 12.807°
 uprightness 0.958920, both feet lifting, and uprightness 0.999881 after stopping. Its raw result and
 exact archive/payload hashes are retained. That dirty review snapshot is not a completed public
 release; every clean release build must pass all browser gates independently.
+
+The subsequent [clean `0b2fe24` checkpoint](evidence/browser_clean_0b2fe24_2026-09-22/README.md)
+exported Web/Linux successfully and passed smoke and full authoring. Its physical browser gate
+failed: lateral displacement was 0.101064 m against the unchanged 0.10 m limit. The exact build,
+raw failure, fingerprints and separate native start-time diagnostics are retained. This checkpoint
+does not approve release; the earlier review episode does not override its failure.
 The same exported bytes also passed the complete project/clipboard/block authoring flow twice in
 fresh Chromium contexts. Both raw results and reviewed compact/editor screenshots are linked from
 that evidence page. Input steps wait for Godot's next canvas frames before acting on changed UI.
