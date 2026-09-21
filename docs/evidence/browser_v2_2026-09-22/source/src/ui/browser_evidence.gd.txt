@@ -24,6 +24,11 @@ var _feet: Array[int] = []
 var _foot_air_frames: Array[int] = []
 var _foot_clearance: Array[float] = []
 var _policy_version: int = 1
+var _episode: int = 0
+var _previous_forward: bool = false
+var _command_frames: int = 0
+var _released_frames: int = 0
+var _previous_episodes: Array[Dictionary] = []
 
 
 func _ready() -> void:
@@ -56,8 +61,32 @@ func _observe() -> void:
 	snapshot["ready"] = true
 	snapshot["command"] = [command.x, command.y]
 	snapshot["settle_frames"] = _settle_frames
+	snapshot["physics_frame"] = Engine.get_physics_frames()
+	_command_frames = _command_frames + 1 if forward else 0
+	_released_frames = 0 if forward else _released_frames + 1
+	snapshot["command_frames"] = _command_frames
+	snapshot["released_frames"] = _released_frames
+	if forward and not _previous_forward and snapshot.has("walk"):
+		var previous: Dictionary = {"episode": _episode,
+			"started_at_physics_frame": snapshot.started_at_physics_frame,
+			"walk": snapshot.walk.duplicate(true)}
+		if snapshot.has("stop"):
+			previous["stop"] = snapshot.stop.duplicate(true)
+		_previous_episodes.append(previous)
+		snapshot["previous_episodes"] = _previous_episodes.duplicate(true)
+		snapshot.erase("walk")
+		snapshot.erase("stop")
+		_walk_frames = 0
+		_stop_frames = -1
+		_minimum_up = 1.0
+		_minimum_height = INF
+		_finite = true
+		_foot_air_frames.fill(0)
+		_foot_clearance.fill(0.0)
 	if not _walking and not snapshot.has("walk"):
 		if forward:
+			_episode += 1
+			snapshot["episode"] = _episode
 			_walking = true
 			_start = body.global_position
 			_initial = body.global_basis.orthonormalized()
@@ -91,11 +120,17 @@ func _observe() -> void:
 		elif _stop_frames >= 0:
 			_stop_frames = -1
 	snapshot["walk_frames"] = _walk_frames
+	_previous_forward = forward
 
 
 func _reset(body: RigidBody3D, hardware: RunMode, motion: LearnedBipedMotion, graph: ConnectionGraph) -> void:
 	_body_id = body.get_instance_id()
 	_policy_version = int(motion.policy.get("version", 1))
+	_episode = 0
+	_previous_forward = false
+	_command_frames = 0
+	_released_frames = 0
+	_previous_episodes.clear()
 	_settle_frames = 0
 	_walking = false
 	_walk_frames = 0
@@ -126,6 +161,8 @@ func _reset(body: RigidBody3D, hardware: RunMode, motion: LearnedBipedMotion, gr
 		"policy_runtime_fingerprint": motion.policy.get("runtime_fingerprint", ""),
 		"policy_fingerprint": JSON.stringify(motion.policy, "", true, true).sha256_text(),
 		"foot_part_indices": _feet.duplicate(),
+		"observer_variant": "probe-multiple-command-episodes-v1",
+		"episode": 0, "previous_episodes": [],
 	}
 
 
@@ -161,6 +198,7 @@ func _finish_walk(body: RigidBody3D, hardware: RunMode, graph: ConnectionGraph, 
 	var yaw: float = rad_to_deg(_initial.z.signed_angle_to(body.global_basis.z, Vector3.UP))
 	snapshot["walk"] = {
 		"frames": _walk_frames, "seconds": float(_walk_frames) / Engine.physics_ticks_per_second,
+		"finished_at_physics_frame": Engine.get_physics_frames(),
 		"finite": _finite, "failure": failure,
 		"forward": displacement.z if is_finite(displacement.z) else 0.0,
 		"lateral": displacement.x if is_finite(displacement.x) else 0.0,
