@@ -80,6 +80,8 @@ requires actual browser interaction and desktop startup, not merely successful a
 
 The current language is a small servo teaching subset. The construction geometry is an original
 virtual standard. The gripper uses contact-triggered constraints instead of finger-friction
-planning. Stable running and Godot-compatible learned walking remain unfinished release gates.
+planning. The legacy running experiment passes its measured flight and uprightness gates but
+retains substantial sideways drift. Robust kit locomotion and Godot-compatible learned walking
+remain unfinished release gates.
 These boundaries are recorded in the product and its decision records so future work has an
 explicit starting point and reviewers can distinguish demonstrated behavior from ambition.

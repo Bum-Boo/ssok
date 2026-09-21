@@ -15,8 +15,15 @@ var lift_m: float = 0.018
 var stance_height: float = 0.465
 var balance_gain: float = 1.0
 var lean_degrees: float = 3.0
-var run_bounce: float = 0.04
-var run_period: float = 0.7
+var run_bounce: float = 0.046
+var run_period: float = 0.817
+var run_stride_m: float = 0.038
+var run_swing_height: float = 0.022
+var run_stride_phase: float = -0.383
+var run_lean_degrees: float = 2.0
+var run_speed_mps: float = 0.06
+var run_support_position_gain: float = 9.58
+var run_support_velocity_gain: float = 1.742
 var grasped: bool = false
 var pickup_state: String = "idle"
 var pickup_policy: Dictionary = {
@@ -29,6 +36,7 @@ var _box_part: int = -1
 var _grips: Array[PinJoint3D] = []
 var _drives: Dictionary = {}
 var _speed: float = 0.0
+var _run_bodies: Array[RigidBody3D] = []
 
 
 func configure(hardware: RunMode, graph: ConnectionGraph) -> bool:
@@ -131,6 +139,7 @@ func _configure_modular_side(hardware: RunMode, side: String) -> bool:
 
 func set_enabled(enabled: bool) -> void:
 	if not enabled:
+		_run_bodies.clear()
 		release_box()
 		pickup_state = "idle"
 		running = false
@@ -189,18 +198,70 @@ func _pose(phase: float) -> void:
 
 func _run_pose() -> void:
 	var phase: float = TAU * elapsed / run_period
+	var support_feedback: float = _running_balance_correction()
 	for side: String in ["left", "right"]:
 		var leg_phase: float = phase + (PI if side == "right" else 0.0)
 		var wave: float = sin(leg_phase)
-		var z: float = -0.065 * cos(leg_phase) * _speed
-		var height: float = 0.445 + run_bounce * absf(wave) - 0.035 * maxf(wave, 0.0)
+		var z: float = -run_stride_m * cos(leg_phase + run_stride_phase) * _speed
+		var height: float = 0.445 + run_bounce * cos(2.0 * phase) - run_swing_height * maxf(wave, 0.0)
 		var bend: float = acos(clampf((height * height + z * z - 2.0 * 0.24 * 0.24) / (2.0 * 0.24 * 0.24), -1.0, 1.0))
 		var hip: float = atan2(-z, height) - bend * 0.5
 		_write(side + "_hip", rad_to_deg(hip))
 		_write(side + "_knee", rad_to_deg(bend))
-		_write(side + "_ankle", rad_to_deg(-hip - bend + _balance_correction()) - lean_degrees * _speed)
+		_write(side + "_ankle", rad_to_deg(-hip - bend + support_feedback) - run_lean_degrees * _speed)
 		_write(side + "_shoulder", 25.0 * cos(leg_phase) * _speed)
 		_write(side + "_elbow", -45.0)
+
+
+func _running_balance_correction() -> float:
+	if _run_bodies.is_empty():
+		_cache_run_bodies()
+	var center: Vector3 = Vector3.ZERO
+	var velocity: Vector3 = Vector3.ZERO
+	var mass: float = 0.0
+	for body: RigidBody3D in _run_bodies:
+		center += body.to_global(body.center_of_mass) * body.mass
+		velocity += body.linear_velocity * body.mass
+		mass += body.mass
+	center /= mass
+	velocity /= mass
+	var support: Vector3 = Vector3.ZERO
+	for side: String in ["left", "right"]:
+		var foot: RigidBody3D = _hardware.bodies[role_parts[side + "_ankle"]]
+		support += foot.to_global(foot.center_of_mass) * 0.5
+	var torso: RigidBody3D = _hardware.bodies[body_part]
+	var forward: Vector3 = torso.global_basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+	return clampf((center - support).dot(forward) * run_support_position_gain
+		+ (velocity.dot(forward) - run_speed_mps * _speed) * run_support_velocity_gain
+		+ torso.angular_velocity.dot(torso.global_basis.x) * 0.1, -0.6, 0.6)
+
+
+func _cache_run_bodies() -> void:
+	var connected: Dictionary = {body_part: true}
+	var pending: Array[int] = [body_part]
+	while not pending.is_empty():
+		var current: int = pending.pop_back()
+		for link: Dictionary in _graph.links:
+			if link.a_part != current and link.b_part != current:
+				continue
+			var definition: PartDef = _graph.parts[link.a_part].part_def
+			var mechanical: bool = false
+			for port: Port in definition.ports:
+				if port.id == link.a_port:
+					mechanical = port.kind == Port.Kind.MECH
+					break
+			var other: int = link.b_part if link.a_part == current else link.a_part
+			if mechanical and not connected.has(other):
+				connected[other] = true
+				pending.append(other)
+	var seen: Dictionary = {}
+	for index: int in _hardware.bodies.size():
+		var body: RigidBody3D = _hardware.bodies[index]
+		if connected.has(index) and not seen.has(body):
+			seen[body] = true
+			_run_bodies.append(body)
 
 
 func request_pickup() -> bool:

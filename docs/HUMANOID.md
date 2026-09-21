@@ -1,6 +1,6 @@
 # 실제 물리 사람형 로봇 — 실험용
 
-2026-09-15. **걷기·느린 후진·접촉 후 상자 집기/놓기는 검증했다. 안정적인 달리기는 미완료다.**
+2026-09-22. **걷기·느린 후진·접촉 후 상자 집기/놓기를 검증했다. 달리기는 실제 공중 구간과 20초 자세 유지 기준을 통과했으나 직진 제어는 미완료다.**
 기존 네 서보 이족 로봇과 별도 예제이며, 사람 동작을 학습한 모델이나 실제 하드웨어용 제어기가 아니다.
 
 ## 직접 실행
@@ -28,7 +28,7 @@ godot --path . --language ko --script tools/godot/play_humanoid.gd
 실행 진입점은 편집 상태로 시작하며 자동으로 조종하거나 유료 API를 호출하지 않는다.
 
 - W/S 또는 스틱 위/아래: 전진 / 느린 후진. A/D 회전은 아직 지원하지 않는다.
-- Shift 또는 게임패드 B 누르고 이동: **불안정한 달리기 실험**. 현재 넘어질 수 있고 성공 기준 미달이다.
+- Shift 또는 게임패드 B 누르고 이동: **달리기 실험**. 평지 회귀 검사에서 비행·착지·자세 유지 기준을 통과했지만 옆으로 흐르며 방향 제어를 보장하지 않는다.
 - E 또는 게임패드 X: 가까운 정면 상자를 집거나 놓는다. 웅크리기·양손 뻗기·들어 올리기에 몇 초가 걸린다.
 - Space/게임패드 A: 이동 제동. 정지·코드 조종 전환·튜토리얼 열기는 잡기도 해제한다.
 - 넘어지거나 집기가 실패하면 실행 모드를 껐다 켜서 원래 그래프 자세로 초기화한다.
@@ -69,11 +69,17 @@ Godot 4.7.2, GodotPhysics, 60 Hz, 평지, 20초 시뮬레이션(3초 정착 후 
 | 느린 후진 | 약 -0.200 m, 최소 수직 내적 0.996 | 33 검사 통과; 전진보다 느림 |
 | 링크 A/B 순서 반전 후 전진 | 약 0.813 m | 33 검사 통과 |
 | 집기·유지·놓기 | 양손 접촉 후 약 0.424 m 상승, E 해제 후 중력 낙하 | 39 검사 통과 |
-| 달리기 | 약 -0.197 m로 역방향 이동 후 낙상, 검증된 공중 프레임 0 | **34 검사 중 3 실패** |
+| 달리기 | 약 0.994 m 전진, 최소 수직 내적 0.971, 실제 공중 49프레임·최대 연속 5프레임 | 35 검사 통과; 옆으로 약 0.367 m 흐름 |
 
-발목 롤 관절 2개를 추가한 균형 실험은 기존 걷기/집기를 악화시켜 이번 버전에 포함하지 않았다.
-현재 달리기를 고속 보행이나 애니메이션으로 성공 처리하지 않는다. 향후 질량/관절 축/충돌 형상과
-좌우 균형 제어를 함께 검증한 뒤 공중 구간·착지·반복 안정성을 해결해야 한다.
+달리기는 양다리의 실제 신전/굴곡 주기와 로봇 전체 질량중심·속도 피드백을 발목 모터에
+적용한다. 토크 한계, 관절 축, 질량, 충돌 형상과 중력은 바꾸지 않았다. 피드백 질량에는 기계적으로
+연결된 로봇만 포함하며 떨어진 상자나 작업실의 별도 부품은 포함하지 않는다.
+
+정착 시간을 119/120/179/180/181/239/240프레임으로 바꾸고 각 경우 링크 A/B도 뒤집은
+원격 14개 조건 모두 원래의 전진·자세·비행 기준을 통과했다. 전진 0.529–1.160 m,
+최소 수직 내적 0.964 이상, 공중 21–77프레임, 연속 2–7프레임이었다. 다만 좌우 변위의
+절댓값은 최대 0.873 m였으므로 정밀 직진이나 사람 같은 달리기의 증거는 아니다.
+[원격 검증 기록](evidence/legacy-humanoid-run.json)에 각 조건을 보존했다.
 
 ```sh
 godot --headless --path . --script tests/humanoid_contract_check.gd
@@ -81,7 +87,7 @@ godot --headless --path . --fixed-fps 60 --script tests/humanoid_motion_check.gd
 godot --headless --path . --fixed-fps 60 --script tests/humanoid_motion_check.gd -- backward
 godot --headless --path . --fixed-fps 60 --script tests/humanoid_motion_check.gd -- pick
 godot --headless --path . --fixed-fps 60 --script tests/humanoid_motion_check.gd -- walk --reverse-links
-# Known failing acceptance check: do not report sprinting complete while this fails.
+# Includes actual bilateral flight measurements; lateral drift remains a limitation.
 godot --headless --path . --fixed-fps 60 --script tests/humanoid_motion_check.gd -- run
 godot --headless --path . --script tests/humanoid_ui_check.gd
 godot --path . --script tests/humanoid_ui_check.gd -- --screenshots

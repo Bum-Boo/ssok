@@ -64,6 +64,9 @@ func _run() -> void:
 	_check(motion.pickup_state == "reaching", "viewport E requests contact-based pickup")
 	for frame: int in range(390):
 		await physics_frame
+	var torso: RigidBody3D = _main.run_mode.bodies[motion.body_part]
+	var cargo: RigidBody3D = _main.run_mode.bodies[motion._box_part]
+	print("humanoid_ui_pickup: modular=%s state=%s grasped=%s fallen=%s cargo_height=%.4f upright=%.4f" % [modular, motion.pickup_state, motion.grasped, motion.fallen, cargo.global_position.y, torso.global_basis.y.y])
 	_check(motion.grasped and motion.pickup_state == "holding", "application reaches and lifts real box")
 	for locale: String in ["ko", "zh_CN", "ja"]:
 		SsokLocale.select_locale(locale, false)

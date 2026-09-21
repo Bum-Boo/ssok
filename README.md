@@ -92,7 +92,9 @@ flowchart LR
 ## Current measured limits
 
 The elementary-kit pickup now clears the original 25 cm / 1 second gate, including perturbed
-box positions and reversed graph ordering. Stable running remains a failing release check.
+box positions and reversed graph ordering. The legacy humanoid now passes its flight and uprightness
+gates across 14 start/order variants, but can drift sideways by up to 0.87 m; it is a running
+experiment with limited directional control. Final clean-revision CI remains required.
 MuJoCo learning has improved on held-out seeds, but its policy has **not** passed the Godot
 transfer gate. The repository keeps these distinctions visible. See the linked evidence for
 exact conditions, measured values and reproducible commands.

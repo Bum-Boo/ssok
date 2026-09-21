@@ -11,6 +11,10 @@ func _initialize() -> void:
 func _run() -> void:
 	var args: PackedStringArray = OS.get_cmdline_user_args()
 	var action: String = args[0] if not args.is_empty() else "walk"
+	var settle_frames: int = 180
+	for argument: String in args:
+		if argument.begins_with("--settle-frames="):
+			settle_frames = clampi(argument.get_slice("=", 1).to_int(), 60, 300)
 	if action not in ["walk", "backward", "pick", "run"]:
 		push_error("Expected walk, backward, pick or run")
 		quit(1)
@@ -68,7 +72,7 @@ func _run() -> void:
 	var initial_box_height: float = 0.0
 	motion.set_enabled(true)
 	for frame: int in range(1200):
-		if frame == 180:
+		if frame == settle_frames:
 			start = torso.global_position
 			initial_box_height = box.global_position.y
 			if action == "pick":
@@ -90,7 +94,7 @@ func _run() -> void:
 			_check(motion._grips.size() == 2, "bilateral contact creates two constraints")
 		max_box_height = maxf(max_box_height, box.global_position.y)
 		min_up = minf(min_up, torso.global_basis.y.dot(Vector3.UP))
-		if frame > 180:
+		if frame > settle_frames:
 			var airborne: bool = floor not in left.get_colliding_bodies() and floor not in right.get_colliding_bodies() and _sole_height(left) > 0.002 and _sole_height(right) > 0.002
 			air_streak = air_streak + 1 if airborne else 0
 			air_frames += int(airborne)
@@ -107,6 +111,7 @@ func _run() -> void:
 		_check(displacement.z * (-1 if action == "backward" else 1) > minimum_distance, "measurable commanded motion (30 cm forward, 10 cm slow reverse)")
 		if action == "run":
 			_check(max_air_streak >= 2 and air_frames >= 8, "running requires measured flight, not just a faster pose cycle")
+			_check(motion._run_bodies.size() == 13 and box not in motion._run_bodies, "running balances connected robot mass without remote cargo")
 	_check(MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)) == fingerprint, "simulation never mutates assembly graph")
 	for drive: ServoDrive in hardware.servos.values():
 		_check(drive.torque_limit_nm > 0 and drive.target_deg >= drive.relative_min_deg and drive.target_deg <= drive.relative_max_deg, "motor torque and target bounds")

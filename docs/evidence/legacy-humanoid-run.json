@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "date": "2026-09-22",
+  "engine": "4.7.2-stable official",
+  "physics_hz": 60,
+  "simulation_seconds": 20,
+  "remote_host": "himmel",
+  "remote_job": "20260922-045426-ssok-run-confirmation-2cb79e15",
+  "controller_sha256": "ccaf62b5ef15800b2b28359faf51120a3b274861ac945f61397491a99ce577ec",
+  "gates": {
+    "forward_m": 0.3,
+    "min_upright": 0.85,
+    "min_air_frames": 8,
+    "min_consecutive_air_frames": 2,
+    "sole_clearance_m": 0.002
+  },
+  "limitations": [
+    "Lateral displacement reaches 0.873 m; precise heading is not verified.",
+    "Flat floor and fixed morphology only; no hardware transfer evidence."
+  ],
+  "cases": [
+    {
+      "settle_frames": 119,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        -0.515402,
+        0.038038,
+        0.529378
+      ],
+      "min_upright": 0.964,
+      "air_frames": 49,
+      "longest_flight_frames": 6
+    },
+    {
+      "settle_frames": 119,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        -0.269237,
+        0.028332,
+        1.1595
+      ],
+      "min_upright": 0.978,
+      "air_frames": 66,
+      "longest_flight_frames": 6
+    },
+    {
+      "settle_frames": 120,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        -0.401177,
+        0.014775,
+        1.138801
+      ],
+      "min_upright": 0.977,
+      "air_frames": 37,
+      "longest_flight_frames": 4
+    },
+    {
+      "settle_frames": 120,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        -0.873242,
+        0.013813,
+        0.668997
+      ],
+      "min_upright": 0.983,
+      "air_frames": 43,
+      "longest_flight_frames": 5
+    },
+    {
+      "settle_frames": 179,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        -0.64948,
+        -0.070964,
+        0.921718
+      ],
+      "min_upright": 0.981,
+      "air_frames": 47,
+      "longest_flight_frames": 7
+    },
+    {
+      "settle_frames": 179,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        -0.594414,
+        -0.050795,
+        0.87922
+      ],
+      "min_upright": 0.983,
+      "air_frames": 22,
+      "longest_flight_frames": 4
+    },
+    {
+      "settle_frames": 180,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        0.366983,
+        -0.041745,
+        0.99449
+      ],
+      "min_upright": 0.971,
+      "air_frames": 49,
+      "longest_flight_frames": 5
+    },
+    {
+      "settle_frames": 180,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        -0.119756,
+        -0.048696,
+        0.846185
+      ],
+      "min_upright": 0.977,
+      "air_frames": 32,
+      "longest_flight_frames": 5
+    },
+    {
+      "settle_frames": 181,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        -0.174934,
+        -0.039218,
+        1.123559
+      ],
+      "min_upright": 0.977,
+      "air_frames": 77,
+      "longest_flight_frames": 7
+    },
+    {
+      "settle_frames": 181,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        -0.383525,
+        -0.042797,
+        0.981477
+      ],
+      "min_upright": 0.971,
+      "air_frames": 29,
+      "longest_flight_frames": 4
+    },
+    {
+      "settle_frames": 239,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        -0.496437,
+        0.029274,
+        0.988003
+      ],
+      "min_upright": 0.983,
+      "air_frames": 44,
+      "longest_flight_frames": 6
+    },
+    {
+      "settle_frames": 239,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        0.136112,
+        0.033067,
+        1.027671
+      ],
+      "min_upright": 0.983,
+      "air_frames": 21,
+      "longest_flight_frames": 2
+    },
+    {
+      "settle_frames": 240,
+      "reverse_links": false,
+      "passed": true,
+      "displacement_m": [
+        -0.403814,
+        0.040375,
+        0.987241
+      ],
+      "min_upright": 0.982,
+      "air_frames": 66,
+      "longest_flight_frames": 6
+    },
+    {
+      "settle_frames": 240,
+      "reverse_links": true,
+      "passed": true,
+      "displacement_m": [
+        -0.283924,
+        0.02963,
+        1.061285
+      ],
+      "min_upright": 0.982,
+      "air_frames": 35,
+      "longest_flight_frames": 4
+    }
+  ]
+}
