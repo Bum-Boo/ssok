@@ -64,8 +64,11 @@ evidence; the 31/32 result uses the corrected protocol and independent seeds.
 The application uses the evaluator's actual inference class and rejects changed graph or runtime
 fingerprints. Five native application start/restart flows pass. Broader rapid-restart tests retain
 122/128 successes and three falls, while attempted transition smoothing did not consistently
-improve them. Native results cover small initial perturbations in one Linux engine; WebAssembly
-walking is measured separately before release.
+improve them. Native results cover small initial perturbations in one Linux engine. A separate
+Chromium WebAssembly episode measures 43.0 cm forward travel, 7.0 cm lateral drift and 12.8 degrees
+heading change across exactly 720 physics intervals. Both feet clear the floor, and the robot
+remains upright after release. The exported application provides only a query-gated read-only
+observer; the browser supplies actual keyboard input. The final clean release repeats this gate.
 
 ## Product engineering beyond the demo
 
@@ -95,8 +98,8 @@ requires actual browser interaction and desktop startup, not merely successful a
 
 The current language is a small servo teaching subset. The construction geometry is an original
 virtual standard. The gripper uses contact-triggered constraints instead of finger-friction
-planning. The legacy running experiment has measured flight but retains substantial sideways drift
-and an unresolved reverse-order regression. Robust kit locomotion, the remaining physical
-regressions and complete browser verification remain release gates.
+planning. The legacy running experiment passes its 14 start/order cases with measured flight, but
+retains up to 0.777 m sideways drift. Robust kit locomotion, the remaining legacy-biped regression
+and final clean-build browser verification remain release gates.
 These boundaries are recorded in the product and its decision records so future work has an
 explicit starting point and reviewers can distinguish demonstrated behavior from ambition.

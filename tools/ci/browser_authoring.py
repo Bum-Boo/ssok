@@ -120,6 +120,7 @@ def main() -> None:
                 page.keyboard.press("Control+A")
                 page.wait_for_timeout(250)
                 page.keyboard.press("Control+V")
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 stage(f"Paste dispatched to {name}")
 
             def export_document(name):
@@ -195,8 +196,12 @@ def main() -> None:
                 page.wait_for_timeout(300)
                 capture("08-blocks-bottom")
                 click("block_operation")
-                page.keyboard.press("End")
+                # Up wraps the initial/empty focus to the profile's final Wait operation.
+                page.keyboard.press("ArrowUp")
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
+                capture("08a-wait-operation")
                 page.keyboard.press("Enter")
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 click("add_block")
                 page.mouse.move(*layout["points"]["blocks_scroll"])
                 page.mouse.wheel(0, 10000)

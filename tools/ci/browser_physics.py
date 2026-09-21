@@ -109,6 +109,8 @@ def main() -> None:
                 errors.extend(item["text"] for item in logs if item["type"] == "error" or item["text"].startswith(("ERROR:", "SCRIPT ERROR:")))
                 check(not errors, "No browser or engine errors")
                 stage("measured")
+                # The robot can walk out of the initial camera view; Home frames actual run bodies.
+                page.keyboard.press("Home")
                 capture_view(page, output / "learned-after-stop.png")
                 result["passed"] = True
                 print(json.dumps(walk, indent=2), flush=True)

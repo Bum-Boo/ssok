@@ -49,6 +49,17 @@ does not count toward the measured hold.
 [720p recording](docs/media/pickup.webm) · [Measurements](docs/evidence/pickup-video.json) ·
 [Reproduce the capture](docs/media/PICKUP.md)
 
+## Watch learned forward walking
+
+![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
+
+The actual workshop runs its frozen learned policy through graph-wired joint motors. In this
+recorded episode, holding W for **12 seconds** moves the robot **42.0 cm** forward; releasing W
+leaves it standing. The camera follows its horizontal travel while preserving the editing view.
+
+[1152 × 648 recording](docs/media/learned-walk.mp4) · [Full-size still](docs/media/learned-walk.png) ·
+[Measurements](docs/evidence/learned-app-recording.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
+
 ## What you can explore
 
 | Workflow | What actually happens |
@@ -92,14 +103,17 @@ flowchart LR
 ## Current measured limits
 
 The elementary-kit pickup now clears the original 25 cm / 1 second gate, including perturbed
-box positions and reversed graph ordering. The legacy humanoid now passes its flight and uprightness
-gates across 14 start/order variants, but can drift sideways by up to 0.87 m; it is a running
-experiment with limited directional control. Final clean-revision CI remains required.
+box positions and reversed graph ordering. The legacy humanoid's visible palm pads fix a contact
+margin problem. With the new geometry, measured center of mass and smoother entry, **14 of 14**
+running start/order variants pass. Forward travel ranges from 0.738 to 1.230 m, with sideways drift
+up to 0.777 m, so directional control remains limited. Final clean-revision CI remains required.
 MuJoCo learning has improved on held-out seeds, but its policy has **not** passed the Godot
 transfer gate. A separate yaw-hip robot trained directly in Godot now succeeds on **31 of 32
 held-out trials**, with no falls and 42.2 cm mean forward travel in 12 seconds. Each episode
-starts a fresh native Linux engine process; failed trials remain in the evidence. Five actual-app
-start/restart checks pass, but rapid restarts and WebAssembly locomotion remain under review.
+starts a fresh native Linux engine process; failed trials remain in the evidence. Five native
+actual-app start/restart checks pass. A separate Chromium WebAssembly episode travels 43.0 cm,
+records positive clearance under both feet and stays upright after release. Rapid restarts remain
+limited, and the final clean exported build needs the same browser checks.
 These measurements cover one robot, small initial-velocity perturbations and 0–3 second start delays.
 See the linked evidence for
 exact conditions, measured values and reproducible commands.

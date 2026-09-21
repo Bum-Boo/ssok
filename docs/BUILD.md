@@ -87,6 +87,14 @@ same app displacement, heading, uprightness and height gates, unchanged graph/ru
 and positive collision-sole clearance for both feet. The observer exposes no command/setter API
 and never pauses the simulation; ordinary URLs do not activate it. See [ADR 0017](adr/0017-read-only-browser-physics-evidence.md).
 Run this against the exact exported or deployed build; native policy evaluation alone is not Web evidence.
+The [22 September review snapshot](evidence/browser_2026-09-22/README.md) passed this real Chromium
+WebAssembly gate: 0.429881 m forward in 12 seconds, 0.070111 m lateral, 12.807° yaw, minimum
+uprightness 0.958920, both feet lifting, and uprightness 0.999881 after stopping. Its raw result and
+exact archive/payload hashes are retained. That dirty review snapshot is not a completed public
+release; every clean release build must pass all browser gates independently.
+The same exported bytes also passed the complete project/clipboard/block authoring flow twice in
+fresh Chromium contexts. Both raw results and reviewed compact/editor screenshots are linked from
+that evidence page. Input steps wait for Godot's next canvas frames before acting on changed UI.
 
 ## Local Web preview
 

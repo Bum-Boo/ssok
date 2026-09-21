@@ -40,8 +40,16 @@ W after 1, 2 and 3 seconds, and walking for 3 seconds followed by a 1-second sto
 Each passes 734 assertions including real keyboard input, upright stopping, graph immutability,
 modified-graph rejection and returning to the original starter. Travel is 0.408–0.427 m and minimum
 upright alignment is 0.9577–0.9714. [Per-flow app evidence](evidence/rl_2026-09-22/godot_yaw_app.json)
-records these results. **Actual WebAssembly walking remains unverified** until the exported-browser
-physics check completes; native tests alone do not establish it.
+records these results.
+
+A separate **actual WebAssembly application check passed** in Chromium 153.0.8010.12. Real W input
+covered exactly 720 physics intervals (12 seconds): 0.429881 m forward, 0.070111 m lateral drift,
+12.807° yaw, minimum uprightness 0.958920 and minimum height 0.128712 m. Both feet lifted above
+0.5 mm for 175/274 frames, with maximum collision-sole clearances 7.684/13.230 mm. After releasing
+W for 90 intervals, uprightness was 0.999881 and the command was zero. Graph and runtime
+fingerprints stayed unchanged. [Raw Web result and exact review-build hashes](evidence/browser_2026-09-22/README.md)
+retain the evidence. This one browser episode is separate from native held-out/restart statistics;
+the final clean release must repeat the browser gate, and other browsers remain unverified.
 
 The first [24-episode stop/restart check](evidence/rl_2026-09-22/godot_yaw_restart_v1.json) passed
 22 episodes, with one fall. An expanded characterization used eight walking durations, four pause
