@@ -16,8 +16,8 @@ import urllib.request
 import uuid
 
 MODEL = "gpt-5.6-luna"
-DEFAULT_POLICY = dict(cycle_seconds=2.4, stride_degrees=16.0,
-                      lean_degrees=20.0, posture_degrees=4.0)
+DEFAULT_POLICY = dict(cycle_seconds=3.45, stride_degrees=10.5,
+                      lean_degrees=18.5, posture_degrees=-9.8)
 BOUNDS = dict(cycle_seconds=(0.8, 4.0), stride_degrees=(0.0, 35.0),
               lean_degrees=(0.0, 35.0), posture_degrees=(-10.0, 10.0))
 POLICY_SCHEMA = {

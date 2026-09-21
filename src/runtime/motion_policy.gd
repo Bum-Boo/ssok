@@ -12,7 +12,7 @@ const LIMITS: Dictionary = {
 
 
 static func defaults() -> Dictionary:
-	return {"cycle_seconds": 2.4, "stride_degrees": 16.0, "lean_degrees": 20.0, "posture_degrees": 4.0}
+	return {"cycle_seconds": 3.45, "stride_degrees": 10.5, "lean_degrees": 18.5, "posture_degrees": -9.8}
 
 
 static func validate(value: Variant) -> String:

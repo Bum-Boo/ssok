@@ -5,10 +5,10 @@ extends RobotMotionProgram
 
 const ROLES: Array[StringName] = [&"left_hip", &"right_hip", &"left_ankle", &"right_ankle"]
 
-@export var cycle_seconds: float = 2.4
-@export var stride_degrees: float = 16.0
-@export var lean_degrees: float = 20.0
-@export var posture_degrees: float = 4.0
+@export var cycle_seconds: float = 3.45
+@export var stride_degrees: float = 10.5
+@export var lean_degrees: float = 18.5
+@export var posture_degrees: float = -9.8
 
 var role_pins: Dictionary = {}
 var body_part: int = -1
@@ -101,6 +101,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _write_pose(pose: Vector4) -> void:
+	if _move_input.length() > 0.05 and _hardware != null and body_part >= 0:
+		var body: RigidBody3D = _hardware.bodies[body_part]
+		var basis: Basis = body.global_basis.orthonormalized()
+		var omega: Vector3 = basis.inverse() * body.angular_velocity
+		var pitch: float = atan2(-basis.z.y, basis.y.y)
+		var roll: float = -atan2(basis.x.y, basis.y.y)
+		var hip: float = clampf(rad_to_deg(1.5 * pitch + 0.04 * omega.x), -15.0, 15.0)
+		var ankle: float = clampf(rad_to_deg(0.5 * roll - 0.04 * omega.z), -15.0, 15.0)
+		pose += Vector4(hip, -hip, ankle, -ankle)
 	for index: int in range(ROLES.size()):
 		var role: StringName = ROLES[index]
 		if not role_pins.has(role):
