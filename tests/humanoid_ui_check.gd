@@ -53,17 +53,30 @@ func _run() -> void:
 		await _capture(locale + "-tutorial", _main.tutorial)
 		_main.tutorial.close_button.pressed.emit()
 	SsokLocale.select_locale("ko", false)
+	var settle_frames: int = 180
+	for argument: String in OS.get_cmdline_user_args():
+		if argument.begins_with("--settle-frames="):
+			settle_frames = clampi(argument.get_slice("=", 1).to_int(), 60, 300)
+		if argument.begins_with("--box-x=") or argument.begins_with("--box-z="):
+			for entry: Dictionary in _main.assembly.graph.parts:
+				if entry.part_def.id == &"cargo_box":
+					var offset: float = argument.get_slice("=", 1).to_float()
+					entry.transform.origin += Vector3(offset, 0, 0) if argument.begins_with("--box-x=") else Vector3(0, 0, offset)
 	_main.mode_button.button_pressed = true
 	root.gui_release_focus()
 	var motion: HumanoidMotion = _main.motion_program
 	_check(motion.is_supported() and _main.manual_controller.is_enabled(), "Run arms humanoid program")
-	for frame: int in range(180):
+	for frame: int in range(settle_frames):
 		await physics_frame
 	await _key(KEY_E, true)
 	await _key(KEY_E, false)
 	_check(motion.pickup_state == "reaching", "viewport E requests contact-based pickup")
+	var last_phase: String = motion.pickup_state
 	for frame: int in range(390):
 		await physics_frame
+		if motion.pickup_state != last_phase:
+			print("humanoid_ui_phase: frame=%d phase=%s" % [frame, motion.pickup_state])
+			last_phase = motion.pickup_state
 	var torso: RigidBody3D = _main.run_mode.bodies[motion.body_part]
 	var cargo: RigidBody3D = _main.run_mode.bodies[motion._box_part]
 	print("humanoid_ui_pickup: modular=%s state=%s grasped=%s fallen=%s cargo_height=%.4f upright=%.4f" % [modular, motion.pickup_state, motion.grasped, motion.fallen, cargo.global_position.y, torso.global_basis.y.y])
@@ -81,6 +94,9 @@ func _run() -> void:
 	_main.mode_button.button_pressed = false
 	_check(not _main.run_mode.is_built(), "edit mode tears down physics")
 	_main.biped_button.pressed.emit()
+	if _main._replace_dialog.visible:
+		_main._replace_dialog.confirmed.emit()
+		_main._replace_dialog.hide()
 	_check(_main.motion_program is BipedMotion and not _main.motion_lab_button.disabled, "original biped and AI remain available")
 	_main.free()
 	await process_frame

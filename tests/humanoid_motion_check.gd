@@ -28,6 +28,8 @@ func _run() -> void:
 	floor.position.y = HumanoidPreset.FLOOR_TOP - 0.05
 	root.add_child(floor)
 	var graph: ConnectionGraph = HumanoidPreset.build()
+	if action == "pick":
+		_check_initial_grip_geometry(graph)
 	if action != "pick":
 		graph.parts[-1].transform.origin.z = 3.0
 	if "--reverse-links" in args:
@@ -112,6 +114,7 @@ func _run() -> void:
 		if action == "run":
 			_check(max_air_streak >= 2 and air_frames >= 8, "running requires measured flight, not just a faster pose cycle")
 			_check(motion._run_bodies.size() == 13 and box not in motion._run_bodies, "running balances connected robot mass without remote cargo")
+			_check(motion._physical_mass_center(left_hand).distance_to(left_hand.global_position) > 0.02, "running reads collision-derived hand COM instead of the zero custom property")
 	_check(MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)) == fingerprint, "simulation never mutates assembly graph")
 	for drive: ServoDrive in hardware.servos.values():
 		_check(drive.torque_limit_nm > 0 and drive.target_deg >= drive.relative_min_deg and drive.target_deg <= drive.relative_max_deg, "motor torque and target bounds")
@@ -131,6 +134,33 @@ func _sole_height(foot: RigidBody3D) -> float:
 		for z: float in [-0.11, 0.11]:
 			lowest = minf(lowest, foot.to_global(Vector3(x, -0.03, z)).y)
 	return lowest - HumanoidPreset.FLOOR_TOP
+
+
+func _check_initial_grip_geometry(graph: ConnectionGraph) -> void:
+	var cargo: Dictionary = graph.parts[-1]
+	var cargo_bounds: AABB = cargo.transform * cargo.part_def.mesh.get_aabb()
+	for entry: Dictionary in graph.parts.slice(0, -1):
+		var definition: PartDef = entry.part_def
+		var boxes: Array[AABB] = definition.collision_boxes.duplicate()
+		if boxes.is_empty():
+			boxes.append(definition.mesh.get_aabb())
+		for box: AABB in boxes:
+			_check(not (entry.transform * box).intersects(cargo_bounds), "cargo starts separated from every robot collider")
+		if definition.id != &"humanoid_forearm":
+			continue
+		var mesh: ArrayMesh = definition.mesh as ArrayMesh
+		_check(mesh != null and mesh.get_surface_count() == boxes.size(), "each hand collision box has a visible mesh surface")
+		if mesh == null or mesh.get_surface_count() != boxes.size():
+			continue
+		for surface: int in mesh.get_surface_count():
+			var vertices: PackedVector3Array = mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+			var visible: AABB = AABB(vertices[0], Vector3.ZERO)
+			for point: Vector3 in vertices:
+				visible = visible.expand(point)
+			_check(visible.is_equal_approx(boxes[surface]), "visible hand geometry matches its authored collision box")
+		var hand_bounds: AABB = entry.transform * mesh.get_aabb()
+		var lateral_overlap: float = minf(hand_bounds.end.x, cargo_bounds.end.x) - maxf(hand_bounds.position.x, cargo_bounds.position.x)
+		_check(lateral_overlap >= 0.01, "visible palm has positive lateral contact margin")
 
 
 func _check(condition: bool, message: String) -> void:

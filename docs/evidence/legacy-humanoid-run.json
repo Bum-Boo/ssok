@@ -1,205 +1,267 @@
 {
-  "schema": 1,
   "date": "2026-09-22",
-  "engine": "4.7.2-stable official",
-  "physics_hz": 60,
-  "simulation_seconds": 20,
-  "remote_host": "himmel",
-  "remote_job": "20260922-045426-ssok-run-confirmation-2cb79e15",
-  "controller_sha256": "ccaf62b5ef15800b2b28359faf51120a3b274861ac945f61397491a99ce577ec",
+  "engine": "Godot 4.7.2 GodotPhysics3D 60Hz",
+  "source_sha256": "4348948f7577c115f6ab9effa436a2e64f5820dfffdaab307cec6222468aa013",
+  "forearm_sha256": "620c6a23e71e0b408ec50645fe6bb267feb2e43795cd2692390227bf203081a9",
+  "remote_job": "20260922-053847-ssok-visible-palm-regression-5c1da5db",
+  "result": "11 of 14 start/link variants pass. Three fail original forward-distance gate; no gate is relaxed. Running robustness remains incomplete.",
   "gates": {
     "forward_m": 0.3,
-    "min_upright": 0.85,
-    "min_air_frames": 8,
-    "min_consecutive_air_frames": 2,
-    "sole_clearance_m": 0.002
+    "minimum_upright": 0.85,
+    "flight_frames": 8,
+    "consecutive_flight_frames": 2,
+    "sole_clearance_m": 0.002,
+    "duration_s": 20
   },
-  "limitations": [
-    "Lateral displacement reaches 0.873 m; precise heading is not verified.",
-    "Flat floor and fixed morphology only; no hardware transfer evidence."
-  ],
   "cases": [
     {
-      "settle_frames": 119,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        -0.515402,
-        0.038038,
-        0.529378
-      ],
-      "min_upright": 0.964,
-      "air_frames": 49,
-      "longest_flight_frames": 6
+      "spec": {
+        "kind": "run",
+        "settle": 119,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=119"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.399018, 0.018127, 0.927887) min_up=0.977 lift=0.000 air_frames=21 longest_flight=4 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 119,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        -0.269237,
-        0.028332,
-        1.1595
-      ],
-      "min_upright": 0.978,
-      "air_frames": 66,
-      "longest_flight_frames": 6
+      "spec": {
+        "kind": "run",
+        "settle": 119,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=119",
+          "--reverse-links"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.382226, 0.020146, 0.530537) min_up=0.979 lift=0.000 air_frames=9 longest_flight=2 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 120,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        -0.401177,
-        0.014775,
-        1.138801
-      ],
-      "min_upright": 0.977,
-      "air_frames": 37,
-      "longest_flight_frames": 4
+      "spec": {
+        "kind": "run",
+        "settle": 120,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=120"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.237563, 0.018659, 0.849262) min_up=0.976 lift=0.000 air_frames=37 longest_flight=7 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 120,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        -0.873242,
-        0.013813,
-        0.668997
-      ],
-      "min_upright": 0.983,
-      "air_frames": 43,
-      "longest_flight_frames": 5
+      "spec": {
+        "kind": "run",
+        "settle": 120,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=120",
+          "--reverse-links"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.380366, 0.012861, 1.06971) min_up=0.983 lift=0.000 air_frames=16 longest_flight=4 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 179,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        -0.64948,
-        -0.070964,
-        0.921718
-      ],
-      "min_upright": 0.981,
-      "air_frames": 47,
-      "longest_flight_frames": 7
+      "spec": {
+        "kind": "run",
+        "settle": 179,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=179"
+        ]
+      },
+      "exit": 1,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nERROR: FAIL measurable commanded motion (30 cm forward, 10 cm slow reverse)\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _check (res://tests/humanoid_motion_check.gd:169)\n       [1] _run (res://tests/humanoid_motion_check.gd:113)\nhumanoid_motion_check: action=run displacement=(-0.132705, -0.052687, 0.105974) min_up=0.974 lift=0.000 air_frames=19 longest_flight=6 checks=35 failures=1\n"
     },
     {
-      "settle_frames": 179,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        -0.594414,
-        -0.050795,
-        0.87922
-      ],
-      "min_upright": 0.983,
-      "air_frames": 22,
-      "longest_flight_frames": 4
+      "spec": {
+        "kind": "run",
+        "settle": 179,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=179",
+          "--reverse-links"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.444654, -0.013014, 0.753158) min_up=0.982 lift=0.000 air_frames=15 longest_flight=3 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 180,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        0.366983,
-        -0.041745,
-        0.99449
-      ],
-      "min_upright": 0.971,
-      "air_frames": 49,
-      "longest_flight_frames": 5
+      "spec": {
+        "kind": "run",
+        "settle": 180,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=180"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(0.113727, -0.021027, 0.463487) min_up=0.971 lift=0.000 air_frames=28 longest_flight=7 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 180,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        -0.119756,
-        -0.048696,
-        0.846185
-      ],
-      "min_upright": 0.977,
-      "air_frames": 32,
-      "longest_flight_frames": 5
+      "spec": {
+        "kind": "run",
+        "settle": 180,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=180",
+          "--reverse-links"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.314381, -0.037842, 0.496492) min_up=0.979 lift=0.000 air_frames=20 longest_flight=6 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 181,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        -0.174934,
-        -0.039218,
-        1.123559
-      ],
-      "min_upright": 0.977,
-      "air_frames": 77,
-      "longest_flight_frames": 7
+      "spec": {
+        "kind": "run",
+        "settle": 181,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=181"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.214823, -0.026122, 0.493514) min_up=0.982 lift=0.000 air_frames=14 longest_flight=4 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 181,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        -0.383525,
-        -0.042797,
-        0.981477
-      ],
-      "min_upright": 0.971,
-      "air_frames": 29,
-      "longest_flight_frames": 4
+      "spec": {
+        "kind": "run",
+        "settle": 181,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=181",
+          "--reverse-links"
+        ]
+      },
+      "exit": 1,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nERROR: FAIL measurable commanded motion (30 cm forward, 10 cm slow reverse)\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _check (res://tests/humanoid_motion_check.gd:169)\n       [1] _run (res://tests/humanoid_motion_check.gd:113)\nhumanoid_motion_check: action=run displacement=(-0.083348, -0.024286, 0.21068) min_up=0.972 lift=0.000 air_frames=27 longest_flight=5 checks=35 failures=1\n"
     },
     {
-      "settle_frames": 239,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        -0.496437,
-        0.029274,
-        0.988003
-      ],
-      "min_upright": 0.983,
-      "air_frames": 44,
-      "longest_flight_frames": 6
+      "spec": {
+        "kind": "run",
+        "settle": 239,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=239"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.506557, 0.021122, 0.359829) min_up=0.981 lift=0.000 air_frames=13 longest_flight=3 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 239,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        0.136112,
-        0.033067,
-        1.027671
-      ],
-      "min_upright": 0.983,
-      "air_frames": 21,
-      "longest_flight_frames": 2
+      "spec": {
+        "kind": "run",
+        "settle": 239,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=239",
+          "--reverse-links"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.787118, 0.013632, 0.992346) min_up=0.983 lift=0.000 air_frames=35 longest_flight=4 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 240,
-      "reverse_links": false,
-      "passed": true,
-      "displacement_m": [
-        -0.403814,
-        0.040375,
-        0.987241
-      ],
-      "min_upright": 0.982,
-      "air_frames": 66,
-      "longest_flight_frames": 6
+      "spec": {
+        "kind": "run",
+        "settle": 240,
+        "reverse": false,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=240"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.408509, 0.015664, 0.535131) min_up=0.981 lift=0.000 air_frames=11 longest_flight=4 checks=35 failures=0\n"
     },
     {
-      "settle_frames": 240,
-      "reverse_links": true,
-      "passed": true,
-      "displacement_m": [
-        -0.283924,
-        0.02963,
-        1.061285
-      ],
-      "min_upright": 0.982,
-      "air_frames": 35,
-      "longest_flight_frames": 4
+      "spec": {
+        "kind": "run",
+        "settle": 240,
+        "reverse": true,
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "run",
+          "--settle-frames=240",
+          "--reverse-links"
+        ]
+      },
+      "exit": 1,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nERROR: FAIL measurable commanded motion (30 cm forward, 10 cm slow reverse)\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _check (res://tests/humanoid_motion_check.gd:169)\n       [1] _run (res://tests/humanoid_motion_check.gd:113)\nhumanoid_motion_check: action=run displacement=(0.028112, 0.025813, 0.250706) min_up=0.975 lift=0.000 air_frames=20 longest_flight=6 checks=35 failures=1\n"
     }
-  ]
+  ],
+  "limitations": [
+    "Lateral drift remains; no heading or terrain guarantee.",
+    "Geometry and automatic COM changed with the visible palm. Earlier pre-palm 14/14 evidence does not certify this revision.",
+    "Further isolated gait candidates are exploratory and not applied to the production controller."
+  ],
+  "checkpoint_verification": {
+    "job": "20260922-061158-ssok-palm-checkpoint-72509aab",
+    "cases": [
+      {
+        "action": "run",
+        "args": [],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(0.113727, -0.021027, 0.463487) min_up=0.971 lift=0.000 air_frames=28 longest_flight=7 checks=36 failures=0\n"
+      },
+      {
+        "action": "run",
+        "args": [
+          "--reverse-links"
+        ],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.314381, -0.037842, 0.496492) min_up=0.979 lift=0.000 air_frames=20 longest_flight=6 checks=36 failures=0\n"
+      },
+      {
+        "action": "run",
+        "args": [
+          "--settle-frames=181"
+        ],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=run displacement=(-0.214823, -0.026122, 0.493514) min_up=0.982 lift=0.000 air_frames=14 longest_flight=4 checks=36 failures=0\n"
+      }
+    ]
+  }
 }

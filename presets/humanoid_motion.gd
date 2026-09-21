@@ -220,7 +220,7 @@ func _running_balance_correction() -> float:
 	var velocity: Vector3 = Vector3.ZERO
 	var mass: float = 0.0
 	for body: RigidBody3D in _run_bodies:
-		center += body.to_global(body.center_of_mass) * body.mass
+		center += _physical_mass_center(body) * body.mass
 		velocity += body.linear_velocity * body.mass
 		mass += body.mass
 	center /= mass
@@ -228,7 +228,7 @@ func _running_balance_correction() -> float:
 	var support: Vector3 = Vector3.ZERO
 	for side: String in ["left", "right"]:
 		var foot: RigidBody3D = _hardware.bodies[role_parts[side + "_ankle"]]
-		support += foot.to_global(foot.center_of_mass) * 0.5
+		support += _physical_mass_center(foot) * 0.5
 	var torso: RigidBody3D = _hardware.bodies[body_part]
 	var forward: Vector3 = torso.global_basis.z
 	forward.y = 0.0
@@ -236,6 +236,12 @@ func _running_balance_correction() -> float:
 	return clampf((center - support).dot(forward) * run_support_position_gain
 		+ (velocity.dot(forward) - run_speed_mps * _speed) * run_support_velocity_gain
 		+ torso.angular_velocity.dot(torso.global_basis.x) * 0.1, -0.6, 0.6)
+
+
+func _physical_mass_center(body: RigidBody3D) -> Vector3:
+	# AUTO bodies retain zero in the custom property even when compound shapes move their COM.
+	var state: PhysicsDirectBodyState3D = PhysicsServer3D.body_get_direct_state(body.get_rid())
+	return body.to_global(state.center_of_mass_local if state != null else body.center_of_mass)
 
 
 func _cache_run_bodies() -> void:

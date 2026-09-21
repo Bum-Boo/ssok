@@ -36,7 +36,35 @@ func _segment(id: String, label: String, size: Vector3, mass: float, torque: flo
 	var part: PartDef = _part(id, label, size, mass, Color("879fb4"))
 	_actuator(part, Vector3(0, size.y * 0.5, 0), torque, lower, upper)
 	_mount(part, distal, Vector3(0, -size.y * 0.5, 0))
+	if id == "humanoid_forearm":
+		_add_palm(part, size)
 	_save(part)
+
+
+func _add_palm(part: PartDef, forearm_size: Vector3) -> void:
+	var palm_size: Vector3 = Vector3(0.09, 0.045, 0.085)
+	var palm_center: Vector3 = Vector3(0, -0.105, 0)
+	var palm := BoxMesh.new()
+	palm.size = palm_size
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color("263d4e")
+	material.roughness = 0.9
+	palm.material = material
+	var mesh := ArrayMesh.new()
+	_append_box(mesh, part.mesh as BoxMesh, Vector3.ZERO)
+	_append_box(mesh, palm, palm_center)
+	part.mesh = mesh
+	part.collision_boxes = [AABB(-forearm_size * 0.5, forearm_size), AABB(palm_center - palm_size * 0.5, palm_size)]
+
+
+func _append_box(target: ArrayMesh, source: BoxMesh, offset: Vector3) -> void:
+	var arrays: Array = source.surface_get_arrays(0)
+	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	for index: int in vertices.size():
+		vertices[index] += offset
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	target.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	target.surface_set_material(target.get_surface_count() - 1, source.material)
 
 
 func _part(id: String, label: String, size: Vector3, mass: float, color: Color) -> PartDef:
@@ -86,6 +114,9 @@ func _electrical(part: PartDef, id: String, position: Vector3, board: bool) -> v
 
 
 func _save(part: PartDef) -> void:
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	if args.size() == 2 and args[0] == "--part" and args[1] != String(part.id):
+		return
 	var error: Error = ResourceSaver.save(part, OUT + String(part.id) + ".tres")
 	if error != OK:
 		push_error("Could not save humanoid part: " + String(part.id))
