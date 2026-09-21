@@ -15,13 +15,13 @@ var lift_m: float = 0.018
 var stance_height: float = 0.465
 var balance_gain: float = 1.0
 var lean_degrees: float = 3.0
-var run_bounce: float = 0.046
-var run_period: float = 0.817
+var run_bounce: float = 0.04
+var run_period: float = 0.85
 var run_stride_m: float = 0.038
 var run_swing_height: float = 0.022
 var run_stride_phase: float = -0.383
 var run_lean_degrees: float = 2.0
-var run_speed_mps: float = 0.06
+var run_speed_mps: float = 0.12
 var run_support_position_gain: float = 9.58
 var run_support_velocity_gain: float = 1.742
 var grasped: bool = false
@@ -199,18 +199,19 @@ func _pose(phase: float) -> void:
 func _run_pose() -> void:
 	var phase: float = TAU * elapsed / run_period
 	var support_feedback: float = _running_balance_correction()
+	var blend: float = smoothstep(0.1, 0.95, absf(_speed))
 	for side: String in ["left", "right"]:
 		var leg_phase: float = phase + (PI if side == "right" else 0.0)
 		var wave: float = sin(leg_phase)
 		var z: float = -run_stride_m * cos(leg_phase + run_stride_phase) * _speed
-		var height: float = 0.445 + run_bounce * cos(2.0 * phase) - run_swing_height * maxf(wave, 0.0)
+		var height: float = lerpf(stance_height, 0.445 + run_bounce * cos(2.0 * phase) - run_swing_height * maxf(wave, 0.0), blend)
 		var bend: float = acos(clampf((height * height + z * z - 2.0 * 0.24 * 0.24) / (2.0 * 0.24 * 0.24), -1.0, 1.0))
 		var hip: float = atan2(-z, height) - bend * 0.5
 		_write(side + "_hip", rad_to_deg(hip))
 		_write(side + "_knee", rad_to_deg(bend))
 		_write(side + "_ankle", rad_to_deg(-hip - bend + support_feedback) - run_lean_degrees * _speed)
-		_write(side + "_shoulder", 25.0 * cos(leg_phase) * _speed)
-		_write(side + "_elbow", -45.0)
+		_write(side + "_shoulder", 0.0)
+		_write(side + "_elbow", lerpf(-12.0, -45.0, blend))
 
 
 func _running_balance_correction() -> float:
