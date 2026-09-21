@@ -63,6 +63,10 @@ def main() -> None:
     (output / ".gdignore").touch()
     execute([args.godot, "--headless", "--path", str(PROJECT), "--editor", "--import", "--quit"], logs / "import.log")
     base = [args.godot, "--headless", "--path", str(PROJECT)]
+    with tempfile.TemporaryDirectory(prefix="ssok-browser-layout-") as temporary:
+        environment = dict(os.environ, XDG_DATA_HOME=temporary, XDG_CONFIG_HOME=temporary)
+        execute(base + ["--language", "en", "--script", "res://tools/ci/browser_layout.gd", "--",
+                        str(logs / "browser-layout.json")], logs / "browser-layout.log", env=environment)
     artifacts = []
     for platform, filename in (("Web", "index.html"), ("Linux", "ssok.x86_64")):
         destination = output / platform.lower()

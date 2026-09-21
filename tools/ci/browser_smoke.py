@@ -8,6 +8,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import shutil
 import threading
 
 from playwright.sync_api import sync_playwright
@@ -16,6 +17,13 @@ from playwright.sync_api import sync_playwright
 class Handler(SimpleHTTPRequestHandler):
     def log_message(self, *_args) -> None:
         pass
+
+
+def load_layout(directory: Path, output: Path) -> dict:
+    path = directory.resolve().parent / "export-logs/browser-layout.json"
+    layout = json.loads(path.read_text())
+    shutil.copy2(path, output / "browser-layout.json")
+    return layout
 
 
 def main() -> None:
@@ -37,10 +45,11 @@ def main() -> None:
         "viewport": [1400, 950],
         "scope": "Export loading, canvas rendering, starter and run/stop input; screenshots require review"}
     try:
+        layout = load_layout(args.directory, output)
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
                 args=["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"])
-            page = browser.new_page(viewport={"width": 1400, "height": 950}, locale="en-US")
+            page = browser.new_page(viewport=dict(zip(("width", "height"), layout["viewport"])), locale="en-US")
             page.on("console", lambda message: logs.append({"type": message.type, "text": message.text}))
             page.on("pageerror", lambda error: errors.append(str(error)))
             try:
@@ -50,15 +59,14 @@ def main() -> None:
                 canvas = page.locator("canvas")
                 assert canvas.is_visible(), "WebGL canvas is not visible"
                 page.screenshot(path=str(output / "01-workshop.png"))
-                # Godot renders its own UI into the canvas. Fixed desktop coordinates intentionally
-                # cover a starter click and run/stop; screenshots are retained for product review.
-                page.mouse.click(640, 528)
+                # Canvas controls have no DOM selectors; the build captures their actual layout.
+                page.mouse.click(*layout["points"]["starter"])
                 page.wait_for_timeout(400)
                 page.screenshot(path=str(output / "02-biped.png"))
-                page.mouse.click(910, 43)
+                page.mouse.click(*layout["points"]["run_mode"])
                 page.wait_for_timeout(1200)
                 page.screenshot(path=str(output / "03-running.png"))
-                page.mouse.click(910, 43)
+                page.mouse.click(*layout["points"]["run_mode"])
                 page.wait_for_timeout(200)
                 errors.extend(item["text"] for item in logs if item["type"] == "error" or item["text"].startswith(("ERROR:", "SCRIPT ERROR:")))
                 result.update(single_threaded=True, browser=browser.version)

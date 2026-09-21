@@ -35,7 +35,9 @@ def checks(godot: str, python: str) -> list[Check]:
     result = [Check("import", [godot, "--headless", "--path", str(PROJECT), "--editor", "--import", "--quit"], 300),
               Check("scene-load", base + ["--quit-after", "5"], 60)]
     variants = {
-        "humanoid_motion_check": [["walk"], ["backward"], ["pick"], ["run"], ["walk", "--reverse-links"]],
+        "humanoid_motion_check": [["walk"], ["backward"], ["pick"], ["run"],
+                                  ["walk", "--reverse-links"], ["run", "--reverse-links"],
+                                  ["run", "--settle-frames=181"]],
         "modular_humanoid_check": [["walk"], ["pick"], ["pick", "--reverse-links"]],
         "humanoid_ui_check": [[], ["--modular"]],
     }
