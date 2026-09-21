@@ -96,7 +96,12 @@ box positions and reversed graph ordering. The legacy humanoid now passes its fl
 gates across 14 start/order variants, but can drift sideways by up to 0.87 m; it is a running
 experiment with limited directional control. Final clean-revision CI remains required.
 MuJoCo learning has improved on held-out seeds, but its policy has **not** passed the Godot
-transfer gate. The repository keeps these distinctions visible. See the linked evidence for
+transfer gate. A separate yaw-hip robot trained directly in Godot now succeeds on **31 of 32
+held-out trials**, with no falls and 42.2 cm mean forward travel in 12 seconds. Each episode
+starts a fresh native Linux engine process; failed trials remain in the evidence. Five actual-app
+start/restart checks pass, but rapid restarts and WebAssembly locomotion remain under review.
+These measurements cover one robot, small initial-velocity perturbations and 0–3 second start delays.
+See the linked evidence for
 exact conditions, measured values and reproducible commands.
 
 ## Development

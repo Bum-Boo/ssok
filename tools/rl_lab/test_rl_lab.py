@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+from pathlib import Path
 import unittest
 from unittest import mock
 
@@ -32,6 +33,24 @@ class MjcfTest(unittest.TestCase):
 
     def test_mjcf_is_deterministic(self):
         self.assertEqual(to_mjcf(self.robot), to_mjcf(copy.deepcopy(self.robot)))
+
+    def test_physics_rate_is_explicit_and_preserves_control_rate(self):
+        for hz in (60, 120, 240):
+            model = mujoco.MjModel.from_xml_string(to_mjcf(self.robot, physics_hz=hz))
+            self.assertAlmostEqual(model.opt.timestep, 1.0 / hz, places=9)
+            env = WalkEnv(EnvConfig(physics_hz=hz, init_noise_rad=0.0))
+            env.reset(0)
+            env.step(np.zeros(env.act_dim))
+            self.assertAlmostEqual(env.data.time, 1.0 / 30.0, places=8)
+
+    def test_compound_export_preserves_mass_and_all_colliders(self):
+        robot = load_robot(Path(EnvConfig().robot_json).parent / "yaw_biped.json")
+        model = mujoco.MjModel.from_xml_string(to_mjcf(robot, physics_hz=60))
+        dynamic = [b for b in robot["bodies"] if not b["frozen"]]
+        self.assertEqual(len(dynamic), 5)
+        self.assertEqual(model.nu, 4)
+        self.assertAlmostEqual(model.body_mass.sum(), sum(b["mass_kg"] for b in dynamic), places=8)
+        self.assertEqual(model.ngeom - 1, sum(len(b["collision_boxes"]) for b in dynamic))
 
     def test_holds_assembly_pose_standing(self):
         env = WalkEnv(EnvConfig(init_noise_rad=0.0))

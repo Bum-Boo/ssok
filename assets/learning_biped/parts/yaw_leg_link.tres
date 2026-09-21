@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/leg_link.res" id="1_vsxsg"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_0phgo"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_ddfy7"]
+
+[sub_resource type="Resource" id="Resource_rpofl"]
+script = ExtResource("2_0phgo")
+id = &"hip_mount"
+local_position = Vector3(0.006, 0.02, 0)
+tag = &"arm_mount"
+accepts = Array[StringName]([&"servo_output"])
+
+[sub_resource type="Resource" id="Resource_rb8jl"]
+script = ExtResource("2_0phgo")
+id = &"ankle_mount"
+local_position = Vector3(0, -0.02, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount"])
+
+[resource]
+script = ExtResource("3_ddfy7")
+id = &"yaw_leg_link"
+display_name = "Yaw Leg Link"
+mesh = ExtResource("1_vsxsg")
+ports = Array[ExtResource("2_0phgo")]([SubResource("Resource_rpofl"), SubResource("Resource_rb8jl")])
+mass_kg = 0.012
+merge_fixed_connections = true

@@ -30,7 +30,7 @@ def rank(result: dict) -> tuple:
 def policy_record(policy: LinearPolicy, env: WalkEnv, knobs: dict, provenance: dict) -> dict:
     return {"format": "ssok-linear-policy", "version": 1, "robot_fingerprint": env.robot_fingerprint,
             "graph_fingerprint": env.robot.get("graph_fingerprint", ""),
-            "task": env.task["name"], "control_hz": 30, "joint_pins": env.joint_pins,
+            "task": env.task["name"], "control_hz": 30, "simulation_hz": env.config.physics_hz, "joint_pins": env.joint_pins,
             "observation": ["joint_pos_rad x4 (pin order)", "joint_vel_rad_s*0.1 x4", "prev_action x4",
                             "gravity_in_body x3", "body_angvel*0.1 x3", "command_forward", "sin(phase)", "cos(phase)"],
             "action": "tanh output * action_scale_deg, relative to assembly pose, slewed 180 deg/s",
@@ -46,6 +46,7 @@ def main(argv=None) -> int:
     parser.add_argument("--allow-paid", action="store_true", help="explicit consent for paid requests")
     parser.add_argument("--max-calls", type=int, default=3)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--physics-hz", type=int, choices=[60, 120, 240], default=240)
     args = parser.parse_args(argv)
     if not 1 <= args.rounds <= 8 or not 1 <= args.iterations <= 500 or not 1 <= args.max_calls <= 16:
         parser.error("rounds 1..8, iterations 1..500, max-calls 1..16")
@@ -63,7 +64,7 @@ def main(argv=None) -> int:
 
     run_dir = RUNS / dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     run_dir.mkdir(parents=True)
-    base_config = EnvConfig()
+    base_config = EnvConfig(physics_hz=args.physics_hz)
     env = WalkEnv(base_config)
     task = env.task
     print(f"task: {task['language']}\nprovider: {proposer.provider}  run: {run_dir}")

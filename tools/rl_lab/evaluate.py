@@ -29,7 +29,7 @@ def validate_policy(record: dict, env: WalkEnv) -> LinearPolicy:
 
 
 def evaluate_record(record: dict, seeds: list[int], noise: float = 0.02, config: EnvConfig | None = None) -> dict:
-    env = WalkEnv(replace(config or EnvConfig(), action_scale_deg=record["action_scale_deg"], gait_hz=record["gait_hz"], init_noise_rad=noise))
+    env = WalkEnv(replace(config or EnvConfig(), action_scale_deg=record["action_scale_deg"], gait_hz=record["gait_hz"], init_noise_rad=noise, physics_hz=record.get("simulation_hz", 240)))
     policy = validate_policy(record, env)
     episodes = []
     for seed in seeds:
@@ -40,7 +40,7 @@ def evaluate_record(record: dict, seeds: list[int], noise: float = 0.02, config:
                 break
         metrics = env.metrics()
         episodes.append({"seed": seed, **metrics, "success": is_success(env.task, metrics)})
-    return {"engine": "mujoco", "task": env.task, "initial_joint_noise_rad": noise,
+    return {"engine": "mujoco", "simulation_hz": env.config.physics_hz, "task": env.task, "initial_joint_noise_rad": noise,
             "robot_fingerprint": env.robot_fingerprint, "episodes": episodes,
             "success_rate": sum(e["success"] for e in episodes) / len(episodes),
             "fall_rate": sum(e["fallen"] for e in episodes) / len(episodes),
@@ -57,6 +57,7 @@ def main() -> None:
     parser.add_argument("--engine", choices=["mujoco", "godot"], default="mujoco")
     parser.add_argument("--godot", default="godot")
     parser.add_argument("--workers", default=4, type=int)
+    parser.add_argument("--vary-start", action="store_true", help="Godot starts after seed modulo4 seconds of settling")
     args = parser.parse_args()
     if not 1 <= args.episodes <= 1000 or not 0 <= args.noise <= 0.2:
         parser.error("episodes must be 1..1000 and noise 0..0.2 rad")
@@ -69,8 +70,9 @@ def main() -> None:
         from tools.rl_lab.train_godot import evaluate
         if not 1 <= args.workers <= 16:
             parser.error("workers must be 1..16")
-        episodes = evaluate(args.godot, [record], seeds, args.workers)[0]
+        episodes = evaluate(args.godot, [record], seeds, args.workers, args.vary_start)[0]
         result = {"engine": "godot", "initial_velocity_noise_m_s": 0.003,
+                  "episode_isolation": "fresh Godot process", "vary_start": args.vary_start,
                   "episodes": episodes, "success_rate": sum(e["success"] for e in episodes) / len(episodes),
                   "fall_rate": sum(e["fallen"] for e in episodes) / len(episodes),
                   "mean_forward_m": float(np.mean([e["forward_m"] for e in episodes]))}

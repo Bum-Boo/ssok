@@ -1,18 +1,12 @@
 extends SceneTree
 
-## Re-evaluates a tools/rl_lab linear policy in ssok's own Godot physics (sim2sim check).
-## godot --headless --path . --fixed-fps 60 --script tools/godot/play_rl_policy.gd -- --policy <json>
-## Add --window (without --headless) to watch it. Nothing here changes the app or the graph.
-
-const CONTROL_EVERY_FRAMES := 2  # 60 Hz physics -> 30 Hz policy, as in tools/rl_lab/env.py
-const FALL_UPRIGHT := 0.5
-const FALL_HEIGHT := 0.06
+## Playback and inspection use the application's exact learned controller.
+## godot --headless --path . --fixed-fps 60 --script tools/godot/play_rl_policy.gd -- --policy policy.json
+## Omit --headless and add --window to watch physical playback.
 
 var _hardware: RunMode
-var _body: RigidBody3D
-var _drives: Array[ServoDrive] = []
-var _pairs: Array = []  # [parent body, child body, axis in parent frame, initial relative basis]
-var _signs: Array[float] = []
+var _motion: LearnedBipedMotion
+var _camera: Camera3D
 
 
 func _initialize() -> void:
@@ -20,141 +14,127 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	var path := _arg("--policy", "")
-	var policy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path)) if not path.is_empty() else {}
-	if policy.get("format", "") != "ssok-linear-policy":
-		push_error("Pass --policy <tools/rl_lab/runs/.../best_policy.json>")
+	var path: String = _arg("--policy", "")
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path)) if not path.is_empty() else null
+	if not parsed is Dictionary or not LearnedBipedMotion.validate_policy(parsed).is_empty():
+		push_error("Pass --policy with a valid ssok policy JSON file")
 		quit(2)
 		return
-	if Engine.physics_ticks_per_second != 60:
-		push_error("Policy playback needs 60 Hz physics")
+	var policy: Dictionary = parsed
+	var robot_id: String = str(policy.get("robot_id", "biped"))
+	if robot_id not in ["biped", "yaw_biped"] or Engine.physics_ticks_per_second != 60:
+		push_error("Playback requires a supported robot and 60 Hz physics")
 		quit(2)
 		return
-	if _arg("--window", "") == "":
-		root.size = Vector2i(2, 2)
-	_add_floor()
+	var visible: bool = OS.get_cmdline_user_args().has("--window")
+	root.size = Vector2i(960, 720) if visible else Vector2i(2, 2)
+	_add_floor(visible)
+	var graph: ConnectionGraph = YawBipedPreset.build() if robot_id == "yaw_biped" else BipedPreset.build()
 	_hardware = RunMode.new()
 	root.add_child(_hardware)
-	_hardware.build(BipedPreset.build())
-	_body = _hardware.bodies[0]
-	for pin in policy.joint_pins:
-		var drive := _hardware.servo_on_pin(int(pin))
-		if drive == null:
-			push_error("No servo wired to pin %s" % pin)
-			quit(2)
-			return
-		_drives.append(drive)
-		var parent: RigidBody3D = _hardware.get_node(drive.joint.node_a)
-		var child: RigidBody3D = _hardware.get_node(drive.joint.node_b)
-		var axis_local: Vector3 = parent.global_basis.inverse() * drive.joint.global_basis.z
-		_pairs.append([parent, child, axis_local.normalized(), parent.global_basis.inverse() * child.global_basis])
-
-	# Calibrate Godot's write_relative sign against the MuJoCo joint convention.
-	for drive in _drives:
-		drive.write_relative(0.0)
-	await _frames(30)
-	for drive in _drives:
-		drive.write_relative(10.0)
-	await _frames(10)
-	for i in _drives.size():
-		_signs.append(1.0 if _joint_angle(i) >= 0.0 else -1.0)
-		_drives[i].write_relative(0.0)
-	await _frames(60)
-
-	var weights: Array = policy.weights
-	var mean: Array = policy.obs_mean
-	var variance: Array = policy.obs_var
-	var scale: float = policy.action_scale_deg
-	var gait_hz: float = policy.gait_hz
-	var start := _body.global_position
-	var forward := Vector3(_body.global_basis.z.x, 0, _body.global_basis.z.z).normalized()
-	var right := Vector3.UP.cross(forward).normalized()
-	var prev_action := PackedFloat64Array([0, 0, 0, 0])
-	var prev_angles := _angles()
-	var min_upright := 1.0
-	var fallen := false
-	var steps := 360
-	var step := 0
-	while step < steps:
-		var angles := _angles()
-		var obs := PackedFloat64Array()
-		for i in angles.size():
-			obs.append(angles[i])
-		for i in angles.size():
-			obs.append((angles[i] - prev_angles[i]) * 30.0 * 0.1)
-		obs.append_array(prev_action)
-		var inverse := _body.global_basis.orthonormalized().inverse()
-		var gravity := inverse * Vector3.DOWN
-		var angvel := inverse * _body.angular_velocity * 0.1
-		obs.append_array([gravity.x, gravity.y, gravity.z, angvel.x, angvel.y, angvel.z, 1.0])
-		var phase := TAU * gait_hz * step / 30.0
-		obs.append_array([sin(phase), cos(phase)])
-		prev_angles = angles
-		var action := PackedFloat64Array()
-		for row: Array in weights:
-			var total := 0.0
-			for j in obs.size():
-				total += float(row[j]) * (obs[j] - float(mean[j])) / sqrt(float(variance[j]) + 1e-8)
-			action.append(tanh(total))
-		for i in _drives.size():
-			_drives[i].write_relative(_signs[i] * action[i] * scale)
-		prev_action = action
-		await _frames(CONTROL_EVERY_FRAMES)
-		var upright := _body.global_basis.y.normalized().dot(Vector3.UP)
-		min_upright = minf(min_upright, upright)
-		if upright < FALL_UPRIGHT or _body.global_position.y - BipedPreset.FLOOR_TOP < FALL_HEIGHT:
-			fallen = true
+	_hardware.build(graph)
+	_motion = LearnedBipedMotion.new()
+	root.add_child(_motion)
+	_motion.load_policy(policy)
+	if not _motion.configure(_hardware, graph):
+		push_error("Policy does not match this graph and runtime")
+		quit(2)
+		return
+	_motion.set_enabled(true)
+	var body: RigidBody3D = _hardware.bodies[_motion.body_part]
+	if visible:
+		_add_camera(body.global_position)
+	var settle_seconds: float = clampf(float(_arg("--settle-seconds", "1")), 0.0, 5.0)
+	for frame: int in int(60 * settle_seconds):
+		await physics_frame
+	var seed_value: int = int(_arg("--seed", "2001"))
+	var rng := RandomNumberGenerator.new()
+	rng.seed = seed_value
+	body.linear_velocity += Vector3(rng.randf_range(-0.003, 0.003), 0, rng.randf_range(-0.003, 0.003))
+	var start: Vector3 = body.global_position
+	var minimum_upright: float = 1.0
+	var fallen: bool = false
+	var frames: int = 0
+	_motion.set_move_input(Vector2(0, 1))
+	for frame: int in 720:
+		await physics_frame
+		frames += 1
+		var upright: float = body.global_basis.y.normalized().dot(Vector3.UP)
+		minimum_upright = minf(minimum_upright, upright)
+		fallen = upright < 0.5 or body.global_position.y - BipedPreset.FLOOR_TOP < 0.06
+		for part: RigidBody3D in _hardware.bodies:
+			fallen = fallen or not part.global_transform.is_finite() or not part.linear_velocity.is_finite() or not part.angular_velocity.is_finite()
+		if visible:
+			_camera.position = body.global_position + Vector3(0.35, 0.18, 0.45)
+			_camera.look_at(body.global_position)
+		if fallen:
 			break
-		step += 1
-
-	var moved := _body.global_position - start
-	var heading := Vector3(_body.global_basis.z.x, 0, _body.global_basis.z.z).normalized()
-	var result := {
-		"engine": "godot", "policy": path, "forward_m": moved.dot(forward), "lateral_m": moved.dot(right),
-		"yaw_deg": rad_to_deg(forward.signed_angle_to(heading, Vector3.UP)), "fallen": fallen,
-		"min_upright": min_upright, "seconds": step / 30.0, "joint_signs": _signs,
+	var moved: Vector3 = body.global_position - start
+	var heading: Vector3 = body.global_basis.z
+	var yaw: float = rad_to_deg(atan2(heading.x, heading.z))
+	var result: Dictionary = {
+		"engine": Engine.get_version_info().string, "robot_id": robot_id,
+		"policy_sha256": FileAccess.get_sha256(path), "seed": seed_value,
+		"forward_m": moved.z, "lateral_m": moved.x, "yaw_deg": yaw,
+		"fallen": fallen, "seconds": frames / 60.0, "min_upright": minimum_upright,
+		"success": not fallen and frames == 720 and moved.z >= 0.3 and absf(moved.x) <= 0.1 and absf(yaw) <= 30,
+		"graph_fingerprint": MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)),
+		"runtime_fingerprint": LearnedBipedMotion.runtime_fingerprint(_hardware, graph),
 	}
 	print("RESULT ", JSON.stringify(result))
+	var output: String = _arg("--out", "")
+	if not output.is_empty():
+		var file: FileAccess = FileAccess.open(output, FileAccess.WRITE)
+		if file == null:
+			quit(2)
+			return
+		file.store_string(JSON.stringify(result, "  "))
+	_motion.set_enabled(false)
+	_hardware.teardown()
 	quit(0)
 
 
-## Measured hinge angle: child rotation relative to its parent about the hinge axis (MuJoCo's definition).
-func _joint_angle(index: int) -> float:
-	var parent: RigidBody3D = _pairs[index][0]
-	var child: RigidBody3D = _pairs[index][1]
-	var axis: Vector3 = _pairs[index][2]
-	var initial: Basis = _pairs[index][3]
-	var relative := (parent.global_basis.inverse() * child.global_basis).orthonormalized() * initial.inverse()
-	var q := relative.get_rotation_quaternion()
-	return 2.0 * atan2(Vector3(q.x, q.y, q.z).dot(axis), q.w)
-
-
-func _angles() -> PackedFloat64Array:
-	var angles := PackedFloat64Array()
-	for i in _drives.size():
-		angles.append(_joint_angle(i))
-	return angles
-
-
-func _frames(count: int) -> void:
-	for i in count:
-		await physics_frame
-
-
-func _add_floor() -> void:
-	var floor := StaticBody3D.new()
+func _add_floor(visible: bool) -> void:
+	var floor_body := StaticBody3D.new()
 	var collision := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = Vector3(4.0, 0.1, 4.0)
+	box.size = Vector3(10.0, 0.1, 10.0)
 	collision.shape = box
-	floor.add_child(collision)
-	floor.position.y = BipedPreset.FLOOR_TOP - box.size.y * 0.5
-	root.add_child(floor)
+	floor_body.add_child(collision)
+	floor_body.position.y = BipedPreset.FLOOR_TOP - box.size.y * 0.5
+	if visible:
+		var geometry := MeshInstance3D.new()
+		var mesh := BoxMesh.new()
+		mesh.size = box.size
+		var material := StandardMaterial3D.new()
+		material.albedo_color = Color(0.24, 0.28, 0.32)
+		mesh.material = material
+		geometry.mesh = mesh
+		floor_body.add_child(geometry)
+	root.add_child(floor_body)
+
+
+func _add_camera(target: Vector3) -> void:
+	var environment_node := WorldEnvironment.new()
+	var environment := Environment.new()
+	environment.background_mode = Environment.BG_COLOR
+	environment.background_color = Color(0.04, 0.06, 0.09)
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_color = Color.WHITE
+	environment.ambient_light_energy = 0.65
+	environment_node.environment = environment
+	root.add_child(environment_node)
+	var light := DirectionalLight3D.new()
+	light.rotation_degrees = Vector3(-50, -30, 0)
+	root.add_child(light)
+	_camera = Camera3D.new()
+	root.add_child(_camera)
+	_camera.position = target + Vector3(0.35, 0.18, 0.45)
+	_camera.look_at(target)
+	_camera.current = true
 
 
 func _arg(name: String, fallback: String) -> String:
-	var args := OS.get_cmdline_user_args()
-	var at := args.find(name)
-	if at < 0:
-		return fallback
-	return args[at + 1] if at + 1 < args.size() and not args[at + 1].begins_with("--") else "1"
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	var index: int = args.find(name)
+	return args[index + 1] if index >= 0 and index + 1 < args.size() else fallback

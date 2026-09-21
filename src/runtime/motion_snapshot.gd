@@ -99,7 +99,7 @@ static func fingerprint(data: Dictionary) -> String:
 
 static func _catalog() -> Dictionary:
 	var catalog: Dictionary = {}
-	for directory: String in [CATALOG_PATH, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/"]:
+	for directory: String in [CATALOG_PATH, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/", "res://assets/learning_biped/parts/"]:
 		for file: String in ResourceLoader.list_directory(directory):
 			if not file.ends_with(".tres") or file.contains("/"):
 				continue

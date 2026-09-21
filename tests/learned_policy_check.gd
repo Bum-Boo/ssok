@@ -42,6 +42,20 @@ func _run() -> void:
 	hardware.bodies[0].mass += 0.01
 	_check(not controller.configure(hardware, graph), "reject changed physical properties")
 	hardware.bodies[0].mass -= 0.01
+	var shape: CollisionShape3D
+	for child: Node in hardware.bodies[0].get_children():
+		if child is CollisionShape3D:
+			shape = child
+			break
+	var before: Basis = shape.basis
+	shape.rotate_y(0.1)
+	_check(not controller.configure(hardware, graph), "reject changed collider orientation")
+	shape.basis = before
+	hardware.bodies[0].center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	hardware.bodies[0].center_of_mass = Vector3(0.001, 0, 0)
+	_check(not controller.configure(hardware, graph), "reject changed center of mass")
+	hardware.bodies[0].center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_AUTO
+	hardware.bodies[0].center_of_mass = Vector3.ZERO
 	graph.parts[0].transform.origin.x += 0.001
 	_check(not controller.configure(hardware, graph), "reject changed assembly")
 	controller.queue_free()

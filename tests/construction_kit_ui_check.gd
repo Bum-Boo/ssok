@@ -58,13 +58,13 @@ func _run() -> void:
 			if button.visible:
 				visible_count += 1
 				_check(String((button.get_meta("part_definition") as PartDef).id).begins_with("kit_"), "construction category has only kit components")
-		_check(visible_count == 24, "all elementary catalog SKUs reachable")
+		_check(visible_count == 25, "all elementary catalog SKUs including the sixteen-channel controller are reachable")
 		await _capture(locale + "-humanoid")
 		root.size = Vector2i(1152, 648)
 		await process_frame
 		await process_frame
 		_check(_main.examples_menu.visible and Rect2(Vector2.ZERO, root.size).encloses(_main.examples_menu.get_global_rect()), locale + " compact starter menu reachable")
-		_check(_main.examples_menu.get_popup().item_count == 5, locale + " all five starters available in compact menu")
+		_check(_main.examples_menu.get_popup().item_count == 6, locale + " all six starters available in compact menu")
 		await _capture(locale + "-compact")
 		root.size = Vector2i(1400, 950)
 		_main.kit_bridge_button.pressed.emit()

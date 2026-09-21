@@ -23,6 +23,7 @@ var mode_button: Button
 var run_button: Button
 var answer_button: Button
 var biped_button: Button
+var learned_biped_button: Button
 var humanoid_button: Button
 var kit_bridge_button: Button
 var modular_button: Button
@@ -489,7 +490,7 @@ func _build_palette() -> void:
 	examples_menu = MenuButton.new()
 	examples_menu.text = "Load an example"
 	examples_menu.custom_minimum_size.y = 36
-	for starter: String in ["Answer: servo arm", "Answer: biped", "Answer: humanoid (experimental)", "Answer: construction-kit humanoid", "Answer: kit bridge"]:
+	for starter: String in ["Answer: servo arm", "Answer: biped", "Answer: humanoid (experimental)", "Answer: construction-kit humanoid", "Answer: kit bridge", "Answer: learned biped"]:
 		examples_menu.get_popup().add_item(starter)
 	examples_menu.get_popup().id_pressed.connect(_load_example_id)
 	box.add_child(examples_menu)
@@ -514,7 +515,12 @@ func _build_palette() -> void:
 	kit_bridge_button.tooltip_text = "Answer: kit bridge"
 	kit_bridge_button.pressed.connect(func() -> void: _request_starter(_on_kit_bridge_pressed))
 	box.add_child(kit_bridge_button)
-	_starter_controls = [answer_button, biped_button, humanoid_button, modular_button, kit_bridge_button]
+	learned_biped_button = SsokTheme.button("Answer: learned biped", "box")
+	learned_biped_button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	learned_biped_button.tooltip_text = "Answer: learned biped"
+	learned_biped_button.pressed.connect(func() -> void: _request_starter(_on_learned_biped_pressed))
+	box.add_child(learned_biped_button)
+	_starter_controls = [answer_button, biped_button, humanoid_button, modular_button, kit_bridge_button, learned_biped_button]
 	delete_button = SsokTheme.button("Delete selected", "trash")
 	delete_button.theme_type_variation = &"QuietButton"
 	delete_button.pressed.connect(_on_delete_pressed)
@@ -522,7 +528,7 @@ func _build_palette() -> void:
 
 
 func _load_example_id(index: int) -> void:
-	var actions: Array[Callable] = [_on_answer_pressed, _on_biped_pressed, _on_humanoid_pressed, _on_modular_pressed, _on_kit_bridge_pressed]
+	var actions: Array[Callable] = [_on_answer_pressed, _on_biped_pressed, _on_humanoid_pressed, _on_modular_pressed, _on_kit_bridge_pressed, _on_learned_biped_pressed]
 	if index >= 0 and index < actions.size():
 		_request_starter(actions[index])
 
@@ -565,7 +571,7 @@ func _part_category(definition: PartDef) -> int:
 	var id: String = String(definition.resource_path.get_file().get_basename())
 	if id in ["servo", "tt_motor"] or definition.actuator_torque_nm > 0.0:
 		return 2
-	if id in ["arduino_uno", "board", "hc_sr04", "humanoid_board", "modular_controller", "kit_controller", "kit_optical_sensor"]:
+	if id in ["arduino_uno", "board", "hc_sr04", "learning_hc_sr04", "humanoid_board", "modular_controller", "kit_controller", "kit_controller_16", "kit_optical_sensor"]:
 		return 3
 	return 1
 
@@ -612,7 +618,7 @@ func _begin_toolbar_transform(kind: StringName) -> void:
 
 func _load_part_defs() -> Array[PartDef]:
 	var definitions: Array[PartDef] = []
-	for directory: String in [PARTS_DIR, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/"]:
+	for directory: String in [PARTS_DIR, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/", YawBipedPreset.CATALOG]:
 		var names: PackedStringArray = ResourceLoader.list_directory(directory)
 		names.sort()
 		for file_name: String in names:
@@ -654,6 +660,13 @@ func _on_answer_pressed() -> void:
 
 func _on_biped_pressed() -> void:
 	_load_preset(BipedPreset.build(), BipedPreset.ANSWER_CODE, "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example")
+
+
+func _on_learned_biped_pressed() -> void:
+	_load_preset(YawBipedPreset.build(), "# This example uses a frozen learned policy in manual control.\n# Switch to learner code to program the graph-wired motors yourself.\n", "Learned biped loaded. Choose Run mode, then hold W to walk forward.")
+	control_source.select(CONTROL_MANUAL)
+	program_tabs.current_tab = 1
+	_refresh_control_ui()
 
 
 func _on_humanoid_pressed() -> void:
@@ -795,7 +808,7 @@ func _apply_control_source() -> void:
 	manual_controller.set_enabled(manual and motion_program.is_supported())
 	if mode_button.button_pressed:
 		if manual:
-			if motion_program is HumanoidMotion or not motion_program.is_supported():
+			if motion_program is HumanoidMotion or motion_program is BundledBipedMotion or not motion_program.is_supported():
 				_on_program_status_changed(motion_program.get_status())
 			else:
 				_set_status("W/S forward/back · A/D turn · left stick · Space stop")
@@ -814,6 +827,9 @@ func _on_stop_pressed() -> void:
 
 
 func _open_motion_lab() -> void:
+	if motion_program is BundledBipedMotion:
+		_set_status(BundledBipedMotion.HELP)
+		return
 	if tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
 		return
 	runtime.stop()
@@ -948,17 +964,19 @@ func _apply_motion_policy(policy: Dictionary, fingerprint: String) -> bool:
 
 func _on_motion_graph_changed() -> void:
 	var humanoid: bool = false
+	var learned: bool = false
 	var construction: bool = KitHumanoidMotion.recognizes(assembly.graph)
 	for entry: Dictionary in assembly.graph.parts:
 		humanoid = humanoid or entry.part_def.id in [&"humanoid_torso", &"modular_torso_frame"]
-	if construction != (motion_program is KitHumanoidMotion) or (humanoid or construction) != (motion_program is HumanoidMotion):
+		learned = learned or entry.part_def.id == &"yaw_biped_body"
+	if learned != (motion_program is BundledBipedMotion) or construction != (motion_program is KitHumanoidMotion) or (humanoid or construction) != (motion_program is HumanoidMotion):
 		motion_program.set_enabled(false)
 		remove_child(motion_program)
 		motion_program.queue_free()
-		motion_program = KitHumanoidMotion.new() if construction else (HumanoidMotion.new() if humanoid else BipedMotion.new())
+		motion_program = BundledBipedMotion.new() if learned else (KitHumanoidMotion.new() if construction else (HumanoidMotion.new() if humanoid else BipedMotion.new()))
 		add_child(motion_program)
 		motion_program.status_changed.connect(_on_program_status_changed)
-	motion_lab_button.disabled = false
+	motion_lab_button.disabled = learned
 	if not _applied_pickup_fingerprint.is_empty() and _applied_pickup_fingerprint != MotionSnapshot.fingerprint(_motion_snapshot()):
 		if motion_program is HumanoidMotion:
 			PickupPolicy.apply(motion_program, PickupPolicy.defaults())
@@ -991,6 +1009,8 @@ func _refresh_control_ui() -> void:
 		var run_help: String = "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
 		if motion_program is HumanoidMotion:
 			run_help = "Humanoid loaded. W/S walk, Shift sprint trial, E pick up or release. A/D turning is not supported yet."
+		elif motion_program is BundledBipedMotion:
+			run_help = BundledBipedMotion.HELP
 		if control_source.selected == CONTROL_CODE:
 			run_help = "Code control · Run code to start · Stop input / code to cancel · Esc stops"
 		_help_label.text = tr(camera_help) + "\n" + tr(run_help if running else edit_help)
@@ -998,6 +1018,14 @@ func _refresh_control_ui() -> void:
 
 func _refresh_manual_status() -> void:
 	if _manual_status == null:
+		return
+	if motion_program is BundledBipedMotion:
+		_movement_instructions.visible = false
+		_manual_status.text = tr(BundledBipedMotion.HELP)
+		if control_source.selected == CONTROL_CODE:
+			_manual_status.text = tr("Code owns the motors. Keyboard/gamepad control is off.")
+		elif mode_button.button_pressed and not motion_program.is_supported():
+			_manual_status.text = tr(BundledBipedMotion.MISMATCH)
 		return
 	if motion_program is HumanoidMotion:
 		_movement_instructions.visible = false

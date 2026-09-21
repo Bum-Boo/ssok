@@ -83,7 +83,7 @@ def actuated_joints(robot: dict) -> list[dict]:
     return sorted(hinges, key=lambda j: j["pin"])
 
 
-def to_mjcf(robot: dict) -> str:
+def to_mjcf(robot: dict, physics_hz: int = 240) -> str:
     bodies = {b["index"]: b for b in robot["bodies"]}
     parent_of, joint_of = build_tree(robot)
     children: dict[int, list[int]] = {}
@@ -110,9 +110,18 @@ def to_mjcf(robot: dict) -> str:
             lines.append(f'{pad}  <joint name="pin{joint.get("pin", -1)}_{name}" type="hinge" '
                          f'pos="{_fmt(anchor)}" axis="{_fmt(axis / np.linalg.norm(axis))}" '
                          f'range="{-limit:.9g} {limit:.9g}" damping="0.002" armature="0.0001"/>')
-        half = np.array(body["box_size"]) / 2.0
-        lines.append(f'{pad}  <geom type="box" size="{_fmt(half)}" pos="{_fmt(body["box_center"])}" '
-                     f'mass="{body["mass_kg"]:.9g}" class="robot"/>')
+        if "full_inertia" in body:
+            lines.append(f'{pad}  <inertial mass="{body["mass_kg"]:.9g}" pos="{_fmt(body["center_of_mass"])}" '
+                         f'fullinertia="{_fmt(body["full_inertia"])}"/>')
+        if "collision_boxes" in body:
+            for collider in body["collision_boxes"]:
+                shape = _matrix(collider["transform"])
+                lines.append(f'{pad}  <geom type="box" size="{_fmt(np.array(collider["size"]) / 2)}" '
+                             f'pos="{_fmt(shape[:3, 3])}" quat="{_fmt(_quat(shape[:3, :3]))}" class="robot"/>')
+        else:
+            half = np.array(body["box_size"]) / 2.0
+            lines.append(f'{pad}  <geom type="box" size="{_fmt(half)}" pos="{_fmt(body["box_center"])}" '
+                         f'mass="{body["mass_kg"]:.9g}" class="robot"/>')
         for child in sorted(children.get(index, [])):
             lines.extend(body_xml(child, depth + 1))
         lines.append(f"{pad}</body>")
@@ -122,7 +131,7 @@ def to_mjcf(robot: dict) -> str:
     floor_y = robot["floor_y"]
     xml = [
         f'<mujoco model={quoteattr("ssok_" + robot["preset"])}>',
-        f'  <option timestep="{PHYSICS_TIMESTEP:.9g}" gravity="{_fmt(gravity)}" integrator="implicitfast"/>',
+        f'  <option timestep="{1.0 / physics_hz:.9g}" gravity="{_fmt(gravity)}" integrator="implicitfast"/>',
         "  <default>",
         # Robot geoms touch only the floor: self-collision between welded parts is out of scope.
         '    <default class="robot"><geom contype="1" conaffinity="2" friction="0.9 0.01 0.001" rgba="0.85 0.87 0.9 1"/></default>',
@@ -138,8 +147,9 @@ def to_mjcf(robot: dict) -> str:
     for joint in actuated_joints(robot):
         child = joint["b"] if parent_of.get(joint["b"]) == joint["a"] else joint["a"]
         name = f"pin{joint['pin']}_{bodies[child]['part_id']}_{child}"
+        torque = joint.get("actuator_torque_nm", 0.0) or SERVO_TORQUE_NM
         xml.append(f'    <position name="{name}" joint="{name}" kp="{SERVO_KP}" kv="{SERVO_KV}" '
-                   f'forcelimited="true" forcerange="{-SERVO_TORQUE_NM} {SERVO_TORQUE_NM}"/>')
+                   f'forcelimited="true" forcerange="{-torque} {torque}"/>')
     xml += ["  </actuator>", "</mujoco>", ""]
     return "\n".join(xml)
 

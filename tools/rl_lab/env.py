@@ -50,6 +50,7 @@ class EnvConfig:
     action_scale_deg: float = 30.0
     gait_hz: float = 1.0
     init_noise_rad: float = 0.02
+    physics_hz: int = 240
 
 
 def load_task(path: str | Path) -> dict:
@@ -66,7 +67,9 @@ class WalkEnv:
         self.robot = load_robot(config.robot_json)
         self.robot_fingerprint = fingerprint(self.robot)
         self.task = load_task(config.task_json)
-        self.model = mujoco.MjModel.from_xml_string(to_mjcf(self.robot))
+        if config.physics_hz not in (60, 120, 240):
+            raise ValueError("physics_hz must be 60, 120 or 240")
+        self.model = mujoco.MjModel.from_xml_string(to_mjcf(self.robot, physics_hz=config.physics_hz))
         self.data = mujoco.MjData(self.model)
         self.substeps = round(1.0 / (CONTROL_HZ * self.model.opt.timestep))
         self.horizon = round(self.task["horizon_s"] * CONTROL_HZ)

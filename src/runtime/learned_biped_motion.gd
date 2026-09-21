@@ -16,6 +16,11 @@ var _control_step: int = 0
 var _physics_frame: int = 0
 
 
+func _init() -> void:
+	# Keep the measured one-tick motor-command latency independent of scene insertion order.
+	process_physics_priority = 10
+
+
 func load_policy(data: Dictionary) -> bool:
 	if not validate_policy(data).is_empty():
 		return false
@@ -76,7 +81,13 @@ func _physics_process(_delta: float) -> void:
 			drive.write_relative(0.0)
 		return
 	if _physics_frame % 2 == 0:
-		apply_action(infer(policy, observation()))
+		var action: PackedFloat64Array = infer(policy, observation())
+		var startup_seconds: float = float(policy.get("startup_seconds", 0.0))
+		if startup_seconds > 0.0:
+			var strength: float = clampf(float(_control_step) / (CONTROL_HZ * startup_seconds), 0.0, 1.0)
+			for index: int in ACTIONS:
+				action[index] *= strength
+		apply_action(action)
 		_control_step += 1
 	_physics_frame += 1
 
@@ -147,6 +158,8 @@ static func validate_policy(data: Dictionary) -> String:
 			return "Invalid policy action bounds"
 	if float(data.action_scale_deg) <= 0.0 or float(data.action_scale_deg) > 60.0 or float(data.gait_hz) < 0.1 or float(data.gait_hz) > 3.0:
 		return "Invalid policy action bounds"
+	if not _vector([data.get("startup_seconds", 0.0)], 1, 0.0, 2.0):
+		return "Invalid policy startup duration"
 	if data.has("godot_joint_signs"):
 		if not _vector(data.godot_joint_signs, ACTIONS, -1.0, 1.0):
 			return "Invalid joint signs"
@@ -175,15 +188,20 @@ static func runtime_fingerprint(hardware: RunMode, graph: ConnectionGraph) -> St
 			if child is CollisionShape3D and child.shape is BoxShape3D:
 				var size: Vector3 = child.shape.size
 				var position: Vector3 = child.position
-				bounds.append([size.x, size.y, size.z, position.x, position.y, position.z])
+				var basis: Basis = child.basis
+				bounds.append([size.x, size.y, size.z, position.x, position.y, position.z,
+					basis.x.x, basis.x.y, basis.x.z, basis.y.x, basis.y.y, basis.y.z, basis.z.x, basis.z.y, basis.z.z])
 		properties.append([String(definition.id), body.mass, body.freeze, bounds,
-			definition.actuator_torque_nm, definition.actuator_min_deg, definition.actuator_max_deg])
+			definition.actuator_torque_nm, definition.actuator_min_deg, definition.actuator_max_deg,
+			definition.merge_fixed_connections, hardware.bodies.find(body), body.center_of_mass_mode,
+			body.center_of_mass.x, body.center_of_mass.y, body.center_of_mass.z,
+			body.inertia.x, body.inertia.y, body.inertia.z])
 	var actuators: Array = []
 	for channel: Dictionary in hardware.wired_servo_channels():
 		var drive: ServoDrive = hardware.servo_on_pin(channel.pin)
 		actuators.append([channel.pin, drive.torque_limit_nm, drive.speed_deg_per_s,
 			drive.velocity_gain, drive.maximum_velocity, drive.relative_min_deg, drive.relative_max_deg])
-	var configuration: Array = [MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)),
+	var configuration: Array = ["motor-before-policy-v1", MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)),
 		Engine.get_version_info().string, Engine.physics_ticks_per_second,
 		ProjectSettings.get_setting("physics/3d/default_gravity"),
 		ProjectSettings.get_setting("physics/3d/solver/solver_iterations"),

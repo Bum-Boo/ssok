@@ -4,7 +4,60 @@ ssok includes an offline reinforcement-learning laboratory and a small GDScript 
 Training never calls a paid API unless both `--live` and `--allow-paid` are supplied. The shipped
 application needs neither Python nor an API key to evaluate a policy.
 
-## Measured result — 22 September 2026
+## Godot result — 22 September 2026
+
+A policy learned directly in Godot completed **31 of 32 held-out episodes (96.9%)**, with
+**zero falls** and **0.422 m mean forward travel**. Each episode launched a fresh Godot process;
+start delays covered 0, 1, 2 and 3 seconds. This narrow held-out test used the same native Linux
+binary and only ±0.003 m/s initial x/z velocity perturbations; it does not establish broad domain robustness. The policy operates the separate graph-derived yaw-hip
+biped with real 0.25 N·m joint motors. These are simulated forward-walking results for this robot.
+
+| Shipping-engine check | Successes | Falls | Mean forward travel |
+|---|---:|---:|---:|
+| Zero-action validation baseline | 0 / 8 | 0 | −0.0008 m |
+| Hand-designed periodic initialization | 0 / 8 | 0 | 0.185 m |
+| Learned checkpoint, validation seeds 1001–1008 | 8 / 8 | 0 | 0.426 m |
+| Frozen policy, held-out seeds 2101–2132 | 31 / 32 | 0 | 0.422 m |
+
+The one held-out failure, seed 2102, traveled 0.416 m but drifted sideways 0.115 m, exceeding
+the unchanged 0.10 m limit. It stayed upright. Both feet physically leave the floor in every
+episode: maximum left-foot clearance ranges 5.5–8.3 mm and right-foot clearance 11.8–13.5 mm;
+at least one foot remains in contact throughout. Clearance uses the actual foot's transformed
+collision-box corners, with a 0.5 mm contact tolerance.
+
+The cross-entropy optimizer learned twelve periodic coefficients and a clock frequency. It began
+from a disclosed hand-designed periodic policy, then used measured returns to update the sampling
+distribution. It does **not** learn state feedback. There were **zero paid API calls**. The selected
+checkpoint was frozen at iteration 35 before evaluating the held-out seeds. Later iterations did
+not replace the frozen checkpoint.
+
+- [Training, initial baseline, and every checkpoint validation](evidence/rl_2026-09-22/godot_yaw_training.json)
+- [Every frozen-policy held-out episode, including the failure](evidence/rl_2026-09-22/godot_yaw_heldout.json)
+- [Initial stop/restart stress results](evidence/rl_2026-09-22/godot_yaw_restart_v1.json)
+
+The actual `main.tscn` application also passes five native checks: W immediately after Run,
+W after 1, 2 and 3 seconds, and walking for 3 seconds followed by a 1-second stop and W again.
+Each passes 734 assertions including real keyboard input, upright stopping, graph immutability,
+modified-graph rejection and returning to the original starter. Travel is 0.408–0.427 m and minimum
+upright alignment is 0.9577–0.9714. [Per-flow app evidence](evidence/rl_2026-09-22/godot_yaw_app.json)
+records these results. **Actual WebAssembly walking remains unverified** until the exported-browser
+physics check completes; native tests alone do not establish it.
+
+The first [24-episode stop/restart check](evidence/rl_2026-09-22/godot_yaw_restart_v1.json) passed
+22 episodes, with one fall. An expanded characterization used eight walking durations, four pause
+lengths and four new seeds (128 episodes). It passed **122/128 (95.3%)** when forward and heading
+are measured relative to the robot at restart, with **3 falls**. The stricter original world +Z
+measurement passed 101/128; prior turning during warmup affects that measure. Both results and
+all failures remain in [the expanded report](evidence/rl_2026-09-22/godot_yaw_restart_extended.json).
+The 31/32 initial walking score and restart scores describe different tasks and are never combined.
+
+Bounded joint-target ramps, completing a gait phase before stopping, and preserving phase across
+short pauses did not consistently improve restart success. The
+[transition ablation](evidence/rl_2026-09-22/godot_yaw_stop_ablation.json) retains every tested episode
+and diagnostic source. The shipped controller and frozen weights remain unchanged. Arbitrary rapid
+stop/restart is a measured limitation, not a guarantee inferred from the five app checks.
+
+## Earlier MuJoCo experiment
 
 A genuinely trained ARS policy completed the fixed MuJoCo walking task in **25 of 32 held-out
 episodes (78.1%)** with **zero falls** and **0.438 m mean forward travel**. Its untrained baseline
@@ -38,6 +91,53 @@ Source artifacts:
 The run used 3 rounds × 160 ARS iterations, 16 antithetic directions per iteration, four CPU workers,
 MuJoCo 3.13.0 and NumPy 2.5.3. Reward proposals came from deterministic rules (`provider: mock`);
 there were **zero Luna calls**. ARS changed real policy weights using observed episodic returns.
+
+## Physics-rate diagnosis
+
+The successful reference policy was trained with 240 Hz MuJoCo physics and 30 Hz control.
+Keeping its exact frozen weights and 30 Hz control fixed exposes a strong timestep dependency:
+
+| MuJoCo physics rate | Seeds | Successes | Falls | Mean forward travel |
+|---|---:|---:|---:|---:|
+| 60 Hz | 2001–2016 | 0 / 16 | 16 | 0.006 m |
+| 120 Hz | 2001–2016 | 1 / 16 | 7 | 0.289 m |
+| 240 Hz | 2001–2016 | 12 / 16 | 0 | 0.433 m |
+
+[Per-episode timestep ablation](evidence/rl_2026-09-22/timestep_ablation.json) holds all other
+policy settings constant. This shows the old policy requires fast simulated dynamics; it does
+not identify every remaining contact or actuator difference. A zero-action baseline stays upright
+for all 16 full episodes at each rate, including 60 Hz (maximum drift 14.5 mm), as recorded in
+[baseline stability](evidence/rl_2026-09-22/untrained_timestep_baselines.json). A fresh
+3 × 160-iteration ARS run at 60 Hz did not beat its zero-action baseline.
+
+Direct Godot searches on the original pitch-hip robot also remain below the task gate: unrestricted
+periodic optimization reached about 0.100 m with excessive yaw; symmetric optimization reached
+0.109 m and 7.64 degrees mean absolute yaw after 100 generations. Both produced 0 / 8 validation
+successes. A 35-iteration state-feedback search reached 0.086 m and also failed the gate.
+
+The separate [yaw-hip graph](adr/0014-yaw-hip-learning-biped.md) permits direct learning with real
+vertical motor axes and bounded torque. It preserves the original robot and its failed results.
+Its generator is `tools/godot/make_yaw_biped_defs.gd`; export with `--preset yaw_biped` and train
+with `tools.rl_lab.train_godot --robot yaw_biped`. Its physical result is measured independently in the Godot table above.
+
+The new graph uses the existing opt-in compound-body builder. Every part's mass and collision
+transform is retained, but automatic compound inertia is an approximation. The
+[direct-state audit](evidence/rl_2026-09-22/compound_inertia_audit.json) records separate and merged
+body mass, COM and tensors. The torso tensor differs by about 11.3% and the leg tensors by 4.1%
+from the parallel-axis sum of separate bodies; compound COM uses weighted part origins rather
+than individual collision-derived centers (up to 0.54 mm difference). Export now includes every
+compound collider, measured full inertia and COM, and counts each physical body once.
+
+## Episode isolation
+
+A first yaw-hip search appeared to succeed, but
+[the same-weight reset ablation](evidence/rl_2026-09-22/godot_yaw_batch_ablation.json) invalidated
+that deployment claim: 8 / 8 successes in a process that had already evaluated another candidate
+became 0 / 8 with fresh processes. Both used the same validation seeds and starting delays.
+This is an order-sensitive contact-solver result, not robust app walking. The earlier candidate
+remains failed evidence. Authoritative training and evaluation now create **one fresh Godot process
+per episode**. The new 31/32 result uses this corrected protocol. App hierarchy and
+stop/restart checks are additional gates; arithmetic parity alone remains insufficient.
 
 ## Reproduce
 
@@ -75,10 +175,31 @@ learn state feedback. The evaluator and app use the same `LearnedBipedMotion` im
   --godot godot --out tools/rl_lab/runs/godot --iterations 120 --population 32 --workers 4
 ```
 
-Training seeds and fixed validation seeds are recorded separately in `progress.json`. A best
+The recorded yaw-hip run is reproducible with:
+
+```sh
+.venv-rl/bin/python -m tools.rl_lab.train_godot \
+  --godot godot --robot yaw_biped --out tools/rl_lab/runs/yaw \
+  --initial-policy tools/rl_lab/reference/yaw_periodic_initial.json \
+  --seed 29 --iterations 35 --population 32 --workers 4 --training-seeds 2 \
+  --initial-sigma 0.3 --sigma-floor 0.04 --vary-start
+.venv-rl/bin/python -m tools.rl_lab.evaluate \
+  assets/policies/yaw_biped_v1.json --engine godot --vary-start \
+  --seed-start 2101 --episodes 32 --out /tmp/ssok-yaw-heldout.json
+.venv-rl/bin/python -m tools.rl_lab.check_restart \
+  assets/policies/yaw_biped_v1.json --extended --seed-start 2301 \
+  --seeds-per-case 4 --out /tmp/ssok-yaw-restarts.json
+```
+
+Training seeds (3000–999999) and fixed validation seeds (1001–1008) are recorded separately in `progress.json`. A best
 checkpoint is selected using validation task metrics. Evaluate a frozen selected checkpoint on new
 seeds before making a success claim. The trainer records failures and does not relax the task to
 make an unsuccessful checkpoint appear complete.
+
+`--vary-start` trains and validates starts after 0, 1, 2 or 3 seconds of settling, derived from
+the episode seed. Optional `--startup-seconds` records a bounded action-amplitude ramp in the policy;
+its default is zero. Changing either option requires a fresh physical evaluation. Playback through
+`tools/godot/play_rl_policy.gd -- --policy file.json --window` uses `LearnedBipedMotion` directly.
 
 ## Runtime boundaries
 
