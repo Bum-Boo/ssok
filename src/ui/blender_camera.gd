@@ -49,6 +49,13 @@ func is_navigating() -> bool:
 	return _navigating
 
 
+func track_displacement(displacement: Vector3) -> void:
+	if not displacement.is_finite():
+		return
+	pivot += displacement
+	_apply_view()
+
+
 func frame_bounds(bounds: AABB) -> void:
 	if not bounds.position.is_finite() or not bounds.size.is_finite():
 		return

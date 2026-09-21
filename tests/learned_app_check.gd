@@ -25,6 +25,7 @@ func _run() -> void:
 	_check(main.motion_program is BundledBipedMotion, "actual starter selects the frozen learned controller")
 	_check(main.control_source.selected == main.CONTROL_MANUAL, "starter selects manual forward control")
 	var snapshot: String = MotionSnapshot.fingerprint(MotionSnapshot.encode(main.assembly.graph))
+	var edit_pivot: Vector3 = main.navigation.pivot
 	main.mode_button.button_pressed = true
 	_check(main.motion_program.is_supported(), "policy accepts the actual application physics and graph")
 	_check(main.motion_program.get_status() == BundledBipedMotion.HELP, "learned controller explains its forward-only controls")
@@ -60,6 +61,10 @@ func _run() -> void:
 	_check(absf(displacement.x) <= 0.10, "actual app stays within 10 cm lateral drift")
 	_check(absf(yaw) <= deg_to_rad(30.0), "actual app stays within 30 degrees heading drift")
 	_check(minimum_up >= 0.85 and minimum_height > 0.09, "actual app remains standing throughout walking")
+	await process_frame
+	var camera: Camera3D = root.get_camera_3d()
+	var visible_workshop: Rect2 = Rect2(260, 90, 770, 810)
+	_check(not camera.is_position_behind(body.global_position) and visible_workshop.has_point(camera.unproject_position(body.global_position)), "walking robot stays visible between the workshop panels")
 	_key(KEY_W, false)
 	for frame: int in 90:
 		await physics_frame
@@ -67,6 +72,7 @@ func _run() -> void:
 	_check(body.global_basis.y.dot(Vector3.UP) >= 0.9, "robot remains upright after stopping")
 	_check(MotionSnapshot.fingerprint(MotionSnapshot.encode(main.assembly.graph)) == snapshot, "learned walking does not modify the authored assembly")
 	main.mode_button.button_pressed = false
+	_check(main.navigation.pivot.distance_to(edit_pivot) < 0.001, "returning to edit mode restores the assembly framing")
 	main.assembly.graph.parts[0].transform.origin.x += 0.001
 	main.mode_button.button_pressed = true
 	_check(not main.motion_program.is_supported(), "edited geometry rejects the bundled policy")

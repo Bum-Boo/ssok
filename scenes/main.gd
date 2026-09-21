@@ -43,6 +43,9 @@ var _help_label: Label
 var _delete_dialog: ConfirmationDialog
 var _applied_motion_fingerprint: String = ""
 var _applied_pickup_fingerprint: String = ""
+var _follow_body: RigidBody3D
+var _follow_position: Vector3
+var _follow_offset: Vector3 = Vector3.ZERO
 
 var _ui_root: Control
 var language_picker: OptionButton
@@ -123,6 +126,28 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_refresh_manual_status()
+	_follow_running_robot()
+
+
+func _follow_running_robot() -> void:
+	if not run_mode.is_built() or not motion_program.is_supported():
+		_follow_body = null
+		return
+	var body_part: int = int(motion_program.get("body_part"))
+	if body_part < 0 or body_part >= run_mode.bodies.size():
+		return
+	var body: RigidBody3D = run_mode.bodies[body_part]
+	if not is_instance_valid(_follow_body) or _follow_body != body:
+		_follow_body = body
+		_follow_position = body.global_position
+		return
+	var moved: Vector3 = body.global_position - _follow_position
+	_follow_position = body.global_position
+	moved.y = 0.0
+	if not moved.is_finite():
+		return
+	_follow_offset += moved
+	navigation.track_displacement(moved)
 
 
 func _selection_bounds() -> AABB:
@@ -773,6 +798,9 @@ func _on_mode_toggled(run: bool) -> void:
 		motion_program.configure(run_mode, assembly.graph)
 		_apply_control_source()
 	else:
+		navigation.track_displacement(-_follow_offset)
+		_follow_offset = Vector3.ZERO
+		_follow_body = null
 		manual_controller.configure(null)
 		motion_program.configure(null, null)
 		run_mode.teardown()
