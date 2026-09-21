@@ -4,6 +4,7 @@ extends RobotMotionProgram
 ## Executes a bounded exported policy. All actuation still goes through graph-wired servos.
 
 const OBSERVATIONS: int = 21
+const TRACKING_OBSERVATIONS: int = 24
 const ACTIONS: int = 4
 const CONTROL_HZ: int = 30
 
@@ -14,6 +15,10 @@ var _pairs: Array[Dictionary] = []
 var _previous_action: PackedFloat64Array = PackedFloat64Array([0, 0, 0, 0])
 var _control_step: int = 0
 var _physics_frame: int = 0
+var _has_start_frame: bool = false
+var _start_position: Vector3 = Vector3.ZERO
+var _start_heading: Vector3 = Vector3.BACK
+var _start_right: Vector3 = Vector3.RIGHT
 
 
 func _init() -> void:
@@ -39,7 +44,7 @@ func configure(hardware: RunMode, graph: ConnectionGraph) -> bool:
 		return false
 	if policy.has("graph_fingerprint") and policy.graph_fingerprint != MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)):
 		return false
-	if policy.has("runtime_fingerprint") and policy.runtime_fingerprint != runtime_fingerprint(hardware, graph):
+	if policy.has("runtime_fingerprint") and policy.runtime_fingerprint != runtime_fingerprint(hardware, graph, int(policy.version)):
 		return false
 	var binding := BipedMotion.new()
 	if not binding.configure(hardware, graph):
@@ -65,6 +70,7 @@ func set_enabled(enabled: bool) -> void:
 	_control_step = 0
 	_physics_frame = 0
 	_previous_action.fill(0.0)
+	_has_start_frame = false
 	if _enabled:
 		for drive: ServoDrive in _drives:
 			drive.write_relative(0.0)
@@ -77,9 +83,16 @@ func _physics_process(_delta: float) -> void:
 		_control_step = 0
 		_physics_frame = 0
 		_previous_action.fill(0.0)
+		_has_start_frame = false
 		for drive: ServoDrive in _drives:
 			drive.write_relative(0.0)
 		return
+	if not _has_start_frame:
+		var body: RigidBody3D = _hardware.bodies[body_part]
+		_start_position = body.global_position
+		_start_heading = Vector3(body.global_basis.z.x,0,body.global_basis.z.z).normalized()
+		_start_right = Vector3.UP.cross(_start_heading)
+		_has_start_frame = true
 	if _physics_frame % 2 == 0:
 		var action: PackedFloat64Array = infer(policy, observation())
 		var startup_seconds: float = float(policy.get("startup_seconds", 0.0))
@@ -113,6 +126,9 @@ func observation() -> PackedFloat64Array:
 	result.append_array([gravity.x, gravity.y, gravity.z, angular.x, angular.y, angular.z, 1.0])
 	var phase: float = TAU * float(policy.gait_hz) * _control_step / CONTROL_HZ
 	result.append_array([sin(phase), cos(phase)])
+	if int(policy.version) == 2:
+		var heading: Vector3 = Vector3(body.global_basis.z.x,0,body.global_basis.z.z).normalized()
+		result.append_array([(body.global_position - _start_position).dot(_start_right), body.linear_velocity.dot(_start_right), _start_heading.signed_angle_to(heading,Vector3.UP)])
 	return result
 
 
@@ -137,8 +153,9 @@ static func infer(data: Dictionary, obs: PackedFloat64Array) -> PackedFloat64Arr
 
 
 static func validate_policy(data: Dictionary) -> String:
-	if data.get("format") != "ssok-linear-policy" or data.get("version") != 1 or data.get("control_hz") != CONTROL_HZ:
+	if data.get("format") != "ssok-linear-policy" or (data.get("version") != 1 and data.get("version") != 2) or data.get("control_hz") != CONTROL_HZ:
 		return "Unsupported policy format"
+	var dimensions: int = TRACKING_OBSERVATIONS if int(data.version) == 2 else OBSERVATIONS
 	if not _vector(data.get("joint_pins"), ACTIONS, 0.0, 1000.0):
 		return "Invalid policy pin mapping"
 	var unique: Dictionary = {}
@@ -149,9 +166,9 @@ static func validate_policy(data: Dictionary) -> String:
 	if not data.get("weights") is Array or data.weights.size() != ACTIONS:
 		return "Invalid policy dimensions"
 	for row: Variant in data.weights:
-		if not _vector(row, OBSERVATIONS, -10000.0, 10000.0):
+		if not _vector(row, dimensions, -10000.0, 10000.0):
 			return "Invalid policy weights"
-	if not _vector(data.get("obs_mean"), OBSERVATIONS, -10000.0, 10000.0) or not _vector(data.get("obs_var"), OBSERVATIONS, 0.0, 1e8):
+	if not _vector(data.get("obs_mean"), dimensions, -10000.0, 10000.0) or not _vector(data.get("obs_var"), dimensions, 0.0, 1e8):
 		return "Invalid observation normalization"
 	for key: String in ["action_scale_deg", "gait_hz"]:
 		if typeof(data.get(key)) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(data[key])):
@@ -178,7 +195,7 @@ static func _vector(value: Variant, length: int, low: float, high: float) -> boo
 	return true
 
 
-static func runtime_fingerprint(hardware: RunMode, graph: ConnectionGraph) -> String:
+static func runtime_fingerprint(hardware: RunMode, graph: ConnectionGraph, version: int = 1) -> String:
 	var properties: Array = []
 	for index: int in graph.parts.size():
 		var definition: PartDef = graph.parts[index].part_def
@@ -208,4 +225,6 @@ static func runtime_fingerprint(hardware: RunMode, graph: ConnectionGraph) -> St
 		ProjectSettings.get_setting("physics/3d/solver/contact_max_allowed_penetration"),
 		ProjectSettings.get_setting("physics/3d/solver/contact_recycle_radius"),
 		ProjectSettings.get_setting("physics/3d/solver/contact_max_separation"), properties, actuators]
+	if version == 2:
+		configuration[0] = "motor-before-policy-v2-command-start-tracking"
 	return JSON.stringify(configuration, "", true, true).sha256_text()

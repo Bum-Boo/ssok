@@ -2,7 +2,7 @@ class_name BundledBipedMotion
 extends LearnedBipedMotion
 
 ## The bundled example uses the same frozen policy and inference class as offline evaluation.
-const POLICY_PATH: String = "res://assets/policies/yaw_biped_v1.json"
+const POLICY_PATH: String = "res://assets/policies/yaw_biped_v2.json"
 const HELP: String = "Learned forward gait: hold W or push the stick forward; release to stop. Reverse and turning are not supported."
 const MISMATCH: String = "This learned gait needs its original assembly and physics settings. Reload the learned-biped example to restore them."
 

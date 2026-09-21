@@ -4,7 +4,18 @@ ssok includes an offline reinforcement-learning laboratory and a small GDScript 
 Training never calls a paid API unless both `--live` and `--allow-paid` are supplied. The shipped
 application needs neither Python nor an API key to evaluate a policy.
 
-## Godot result — 22 September 2026
+## Current bundled feedback policy — 22 September 2026
+
+The version 2 policy adds learned command-relative feedback to the frozen v1 oscillator.
+It passes **64/64 fresh starts and 63/64 restarts**, with **one fall**, on new native held-out
+conditions; the paired v1 baseline passes 55/64 and 59/64 with four falls. The actual native app
+passes 12 declared flows, and the identical candidate passes **six actual WebAssembly flows**.
+The remaining native failure is disclosed, and final clean-release export checks remain separate.
+[Methods, rejected candidates, complete results and reproduction](RL_FEEDBACK.md) distinguish
+training, ablation/selection and the independently frozen evaluation. These statistics must not
+be merged with the earlier, narrower v1 distribution below.
+
+## Historical version 1 Godot result — 22 September 2026
 
 A policy learned directly in Godot completed **31 of 32 held-out episodes (96.9%)**, with
 **zero falls** and **0.422 m mean forward travel**. Each episode launched a fresh Godot process;
@@ -69,8 +80,9 @@ The 31/32 initial walking score and restart scores describe different tasks and 
 Bounded joint-target ramps, completing a gait phase before stopping, and preserving phase across
 short pauses did not consistently improve restart success. The
 [transition ablation](evidence/rl_2026-09-22/godot_yaw_stop_ablation.json) retains every tested episode
-and diagnostic source. The shipped controller and frozen weights remain unchanged. Arbitrary rapid
-stop/restart is a measured limitation, not a guarantee inferred from the five app checks.
+and diagnostic source. Those transition experiments did not replace the v1 controller or weights. Version 2 now adds
+the separately evaluated feedback described above; arbitrary rapid stop/restart remains a
+measured limitation, not a guarantee inferred from selected app checks.
 
 ## Earlier MuJoCo experiment
 

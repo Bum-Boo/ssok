@@ -95,6 +95,7 @@ func _episode(episode: Dictionary) -> Dictionary:
 	var initial_heading := Vector3(body.global_basis.z.x, 0, body.global_basis.z.z).normalized()
 	var initial_right: Vector3 = Vector3.UP.cross(initial_heading)
 	var minimum_upright: float = 1.0
+	var minimum_height: float = body.global_position.y - BipedPreset.FLOOR_TOP
 	var fallen: bool = preparation_fallen
 	var frames: int = 0
 	var reward: float = 0.0
@@ -118,6 +119,7 @@ func _episode(episode: Dictionary) -> Dictionary:
 		var upright: float = body.global_basis.y.normalized().dot(Vector3.UP)
 		minimum_upright = minf(minimum_upright, upright)
 		var height: float = body.global_position.y - BipedPreset.FLOOR_TOP
+		minimum_height = minf(minimum_height,height)
 		var airborne_feet: int = 0
 		for index: int in feet.size():
 			var clearance: float = _foot_clearance(graph, feet[index])
@@ -143,7 +145,7 @@ func _episode(episode: Dictionary) -> Dictionary:
 	var relative_yaw: float = rad_to_deg(initial_heading.signed_angle_to(Vector3(heading.x, 0, heading.z).normalized(), Vector3.UP))
 	var result: Dictionary = {
 		"seed": seed_value, "settle_seconds": settle_seconds, "forward_m": moved.z, "lateral_m": moved.x,
-		"yaw_deg": yaw, "fallen": fallen, "min_upright": minimum_upright,
+		"yaw_deg": yaw, "fallen": fallen, "min_upright": minimum_upright, "minimum_height": minimum_height,
 		"seconds": frames / 60.0, "return": reward / 2.0,
 		"warmup_walk_seconds": warmup_seconds, "restart_pause_seconds": restart_pause,
 		"preparation_fallen": preparation_fallen,
@@ -153,7 +155,7 @@ func _episode(episode: Dictionary) -> Dictionary:
 		"both_feet_air_frames": airborne_frames,
 		"success": not fallen and frames == int(seconds * 60) and moved.z >= 0.3 and absf(moved.x) <= 0.1 and absf(yaw) <= 30.0,
 		"graph_fingerprint": MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)),
-		"runtime_fingerprint": LearnedBipedMotion.runtime_fingerprint(_hardware, graph),
+		"runtime_fingerprint": LearnedBipedMotion.runtime_fingerprint(_hardware, graph,int(episode.policy.version)),
 		"final_observation": Array(_motion.observation()),
 		"final_targets": _hardware.servos.values().map(func(drive: ServoDrive) -> float: return drive.current_deg),
 	}
