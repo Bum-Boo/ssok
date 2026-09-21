@@ -135,7 +135,7 @@ def main() -> None:
     parser.add_argument("--live", action="store_true", help="Enable paid OpenAI calls with per-search consent")
     parser.add_argument("--model", choices=["gpt-5.6-luna"], default="gpt-5.6-luna", help="Requested API model; no fallback")
     parser.add_argument("--max-calls", type=int, default=8, help="Session-wide live-call limit")
-    parser.add_argument("--godot", default="godot", help="Operator-selected Godot executable")
+    parser.add_argument("--godot", default=os.environ.get("GODOT", "godot"), help="Operator-selected Godot executable")
     args = parser.parse_args()
     if not 1 <= args.max_calls <= 32:
         parser.error("--max-calls must be between 1 and 32")

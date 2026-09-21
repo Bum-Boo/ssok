@@ -41,9 +41,9 @@ def copy_notices(destination: Path) -> None:
     }
     for name, source in sources.items():
         shutil.copy2(source, notices / name)
-    for name in ("LICENSE", "THIRD_PARTY_NOTICES.md"):
-        if (PROJECT / name).is_file():
-            shutil.copy2(PROJECT / name, destination / name)
+    for name in ("LICENSE", "THIRD_PARTY_NOTICES.md", "README.md"):
+        shutil.copy2(PROJECT / name, destination / name)
+    shutil.copytree(PROJECT / "docs", destination / "docs", ignore=shutil.ignore_patterns("*.tmp", "*.bak"))
 
 
 def main() -> None:

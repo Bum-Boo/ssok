@@ -28,6 +28,9 @@ Writes use a temporary file and rename, and snapshots have independent generated
 **Blocks → Read from code** reads the supported servo subset. Each card is generated from the
 board API descriptors in `src/core/board_profile.gd`. Edit its named inputs or add/remove a command,
 then use **Apply blocks to code**. Applying does not start physics; **Run code** remains explicit.
+Saving or exporting also validates and applies pending blocks. Invalid values or independently
+changed code stop the save and retain both drafts. Starter replacement and **Read from code**
+ask before discarding unapplied blocks. Numeric fields preserve fractional values such as `0.05`.
 
 ```python
 from servo import Servo

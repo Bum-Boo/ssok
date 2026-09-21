@@ -305,7 +305,7 @@ func _build_ui() -> void:
 	tutorial.panel_closed.connect(_close_tutorial)
 	projects = ProjectPanel.new()
 	projects.theme = _ui_root.theme
-	projects.configure(_project_document)
+	projects.configure(_project_document, _prepare_project_document)
 	add_child(projects)
 	projects.panel_closed.connect(_close_projects)
 	projects.project_loaded.connect(_load_project)
@@ -345,7 +345,11 @@ func _build_ui() -> void:
 	_replace_dialog.custom_action.connect(func(action: StringName) -> void:
 		if action != &"save":
 			return
-		var result: Dictionary = ProjectStore.save(_project_document())
+		var record: Dictionary = _prepare_project_document()
+		if record.has("error"):
+			_set_status(record.error, true)
+			return
+		var result: Dictionary = ProjectStore.save(record)
 		if result.has("error"):
 			_set_status(result.error, true)
 			return
@@ -520,7 +524,8 @@ func _load_example_id(index: int) -> void:
 
 
 func _workspace_key() -> String:
-	return (JSON.stringify(MotionSnapshot.encode(assembly.graph), "", true, true) + "\n" + code_edit.text).sha256_text()
+	var draft: String = JSON.stringify(blocks.instructions, "", true, true) if blocks != null and blocks.has_draft() else ""
+	return (JSON.stringify(MotionSnapshot.encode(assembly.graph), "", true, true) + "\n" + code_edit.text + "\n" + draft).sha256_text()
 
 
 func _request_starter(action: Callable) -> void:
@@ -674,7 +679,7 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 	_colorize(assembly)
 	_mark_ports(assembly)
 	code_edit.text = code
-	blocks.read_source(code)
+	blocks.reset_source(code)
 	_clean_workspace = _workspace_key()
 	navigation.frame_bounds(assembly.get_scene_bounds())
 	_set_status(message)
@@ -840,6 +845,12 @@ func _motion_snapshot() -> Dictionary:
 
 func _project_document() -> Dictionary:
 	return ProjectStore.document(project_title, assembly.graph, code_edit.text)
+
+
+func _prepare_project_document() -> Dictionary:
+	if blocks.has_draft() and not blocks._apply():
+		return {"error": "Resolve the block editor error before saving or exporting. Your changes are kept."}
+	return _project_document()
 
 
 func _apply_blocks(source: String) -> bool:

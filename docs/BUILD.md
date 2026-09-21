@@ -16,6 +16,7 @@ build/venv/bin/python tools/ci/verify.py --godot "$PWD/build/toolchain/godot"
 build/venv/bin/python tools/ci/build.py --godot "$PWD/build/toolchain/godot" --version 0.1.0
 build/venv/bin/python -m playwright install chromium
 build/venv/bin/python tools/ci/browser_smoke.py
+build/venv/bin/python tools/ci/browser_authoring.py
 ```
 
 On a minimal Linux image, use `python -m playwright install --with-deps chromium` to install
@@ -32,9 +33,12 @@ The build creates:
   and a flag identifying any uncommitted source changes.
 - Export and desktop-startup logs, plus the exported resource manifests under `build/export-logs/`.
 - `build/browser-smoke/` with real Chromium screenshots and console results.
+- `build/browser-authoring/` with saved/reopened project JSON, persistence/import results and
+  screenshots of project controls, blocks and the compact desktop layout.
 
 The export resource audit rejects developer tools, tests, documentation, Blender source files
-and environment files in the application pack. License notices accompany both archives.
+and environment files in the application pack. The project license, third-party notices, README
+and documentation snapshot accompany both archives as ordinary files beside the application.
 The Web preset explicitly disables threads, extensions, PWA service workers and simulated
 cross-origin headers. It runs on a normal static host, including GitHub Pages.
 
@@ -51,11 +55,18 @@ language settings and learning scenarios are not modified. Each check has a time
 does not skip later checks. `results.json`, `junit.xml`, `SUMMARY.md` and individual logs retain
 every result. Any failed check returns a failing exit status. The running and new-kit acceptance
 checks are included; known limitations are not silently marked as expected passes.
+The runner passes its selected engine through `GODOT`; both optional bridge CLIs honor that
+environment variable, with an explicit `--godot` taking precedence. The real MCP transport
+check deliberately removes executable lookup from `PATH` to cover the clean CI environment.
 
 For a focused development check, use `--match 'project|localization'`; `--list` prints the check
 inventory. A filtered run is not the complete release gate. The browser smoke verifies loading,
 WebGL startup and basic canvas input. Its screenshots still require visual review; complete
-save/reopen, four-language UI and learning flows require their dedicated checks and release review.
+save/reopen and invalid-import handling are verified by `browser_authoring.py` using actual
+IndexedDB persistence, page reload, confirmation and downloaded JSON comparisons. It sends real
+keyboard events because DOM text insertion does not enter Godot canvas text fields. Both browser
+checks are CI gates; screenshots and partial results are uploaded even when a check fails.
+Four-language UI and learning flows require their dedicated checks and release review.
 No finite test suite certifies real hardware, every browser or every possible learner assembly.
 
 ## Local Web preview

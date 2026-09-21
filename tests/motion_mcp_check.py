@@ -7,6 +7,7 @@ import asyncio
 from functools import wraps
 import os
 from pathlib import Path
+import shutil
 import sys
 import subprocess
 import time
@@ -187,12 +188,18 @@ class StdioProtocolChecks(unittest.IsolatedAsyncioTestCase):
             self.assertEqual({tool.name for tool in (await client.list_tools()).tools}, TOOL_NAMES)
 
     async def test_stdio_real_service_start_and_cancel(self) -> None:
-        async with Client(self.server_parameters(), read_timeout_seconds=15) as client:
+        parameters = self.server_parameters()
+        parameters.env["GODOT"] = os.environ.get("GODOT") or shutil.which("godot") or "godot"
+        # CI installs the pinned engine outside PATH. Exercise the same operator override.
+        parameters.env["PATH"] = str(PROJECT / "build/empty-executable-path")
+        async with Client(parameters, read_timeout_seconds=15) as client:
             started = await client.call_tool("start_motion_search", {"request": {"goal": "walk forward", "rounds": 1}})
             self.assertFalse(started.is_error, started.content)
             job_id = started.structured_content["id"]
+            await asyncio.sleep(0.05)
             got = await client.call_tool("get_motion_search", {"job_id": job_id})
             self.assertFalse(got.is_error, got.content)
+            self.assertNotEqual(got.structured_content["state"], "failed", got.structured_content)
             cancelled = await client.call_tool("cancel_motion_search", {"job_id": job_id})
             self.assertFalse(cancelled.is_error, cancelled.content)
             self.assertEqual(cancelled.structured_content["id"], job_id)

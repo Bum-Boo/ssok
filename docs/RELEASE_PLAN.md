@@ -12,15 +12,15 @@ software acceptance criterion; product quality and demonstrated engineering are.
 
 | Requirement | Completion evidence | Current status |
 |---|---|---|
-| Assemble, inspect, transform, snap and wire independent reusable parts | User-flow checks on actual graph state and rendered application | Existing implementation, revalidation pending |
-| Code and profile-derived blocks control the wired robot | Round-trip conversion, invalid input, control handoff and physical actuation checks | Code exists; profiles/blocks incomplete |
-| Save, reopen and share a project without losing assembly or learner code | Cross-session round-trip, invalid file rejection, browser persistence and explicit replacement | In development |
-| Credible elementary-kit humanoid pickup and locomotion | Real contact, gravity, motor limits, original lift/hold/stability gates and measured runs | Pickup and stability fail baseline |
-| Genuine learned locomotion | Reproducible training, held-out task metrics, artifact provenance and successful Godot re-evaluation | Existing RL has 0% success |
-| Clear onboarding, accessible controls and four-language UI | First-use walkthrough, keyboard/error states, rendered en/ko/zh_CN/ja inspection | Existing UI, new features pending |
-| Reproducible build and automated verification | Clean checkout CI, all required checks, pinned dependencies, downloadable artifacts | In development |
+| Assemble, inspect, transform, snap and wire independent reusable parts | User-flow checks on actual graph state and rendered application | Graph/assembly checks pass locally; clean CI physics regressions under review |
+| Code and profile-derived blocks control the wired robot | Round-trip conversion, invalid input, control handoff and physical actuation checks | Implemented; physical code/block checks pass, draft-saving regression fixed |
+| Save, reopen and share a project without losing assembly or learner code | Cross-session round-trip, invalid file rejection, browser persistence and explicit replacement | Implemented; final clean-revision verification pending |
+| Credible elementary-kit humanoid pickup and locomotion | Real contact, gravity, motor limits, original lift/hold/stability gates and measured runs | Pickup ~48 cm / 1 s passes; robust locomotion validation ongoing |
+| Genuine learned locomotion | Reproducible training, held-out task metrics, artifact provenance and successful Godot re-evaluation | MuJoCo frozen held-out 25/32; Godot transfer remains failing |
+| Clear onboarding, accessible controls and four-language UI | First-use walkthrough, keyboard/error states, rendered en/ko/zh_CN/ja inspection | Four-language authoring render checks pass; final walkthrough pending |
+| Reproducible build and automated verification | Clean checkout CI, all required checks, pinned dependencies, downloadable artifacts | Pinned exports work; remote CI regressions being resolved |
 | Public browser and desktop release | Anonymous browser smoke test, actual interaction/persistence, desktop startup, checksums | Not deployed |
-| Honest, compelling engineering portfolio | Real screenshots/demo, architecture/case study, measured limitations, attribution and no secrets | Pending |
+| Honest, compelling engineering portfolio | Real screenshots/demo, architecture/case study, measured limitations, attribution and no secrets | Real screenshots and engineering case study added; final audit pending |
 
 ## Guardrails
 

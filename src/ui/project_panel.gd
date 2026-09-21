@@ -15,6 +15,7 @@ var open_button: Button
 var delete_button: Button
 var import_button: Button
 var _read_document: Callable
+var _prepare_document: Callable
 var _records: Array[Dictionary] = []
 var _confirmation: ConfirmationDialog
 var _pending: Dictionary = {}
@@ -22,8 +23,9 @@ var _delete_id: String = ""
 var _empty_library: Label
 
 
-func configure(read_document: Callable) -> void:
+func configure(read_document: Callable, prepare_document: Callable = Callable()) -> void:
 	_read_document = read_document
+	_prepare_document = prepare_document
 
 
 func _ready() -> void:
@@ -53,6 +55,10 @@ func _ready() -> void:
 	note.text = "Saved on this device. Export a copy before clearing browser data or changing devices."
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	layout.add_child(note)
+	var block_note := Label.new()
+	block_note.text = "Saving or exporting applies valid blocks to your code."
+	block_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	layout.add_child(block_note)
 	title_edit = LineEdit.new()
 	title_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	title_edit.placeholder_text = tr("Project name")
@@ -137,6 +143,9 @@ func close_panel() -> void:
 
 func save_current() -> void:
 	var record: Dictionary = _current()
+	if record.has("error"):
+		_status(record.error, true)
+		return
 	var result: Dictionary = ProjectStore.save(record)
 	if result.has("error"):
 		_status(result.error, true)
@@ -147,7 +156,11 @@ func save_current() -> void:
 
 
 func export_current() -> void:
-	var text: String = ProjectStore.serialize(_current())
+	var record: Dictionary = _current()
+	if record.has("error"):
+		_status(record.error, true)
+		return
+	var text: String = ProjectStore.serialize(record)
 	if text.is_empty():
 		_status("Project data is invalid or too large.", true)
 		return
@@ -221,7 +234,9 @@ func _refresh_actions() -> void:
 
 
 func _current() -> Dictionary:
-	var record: Dictionary = _read_document.call()
+	var record: Dictionary = _prepare_document.call() if _prepare_document.is_valid() else _read_document.call()
+	if record.has("error"):
+		return record
 	record["title"] = title_edit.text.strip_edges()
 	return record
 

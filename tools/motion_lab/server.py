@@ -132,7 +132,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--live", action="store_true", help="Enable paid OpenAI requests (still requires per-search consent)")
     parser.add_argument("--port", type=int, default=8765)
-    parser.add_argument("--godot", default="godot")
+    parser.add_argument("--godot", default=os.environ.get("GODOT", "godot"))
     parser.add_argument("--max-calls", type=int, default=8)
     parser.add_argument("--origin", action="append", default=[], help="Explicit browser Origin allowed, e.g. http://localhost:8060")
     args = parser.parse_args()

@@ -33,6 +33,9 @@ def main() -> None:
         threading.Thread(target=server.serve_forever, daemon=True).start()
     url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
     logs, errors = [], []
+    result = {"url": url, "passed": False, "errors": errors,
+        "viewport": [1400, 950],
+        "scope": "Export loading, canvas rendering, starter and run/stop input; screenshots require review"}
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
@@ -40,32 +43,43 @@ def main() -> None:
             page = browser.new_page(viewport={"width": 1400, "height": 950}, locale="en-US")
             page.on("console", lambda message: logs.append({"type": message.type, "text": message.text}))
             page.on("pageerror", lambda error: errors.append(str(error)))
-            page.goto(url, wait_until="networkidle", timeout=120000)
-            page.wait_for_function("!document.querySelector('#status') || getComputedStyle(document.querySelector('#status')).display === 'none'", timeout=120000)
-            page.wait_for_function("typeof GODOT_THREADS_ENABLED !== 'undefined' && GODOT_THREADS_ENABLED === false")
-            canvas = page.locator("canvas")
-            assert canvas.is_visible(), "WebGL canvas is not visible"
-            page.screenshot(path=str(output / "01-workshop.png"))
-            # Godot renders its own UI into the canvas. Fixed desktop coordinates intentionally
-            # cover a starter click and run/stop; screenshots are retained for product review.
-            page.mouse.click(640, 528)
-            page.wait_for_timeout(400)
-            page.screenshot(path=str(output / "02-biped.png"))
-            page.mouse.click(910, 43)
-            page.wait_for_timeout(1200)
-            page.screenshot(path=str(output / "03-running.png"))
-            page.mouse.click(910, 43)
-            page.wait_for_timeout(200)
-            errors.extend(item["text"] for item in logs if item["type"] == "error" or item["text"].startswith(("ERROR:", "SCRIPT ERROR:")))
-            (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
-            (output / "result.json").write_text(json.dumps({"url": url, "errors": errors,
-                "single_threaded": True, "viewport": [1400, 950], "browser": browser.version,
-                "scope": "Export loading, canvas rendering, starter and run/stop input; screenshots require review"}, indent=2) + "\n")
-            browser.close()
-            if errors:
-                raise SystemExit("Browser errors: " + "\n".join(errors))
-            print(f"WebGL browser smoke passed. Review screenshots and console: {output}")
+            try:
+                page.goto(url, wait_until="networkidle", timeout=120000)
+                page.wait_for_function("!document.querySelector('#status') || getComputedStyle(document.querySelector('#status')).display === 'none'", timeout=120000)
+                page.wait_for_function("typeof GODOT_THREADS_ENABLED !== 'undefined' && GODOT_THREADS_ENABLED === false")
+                canvas = page.locator("canvas")
+                assert canvas.is_visible(), "WebGL canvas is not visible"
+                page.screenshot(path=str(output / "01-workshop.png"))
+                # Godot renders its own UI into the canvas. Fixed desktop coordinates intentionally
+                # cover a starter click and run/stop; screenshots are retained for product review.
+                page.mouse.click(640, 528)
+                page.wait_for_timeout(400)
+                page.screenshot(path=str(output / "02-biped.png"))
+                page.mouse.click(910, 43)
+                page.wait_for_timeout(1200)
+                page.screenshot(path=str(output / "03-running.png"))
+                page.mouse.click(910, 43)
+                page.wait_for_timeout(200)
+                errors.extend(item["text"] for item in logs if item["type"] == "error" or item["text"].startswith(("ERROR:", "SCRIPT ERROR:")))
+                result.update(single_threaded=True, browser=browser.version)
+                if errors:
+                    raise SystemExit("Browser errors: " + "\n".join(errors))
+                result["passed"] = True
+                print(f"WebGL browser smoke passed. Review screenshots and console: {output}")
+            except BaseException:
+                try:
+                    page.screenshot(path=str(output / "failure.png"), timeout=10000)
+                except Exception:
+                    pass  # Keep the actual test failure even if Chromium has already exited.
+                raise
+            finally:
+                browser.close()
+    except BaseException as error:
+        result["failure"] = f"{type(error).__name__}: {error}"
+        raise
     finally:
+        (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
+        (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
         if server:
             server.shutdown()
             server.server_close()

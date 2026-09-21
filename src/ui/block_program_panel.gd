@@ -10,6 +10,8 @@ var rows: VBoxContainer
 var operation_picker: OptionButton
 var feedback: Label
 var _source_at_load: String = ""
+var _instructions_at_load: Array = []
+var _read_confirmation: ConfirmationDialog
 var scroll: ScrollContainer
 
 
@@ -26,7 +28,7 @@ func _ready() -> void:
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	content.add_child(caption)
 	var read_button: Button = SsokTheme.button("Read from code", "code-xml")
-	read_button.pressed.connect(func() -> void: source_requested.emit())
+	read_button.pressed.connect(_request_read)
 	content.add_child(read_button)
 	rows = VBoxContainer.new()
 	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -51,6 +53,22 @@ func _ready() -> void:
 	feedback.max_lines_visible = 2
 	feedback.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	content.add_child(feedback)
+	_read_confirmation = ConfirmationDialog.new()
+	_read_confirmation.title = "Keep your changes?"
+	_read_confirmation.dialog_text = "Replace unapplied blocks with the current code?"
+	_read_confirmation.confirmed.connect(func() -> void: source_requested.emit())
+	add_child(_read_confirmation)
+
+
+func has_draft() -> bool:
+	return instructions != _instructions_at_load
+
+
+func _request_read() -> void:
+	if has_draft():
+		_read_confirmation.popup_centered()
+	else:
+		source_requested.emit()
 
 
 func read_source(source: String) -> bool:
@@ -60,9 +78,18 @@ func read_source(source: String) -> bool:
 		return false
 	_source_at_load = source
 	instructions = result.instructions
+	_instructions_at_load = instructions.duplicate(true)
 	_rebuild()
 	SsokLocale.bind(feedback, "Blocks are ready. Apply them to update the code; Run code starts the robot.")
 	return true
+
+
+func reset_source(source: String) -> void:
+	instructions.clear()
+	_instructions_at_load.clear()
+	_source_at_load = ""
+	_rebuild()
+	read_source(source)
 
 
 func _add_block() -> void:
@@ -108,11 +135,21 @@ func _rebuild() -> void:
 					item.args[parameter.name] = value
 					item.erase("raw"))
 				row.add_child(edit)
+			elif parameter.type == "number":
+				var edit := LineEdit.new()
+				edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+				edit.text = str(item.args[parameter.name])
+				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				edit.virtual_keyboard_type = LineEdit.KEYBOARD_TYPE_NUMBER_DECIMAL
+				edit.text_changed.connect(func(value: String) -> void:
+					item.args[parameter.name] = float(value) if value.is_valid_float() else value
+					item.erase("raw"))
+				row.add_child(edit)
 			else:
 				var edit := SpinBox.new()
 				edit.min_value = parameter.min
 				edit.max_value = parameter.max
-				edit.step = 1 if parameter.type == "integer" else 0.1
+				edit.step = 1
 				edit.value = item.args[parameter.name]
 				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 				edit.value_changed.connect(func(value: float) -> void:
@@ -121,12 +158,14 @@ func _rebuild() -> void:
 				row.add_child(edit)
 
 
-func _apply() -> void:
+func _apply() -> bool:
 	var result: Dictionary = ServoProgram.generate(instructions, profile)
 	if result.has("error"):
 		SsokLocale.bind(feedback, result.error)
-		return
+		return false
 	if apply_source.is_valid() and not apply_source.call(result.source):
-		return
+		return false
 	_source_at_load = result.source
+	_instructions_at_load = instructions.duplicate(true)
 	SsokLocale.bind(feedback, "Code updated. Run code to try your program.")
+	return true

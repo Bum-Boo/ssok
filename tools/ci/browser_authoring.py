@@ -57,6 +57,7 @@ def main() -> None:
         threading.Thread(target=server.serve_forever, daemon=True).start()
     url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
     logs, checks = [], []
+    result = {"url": url, "passed": False, "checks": checks}
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
@@ -138,13 +139,23 @@ def main() -> None:
                 checks.append("Rendered Blocks tab and compact 1152×577 workshop captured for review")
                 errors = [entry for entry in logs if entry["type"] == "error" or entry["text"].startswith(("ERROR:", "SCRIPT ERROR:"))]
                 assert not errors, f"Browser reported errors: {errors}"
-                (output / "result.json").write_text(json.dumps({"url": url, "checks": checks, "errors": errors}, indent=2) + "\n")
+                result.update(passed=True, errors=errors, browser=browser.version)
                 print(f"Browser authoring checks passed: {output}")
+            except BaseException:
+                try:
+                    page.screenshot(path=str(output / "failure.png"), timeout=10000)
+                except Exception:
+                    pass  # A browser crash can prevent screenshots; preserve the original failure.
+                raise
             finally:
-                (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
-                (output / "completed-checks.json").write_text(json.dumps(checks, indent=2) + "\n")
                 browser.close()
+    except BaseException as error:
+        result["failure"] = f"{type(error).__name__}: {error}"
+        raise
     finally:
+        (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+        (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
+        (output / "completed-checks.json").write_text(json.dumps(checks, indent=2) + "\n")
         if server:
             server.shutdown()
             server.server_close()
