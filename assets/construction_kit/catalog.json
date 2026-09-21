@@ -11466,6 +11466,537 @@
           ]
         }
       ]
+    },
+    {
+      "id": "kit_controller_16",
+      "name": "Sixteen-channel controller",
+      "kind": "controller",
+      "material": "BoardBody",
+      "mass_kg": 0.11,
+      "size": [
+        0.12,
+        0.08,
+        0.0202
+      ],
+      "center": [
+        0,
+        0,
+        -0.0061
+      ],
+      "mesh": "res://assets/construction_kit/meshes/kit_controller_16.res",
+      "geometry": {
+        "type": "controller"
+      },
+      "holes": [
+        {
+          "id": "mount_0",
+          "position": [
+            -0.05,
+            -0.03,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.008
+        },
+        {
+          "id": "mount_1",
+          "position": [
+            -0.05,
+            0.03,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.008
+        },
+        {
+          "id": "mount_2",
+          "position": [
+            0.05,
+            -0.03,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.008
+        },
+        {
+          "id": "mount_3",
+          "position": [
+            0.05,
+            0.03,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.008
+        }
+      ],
+      "ports": [
+        {
+          "id": "pin_2",
+          "position": [
+            -0.04,
+            -0.028,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_3",
+          "position": [
+            -0.04,
+            -0.02,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_4",
+          "position": [
+            -0.04,
+            -0.012,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_5",
+          "position": [
+            -0.04,
+            -0.004,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_6",
+          "position": [
+            -0.04,
+            0.004,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_7",
+          "position": [
+            -0.04,
+            0.012,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_8",
+          "position": [
+            -0.04,
+            0.02,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_9",
+          "position": [
+            -0.04,
+            0.028,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_10",
+          "position": [
+            0.04,
+            -0.028,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_11",
+          "position": [
+            0.04,
+            -0.02,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_12",
+          "position": [
+            0.04,
+            -0.012,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_13",
+          "position": [
+            0.04,
+            -0.004,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_14",
+          "position": [
+            0.04,
+            0.004,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_15",
+          "position": [
+            0.04,
+            0.012,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_16",
+          "position": [
+            0.04,
+            0.02,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "pin_17",
+          "position": [
+            0.04,
+            0.028,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "board_digital_pwm",
+          "accepts": [
+            "pwm_signal"
+          ],
+          "kind": "ELEC"
+        },
+        {
+          "id": "mount_0_front",
+          "position": [
+            -0.05,
+            -0.03,
+            0.004
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_0_back",
+          "position": [
+            -0.05,
+            -0.03,
+            -0.004
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_1_front",
+          "position": [
+            -0.05,
+            0.03,
+            0.004
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "mount_1_back",
+          "position": [
+            -0.05,
+            0.03,
+            -0.004
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "mount_2_front",
+          "position": [
+            0.05,
+            -0.03,
+            0.004
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_2"
+        },
+        {
+          "id": "mount_2_back",
+          "position": [
+            0.05,
+            -0.03,
+            -0.004
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_2"
+        },
+        {
+          "id": "mount_3_front",
+          "position": [
+            0.05,
+            0.03,
+            0.004
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_3"
+        },
+        {
+          "id": "mount_3_back",
+          "position": [
+            0.05,
+            0.03,
+            -0.004
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_3"
+        }
+      ],
+      "collision_boxes": [
+        {
+          "position": [
+            0,
+            0,
+            -0.0061
+          ],
+          "size": [
+            0.12,
+            0.08,
+            0.0202
+          ]
+        }
+      ]
     }
   ]
 }

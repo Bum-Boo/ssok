@@ -7,9 +7,17 @@ var _failed: bool = false
 
 func _initialize() -> void:
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "catalog.json"))
+	var selected: String = ""
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	if args.size() == 2 and args[0] == "--part":
+		selected = args[1]
+	var generated: int = 0
 	DirAccess.make_dir_recursive_absolute(ROOT + "parts")
 	DirAccess.make_dir_recursive_absolute(ROOT + "meshes")
 	for entry: Dictionary in catalog.parts:
+		if not selected.is_empty() and entry.id != selected:
+			continue
+		generated += 1
 		var source: ArrayMesh = load(ROOT + "obj/" + String(entry.id) + ".obj") as ArrayMesh
 		if source == null:
 			_failed = true
@@ -54,7 +62,8 @@ func _initialize() -> void:
 			definition.ports.append(port)
 		if ResourceSaver.save(definition, ROOT + "parts/" + String(entry.id) + ".tres") != OK:
 			_failed = true
-	print("make_construction_kit_defs: %d generic construction parts; failed=%s" % [catalog.parts.size(), _failed])
+	_failed = _failed or generated == 0
+	print("make_construction_kit_defs: %d generic construction parts; failed=%s" % [generated, _failed])
 	quit(1 if _failed else 0)
 
 
