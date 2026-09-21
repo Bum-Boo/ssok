@@ -69,6 +69,43 @@ MCP는 공식 SDK의 stdio describe/start/get/cancel로 제한한다. 기존 ADR
 서비스 경계를 [ADR 0008](adr/0008-bounded-motion-learning-bridge.md)에 기록했다.
 사용법과 평가 한계는 [MOTION_LAB.md](MOTION_LAB.md) 참고.
 
+### 실제 물리 사람형 로봇 (2026-09-15)
+
+`HumanoidPreset`은 몸통·머리·가상 보드와 고관절/무릎/발목/어깨/팔꿈치 각 2개, 상자를
+하나의 그래프로 만든다. `PartDef.actuator_torque_nm`이 양수인 관절만 `ServoDrive`의 위치 피드백을
+받는 제한 토크 힌지 모터를 사용한다. 기존 이상적 서보 동작과 네 서보 로봇은 유지한다.
+`HumanoidMotion`은 그래프에서 관절 역할과 배선 주소를 읽고 보행/웅크리기/팔 뻗기 상태를 구동한다.
+양손과 상자가 실제 접촉한 뒤에만 임시 두 점 구속을 만들고, 놓기/제어권 전환/해제 시 제거한다.
+몸통 이동 힘이나 위치 덮어쓰기는 없다. 달리기 안정화는 미완료이며 AI 탐색 대상에도 포함하지 않는다.
+[ADR 0009](adr/0009-humanoid-actuation-and-contact-grasps.md), [측정과 조작법](HUMANOID.md) 참고.
+
+### 모듈형 휴머노이드와 병렬 집기 탐색 (2026-09-15)
+
+아래 `ModularHumanoidPreset`은 구형 하위 조립품 프리팹의 구현 기록이다. 부품 내부의 레일과
+외장이 합쳐져 있어 기본 부품 조립 키트로는 부적합했다. 현재 사용자용 키트는
+[ADR 0011](adr/0011-elementary-construction-kit.md)에 따라 별도 `assets/construction_kit/`을 쓴다.
+공통 20 mm 간격 구멍/포트, 독립 빔·판·브래킷·체결 부품, 재사용한 두 조립 그래프를
+하나의 정의에서 Blender와 Godot으로 만든다. [기본 부품 키트](CONSTRUCTION_KIT.md) 참고.
+
+`ModularHumanoidPreset`은 기존 블록형 모델과 별개다. Blender에서 만든 18종 부품을
+37개 로봇 모듈과 상자로 조립한다. 모터 하우징 → 출력 힌지 → 브래킷 → 수동 프레임의
+각 부품이 실제 그래프 노드다. 외장·손·컨트롤러도 분리 가능하며 PBR 재질을 공유한다.
+`RunMode`는 opt-in 고정 연결만 묶어 38개 그래프 파츠를 12개 물리 강체로 바꾸되 각 부품의
+질량·충돌·상대 위치와 그래프 인덱스 매핑을 보존한다. 빈 프레임에는 복합 박스 충돌을 사용한다.
+`MiniRuntime`의 `write_relative()`는 그래프 배선과 기존 관절 제한을 그대로 따른다.
+
+`PickupPolicy`는 기존 보행용 `MotionPolicy`와 별개인 7개 집기 파라미터다. `PickupTrial`은
+독립 `World3D`/`SubViewport`를 소유하며, `PickupLabPanel`이 1~4개 평가를 병렬로 관찰하게 한다.
+한 라운드의 네 후보를 Luna 요청 한 번으로 제안받고 측정 피드백을 다음 라운드에 보낸다.
+평가 종료 후에는 그 에피소드의 물리 월드를 정지하고 마지막 결과 화면을 보존한다.
+기준과 후보 모두 실제 접촉/상승/유지 시간을 측정하며, 저장/불러오기가 성공을 인증하지 않는다.
+`PickupScenarioStore`의 user:// 기록은 검증된 그래프·정책·측정값·출처만 포함한다.
+현재 편집 그래프와 동일한 새 물리 검증 성공 결과만 명시적으로 적용한다.
+
+이 경계 변경은 [ADR 0010](adr/0010-modular-humanoid-and-observable-pickup-search.md)에 기록했다.
+GPT 가중치 훈련·자율적인 임의 코드 실행·손가락 마찰 파지·실물 전이는 구현 범위가 아니다.
+[집기 실험 사용법](PICKUP_LAB.md), [모듈/Blender 생성 절차](../assets/modular_humanoid/README.md) 참고.
+
 ### 데이터 모델 (`src/core/`)
 
 - `Port` — 파츠 위의 연결점. `kind`(MECH/ELEC), 로컬 위치·법선, `tag`(내 정체), `accepts`(맞물릴 수 있는 tag).

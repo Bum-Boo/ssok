@@ -1,6 +1,6 @@
 # 0008 — Bounded motion search through an optional external bridge
 
-- Status: accepted
+- Status: accepted; the general-RL-future clause is superseded by [0012](0012-reinforcement-learning-path.md)
 - Date: 2026-09-15
 
 ## Context
@@ -47,5 +47,6 @@ cannot replace the real-time physics loop and a model proposal is not a verified
   better movement on every search, sim-to-real transfer or physical robot safety.
 - Mock mode tests the complete proposal/evaluation workflow without claiming GPT usage.
   Live verification additionally requires a user-provided key and model access.
-- General RL (e.g. Godot RL Agents), arbitrary generated-code sandboxing, remote MCP,
-  authentication for multi-user hosting, and sim-to-real are future independent scopes.
+- Offline policy learning and Godot deployment validation now follow [ADR 0012](0012-reinforcement-learning-path.md).
+  Arbitrary generated-code sandboxing, remote MCP, authentication for multi-user hosting,
+  and sim-to-real remain future independent scopes.

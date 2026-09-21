@@ -1,0 +1,108 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_ef4a7"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_3ju8v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3itdu"]
+albedo_color = Color(0.101960786, 0.47843137, 0.34901962, 1)
+metallic = 0.3
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_ol07x"]
+material = SubResource("StandardMaterial3D_3itdu")
+size = Vector3(0.12, 0.1, 0.015)
+
+[sub_resource type="Resource" id="Resource_6xent"]
+script = ExtResource("1_ef4a7")
+id = &"mount"
+local_normal = Vector3(1, 0, 0)
+tag = &"humanoid_joint"
+accepts = Array[StringName]([&"humanoid_joint"])
+
+[sub_resource type="Resource" id="Resource_ec7vi"]
+script = ExtResource("1_ef4a7")
+id = &"pin_20"
+kind = 1
+local_position = Vector3(-0.0405, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_mbm0c"]
+script = ExtResource("1_ef4a7")
+id = &"pin_21"
+kind = 1
+local_position = Vector3(-0.0315, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_0snq4"]
+script = ExtResource("1_ef4a7")
+id = &"pin_22"
+kind = 1
+local_position = Vector3(-0.0225, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_78e4l"]
+script = ExtResource("1_ef4a7")
+id = &"pin_23"
+kind = 1
+local_position = Vector3(-0.0135, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_lstyf"]
+script = ExtResource("1_ef4a7")
+id = &"pin_24"
+kind = 1
+local_position = Vector3(-0.0045, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_j6anf"]
+script = ExtResource("1_ef4a7")
+id = &"pin_25"
+kind = 1
+local_position = Vector3(0.0045, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_2qox4"]
+script = ExtResource("1_ef4a7")
+id = &"pin_26"
+kind = 1
+local_position = Vector3(0.0135, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_6brce"]
+script = ExtResource("1_ef4a7")
+id = &"pin_27"
+kind = 1
+local_position = Vector3(0.0225, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_8d4h1"]
+script = ExtResource("1_ef4a7")
+id = &"pin_28"
+kind = 1
+local_position = Vector3(0.0315, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_gioey"]
+script = ExtResource("1_ef4a7")
+id = &"pin_29"
+kind = 1
+local_position = Vector3(0.0405, 0.04, 0)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[resource]
+script = ExtResource("2_3ju8v")
+id = &"humanoid_board"
+display_name = "Virtual humanoid controller"
+mesh = SubResource("BoxMesh_ol07x")
+ports = Array[ExtResource("1_ef4a7")]([SubResource("Resource_6xent"), SubResource("Resource_ec7vi"), SubResource("Resource_mbm0c"), SubResource("Resource_0snq4"), SubResource("Resource_78e4l"), SubResource("Resource_lstyf"), SubResource("Resource_j6anf"), SubResource("Resource_2qox4"), SubResource("Resource_6brce"), SubResource("Resource_8d4h1"), SubResource("Resource_gioey")])
+mass_kg = 0.12

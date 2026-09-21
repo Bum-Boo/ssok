@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ssok bounded linear policy v1",
+  "description": "Graph-bound 30 Hz policy. Numerical validity alone does not establish locomotion success.",
+  "type": "object",
+  "required": ["format", "version", "control_hz", "joint_pins", "weights", "obs_mean", "obs_var", "action_scale_deg", "gait_hz"],
+  "$defs": {
+    "observation": {"type": "array", "minItems": 21, "maxItems": 21, "items": {"type": "number"}}
+  },
+  "properties": {
+    "format": {"const": "ssok-linear-policy"},
+    "version": {"const": 1},
+    "control_hz": {"const": 30},
+    "graph_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "runtime_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "robot_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "joint_pins": {"type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": {"type": "integer", "minimum": 0, "maximum": 1000}},
+    "weights": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/observation"}},
+    "obs_mean": {"$ref": "#/$defs/observation"},
+    "obs_var": {"type": "array", "minItems": 21, "maxItems": 21, "items": {"type": "number", "minimum": 0}},
+    "action_scale_deg": {"type": "number", "exclusiveMinimum": 0, "maximum": 60},
+    "gait_hz": {"type": "number", "minimum": 0.1, "maximum": 3},
+    "godot_joint_signs": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"enum": [-1, 1]}},
+    "provenance": {"type": "object"}
+  }
+}

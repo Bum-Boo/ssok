@@ -34,6 +34,7 @@ func _run() -> void:
 	key.physical_keycode = KEY_W
 	key.pressed = true
 	key.unicode = 119
+	_panel.workflow_tabs.current_tab = 1
 	_panel.goal_edit.grab_focus()
 	_panel.push_input(key, true)
 	await process_frame

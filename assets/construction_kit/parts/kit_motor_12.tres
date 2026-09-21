@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_motor_12.res" id="1_c4mey"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_vvl6v"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_18v12"]
+
+[sub_resource type="Resource" id="Resource_3se81"]
+script = ExtResource("2_vvl6v")
+id = &"output"
+local_position = Vector3(0.027, 0, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_shaft_8"
+accepts = Array[StringName]([&"kit_axle_8"])
+rotates = true
+
+[sub_resource type="Resource" id="Resource_t1ij1"]
+script = ExtResource("2_vvl6v")
+id = &"signal"
+kind = 1
+local_position = Vector3(0, 0, -0.026)
+local_normal = Vector3(0, 0, -1)
+tag = &"pwm_signal"
+accepts = Array[StringName]([&"board_digital_pwm"])
+
+[sub_resource type="Resource" id="Resource_guafu"]
+script = ExtResource("2_vvl6v")
+id = &"mount_0_front"
+local_position = Vector3(0.02, -0.01, -0.01)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_bk18g"]
+script = ExtResource("2_vvl6v")
+id = &"mount_0_back"
+local_position = Vector3(-0.02, -0.01, -0.01)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_bag3s"]
+script = ExtResource("2_vvl6v")
+id = &"mount_1_front"
+local_position = Vector3(0.02, -0.01, 0.01)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ew8yq"]
+script = ExtResource("2_vvl6v")
+id = &"mount_1_back"
+local_position = Vector3(-0.02, -0.01, 0.01)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_aphcr"]
+script = ExtResource("2_vvl6v")
+id = &"mount_2_front"
+local_position = Vector3(0.02, 0.01, -0.01)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_7ptgv"]
+script = ExtResource("2_vvl6v")
+id = &"mount_2_back"
+local_position = Vector3(-0.02, 0.01, -0.01)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_d7pdx"]
+script = ExtResource("2_vvl6v")
+id = &"mount_3_front"
+local_position = Vector3(0.02, 0.01, 0.01)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_31b5b"]
+script = ExtResource("2_vvl6v")
+id = &"mount_3_back"
+local_position = Vector3(-0.02, 0.01, 0.01)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_18v12")
+id = &"kit_motor_12"
+display_name = "Servo motor 12 Nm"
+mesh = ExtResource("1_c4mey")
+ports = Array[ExtResource("2_vvl6v")]([SubResource("Resource_3se81"), SubResource("Resource_t1ij1"), SubResource("Resource_guafu"), SubResource("Resource_bk18g"), SubResource("Resource_bag3s"), SubResource("Resource_ew8yq"), SubResource("Resource_aphcr"), SubResource("Resource_7ptgv"), SubResource("Resource_d7pdx"), SubResource("Resource_31b5b")])
+mass_kg = 0.28
+actuator_torque_nm = 12.0
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+actuator_drives_connected_body = true
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.02, -0.026, -0.026, 0.047, 0.052, 0.052)])

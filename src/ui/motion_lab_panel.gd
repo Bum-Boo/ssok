@@ -39,6 +39,7 @@ var _poll_timer: Timer
 var _cancel_pending: bool = false
 var _start_uncertain: bool = false
 var _forget_dialog: ConfirmationDialog
+var workflow_tabs: TabContainer
 
 
 func configure(snapshot_provider: Callable, policy_provider: Callable, editing_provider: Callable, apply_policy: Callable) -> void:
@@ -70,34 +71,41 @@ func _ready() -> void:
 
 
 func open_panel() -> void:
-	popup_centered(Vector2i(720, 750))
+	var available: Vector2i = get_tree().root.size - Vector2i(48, 48)
+	popup_centered(Vector2i(mini(780, available.x), mini(820, available.y)))
 	refresh_apply_state()
-	goal_edit.grab_focus()
+	if workflow_tabs.current_tab == 1:
+		goal_edit.grab_focus()
 
 
 func _build_controls() -> void:
+	var background := Panel.new()
+	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	add_child(background)
 	var margin: MarginContainer = MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side: String in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 16)
 	add_child(margin)
-	var scroll: ScrollContainer = ScrollContainer.new()
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	margin.add_child(scroll)
-	var box: VBoxContainer = VBoxContainer.new()
-	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	box.add_theme_constant_override("separation", 8)
-	scroll.add_child(box)
-	_label(box, "Motion search - wired biped", 22)
-	_label(box, "Propose parameters -> simulate -> compare -> explicitly apply. This does not train GPT weights. Other robot programs are not supported yet.")
+	var layout := VBoxContainer.new()
+	layout.add_theme_constant_override("separation", 16)
+	margin.add_child(layout)
+	_label(layout, "Motion search - wired biped", 22)
+	_label(layout, "Propose parameters -> simulate -> compare -> explicitly apply. This does not train GPT weights. Other robot programs are not supported yet.")
+	workflow_tabs = TabContainer.new()
+	workflow_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	layout.add_child(workflow_tabs)
+	var box: VBoxContainer = _tab_page("1. Connect")
 	_label(box, "Bridge origin (loopback HTTP / deployed HTTPS)")
 	endpoint_edit = LineEdit.new()
+	endpoint_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	endpoint_edit.text = "http://127.0.0.1:8765"
 	box.add_child(endpoint_edit)
 	_label(box, "Bridge bearer token - RAM only. Never enter an OpenAI API key here.")
 	token_edit = LineEdit.new()
+	token_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	token_edit.secret = true
-	token_edit.placeholder_text = "Token from your local bridge terminal"
+	token_edit.placeholder_text = tr("Token from your local bridge terminal")
 	token_edit.max_length = 256
 	box.add_child(token_edit)
 	endpoint_edit.text_changed.connect(func(_value: String) -> void: _invalidate_connection())
@@ -113,9 +121,11 @@ func _build_controls() -> void:
 	_forget_dialog.confirmed.connect(_forget_confirmed)
 	add_child(_forget_dialog)
 	provider_label = _label(box, "Not connected. OPENAI_API_KEY is configured only on the bridge.")
+	box = _tab_page("2. Search")
 	_label(box, "Goal (sent to the bridge/model along with this assembly snapshot)")
 	goal_edit = TextEdit.new()
-	goal_edit.text = "Walk forward while staying upright and reducing drift"
+	goal_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	goal_edit.text = tr("Walk forward while staying upright and reducing drift")
 	goal_edit.custom_minimum_size.y = 72
 	goal_edit.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
 	box.add_child(goal_edit)
@@ -139,17 +149,39 @@ func _build_controls() -> void:
 	var actions: HBoxContainer = HBoxContainer.new()
 	box.add_child(actions)
 	start_button = _button(actions, "Start search", start_search)
+	start_button.theme_type_variation = &"PrimaryButton"
 	cancel_button = _button(actions, "Cancel search", cancel_search)
-	status_label = _label(box, "Load Answer: biped, configure the bridge, then check the connection.")
+	status_label = _label(layout, "Load Answer: biped, configure the bridge, then check the connection.")
+	status_label.add_theme_color_override("font_color", SsokTheme.ACCENT)
+	box = _tab_page("3. Results")
 	history_label = _label(box, "Evaluation history appears here (baseline, then candidates).")
+	box.add_child(HSeparator.new())
 	result_label = _label(box, "No measured result yet.")
-	apply_button = _button(box, "Apply best to WASD program (edit mode only)", apply_best)
+	var result_actions := VBoxContainer.new()
+	box.get_parent().get_parent().add_child(result_actions)
+	apply_button = _button(result_actions, "Apply best to WASD program (edit mode only)", apply_best)
+	apply_button.theme_type_variation = &"PrimaryButton"
 	var files: HBoxContainer = HBoxContainer.new()
-	box.add_child(files)
+	result_actions.add_child(files)
 	save_button = _button(files, "Save best locally", save_best)
 	load_button = _button(files, "Load saved best", load_best)
 	_label(box, "Save/load: user://motion_lab_best.json. Stores only bounded parameters, numeric metrics and the exact assembly fingerprint; no token, goal, model text or API key.")
-	_button(box, "Close", _close_panel)
+	_button(layout, "Close", _close_panel)
+
+
+func _tab_page(title_text: String) -> VBoxContainer:
+	var page := VBoxContainer.new()
+	page.name = title_text
+	workflow_tabs.add_child(page)
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	page.add_child(scroll)
+	var content := VBoxContainer.new()
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.add_theme_constant_override("separation", 16)
+	scroll.add_child(content)
+	return content
 
 
 func _label(parent: Node, text: String, font_size: int = 14) -> Label:
@@ -219,7 +251,7 @@ func start_search() -> void:
 	best.clear()
 	best_fingerprint = ""
 	history_label.text = "Evaluating the current policy as a baseline..."
-	result_label.text = "No eligible result yet. Fallen or nonfinite candidates cannot be applied."
+	SsokLocale.bind(result_label, "No eligible result yet. Fallen or nonfinite candidates cannot be applied.")
 	_cancel_pending = false
 	_start_uncertain = false
 	_status("Starting isolated baseline and candidate evaluations...")
@@ -250,12 +282,14 @@ func _on_response(kind: String, data: Dictionary) -> void:
 			_on_failure(kind, "Unexpected bridge capabilities; no search was started")
 			return
 		_server = data
-		provider_label.text = "MOCK - no GPT calls; real Godot physics evaluations." if data.provider == "mock" else "OPENAI - %s; key configured: %s. Explicit paid consent required." % [String(data.model).left(80), str(data.get("key_configured") == true)]
+		_refresh_provider()
+		workflow_tabs.current_tab = 1
 		_status("Connected. Only the selected direction will be evaluated; improvement is not guaranteed.")
 	else:
 		if not _accept_job(data):
 			_on_failure(kind, "Invalid bridge result; no policy was applied")
 			return
+		workflow_tabs.current_tab = 2
 		if _cancel_pending and _active() and kind != "cancel":
 			client.cancel_job(_job.id)
 		elif _active():
@@ -294,19 +328,20 @@ func _accept_job(data: Dictionary) -> bool:
 	var issue: String = str(data.get("error", "")).left(300)
 	if not token_edit.text.is_empty():
 		issue = issue.replace(token_edit.text, "[redacted]")
-	_status("%s | evaluations: %d | API calls: %s | tokens: %s%s" % [String(data.state).to_upper(), data.history.size(), str(data.get("api_calls", 0)).left(12), str(usage.get("total_tokens", 0)).left(12), " | " + issue if not issue.is_empty() else ""])
+	_status("%s | evaluations: %d | API calls: %s | tokens: %s%s", [String(data.state).to_upper(), data.history.size(), str(data.get("api_calls", 0)).left(12), str(usage.get("total_tokens", 0)).left(12), " | " + issue if not issue.is_empty() else ""], [0])
 	return true
 
 
 func _on_failure(kind: String, message: String) -> void:
 	_poll_timer.stop()
+	message = tr(message)
 	if kind == "start":
 		_start_uncertain = true
-		message += " Start outcome is unknown: a submitted bridge job may still run or be billed. No retry until explicit Disconnect / forget."
+		message += tr(" Start outcome is unknown: a submitted bridge job may still run or be billed. No retry until explicit Disconnect / forget.")
 	if kind == "status":
 		_server.clear()
-		provider_label.text = "Not connected. Check the bridge process and bearer token."
-	_status(message + (" Search may still be running on the bridge; Cancel can be retried." if _active() else ""))
+		SsokLocale.bind(provider_label, "Not connected. Check the bridge process and bearer token.")
+	_status(message + (tr(" Search may still be running on the bridge; Cancel can be retried.") if _active() else ""))
 	refresh_apply_state()
 
 
@@ -326,8 +361,8 @@ func _forget_confirmed() -> void:
 	_start_uncertain = false
 	_forget_dialog.hide()
 	allow_paid.button_pressed = false
-	provider_label.text = "Disconnected. Edit connection details and check the bridge again."
-	result_label.text = "No local result retained. Any remote job was NOT cancelled by disconnecting."
+	SsokLocale.bind(provider_label, "Disconnected. Edit connection details and check the bridge again.")
+	SsokLocale.bind(result_label, "No local result retained. Any remote job was NOT cancelled by disconnecting.")
 	history_label.text = "Local history forgotten; check the bridge before starting another paid search."
 	_status("Local status cleared only. A remote search may still run or be billed; no new request was sent.")
 	refresh_apply_state()
@@ -341,7 +376,7 @@ func _invalidate_connection() -> void:
 	_server.clear()
 	if allow_paid != null:
 		allow_paid.button_pressed = false
-	provider_label.text = "Connection details changed. Check connection again."
+	SsokLocale.bind(provider_label, "Connection details changed. Check connection again.")
 	refresh_apply_state()
 
 
@@ -409,8 +444,8 @@ func _show_history(history: Array) -> void:
 	var rows: PackedStringArray = []
 	for index: int in range(history.size()):
 		var metrics: Dictionary = history[index].metrics
-		var name: String = "Baseline" if index == 0 else "Candidate %d" % index
-		rows.append("%s: score %.3f | forward %+.2f mm | yaw %+.1f deg | fallen %s | finite %s" % [name, metrics.score, metrics.forward_m * 1000.0, rad_to_deg(metrics.yaw_rad), str(metrics.fallen), str(metrics.finite)])
+		var name: String = tr("Baseline") if index == 0 else tr("Candidate %d") % index
+		rows.append(tr("%s: score %.3f | forward %+.2f mm | yaw %+.1f deg | fallen %s | finite %s") % [name, metrics.score, metrics.forward_m * 1000.0, rad_to_deg(metrics.yaw_rad), tr(str(metrics.fallen)), tr(str(metrics.finite))])
 	history_label.text = "\n".join(rows) if not rows.is_empty() else "Baseline evaluation is pending."
 
 
@@ -423,7 +458,7 @@ func _clean_best(value: Dictionary) -> Dictionary:
 
 func _show_best() -> void:
 	var metrics: Dictionary = best.metrics
-	result_label.text = "Measured best: score %.4f | finite: true | fallen: false\nForward %+.4f m | lateral %+.4f m | yaw %+.3f rad\nMinimum upright %.3f | minimum height %.4f m\n%s\nA better score is not proof of walking. One direction is not a guarantee for all WASD commands." % [metrics.score, metrics.forward_m, metrics.lateral_m, metrics.yaw_rad, metrics.min_upright, metrics.min_height_m, JSON.stringify(best.policy)]
+	SsokLocale.bind(result_label, "Measured best: score %.4f | finite: true | fallen: false\nForward %+.4f m | lateral %+.4f m | yaw %+.3f rad\nMinimum upright %.3f | minimum height %.4f m\n%s\nA better score is not proof of walking. One direction is not a guarantee for all WASD commands.", [metrics.score, metrics.forward_m, metrics.lateral_m, metrics.yaw_rad, metrics.min_upright, metrics.min_height_m, JSON.stringify(best.policy)])
 
 
 func save_best() -> bool:
@@ -437,7 +472,7 @@ func save_best() -> bool:
 	var record: Dictionary = {"version": 1, "graph_fingerprint": best_fingerprint, "best": _clean_best(best)}
 	file.store_string(JSON.stringify(record, "", true, true))
 	file.close()
-	_status("Saved bounded policy and measured metrics to " + SAVE_PATH + "; no credentials or prompt text.")
+	_status("Saved bounded policy and measured metrics to %s; no credentials or prompt text.", [SAVE_PATH])
 	return true
 
 
@@ -446,7 +481,7 @@ func load_best() -> bool:
 		return false
 	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file == null or file.get_length() > 8192:
-		_status("No valid saved result at " + SAVE_PATH)
+		_status("No valid saved result at %s", [SAVE_PATH])
 		return false
 	var value: Variant = JSON.parse_string(file.get_as_text())
 	file.close()
@@ -458,13 +493,33 @@ func load_best() -> bool:
 	best = _clean_best(value.best)
 	best_fingerprint = value.graph_fingerprint
 	_show_best()
+	workflow_tabs.current_tab = 2
 	_status("Loaded local parameters and recorded metrics (not re-evaluated). Apply requires the exact same assembly in edit mode.")
 	refresh_apply_state()
 	return true
 
 
-func _status(message: String) -> void:
-	status_label.text = message
+func _status(message: String, arguments: Array = [], translated_arguments: Array[int] = []) -> void:
+	SsokLocale.bind(status_label, message, arguments, translated_arguments)
+
+
+func _refresh_provider() -> void:
+	if _server.provider == "mock":
+		SsokLocale.bind(provider_label, "MOCK - no GPT calls; real Godot physics evaluations.")
+	else:
+		SsokLocale.bind(provider_label, "OPENAI - %s; key configured: %s. Explicit paid consent required.", [String(_server.model).left(80), str(_server.get("key_configured") == true)], [1])
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
+		for index: int in range(3):
+			workflow_tabs.set_tab_title(index, tr(["1. Connect", "2. Search", "3. Results"][index]))
+		token_edit.placeholder_text = tr("Token from your local bridge terminal")
+		if not _server.is_empty():
+			_refresh_provider()
+		if not _job.is_empty():
+			_show_history(_job.history)
+		refresh_apply_state()
 
 
 func _close_panel() -> void:

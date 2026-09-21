@@ -6,6 +6,8 @@ extends Node
 signal movement_changed(throttle: float, turn: float)
 signal stop_requested
 signal state_changed
+signal sprint_changed(pressed: bool)
+signal interaction_requested
 
 @export_range(0.0, 0.95) var stick_deadzone: float = 0.18
 
@@ -19,6 +21,7 @@ var _stick: Vector2 = Vector2.ZERO
 var _stick_raw: Vector2 = Vector2.ZERO
 var _stick_needs_neutral: bool = false
 var _move_input: Vector2 = Vector2.ZERO
+var _sprinting: bool = false
 
 
 func _ready() -> void:
@@ -85,6 +88,8 @@ func advance(_delta: float) -> void:
 func handle_event(event: InputEvent) -> bool:
 	if event is InputEventKey and not event.pressed:
 		_held_keys.erase(_key_code(event))
+		if _key_code(event) == KEY_SHIFT:
+			_set_sprinting(false)
 		advance(0.0)
 		return false
 	if event is InputEventJoypadMotion and event.axis in [JOY_AXIS_LEFT_X, JOY_AXIS_LEFT_Y]:
@@ -101,6 +106,12 @@ func handle_event(event: InputEvent) -> bool:
 		if event.echo or event.ctrl_pressed or event.alt_pressed or event.meta_pressed:
 			return false
 		var code := _key_code(event)
+		if code == KEY_SHIFT:
+			_set_sprinting(true)
+			return true
+		if code == KEY_E:
+			interaction_requested.emit()
+			return true
 		if code in [KEY_W, KEY_A, KEY_S, KEY_D, KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT]:
 			_held_keys[code] = true
 			advance(0.0)
@@ -120,12 +131,19 @@ func handle_event(event: InputEvent) -> bool:
 			_stick = Vector2(_stick_raw.x, -_stick_raw.y).normalized() * strength
 		advance(0.0)
 		return true
-	elif event is InputEventJoypadButton and event.button_index == JOY_BUTTON_A:
+	elif event is InputEventJoypadButton and event.button_index in [JOY_BUTTON_A, JOY_BUTTON_B, JOY_BUTTON_X]:
 		if _active_gamepad >= 0 and event.device != _active_gamepad:
 			return false
+		if event.button_index == JOY_BUTTON_B:
+			_claim_gamepad(event.device)
+			_set_sprinting(event.pressed)
+			return true
 		if event.pressed:
 			_claim_gamepad(event.device)
-			brake()
+			if event.button_index == JOY_BUTTON_X:
+				interaction_requested.emit()
+			else:
+				brake()
 		return true
 	return false
 
@@ -171,9 +189,16 @@ func _claim_gamepad(device: int) -> void:
 
 func _clear_inputs(require_neutral: bool) -> void:
 	_held_keys.clear()
+	_set_sprinting(false)
 	_stick = Vector2.ZERO
 	_stick_needs_neutral = require_neutral
 	_publish_input(Vector2.ZERO)
+
+
+func _set_sprinting(pressed: bool) -> void:
+	if _sprinting != pressed:
+		_sprinting = pressed
+		sprint_changed.emit(pressed)
 
 
 func _publish_input(value: Vector2) -> void:

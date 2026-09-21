@@ -53,6 +53,7 @@ func _run() -> void:
 	_check(_main.manual_controller.get_move_input().y > 0.0, "viewport W dispatches a forward command")
 	await _key(KEY_W, false)
 	_check(_main.manual_controller.get_move_input().is_zero_approx(), "key release dispatches stop")
+	_main.program_tabs.current_tab = 0
 	_main.code_edit.grab_focus()
 	await _key(KEY_W, true)
 	_check(_main.manual_controller.get_move_input().is_zero_approx(), "typing W in the code editor does not move the robot")

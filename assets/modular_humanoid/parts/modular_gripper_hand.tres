@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_gripper_hand.res" id="1_opcx7"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_a86vm"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_a7mwb"]
+
+[sub_resource type="Resource" id="Resource_dm7eu"]
+script = ExtResource("2_a86vm")
+id = &"mount"
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_tra2c"]
+script = ExtResource("2_a86vm")
+id = &"grip"
+local_position = Vector3(0, -0.03, 0.03)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_a7mwb")
+id = &"modular_gripper_hand"
+display_name = "Padded gripper hand"
+mesh = ExtResource("1_opcx7")
+ports = Array[ExtResource("2_a86vm")]([SubResource("Resource_dm7eu"), SubResource("Resource_tra2c")])
+mass_kg = 0.06
+merge_fixed_connections = true

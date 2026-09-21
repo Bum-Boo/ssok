@@ -77,6 +77,29 @@ func start_search(payload: Dictionary) -> bool:
 	return _send("start", HTTPClient.METHOD_POST, "/v1/search", payload)
 
 
+func propose_pickup(payload: Dictionary) -> bool:
+	return _send("pickup_start", HTTPClient.METHOD_POST, "/v1/pickup/propose", payload)
+
+
+func poll_pickup(id: String) -> bool:
+	return _pickup_job("pickup_poll", HTTPClient.METHOD_GET, id)
+
+
+func cancel_pickup(id: String) -> bool:
+	if _kind == "pickup_poll":
+		_request.cancel_request()
+		_kind = ""
+	return _pickup_job("pickup_cancel", HTTPClient.METHOD_POST, id, "/cancel")
+
+
+func _pickup_job(kind: String, method: HTTPClient.Method, id: String, suffix: String = "") -> bool:
+	var pattern: RegEx = RegEx.create_from_string("^[a-f0-9]{32}$")
+	if pattern.search(id) == null:
+		request_failed.emit(kind, "Bridge returned an invalid search ID")
+		return false
+	return _send(kind, method, "/v1/pickup/" + id + suffix)
+
+
 func poll_job(id: String) -> bool:
 	return _send_job("poll", HTTPClient.METHOD_GET, id)
 
@@ -110,7 +133,7 @@ func _send(kind: String, method: HTTPClient.Method, path: String, payload: Dicti
 	var error: Error = _request.request(_endpoint + path, headers, method, body)
 	if error != OK:
 		_kind = ""
-		request_failed.emit(kind, "Could not start the bridge request (error %d)" % error)
+		request_failed.emit(kind, tr("Could not start the bridge request (error %d)") % error)
 		return false
 	return true
 
@@ -124,11 +147,11 @@ func _on_completed(result: int, code: int, _headers: PackedStringArray, body: Pa
 		request_failed.emit(kind, "Bridge connection failed, timed out or exceeded the response limit. Nothing was applied.")
 		return
 	if code < 200 or code >= 300:
-		var detail: String = "Check token, service state and request limits."
+		var detail: String = tr("Check token, service state and request limits.")
 		var failure: Variant = JSON.parse_string(body.get_string_from_utf8())
 		if failure is Dictionary and failure.get("error") is String:
 			detail = String(failure.error).replace(_token, "[redacted]").left(300)
-		request_failed.emit(kind, "Bridge HTTP %d: %s No automatic retry." % [code, detail])
+		request_failed.emit(kind, tr("Bridge HTTP %d: %s No automatic retry.") % [code, detail])
 		return
 	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
 	if not parsed is Dictionary:

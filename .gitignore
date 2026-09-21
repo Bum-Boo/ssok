@@ -1,8 +1,8 @@
 # Godot
 .godot/
 export/
-# export_presets.cfg can hold signing-key paths/passwords; add per-platform presets deliberately
-export_presets.cfg
+# Shared export presets contain no signing keys or credentials.
+/build/
 .mono/
 *.translation
 
@@ -21,6 +21,8 @@ __pycache__/
 # Optional motion-learning service: never export credentials or local environments.
 .venv/
 .venv-motion/
+.venv-rl/
+tools/rl_lab/runs/
 .env
 .env.*
 !.env.example

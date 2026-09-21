@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_optical_sensor.res" id="1_phiik"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_ipvwa"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_w1by8"]
+
+[sub_resource type="Resource" id="Resource_8yyip"]
+script = ExtResource("2_ipvwa")
+id = &"mount_0_front"
+local_position = Vector3(-0.02, 0, -0.008)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_sylel"]
+script = ExtResource("2_ipvwa")
+id = &"mount_0_back"
+local_position = Vector3(-0.02, 0, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ij06o"]
+script = ExtResource("2_ipvwa")
+id = &"mount_1_front"
+local_position = Vector3(0.02, 0, -0.008)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_2ua8d"]
+script = ExtResource("2_ipvwa")
+id = &"mount_1_back"
+local_position = Vector3(0.02, 0, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_w1by8")
+id = &"kit_optical_sensor"
+display_name = "Optical sensor module"
+mesh = ExtResource("1_phiik")
+ports = Array[ExtResource("2_ipvwa")]([SubResource("Resource_8yyip"), SubResource("Resource_sylel"), SubResource("Resource_ij06o"), SubResource("Resource_2ua8d")])
+mass_kg = 0.045
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.03, -0.02, -0.012, 0.06, 0.04, 0.029)])

@@ -8,6 +8,7 @@ extends Node
 ##   from servo import Servo
 ##   name = Servo(<pin>)
 ##   name.write(<angle>)
+##   name.write_relative(<signed_angle>)
 ##   sleep(<seconds>)
 ##   # comments and blank lines
 
@@ -23,7 +24,7 @@ var _running := false
 var _execution_id: int = 0
 
 var _re_assign := RegEx.create_from_string(r"^(\w+)\s*=\s*Servo\(\s*(?:pin\s*=\s*)?(\d+)\s*\)$")
-var _re_write := RegEx.create_from_string(r"^(\w+)\.write\(\s*(-?\d+(?:\.\d+)?)\s*\)$")
+var _re_write := RegEx.create_from_string(r"^(\w+)\.(write|write_relative)\(\s*(-?\d+(?:\.\d+)?)\s*\)$")
 var _re_sleep := RegEx.create_from_string(r"^sleep\(\s*(\d+(?:\.\d+)?)\s*\)$")
 var _re_import := RegEx.create_from_string(r"^from\s+servo\s+import\s+Servo$")
 
@@ -80,20 +81,23 @@ func _exec(line: String) -> String:
 			return "Run mode is not active"
 		var servo := hardware.servo_on_pin(pin)
 		if servo == null:
-			return "Pin %d has nothing connected" % pin
+			return tr("Pin %d has nothing connected") % pin
 		_servos[m.get_string(1)] = servo
 		return ""
 	m = _re_write.search(line)
 	if m:
 		var name := m.get_string(1)
 		if not _servos.has(name):
-			return "NameError: '%s' is not defined" % name
+			return tr("NameError: '%s' is not defined") % name
 		if not is_instance_valid(_servos[name]):
-			return "Servo '%s' is no longer available" % name
-		(_servos[name] as ServoDrive).write(float(m.get_string(2)))
+			return tr("Servo '%s' is no longer available") % name
+		if m.get_string(2) == "write_relative":
+			(_servos[name] as ServoDrive).write_relative(float(m.get_string(3)))
+		else:
+			(_servos[name] as ServoDrive).write(float(m.get_string(3)))
 		return ""
 	m = _re_sleep.search(line)
 	if m:
 		await get_tree().create_timer(float(m.get_string(1))).timeout
 		return ""
-	return "SyntaxError: %s" % line
+	return tr("SyntaxError: %s") % line

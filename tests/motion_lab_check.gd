@@ -123,11 +123,11 @@ func _check_snapshot() -> void:
 	distant.parts[0].transform[9] = 101.0
 	_assert(MotionSnapshot.decode(distant) == null, "unsafe coordinate rejected")
 	var oversized: Dictionary = encoded.duplicate(true)
-	for index: int in range(65):
+	for index: int in range(MotionSnapshot.MAX_PARTS + 1):
 		oversized.parts.append(encoded.parts[0].duplicate(true))
 	_assert(MotionSnapshot.decode(oversized) == null, "excess parts rejected")
 	oversized = encoded.duplicate(true)
-	for index: int in range(129):
+	for index: int in range(MotionSnapshot.MAX_LINKS + 1):
 		oversized.links.append(encoded.links[0].duplicate(true))
 	_assert(MotionSnapshot.decode(oversized) == null, "excess links rejected")
 	for value: Variant in [-1, 64, 0.5, INF, true, "0"]:

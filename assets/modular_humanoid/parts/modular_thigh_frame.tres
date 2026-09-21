@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_thigh_frame.res" id="1_imqfl"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_5ce3k"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_vy52j"]
+
+[sub_resource type="Resource" id="Resource_2t4sh"]
+script = ExtResource("2_5ce3k")
+id = &"mount"
+local_position = Vector3(0, 0.08, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_dfgn7"]
+script = ExtResource("2_5ce3k")
+id = &"knee"
+local_position = Vector3(0, -0.12, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_vy52j")
+id = &"modular_thigh_frame"
+display_name = "Passive thigh frame"
+mesh = ExtResource("1_imqfl")
+ports = Array[ExtResource("2_5ce3k")]([SubResource("Resource_2t4sh"), SubResource("Resource_dfgn7")])
+mass_kg = 0.78
+merge_fixed_connections = true
+physics_frame_priority = 100

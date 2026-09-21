@@ -4,8 +4,8 @@ extends RefCounted
 ## Only catalog IDs and graph data cross the bridge; resource paths never do.
 
 const CATALOG_PATH: String = "res://assets/parts/"
-const MAX_PARTS: int = 64
-const MAX_LINKS: int = 128
+const MAX_PARTS: int = 256
+const MAX_LINKS: int = 1024
 const MAX_POSITION: float = 100.0
 const RIGID_TOLERANCE: float = 0.0001
 
@@ -99,12 +99,13 @@ static func fingerprint(data: Dictionary) -> String:
 
 static func _catalog() -> Dictionary:
 	var catalog: Dictionary = {}
-	for file: String in ResourceLoader.list_directory(CATALOG_PATH):
-		if not file.ends_with(".tres") or file.contains("/"):
-			continue
-		var definition: PartDef = load(CATALOG_PATH + file) as PartDef
-		if definition != null:
-			catalog[String(definition.id)] = definition
+	for directory: String in [CATALOG_PATH, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/"]:
+		for file: String in ResourceLoader.list_directory(directory):
+			if not file.ends_with(".tres") or file.contains("/"):
+				continue
+			var definition: PartDef = load(directory + file) as PartDef
+			if definition != null:
+				catalog[String(definition.id)] = definition
 	return catalog
 
 

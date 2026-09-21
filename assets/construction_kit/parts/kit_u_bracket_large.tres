@@ -1,0 +1,158 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_u_bracket_large.res" id="1_elwyk"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_2i2c5"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_4iurb"]
+
+[sub_resource type="Resource" id="Resource_db6rc"]
+script = ExtResource("2_2i2c5")
+id = &"axle_left_front"
+local_position = Vector3(-0.041, 0, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8"])
+
+[sub_resource type="Resource" id="Resource_w1rgt"]
+script = ExtResource("2_2i2c5")
+id = &"axle_left_back"
+local_position = Vector3(-0.045, 0, 0)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8"])
+
+[sub_resource type="Resource" id="Resource_7v88n"]
+script = ExtResource("2_2i2c5")
+id = &"axle_right_front"
+local_position = Vector3(0.045, 0, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8"])
+
+[sub_resource type="Resource" id="Resource_4md3v"]
+script = ExtResource("2_2i2c5")
+id = &"axle_right_back"
+local_position = Vector3(0.041, 0, 0)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8"])
+
+[sub_resource type="Resource" id="Resource_8hkl5"]
+script = ExtResource("2_2i2c5")
+id = &"base_2_front"
+local_position = Vector3(-0.02, -0.038, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_pxep1"]
+script = ExtResource("2_2i2c5")
+id = &"base_2_back"
+local_position = Vector3(-0.02, -0.042, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_kx2n4"]
+script = ExtResource("2_2i2c5")
+id = &"base_3_front"
+local_position = Vector3(0, -0.038, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_e5dye"]
+script = ExtResource("2_2i2c5")
+id = &"base_3_back"
+local_position = Vector3(0, -0.042, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_uqgl6"]
+script = ExtResource("2_2i2c5")
+id = &"base_4_front"
+local_position = Vector3(0.02, -0.038, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_uwjkw"]
+script = ExtResource("2_2i2c5")
+id = &"base_4_back"
+local_position = Vector3(0.02, -0.042, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_iv40k"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_5_front"
+local_position = Vector3(-0.041, -0.02, -0.02)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_2n1sv"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_5_back"
+local_position = Vector3(-0.045, -0.02, -0.02)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_p4xrw"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_6_front"
+local_position = Vector3(-0.041, -0.02, 0.02)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_uaoep"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_6_back"
+local_position = Vector3(-0.045, -0.02, 0.02)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_87g14"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_7_front"
+local_position = Vector3(0.045, -0.02, -0.02)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_iafi6"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_7_back"
+local_position = Vector3(0.041, -0.02, -0.02)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_psx8l"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_8_front"
+local_position = Vector3(0.045, -0.02, 0.02)
+local_normal = Vector3(1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_uywdg"]
+script = ExtResource("2_2i2c5")
+id = &"cheek_8_back"
+local_position = Vector3(0.041, -0.02, 0.02)
+local_normal = Vector3(-1, 0, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_4iurb")
+id = &"kit_u_bracket_large"
+display_name = "U bracket 86 mm"
+mesh = ExtResource("1_elwyk")
+ports = Array[ExtResource("2_2i2c5")]([SubResource("Resource_db6rc"), SubResource("Resource_w1rgt"), SubResource("Resource_7v88n"), SubResource("Resource_4md3v"), SubResource("Resource_8hkl5"), SubResource("Resource_pxep1"), SubResource("Resource_kx2n4"), SubResource("Resource_e5dye"), SubResource("Resource_uqgl6"), SubResource("Resource_uwjkw"), SubResource("Resource_iv40k"), SubResource("Resource_2n1sv"), SubResource("Resource_p4xrw"), SubResource("Resource_uaoep"), SubResource("Resource_87g14"), SubResource("Resource_iafi6"), SubResource("Resource_psx8l"), SubResource("Resource_uywdg")])
+mass_kg = 0.07
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.045, -0.042, -0.03, 0.09, 0.004, 0.06), AABB(-0.045, -0.042000003, -0.03, 0.004, 0.056, 0.06), AABB(0.041, -0.042000003, -0.03, 0.004, 0.056, 0.06)])

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_rhwi5"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_ntuug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6d5v"]
+albedo_color = Color(0.76862746, 0.58431375, 0.34117648, 1)
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_e705s"]
+material = SubResource("StandardMaterial3D_i6d5v")
+size = Vector3(0.34, 0.2, 0.2)
+
+[resource]
+script = ExtResource("2_ntuug")
+id = &"cargo_box"
+display_name = "Practice box (0.4 kg)"
+mesh = SubResource("BoxMesh_e705s")
+mass_kg = 0.4

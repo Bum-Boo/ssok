@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_coupler_8.res" id="1_ot4gj"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_angem"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_xwwfc"]
+
+[sub_resource type="Resource" id="Resource_65ld3"]
+script = ExtResource("2_angem")
+id = &"bore_front"
+local_position = Vector3(0, 0, 0.01)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8"])
+
+[sub_resource type="Resource" id="Resource_c2435"]
+script = ExtResource("2_angem")
+id = &"bore_back"
+local_position = Vector3(0, 0, -0.01)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8"])
+
+[resource]
+script = ExtResource("3_xwwfc")
+id = &"kit_coupler_8"
+display_name = "Shaft coupler 8 mm"
+mesh = ExtResource("1_ot4gj")
+ports = Array[ExtResource("2_angem")]([SubResource("Resource_65ld3"), SubResource("Resource_c2435")])
+mass_kg = 0.018
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.008, -0.008, -0.01, 0.016, 0.016, 0.02)])

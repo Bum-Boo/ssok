@@ -48,7 +48,7 @@ func configure(hardware: RunMode, graph: ConnectionGraph) -> bool:
 		var ankle: int = _neighbor(leg, &"ankle_mount", &"mount_bottom")
 		var foot: int = _neighbor(ankle, &"output_shaft")
 		if hip < 0 or leg < 0 or ankle < 0 or foot < 0:
-			_set_status("Incomplete %s leg: connect hip, leg, ankle servo and foot" % side)
+			_set_status("Incomplete %s leg: connect hip, leg, ankle servo and foot", [side])
 			return false
 		role_parts[StringName(side + "_hip")] = hip
 		role_parts[StringName(side + "_ankle")] = ankle
@@ -65,7 +65,7 @@ func configure(hardware: RunMode, graph: ConnectionGraph) -> bool:
 			if channel.part == role_parts[role]:
 				pins.append(channel.pin)
 		if pins.size() != 1:
-			_set_status("Wire %s to one unambiguous board PWM pin" % String(role).replace("_", " "))
+			_set_status("Wire %s to one unambiguous board PWM pin", [String(role).replace("_", " ")])
 			role_pins.clear()
 			return false
 		role_pins[role] = pins[0]

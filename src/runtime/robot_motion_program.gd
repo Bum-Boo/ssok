@@ -10,6 +10,7 @@ var _graph: ConnectionGraph
 var _enabled: bool = false
 var _supported: bool = false
 var _status: String = "No robot movement program configured"
+var _status_arguments: Array = []
 var _move_input: Vector2 = Vector2.ZERO
 
 
@@ -37,11 +38,13 @@ func is_supported() -> bool:
 
 
 func get_status() -> String:
-	return _status
+	var arguments: Array = _status_arguments.map(func(value: String) -> String: return tr(value))
+	return tr(_status) if arguments.is_empty() else tr(_status) % arguments
 
 
-func _set_status(message: String) -> void:
-	if message == _status:
+func _set_status(message: String, arguments: Array = []) -> void:
+	if message == _status and arguments == _status_arguments:
 		return
 	_status = message
-	status_changed.emit(message)
+	_status_arguments = arguments.duplicate()
+	status_changed.emit(get_status())

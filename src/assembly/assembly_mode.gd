@@ -286,6 +286,12 @@ func try_snap(part: PartNode) -> bool:
 
 
 func snap(part: PartNode, part_port_id: StringName, other_part: PartNode, other_port_id: StringName) -> void:
+	if part == null or other_part == null or part == other_part or part not in _part_nodes or other_part not in _part_nodes:
+		return
+	var source_port: Port = part.get_port(part_port_id)
+	var target_port: Port = other_part.get_port(other_port_id)
+	if source_port == null or target_port == null or source_port.kind != target_port.kind or not _ports_accept(source_port, target_port):
+		return
 	if _is_port_linked(part.graph_index, part_port_id) or _is_port_linked(other_part.graph_index, other_port_id):
 		return
 	var source_normal := part.get_port_global_normal(part_port_id)
@@ -497,16 +503,16 @@ func _mouse_rotation(camera: Camera3D, axis: Vector3) -> float:
 
 
 func _report_transform() -> void:
-	var operation := "Move" if _transform_kind == &"translate" else "Rotate"
+	var operation := tr("Move") if _transform_kind == &"translate" else tr("Rotate")
 	var unit := "mm" if _transform_kind == &"translate" else "°"
-	var axis := "View" if _constraint == &"" else String(_constraint)
+	var axis := tr("View") if _constraint == &"" else String(_constraint)
 	var value := _numeric_input
 	if value.is_empty():
 		if _transform_kind == &"translate":
 			value = "%.2f" % ((_selected_part.global_position - _start_transform.origin).length() * 1000.0)
 		else:
-			value = "mouse"
-	status_changed.emit("%s · %s · %s %s | X/Y/Z axis · Enter/LMB confirm · Esc/RMB cancel · Ctrl snap · Shift precise" % [operation, axis, value, unit])
+			value = tr("mouse")
+	status_changed.emit(tr("%s · %s · %s %s | X/Y/Z axis · Enter/LMB confirm · Esc/RMB cancel · Ctrl snap · Shift precise") % [operation, axis, value, unit])
 
 
 func _create_part_node(definition: PartDef, index: int, xform: Transform3D) -> PartNode:
@@ -520,27 +526,40 @@ func _create_part_node(definition: PartDef, index: int, xform: Transform3D) -> P
 
 func _find_nearest_candidate(part: PartNode) -> Dictionary:
 	var nearest: Dictionary = {}
-	var nearest_distance := snap_radius
-	for my_port: Port in part.part_def.ports:
-		if _is_port_linked(part.graph_index, my_port.id):
+	var nearest_distance: float = snap_radius * snap_radius
+	# A perforated kit has many ports: resolve occupancy and target transforms once per snap.
+	var occupied: Dictionary = {}
+	for link: Dictionary in graph.links:
+		for endpoint: String in ["a", "b"]:
+			var index: int = link[endpoint + "_part"]
+			if not occupied.has(index):
+				occupied[index] = {}
+			occupied[index][link[endpoint + "_port"]] = true
+	var targets: Array[Dictionary] = []
+	for other_part: PartNode in _part_nodes:
+		if other_part == part:
 			continue
-		for other_part: PartNode in _part_nodes:
-			if other_part == part:
+		for other_port: Port in other_part.part_def.ports:
+			if occupied.get(other_part.graph_index, {}).has(other_port.id):
 				continue
-			for other_port: Port in other_part.part_def.ports:
-				if my_port.kind != other_port.kind or not _ports_accept(my_port, other_port):
-					continue
-				if _is_port_linked(other_part.graph_index, other_port.id):
-					continue
-				var distance := part.get_port_global_position(my_port.id).distance_to(other_part.get_port_global_position(other_port.id))
-				if distance < nearest_distance:
-					nearest_distance = distance
-					nearest = {"my_port": my_port.id, "other_part": other_part, "other_port": other_port.id}
+			targets.append({"part": other_part, "port": other_port, "position": other_part.get_port_global_position(other_port.id)})
+	for my_port: Port in part.part_def.ports:
+		if occupied.get(part.graph_index, {}).has(my_port.id):
+			continue
+		var origin: Vector3 = part.get_port_global_position(my_port.id)
+		for target: Dictionary in targets:
+			var other_port: Port = target.port
+			if my_port.kind != other_port.kind or not _ports_accept(my_port, other_port):
+				continue
+			var distance: float = origin.distance_squared_to(target.position)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest = {"my_port": my_port.id, "other_part": target.part, "other_port": other_port.id}
 	return nearest
 
 
 func _ports_accept(first: Port, second: Port) -> bool:
-	return first.tag in second.accepts or second.tag in first.accepts
+	return first.tag in second.accepts and second.tag in first.accepts
 
 
 func _is_port_linked(part_index: int, port_id: StringName) -> bool:

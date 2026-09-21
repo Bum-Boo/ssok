@@ -1,0 +1,9 @@
+{
+  "name": "walk_forward",
+  "language": "Walk forward along the body's +Z axis for 12 seconds without falling or veering off.",
+  "language_ko": "12초 동안 넘어지거나 옆으로 새지 않고 몸 앞쪽(+Z)으로 걸어가기",
+  "command_forward": 1.0,
+  "horizon_s": 12.0,
+  "success": {"forward_m_min": 0.3, "abs_yaw_deg_max": 30.0, "abs_lateral_m_max": 0.1},
+  "eval_seeds": [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008]
+}

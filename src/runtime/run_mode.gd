@@ -11,13 +11,41 @@ var bodies: Array[RigidBody3D] = []
 ## graph part index -> ServoDrive, for every part that owns a rotating port in a link.
 var servos: Dictionary = {}
 var _graph: ConnectionGraph
+var _body_offsets: Array[Transform3D] = []
 
 
 func build(graph: ConnectionGraph) -> void:
 	teardown()
 	_graph = graph
-	for i in graph.parts.size():
-		bodies.append(_make_body(graph.parts[i], i))
+	var groups: Array[int] = []
+	for i: int in graph.parts.size():
+		groups.append(i)
+	for link: Dictionary in graph.links:
+		var a: PartDef = graph.parts[link.a_part].part_def
+		var b: PartDef = graph.parts[link.b_part].part_def
+		var pa: Port = _port(a, link.a_port)
+		var pb: Port = _port(b, link.b_port)
+		if not a.merge_fixed_connections or not b.merge_fixed_connections:
+			continue
+		if pa.kind != Port.Kind.MECH or pb.kind != Port.Kind.MECH or pa.rotates or pb.rotates:
+			continue
+		var previous: int = groups[link.b_part]
+		var replacement: int = groups[link.a_part]
+		for i: int in groups.size():
+			if groups[i] == previous:
+				groups[i] = replacement
+	bodies.resize(graph.parts.size())
+	_body_offsets.resize(graph.parts.size())
+	var built_groups: Dictionary = {}
+	for i: int in graph.parts.size():
+		if built_groups.has(groups[i]):
+			continue
+		var members: Array[int] = []
+		for j: int in groups.size():
+			if groups[j] == groups[i]:
+				members.append(j)
+		_make_cluster(members)
+		built_groups[groups[i]] = true
 	for link: Dictionary in graph.links:
 		_make_joint(link)
 
@@ -28,11 +56,43 @@ func teardown() -> void:
 		child.queue_free()
 	bodies.clear()
 	servos.clear()
+	_body_offsets.clear()
 	_graph = null
 
 
 func is_built() -> bool:
 	return _graph != null
+
+
+func part_global_transform(part: int) -> Transform3D:
+	return bodies[part].global_transform * _body_offsets[part]
+
+
+func _make_cluster(members: Array[int]) -> void:
+	var representative: int = members[0]
+	for member: int in members:
+		if _graph.parts[member].part_def.physics_frame_priority > _graph.parts[representative].part_def.physics_frame_priority:
+			representative = member
+	var body: RigidBody3D = _make_body(_graph.parts[representative], representative)
+	var total_mass: float = body.mass
+	var mass_center: Vector3 = Vector3.ZERO
+	for member: int in members:
+		var entry: Dictionary = _graph.parts[member]
+		var definition: PartDef = entry.part_def
+		var offset: Transform3D = body.global_transform.affine_inverse() * entry.transform
+		bodies[member] = body
+		_body_offsets[member] = offset
+		if member == representative:
+			continue
+		total_mass += definition.mass_kg
+		mass_center += offset.origin * definition.mass_kg
+		_add_part_geometry(body, definition, offset)
+		if definition.id in anchored_part_ids:
+			body.freeze = true
+	if members.size() > 1:
+		body.mass = total_mass
+		body.center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+		body.center_of_mass = mass_center / total_mass
 
 
 ## The servo wired to this pin, or null when nothing is plugged in there (ADR 0002).
@@ -91,22 +151,30 @@ func _make_body(entry: Dictionary, index: int) -> RigidBody3D:
 	body.name = "%s_%d" % [def.id, index]
 	body.mass = def.mass_kg
 	body.can_sleep = false
-	var mesh := MeshInstance3D.new()
-	mesh.mesh = def.mesh
-	body.add_child(mesh)
-	var shape := CollisionShape3D.new()
-	var box := BoxShape3D.new()
-	var aabb := def.mesh.get_aabb()
-	box.size = aabb.size
-	shape.shape = box
-	shape.position = aabb.get_center()
-	body.add_child(shape)
+	_add_part_geometry(body, def, Transform3D.IDENTITY)
 	if def.id in anchored_part_ids:
 		body.freeze = true
 		body.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 	add_child(body)
 	body.global_transform = entry.transform
 	return body
+
+
+func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transform3D) -> void:
+	var mesh := MeshInstance3D.new()
+	mesh.mesh = definition.mesh
+	mesh.transform = offset
+	body.add_child(mesh)
+	var bounds_list: Array[AABB] = definition.collision_boxes.duplicate()
+	if bounds_list.is_empty():
+		bounds_list.append(definition.mesh.get_aabb())
+	for bounds: AABB in bounds_list:
+		var shape := CollisionShape3D.new()
+		var box := BoxShape3D.new()
+		box.size = bounds.size.max(Vector3.ONE * 0.0001)
+		shape.shape = box
+		shape.transform = offset * Transform3D(Basis.IDENTITY, bounds.get_center())
+		body.add_child(shape)
 
 
 func _make_joint(link: Dictionary) -> void:
@@ -118,12 +186,16 @@ func _make_joint(link: Dictionary) -> void:
 		return
 	var body_a := bodies[link.a_part]
 	var body_b := bodies[link.b_part]
-	var anchor: Vector3 = body_a.global_transform * a_port.local_position
+	if body_a == body_b:
+		return
+	var a_transform: Transform3D = _graph.parts[link.a_part].transform
+	var b_transform: Transform3D = _graph.parts[link.b_part].transform
+	var anchor: Vector3 = a_transform * a_port.local_position
 	var joint: Joint3D
 	if a_port.rotates or b_port.rotates:
-		var driven_body := body_a if a_port.rotates else body_b
+		var driven_transform: Transform3D = a_transform if a_port.rotates else b_transform
 		var driven_port := a_port if a_port.rotates else b_port
-		var axis: Vector3 = (driven_body.global_transform.basis * driven_port.local_normal).normalized()
+		var axis: Vector3 = (driven_transform.basis * driven_port.local_normal).normalized()
 		var hinge := HingeJoint3D.new()
 		add_child(hinge)
 		hinge.global_transform = Transform3D(_basis_with_z(axis), anchor)
@@ -139,6 +211,11 @@ func _make_joint(link: Dictionary) -> void:
 		joint = fixed
 	joint.node_a = body_a.get_path()
 	joint.node_b = body_b.get_path()
+	if a_port.rotates or b_port.rotates:
+		var definition: PartDef = a_def if a_port.rotates else b_def
+		if definition.actuator_torque_nm > 0.0:
+			var drive: ServoDrive = servos[link.a_part if a_port.rotates else link.b_part]
+			drive.configure_torque_actuator(body_a, body_b, definition, a_port.rotates)
 
 
 static func _basis_with_z(z: Vector3) -> Basis:

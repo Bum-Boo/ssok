@@ -5,6 +5,7 @@ var _manual: ManualController
 var _failures: Array[String] = []
 var _last_command: Vector2 = Vector2.ZERO
 var _stop_count: int = 0
+var _interaction_count: int = 0
 
 
 func _init() -> void:
@@ -19,11 +20,13 @@ func _setup() -> void:
 	_manual.set_physics_process(false)
 	_manual.movement_changed.connect(func(throttle: float, turn: float) -> void: _last_command = Vector2(turn, throttle))
 	_manual.stop_requested.connect(func() -> void: _stop_count += 1)
+	_manual.interaction_requested.connect(func() -> void: _interaction_count += 1)
 	_test_wiring()
 	_test_keyboard()
 	_test_gamepad()
 	_test_dispatch()
 	_test_focus()
+	_test_humanoid_actions()
 	_hardware.teardown()
 	_manual.advance(0.1)
 	_check(_manual.get_move_input() == Vector2.ZERO, "leaving manual mode stops command output")
@@ -190,6 +193,43 @@ func _test_focus() -> void:
 	_manual.advance(1.0)
 	_check(_input_is(Vector2.ZERO), "application focus regain never resumes stale input")
 	editor.queue_free()
+
+
+func _test_humanoid_actions() -> void:
+	_manual.set_enabled(true)
+	_manual.handle_event(_key(KEY_SHIFT))
+	_check(_manual._sprinting, "Shift requests sprint without moving a joint")
+	_manual.handle_event(_key(KEY_SHIFT, false))
+	_check(not _manual._sprinting, "Shift release stops sprint")
+	_manual.handle_event(_key(KEY_E))
+	var repeat := _key(KEY_E)
+	repeat.echo = true
+	_manual.handle_event(repeat)
+	_check(_interaction_count == 1, "E interacts once; auto-repeat cannot toggle grasp")
+	_manual.handle_event(_key(KEY_SHIFT))
+	_manual.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_check(not _manual._sprinting, "focus loss clears sprint")
+	_manual.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	var editor := TextEdit.new()
+	root.add_child(editor)
+	editor.grab_focus()
+	_manual.handle_event(_key(KEY_E))
+	_manual.handle_event(_key(KEY_SHIFT))
+	_check(_interaction_count == 1 and not _manual._sprinting, "typing cannot interact or sprint")
+	editor.release_focus()
+	editor.queue_free()
+	_manual.handle_event(_button(3, JOY_BUTTON_B))
+	_check(_manual._sprinting, "gamepad B requests sprint")
+	_manual.handle_event(_button(4, JOY_BUTTON_X))
+	_check(_interaction_count == 1, "inactive gamepad cannot interact")
+	_manual.handle_event(_button(3, JOY_BUTTON_X))
+	_check(_interaction_count == 2, "active gamepad X interacts")
+	Input.joy_connection_changed.emit(3, false)
+	_check(not _manual._sprinting, "gamepad disconnect clears sprint")
+	_manual.set_enabled(false)
+	_manual.handle_event(_key(KEY_E))
+	_check(_interaction_count == 2, "disabled controls cannot release a box")
+	_manual.set_enabled(true)
 
 
 func _input_is(expected: Vector2) -> bool:

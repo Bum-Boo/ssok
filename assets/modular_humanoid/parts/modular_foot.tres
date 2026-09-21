@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_foot.res" id="1_sh7xd"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_55nq7"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_e7f21"]
+
+[sub_resource type="Resource" id="Resource_cywqo"]
+script = ExtResource("2_55nq7")
+id = &"mount"
+local_position = Vector3(0, -0.01, -0.035)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_e7f21")
+id = &"modular_foot"
+display_name = "Rubber-soled foot module"
+mesh = ExtResource("1_sh7xd")
+ports = Array[ExtResource("2_55nq7")]([SubResource("Resource_cywqo")])
+mass_kg = 0.44
+merge_fixed_connections = true
+physics_frame_priority = 100

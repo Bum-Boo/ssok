@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_head_shell.res" id="1_2l0mi"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_gk5qb"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_e4pss"]
+
+[sub_resource type="Resource" id="Resource_k2o34"]
+script = ExtResource("2_gk5qb")
+id = &"mount"
+local_position = Vector3(0, -0.085, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_e4pss")
+id = &"modular_head_shell"
+display_name = "Optical head module"
+mesh = ExtResource("1_2l0mi")
+ports = Array[ExtResource("2_gk5qb")]([SubResource("Resource_k2o34")])
+mass_kg = 0.8
+merge_fixed_connections = true

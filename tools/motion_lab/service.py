@@ -279,7 +279,8 @@ class GodotEvaluator:
 
 class MotionService:
     def __init__(self, project: Path, provider="mock", model=MODEL, max_calls=8,
-                 godot="godot", api_key=None, evaluator=None, proposer=None):
+                 godot="godot", api_key=None, evaluator=None, proposer=None,
+                 pickup_proposer=None):
         if provider not in ("mock", "openai") or model != MODEL:
             raise LabError("Use provider mock/openai and the explicitly requested gpt-5.6-luna model")
         if type(max_calls) is not int or not 1 <= max_calls <= 32:
@@ -292,6 +293,8 @@ class MotionService:
         self._lock, self._jobs, self._events = threading.RLock(), {}, {}
         self._worker = None
         self._closed = False
+        from .pickup import PickupService
+        self.pickup = PickupService(self, proposer=pickup_proposer)
 
     def describe(self):
         with self._lock:
@@ -302,6 +305,7 @@ class MotionService:
                     "learning": "feedback-guided parameter search; not model-weight training",
                     "score_rule": SCORE_RULE,
                     "robot": "wired biped only", "simulation": "3s settle + 12s command + 1.5s rest, 60Hz",
+                    "pickup": self.pickup.describe(),
                     "apply": "explicitly in Godot UI only; no assembly/code modifications"}
 
     def start(self, payload):
@@ -352,6 +356,7 @@ class MotionService:
             self._closed = True
             for event in self._events.values():
                 event.set()
+            self.pickup.close()
         if self._worker is not None:
             self._worker.join(timeout=3)
 

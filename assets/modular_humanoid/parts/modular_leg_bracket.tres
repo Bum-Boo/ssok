@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_leg_bracket.res" id="1_cehc1"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_ec85b"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_v7yq6"]
+
+[sub_resource type="Resource" id="Resource_g5xdm"]
+script = ExtResource("2_ec85b")
+id = &"input"
+local_normal = Vector3(-1, 0, 0)
+tag = &"modular_output"
+accepts = Array[StringName]([&"modular_output"])
+
+[sub_resource type="Resource" id="Resource_rhs2j"]
+script = ExtResource("2_ec85b")
+id = &"frame"
+local_position = Vector3(0, -0.04, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_v7yq6")
+id = &"modular_leg_bracket"
+display_name = "Leg output U-bracket"
+mesh = ExtResource("1_cehc1")
+ports = Array[ExtResource("2_ec85b")]([SubResource("Resource_g5xdm"), SubResource("Resource_rhs2j")])
+mass_kg = 0.06
+merge_fixed_connections = true

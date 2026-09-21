@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_torso_frame.res" id="1_5a0hm"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_hps08"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_tnuv6"]
+
+[sub_resource type="Resource" id="Resource_1kj6y"]
+script = ExtResource("2_hps08")
+id = &"hip_left"
+local_position = Vector3(-0.12, -0.16, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_4a1pi"]
+script = ExtResource("2_hps08")
+id = &"shoulder_left"
+local_position = Vector3(-0.2, 0.13, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_gujhg"]
+script = ExtResource("2_hps08")
+id = &"hip_right"
+local_position = Vector3(0.12, -0.16, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_4mgtb"]
+script = ExtResource("2_hps08")
+id = &"shoulder_right"
+local_position = Vector3(0.2, 0.13, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_suiso"]
+script = ExtResource("2_hps08")
+id = &"chest"
+local_normal = Vector3(0, 0, 1)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_o37vx"]
+script = ExtResource("2_hps08")
+id = &"pelvis"
+local_position = Vector3(0, -0.12, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_inlp1"]
+script = ExtResource("2_hps08")
+id = &"neck"
+local_position = Vector3(0, 0.16, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_m1jge"]
+script = ExtResource("2_hps08")
+id = &"board"
+local_position = Vector3(0, 0, -0.075)
+local_normal = Vector3(0, 0, -1)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_tnuv6")
+id = &"modular_torso_frame"
+display_name = "Modular torso frame"
+mesh = ExtResource("1_5a0hm")
+ports = Array[ExtResource("2_hps08")]([SubResource("Resource_1kj6y"), SubResource("Resource_4a1pi"), SubResource("Resource_gujhg"), SubResource("Resource_4mgtb"), SubResource("Resource_suiso"), SubResource("Resource_o37vx"), SubResource("Resource_inlp1"), SubResource("Resource_m1jge")])
+mass_kg = 2.88
+merge_fixed_connections = true
+physics_frame_priority = 100
+collision_boxes = Array[AABB]([AABB(-0.045, -0.15, -0.07, 0.09, 0.3, 0.07), AABB(-0.195, 0.107499994, -0.0325, 0.39, 0.045, 0.065), AABB(-0.135, -0.16, -0.04, 0.27, 0.04, 0.08), AABB(-0.124, -0.125, -0.05, 0.018, 0.25, 0.05), AABB(0.106000006, -0.125, -0.05, 0.018, 0.25, 0.05)])

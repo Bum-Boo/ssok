@@ -1,0 +1,132 @@
+class_name BlockProgramPanel
+extends VBoxContainer
+
+signal source_requested
+var apply_source: Callable
+
+var profile: BoardProfile = BoardProfile.new()
+var instructions: Array = []
+var rows: VBoxContainer
+var operation_picker: OptionButton
+var feedback: Label
+var _source_at_load: String = ""
+var scroll: ScrollContainer
+
+
+func _ready() -> void:
+	scroll = ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	add_child(scroll)
+	var content := VBoxContainer.new()
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(content)
+	var caption := Label.new()
+	caption.text = "Build a program with blocks"
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	content.add_child(caption)
+	var read_button: Button = SsokTheme.button("Read from code", "code-xml")
+	read_button.pressed.connect(func() -> void: source_requested.emit())
+	content.add_child(read_button)
+	rows = VBoxContainer.new()
+	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.add_child(rows)
+	var add_row := HBoxContainer.new()
+	content.add_child(add_row)
+	operation_picker = OptionButton.new()
+	operation_picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	for descriptor: Dictionary in profile.api:
+		operation_picker.add_item(descriptor.label)
+	add_row.add_child(operation_picker)
+	var add_button: Button = SsokTheme.button("+", "")
+	add_button.tooltip_text = "Add block"
+	add_button.pressed.connect(_add_block)
+	add_row.add_child(add_button)
+	var apply_button: Button = SsokTheme.button("Apply blocks to code", "code-xml")
+	apply_button.pressed.connect(_apply)
+	content.add_child(apply_button)
+	feedback = Label.new()
+	feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	feedback.add_theme_font_size_override("font_size", 12)
+	feedback.max_lines_visible = 2
+	feedback.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	content.add_child(feedback)
+
+
+func read_source(source: String) -> bool:
+	var result: Dictionary = ServoProgram.parse(source, profile)
+	if result.has("error"):
+		SsokLocale.bind(feedback, result.error)
+		return false
+	_source_at_load = source
+	instructions = result.instructions
+	_rebuild()
+	SsokLocale.bind(feedback, "Blocks are ready. Apply them to update the code; Run code starts the robot.")
+	return true
+
+
+func _add_block() -> void:
+	instructions.append(profile.defaults(profile.api[operation_picker.selected].id))
+	_rebuild()
+
+
+func _rebuild() -> void:
+	for child: Node in rows.get_children():
+		rows.remove_child(child)
+		child.queue_free()
+	for index: int in instructions.size():
+		var item: Dictionary = instructions[index]
+		if item.op == "raw":
+			continue
+		var card := VBoxContainer.new()
+		rows.add_child(card)
+		var heading := HBoxContainer.new()
+		card.add_child(heading)
+		var label := Label.new()
+		label.text = profile.operation(item.op).label
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		heading.add_child(label)
+		var remove_button: Button = SsokTheme.button("", "trash")
+		remove_button.tooltip_text = "Remove block"
+		remove_button.pressed.connect(func() -> void:
+			instructions.remove_at(index)
+			_rebuild())
+		heading.add_child(remove_button)
+		for parameter: Dictionary in profile.operation(item.op).arguments:
+			var row := HBoxContainer.new()
+			card.add_child(row)
+			var name_label := Label.new()
+			name_label.text = parameter.name
+			name_label.custom_minimum_size.x = 80
+			row.add_child(name_label)
+			if parameter.type == "identifier":
+				var edit := LineEdit.new()
+				edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+				edit.text = item.args[parameter.name]
+				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				edit.text_changed.connect(func(value: String) -> void:
+					item.args[parameter.name] = value
+					item.erase("raw"))
+				row.add_child(edit)
+			else:
+				var edit := SpinBox.new()
+				edit.min_value = parameter.min
+				edit.max_value = parameter.max
+				edit.step = 1 if parameter.type == "integer" else 0.1
+				edit.value = item.args[parameter.name]
+				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				edit.value_changed.connect(func(value: float) -> void:
+					item.args[parameter.name] = value
+					item.erase("raw"))
+				row.add_child(edit)
+
+
+func _apply() -> void:
+	var result: Dictionary = ServoProgram.generate(instructions, profile)
+	if result.has("error"):
+		SsokLocale.bind(feedback, result.error)
+		return
+	if apply_source.is_valid() and not apply_source.call(result.source):
+		return
+	_source_at_load = result.source
+	SsokLocale.bind(feedback, "Code updated. Run code to try your program.")

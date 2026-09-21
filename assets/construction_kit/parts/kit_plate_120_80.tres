@@ -1,0 +1,401 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_plate_120_80.res" id="1_5283o"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_04uhu"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_cg2bh"]
+
+[sub_resource type="Resource" id="Resource_51an8"]
+script = ExtResource("2_04uhu")
+id = &"h0_front"
+local_position = Vector3(-0.05, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_exhly"]
+script = ExtResource("2_04uhu")
+id = &"h0_back"
+local_position = Vector3(-0.05, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_so4sl"]
+script = ExtResource("2_04uhu")
+id = &"h1_front"
+local_position = Vector3(-0.05, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_vgkys"]
+script = ExtResource("2_04uhu")
+id = &"h1_back"
+local_position = Vector3(-0.05, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_66em3"]
+script = ExtResource("2_04uhu")
+id = &"h2_front"
+local_position = Vector3(-0.05, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ccrgi"]
+script = ExtResource("2_04uhu")
+id = &"h2_back"
+local_position = Vector3(-0.05, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_awpa8"]
+script = ExtResource("2_04uhu")
+id = &"h3_front"
+local_position = Vector3(-0.05, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_7hgic"]
+script = ExtResource("2_04uhu")
+id = &"h3_back"
+local_position = Vector3(-0.05, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_0lbbd"]
+script = ExtResource("2_04uhu")
+id = &"h4_front"
+local_position = Vector3(-0.03, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_0224u"]
+script = ExtResource("2_04uhu")
+id = &"h4_back"
+local_position = Vector3(-0.03, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_0vedc"]
+script = ExtResource("2_04uhu")
+id = &"h5_front"
+local_position = Vector3(-0.03, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_o78ti"]
+script = ExtResource("2_04uhu")
+id = &"h5_back"
+local_position = Vector3(-0.03, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_liiws"]
+script = ExtResource("2_04uhu")
+id = &"h6_front"
+local_position = Vector3(-0.03, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_kh136"]
+script = ExtResource("2_04uhu")
+id = &"h6_back"
+local_position = Vector3(-0.03, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_a201u"]
+script = ExtResource("2_04uhu")
+id = &"h7_front"
+local_position = Vector3(-0.03, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_c7pv6"]
+script = ExtResource("2_04uhu")
+id = &"h7_back"
+local_position = Vector3(-0.03, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_u014u"]
+script = ExtResource("2_04uhu")
+id = &"h8_front"
+local_position = Vector3(-0.01, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_35o4w"]
+script = ExtResource("2_04uhu")
+id = &"h8_back"
+local_position = Vector3(-0.01, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_3qdon"]
+script = ExtResource("2_04uhu")
+id = &"h9_front"
+local_position = Vector3(-0.01, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_lf3wk"]
+script = ExtResource("2_04uhu")
+id = &"h9_back"
+local_position = Vector3(-0.01, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_hv5t0"]
+script = ExtResource("2_04uhu")
+id = &"h10_front"
+local_position = Vector3(-0.01, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_aesaa"]
+script = ExtResource("2_04uhu")
+id = &"h10_back"
+local_position = Vector3(-0.01, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_b8sma"]
+script = ExtResource("2_04uhu")
+id = &"h11_front"
+local_position = Vector3(-0.01, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_a01kc"]
+script = ExtResource("2_04uhu")
+id = &"h11_back"
+local_position = Vector3(-0.01, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ptbo2"]
+script = ExtResource("2_04uhu")
+id = &"h12_front"
+local_position = Vector3(0.01, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_fg1l5"]
+script = ExtResource("2_04uhu")
+id = &"h12_back"
+local_position = Vector3(0.01, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_tq4fg"]
+script = ExtResource("2_04uhu")
+id = &"h13_front"
+local_position = Vector3(0.01, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_c775r"]
+script = ExtResource("2_04uhu")
+id = &"h13_back"
+local_position = Vector3(0.01, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_qixhj"]
+script = ExtResource("2_04uhu")
+id = &"h14_front"
+local_position = Vector3(0.01, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_bhtfl"]
+script = ExtResource("2_04uhu")
+id = &"h14_back"
+local_position = Vector3(0.01, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_vytgj"]
+script = ExtResource("2_04uhu")
+id = &"h15_front"
+local_position = Vector3(0.01, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_csfbm"]
+script = ExtResource("2_04uhu")
+id = &"h15_back"
+local_position = Vector3(0.01, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_bqi28"]
+script = ExtResource("2_04uhu")
+id = &"h16_front"
+local_position = Vector3(0.03, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_xtsvt"]
+script = ExtResource("2_04uhu")
+id = &"h16_back"
+local_position = Vector3(0.03, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_4wxxt"]
+script = ExtResource("2_04uhu")
+id = &"h17_front"
+local_position = Vector3(0.03, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_1he6w"]
+script = ExtResource("2_04uhu")
+id = &"h17_back"
+local_position = Vector3(0.03, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_507ae"]
+script = ExtResource("2_04uhu")
+id = &"h18_front"
+local_position = Vector3(0.03, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_8vjwt"]
+script = ExtResource("2_04uhu")
+id = &"h18_back"
+local_position = Vector3(0.03, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_mwmdc"]
+script = ExtResource("2_04uhu")
+id = &"h19_front"
+local_position = Vector3(0.03, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_wtxyy"]
+script = ExtResource("2_04uhu")
+id = &"h19_back"
+local_position = Vector3(0.03, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_73fwr"]
+script = ExtResource("2_04uhu")
+id = &"h20_front"
+local_position = Vector3(0.05, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ia1rq"]
+script = ExtResource("2_04uhu")
+id = &"h20_back"
+local_position = Vector3(0.05, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_twumg"]
+script = ExtResource("2_04uhu")
+id = &"h21_front"
+local_position = Vector3(0.05, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_w0bdb"]
+script = ExtResource("2_04uhu")
+id = &"h21_back"
+local_position = Vector3(0.05, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_w0j8h"]
+script = ExtResource("2_04uhu")
+id = &"h22_front"
+local_position = Vector3(0.05, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_2312u"]
+script = ExtResource("2_04uhu")
+id = &"h22_back"
+local_position = Vector3(0.05, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_7ohex"]
+script = ExtResource("2_04uhu")
+id = &"h23_front"
+local_position = Vector3(0.05, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_0nr4t"]
+script = ExtResource("2_04uhu")
+id = &"h23_back"
+local_position = Vector3(0.05, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_cg2bh")
+id = &"kit_plate_120_80"
+display_name = "Perforated plate 120 × 80 mm"
+mesh = ExtResource("1_5283o")
+ports = Array[ExtResource("2_04uhu")]([SubResource("Resource_51an8"), SubResource("Resource_exhly"), SubResource("Resource_so4sl"), SubResource("Resource_vgkys"), SubResource("Resource_66em3"), SubResource("Resource_ccrgi"), SubResource("Resource_awpa8"), SubResource("Resource_7hgic"), SubResource("Resource_0lbbd"), SubResource("Resource_0224u"), SubResource("Resource_0vedc"), SubResource("Resource_o78ti"), SubResource("Resource_liiws"), SubResource("Resource_kh136"), SubResource("Resource_a201u"), SubResource("Resource_c7pv6"), SubResource("Resource_u014u"), SubResource("Resource_35o4w"), SubResource("Resource_3qdon"), SubResource("Resource_lf3wk"), SubResource("Resource_hv5t0"), SubResource("Resource_aesaa"), SubResource("Resource_b8sma"), SubResource("Resource_a01kc"), SubResource("Resource_ptbo2"), SubResource("Resource_fg1l5"), SubResource("Resource_tq4fg"), SubResource("Resource_c775r"), SubResource("Resource_qixhj"), SubResource("Resource_bhtfl"), SubResource("Resource_vytgj"), SubResource("Resource_csfbm"), SubResource("Resource_bqi28"), SubResource("Resource_xtsvt"), SubResource("Resource_4wxxt"), SubResource("Resource_1he6w"), SubResource("Resource_507ae"), SubResource("Resource_8vjwt"), SubResource("Resource_mwmdc"), SubResource("Resource_wtxyy"), SubResource("Resource_73fwr"), SubResource("Resource_ia1rq"), SubResource("Resource_twumg"), SubResource("Resource_w0bdb"), SubResource("Resource_w0j8h"), SubResource("Resource_2312u"), SubResource("Resource_7ohex"), SubResource("Resource_0nr4t")])
+mass_kg = 0.10368
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.06, -0.04, -0.002, 0.12, 0.08, 0.004)])

@@ -1,0 +1,1376 @@
+msgid ""
+msgstr ""
+"Language: ja\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+
+msgid "ssok - robot workshop"
+msgstr "ssok - ロボット工房"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Language changed, but the preference could not be saved."
+msgstr "言語は切り替わりましたが、設定を保存できませんでした。"
+
+msgid "Run mode (physics)"
+msgstr "実行モード（物理）"
+
+msgid "Control: WASD / gamepad movement"
+msgstr "操作：WASD / ゲームパッド移動"
+
+msgid "Control: Learner code"
+msgstr "操作：自分のコード"
+
+msgid "Run code"
+msgstr "コードを実行"
+
+msgid "Stop input / code"
+msgstr "操作 / コードを停止"
+
+msgid "AI motion lab"
+msgstr "AI 動作ラボ"
+
+msgid "Parts"
+msgstr "パーツ"
+
+msgid "Delete selected"
+msgstr "選択パーツを削除"
+
+msgid "Answer: servo arm"
+msgstr "作例：サーボアーム"
+
+msgid "Answer: biped"
+msgstr "作例：二足ロボット"
+
+msgid "Delete selected part?"
+msgstr "選択したパーツを削除しますか？"
+
+msgid "Remove the part and its connections? Ctrl+Z restores them."
+msgstr "パーツと接続を削除します。Ctrl+Z で元に戻せます。"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Arduino Uno R3"
+msgstr "Arduino Uno R3"
+
+msgid "Board (placeholder)"
+msgstr "ボード（仮）"
+
+msgid "Leg Link"
+msgstr "脚リンク"
+
+msgid "Wheel 65 mm"
+msgstr "ホイール 65 mm"
+
+msgid "TT Gear Motor"
+msgstr "TT ギヤモーター"
+
+msgid "HC-SR04 Ultrasonic"
+msgstr "HC-SR04 超音波センサー"
+
+msgid "Servo Angle Bracket"
+msgstr "サーボアングル金具"
+
+msgid "Foot"
+msgstr "足"
+
+msgid "Chassis Plate 120 mm"
+msgstr "シャーシ板 120 mm"
+
+msgid "Servo Motor"
+msgstr "サーボモーター"
+
+msgid "Arm Link"
+msgstr "アームリンク"
+
+msgid "Biped Body"
+msgstr "二足ロボット胴体"
+
+msgid "Base Plate"
+msgstr "ベースプレート"
+
+msgid "Edit mode - select a part, then G to move or R to rotate; connections snap at ports"
+msgstr "編集モード：パーツを選択し G で移動、R で回転。ポート同士がスナップします。"
+
+msgid "running line %d"
+msgstr "%d 行目を実行中"
+
+msgid "finished"
+msgstr "実行完了"
+
+msgid "line %d: %s"
+msgstr "%d 行目：%s"
+
+msgid "Added %s - G to move, R to rotate, Enter to confirm"
+msgstr "%s を追加：G 移動、R 回転、Enter 確定"
+
+msgid "Return to edit mode and finish the current transform before deleting"
+msgstr "編集モードに戻り、現在の変形操作を終えてから削除してください。"
+
+msgid "part removed"
+msgstr "パーツを削除しました"
+
+msgid "click a part first, then delete it"
+msgstr "先に削除するパーツをクリックしてください。"
+
+msgid "answer loaded - the finished servo arm"
+msgstr "作例を読み込みました：完成したサーボアーム"
+
+msgid "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example"
+msgstr "二足ロボットを読み込みました：実行モードで WASD / スティック操作、コード実行で足踏みの作例"
+
+msgid "Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel"
+msgstr "編集モード：G 移動 / R 回転 / X,Y,Z 軸制限 / Esc 取消"
+
+msgid "W/S forward/back · A/D turn · left stick · Space stop"
+msgstr "W/S 前進・後退 · A/D 旋回 · 左スティック · Space 停止"
+
+msgid "Code control - press Run code; movement inputs are disabled"
+msgstr "コード操作：コード実行を押してください。移動入力は無効です。"
+
+msgid "Input stopped - servos hold their last targets; return to edit mode to reset the robot"
+msgstr "入力停止：サーボは最後の目標を保持します。編集モードに戻るとロボットをリセットします。"
+
+msgid "Motion lab closed. Movement remains stopped; select WASD control or toggle Run mode when ready."
+msgstr "ラボを閉じました。移動は停止中です。WASD 操作を選ぶか実行モードを切り替えてください。"
+
+msgid "Evaluated parameters applied to the WASD program; assembly and learner source are unchanged"
+msgstr "評価済みパラメータを WASD プログラムに適用しました。組み立てとコードは変更していません。"
+
+msgid "Assembly changed: evaluated motion parameters reset to the experimental defaults. Search again for this graph."
+msgstr "組み立てが変わったため動作パラメータを実験用の初期値に戻しました。現在の構成で再探索してください。"
+
+msgid "MMB orbit · Shift+MMB pan · wheel zoom · Numpad 1/3/7 views · Numpad . frame"
+msgstr "マウス中ボタン：視点回転 · Shift+中ボタン：平行移動 · ホイール：ズーム · テンキー 1/3/7：視点 · テンキー .：フォーカス"
+
+msgid "LMB select · G move / R rotate · X/Y/Z axis · number: mm / degrees · Enter/LMB confirm · Esc/RMB cancel · Ctrl+Z undo"
+msgstr "左クリック：選択 · G 移動 / R 回転 · X/Y/Z 軸 · 数値：mm / 度 · Enter/左クリック：確定 · Esc/右クリック：取消 · Ctrl+Z 元に戻す"
+
+msgid "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
+msgstr "W/S 前進・後退 · A/D 旋回 · 左スティック · Space/パッド A ブレーキ · Esc 入力停止"
+
+msgid "Code control · Run code to start · Stop input / code to cancel · Esc stops"
+msgstr "コード操作 · コード実行で開始 · 操作 / コードを停止で取消 · Esc 停止"
+
+msgid "Choose a control source, then enter Run mode.\nPart dimensions are fixed; G uses mm and R uses degrees."
+msgstr "操作方法を選んで実行モードに入ります。\nパーツの寸法は固定です。G は mm、R は度単位です。"
+
+msgid "Code owns the motors. Keyboard/gamepad control is off."
+msgstr "コードがモーターを制御します。キーボード/ゲームパッド操作は無効です。"
+
+msgid "Load Answer: biped for the movement example."
+msgstr "移動を試すには「作例：二足ロボット」を読み込んでください。"
+
+msgid "Keyboard ready · no gamepad detected"
+msgstr "キーボード準備完了 · ゲームパッド未検出"
+
+msgid "Gamepad: %s"
+msgstr "ゲームパッド：%s"
+
+msgid "Biped demo: experimental gait (slow / drift)\nForward %+.2f · Turn %+.2f\n%s"
+msgstr "二足作例：実験的な歩行（低速 / 横ずれ）\n前後 %+.2f · 旋回 %+.2f\n%s"
+
+msgid "ssok - AI motion lab"
+msgstr "ssok - AI 動作ラボ"
+
+msgid "Motion search - wired biped"
+msgstr "動作探索：配線済み二足ロボット"
+
+msgid "Propose parameters -> simulate -> compare -> explicitly apply. This does not train GPT weights. Other robot programs are not supported yet."
+msgstr "パラメータ提案 → シミュレーション → 比較 → 手動適用。GPT の重み学習ではありません。他のロボットプログラムは未対応です。"
+
+msgid "Bridge origin (loopback HTTP / deployed HTTPS)"
+msgstr "ブリッジのアドレス（ローカル HTTP / 配備済み HTTPS）"
+
+msgid "Bridge bearer token - RAM only. Never enter an OpenAI API key here."
+msgstr "ブリッジ認証トークン：メモリ内のみ。ここに OpenAI API キーを入力しないでください。"
+
+msgid "Token from your local bridge terminal"
+msgstr "ローカルブリッジ端末のトークン"
+
+msgid "Check connection"
+msgstr "接続確認"
+
+msgid "Disconnect / forget"
+msgstr "切断 / 記録を消去"
+
+msgid "Recover from an unavailable bridge. Forgetting does not cancel a remote job."
+msgstr "ブリッジの接続障害から復帰します。記録の消去ではリモート処理は中止されません。"
+
+msgid "Forget local search status?"
+msgstr "ローカルの探索状態を消去しますか？"
+
+msgid "This only disconnects the local UI. It does NOT cancel a search on the bridge.\nA submitted job may still run and API charges may continue.\nCheck or stop the bridge before starting another paid search.\nLocal connection status and pending results will be cleared."
+msgstr "ローカル UI の接続のみを解除します。ブリッジの探索は中止されません。\n送信済みの処理と API 課金が続く可能性があります。\n次の有料探索の前にブリッジを確認または停止してください。\nローカル接続状態と保留中の結果を消去します。"
+
+msgid "Not connected. OPENAI_API_KEY is configured only on the bridge."
+msgstr "未接続。OPENAI_API_KEY はブリッジ側でのみ設定します。"
+
+msgid "Goal (sent to the bridge/model along with this assembly snapshot)"
+msgstr "目標（組み立てスナップショットと共にブリッジ/モデルへ送信）"
+
+msgid "Walk forward while staying upright and reducing drift"
+msgstr "直立を保ち、横ずれを減らして前に歩く"
+
+msgid "Evaluate: forward (W)"
+msgstr "評価：前進（W）"
+
+msgid "Evaluate: backward (S)"
+msgstr "評価：後退（S）"
+
+msgid "Evaluate: turn left (A)"
+msgstr "評価：左旋回（A）"
+
+msgid "Evaluate: turn right (D)"
+msgstr "評価：右旋回（D）"
+
+msgid "Direction fixes the measured objective; language does not replace the scoring rule. One direction is evaluated per search."
+msgstr "方向が測定目標を決めます。自然言語では採点規則を変更できません。探索ごとに一方向のみを評価します。"
+
+msgid "Proposal rounds (1-4)"
+msgstr "提案回数（1～4）"
+
+msgid "Allow paid OpenAI requests for this search"
+msgstr "今回の探索で有料 OpenAI リクエストを許可"
+
+msgid "Mock mode uses deterministic fixtures, not GPT. Live requests may incur costs; cancelling an in-flight API request may still be billed."
+msgstr "模擬モードは GPT ではなく固定のテスト提案を使います。実 API は有料の場合があり、送信済みリクエストは中止しても課金される可能性があります。"
+
+msgid "Start search"
+msgstr "探索開始"
+
+msgid "Cancel search"
+msgstr "探索中止"
+
+msgid "Load Answer: biped, configure the bridge, then check the connection."
+msgstr "二足ロボットの作例を読み込み、ブリッジを設定して接続を確認してください。"
+
+msgid "Evaluation history appears here (baseline, then candidates)."
+msgstr "評価履歴がここに表示されます（基準、次に候補）。"
+
+msgid "No measured result yet."
+msgstr "測定結果はまだありません。"
+
+msgid "Apply best to WASD program (edit mode only)"
+msgstr "最良の結果を WASD に適用（編集モードのみ）"
+
+msgid "Save best locally"
+msgstr "最良の結果をローカル保存"
+
+msgid "Load saved best"
+msgstr "保存した結果を読み込む"
+
+msgid "Save/load: user://motion_lab_best.json. Stores only bounded parameters, numeric metrics and the exact assembly fingerprint; no token, goal, model text or API key."
+msgstr "保存先：user://motion_lab_best.json。制限内のパラメータ、数値指標、正確な構成識別値のみを保存します。トークン、目標、モデルの文面、API キーは保存しません。"
+
+msgid "Checking bridge..."
+msgstr "ブリッジを確認中…"
+
+msgid "Previous start outcome is unknown. Confirm bridge status, then use Disconnect / forget before reconnecting."
+msgstr "前回の開始結果が不明です。ブリッジの状態を確認し、切断 / 記録消去後に再接続してください。"
+
+msgid "A search or connection request is already active"
+msgstr "探索または接続要求が既に進行中です。"
+
+msgid "Check the bridge connection first"
+msgstr "先にブリッジ接続を確認してください。"
+
+msgid "Paid OpenAI requests require explicit consent for this search"
+msgstr "今回の有料 OpenAI リクエストには明示的な同意が必要です。"
+
+msgid "Set OPENAI_API_KEY on the bridge, not in Godot"
+msgstr "OPENAI_API_KEY は Godot ではなくブリッジ側で設定してください。"
+
+msgid "Load a valid wired biped assembly before searching"
+msgstr "探索前に正しく配線された二足ロボットを読み込んでください。"
+
+msgid "Goal must contain 1..2000 characters"
+msgstr "目標は 1～2000 文字で入力してください。"
+
+msgid "No compatible motion program is configured"
+msgstr "対応する動作プログラムが設定されていません。"
+
+msgid "Evaluating the current policy as a baseline..."
+msgstr "現在の動作を基準として評価中…"
+
+msgid "No eligible result yet. Fallen or nonfinite candidates cannot be applied."
+msgstr "適用できる結果はまだありません。転倒や非有限値を含む候補は適用できません。"
+
+msgid "Starting isolated baseline and candidate evaluations..."
+msgstr "独立した基準・候補の評価を開始中…"
+
+msgid "Cancellation requested. An already-sent API request may still be billed."
+msgstr "中止を要求しました。送信済み API リクエストは課金される場合があります。"
+
+msgid "Waiting for the search ID, then sending cancellation. Do not start another search."
+msgstr "探索 ID を待ってから中止を要求します。別の探索を開始しないでください。"
+
+msgid "Unexpected bridge capabilities; no search was started"
+msgstr "ブリッジの機能応答が不正です。探索は開始していません。"
+
+msgid "MOCK - no GPT calls; real Godot physics evaluations."
+msgstr "模擬モード：GPT 呼び出しなし。実際の Godot 物理で評価します。"
+
+msgid "OPENAI - %s; key configured: %s. Explicit paid consent required."
+msgstr "OPENAI - %s；キー設定済み：%s。有料利用への明示的同意が必要です。"
+
+msgid "Connected. Only the selected direction will be evaluated; improvement is not guaranteed."
+msgstr "接続しました。選択した方向のみを評価し、改善は保証しません。"
+
+msgid "Invalid bridge result; no policy was applied"
+msgstr "ブリッジの結果が不正です。動作は適用していません。"
+
+msgid "%s | evaluations: %d | API calls: %s | tokens: %s%s"
+msgstr "%s | 評価：%d | API 呼び出し：%s | トークン：%s%s"
+
+msgid "QUEUED"
+msgstr "待機中"
+
+msgid "BASELINE"
+msgstr "基準評価中"
+
+msgid "PROPOSING"
+msgstr "候補提案中"
+
+msgid "EVALUATING"
+msgstr "評価中"
+
+msgid "CANCELLING"
+msgstr "中止処理中"
+
+msgid "COMPLETED"
+msgstr "完了"
+
+msgid "FAILED"
+msgstr "失敗"
+
+msgid "CANCELLED"
+msgstr "中止済み"
+
+msgid " Start outcome is unknown: a submitted bridge job may still run or be billed. No retry until explicit Disconnect / forget."
+msgstr " 開始結果が不明です。送信済み処理は実行や課金が続く可能性があります。明示的に切断 / 記録消去するまで再試行しません。"
+
+msgid " Search may still be running on the bridge; Cancel can be retried."
+msgstr " ブリッジで探索が続いている場合があります。中止は再試行できます。"
+
+msgid "Not connected. Check the bridge process and bearer token."
+msgstr "未接続。ブリッジのプロセスと認証トークンを確認してください。"
+
+msgid "Disconnected. Edit connection details and check the bridge again."
+msgstr "切断しました。接続情報を修正して再確認してください。"
+
+msgid "No local result retained. Any remote job was NOT cancelled by disconnecting."
+msgstr "ローカル結果は消去済みです。切断ではリモート処理は中止されません。"
+
+msgid "Local history forgotten; check the bridge before starting another paid search."
+msgstr "ローカル履歴を消去しました。次の有料探索の前にブリッジを確認してください。"
+
+msgid "Local status cleared only. A remote search may still run or be billed; no new request was sent."
+msgstr "ローカル状態のみ消去しました。リモート探索や課金が続く場合があります。新規要求は送信していません。"
+
+msgid "Connection details changed. Check connection again."
+msgstr "接続情報が変わりました。接続を再確認してください。"
+
+msgid "Wait for the search to finish or cancel it before applying"
+msgstr "探索の完了または中止後に適用してください。"
+
+msgid "No finite, non-fallen evaluated policy is available"
+msgstr "有限値で転倒していない評価済み動作がありません。"
+
+msgid "Return to edit mode before applying a policy"
+msgstr "動作の適用前に編集モードへ戻ってください。"
+
+msgid "Assembly changed since evaluation; search again for this exact graph"
+msgstr "評価後に組み立てが変わりました。現在の構成で再探索してください。"
+
+msgid "Application rejected; nothing was changed"
+msgstr "適用が拒否されました。変更はありません。"
+
+msgid "Applied to the WASD joint program. Close this window and enter Run mode to try it. Source code and assembly are unchanged."
+msgstr "WASD 関節プログラムに適用しました。閉じて実行モードで試してください。コードと組み立ては変更していません。"
+
+msgid "Baseline"
+msgstr "基準"
+
+msgid "Candidate %d"
+msgstr "候補 %d"
+
+msgid "%s: score %.3f | forward %+.2f mm | yaw %+.1f deg | fallen %s | finite %s"
+msgstr "%s：スコア %.3f | 前進 %+.2f mm | ヨー %+.1f 度 | 転倒 %s | 有限値 %s"
+
+msgid "Baseline evaluation is pending."
+msgstr "基準評価の待機中です。"
+
+msgid "Measured best: score %.4f | finite: true | fallen: false\nForward %+.4f m | lateral %+.4f m | yaw %+.3f rad\nMinimum upright %.3f | minimum height %.4f m\n%s\nA better score is not proof of walking. One direction is not a guarantee for all WASD commands."
+msgstr "測定した最良結果：スコア %.4f | 有限値：はい | 転倒：いいえ\n前進 %+.4f m | 横移動 %+.4f m | ヨー %+.3f rad\n最低直立度 %.3f | 最低高さ %.4f m\n%s\n高スコアは歩行の証明ではありません。一方向の結果で全 WASD 操作は保証できません。"
+
+msgid "No completed, safe result to save"
+msgstr "保存できる完了済みの安全な結果がありません。"
+
+msgid "Could not save the result under user://"
+msgstr "user:// に結果を保存できませんでした。"
+
+msgid "Saved bounded policy and measured metrics to %s; no credentials or prompt text."
+msgstr "%s に制限内の動作と測定値を保存しました。認証情報やプロンプトは含みません。"
+
+msgid "No valid saved result at %s"
+msgstr "%s に有効な保存結果がありません。"
+
+msgid "Saved result is invalid; nothing was loaded"
+msgstr "保存結果が不正です。何も読み込んでいません。"
+
+msgid "Loaded local parameters and recorded metrics (not re-evaluated). Apply requires the exact same assembly in edit mode."
+msgstr "ローカルのパラメータと記録値を読み込みました（再評価なし）。同じ構成の編集モードでのみ適用できます。"
+
+msgid "true"
+msgstr "はい"
+
+msgid "false"
+msgstr "いいえ"
+
+msgid "No robot movement program configured"
+msgstr "ロボットの移動プログラムがありません。"
+
+msgid "Part deleted · Ctrl+Z to undo"
+msgstr "パーツを削除 · Ctrl+Z 元に戻す"
+
+msgid "Transform confirmed · Ctrl+Z to undo"
+msgstr "変形を確定 · Ctrl+Z 元に戻す"
+
+msgid "Transform unchanged"
+msgstr "変形に変更なし"
+
+msgid "Transform cancelled"
+msgstr "変形を取り消しました"
+
+msgid "Undo"
+msgstr "元に戻す"
+
+msgid "Redo"
+msgstr "やり直す"
+
+msgid "Numeric input is limited to 16 characters"
+msgstr "数値入力は 16 文字までです。"
+
+msgid "Part dimensions are fixed · Scaling is unavailable"
+msgstr "パーツ寸法は固定 · 拡大縮小は不可"
+
+msgid "Transform value must be finite"
+msgstr "変形の値は有限数である必要があります。"
+
+msgid "Transform exceeds the supported numeric range"
+msgstr "変形の値が対応範囲を超えています。"
+
+msgid "Move"
+msgstr "移動"
+
+msgid "Rotate"
+msgstr "回転"
+
+msgid "View"
+msgstr "ビュー"
+
+msgid "mouse"
+msgstr "マウス"
+
+msgid "%s · %s · %s %s | X/Y/Z axis · Enter/LMB confirm · Esc/RMB cancel · Ctrl snap · Shift precise"
+msgstr "%s · %s · %s %s | X/Y/Z 軸 · Enter/左クリック確定 · Esc/右クリック取消 · Ctrl スナップ · Shift 微調整"
+
+msgid "Run mode is not active"
+msgstr "実行モードが無効です。"
+
+msgid "Pin %d has nothing connected"
+msgstr "ピン %d に何も接続されていません。"
+
+msgid "NameError: '%s' is not defined"
+msgstr "NameError：'%s' が定義されていません。"
+
+msgid "Servo '%s' is no longer available"
+msgstr "サーボ '%s' は利用できなくなりました。"
+
+msgid "SyntaxError: %s"
+msgstr "構文エラー：%s"
+
+msgid "Use a loopback HTTP origin or an authenticated HTTPS origin, without a path or credentials"
+msgstr "パスや認証情報を含まないローカル HTTP または認証付き HTTPS のアドレスを使ってください。"
+
+msgid "Endpoint port must be between 1 and 65535"
+msgstr "ポートは 1～65535 の範囲で指定してください。"
+
+msgid "A bridge request is already in progress"
+msgstr "ブリッジへの要求が既に進行中です。"
+
+msgid "Enter the bridge bearer token (24..256 printable ASCII characters), not an OpenAI API key"
+msgstr "OpenAI API キーではなくブリッジトークンを入力してください（表示可能な ASCII 24～256 文字）。"
+
+msgid "OpenAI API keys belong in the bridge environment, never in this field"
+msgstr "OpenAI API キーはこの欄ではなくブリッジ環境に設定してください。"
+
+msgid "Bridge returned an invalid search ID"
+msgstr "ブリッジが不正な探索 ID を返しました。"
+
+msgid "Could not start the bridge request (error %d)"
+msgstr "ブリッジ要求を開始できませんでした（エラー %d）。"
+
+msgid "Bridge connection failed, timed out or exceeded the response limit. Nothing was applied."
+msgstr "ブリッジ接続失敗、タイムアウト、または応答上限超過です。何も適用していません。"
+
+msgid "Check token, service state and request limits."
+msgstr "トークン、サービス状態、要求制限を確認してください。"
+
+msgid "Bridge HTTP %d: %s No automatic retry."
+msgstr "ブリッジ HTTP %d：%s 自動再試行は行いません。"
+
+msgid "Bridge returned invalid JSON; nothing was applied"
+msgstr "ブリッジが不正な JSON を返しました。何も適用していません。"
+
+msgid "Build a wired biped before using the movement program"
+msgstr "移動プログラムを使う前に二足ロボットを組み立てて配線してください。"
+
+msgid "Movement program needs one unambiguous biped body"
+msgstr "移動プログラムには一意の二足ロボット胴体が必要です。"
+
+msgid "No biped motion program: connect a two-leg body with four servos"
+msgstr "二足動作プログラムなし：二脚の胴体に四つのサーボを接続してください。"
+
+msgid "Incomplete %s leg: connect hip, leg, ankle servo and foot"
+msgstr "%s脚が未完成です：股関節、脚、足首サーボ、足を接続してください。"
+
+msgid "Each hip and ankle needs its own servo"
+msgstr "各股関節と足首に個別のサーボが必要です。"
+
+msgid "Wire %s to one unambiguous board PWM pin"
+msgstr "%sをボードの一意の PWM ピンへ配線してください。"
+
+msgid "Experimental biped joint program: forward/back and turn"
+msgstr "実験用二足関節プログラム：前進・後退・旋回"
+
+msgid "left"
+msgstr "左"
+
+msgid "right"
+msgstr "右"
+
+msgid "left hip"
+msgstr "左股関節"
+
+msgid "right hip"
+msgstr "右股関節"
+
+msgid "left ankle"
+msgstr "左足首"
+
+msgid "right ankle"
+msgstr "右足首"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Robot program"
+msgstr "ロボットプログラム"
+
+msgid "Code"
+msgstr "コード"
+
+msgid "Controls"
+msgstr "操作ガイド"
+
+msgid "Python-style servo program"
+msgstr "Python 形式のサーボコード"
+
+msgid "Move your robot"
+msgstr "ロボットを動かす"
+
+msgid "W / S   Forward / backward\nA / D   Turn left / right\nSpace   Brake\nEsc   Stop input"
+msgstr "W / S   前進 / 後退\nA / D   左旋回 / 右旋回\nSpace   ブレーキ\nEsc   入力停止"
+
+msgid "Choose WASD control, then enable Run mode. Click the 3D view before using the keyboard."
+msgstr "WASD 操作を選んで実行モードに入ります。キーボード操作の前に 3D ビューをクリックしてください。"
+
+msgid "Frame robot"
+msgstr "ロボットにフォーカス"
+
+msgid "Build something that moves."
+msgstr "動くロボットを作ろう。"
+
+msgid "Start with a robot example, or add parts from the library."
+msgstr "ロボットの作例から始めるか、ライブラリからパーツを追加しましょう。"
+
+msgid "Start with a biped"
+msgstr "二足ロボットで始める"
+
+msgid "Parts library"
+msgstr "パーツライブラリ"
+
+msgid "Search parts..."
+msgstr "パーツを検索…"
+
+msgid "All parts"
+msgstr "すべてのパーツ"
+
+msgid "Structure"
+msgstr "構造パーツ"
+
+msgid "Actuators"
+msgstr "アクチュエーター"
+
+msgid "Electronics"
+msgstr "電子部品"
+
+msgid "No matching parts"
+msgstr "該当するパーツはありません"
+
+msgid "STARTER ROBOTS"
+msgstr "はじめてのロボット"
+
+msgid "%d parts / %d connections"
+msgstr "%d パーツ / %d 接続"
+
+msgid "1. Connect"
+msgstr "1. 接続"
+
+msgid "2. Search"
+msgstr "2. 探索"
+
+msgid "3. Results"
+msgstr "3. 結果"
+
+msgid "Tutorial"
+msgstr "チュートリアル"
+
+msgid "Restart tutorial"
+msgstr "最初から"
+
+msgid "Previous"
+msgstr "戻る"
+
+msgid "Next"
+msgstr "次へ"
+
+msgid "Finish tutorial"
+msgstr "チュートリアルを完了"
+
+msgid "Close and try it"
+msgstr "閉じて試す"
+
+msgid "Step %d of %d"
+msgstr "ステップ %d / %d"
+
+msgid "Tutorial closed. Input remains stopped; select WASD control or toggle Run mode when ready."
+msgstr "チュートリアルを閉じたよ。入力は停止したままだよ。準備ができたら WASD 操作を選び直すか、実行モードを切り替えてね。"
+
+msgid "Start with a robot"
+msgstr "ロボットのサンプルから始めよう"
+
+msgid "Close this guide to try each step, then reopen the book icon to continue. Your place is kept until the app closes.\n\nIn the left library, choose Answer: biped for movement, or Answer: servo arm for a simple coding example. Loading a starter replaces the current assembly and code."
+msgstr "各ステップを読んだら閉じて試し、本のアイコンを押して続きを見よう。アプリを閉じるまでは、見ていたステップを覚えているよ。\n\n左のライブラリで、移動を試すなら「作例：二足ロボット」、簡単なコーディングなら「作例：サーボアーム」を選んでね。サンプルを読み込むと、現在の組み立てとコードが置き換わるよ。"
+
+msgid "Look around: middle mouse to orbit, Shift + middle mouse to pan, wheel to zoom."
+msgstr "見回す：マウス中ボタンで回転、Shift + 中ボタンで平行移動、ホイールでズーム。"
+
+msgid "Add and connect parts"
+msgstr "パーツを追加して接続しよう"
+
+msgid "In edit mode, search the Parts library or use its category filter, then click a part to add it. Select it in the 3D view and press G to move it near a compatible yellow port. Confirm to snap.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot."
+msgstr "編集モードでパーツライブラリを検索するかカテゴリで絞り込み、パーツを押して追加しよう。3D ビューで選択し、G で対応する黄色いポートの近くへ移動して確定すると接続されるよ。\n\n機械接続はパーツ同士を固定するもの。電気接続はサーボとボードのピンを結ぶもの。コードでも、ロボットに実際に配線されたピンを使ってね。"
+
+msgid "Ctrl + Z undoes an addition, deletion or transform. Selection alone does not disconnect parts."
+msgstr "Ctrl + Z で追加・削除・変形を元に戻せるよ。選択しただけでは接続は外れないよ。"
+
+msgid "Edit with familiar shortcuts"
+msgstr "おなじみのショートカットで編集"
+
+msgid "Select a part, then press G to move or R to rotate. Press X, Y or Z to constrain the world axis. Type a distance in millimetres or an angle in degrees.\n\nTry G, X, 10, Enter to move 10 mm. Enter confirms; Esc cancels and restores connections. This is object editing, not Blender mesh or vertex editing."
+msgstr "パーツを選び、G で移動、R で回転。X・Y・Z でワールド軸を制限できるよ。距離はミリメートル、角度は度で入力してね。\n\nG、X、10、Enter の順に押すと 10 mm 移動するよ。Enter で確定、Esc で取り消して接続も復元。オブジェクト編集であり、Blender のメッシュ・頂点編集ではないよ。"
+
+msgid "Use Frame robot to fit the view. Part scaling is not supported; the vertical axis is Y."
+msgstr "「ロボットにフォーカス」を使うと全体が見えるよ。パーツの拡大縮小は非対応で、上方向の軸は Y だよ。"
+
+msgid "Drive with WASD"
+msgstr "WASD で操作しよう"
+
+msgid "Load the biped example, choose Control: WASD / gamepad movement on the right, then enable Run mode at the top. Click the 3D view before driving.\n\nW / S moves forward / backward; A / D turns. A gamepad's left stick sends the same commands. Space brakes; Esc or Stop disables input. The experimental biped gait can be slow or drift; other robots need their own joint program."
+msgstr "二足ロボットのサンプルを読み込み、右側で WASD / ゲームパッド移動を選んで、上部の実行モードをオンにしよう。操作の前に 3D ビューをクリックしてね。\n\nW / S で前進・後退、A / D で旋回。ゲームパッドの左スティックも同じ指令を送るよ。Space でブレーキ、Esc または停止で入力を無効化。二足歩行は実験用なので、遅かったり方向がずれたりするよ。別のロボットには専用の関節プログラムが必要だよ。"
+
+msgid "Opening this guide stops code and movement input, not physics. After closing, select WASD control again or toggle Run mode to resume."
+msgstr "このガイドを開くとコードと移動入力は止まるけれど、物理演算は続くよ。閉じた後、WASD 操作を選び直すか実行モードを切り替えると再開できるよ。"
+
+msgid "Run your own servo code"
+msgstr "自分のサーボコードを実行しよう"
+
+msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. Run code enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
+msgstr "初めてのコーディング練習にはサーボアームのサンプルを読み込み、コードタブでプログラムを見てみよう。「コード実行」で物理演算がオンになり、プログラムが配線されたサーボを制御するよ。\n\nコードと WASD が同時にロボットを動かすことはないよ。エディタで文字を入力してもロボットは動かないよ。停止でプログラムを中止し、編集モードに戻ると組み立て時の姿勢に戻るよ。"
+
+msgid "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code."
+msgstr "エディタは小さな Python 風サーボ言語に対応しているけれど、完全な Python 実行環境ではないよ。サンプルを読み込むと現在のコードが置き換わるよ。"
+
+msgid "Explore the AI motion lab"
+msgstr "AI 動作ラボを見てみよう"
+
+msgid "Open AI motion lab: Connect checks the optional external bridge; Search sets a goal and trial count; Results compares measured trials. Start with the bridge's mock mode without paid model calls.\n\nLive GPT calls require a server-side API key, model access and explicit paid consent. This searches bounded gait parameters, not model training. Apply a valid best result only in edit mode with the same robot assembly."
+msgstr "AI 動作ラボを開いてみよう。接続で任意の外部ブリッジを確認し、探索で目標と試行回数を設定、結果で測定値を比較するよ。まずは有料モデル呼び出しのないブリッジの mock モードから始めよう。\n\n実際の GPT 呼び出しにはサーバー側の API キー、モデルへのアクセス権、明示的な有料呼び出しへの同意が必要だよ。モデルの訓練ではなく、制限された歩行パラメータの探索だよ。同じロボットの組み立てを保った編集モードでのみ、有効な最良結果を適用できるよ。"
+
+msgid "This guide never connects to a service, starts a trial or grants paid consent. Close it when you are ready to explore."
+msgstr "このガイドがサービスに接続したり、試行を開始したり、有料呼び出しに同意したりすることはないよ。準備ができたら閉じて試してみよう。"
+
+msgid "Humanoid torso"
+msgstr "人型の胴体"
+
+msgid "Humanoid head"
+msgstr "人型の頭部"
+
+msgid "Virtual humanoid controller"
+msgstr "仮想人型コントローラー"
+
+msgid "Humanoid thigh actuator"
+msgstr "人型の太もも駆動部"
+
+msgid "Humanoid knee actuator"
+msgstr "人型の膝駆動部"
+
+msgid "Humanoid shoulder actuator"
+msgstr "人型の肩駆動部"
+
+msgid "Humanoid elbow and hand"
+msgstr "人型の肘と手"
+
+msgid "Humanoid ankle and foot"
+msgstr "人型の足首と足"
+
+msgid "Practice box (0.4 kg)"
+msgstr "練習用の箱（0.4 kg）"
+
+msgid "Experimental humanoid: torque-controlled joints"
+msgstr "実験用人型：トルク制限付き関節制御"
+
+msgid "Humanoid fell. Return to edit mode to reset."
+msgstr "人型ロボットが転倒したよ。編集モードに戻ってリセットしてね。"
+
+msgid "Move closer and face the box before picking it up."
+msgstr "箱に近づいて正面を向いてから持ち上げてね。"
+
+msgid "Could not reach the box. Reset and move closer."
+msgstr "箱に手が届かなかったよ。リセットして、もう少し近づいてね。"
+
+msgid "Box gripped through hand contact. Lifting."
+msgstr "両手の接触で箱をつかんだよ。持ち上げているよ。"
+
+msgid "Box held. E releases it; Stop also releases the grip."
+msgstr "箱を持っているよ。E で離せるよ。停止でも手を離すよ。"
+
+msgid "Box released under gravity."
+msgstr "箱を離したよ。重力で落下するよ。"
+
+msgid "Answer: humanoid (experimental)"
+msgstr "作例：人型ロボット（実験用）"
+
+msgid "Humanoid loaded. W/S walk, Shift sprint trial, E pick up or release. A/D turning is not supported yet."
+msgstr "人型ロボットを読み込んだよ。W/S で歩行、Shift で走行実験、E で持ち上げ・解放。A/D の旋回はまだ非対応だよ。"
+
+msgid "AI search currently supports only the four-servo biped, not the humanoid."
+msgstr "AI 探索は現在、4 サーボの二足ロボットのみ対応していて、人型ロボットは非対応だよ。"
+
+msgid "Humanoid physics prototype\nW/S: walk · Shift: sprint trial\nE: pick up / release · Space: brake\nA/D turning is not supported yet.\nStop or opening a guide releases the box.\nAI search is not available for this robot."
+msgstr "人型の物理プロトタイプ\nW/S：歩行 · Shift：走行実験\nE：持ち上げ / 解放 · Space：ブレーキ\nA/D の旋回はまだ非対応だよ。\n停止やガイド表示で箱を離すよ。\nこのロボットは AI 探索に非対応だよ。"
+
+msgid "Try the physics humanoid"
+msgstr "物理ベースの人型ロボットを試そう"
+
+msgid "Choose Answer: humanoid (experimental), enable Run mode and click the 3D view. W/S walks; hold Shift for a sprint trial. Gamepad B requests sprint and X interacts. A/D turning is not supported yet.\n\nStand close to the box and press E. The robot crouches, reaches with both arms and grips only after both hands contact the box. Press E again to release it under gravity."
+msgstr "「作例：人型ロボット（実験用）」を選び、実行モードをオンにして 3D ビューをクリックしてね。W/S で歩行、Shift を押しながら走行実験。ゲームパッドの B で走行、X で操作できるよ。A/D の旋回はまだ非対応だよ。\n\n箱の近くで E を押してみよう。ロボットがしゃがんで両腕を伸ばし、両手が箱に触れてからつかむよ。もう一度 E を押すと離し、箱は重力で落下するよ。"
+
+msgid "This is a simplified ten-joint physics prototype, not trained human motion. Sprinting is not stable yet and can fall. Stop, code control or opening this guide releases the box. Reset in edit mode after a fall. AI search still supports only the four-servo biped."
+msgstr "関節 10 個の簡略化した物理プロトタイプで、人の動きを学習したモデルではないよ。走行はまだ不安定で転倒することがあるよ。停止・コード操作への切り替え・ガイド表示で箱を離すよ。転倒後は編集モードでリセットしてね。AI 探索は 4 サーボの二足ロボットのみ対応だよ。"
+
+msgid "Humanoid needs all ten joints and unambiguous wiring. Reload the humanoid preset to reset."
+msgstr "人型ロボットには10個の関節と重複のない配線が必要です。人型の例を再読み込みしてリセットしてください。"
+
+msgid "Pickup learning lab"
+msgstr "箱つかみ学習ラボ"
+
+msgid "Watch independent physics trials, compare outcomes, then save a scenario. Luna proposes controller parameters; GPT weights are not trained."
+msgstr "独立した物理実験を観察し、結果を比較してシナリオを保存できます。Luna は制御パラメーターを提案します。GPT の重みは学習しません。"
+
+msgid "Experiments"
+msgstr "実験"
+
+msgid "Local search (no GPT)"
+msgstr "ローカル探索（GPT なし）"
+
+msgid "GPT-5.6 Luna via bridge"
+msgstr "ブリッジ経由の GPT-5.6 Luna"
+
+msgid "Parallel trials"
+msgstr "同時実験数"
+
+msgid "Rounds"
+msgstr "ラウンド数"
+
+msgid "Start pickup search"
+msgstr "つかみ探索を開始"
+
+msgid "Each round tests four candidates. Change parallelism while running (1–4); fewer lanes drain existing trials. More lanes need more CPU/GPU, not more API calls per round."
+msgstr "各ラウンドで候補を 4 つ試します。実行中も同時実験数を 1–4 に変更できます。減らした場合、進行中の実験は完了まで続きます。CPU/GPU 負荷は増えますが、ラウンドごとの API 呼び出し数は増えません。"
+
+msgid "Waiting for a trial"
+msgstr "実験待ち"
+
+msgid "Measured candidates — select any result"
+msgstr "測定済みの候補 — 結果を選択"
+
+msgid "Scenario name"
+msgstr "シナリオ名"
+
+msgid "Save selected scenario"
+msgstr "選択したシナリオを保存"
+
+msgid "Replay in physics"
+msgstr "物理実験で再検証"
+
+msgid "Apply selected pickup"
+msgstr "選択したつかみ動作を適用"
+
+msgid "Saved scenarios"
+msgstr "保存したシナリオ"
+
+msgid "Saved scenarios include the exact assembly, bounded policy and recorded metrics, not credentials or prompts. Loading does not prove success; replay to verify again."
+msgstr "シナリオには正確な組立構造、範囲内の動作パラメーター、測定値を保存します。認証情報やプロンプトは保存しません。読み込むだけでは成功を証明できないため、再実行で検証してください。"
+
+msgid "Refresh library"
+msgstr "一覧を更新"
+
+msgid "Select saved scenario"
+msgstr "保存したシナリオを選択"
+
+msgid "Luna connection"
+msgstr "Luna 接続"
+
+msgid "Pickup goal (sent with measured feedback, never learner source code)"
+msgstr "つかみの目標（測定値と一緒に送信。学習者のコードは送信しません）"
+
+msgid "Pick up the box with both hands and hold it without falling."
+msgstr "両手で箱を持ち上げ、転倒せずに保持してください。"
+
+msgid "At most one Luna request per round, within the shared bridge call budget. Cancellation may still bill an in-flight call. No automatic paid retries; results may fail."
+msgstr "ブリッジの共有呼び出し上限内で、各ラウンドにつき Luna を最大 1 回呼び出します。キャンセルしても送信済みのリクエストには課金される場合があります。有料リクエストは自動再試行せず、動作が失敗することもあります。"
+
+msgid "Ready for local physics search. Luna is optional."
+msgstr "ローカル物理探索の準備ができました。Luna 接続は任意です。"
+
+msgid "Load a valid humanoid assembly before searching."
+msgstr "探索前に有効なヒューマノイドの組立を読み込んでください。"
+
+msgid "Requested rounds exceed the remaining bridge API-call budget."
+msgstr "指定したラウンド数がブリッジの残り API 呼び出し上限を超えています。"
+
+msgid "Evaluating a measured baseline before proposing candidates."
+msgstr "候補を提案する前に、基準動作を物理実験で測定しています。"
+
+msgid "Pickup trial could not start. Check the assembly and wiring."
+msgstr "つかみ実験を開始できませんでした。組立と配線を確認してください。"
+
+msgid "Search finished: %d measured trials. Select a result to replay or save."
+msgstr "探索完了：%d 回の実験を測定しました。結果を選んで再検証または保存してください。"
+
+msgid "Round %d / %d — preparing four candidates."
+msgstr "ラウンド %d / %d — 候補を 4 つ準備しています。"
+
+msgid "Invalid pickup proposal; nothing was applied."
+msgstr "つかみの提案が無効なため、何も適用していません。"
+
+msgid "Invalid pickup result; nothing was saved or applied."
+msgstr "つかみの結果が無効なため、保存も適用もしていません。"
+
+msgid "Trial %d · %s\nLift %.1f cm · hold %.1f s"
+msgstr "実験 %d · %s\n持ち上げ %.1f cm · 保持 %.1f s"
+
+msgid "Selected trial %d · %s · lift %.1f cm · hold %.1f s · score %.2f\nSource: %s · %s"
+msgstr "選択した実験 %d · %s · 持ち上げ %.1f cm · 保持 %.1f s · スコア %.2f\n出所：%s · %s"
+
+msgid "Fresh physics evaluation"
+msgstr "新たな物理実験の結果"
+
+msgid "Saved metrics — replay required before applying"
+msgstr "保存済みの測定値 — 適用前に再検証が必要"
+
+msgid "Pickup scenario %d"
+msgstr "つかみシナリオ %d"
+
+msgid "Scenario saved locally: %s"
+msgstr "シナリオをローカルに保存しました：%s"
+
+msgid "Replaying the selected assembly and policy in fresh physics."
+msgstr "選択した組立と動作パラメーターで、新たな物理実験を実行しています。"
+
+msgid "Apply requires a successful fresh trial and the unchanged assembly in edit mode."
+msgstr "適用には新たな実験の成功と、実験時から変更されていない編集モードの組立が必要です。"
+
+msgid "Pickup policy applied. Close the lab, enter Run mode and press E."
+msgstr "つかみ動作を適用しました。ラボを閉じ、実行モードで E を押してください。"
+
+msgid "Saved scenario is invalid; nothing was loaded."
+msgstr "保存されたシナリオが無効なため、読み込んでいません。"
+
+msgid "Loaded a saved scenario without changing the workshop. Replay to verify it."
+msgstr "作業スペースを変更せずに、保存したシナリオを読み込みました。再実行して検証してください。"
+
+msgid "Trial %d · %s · %.1f cm · score %.2f"
+msgstr "実験 %d · %s · %.1f cm · スコア %.2f"
+
+msgid "Local trials stopped. An already-sent Luna request may still be billed."
+msgstr "ローカル実験を停止しました。送信済みの Luna リクエストには課金される場合があります。"
+
+msgid "Bridge does not support pickup proposals. Update the local bridge."
+msgstr "ブリッジがつかみの提案に対応していません。ローカルブリッジを更新してください。"
+
+msgid "Provider: %s · shared API calls %d / %d"
+msgstr "提供元：%s · 共有 API 呼び出し %d / %d"
+
+msgid "Pickup bridge connected. Local physics will verify every proposal."
+msgstr "つかみブリッジに接続しました。すべての提案をローカル物理実験で検証します。"
+
+msgid "Pickup proposal failed. Check bridge settings and request limits; no automatic retry."
+msgstr "つかみの提案に失敗しました。ブリッジ設定とリクエスト上限を確認してください。自動再試行はしません。"
+
+msgid "Luna submission outcome is unknown. Check the bridge before using Disconnect / forget. No automatic retry."
+msgstr "Luna リクエストの送信結果を確認できません。「切断 / 忘れる」の前にブリッジを確認してください。自動再試行はしません。"
+
+msgid "Disconnected locally. Any remote request was NOT cancelled by forgetting."
+msgstr "ローカル接続を切断しました。「忘れる」操作ではリモートのリクエストはキャンセルされません。"
+
+msgid "Pickup succeeded"
+msgstr "つかみ成功"
+
+msgid "Pickup failed"
+msgstr "つかみ失敗"
+
+msgid "Scenario name or source is invalid."
+msgstr "シナリオ名または出所が無効です。"
+
+msgid "The local scenario library is full (64 files)."
+msgstr "ローカルシナリオ一覧が上限に達しました（64 ファイル）。"
+
+msgid "Scenario data is invalid; nothing was saved."
+msgstr "シナリオのデータが無効なため、保存していません。"
+
+msgid "Could not save the scenario under user://."
+msgstr "シナリオを user:// に保存できませんでした。"
+
+msgid "Pickup policy must contain exactly seven parameters"
+msgstr "つかみ動作には正確に 7 個のパラメーターが必要です"
+
+msgid "Pickup policy is missing a required parameter"
+msgstr "つかみ動作の必須パラメーターが不足しています"
+
+msgid "Pickup parameters must be finite numbers"
+msgstr "つかみのパラメーターは有限の数値にしてください"
+
+msgid "Pickup parameter is outside its safety bounds"
+msgstr "つかみのパラメーターが安全範囲を超えています"
+
+msgid "Baseline pickup parameters"
+msgstr "基準のつかみパラメーター"
+
+msgid "Bounded variation around the best measured pickup"
+msgstr "最良の測定結果を基にした範囲内の調整"
+
+msgid "A pickup trial is already running"
+msgstr "つかみ実験はすでに実行中です"
+
+msgid "Pickup trial must be attached to the scene tree"
+msgstr "つかみ実験をシーンツリーに追加してください"
+
+msgid "Pickup trial needs a wired humanoid and one reachable box"
+msgstr "つかみ実験には配線済みのヒューマノイドと、手の届く箱が 1 つ必要です"
+
+msgid "ready"
+msgstr "準備完了"
+
+msgid "settling"
+msgstr "姿勢を安定化中"
+
+msgid "reaching"
+msgstr "手を伸ばしています"
+
+msgid "lifting"
+msgstr "持ち上げ中"
+
+msgid "holding"
+msgstr "保持中"
+
+msgid "succeeded"
+msgstr "成功"
+
+msgid "failed"
+msgstr "失敗"
+
+msgid "cancelled"
+msgstr "キャンセル済み"
+
+msgid "baseline"
+msgstr "基準動作"
+
+msgid "local"
+msgstr "ローカル探索"
+
+msgid "mock"
+msgstr "模擬提案（GPT 未使用）"
+
+msgid "openai"
+msgstr "OpenAI"
+
+msgid "replay"
+msgstr "再検証"
+
+msgid "Answer: modular humanoid"
+msgstr "お手本：モジュール式ヒューマノイド"
+
+msgid "Modular humanoid loaded. Run mode: W/S and E. Code tab: signed joint commands. AI lab: parallel pickup search."
+msgstr "モジュール式ヒューマノイドを読み込みました。実行モード：W/S と E。コードタブ：正負の角度で関節を制御。AI ラボ：並列つかみ探索。"
+
+msgid "Modular torso frame"
+msgstr "モジュール式胴体フレーム"
+
+msgid "Removable chest shell"
+msgstr "着脱式の胸部カバー"
+
+msgid "Removable pelvis shell"
+msgstr "着脱式の骨盤カバー"
+
+msgid "Optical head module"
+msgstr "光学ヘッドモジュール"
+
+msgid "Modular PWM controller"
+msgstr "モジュール式 PWM コントローラー"
+
+msgid "Hip servo module (35 Nm)"
+msgstr "股関節サーボモジュール（35 Nm）"
+
+msgid "Knee servo module (35 Nm)"
+msgstr "膝サーボモジュール（35 Nm）"
+
+msgid "Ankle servo module (30 Nm)"
+msgstr "足首サーボモジュール（30 Nm）"
+
+msgid "Shoulder servo module (12 Nm)"
+msgstr "肩サーボモジュール（12 Nm）"
+
+msgid "Elbow servo module (12 Nm)"
+msgstr "肘サーボモジュール（12 Nm）"
+
+msgid "Arm output U-bracket"
+msgstr "腕出力軸の U 字ブラケット"
+
+msgid "Leg output U-bracket"
+msgstr "脚出力軸の U 字ブラケット"
+
+msgid "Passive thigh frame"
+msgstr "非駆動の太ももフレーム"
+
+msgid "Passive shin frame"
+msgstr "非駆動のすねフレーム"
+
+msgid "Passive upper-arm frame"
+msgstr "非駆動の上腕フレーム"
+
+msgid "Passive forearm frame"
+msgstr "非駆動の前腕フレーム"
+
+msgid "Padded gripper hand"
+msgstr "パッド付きグリッパーハンド"
+
+msgid "Rubber-soled foot module"
+msgstr "ゴム底の足モジュール"
+
+msgid "Cancelled"
+msgstr "キャンセル済み"
+
+msgid "Motion trials require 60 Hz physics and time_scale 1"
+msgstr "動作実験には 60 Hz の物理演算と time_scale 1 が必要です"
+
+msgid "Assembly cannot be encoded as a safe catalog graph"
+msgstr "この組立を安全なカタロググラフに変換できません"
+
+msgid "Humanoid experiment: W/S walk, Shift running experiment (unstable), E pick/release. The gripper needs contact with both hands. AI lab: parallel pickup search; no GPT weight training."
+msgstr "ヒューマノイド実験：W/S で歩行、Shift で走行実験（不安定）、E でつかむ/離す。つかむには両手が箱に触れる必要があります。AI ラボでは並列つかみ探索ができ、GPT の重みは学習しません。"
+
+msgid "Modular humanoid and pickup lab"
+msgstr "モジュール式ヒューマノイドとつかみラボ"
+
+msgid "This is a simplified ten-joint physics prototype, not trained human motion. Sprinting is not stable yet and can fall. Stop, code control or opening this guide releases the box. Reset in edit mode after a fall. The pickup lab searches bounded parameters."
+msgstr "これは 10 関節の簡略化した物理試作機で、人の動きを学習したものではありません。走行はまだ不安定で、転倒することがあります。停止、コード制御への切り替え、このガイドを開く操作で箱を離します。転倒後は編集モードでリセットしてください。つかみラボでは範囲内のパラメーターを探索します。"
+
+msgid "Load Answer: modular humanoid to inspect separate motors, brackets, frames, hands and shells. The Code tab controls wired joints with write_relative(). In the AI lab, start locally or connect Luna, increase parallel trials from 1 to 4, select a result and save it. Saved scenarios must be replayed before applying; API calls need explicit consent."
+msgstr "「お手本：モジュール式ヒューマノイド」を読み込み、別々のモーター、ブラケット、フレーム、手、カバーを確認しましょう。コードタブでは write_relative() で配線済みの関節を制御できます。AI ラボではローカルで開始するか Luna に接続し、同時実験数を 1 から 4 に増やして、結果を選び保存できます。保存したシナリオは適用前に再実行が必要です。API 呼び出しには明示的な同意が必要です。"
+
+msgid "Perforated beam 60 mm"
+msgstr "穴あき梁 60 mm"
+
+msgid "Perforated beam 100 mm"
+msgstr "穴あき梁 100 mm"
+
+msgid "Perforated beam 140 mm"
+msgstr "穴あき梁 140 mm"
+
+msgid "Perforated beam 180 mm"
+msgstr "穴あき梁 180 mm"
+
+msgid "Perforated beam 240 mm"
+msgstr "穴あき梁 240 mm"
+
+msgid "Perforated beam 260 mm"
+msgstr "穴あき梁 260 mm"
+
+msgid "Perforated plate 60 × 40 mm"
+msgstr "穴あきプレート 60 × 40 mm"
+
+msgid "Perforated plate 60 × 60 mm"
+msgstr "穴あきプレート 60 × 60 mm"
+
+msgid "Perforated plate 80 × 60 mm"
+msgstr "穴あきプレート 80 × 60 mm"
+
+msgid "Perforated plate 120 × 80 mm"
+msgstr "穴あきプレート 120 × 80 mm"
+
+msgid "Perforated plate 160 × 60 mm"
+msgstr "穴あきプレート 160 × 60 mm"
+
+msgid "Perforated plate 220 × 120 mm"
+msgstr "穴あきプレート 220 × 120 mm"
+
+msgid "Angle bracket 60 × 40 mm"
+msgstr "L 字ブラケット 60 × 40 mm"
+
+msgid "U bracket 86 mm"
+msgstr "U 字ブラケット 86 mm"
+
+msgid "U bracket 58 mm"
+msgstr "U 字ブラケット 58 mm"
+
+msgid "Through spacer 20 mm"
+msgstr "貫通スペーサー 20 mm"
+
+msgid "Shaft coupler 8 mm"
+msgstr "シャフトカプラー 8 mm"
+
+msgid "Mounting bolt 4 × 12 mm"
+msgstr "取付ボルト 4 × 12 mm"
+
+msgid "Hex nut 4 mm"
+msgstr "六角ナット 4 mm"
+
+msgid "Grip pad 60 × 40 mm"
+msgstr "グリップパッド 60 × 40 mm"
+
+msgid "Servo motor 35 Nm"
+msgstr "サーボモーター 35 Nm"
+
+msgid "Servo motor 12 Nm"
+msgstr "サーボモーター 12 Nm"
+
+msgid "Ten-channel controller"
+msgstr "10 チャンネルコントローラー"
+
+msgid "Optical sensor module"
+msgstr "光学センサーモジュール"
+
+msgid "Answer: construction-kit humanoid"
+msgstr "お手本：組立キットのヒューマノイド"
+
+msgid "Answer: kit bridge"
+msgstr "お手本：キットの橋"
+
+msgid "Construction kit"
+msgstr "組立キット"
+
+msgid "Construction-kit humanoid loaded. Each beam, plate, bracket and connector is a separate part. Select a part to inspect its holes; G moves it."
+msgstr "組立キットのヒューマノイドを読み込みました。梁、プレート、ブラケット、接続部品はそれぞれ別の部品です。部品を選んで穴を確認し、G で移動できます。"
+
+msgid "Kit bridge loaded: the same beams, plates and fasteners, assembled into a different structure."
+msgstr "キットの橋を読み込みました。同じ梁、プレート、締結部品を別の構造に組み立てた例です。"
+
+msgid "Build with interchangeable parts"
+msgstr "互換部品で組み立てる"
+
+msgid "Choose Answer: construction-kit humanoid, then open AI motion lab. Start locally or connect Luna, increase parallel trials from 1 to 4, select a measured result and save it. Saved scenarios must be replayed before applying; paid API calls need explicit consent."
+msgstr "「お手本：組立キットのヒューマノイド」を選び、AI 動作ラボを開きましょう。ローカルで開始するか Luna に接続し、同時実験数を 1 から 4 に増やして、測定結果を選び保存できます。保存したシナリオは適用前に再実行が必要です。有料 API 呼び出しには明示的な同意が必要です。"
+
+msgid "Choose Answer: construction-kit humanoid or Answer: kit bridge. Both use the same 20 mm-pitch beams, plates, brackets and connectors. Select one part, move it with G and snap a matching hole to another part. The Blender file includes a parts tray, assembled examples and an exploded view; no torso or limb is one joined frame."
+msgstr "「お手本：組立キットのヒューマノイド」または「お手本：キットの橋」を選びましょう。どちらも同じ 20 mm 穴ピッチの梁、プレート、ブラケット、接続部品を使います。部品を 1 つ選び、G で移動して、互換性のある穴を別の部品にスナップさせます。Blender ファイルには部品トレイ、組立例、分解図があります。胴体や手足を 1 つに結合したフレームはありません。"
+
+msgid "The kit uses ssok's own virtual dimensions, not a certified commercial standard. Motors are complete units; structural beams, plates and covers remain separate."
+msgstr "このキットは ssok 独自の仮想寸法を使い、認証済みの市販規格ではありません。モーターは完成ユニットですが、構造用の梁、プレート、カバーはそれぞれ独立しています。"
+
+msgid "Projects"
+msgstr "プロジェクト"
+
+msgid "Keep building. Pick up where you left off."
+msgstr "作りかけのロボットを保存して、続きを始めよう。"
+
+msgid "Saved on this device. Export a copy before clearing browser data or changing devices."
+msgstr "この端末に保存されます。ブラウザーのデータ削除や端末の変更前に、コピーを書き出してください。"
+
+msgid "Project name"
+msgstr "プロジェクト名"
+
+msgid "Save a snapshot"
+msgstr "スナップショットを保存"
+
+msgid "Export project"
+msgstr "プロジェクトを書き出す"
+
+msgid "Saved projects"
+msgstr "保存したプロジェクト"
+
+msgid "Open selected"
+msgstr "選択した項目を開く"
+
+msgid "Delete snapshot"
+msgstr "スナップショットを削除"
+
+msgid "Import / export"
+msgstr "読み込み / 書き出し"
+
+msgid "Copy this project JSON to share it, or paste a project here to import. Imported code never runs automatically."
+msgstr "プロジェクトのJSONをコピーして共有するか、ここに貼り付けて読み込みます。読み込んだコードは自動実行されません。"
+
+msgid "Copy JSON"
+msgstr "JSONをコピー"
+
+msgid "Project JSON copied."
+msgstr "プロジェクトのJSONをコピーしました。"
+
+msgid "Import project"
+msgstr "プロジェクトを読み込む"
+
+msgid "Confirm project action"
+msgstr "プロジェクト操作の確認"
+
+msgid "Save creates a new snapshot; earlier versions are kept."
+msgstr "保存するたびに新しいスナップショットを作り、以前の版も残します。"
+
+msgid "Project saved. Your previous snapshots are still available."
+msgstr "プロジェクトを保存しました。以前のスナップショットも利用できます。"
+
+msgid "Project data is invalid or too large."
+msgstr "プロジェクトのデータが無効か、大きすぎます。"
+
+msgid "Your project library is full. Export or delete a saved project first."
+msgstr "プロジェクトの保存先がいっぱいです。保存済みの項目を書き出すか削除してください。"
+
+msgid "Could not save this project. Export a copy to keep your work."
+msgstr "プロジェクトを保存できませんでした。作業を残すためコピーを書き出してください。"
+
+msgid "Project JSON is ready. Keep a copy outside this device."
+msgstr "プロジェクトのJSONを用意しました。この端末以外にもコピーを保管してください。"
+
+msgid "This is not a valid ssok project. Your current work is unchanged."
+msgstr "有効なssokプロジェクトではありません。現在の作業は変更されていません。"
+
+msgid "Replace the current assembly and code? Save a snapshot first if you want to keep them."
+msgstr "現在の組み立てとコードを置き換えますか？残したい場合は先に保存してください。"
+
+msgid "Delete this saved snapshot? Other snapshots and your open project are kept."
+msgstr "このスナップショットを削除しますか？他の保存版と開いているプロジェクトは残ります。"
+
+msgid "Snapshot deleted."
+msgstr "スナップショットを削除しました。"
+
+msgid "Could not delete this snapshot."
+msgstr "スナップショットを削除できませんでした。"
+
+msgid "Project opened. Code runs only when you press Run code."
+msgstr "プロジェクトを開きました。「コードを実行」を押すまで実行されません。"
+
+msgid "Blocks"
+msgstr "ブロック"
+
+msgid "Connect servo"
+msgstr "サーボを接続"
+
+msgid "Set servo angle"
+msgstr "サーボの角度を設定"
+
+msgid "Set relative angle"
+msgstr "相対角度を設定"
+
+msgid "Wait"
+msgstr "待つ"
+
+msgid "Virtual servo board"
+msgstr "仮想サーボボード"
+
+msgid "Build a program with blocks"
+msgstr "ブロックでプログラムを作る"
+
+msgid "Read from code"
+msgstr "コードから読み込む"
+
+msgid "Add block"
+msgstr "ブロックを追加"
+
+msgid "Apply blocks to code"
+msgstr "ブロックをコードに反映"
+
+msgid "Remove block"
+msgstr "ブロックを削除"
+
+msgid "name"
+msgstr "名前"
+
+msgid "pin"
+msgstr "ピン"
+
+msgid "angle"
+msgstr "角度"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "This program is too large for the block editor."
+msgstr "このプログラムはブロックエディターで開くには大きすぎます。"
+
+msgid "This line cannot be represented as a block. Your code is unchanged."
+msgstr "この行はブロックで表せません。コードは変更されていません。"
+
+msgid "This command is outside the board API limits. Your code is unchanged."
+msgstr "このコマンドはボードAPIの範囲外です。コードは変更されていません。"
+
+msgid "A block contains an invalid value. Your code is unchanged."
+msgstr "ブロックに無効な値があります。コードは変更されていません。"
+
+msgid "Blocks are ready. Apply them to update the code; Run code starts the robot."
+msgstr "ブロックを用意しました。コードに反映し、「コードを実行」でロボットを動かせます。"
+
+msgid "Code updated. Run code to try your program."
+msgstr "コードを更新しました。実行してプログラムを試してください。"
+
+msgid "Code changed after these blocks were loaded. Read from code before applying."
+msgstr "ブロックの読み込み後にコードが変更されました。反映する前にコードから読み直してください。"
+
+msgid "Load an example"
+msgstr "作例を読み込む"
+
+msgid "No saved projects yet. Save your first snapshot above."
+msgstr "保存したプロジェクトはまだありません。上で最初のスナップショットを保存しましょう。"
+
+msgid "Keep your changes?"
+msgstr "変更を残しますか？"
+
+msgid "This example will replace your assembly and code. Save a snapshot to keep your changes."
+msgstr "この作例で現在の組み立てとコードを置き換えます。変更を残すには保存してください。"
+
+msgid "Replace without saving"
+msgstr "保存せずに置き換える"
+
+msgid "Save and switch"
+msgstr "保存して切り替える"

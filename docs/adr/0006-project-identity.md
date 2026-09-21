@@ -1,6 +1,6 @@
 # 0006 — Project name "ssok", private repo, commit identity
 
-- Status: accepted
+- Status: accepted; private-only incubation is superseded for the reviewed product release by [0013](0013-reviewed-product-publication.md). Name and commit identity remain accepted.
 - Date: 2026-09-10
 
 ## Context

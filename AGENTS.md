@@ -75,6 +75,23 @@ docs/            architecture and decisions
 - Never hand-edit `.tscn` beyond trivial property tweaks — scene composition is always done in the
   editor, by a human.
 
+## Keep language packs current with every update
+
+- Every update MUST review localization impact. New, changed or removed user-facing text
+  (including part names, help, tooltips, dialogs, status/error messages and AI-lab warnings)
+  MUST update Korean (`ko`), Simplified Chinese (`zh_CN`) and Japanese (`ja`) together
+  with the English source in the same change. Do not defer translations to a later task.
+- Translation sources are `assets/locales/{ko,zh_CN,ja}.po`; follow `docs/LOCALIZATION.md`.
+  Preserve placeholders, units and safety/cost warnings. Never translate learner input,
+  credentials, code syntax or protocol identifiers.
+- For localization-affecting updates, run
+  `godot --headless --path . --language en --script tests/localization_check.gd` and
+  check changed screens in all three languages for missing glyphs and clipped text.
+  Existing catalog parity tests do not discover every new UI string: explicitly check
+  that new source strings are present in all three catalogs.
+- Report localization updates and verification in the handoff/PR. If no user-facing text
+  or UI changed, explicitly record that language-pack changes were not needed.
+
 ## Definition of done for an agent PR
 
 A PR is not done just because the code compiles. Before handing it over:
@@ -87,6 +104,7 @@ A PR is not done just because the code compiles. Before handing it over:
   instead. Silence on this point is treated as "not verified."
 - Confirm you did not touch a decision recorded in `docs/adr/` without writing a superseding ADR.
 - Confirm the PR stays inside the linked issue's scope — no drive-by refactors of unrelated code.
+- Confirm the language-pack review above is complete; untranslated new or changed UI is not done.
 
 ## Verify before you hand work over
 

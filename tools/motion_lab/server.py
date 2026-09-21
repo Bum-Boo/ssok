@@ -81,6 +81,8 @@ def make_server(service, token, port=8765, origins=()):
                     self._reply(200, service.describe())
                 elif self.path.startswith("/v1/search/") and self.path.count("/") == 3:
                     self._reply(200, service.get(self.path.rsplit("/", 1)[-1]))
+                elif self.path.startswith("/v1/pickup/") and self.path.count("/") == 3:
+                    self._reply(200, service.pickup.get(self.path.rsplit("/", 1)[-1]))
                 else:
                     self._reply(404, {"error": "Unknown endpoint"})
             except LabError as exc:
@@ -106,6 +108,12 @@ def make_server(service, token, port=8765, origins=()):
                 payload = strict_json(body)
                 if self.path == "/v1/search":
                     self._reply(202, service.start(payload))
+                elif self.path == "/v1/pickup/propose":
+                    self._reply(202, service.pickup.start(payload))
+                elif self.path.startswith("/v1/pickup/") and self.path.endswith("/cancel") and self.path.count("/") == 4:
+                    if payload != {}:
+                        raise LabError("Cancel body must be an empty object")
+                    self._reply(200, service.pickup.cancel(self.path.split("/")[3]))
                 elif self.path.startswith("/v1/search/") and self.path.endswith("/cancel") and self.path.count("/") == 4:
                     if payload != {}:
                         raise LabError("Cancel body must be an empty object")
