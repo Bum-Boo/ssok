@@ -84,7 +84,7 @@ func _fit_bounds(bounds: AABB, viewport_rect: Rect2, framing_rect: Rect2) -> Vec
 	if framing_rect != viewport_rect:
 		return _fit_in_rect(bounds, viewport_rect, framing_rect)
 	var radius: float = maxf(bounds.size.length() * 0.5, min_distance)
-	var aspect: float = viewport_rect.size.x / maxf(viewport_rect.size.y, 1.0)
+	var aspect: float = maxf(viewport_rect.size.x, 1.0) / maxf(viewport_rect.size.y, 1.0)
 	var tangent: float = tan(deg_to_rad(_camera.fov) * 0.5)
 	var narrow_tangent: float = tangent * minf(1.0, aspect)
 	if _camera.keep_aspect == Camera3D.KEEP_WIDTH:
@@ -106,7 +106,7 @@ func _fit_in_rect(bounds: AABB, viewport_rect: Rect2, framing_rect: Rect2) -> Ve
 	var top: float = -low.y
 	center.y = -center.y
 	var tangent: float = tan(deg_to_rad(_camera.fov) * 0.5)
-	var aspect: float = viewport_rect.size.x / maxf(viewport_rect.size.y, 1.0)
+	var aspect: float = maxf(viewport_rect.size.x, 1.0) / maxf(viewport_rect.size.y, 1.0)
 	var tangents: Vector2 = Vector2(tangent * aspect, tangent)
 	if _camera.keep_aspect == Camera3D.KEEP_WIDTH:
 		tangents = Vector2(tangent, tangent / aspect)
@@ -281,7 +281,8 @@ func _framing_rect() -> Rect2:
 	var viewport_rect: Rect2 = _camera.get_viewport().get_visible_rect()
 	if framing_rect_provider.is_valid():
 		var result: Variant = framing_rect_provider.call()
-		if result is Rect2 and result.position.is_finite() and result.size.is_finite():
+		if result is Rect2 and result.position.is_finite() and result.size.is_finite() \
+				and result.size.x >= 2.0 and result.size.y >= 2.0:
 			var clipped: Rect2 = viewport_rect.intersection(result)
 			if clipped.size.x >= 2.0 and clipped.size.y >= 2.0:
 				return clipped

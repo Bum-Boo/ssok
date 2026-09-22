@@ -152,9 +152,10 @@ func _check_reserved_framing() -> void:
 					var plane: Plane = Plane(_camera.global_basis.z, bounds.get_center())
 					var hit: Variant = plane.intersects_ray(ray_origin, ray_direction)
 					_assert(hit is Vector3 and hit.distance_to(bounds.get_center()) < 0.0001, "picking rays agree with the offset rendered view")
-	_navigation.framing_rect_provider = func() -> Rect2: return Rect2(2000, 2000, 10, 10)
-	_navigation.frame_bounds(bounds)
-	_assert(is_zero_approx(_camera.h_offset) and is_zero_approx(_camera.v_offset), "invalid reserved area falls back to the whole viewport")
+	for invalid: Rect2 in [Rect2(2000, 2000, 10, 10), Rect2(260, 150, -100, 300), Rect2(260, 150, 300, -100), Rect2(260, 150, 0, 0)]:
+		_navigation.framing_rect_provider = func() -> Rect2: return invalid
+		_navigation.frame_bounds(bounds)
+		_assert(is_zero_approx(_camera.h_offset) and is_zero_approx(_camera.v_offset), "invalid or unfinished UI layout falls back to the whole viewport")
 	_navigation.framing_rect_provider = Callable()
 	_camera.keep_aspect = Camera3D.KEEP_HEIGHT
 	_camera.fov = 75.0

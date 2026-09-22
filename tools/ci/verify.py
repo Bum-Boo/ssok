@@ -78,11 +78,10 @@ def run(check: Check, output: Path, environment: dict[str, str]) -> dict:
             code = 124
             log.write(f"\nTIMEOUT after {check.timeout} seconds\n")
     text = log_path.read_text(errors="replace")
-    script_error = bool(re.search(r"^SCRIPT ERROR:", text, re.MULTILINE))
-    bootstrap_error = check.name in {"import", "scene-load"} and bool(re.search(r"^ERROR:", text, re.MULTILINE))
-    passed = code == 0 and not script_error and not bootstrap_error
+    engine_error = bool(re.search(r"^(?:SCRIPT ERROR|ERROR):", text, re.MULTILINE))
+    passed = code == 0 and not engine_error
     result = {"name": check.name, "passed": passed, "exit_code": code,
-              "seconds": round(time.monotonic() - started, 3), "timeout": timed_out,
+              "seconds": round(time.monotonic() - started, 3), "timeout": timed_out, "engine_error": engine_error,
               "log": log_path.name, "command": check.command}
     print(f"{'PASS' if passed else 'FAIL'} {check.name} ({result['seconds']:.1f}s)", flush=True)
     if not passed:
