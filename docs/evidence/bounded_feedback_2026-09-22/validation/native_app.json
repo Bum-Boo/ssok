@@ -1,0 +1,146 @@
+[
+  {
+    "case": {
+      "settle_frames": 0,
+      "restart": false
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=0 restart=false forward=0.42507 lateral=0.02749 yaw=2.801 min_up=0.9603 min_height=0.1278",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 1,
+      "restart": false
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=1 restart=false forward=0.42605 lateral=0.02800 yaw=3.771 min_up=0.9603 min_height=0.1278",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 60,
+      "restart": false
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=60 restart=false forward=0.41834 lateral=-0.00813 yaw=-10.729 min_up=0.9636 min_height=0.1292",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 121,
+      "restart": false
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=121 restart=false forward=0.43074 lateral=0.01321 yaw=-6.315 min_up=0.9637 min_height=0.1292",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 180,
+      "restart": false
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=180 restart=false forward=0.42996 lateral=0.00178 yaw=-5.951 min_up=0.9553 min_height=0.1287",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 257,
+      "restart": false
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=257 restart=false forward=0.43038 lateral=-0.00980 yaw=3.773 min_up=0.9657 min_height=0.1292",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 0,
+      "restart": true
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=0 restart=true forward=0.42145 lateral=0.02243 yaw=-8.772 min_up=0.9597 min_height=0.1292",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 1,
+      "restart": true
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=1 restart=true forward=0.43159 lateral=0.01575 yaw=-5.183 min_up=0.9620 min_height=0.1292",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 60,
+      "restart": true
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=60 restart=true forward=0.41181 lateral=-0.02637 yaw=7.518 min_up=0.9737 min_height=0.1291",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 121,
+      "restart": true
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=121 restart=true forward=0.41843 lateral=-0.01188 yaw=4.258 min_up=0.9629 min_height=0.1287",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 180,
+      "restart": true
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=180 restart=true forward=0.42079 lateral=0.01805 yaw=8.041 min_up=0.9556 min_height=0.1290",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  },
+  {
+    "case": {
+      "settle_frames": 257,
+      "restart": true
+    },
+    "exit_code": 0,
+    "passed": true,
+    "metric_lines": [
+      "LEARNED_APP settle=257 restart=true forward=0.42239 lateral=0.00954 yaw=-4.976 min_up=0.9631 min_height=0.1293",
+      "learned_app_check: 737 checks, 0 failures"
+    ]
+  }
+]

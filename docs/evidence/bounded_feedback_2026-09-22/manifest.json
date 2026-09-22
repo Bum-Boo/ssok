@@ -1,0 +1,17 @@
+{
+  "base_commit": "cf15af7",
+  "actuator_model": "hinge-per-step-budget-v2",
+  "training_job": "20260922-115126-ssok-bounded-feedback-train-38f2f9bd",
+  "validation_job": "20260922-120230-ssok-bounded-frozen-validation-773a6057",
+  "policy_sha256": "d0b91edcee2bf2729ac1392ee3bc19547c9a38d48b96d1a54ea965f614fcf46b",
+  "status": "Validated candidate integrated as yaw_biped_bounded_v2.json; final clean release pending",
+  "browser_job": "20260922-121947-ssok-bounded-wasm-observer-8faefe6c",
+  "browser_passes": 6,
+  "browser_checks": 123,
+  "visually_reviewed": "All six after-stop screenshots: upright robot fully visible, camera framing retained",
+  "full_verification": {
+    "checks": 55,
+    "failures": 0,
+    "source": "full_verification/source.json"
+  }
+}

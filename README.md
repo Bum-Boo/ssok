@@ -1,6 +1,6 @@
 # ssok · 쏙
 
-> **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](docs/adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
+> **Physical model corrected (2026-09-22):** current results below use a whole-step motor torque budget. Earlier recordings and measurements used the old per-pass implementation and remain historical. [Cause and regression](docs/adr/0020-whole-step-actuator-torque-budget.md) · [New learned-policy validation](docs/evidence/bounded_feedback_2026-09-22/README.md).
 
 **Build a robot. Wire its motors. Make it move.**
 
@@ -41,15 +41,16 @@ pickup experiments. Optional external AI services keep their keys outside the ap
 
 The current feedback policy passes six declared browser start/restart flows in an export with
 recorded source hashes. An earlier clean build failed its walking drift limit; that failure and
-the corrective experiment are retained in [the feedback report](docs/RL_FEEDBACK.md).
+the corrective experiments are retained in [the current validation report](docs/evidence/bounded_feedback_2026-09-22/README.md).
 The final release still requires a fresh clean build and the complete verification gate.
 
 ## Watch a real physics trial
 
 ![Actual construction-kit robot making contact with and lifting a box under gravity](docs/media/pickup.gif)
 
-This recorded trial lifts the box **47.7 cm** and holds it for **1 second** using bounded joint
-motors and contact-triggered grasp constraints. The robot is assembled from the same individual
+This historical recording lifts the box **47.7 cm** and holds it for **1 second**, with
+contact-triggered grasp constraints and the old actuator implementation. Corrected-budget pickup
+now passes separately with a four-second lift; a replacement release recording is pending. The robot is assembled from the same individual
 parts available in the workshop. The final result stays on screen after evaluation; that pause
 does not count toward the measured hold.
 
@@ -60,7 +61,8 @@ does not count toward the measured hold.
 
 ![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
 
-This recording uses the first learned policy through graph-wired joint motors. In this
+This historical recording uses the first learned policy and the old actuator implementation.
+It does not certify the corrected torque budget. In this
 recorded episode, holding W for **12 seconds** moves the robot **42.0 cm** forward; releasing W
 leaves it standing. The camera follows its horizontal travel while preserving the editing view.
 
@@ -109,24 +111,25 @@ flowchart LR
 
 ## Current measured limits
 
-The elementary-kit pickup now clears the original 25 cm / 1 second gate, including perturbed
-box positions and reversed graph ordering. The legacy humanoid's visible palm pads fix a contact
-margin problem. With the new geometry, measured center of mass and smoother entry, **14 of 14**
-running start/order variants pass. Forward travel ranges from 0.738 to 1.230 m, with sideways drift
-up to 0.777 m, so directional control remains limited. Final clean-revision CI remains required.
-Stable continuous walking with the articulated construction kit remains unfinished.
+The corrected elementary-kit pickup passes the original 25 cm / 1 second gate, including
+perturbed box positions and reversed graph ordering. Its four-second lift passes 277 physical
+assertions and twelve pickup integration suites, reaching about 47.7 cm. Stable continuous
+walking with the articulated construction kit remains unfinished. Legacy humanoid walking,
+backward movement, pickup and running have focused corrected-model passes; the older 14/14
+running matrix remains historical until repeated in full.
 
 The current yaw-hip policy combines a learned periodic gait with learned lateral/heading feedback.
-It passes **64/64 fresh starts and 63/64 restarts**, with **one fall**, on the new native evaluation.
-The same conditions give the earlier policy 114/128 successes and four falls. Twelve declared
-native application flows and six actual Chromium WebAssembly flows pass separately; browser
-travel is 41.6–43.8 cm in 12 seconds with at most 3.9 cm lateral drift.
+Under the corrected **0.25 N·m** model it passes **63/64 fresh starts and 63/64 restarts**, with
+**two falls**. The old v2 weights transferred into that same corrected runtime also pass 126/128
+with two falls; retraining does not improve aggregate success in this cohort. Twelve actual
+native-app flows and six Chromium WebAssembly flows pass separately. Browser travel is
+40.96–43.30 cm in 12 seconds, with at most 2.98 cm lateral drift.
 
-These are results for one simulated robot. Native conditions use ±0.004 m/s initial velocity noise,
-0–5 second start delays and specified restart intervals. They do not guarantee every restart or
-arbitrary assemblies. MuJoCo's independently trained policy still fails Godot transfer; its evidence
-is retained. [Methods, full outcomes and the remaining failure](docs/RL_FEEDBACK.md) distinguish
-training, selection, held-out evaluation and browser checks. Final clean-release checks remain.
+These results concern one simulated robot, ±0.004 m/s initial velocity noise, 0–5-second start
+delays and declared restart intervals. They do not guarantee every restart or arbitrary assemblies.
+MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
+[Methods and complete outcomes](docs/evidence/bounded_feedback_2026-09-22/README.md) distinguish
+training, checkpoint selection, held-out evaluation and browser checks. Final clean-release checks remain.
 
 ## Development
 

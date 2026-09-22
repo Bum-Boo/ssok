@@ -2,6 +2,8 @@
 
 > **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
 
+수정된 토크 한계에서 기본 상승 시간을 4초로 설정하고 집기 관련 12개 검사 묶음을 통과했다. 원래 실패했던 상자 위치 조건과 277개 물리 검사를 포함한다. [수정 후 집기 검증](evidence/torque_budget_2026-09-22/pickup_revalidation/README.md). 지속 보행은 아직 완료되지 않았다.
+
 2026-09-15. 이전의 `ssok_modular_humanoid.blend`는 몸통·팔다리 하위 조립품을 한 메쉬로
 묶은 휴머노이드 전용 프리팹이었다. 오브젝트가 37개라는 이유만으로 과학상자식 모듈화라고
 설명한 것은 잘못이었다. 새 키트는 구조 부품과 실제 조립 위치부터 다시 정의한다.

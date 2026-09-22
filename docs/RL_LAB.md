@@ -6,16 +6,25 @@ ssok includes an offline reinforcement-learning laboratory and a small GDScript 
 Training never calls a paid API unless both `--live` and `--allow-paid` are supplied. The shipped
 application needs neither Python nor an API key to evaluate a policy.
 
-## Current bundled feedback policy — 22 September 2026
+## Current bundled policy with the corrected torque budget
 
-The version 2 policy adds learned command-relative feedback to the frozen v1 oscillator.
-It passes **64/64 fresh starts and 63/64 restarts**, with **one fall**, on new native held-out
-conditions; the paired v1 baseline passes 55/64 and 59/64 with four falls. The actual native app
-passes 12 declared flows, and the identical candidate passes **six actual WebAssembly flows**.
-The remaining native failure is disclosed, and final clean-release export checks remain separate.
-[Methods, rejected candidates, complete results and reproduction](RL_FEEDBACK.md) distinguish
-training, ablation/selection and the independently frozen evaluation. These statistics must not
-be merged with the earlier, narrower v1 distribution below.
+The bundled `yaw_biped_bounded_v2.json` uses the corrected whole-step 0.25 N·m motor model.
+Its three tied ankle-feedback weights are retrained by CEM while the periodic carrier remains
+fixed. It passes **63/64 fresh starts and 63/64 restarts, with two falls**, in a new frozen
+128-condition native cohort. The old v2 weights transferred to the same model also pass126/128,
+with two different falls. This is corrected-model validation, not improved aggregate robustness.
+
+The identical frozen candidate passes twelve actual native-app flows and six declared Chromium
+WebAssembly flows. [Full training, failures, physical gates and browser evidence](evidence/bounded_feedback_2026-09-22/README.md)
+are preserved. The earlier v2 report below remains a historical result under the old actuator;
+final integrated clean release verification is still separate.
+
+## Historical version 2 under the old actuator
+
+The earlier v2 policy passed64/64 fresh starts and63/64 restarts, with one fall; its paired v1
+passed55/64 and59/64 with four falls. The old-runtime native app12/12 and Web6/6 results remain
+in [the historical feedback report](RL_FEEDBACK.md). They do not certify declared physical torque
+because the actuator defect had not yet been corrected. Do not merge those counts with the new cohort.
 
 ## Historical version 1 Godot result — 22 September 2026
 

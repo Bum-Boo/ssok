@@ -5,8 +5,11 @@
 The pre-correction motion results below are historical. A free-rotor diagnostic on the pinned
 engine found that nominal motor caps were applied once per solver pass, not once per physical
 step. The corrected actuator shares the impulse budget across all passes; sixteen physical cases
-pass385 assertions. Earlier pickup, running and learned walking need fresh evaluation before
-publication. [ADR0020](adr/0020-whole-step-actuator-torque-budget.md) records the source-level cause,
+pass385 assertions. Corrected-budget pickup subsequently passes twelve integration suites.
+A newly trained feedback candidate passes126/128 held-out conditions with two falls, actual-app12/12
+and declared Web6/6; it does not outperform the transferred old weights on aggregate.
+[Complete corrected results](evidence/bounded_feedback_2026-09-22/README.md) preserve those limitations.
+Final clean-release verification remains necessary. [ADR0020](adr/0020-whole-step-actuator-torque-budget.md) records the source-level cause,
 the physical regression and the changed policy runtime identity.
 
 ssok addresses an educational constraint: a learner should be able to inspect, rebuild and program
