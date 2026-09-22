@@ -1,6 +1,7 @@
 # 0019 — Learned feedback in a command-relative frame
 
 - Status: accepted
+- Actuator budget implementation and interpretation of earlier measurements are corrected by [0020](0020-whole-step-actuator-torque-budget.md).
 - Date: 2026-09-22
 - Extends: 0012 and 0014. Supersedes only the periodic-only restriction for direct Godot policies.
 

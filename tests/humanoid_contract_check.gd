@@ -38,7 +38,10 @@ func _run() -> void:
 		drive.write(180)
 		_check(drive.target_deg <= drive.relative_max_deg, "learner commands cannot exceed anatomical limits")
 		drive._apply()
-		_check(is_equal_approx(drive.joint.get_param(HingeJoint3D.PARAM_MOTOR_MAX_IMPULSE), drive.torque_limit_nm / Engine.physics_ticks_per_second), "solver motor impulse obeys torque bound")
+		var iterations: int = int(PhysicsServer3D.space_get_param(drive.joint.get_world_3d().space,
+			PhysicsServer3D.SPACE_PARAM_SOLVER_ITERATIONS))
+		var whole_step_budget: float = drive.joint.get_param(HingeJoint3D.PARAM_MOTOR_MAX_IMPULSE) * iterations * drive.joint.solver_priority
+		_check(is_equal_approx(whole_step_budget, drive.torque_limit_nm / Engine.physics_ticks_per_second), "all motor solver passes share the physical torque budget")
 	motion.set_enabled(false)
 	graph.links.erase(first_wire)
 	hardware.build(graph)

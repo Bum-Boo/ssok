@@ -1,6 +1,7 @@
 # 0014 — A separate yaw-hip biped for physical policy learning
 
 - Status: accepted
+- Actuator budget implementation and interpretation of earlier measurements are corrected by [0020](0020-whole-step-actuator-torque-budget.md).
 - Date: 2026-09-22
 - Extends: 0002, 0003, 0009 and 0012. The existing pitch-hip assembly geometry remains unchanged.
 

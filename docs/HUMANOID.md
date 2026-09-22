@@ -1,5 +1,7 @@
 # 실제 물리 사람형 로봇 — 실험용
 
+> **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
+
 2026-09-22. **걷기·느린 후진·접촉 후 상자 집기/놓기를 검증했다. 달리기는 14개 시작·연결 조건에서 실제 공중 구간과 20초 자세 유지 기준을 통과했으나, 직진 제어는 미완료다.**
 기존 네 서보 이족 로봇과 별도 예제이며, 사람 동작을 학습한 모델이나 실제 하드웨어용 제어기가 아니다.
 
@@ -44,7 +46,8 @@ G X 1000 Enter로 옆에 옮긴다. 평지와 기본 치수·질량·관절 구�
 하드코딩하지 않고 실제 연결에서 역할별 핀을 해석한다. 기존 보드/언어 계층은 변경하지 않았다.
 
 `ServoDrive`는 사람형 부품에만 지정한 토크 제한과 해부학적 각도 한계를 사용한다. 위치 오차를
-힌지 모터의 제한 각속도로 바꾸고 프레임당 임펄스를 토크/물리 주파수로 제한한다. 고관절·무릎
+힌지 모터의 제한 각속도로 바꾸고 프레임당 임펄스를 토크/물리 주파수로 제한한다. 이 예산을
+실제 물리 월드의 반복 횟수와 관절 우선순위에 나누어 각 solver pass에 배정한다(ADR 0020). 고관절·무릎
 35 Nm, 발목 30 Nm, 어깨·팔꿈치 12 Nm는 이 가상 모델의 설정이지 실물 모터 측정값이 아니다.
 이동은 관절 반작용과 바닥 접촉으로 발생한다. 몸통 추진력, 위치 덮어쓰기, 중력 해제는 없다.
 

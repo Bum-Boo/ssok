@@ -1,6 +1,7 @@
 # 0009 — Graph-derived humanoid, bounded motors and contact-triggered grasps
 
 - Status: accepted; the humanoid-search exclusion is superseded by [0010](0010-modular-humanoid-and-observable-pickup-search.md). Torque, graph and contact requirements remain accepted.
+- Actuator budget implementation and interpretation of earlier measurements are corrected by [0020](0020-whole-step-actuator-torque-budget.md).
 - Date: 2026-09-15
 - Extends: 0003 and 0007; their assembly/physics and graph-derived wiring rules remain accepted.
 

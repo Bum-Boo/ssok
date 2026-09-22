@@ -3,6 +3,11 @@
 Owner: Bum-Boo. Delivery issue: [#29](https://github.com/Bum-Boo/ssok/issues/29).
 Started 2026-09-22. Status: **in progress; not released**.
 
+**New release blocker:** the motor impulse cap was spent once per solver pass, exceeding its nominal
+physical torque. ADR 0020 corrects the whole-step budget. Earlier motor-driven pickup, running and
+learned-walking results are historical; their acceptance rows below require fresh verification under
+the corrected runtime. The ideal-limit legacy biped does not use this torque model.
+
 The objective is a complete, usable educational robot construction product that a hiring team
 can evaluate through its public repository, working application, engineering decisions and
 reproducible evidence. A polished README alone is not completion. Employment is not a measurable

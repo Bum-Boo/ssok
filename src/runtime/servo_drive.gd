@@ -4,6 +4,8 @@ extends Node
 ## Positional servo model: slews the hinge toward a commanded angle at a bounded speed.
 ## Unpowered (no command yet) the hinge swings freely, like a real servo with no signal.
 
+const TORQUE_MODEL_ID: String = "hinge-per-step-budget-v2"
+
 @export var speed_deg_per_s: float = 180.0
 @export var min_deg: float = 0.0
 @export var max_deg: float = 180.0
@@ -82,7 +84,12 @@ func _apply() -> void:
 		var error: float = wrapf(deg_to_rad(current_deg) - angle, -PI, PI)
 		joint.set_flag(HingeJoint3D.FLAG_ENABLE_MOTOR, true)
 		joint.set_param(HingeJoint3D.PARAM_MOTOR_TARGET_VELOCITY, _motor_sign * clampf(error * velocity_gain, -maximum_velocity, maximum_velocity))
-		joint.set_param(HingeJoint3D.PARAM_MOTOR_MAX_IMPULSE, torque_limit_nm / Engine.physics_ticks_per_second)
+		# Godot clips each solver pass, so share the physical step's budget across all passes.
+		var iterations: int = maxi(1, int(PhysicsServer3D.space_get_param(
+			joint.get_world_3d().space, PhysicsServer3D.SPACE_PARAM_SOLVER_ITERATIONS)))
+		var passes: int = iterations * maxi(1, joint.solver_priority)
+		joint.set_param(HingeJoint3D.PARAM_MOTOR_MAX_IMPULSE,
+			torque_limit_nm / (Engine.physics_ticks_per_second * passes))
 		return
 	var rad := deg_to_rad(current_deg)
 	joint.set_flag(HingeJoint3D.FLAG_USE_LIMIT, true)

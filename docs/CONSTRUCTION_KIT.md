@@ -1,5 +1,7 @@
 # 기본 부품부터 조립하는 ssok 키트
 
+> **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
+
 2026-09-15. 이전의 `ssok_modular_humanoid.blend`는 몸통·팔다리 하위 조립품을 한 메쉬로
 묶은 휴머노이드 전용 프리팹이었다. 오브젝트가 37개라는 이유만으로 과학상자식 모듈화라고
 설명한 것은 잘못이었다. 새 키트는 구조 부품과 실제 조립 위치부터 다시 정의한다.

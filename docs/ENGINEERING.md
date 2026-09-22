@@ -1,5 +1,14 @@
 # Engineering ssok
 
+## Actuator evidence correction
+
+The pre-correction motion results below are historical. A free-rotor diagnostic on the pinned
+engine found that nominal motor caps were applied once per solver pass, not once per physical
+step. The corrected actuator shares the impulse budget across all passes; sixteen physical cases
+pass385 assertions. Earlier pickup, running and learned walking need fresh evaluation before
+publication. [ADR0020](adr/0020-whole-step-actuator-torque-budget.md) records the source-level cause,
+the physical regression and the changed policy runtime identity.
+
 ssok addresses an educational constraint: a learner should be able to inspect, rebuild and program
 a robot without first owning a physical kit. The product challenge is making assembly, code,
 contacts and learning describe the same robot while keeping failure understandable.

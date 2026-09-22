@@ -1,5 +1,7 @@
 # ssok · 쏙
 
+> **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](docs/adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
+
 **Build a robot. Wire its motors. Make it move.**
 
 ssok is an educational 3D robotics workshop built with Godot. Snap individual parts together,

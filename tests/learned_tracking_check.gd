@@ -30,11 +30,24 @@ func _run() -> void:
 	policy.runtime_fingerprint = LearnedBipedMotion.runtime_fingerprint(hardware, graph, 1)
 	var motion := LearnedBipedMotion.new()
 	root.add_child(motion)
+	var historical: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/policies/yaw_biped_v2.json"))
+	motion.load_policy(historical)
+	_check(not motion.configure(hardware, graph), "historical per-pass torque policy is rejected by the corrected actuator runtime")
 	motion.load_policy(policy)
 	_check(not motion.configure(hardware, graph), "v2 rejects v1 timing/observation fingerprint")
 	policy.runtime_fingerprint = LearnedBipedMotion.runtime_fingerprint(hardware, graph, 2)
 	motion.load_policy(policy)
 	_check(motion.configure(hardware, graph), "v2 binds matching graph and runtime")
+	var drive: ServoDrive = hardware.servo_on_pin(int(policy.joint_pins[0]))
+	drive.joint.solver_priority += 1
+	_check(not motion.configure(hardware, graph), "policy rejects changed motor solver priority")
+	drive.joint.solver_priority -= 1
+	var space: RID = drive.joint.get_world_3d().space
+	var iterations: int = int(PhysicsServer3D.space_get_param(space, PhysicsServer3D.SPACE_PARAM_SOLVER_ITERATIONS))
+	PhysicsServer3D.space_set_param(space, PhysicsServer3D.SPACE_PARAM_SOLVER_ITERATIONS, iterations + 1)
+	_check(not motion.configure(hardware, graph), "policy rejects changed isolated-space solver iterations")
+	PhysicsServer3D.space_set_param(space, PhysicsServer3D.SPACE_PARAM_SOLVER_ITERATIONS, iterations)
+	_check(motion.configure(hardware, graph), "restored physics configuration accepts its bound policy")
 	var body: RigidBody3D = hardware.bodies[motion.body_part]
 	# Coordinate fixtures do not advance physics or serve as locomotion evidence.
 	for rotation: float in [0.0, 1.1, -2.0]:

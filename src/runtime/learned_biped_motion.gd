@@ -217,7 +217,9 @@ static func runtime_fingerprint(hardware: RunMode, graph: ConnectionGraph, versi
 	for channel: Dictionary in hardware.wired_servo_channels():
 		var drive: ServoDrive = hardware.servo_on_pin(channel.pin)
 		actuators.append([channel.pin, drive.torque_limit_nm, drive.speed_deg_per_s,
-			drive.velocity_gain, drive.maximum_velocity, drive.relative_min_deg, drive.relative_max_deg])
+			drive.velocity_gain, drive.maximum_velocity, drive.relative_min_deg, drive.relative_max_deg,
+			ServoDrive.TORQUE_MODEL_ID, drive.joint.solver_priority,
+			PhysicsServer3D.space_get_param(drive.joint.get_world_3d().space, PhysicsServer3D.SPACE_PARAM_SOLVER_ITERATIONS)])
 	var configuration: Array = ["motor-before-policy-v1", MotionSnapshot.fingerprint(MotionSnapshot.encode(graph)),
 		Engine.get_version_info().string, Engine.physics_ticks_per_second,
 		ProjectSettings.get_setting("physics/3d/default_gravity"),
