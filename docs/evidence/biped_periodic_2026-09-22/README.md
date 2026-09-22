@@ -2,6 +2,12 @@
 
 This is the versioned four-parameter experimental manual controller from [ADR 0018](../../adr/0018-calibrated-biped-motion-family.md). It is separate from the yaw-hip learned-walking task. The original research failure, numerical mapping, controller selection and final production checks are separate records.
 
+The physical measurements below precede [ADR 0021](../../adr/0021-clear-legacy-biped-starting-lane.md)
+and use the original standalone board behind the robot at x=0. Newly created legacy starters
+place that board beside the robot at x=0.5 m. These retained measurements do not certify the new
+graph layout. The controller is unchanged by that layout correction, saved graphs retain their
+authored positions, and continuous direction control remains a separate release gate.
+
 ## Calibration provenance
 
 `calibration-reference-policy.json` is the frozen Godot CEM seed-68, iteration-59 checkpoint; SHA256 `9ca25bba163f5cfd8cd68f34f0f4a69a8daaecc5c52d6c0f8d799ebba4d70673`. Its original graph fingerprint is recorded in `forward-mapping/provenance.json`. Eight fresh-process episodes failed the original 0.30 m forward research gate (0/8, no falls; mean forward 0.10346 m). See `calibration-reference-cold-evaluation.json` for every outcome. Reusing its curve is calibration, not a retroactive research success.

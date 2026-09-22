@@ -74,7 +74,7 @@ static func build() -> ConnectionGraph:
 	_add_leg(graph, servo_def, leg_def, foot_def, body_position, -1.0)
 	_add_leg(graph, servo_def, leg_def, foot_def, body_position, 1.0)
 	graph.parts.append({"part_def": sensor_def, "transform": Transform3D(Basis.IDENTITY, body_position + BODY_FACE + Vector3(0, 0, 0.0008))})
-	graph.parts.append({"part_def": uno_def, "transform": Transform3D(Basis.IDENTITY, Vector3(0, FLOOR_TOP + 0.0008, -0.12))})
+	graph.parts.append({"part_def": uno_def, "transform": Transform3D(Basis.IDENTITY, Vector3(0.5, FLOOR_TOP + 0.0008, -0.12))})
 
 	var sensor := 9
 	var uno := 10

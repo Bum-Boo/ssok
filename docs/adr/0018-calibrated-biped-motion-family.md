@@ -1,6 +1,7 @@
 # 0018 — Versioned calibrated motion for the legacy biped
 
 - Status: accepted
+- Initial standalone board placement is superseded by [0021](0021-clear-legacy-biped-starting-lane.md); the controller and articulated robot geometry remain unchanged by that layout correction.
 - Date: 2026-09-22
 - Extends: 0008 and 0014. Partially supersedes 0012's single inference-class requirement only for the named legacy four-parameter family below.
 
