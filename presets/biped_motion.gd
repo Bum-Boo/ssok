@@ -1,18 +1,27 @@
 class_name BipedMotion
 extends RobotMotionProgram
 
-## A support-transfer gait example; only the graph's wired servo channels are actuated.
+## Calibrated joint curves with measured balance and heading feedback; graph wiring owns every channel.
 
 const ROLES: Array[StringName] = [&"left_hip", &"right_hip", &"left_ankle", &"right_ankle"]
 
-@export var cycle_seconds: float = 3.45
-@export var stride_degrees: float = 10.5
-@export var lean_degrees: float = 18.5
-@export var posture_degrees: float = -9.8
+@export var cycle_seconds: float = BipedGait.REFERENCE_CYCLE
+@export var stride_degrees: float = BipedGait.REFERENCE_STRIDE
+@export var lean_degrees: float = BipedGait.REFERENCE_LEAN
+@export var posture_degrees: float = 0.0
 
 var role_pins: Dictionary = {}
 var body_part: int = -1
 var _elapsed: float = 0.0
+var _forward_ticks: int = 0
+var _was_moving: bool = false
+var _stop_elapsed: float = 1.0
+var _stop_from: Vector4 = Vector4.ZERO
+var _heading_origin: Vector3 = Vector3.ZERO
+var _target_yaw: float = 0.0
+var _yaw_trim: float = 0.0
+var _last_feedback_gain: float = 0.0
+var _stop_bias: Vector4 = Vector4.ZERO
 
 
 func get_policy() -> Dictionary:
@@ -76,45 +85,112 @@ func configure(hardware: RunMode, graph: ConnectionGraph) -> bool:
 
 func set_enabled(enabled: bool) -> void:
 	super.set_enabled(enabled)
-	_elapsed = 0.0
+	_reset_phase()
+	_was_moving = false
+	_stop_elapsed = 1.0
 	if _enabled:
-		_write_pose(Vector4.ZERO)
+		_write_pose(Vector4.ZERO, 0.0)
+
+
+func set_move_input(command: Vector2) -> void:
+	var previous_turn: float = signf(_move_input.x) if absf(_move_input.x) > 0.05 else 0.0
+	super.set_move_input(command)
+	var next_turn: float = signf(_move_input.x) if absf(_move_input.x) > 0.05 else 0.0
+	if next_turn != previous_turn:
+		_reset_heading()
+
+
+func _reset_heading() -> void:
+	_heading_origin = Vector3.ZERO
+	_target_yaw = 0.0
+	_yaw_trim = 0.0
+
+
+func _reset_phase() -> void:
+	_elapsed = 0.0
+	_forward_ticks = 0
+	_reset_heading()
+	_last_feedback_gain = 0.0
+	_stop_bias = Vector4.ZERO
 
 
 func _physics_process(delta: float) -> void:
 	if not _enabled or _hardware == null or not _hardware.is_built():
 		return
 	if _move_input.length() < 0.05:
-		_elapsed = 0.0
-		_write_pose(Vector4.ZERO)
+		if _was_moving:
+			_stop_elapsed = 0.0
+			# The captured command already contains feedback; do not add that term twice.
+			_stop_bias = _balance_offset(_last_feedback_gain)
+			for index: int in ROLES.size():
+				_stop_from[index] = _hardware.servo_on_pin(role_pins[ROLES[index]]).current_deg
+		_was_moving = false
+		_stop_elapsed += delta
+		if _stop_elapsed < 0.3:
+			var weight: float = 1.0 - smoothstep(0.0, 0.3, _stop_elapsed)
+			_write_pose((_stop_from - _stop_bias) * weight, weight * _last_feedback_gain)
+			return
+		_reset_phase()
+		_write_pose(Vector4.ZERO, 0.0)
 		return
+	_was_moving = true
+	if _move_input.y > 0.05 and absf(_move_input.y) >= absf(_move_input.x):
+		if _forward_ticks % 2 == 0:
+			var pose: Vector4 = BipedGait.pose_for_tick(_forward_ticks, cycle_seconds,
+				stride_degrees, lean_degrees, posture_degrees, _move_input.y)
+			if absf(_move_input.x) > 0.05:
+				pose += _heading_correction(delta * 2.0)
+			_write_pose(pose, 0.2)
+		_forward_ticks += 1
+		return
+	_forward_ticks = 0
 	_elapsed += delta * maxf(_move_input.length(), 0.25)
-	var phase: float = TAU * _elapsed / maxf(cycle_seconds, 0.5)
+	var turn: float = absf(_move_input.x)
+	var stride: float = lerpf(8.0, 14.0, turn) * (stride_degrees / BipedGait.REFERENCE_STRIDE)
+	var lean_angle: float = lerpf(18.5, 16.0, turn) * (lean_degrees / BipedGait.REFERENCE_LEAN)
+	var cycle: float = 2.4 * (cycle_seconds / BipedGait.REFERENCE_CYCLE)
+	var phase: float = TAU * _elapsed / maxf(cycle, 0.5)
 	var strength: float = clampf(_elapsed / 0.6, 0.0, 1.0)
 	var left_stride: float = clampf(_move_input.y - _move_input.x, -1.0, 1.0)
 	var right_stride: float = clampf(_move_input.y + _move_input.x, -1.0, 1.0)
-	var posture: float = posture_degrees * _move_input.y * strength
-	var left_hip: float = stride_degrees * sin(phase) * left_stride * strength - posture
-	var right_hip: float = stride_degrees * sin(phase) * right_stride * strength + posture
-	var lean: float = lean_degrees * cos(phase) * strength
-	_write_pose(Vector4(left_hip, right_hip, lean, -lean))
+	var posture: float = (-7.0 + posture_degrees) * _move_input.y * strength
+	var left_hip: float = stride * sin(phase) * left_stride * strength - posture
+	var right_hip: float = stride * sin(phase) * right_stride * strength + posture
+	var lean: float = lean_angle * cos(phase) * strength
+	var pose: Vector4 = Vector4(left_hip, right_hip, lean, -lean)
+	if _move_input.x < -0.05 and absf(_move_input.x) > absf(_move_input.y):
+		pose = -pose
+	if turn > 0.05:
+		pose += _heading_correction(delta)
+	_write_pose(pose, 3.0)
 
 
-func _write_pose(pose: Vector4) -> void:
-	if _move_input.length() > 0.05 and _hardware != null and body_part >= 0:
-		var body: RigidBody3D = _hardware.bodies[body_part]
-		var basis: Basis = body.global_basis.orthonormalized()
-		var omega: Vector3 = basis.inverse() * body.angular_velocity
-		var pitch: float = atan2(-basis.z.y, basis.y.y)
-		var roll: float = -atan2(basis.x.y, basis.y.y)
-		var hip: float = clampf(rad_to_deg(1.5 * pitch + 0.04 * omega.x), -15.0, 15.0)
-		var ankle: float = clampf(rad_to_deg(0.5 * roll - 0.04 * omega.z), -15.0, 15.0)
-		pose += Vector4(hip, -hip, ankle, -ankle)
-	for index: int in range(ROLES.size()):
-		var role: StringName = ROLES[index]
-		if not role_pins.has(role):
+func _heading_correction(delta: float) -> Vector4:
+	var body: RigidBody3D = _hardware.bodies[body_part]
+	var basis: Basis = body.global_basis.orthonormalized()
+	var forward: Vector3 = _horizontal_forward(basis)
+	if _heading_origin.is_zero_approx():
+		_heading_origin = forward
+	var heading: float = _heading_origin.signed_angle_to(forward, Vector3.UP)
+	_target_yaw += (0.08 * _move_input.x / 60.0) * (delta * 60.0)
+	var error: float = wrapf(_target_yaw - heading, -PI, PI)
+	error += 0.3 * (0.08 * _move_input.x - body.angular_velocity.y)
+	_yaw_trim = lerpf(_yaw_trim, clampf(-60.0 * error, -3.0, 3.0), 0.05)
+	return Vector4(_yaw_trim, _yaw_trim, 0.0, 0.0)
+
+
+static func _horizontal_forward(basis: Basis) -> Vector3:
+	return Vector3(basis.z.x, 0.0, basis.z.z).normalized()
+
+
+func _write_pose(pose: Vector4, feedback: float = 1.0) -> void:
+	if _move_input.length() >= 0.05:
+		_last_feedback_gain = feedback
+	pose += _balance_offset(feedback)
+	for index: int in ROLES.size():
+		if not role_pins.has(ROLES[index]):
 			continue
-		var servo: ServoDrive = _hardware.servo_on_pin(role_pins[role])
+		var servo: ServoDrive = _hardware.servo_on_pin(role_pins[ROLES[index]])
 		if servo != null:
 			servo.write_relative(pose[index])
 
@@ -141,3 +217,16 @@ func _has_port(definition: PartDef, id: StringName) -> bool:
 		if port.id == id and port.kind == Port.Kind.MECH:
 			return true
 	return false
+
+
+func _balance_offset(feedback: float) -> Vector4:
+	if feedback > 0.0 and _hardware != null and body_part >= 0:
+		var body: RigidBody3D = _hardware.bodies[body_part]
+		var basis: Basis = body.global_basis.orthonormalized()
+		var omega: Vector3 = basis.inverse() * body.angular_velocity
+		var pitch: float = atan2(-basis.z.y, basis.y.y)
+		var roll: float = -atan2(basis.x.y, basis.y.y)
+		var hip: float = feedback * clampf(rad_to_deg(1.5 * pitch + 0.04 * omega.x), -15.0, 15.0)
+		var ankle: float = feedback * clampf(rad_to_deg(0.5 * roll - 0.04 * omega.z), -15.0, 15.0)
+		return Vector4(hip, -hip, ankle, -ankle)
+	return Vector4.ZERO

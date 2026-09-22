@@ -2,6 +2,9 @@
 
 - Status: accepted; extends ADR 0008's offline research scope
 - Date: 2026-09-22
+- The single inference-class requirement is partially superseded for the versioned legacy four-parameter calibration family by [0018](0018-calibrated-biped-motion-family.md). Other learned-policy requirements remain accepted.
+
+- The periodic-only direct-Godot policy scope is extended by [0019](0019-learned-command-frame-feedback.md) for versioned command-relative feedback. Its deployment gates remain unchanged.
 
 ## Context
 

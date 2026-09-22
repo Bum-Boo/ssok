@@ -1,0 +1,96 @@
+extends SceneTree
+
+var _checks: int = 0
+var _errors: Array[String] = []
+var _held: Array = []
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
+	var specification: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(OS.get_environment("SSOK_ANALOG_CASE")))
+	var main: Node3D = load("res://scenes/main.tscn").instantiate()
+	root.add_child(main)
+	await process_frame
+	main._on_biped_pressed()
+	main.mode_button.button_pressed = true
+	_check(main.motion_program is BipedMotion and main.motion_program.is_supported(), "actual starter configures frozen biped")
+	var before: String = MotionSnapshot.fingerprint(MotionSnapshot.encode(main.assembly.graph))
+	for frame: int in int(specification.settle):
+		await physics_frame
+	var body: RigidBody3D = main.run_mode.bodies[main.motion_program.body_part]
+	var phases: Array = []
+	var all_finite: bool = true
+	var minimum_height: float = INF
+	for phase: Dictionary in specification.phases:
+		var start: Vector3 = body.global_position
+		var heading: Vector3 = Vector3(body.global_basis.z.x, 0, body.global_basis.z.z).normalized()
+		var right: Vector3 = Vector3.UP.cross(heading)
+		_keys(phase.keys)
+		var command: Vector2 = main.manual_controller.get_move_input()
+		_check(not command.is_zero_approx(), "actual keyboard reaches motion input")
+		var phase_height: float = INF
+		var trace: Array = []
+		for frame: int in int(phase.frames):
+			await physics_frame
+			var height: float = body.global_position.y - BipedPreset.FLOOR_TOP
+			phase_height = minf(phase_height, height)
+			minimum_height = minf(minimum_height, height)
+			for part: RigidBody3D in main.run_mode.bodies:
+				all_finite = all_finite and part.global_transform.is_finite() and part.linear_velocity.is_finite()
+			if frame % 30 == 0:
+				var targets: Array = []
+				for role: StringName in BipedMotion.ROLES:
+					targets.append(main.run_mode.servo_on_pin(main.motion_program.role_pins[role]).target_deg)
+				trace.append({"frame": frame, "position": [body.global_position.x, body.global_position.y, body.global_position.z], "up": body.global_basis.y.dot(Vector3.UP), "targets": targets})
+		var moved: Vector3 = body.global_position - start
+		var current: Vector3 = Vector3(body.global_basis.z.x, 0, body.global_basis.z.z).normalized()
+		var yaw: float = heading.signed_angle_to(current, Vector3.UP)
+		var forward: float = moved.dot(heading)
+		var translation_ok: bool = absf(command.y) < 0.05 or forward * signf(command.y) > 0.001
+		var turn_ok: bool = absf(command.x) < 0.05 or yaw * signf(command.x) > 0.03
+		_check(phase_height > 0.09, "phase %s stays above 0.09m" % str(phase.keys))
+		_check(translation_ok, "phase %s has commanded translation sign" % str(phase.keys))
+		_check(turn_ok, "phase %s has commanded yaw sign" % str(phase.keys))
+		phases.append({"keys": phase.keys, "frames": phase.frames, "command": [command.x, command.y], "forward_m": forward, "lateral_m": moved.dot(right), "yaw_rad": yaw, "minimum_height": phase_height, "translation_ok": translation_ok, "turn_ok": turn_ok, "trace": trace})
+	_keys([])
+	for frame: int in 90:
+		await physics_frame
+		minimum_height = minf(minimum_height, body.global_position.y - BipedPreset.FLOOR_TOP)
+		all_finite = all_finite and body.global_transform.is_finite() and body.linear_velocity.is_finite()
+	var stopped_up: float = body.global_basis.y.dot(Vector3.UP)
+	var neutral: bool = main.motion_program._move_input.is_zero_approx()
+	for servo: ServoDrive in main.run_mode.servos.values():
+		neutral = neutral and servo.target_deg == 0.0
+	_check(all_finite, "all trajectories finite")
+	_check(minimum_height > 0.09, "walking and release stay above 0.09m")
+	_check(stopped_up > 0.9, "release finishes upright")
+	_check(neutral, "release clears input and all joint commands")
+	_check(MotionSnapshot.fingerprint(MotionSnapshot.encode(main.assembly.graph)) == before, "keyboard does not modify graph")
+	var result: Dictionary = {"specification": specification, "phases": phases, "minimum_height": minimum_height, "stopped_up": stopped_up, "finite": all_finite, "neutral": neutral, "graph_fingerprint": before, "checks": _checks, "errors": _errors}
+	print("ANALOG_JSON ", JSON.stringify(result))
+	main.free()
+	quit(0 if _errors.is_empty() else 1)
+
+func _keys(next: Array) -> void:
+	var codes: Dictionary = {"W": KEY_W, "S": KEY_S, "A": KEY_A, "D": KEY_D}
+	for key: String in _held:
+		if key not in next:
+			_key(codes[key], false)
+	for key: String in next:
+		if key not in _held:
+			_key(codes[key], true)
+	_held = next.duplicate()
+
+func _key(code: Key, pressed: bool) -> void:
+	var event := InputEventKey.new()
+	event.keycode = code
+	event.physical_keycode = code
+	event.pressed = pressed
+	root.push_input(event, true)
+
+func _check(condition: bool, label: String) -> void:
+	_checks += 1
+	if not condition:
+		_errors.append(label)
+		push_error(label)

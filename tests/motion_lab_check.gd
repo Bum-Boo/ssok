@@ -210,6 +210,7 @@ func _check_trials() -> void:
 		_assert(result.finite and not result.fallen, "default trial remains finite and standing despite main-world obstacle")
 		_assert(result.simulation_seconds == 16.5 and result.physics_hz == 60, "episode duration and frequency remain fixed")
 		_assert(result.engine_version == "4.7.2", "result records the pinned engine for reproducibility")
+		_assert(result.program_id == MotionPolicy.PROGRAM_ID, "trial identifies the evaluated controller family")
 		_assert(result.min_upright > 0.9 and result.min_height_m > 0.09, "metrics include actual supported body posture")
 		_assert(absf(result.forward_m) + absf(result.lateral_m) > 0.0001, "metrics report physical displacement")
 		var expected_score: float = 100.0 * float(result.forward_m) - 30.0 * absf(result.lateral_m) - 2.0 * absf(result.yaw_rad) - 10.0 * (1.0 - clampf(result.min_upright, 0.0, 1.0))

@@ -1,0 +1,207 @@
+class_name BipedMotion
+extends RobotMotionProgram
+
+## Calibrated joint curves with measured balance and heading feedback; graph wiring owns every channel.
+
+const ROLES: Array[StringName] = [&"left_hip", &"right_hip", &"left_ankle", &"right_ankle"]
+
+@export var cycle_seconds: float = BipedGait.REFERENCE_CYCLE
+@export var stride_degrees: float = BipedGait.REFERENCE_STRIDE
+@export var lean_degrees: float = BipedGait.REFERENCE_LEAN
+@export var posture_degrees: float = 0.0
+
+var role_pins: Dictionary = {}
+var body_part: int = -1
+var _elapsed: float = 0.0
+var _forward_ticks: int = 0
+var _was_moving: bool = false
+var _stop_elapsed: float = 1.0
+var _stop_from: Vector4 = Vector4.ZERO
+var _heading_origin: Vector3 = Vector3.ZERO
+var _target_yaw: float = 0.0
+var _yaw_trim: float = 0.0
+
+
+func get_policy() -> Dictionary:
+	return MotionPolicy.read(self)
+
+
+func apply_policy(policy: Dictionary) -> bool:
+	return MotionPolicy.apply(self, policy)
+
+
+func configure(hardware: RunMode, graph: ConnectionGraph) -> bool:
+	super.configure(hardware, graph)
+	role_pins.clear()
+	body_part = -1
+	_elapsed = 0.0
+	if hardware == null or not hardware.is_built() or graph == null:
+		_set_status("Build a wired biped before using the movement program")
+		return false
+	for index: int in range(graph.parts.size()):
+		var definition: PartDef = graph.parts[index].part_def
+		if _has_port(definition, &"hip_left") and _has_port(definition, &"hip_right"):
+			if body_part >= 0:
+				_set_status("Movement program needs one unambiguous biped body")
+				return false
+			body_part = index
+	if body_part < 0:
+		_set_status("No biped motion program: connect a two-leg body with four servos")
+		return false
+	var role_parts: Dictionary = {}
+	for side: String in ["left", "right"]:
+		var hip: int = _neighbor(body_part, StringName("hip_" + side), &"mount_bottom")
+		var leg: int = _neighbor(hip, &"output_shaft", &"hip_mount")
+		var ankle: int = _neighbor(leg, &"ankle_mount", &"mount_bottom")
+		var foot: int = _neighbor(ankle, &"output_shaft")
+		if hip < 0 or leg < 0 or ankle < 0 or foot < 0:
+			_set_status("Incomplete %s leg: connect hip, leg, ankle servo and foot", [side])
+			return false
+		role_parts[StringName(side + "_hip")] = hip
+		role_parts[StringName(side + "_ankle")] = ankle
+	var unique_parts: Dictionary = {}
+	for part: int in role_parts.values():
+		unique_parts[part] = true
+	if unique_parts.size() != ROLES.size():
+		_set_status("Each hip and ankle needs its own servo")
+		return false
+	var channels: Array[Dictionary] = hardware.wired_servo_channels()
+	for role: StringName in ROLES:
+		var pins: Array[int] = []
+		for channel: Dictionary in channels:
+			if channel.part == role_parts[role]:
+				pins.append(channel.pin)
+		if pins.size() != 1:
+			_set_status("Wire %s to one unambiguous board PWM pin", [String(role).replace("_", " ")])
+			role_pins.clear()
+			return false
+		role_pins[role] = pins[0]
+	_supported = true
+	_set_status("Experimental biped joint program: forward/back and turn")
+	return true
+
+
+func set_enabled(enabled: bool) -> void:
+	super.set_enabled(enabled)
+	_reset_phase()
+	_was_moving = false
+	_stop_elapsed = 1.0
+	if _enabled:
+		_write_pose(Vector4.ZERO, 0.0)
+
+
+func _reset_phase() -> void:
+	_elapsed = 0.0
+	_forward_ticks = 0
+	_heading_origin = Vector3.ZERO
+	_target_yaw = 0.0
+	_yaw_trim = 0.0
+
+
+func _physics_process(delta: float) -> void:
+	if not _enabled or _hardware == null or not _hardware.is_built():
+		return
+	if _move_input.length() < 0.05:
+		if _was_moving:
+			_stop_elapsed = 0.0
+			for index: int in ROLES.size():
+				_stop_from[index] = _hardware.servo_on_pin(role_pins[ROLES[index]]).current_deg
+		_was_moving = false
+		_stop_elapsed += delta
+		if _stop_elapsed < 0.3:
+			var weight: float = 1.0 - smoothstep(0.0, 0.3, _stop_elapsed)
+			_write_pose(_stop_from * weight, weight)
+			return
+		_reset_phase()
+		_write_pose(Vector4.ZERO, 0.0)
+		return
+	_was_moving = true
+	if _move_input.y > 0.05 and absf(_move_input.y) >= absf(_move_input.x):
+		if _forward_ticks % 2 == 0:
+			var pose: Vector4 = BipedGait.pose_for_tick(_forward_ticks, cycle_seconds,
+				stride_degrees, lean_degrees, posture_degrees, _move_input.y)
+			if absf(_move_input.x) > 0.05:
+				pose += _heading_correction(delta * 2.0)
+			_write_pose(pose, 0.2)
+		_forward_ticks += 1
+		return
+	_forward_ticks = 0
+	_elapsed += delta * maxf(_move_input.length(), 0.25)
+	var turn: float = absf(_move_input.x)
+	var stride: float = lerpf(8.0, 14.0, turn) * (stride_degrees / BipedGait.REFERENCE_STRIDE)
+	var lean_angle: float = lerpf(18.5, 16.0, turn) * (lean_degrees / BipedGait.REFERENCE_LEAN)
+	var cycle: float = 2.4 * (cycle_seconds / BipedGait.REFERENCE_CYCLE)
+	var phase: float = TAU * _elapsed / maxf(cycle, 0.5)
+	var strength: float = clampf(_elapsed / 0.6, 0.0, 1.0)
+	var left_stride: float = clampf(_move_input.y - _move_input.x, -1.0, 1.0)
+	var right_stride: float = clampf(_move_input.y + _move_input.x, -1.0, 1.0)
+	var posture: float = (-7.0 + posture_degrees) * _move_input.y * strength
+	var left_hip: float = stride * sin(phase) * left_stride * strength - posture
+	var right_hip: float = stride * sin(phase) * right_stride * strength + posture
+	var lean: float = lean_angle * cos(phase) * strength
+	var pose: Vector4 = Vector4(left_hip, right_hip, lean, -lean)
+	if _move_input.x < -0.05 and absf(_move_input.x) > absf(_move_input.y):
+		pose = -pose
+	if turn > 0.05:
+		pose += _heading_correction(delta)
+	_write_pose(pose, 2.0)
+
+
+func _heading_correction(delta: float) -> Vector4:
+	var body: RigidBody3D = _hardware.bodies[body_part]
+	var basis: Basis = body.global_basis.orthonormalized()
+	var forward: Vector3 = _horizontal_forward(basis)
+	if _heading_origin.is_zero_approx():
+		_heading_origin = forward
+	var heading: float = _heading_origin.signed_angle_to(forward, Vector3.UP)
+	_target_yaw += (0.08 * _move_input.x / 60.0) * (delta * 60.0)
+	var error: float = wrapf(_target_yaw - heading, -PI, PI)
+	error += 0.3 * (0.08 * _move_input.x - body.angular_velocity.y)
+	_yaw_trim = lerpf(_yaw_trim, clampf(-60.0 * error, -3.0, 3.0), 0.05)
+	return Vector4(_yaw_trim, _yaw_trim, 0.0, 0.0)
+
+
+static func _horizontal_forward(basis: Basis) -> Vector3:
+	return Vector3(basis.z.x, 0.0, basis.z.z).normalized()
+
+
+func _write_pose(pose: Vector4, feedback: float = 1.0) -> void:
+	if feedback > 0.0 and _hardware != null and body_part >= 0:
+		var body: RigidBody3D = _hardware.bodies[body_part]
+		var basis: Basis = body.global_basis.orthonormalized()
+		var omega: Vector3 = basis.inverse() * body.angular_velocity
+		var pitch: float = atan2(-basis.z.y, basis.y.y)
+		var roll: float = -atan2(basis.x.y, basis.y.y)
+		var hip: float = feedback * clampf(rad_to_deg(1.5 * pitch + 0.04 * omega.x), -15.0, 15.0)
+		var ankle: float = feedback * clampf(rad_to_deg(0.5 * roll - 0.04 * omega.z), -15.0, 15.0)
+		pose += Vector4(hip, -hip, ankle, -ankle)
+	for index: int in ROLES.size():
+		if not role_pins.has(ROLES[index]):
+			continue
+		var servo: ServoDrive = _hardware.servo_on_pin(role_pins[ROLES[index]])
+		if servo != null:
+			servo.write_relative(pose[index])
+
+
+func _neighbor(part: int, port: StringName, expected_port: StringName = &"") -> int:
+	if part < 0:
+		return -1
+	var found: int = -1
+	for link: Dictionary in _graph.links:
+		for side: String in ["a", "b"]:
+			if link[side + "_part"] != part or link[side + "_port"] != port:
+				continue
+			var other: String = "b" if side == "a" else "a"
+			if expected_port != &"" and link[other + "_port"] != expected_port:
+				return -1
+			if found >= 0:
+				return -1
+			found = link[other + "_part"]
+	return found
+
+
+func _has_port(definition: PartDef, id: StringName) -> bool:
+	for port: Port in definition.ports:
+		if port.id == id and port.kind == Port.Kind.MECH:
+			return true
+	return false

@@ -39,6 +39,10 @@ func _run() -> void:
 	_panel.push_input(key, true)
 	await process_frame
 	_check(_main.manual_controller.get_move_input().is_zero_approx(), "typing a goal cannot leave WASD movement active")
+	_panel._on_response("status", {"provider": "mock", "model": "gpt-5.6-luna"})
+	_check(_panel._server.is_empty() and not _panel.start_error().is_empty(), "unversioned bridge cannot start a search")
+	_panel._on_response("status", {"provider": "mock", "model": "gpt-5.6-luna", "program_id": "legacy_sine_v1"})
+	_check(_panel._server.is_empty(), "different-program bridge is rejected before evaluation or paid proposals")
 	var record: Dictionary = _fixture(fingerprint)
 	_panel.best = _panel._clean_best(record)
 	_panel.best_fingerprint = fingerprint
@@ -68,6 +72,18 @@ func _run() -> void:
 	var stale_job: Dictionary = {"id": "0123456789abcdef0123456789abcdef", "state": "completed", "history": [record], "best": record.duplicate(true)}
 	stale_job.best.metrics.graph_fingerprint = "bad-fingerprint"
 	_check(not _panel._accept_job(stale_job) and _panel.best.is_empty(), "bridge metrics must match the locally captured graph fingerprint")
+	var old_program: Dictionary = record.duplicate(true)
+	old_program.metrics.erase("program_id")
+	_check(not _panel._valid_best(old_program), "unversioned measurements cannot certify the current controller")
+	old_program.metrics.program_id = "legacy_sine_v1"
+	_check(not _panel._valid_best(old_program), "a different controller family cannot supply eligible measurements")
+	var wrong_best: Dictionary = {"id": "0123456789abcdef0123456789abcdef", "state": "completed", "history": [record.duplicate(true)], "best": record.duplicate(true)}
+	wrong_best.best.metrics.program_id = "legacy_sine_v1"
+	_panel.best = _panel._clean_best(record)
+	_check(not _panel._accept_job(wrong_best) and _panel.best.is_empty(), "mismatched best rejects the response even when history matches")
+	wrong_best.best = record.duplicate(true)
+	wrong_best.best.policy.stride_degrees = INF
+	_check(not _panel._accept_job(wrong_best), "malformed best policy cannot hide behind valid history")
 	var bad_history: Dictionary = stale_job.duplicate(true)
 	bad_history.history[0].metrics.score = "not-a-number"
 	_check(not _panel._accept_job(bad_history), "malformed history metrics are rejected before rendering")
@@ -79,6 +95,7 @@ func _run() -> void:
 	_check(_panel.save_best(), "result can be saved under user://")
 	var saved: String = FileAccess.get_file_as_string(MotionLabPanel.SAVE_PATH)
 	_check(not saved.contains(_panel.token_edit.text) and not saved.contains(_panel.goal_edit.text) and not saved.contains("reason"), "saved result excludes token, goal and model output text")
+	_check(saved.contains(MotionPolicy.PROGRAM_ID), "saved measurements retain the controller identity")
 	_panel.best.clear()
 	_check(_panel.load_best() and _panel.apply_error().is_empty(), "saved bounded policy loads without automatic application")
 	_check(MotionPolicy.read(_main.motion_program) == MotionPolicy.defaults(), "loading alone does not change the active movement program")
@@ -135,7 +152,7 @@ func _fixture(fingerprint: String) -> Dictionary:
 	policy.posture_degrees = 2.0
 	return {"policy": policy, "reason": "Synthetic UI fixture, not a measured gait result", "metrics": {
 		"forward_m": 0.02, "lateral_m": 0.001, "yaw_rad": 0.02, "min_upright": 0.99,
-		"min_height_m": 0.12, "score": 0.5, "finite": true, "fallen": false, "graph_fingerprint": fingerprint}}
+		"min_height_m": 0.12, "score": 0.5, "finite": true, "fallen": false, "graph_fingerprint": fingerprint, "program_id": MotionPolicy.PROGRAM_ID}}
 
 
 func _check_http_flow() -> void:

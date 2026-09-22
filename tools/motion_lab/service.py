@@ -16,8 +16,9 @@ import urllib.request
 import uuid
 
 MODEL = "gpt-5.6-luna"
-DEFAULT_POLICY = dict(cycle_seconds=3.45, stride_degrees=10.5,
-                      lean_degrees=18.5, posture_degrees=-9.8)
+PROGRAM_ID = "pitch_biped_periodic_v2"
+DEFAULT_POLICY = dict(cycle_seconds=1.655731680962178, stride_degrees=32.39478715279682,
+                      lean_degrees=25.736307930089378, posture_degrees=0.0)
 BOUNDS = dict(cycle_seconds=(0.8, 4.0), stride_degrees=(0.0, 35.0),
               lean_degrees=(0.0, 35.0), posture_degrees=(-10.0, 10.0))
 POLICY_SCHEMA = {
@@ -108,7 +109,9 @@ def validate_request(payload):
     except (ValueError, TypeError, RecursionError):
         raise LabError("Request must be finite JSON data") from None
     if not isinstance(payload, dict) or set(payload) - {
-            "goal", "graph", "policy", "command", "rounds", "allow_paid"}:
+            "goal", "graph", "policy", "command", "rounds", "allow_paid", "program_id"}:
+        raise LabError("Unknown motion-search request fields")
+    if payload.get("program_id", PROGRAM_ID) != PROGRAM_ID:
         raise LabError("Unknown motion-search request fields")
     goal = payload.get("goal", "Walk forward while staying upright and reducing drift")
     if not isinstance(goal, str) or not 1 <= len(goal.strip()) <= 2000:
@@ -141,8 +144,11 @@ class OpenAIProposer:
             "this contract. Return one bounded policy and a short rationale. Never return code. "
             "This is parameter search, not model training. Godot Y is up, body +Z forward. "
             "WASD command [turn,forward] drives mirrored hip pitch and ankle roll servos. "
-            "phase=2*pi*elapsed/cycle_seconds; hip amplitudes use stride_degrees*sin(phase), "
-            "posture_degrees biases the hips, lean_degrees*cos(phase) rolls the ankles. "
+            "A frozen calibrated periodic curve supplies forward motion. cycle_seconds is its full "
+            "period; stride_degrees and lean_degrees are the hip and ankle peak carrier angles. "
+            "posture_degrees adds opposite hip offsets around the calibrated stance. "
+            "Backward/turn references scale amplitudes and cadence relative to these defaults. "
+            "Measured balance/heading feedback and neutral-stop blending remain active. "
             "The four parameters are shared by all directions, but this trial tests one direction. "
             "Improve actual measured score; falling or nonfinite motion is unacceptable. "
             "Use small evidence-guided changes, do not equate motion magnitude with success. "
@@ -152,7 +158,7 @@ class OpenAIProposer:
         context = {"goal": request["goal"], "command": request["command"],
                    "graph": request.get("graph", "built-in wired BipedPreset"),
                    "history": history, "proposal_index": index, "bounds": BOUNDS,
-                   "score_rule": SCORE_RULE}
+                   "score_rule": SCORE_RULE, "program_id": PROGRAM_ID}
         payload = {"model": self.model, "store": False,
                    "reasoning": {"effort": "low"}, "max_output_tokens": MAX_OUTPUT_TOKENS,
                    "instructions": instructions, "input": json.dumps(context, allow_nan=False),
@@ -270,7 +276,8 @@ class GodotEvaluator:
         if process.returncode:
             raise LabError("Godot trial exited unsuccessfully")
         required = ("forward_m", "lateral_m", "yaw_rad", "min_upright", "min_height_m", "score")
-        if any(type(metrics.get(key)) not in (int, float) or not math.isfinite(metrics[key]) for key in required):
+        if metrics.get("program_id") != PROGRAM_ID or any(
+                type(metrics.get(key)) not in (int, float) or not math.isfinite(metrics[key]) for key in required):
             raise LabError("Simulator returned invalid metrics")
         if type(metrics.get("fallen")) is not bool or type(metrics.get("finite")) is not bool:
             raise LabError("Simulator returned invalid safety metrics")
@@ -301,7 +308,7 @@ class MotionService:
             return {"model": self.model, "provider": self.provider, "key_configured": bool(self._key),
                     "calls_used": self.calls_used, "max_calls": self.max_calls,
                     "max_rounds": 4, "max_output_tokens_per_call": MAX_OUTPUT_TOKENS,
-                    "policy_defaults": dict(DEFAULT_POLICY), "policy_bounds": dict(BOUNDS),
+                    "policy_defaults": dict(DEFAULT_POLICY), "policy_bounds": dict(BOUNDS), "program_id": PROGRAM_ID,
                     "learning": "feedback-guided parameter search; not model-weight training",
                     "score_rule": SCORE_RULE,
                     "robot": "wired biped only", "simulation": "3s settle + 12s command + 1.5s rest, 60Hz",

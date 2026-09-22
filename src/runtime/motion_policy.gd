@@ -3,6 +3,8 @@ extends RefCounted
 
 ## The model may tune these values, never executable code or robot geometry.
 
+const PROGRAM_ID: String = "pitch_biped_periodic_v2"
+
 const LIMITS: Dictionary = {
 	"cycle_seconds": [0.8, 4.0],
 	"stride_degrees": [0.0, 35.0],
@@ -12,7 +14,10 @@ const LIMITS: Dictionary = {
 
 
 static func defaults() -> Dictionary:
-	return {"cycle_seconds": 3.45, "stride_degrees": 10.5, "lean_degrees": 18.5, "posture_degrees": -9.8}
+	return {
+		"cycle_seconds": BipedGait.REFERENCE_CYCLE, "stride_degrees": BipedGait.REFERENCE_STRIDE,
+		"lean_degrees": BipedGait.REFERENCE_LEAN, "posture_degrees": 0.0,
+	}
 
 
 static func validate(value: Variant) -> String:

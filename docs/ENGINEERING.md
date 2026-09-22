@@ -70,6 +70,18 @@ heading change across exactly 720 physics intervals. Both feet clear the floor, 
 remains upright after release. The exported application provides only a query-gated read-only
 observer; the browser supplies actual keyboard input. The final clean release repeats this gate.
 
+A subsequent clean export failed the unchanged lateral gate by 1.064 mm. Adding feedback was then
+measured against that failure: three command-relative observations expose lateral position,
+lateral speed and horizontal heading. CEM learned six feedback weights while freezing the periodic
+carrier. The first candidate reduced drift but increased falls and was rejected. An ablation
+removed the hip feedback; the frozen ankle-only candidate then passed 64/64 fresh starts and 63/64
+restarts with one fall, versus 114/128 successes and four falls for v1 on the same conditions.
+It passed 12 native app flows and six declared WebAssembly start/restart flows. One specific native
+restart still regresses against v1. [The complete feedback experiment](RL_FEEDBACK.md) preserves
+that failure, both rejected and accepted weights, exact source hashes and reproducible tooling.
+These are internal simulator observations; the application makes no equivalent localization-sensor
+claim for real hardware. Final clean-release verification remains a separate gate.
+
 ## Product engineering beyond the demo
 
 The authoring workflow preserves source and graph together. Imported documents cannot specify

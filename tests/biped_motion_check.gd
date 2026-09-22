@@ -16,6 +16,8 @@ func _run_check() -> void:
 	floor.add_child(collision)
 	floor.position.y = BipedPreset.FLOOR_TOP - box.size.y * 0.5
 	root.add_child(floor)
+	_check_heading()
+	_check_carrier()
 	_check_graph_resolution()
 	var commands: Array[Vector2] = [Vector2.ZERO, Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]
 	var arguments: PackedStringArray = OS.get_cmdline_user_args()
@@ -27,6 +29,31 @@ func _run_check() -> void:
 		await _check_startup_and_reverse()
 	print("biped_motion_check: %s" % ("FAIL" if _failed else "PASS"))
 	quit(1 if _failed else 0)
+
+
+func _check_heading() -> void:
+	for yaw: float in [-2.8, -1.0, 0.0, 0.5, 2.8]:
+		for pitch: float in [-0.6, 0.0, 0.6]:
+			for roll: float in [-0.4, 0.0, 0.4]:
+				var basis: Basis = Basis(Vector3.UP, yaw) * Basis(Vector3.RIGHT, pitch) * Basis(Vector3.FORWARD, roll)
+				var horizontal: Vector3 = BipedMotion._horizontal_forward(basis)
+				var actual: float = Vector3.BACK.signed_angle_to(horizontal, Vector3.UP)
+				_assert(absf(wrapf(actual - yaw, -PI, PI)) < 0.00001, "body pitch and roll must not become a yaw error")
+
+
+func _check_carrier() -> void:
+	var defaults: Dictionary = MotionPolicy.defaults()
+	for tick: int in range(0, 240, 2):
+		var base: Vector4 = BipedGait.pose_for_tick(tick, defaults.cycle_seconds, defaults.stride_degrees, defaults.lean_degrees, 0.0)
+		var hips: Vector4 = BipedGait.pose_for_tick(tick, defaults.cycle_seconds, 0.0, defaults.lean_degrees, 0.0)
+		var ankles: Vector4 = BipedGait.pose_for_tick(tick, defaults.cycle_seconds, defaults.stride_degrees, 0.0, 0.0)
+		var posture: Vector4 = BipedGait.pose_for_tick(tick, defaults.cycle_seconds, defaults.stride_degrees, defaults.lean_degrees, 5.0)
+		var slower: Vector4 = BipedGait.pose_for_tick(tick * 2, defaults.cycle_seconds * 2, defaults.stride_degrees, defaults.lean_degrees, 0.0)
+		_assert(hips.x == 0 and hips.y == 0 and hips.z == base.z and hips.w == base.w, "zero stride disables only the hip curve")
+		_assert(ankles.z == 0 and ankles.w == 0 and ankles.x == base.x and ankles.y == base.y, "zero lean disables only the ankle curve")
+		_assert(posture.is_equal_approx(base + Vector4(-5, 5, 0, 0)), "posture applies opposite physical hip offsets")
+		_assert(slower.is_equal_approx(base), "cycle parameter controls the complete period")
+		_assert(absf(base.x) <= defaults.stride_degrees and absf(base.y) <= defaults.stride_degrees and absf(base.z) <= defaults.lean_degrees and absf(base.w) <= defaults.lean_degrees, "public amplitudes bound the calibrated curve")
 
 
 func _check_graph_resolution() -> void:
@@ -72,6 +99,16 @@ func _check_graph_resolution() -> void:
 	motion.set_move_input(Vector2(0, 1))
 	motion._physics_process(0.6)
 	_assert(hardware.servo_on_pin(10).target_deg > 0, "gait must write the rewired left hip")
+	var body: RigidBody3D = hardware.bodies[motion.body_part]
+	body.global_basis = Basis(Vector3.RIGHT, 0.12)
+	motion._physics_process(1.0 / 60.0)
+	motion._physics_process(1.0 / 60.0)
+	for servo: ServoDrive in hardware.servos.values():
+		servo._physics_process(1.0 / 60.0)
+	motion.set_move_input(Vector2.ZERO)
+	motion._physics_process(0.0)
+	for servo: ServoDrive in hardware.servos.values():
+		_assert(is_equal_approx(servo.target_deg, servo.current_deg), "release starts continuously from the slew command without duplicate balance correction")
 	motion.set_enabled(false)
 	var target: float = hardware.servo_on_pin(10).target_deg
 	motion._physics_process(0.5)
@@ -117,8 +154,9 @@ func _check_motion(command: Vector2) -> void:
 	var body: RigidBody3D = hardware.bodies[motion.body_part]
 	var displacement: Vector3 = body.global_position - start
 	var local_displacement: Vector3 = initial_basis.inverse() * displacement
-	var yaw: float = initial_basis.z.signed_angle_to(body.global_basis.z, Vector3.UP)
+	var yaw: float = Vector3(initial_basis.z.x, 0.0, initial_basis.z.z).normalized().signed_angle_to(Vector3(body.global_basis.z.x, 0.0, body.global_basis.z.z).normalized(), Vector3.UP)
 	print("BIPED_GAIT command=%s displacement=%s yaw=%.4f minimum_height=%.4f upright=%.4f" % [command, displacement, yaw, minimum_height, body.global_basis.y.dot(Vector3.UP)])
+	_assert(minimum_height > 0.09, "gait must remain standing throughout movement")
 	_assert(body.global_position.y - BipedPreset.FLOOR_TOP > 0.09, "gait must finish standing")
 	_assert(body.global_basis.y.dot(Vector3.UP) > 0.9, "gait must finish upright")
 	if not command.is_zero_approx() and absf(command.y) > absf(command.x):

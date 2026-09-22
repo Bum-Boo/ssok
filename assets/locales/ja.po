@@ -268,8 +268,8 @@ msgstr "最良の結果をローカル保存"
 msgid "Load saved best"
 msgstr "保存した結果を読み込む"
 
-msgid "Save/load: user://motion_lab_best.json. Stores only bounded parameters, numeric metrics and the exact assembly fingerprint; no token, goal, model text or API key."
-msgstr "保存先：user://motion_lab_best.json。制限内のパラメータ、数値指標、正確な構成識別値のみを保存します。トークン、目標、モデルの文面、API キーは保存しません。"
+msgid "Save/load: user://motion_lab_best.json. Stores bounded parameters, numeric metrics and assembly/controller IDs; no token, goal, model text or API key."
+msgstr "保存先：user://motion_lab_best.json。制限内のパラメータ、数値指標、構成と制御プログラムの識別値を保存します。トークン、目標、モデルの文面、API キーは保存しません。"
 
 msgid "Checking bridge..."
 msgstr "ブリッジを確認中…"

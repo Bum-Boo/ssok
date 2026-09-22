@@ -70,7 +70,7 @@ class ValidationTests(unittest.TestCase):
     def test_request_rejects_invalid_inputs(self):
         for value in ([1], {"rounds": True}, {"rounds": 5}, {"goal": ""}, {"goal": "x" * 2001},
                       {"command": [1, 1]}, {"command": [0, 0]}, {"command": [10**1000, 1]},
-                      {"allow_paid": "yes"}, {"model": "other"}, {"graph": {}}):
+                      {"allow_paid": "yes"}, {"model": "other"}, {"graph": {}}, {"program_id": "legacy_sine_v1"}):
             with self.subTest(value=str(value)[:30]), self.assertRaises(LabError):
                 validate_request(value)
         self.assertEqual(validate_request({})["rounds"], 2)

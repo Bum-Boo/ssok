@@ -67,15 +67,26 @@ func _ready() -> void:
 	_poll_timer.timeout.connect(_poll)
 	add_child(_poll_timer)
 	_build_controls()
+	get_tree().root.size_changed.connect(_fit_open_panel, CONNECT_DEFERRED)
 	refresh_apply_state()
 
 
 func open_panel() -> void:
-	var available: Vector2i = get_tree().root.size - Vector2i(48, 48)
-	popup_centered(Vector2i(mini(780, available.x), mini(820, available.y)))
+	popup_centered(_fitted_size())
 	refresh_apply_state()
 	if workflow_tabs.current_tab == 1:
 		goal_edit.grab_focus()
+
+
+func _fitted_size() -> Vector2i:
+	var available: Vector2i = get_tree().root.size - Vector2i(48, 48)
+	return Vector2i(mini(780, available.x), mini(820, available.y))
+
+
+func _fit_open_panel() -> void:
+	if visible:
+		size = _fitted_size()
+		move_to_center()
 
 
 func _build_controls() -> void:
@@ -165,7 +176,7 @@ func _build_controls() -> void:
 	result_actions.add_child(files)
 	save_button = _button(files, "Save best locally", save_best)
 	load_button = _button(files, "Load saved best", load_best)
-	_label(box, "Save/load: user://motion_lab_best.json. Stores only bounded parameters, numeric metrics and the exact assembly fingerprint; no token, goal, model text or API key.")
+	_label(box, "Save/load: user://motion_lab_best.json. Stores bounded parameters, numeric metrics and assembly/controller IDs; no token, goal, model text or API key.")
 	_button(layout, "Close", _close_panel)
 
 
@@ -246,7 +257,7 @@ func start_search() -> void:
 	var commands: Array[Vector2] = [Vector2(0, 1), Vector2(0, -1), Vector2(-1, 0), Vector2(1, 0)]
 	var command: Vector2 = commands[direction.selected]
 	var payload: Dictionary = {"goal": goal_edit.text.strip_edges(), "graph": snapshot,
-		"policy": _policy_provider.call(), "command": [command.x, command.y],
+		"policy": _policy_provider.call(), "command": [command.x, command.y], "program_id": MotionPolicy.PROGRAM_ID,
 		"rounds": int(rounds.value), "allow_paid": allow_paid.button_pressed}
 	_job.clear()
 	best.clear()
@@ -279,7 +290,7 @@ func _poll() -> void:
 
 func _on_response(kind: String, data: Dictionary) -> void:
 	if kind == "status":
-		if data.get("provider") not in ["mock", "openai"] or not data.get("model") is String:
+		if data.get("provider") not in ["mock", "openai"] or not data.get("model") is String or data.get("program_id") != MotionPolicy.PROGRAM_ID:
 			_on_failure(kind, "Unexpected bridge capabilities; no search was started")
 			return
 		_server = data
@@ -316,7 +327,7 @@ func _accept_job(data: Dictionary) -> bool:
 			return false
 	_job = data
 	if data.get("best") is Dictionary:
-		if not data.best.get("metrics") is Dictionary or data.best.metrics.get("graph_fingerprint") != _search_fingerprint:
+		if not _valid_metrics(data.best.get("metrics")) or not MotionPolicy.validate(data.best.get("policy")).is_empty() or data.best.metrics.get("graph_fingerprint") != _search_fingerprint:
 			best.clear()
 			best_fingerprint = ""
 			return false
@@ -433,6 +444,8 @@ func _valid_metrics(value: Variant) -> bool:
 	if not value is Dictionary:
 		return false
 	var metrics: Dictionary = value
+	if metrics.get("program_id") != MotionPolicy.PROGRAM_ID:
+		return false
 	if typeof(metrics.get("finite")) != TYPE_BOOL or typeof(metrics.get("fallen")) != TYPE_BOOL:
 		return false
 	for key: String in METRIC_KEYS:
@@ -451,7 +464,7 @@ func _show_history(history: Array) -> void:
 
 
 func _clean_best(value: Dictionary) -> Dictionary:
-	var metrics: Dictionary = {"finite": true, "fallen": false}
+	var metrics: Dictionary = {"finite": true, "fallen": false, "program_id": MotionPolicy.PROGRAM_ID}
 	for key: String in METRIC_KEYS:
 		metrics[key] = float(value.metrics[key])
 	return {"policy": value.policy.duplicate(), "metrics": metrics}

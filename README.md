@@ -37,6 +37,11 @@ pickup experiments. Optional external AI services keep their keys outside the ap
 [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
 [Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
 
+The current feedback policy passes six declared browser start/restart flows in an export with
+recorded source hashes. An earlier clean build failed its walking drift limit; that failure and
+the corrective experiment are retained in [the feedback report](docs/RL_FEEDBACK.md).
+The final release still requires a fresh clean build and the complete verification gate.
+
 ## Watch a real physics trial
 
 ![Actual construction-kit robot making contact with and lifting a box under gravity](docs/media/pickup.gif)
@@ -53,7 +58,7 @@ does not count toward the measured hold.
 
 ![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
 
-The actual workshop runs its frozen learned policy through graph-wired joint motors. In this
+This recording uses the first learned policy through graph-wired joint motors. In this
 recorded episode, holding W for **12 seconds** moves the robot **42.0 cm** forward; releasing W
 leaves it standing. The camera follows its horizontal travel while preserving the editing view.
 
@@ -107,16 +112,19 @@ box positions and reversed graph ordering. The legacy humanoid's visible palm pa
 margin problem. With the new geometry, measured center of mass and smoother entry, **14 of 14**
 running start/order variants pass. Forward travel ranges from 0.738 to 1.230 m, with sideways drift
 up to 0.777 m, so directional control remains limited. Final clean-revision CI remains required.
-MuJoCo learning has improved on held-out seeds, but its policy has **not** passed the Godot
-transfer gate. A separate yaw-hip robot trained directly in Godot now succeeds on **31 of 32
-held-out trials**, with no falls and 42.2 cm mean forward travel in 12 seconds. Each episode
-starts a fresh native Linux engine process; failed trials remain in the evidence. Five native
-actual-app start/restart checks pass. A separate Chromium WebAssembly episode travels 43.0 cm,
-records positive clearance under both feet and stays upright after release. Rapid restarts remain
-limited, and the final clean exported build needs the same browser checks.
-These measurements cover one robot, small initial-velocity perturbations and 0–3 second start delays.
-See the linked evidence for
-exact conditions, measured values and reproducible commands.
+Stable continuous walking with the articulated construction kit remains unfinished.
+
+The current yaw-hip policy combines a learned periodic gait with learned lateral/heading feedback.
+It passes **64/64 fresh starts and 63/64 restarts**, with **one fall**, on the new native evaluation.
+The same conditions give the earlier policy 114/128 successes and four falls. Twelve declared
+native application flows and six actual Chromium WebAssembly flows pass separately; browser
+travel is 41.6–43.8 cm in 12 seconds with at most 3.9 cm lateral drift.
+
+These are results for one simulated robot. Native conditions use ±0.004 m/s initial velocity noise,
+0–5 second start delays and specified restart intervals. They do not guarantee every restart or
+arbitrary assemblies. MuJoCo's independently trained policy still fails Godot transfer; its evidence
+is retained. [Methods, full outcomes and the remaining failure](docs/RL_FEEDBACK.md) distinguish
+training, selection, held-out evaluation and browser checks. Final clean-release checks remain.
 
 ## Development
 

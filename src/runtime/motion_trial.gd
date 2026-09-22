@@ -107,7 +107,7 @@ func run_trial(graph: ConnectionGraph, policy: Dictionary, command: Vector2 = Ve
 		"min_upright": _minimum_upright, "min_height_m": _minimum_height,
 		"fallen": _fallen, "finite": _finite, "score": score,
 		"simulation_seconds": 16.5, "physics_hz": PHYSICS_HZ, "engine_version": ENGINE_VERSION,
-		"graph_fingerprint": MotionSnapshot.fingerprint(snapshot),
+		"graph_fingerprint": MotionSnapshot.fingerprint(snapshot), "program_id": MotionPolicy.PROGRAM_ID,
 	}
 	_cleanup()
 	return result
