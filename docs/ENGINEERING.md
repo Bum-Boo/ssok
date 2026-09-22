@@ -1,129 +1,140 @@
 # Engineering ssok
 
-## Actuator evidence correction
+ssok is an educational robot workshop: a learner assembles and wires reusable parts, programs
+that assembly, and observes it under simulated gravity and contact. The engineering challenge
+is keeping the editor, code, physics and learning experiments accountable to the same robot.
 
-The pre-correction motion results below are historical. A free-rotor diagnostic on the pinned
-engine found that nominal motor caps were applied once per solver pass, not once per physical
-step. The corrected actuator shares the impulse budget across all passes; sixteen physical cases
-pass385 assertions. Corrected-budget pickup subsequently passes twelve integration suites.
-A newly trained feedback candidate passes126/128 held-out conditions with two falls, actual-app12/12
-and declared Web6/6; it does not outperform the transferred old weights on aggregate.
-[Complete corrected results](evidence/bounded_feedback_2026-09-22/README.md) preserve those limitations.
-Final clean-release verification remains necessary. [ADR0020](adr/0020-whole-step-actuator-torque-budget.md) records the source-level cause,
-the physical regression and the changed policy runtime identity.
+The integrated application is verified at `6470757`: **55 native verification suites**, clean
+Web/Linux exports, Linux startup, and all three actual-browser gates pass. The browser checks
+cover controls, complete project/block authoring, and learned walking followed by upright stopping.
+This remains a **private release checkpoint**. Continuous legacy direction changes, sustained
+construction-kit walking, final publication review and public delivery are unfinished.
+[Clean-export evidence](evidence/browser_clean_6470757_2026-09-22/README.md) binds the results to
+exact source and served-file hashes; the [release plan](RELEASE_PLAN.md) retains every open gate.
 
-ssok addresses an educational constraint: a learner should be able to inspect, rebuild and program
-a robot without first owning a physical kit. The product challenge is making assembly, code,
-contacts and learning describe the same robot while keeping failure understandable.
+## One graph owns the robot
 
-## One graph, several interpretations
+`ConnectionGraph` stores catalog parts, rigid transforms and port connections. The editor uses it
+for placement, snapping and undo. `RunMode` derives rigid bodies and joints from it. Electrical
+links determine servo addresses. Project JSON and learning snapshots serialize this same graph.
+A separately authored physics skeleton cannot silently diverge from the learner's assembly.
 
-`ConnectionGraph` stores catalog parts, rigid transforms and port connections. The assembly editor
-uses it to place objects and undo changes. `RunMode` interprets it as rigid bodies and joints.
-Electrical connections determine runtime motor addresses. Project JSON and learning snapshots
-serialize this same model, preventing a hand-authored physics robot from diverging from the one
-the learner assembled.
+The elementary construction kit uses independent beams, plates, brackets, motors and fasteners.
+Every attachment hole comes from the same catalog used to generate Blender geometry and Godot
+ports. A humanoid and a bridge reuse those parts. Fixed connected components merge only in the
+runtime solver; their editable identities, collision geometry, wiring and summed mass remain.
+The catalog is an original virtual standard, not a claim of commercial hardware compatibility.
+[Architecture](ARCHITECTURE.md) and [kit construction](CONSTRUCTION_KIT.md) document these boundaries.
 
-For the construction kit, fixed connected components can merge in the physics solver, while
-editable part identity, collision geometry, transforms, wiring and summed mass remain available.
-This keeps 181 individually selectable robot components tractable without introducing an invisible
-whole-limb skeleton. A 29-part bridge reuses the same elementary catalog; it is a practical check
-that the components are interchangeable rather than robot-shaped prefabs.
+Board profiles describe capabilities and APIs, the language runtime interprets a servo teaching
+subset, and block cards derive from the board API. Keeping those layers separate lets a new board
+change its pin map without embedding board-specific logic in the interpreter or block editor.
 
-## Fixing a physical failure without changing the test
+## Testing the physical quantity, not just the configured number
 
-The initial elementary-kit humanoid contacted the box with both hands but fell during lifting.
-It reached only about 8.7–8.9 cm and held for zero seconds, below the original 25 cm / 1 second gate.
-The former subassembly robot's successful pickup could not certify this new morphology.
+A motor parameter that looked correct was not a correct physical torque cap. In the pinned Godot
+hinge solver, the cap was available on each solver pass. With 64 iterations, an isolated rotor
+accelerated as if a nominal 0.25 N·m motor supplied approximately 16 N·m. Merely asserting that
+the joint parameter equalled `torque / physics_hz` would have certified the faulty implementation.
 
-The correction smooths the lift targets and uses the articulated robot's measured center of mass
-and velocity to adjust its ankle targets. The motors remain torque-limited; no torso force,
-teleportation, hidden support, paused evaluation or disabled gravity produces the result.
-The gripper constraint still requires actual bilateral contact and is removed on release.
+The correction distributes the physical step's impulse budget across the actual solver iterations
+and joint priority. A unit-inertia rotor measures angular acceleration for both signs, several
+solver counts and priorities, and multiple physics rates. The regression failed before the change
+and now passes **385 assertions across 16 physical conditions**. This is a conservative upper
+bound: the motor can deliver less torque when it reaches its requested speed early.
+[ADR 0020 and the pinned engine sources](adr/0020-whole-step-actuator-torque-budget.md) record why.
 
-The updated regression recorded approximately 47.8 cm maximum lift, one second held and minimum
-uprightness 0.994. Perturbed box positions and reversed graph ordering are separate tests.
-[The construction-kit document](CONSTRUCTION_KIT.md) records the full conditions and remaining
-locomotion limits. This is evidence for a specified virtual task, not calibration to real hardware.
+This discovery also changed how existing evidence could be described. Earlier motor-driven
+trajectories remain available, but their nominal-torque interpretation is invalid. The learned
+runtime fingerprint now includes the actuator-model identity, actual iterations and joint
+priority. Old bound policies are rejected until separately evaluated under the corrected model.
+The ideal-limit four-servo legacy biped remains a distinct physical approximation.
 
-## Treating simulation transfer as a requirement
+## Recovering pickup within the corrected motor limits
 
-The learning experiment exports the assembled biped into MuJoCo and optimizes a policy rather than
-renaming a hand-written gait as learning. Reward proposals, optimization, held-out task evaluation
-and engine transfer are distinct steps. Improving training reward does not imply walking success.
+The elementary-kit pickup must make bilateral hand contact, lift the box at least 25 cm, hold it
+for one second, stay upright and release it under gravity. A successful predecessor robot or a
+higher search reward cannot certify this assembly. The gripper is an explicit contact-triggered
+constraint abstraction, not a finger-friction planner.
 
-A trained ARS policy achieved 25/32 successful held-out MuJoCo evaluations with no falls. The same
-policy failed the Godot transfer check. The project retains both results, the frozen policy and
-the reproduction commands in [the RL evidence](RL_LAB.md). That MuJoCo policy remains a research
-artifact rather than the application's learned controller.
+After the torque correction, the previous lift timing failed. Comparing 2.5, 3.25 and 4.0-second
+lifts led to a synchronized **4.0-second default**. The corrected implementation passes **277 kit
+assertions and 12 pickup integration suites**, including the previously failing offset, reversed
+graph ordering, actual contact, release, UI and mock-service flows. Failed duration comparisons
+are retained in [pickup revalidation](evidence/torque_budget_2026-09-22/pickup_revalidation/README.md).
 
-A controlled ablation held the policy and 30 Hz action rate fixed while changing the physics
-timestep: the policy that stayed upright at 240 Hz fell at the application's 60 Hz rate, even
-inside MuJoCo. Matching policy arithmetic was insufficient because the simulator contract differed.
-Follow-up experiments therefore use 60 Hz and verify each joint's physical axis and command sign.
-A separately identified yaw-hip robot preserves the old assembly and its failed evidence. Direct
-Godot optimization learns twelve periodic coefficients and a frequency from episodic returns,
-starting from a disclosed hand-designed initialization. The frozen policy passes 31/32 held-out
-episodes with no falls and 42.2 cm mean forward travel in 12 seconds. Both feet lose contact with
-positive sole clearance; at least one foot stays grounded. This is learned periodic control,
-not learned sensor feedback or a general robot policy.
+The current native recording reaches approximately **47.7 cm** and holds for one second. Start,
+middle and final frames were inspected, and source and media hashes accompany the measurement.
+No increased motor specification, torso force, hidden support, gravity suppression or transform
+replay produces this outcome. [The recording evidence](evidence/corrected_recordings_2026-09-22/README.md)
+keeps the physical measurement separate from the additional time used to display the result.
 
-Episode isolation exposed another misleading success: a candidate that passed 8/8 evaluations
-after another candidate had run passed 0/8 in fresh engine processes. Training and authoritative
-evaluation now launch one process per episode. The failed candidate and ablation remain in the
-evidence; the 31/32 result uses the corrected protocol and independent seeds.
+## Learning, simulator transfer and held-out failure
 
-The application uses the evaluator's actual inference class and rejects changed graph or runtime
-fingerprints. Five native application start/restart flows pass. Broader rapid-restart tests retain
-122/128 successes and three falls, while attempted transition smoothing did not consistently
-improve them. Native results cover small initial perturbations in one Linux engine. A separate
-Chromium WebAssembly episode measures 43.0 cm forward travel, 7.0 cm lateral drift and 12.8 degrees
-heading change across exactly 720 physics intervals. Both feet clear the floor, and the robot
-remains upright after release. The exported application provides only a query-gated read-only
-observer; the browser supplies actual keyboard input. The final clean release repeats this gate.
+The first MuJoCo/ARS experiment passed 25/32 held-out conditions but failed transfer to Godot.
+Holding the policy and 30 Hz action rate fixed exposed a timestep mismatch: a controller that
+remained upright at 240 Hz fell at the application's 60 Hz physics rate. Numerical policy parity
+was necessary but insufficient. The failed transfer remains a [research artifact](RL_LAB.md).
 
-A subsequent clean export failed the unchanged lateral gate by 1.064 mm. Adding feedback was then
-measured against that failure: three command-relative observations expose lateral position,
-lateral speed and horizontal heading. CEM learned six feedback weights while freezing the periodic
-carrier. The first candidate reduced drift but increased falls and was rejected. An ablation
-removed the hip feedback; the frozen ankle-only candidate then passed 64/64 fresh starts and 63/64
-restarts with one fall, versus 114/128 successes and four falls for v1 on the same conditions.
-It passed 12 native app flows and six declared WebAssembly start/restart flows. One specific native
-restart still regresses against v1. [The complete feedback experiment](RL_FEEDBACK.md) preserves
-that failure, both rejected and accepted weights, exact source hashes and reproducible tooling.
-These are internal simulator observations; the application makes no equivalent localization-sensor
-claim for real hardware. Final clean-release verification remains a separate gate.
+Direct Godot optimization therefore evaluates the shipping inference class at 60 Hz. A separate
+yaw-hip assembly preserves the legacy geometry and its results. The bundled version combines a
+frozen periodic carrier with three learned opposite-ankle feedback weights. It observes lateral
+position, lateral velocity and heading relative to the current command. These are internal
+simulator measurements, not a claim that real hardware has equivalent localization sensors.
 
-## Product engineering beyond the demo
+Training, checkpoint selection and frozen evaluation remain separate. Every authoritative episode
+starts a fresh engine process after an earlier candidate was found to depend on leftover evaluation
+state. Candidate rewards never replace the 12-second, 0.30 m forward, 0.10 m lateral, 30-degree yaw
+and stability gates. Both feet must physically clear the floor, and release must end upright.
 
-The authoring workflow preserves source and graph together. Imported documents cannot specify
-arbitrary Godot resources, paths or executable scenes. Loading a saved project stops existing
-control and does not execute stored learner code. Immutable snapshots, explicit replacement and
-stale-block detection address common ways an attractive demo loses a learner's work.
+Under the corrected 0.25 N·m actuator model, the frozen bundle passes **126/128** new native
+conditions, with **two falls**. The previous weights, explicitly transferred to the same runtime,
+also pass 126/128 with different failed episodes. The new bundle therefore does **not** demonstrate
+an aggregate robustness improvement. It passes all 12 declared actual-app cases and all six declared
+WebAssembly cases; those narrower passes do not erase the wider failures.
+[Complete training and validation](evidence/bounded_feedback_2026-09-22/README.md) include rejected
+candidates, all episode outcomes, policy hashes, source identities and reproducible tooling.
 
-Web exports revealed a defect that source-level tests missed: on a short browser viewport, the
-starter buttons consumed the entire parts panel and collapsed the catalog scroll area. Compact
-starter menus and a scrolling block editor fixed the actual exported application. Dedicated
-viewport checks now cover this condition across all four languages.
+The clean integrated browser export measures **42.9 cm forward, 3.0 cm lateral and 4.4 degrees
+heading drift** over exactly 720 physics intervals. A query-enabled observer reads actual state
+without owning commands or modifying simulation. Playwright supplies browser keyboard input.
+The native demonstration recording separately measures 41.8 cm; it is not substituted for Web
+verification. Neither result proves universal locomotion or real-world transfer.
 
-Independent workflow review found two data-loss paths: unapplied block drafts were absent from a
-snapshot, and a serialized empty graph disappeared from the library because JSON read its version
-as a floating-point number. Saving now validates and includes block drafts, while schema validation
-accepts integral JSON numbers without accepting fractional versions. Disk round-trip tests cover
-both populated and empty workspaces. Keyboard tests use actual input events to save a snapshot,
-leave the code editor, reach offscreen block actions and close modal panels.
+## Preserving learner work and verifying the exported app
 
-CI discovers the functional checks, supplies an authenticated mock service for transport tests,
-isolates saved data, preserves individual logs and fails on any failed gate. Exports are audited
-for accidentally packed developer tools or environment files. The public release checklist also
-requires actual browser interaction and desktop startup, not merely successful archive creation.
+A project preserves the assembly and learner source together. Import accepts validated catalog
+IDs and rigid transforms, not arbitrary resource paths or executable scenes. Opening a project
+stops current control and never runs the imported source. Immutable snapshots and explicit
+replacement protect the existing workspace. Unsupported code and stale block drafts are shown
+instead of silently discarded.
 
-## Deliberate limits
+Two regression fixes illustrate why complete workflows matter. Unapplied block edits were missing
+from saved snapshots, and an empty graph disappeared after JSON read its integral version as a
+floating-point number. Saving now includes valid drafts, and schema checks accept integral JSON
+numbers while rejecting fractional versions. Disk round trips cover populated and empty projects.
 
-The current language is a small servo teaching subset. The construction geometry is an original
-virtual standard. The gripper uses contact-triggered constraints instead of finger-friction
-planning. The legacy running experiment passes its 14 start/order cases with measured flight, but
-retains up to 0.777 m sideways drift. Robust kit locomotion, the remaining legacy-biped regression
-and final clean-build browser verification remain release gates.
-These boundaries are recorded in the product and its decision records so future work has an
-explicit starting point and reviewers can distinguish demonstrated behavior from ambition.
+The Web export exposed problems native tests missed. Compact starter menus fixed a short viewport
+that collapsed the parts catalog. Godot's asynchronous clipboard cache also lost the first paste.
+A narrow bridge now preserves trusted browser paste before handing insertion back to the normal
+Godot editor. Tests use the actual clipboard, IndexedDB, reload/reopen, JSON import/export and a
+block edit retained in exported code. They do not replace canvas fields through a test-only DOM.
+English, Korean, Simplified Chinese and Japanese are maintained together.
+
+CI discovers functional checks, supplies authenticated mock HTTP/MCP services, isolates saved data,
+retains failures, exports both platforms and audits packaged resources. The clean browser checkpoint
+checks every served file's hash. Corrected demo recordings retain raw measurement output, including
+a first capture-metadata mistake that was fixed without changing the application simulation.
+
+## Work still required for release
+
+The kit can lift cargo, but its fourteen-axis walking controller has not demonstrated sustained,
+credible locomotion. A few foot landings followed by a fall are diagnostic progress, not a walking
+pass. The legacy manual biped also needs reliable continuous direction changes and its own final
+Web evaluation. Both remain release blockers; neither inherits the yaw-biped policy's evidence.
+
+The remaining work also includes the final source/history and attribution review, public Web and
+desktop publication, and anonymous use of those exact published artifacts. Original project rights
+remain reserved. The project's value as an engineering portfolio depends on reviewers being able
+to reproduce its demonstrated behavior and identify its limits, rather than infer completion from
+screenshots or an attractive README.
