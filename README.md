@@ -42,32 +42,33 @@ pickup experiments. Optional external AI services keep their keys outside the ap
 The current feedback policy passes six declared browser start/restart flows in an export with
 recorded source hashes. An earlier clean build failed its walking drift limit; that failure and
 the corrective experiments are retained in [the current validation report](docs/evidence/bounded_feedback_2026-09-22/README.md).
-The final release still requires a fresh clean build and the complete verification gate.
+The integrated [clean `6470757` export](docs/evidence/browser_clean_6470757_2026-09-22/README.md)
+also passes all three browser gates and Linux startup. Public delivery and the remaining motion
+requirements are still in progress.
 
 ## Watch a real physics trial
 
 ![Actual construction-kit robot making contact with and lifting a box under gravity](docs/media/pickup.gif)
 
-This historical recording lifts the box **47.7 cm** and holds it for **1 second**, with
-contact-triggered grasp constraints and the old actuator implementation. Corrected-budget pickup
-now passes separately with a four-second lift; a replacement release recording is pending. The robot is assembled from the same individual
+This recording uses the corrected motor budget and a four-second lift. It raises the box
+**47.7 cm** and holds it for **1 second**, after bilateral contact activates the grasp constraints.
+The robot is assembled from the same individual
 parts available in the workshop. The final result stays on screen after evaluation; that pause
 does not count toward the measured hold.
 
-[720p recording](docs/media/pickup.webm) · [Measurements](docs/evidence/pickup-video.json) ·
+[1152 × 648 recording](docs/media/pickup.webm) · [Measurements](docs/evidence/corrected_recordings_2026-09-22/pickup.json) ·
 [Reproduce the capture](docs/media/PICKUP.md)
 
 ## Watch learned forward walking
 
 ![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
 
-This historical recording uses the first learned policy and the old actuator implementation.
-It does not certify the corrected torque budget. In this
-recorded episode, holding W for **12 seconds** moves the robot **42.0 cm** forward; releasing W
+The current frozen feedback policy runs under the corrected **0.25 N·m** cap. In this
+recorded episode, holding W for **12 seconds** moves the robot **41.8 cm** forward; releasing W
 leaves it standing. The camera follows its horizontal travel while preserving the editing view.
 
 [1152 × 648 recording](docs/media/learned-walk.mp4) · [Full-size still](docs/media/learned-walk.png) ·
-[Measurements](docs/evidence/learned-app-recording.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
+[Measurements](docs/evidence/corrected_recordings_2026-09-22/learned.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
 
 ## What you can explore
 
@@ -129,7 +130,8 @@ These results concern one simulated robot, ±0.004 m/s initial velocity noise, 0
 delays and declared restart intervals. They do not guarantee every restart or arbitrary assemblies.
 MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
 [Methods and complete outcomes](docs/evidence/bounded_feedback_2026-09-22/README.md) distinguish
-training, checkpoint selection, held-out evaluation and browser checks. Final clean-release checks remain.
+training, checkpoint selection, held-out evaluation and browser checks. The clean integrated
+checkpoint passes its build/browser gates; public release and kit locomotion remain unfinished.
 
 ## Development
 

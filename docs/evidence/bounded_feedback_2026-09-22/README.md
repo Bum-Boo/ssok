@@ -34,8 +34,9 @@ The same frozen candidate passes all twelve actual native application cases: six
 (0, 1, 60, 121, 180, 257 frames), each fresh and after a three-second walk / one-second pause.
 Actual keyboard input, the original displacement/drift/standing gates, upright stop, graph
 immutability, camera visibility and incompatible-graph rejection are exercised. This is a
-candidate snapshot; its six Web flows subsequently pass as recorded below. Final integrated clean
-release verification remains pending.
+candidate snapshot; its six Web flows subsequently pass as recorded below. The integrated clean
+`6470757` source later passes all three [exported-browser gates](../browser_clean_6470757_2026-09-22/README.md)
+and Linux startup; the overall public release remains unfinished.
 
 The graph fingerprint is `c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7`;
 runtime fingerprint is `0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae`.

@@ -87,7 +87,14 @@ same app displacement, heading, uprightness and height gates, unchanged graph/ru
 and positive collision-sole clearance for both feet. The observer exposes no command/setter API
 and never pauses the simulation; ordinary URLs do not activate it. See [ADR 0017](adr/0017-read-only-browser-physics-evidence.md).
 Run this against the exact exported or deployed build; native policy evaluation alone is not Web evidence.
-The [22 September review snapshot](evidence/browser_2026-09-22/README.md) passed this real Chromium
+The corrected [clean `6470757` checkpoint](evidence/browser_clean_6470757_2026-09-22/README.md)
+passes all three Chromium gates and Linux startup. Its actual 12-second Web walk travels 0.429205 m,
+with 0.029757 m lateral drift, 4.3922 degrees yaw, both feet lifting and uprightness 0.999834 after
+stopping. Both latest GitHub verify/build runs also pass. This checkpoint is private; publication,
+anonymous interaction and the remaining locomotion requirements still block the complete release.
+
+The following earlier results use the historical actuator implementation; ADR0020 explains why
+they cannot certify the current torque cap. The [22 September review snapshot](evidence/browser_2026-09-22/README.md) passed this real Chromium
 WebAssembly gate: 0.429881 m forward in 12 seconds, 0.070111 m lateral, 12.807° yaw, minimum
 uprightness 0.958920, both feet lifting, and uprightness 0.999881 after stopping. Its raw result and
 exact archive/payload hashes are retained. That dirty review snapshot is not a completed public

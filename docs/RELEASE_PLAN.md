@@ -3,10 +3,10 @@
 Owner: Bum-Boo. Delivery issue: [#29](https://github.com/Bum-Boo/ssok/issues/29).
 Started 2026-09-22. Status: **in progress; not released**.
 
-**New release blocker:** the motor impulse cap was spent once per solver pass, exceeding its nominal
-physical torque. ADR 0020 corrects the whole-step budget. Earlier motor-driven pickup, running and
-learned-walking results are historical; their acceptance rows below require fresh verification under
-the corrected runtime. The ideal-limit legacy biped does not use this torque model.
+The motor impulse cap previously exceeded its nominal physical torque by being spent once per solver
+pass. ADR 0020 corrects the whole-step budget. Corrected pickup, learned-policy, full native and clean
+browser verification now pass as recorded below. Earlier motor-driven results remain historical;
+unrepeated broader claims do not inherit these new passes. The ideal-limit legacy biped uses a separate model.
 
 The objective is a complete, usable educational robot construction product that a hiring team
 can evaluate through its public repository, working application, engineering decisions and
@@ -19,13 +19,13 @@ software acceptance criterion; product quality and demonstrated engineering are.
 |---|---|---|
 | Assemble, inspect, transform, snap and wire independent reusable parts | User-flow checks on actual graph state and rendered application | Graph/assembly checks pass locally; clean CI physics regressions under review |
 | Code and profile-derived blocks control the wired robot | Round-trip conversion, invalid input, control handoff and physical actuation checks | Implemented; physical code/block checks pass, draft-saving regression fixed |
-| Save, reopen and share a project without losing assembly or learner code | Cross-session round-trip, invalid file rejection, browser persistence and explicit replacement | Complete exported browser flow passes twice, including real clipboard and blocks; clean0b2fe24 also passes; final release recheck pending |
+| Save, reopen and share a project without losing assembly or learner code | Cross-session round-trip, invalid file rejection, browser persistence and explicit replacement | Clean6470757 passes complete actual-browser authoring, clipboard, persistence/reload, JSON safety and block edit/export flow |
 | Credible elementary-kit humanoid pickup and locomotion | Real contact, gravity, motor limits, original lift/hold/stability gates and measured runs | Corrected torque model: default 4 s lift passes 277 kit assertions and 12 pickup integration suites (~47.7 cm / 1 s); sustained kit locomotion unresolved |
-| Genuine learned locomotion | Reproducible training, held-out task metrics, artifact provenance and successful Godot re-evaluation | Corrected-model frozen policy integrated:126/128 held-out with two falls, actual-app12/12 and declared Web6/6 pass. Historical policy remains rejected. Final clean-release verification pending |
+| Genuine learned locomotion | Reproducible training, held-out task metrics, artifact provenance and successful Godot re-evaluation | Corrected-model frozen policy integrated:126/128 held-out with two falls, actual-app12/12, declared Web6/6 and clean6470757 browser gate pass. Historical policy remains rejected; known falls remain disclosed |
 | Clear onboarding, accessible controls and four-language UI | First-use walkthrough, keyboard/error states, rendered en/ko/zh_CN/ja inspection | Eleven-step guide, keyboard workflows and four-language authoring checks pass; actual browser paste and compact viewport verified; clean-revision recheck pending |
-| Reproducible build and automated verification | Clean checkout CI, all required checks, pinned dependencies, downloadable artifacts | Corrected actuator/pickup/learned candidate passes55/55 suites in isolated9cdd259+policy checkout; final committed CI and clean export remain |
+| Reproducible build and automated verification | Clean checkout CI, all required checks, pinned dependencies, downloadable artifacts |55/55 native suites pass;6470757 GitHub verify/build runs35683446314/35683442490 SUCCESS. Same clean local source exports Web/Linux, passes resource audit/Linux startup and all three browser gates |
 | Public browser and desktop release | Anonymous browser smoke test, actual interaction/persistence, desktop startup, checksums | Not deployed |
-| Honest, compelling engineering portfolio | Real screenshots/demo, architecture/case study, measured limitations, attribution and no secrets | Real screenshots and engineering case study added; final audit pending |
+| Honest, compelling engineering portfolio | Real screenshots/demo, architecture/case study, measured limitations, attribution and no secrets | Real screenshots, engineering case study and new corrected-budget pickup/learned recordings included with hashes and reviewed frames; final publication audit pending |
 
 ## Guardrails
 

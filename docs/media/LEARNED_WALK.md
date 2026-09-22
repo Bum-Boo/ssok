@@ -11,11 +11,11 @@ for 720 intervals (12 seconds), then releases it for 90 intervals (1.5 seconds).
 at 60 Hz while rendering runs at 30 Hz. The normal workshop camera follows horizontal body
 travel; the robot remains visible at the beginning, middle and end of the recording.
 
-The recorded trajectory travels 0.420191 m forward with 0.075799 m lateral displacement and
-25.894° yaw. Minimum uprightness is 0.959008 and minimum height above the floor is 0.129295 m;
-uprightness after stopping is 0.999993. The same frozen policy and graph-wired bounded motors
-run in the application. [Measurements, script identity and media hashes](../evidence/learned-app-recording.json)
-bind this episode to its source. Native recording and [browser physics evidence](../evidence/browser_2026-09-22/README.md)
+The recorded trajectory travels 0.418373 m forward with -0.008129 m lateral displacement and
+-10.413° yaw. Minimum uprightness is 0.963639 and minimum height above the floor is 0.129155 m;
+uprightness after stopping is 0.999846. The current version 2 feedback policy and the corrected
+whole-step 0.25 N·m actuator budget run in the application. [Measurements, script identity and media hashes](../evidence/corrected_recordings_2026-09-22/README.md)
+bind this episode to source `6470757`. Native recording and [clean browser physics evidence](../evidence/browser_clean_6470757_2026-09-22/README.md)
 are distinct checks; neither replaces held-out or restart evaluation.
 
 ## Reproduce
@@ -39,9 +39,13 @@ ffmpeg -i build/learned-app.avi -an -c:v libx264 -crf 20 -pix_fmt yuv420p \
 MovieWriter fixes the movie output to the project's 1152 × 648 viewport before the script starts.
 The unchanged capture script subsequently sets the live window to 1600 × 900, so its separate
 `user://release_media/learned-app.png` screenshot has that larger size. The MP4/GIF were encoded
-from the first `learned-app.avi` recording; naming another AVI with `1600` did not change its
-actual video resolution. Verify dimensions with ffprobe rather than inferring them from a filename.
+from the corrected `learned-app-v2.avi` recording. The script explicitly passes policy version 2
+to the runtime fingerprint and measures heading/displacement in a horizontal command frame.
+Verify dimensions with ffprobe rather than inferring them from a filename.
 
 The script writes `user://release_media/learned-app.metrics.json`, prints `LEARNED_RECORDING` with
 the measurements and exits unsuccessfully if the walking/standing gates fail. Raw AVI files are
 local intermediates; compressed public media and hashes are preserved in this repository.
+
+The earlier policy/actuator recording remains in Git history at `6470757`; its unchanged
+historical metrics remain in `docs/evidence/learned-app-recording.json`.
