@@ -50,12 +50,12 @@ func configure(snapshot_provider: Callable, policy_provider: Callable, editing_p
 
 
 func _ready() -> void:
+	visible = false
 	title = "ssok - AI motion lab"
 	size = Vector2i(720, 750)
 	min_size = Vector2i(560, 500)
 	transient = true
 	exclusive = true
-	visible = false
 	close_requested.connect(_close_panel)
 	client = MotionLabClient.new()
 	add_child(client)

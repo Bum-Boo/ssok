@@ -28,6 +28,7 @@ func _run_check() -> void:
 	await process_frame
 	_check_mouse_navigation()
 	_check_views_and_framing()
+	_check_reserved_framing()
 	_check_focus_and_modal_guards()
 	print("blender_camera_check: %s" % ("FAIL" if _failed else "PASS"))
 	quit(1 if _failed else 0)
@@ -129,6 +130,35 @@ func _check_focus_and_modal_guards() -> void:
 	_mouse_button(MOUSE_BUTTON_MIDDLE, false)
 	_key(KEY_KP_1)
 	_assert(_camera.global_basis.z.is_equal_approx(Vector3.BACK), "navigation must recover after modal editing")
+
+
+func _check_reserved_framing() -> void:
+	var bounds: AABB = AABB(Vector3(-0.07, 0.05, -0.15), Vector3(0.61, 0.17, 0.19))
+	for available: Rect2 in [Rect2(260, 158, 644, 490), Rect2(10, 60, 280, 600)]:
+		_navigation.framing_rect_provider = func() -> Rect2: return available
+		for keep: Camera3D.KeepAspect in [Camera3D.KEEP_WIDTH, Camera3D.KEEP_HEIGHT]:
+			_camera.keep_aspect = keep
+			for projection: Camera3D.ProjectionType in [Camera3D.PROJECTION_PERSPECTIVE, Camera3D.PROJECTION_ORTHOGONAL]:
+				_camera.projection = projection
+				for fov: float in [45.0, 95.0]:
+					_camera.fov = fov
+					_navigation.frame_bounds(bounds)
+					_assert(_navigation.pivot.is_equal_approx(bounds.get_center()), "UI framing preserves the orbit pivot")
+					_assert(_camera.unproject_position(bounds.get_center()).distance_to(available.get_center()) < 0.01, "frame center uses the unobscured area")
+					for corner: int in 8:
+						_assert(available.has_point(_camera.unproject_position(bounds.get_endpoint(corner))), "every framed corner stays outside reserved UI space")
+					var ray_origin: Vector3 = _camera.project_ray_origin(available.get_center())
+					var ray_direction: Vector3 = _camera.project_ray_normal(available.get_center())
+					var plane: Plane = Plane(_camera.global_basis.z, bounds.get_center())
+					var hit: Variant = plane.intersects_ray(ray_origin, ray_direction)
+					_assert(hit is Vector3 and hit.distance_to(bounds.get_center()) < 0.0001, "picking rays agree with the offset rendered view")
+	_navigation.framing_rect_provider = func() -> Rect2: return Rect2(2000, 2000, 10, 10)
+	_navigation.frame_bounds(bounds)
+	_assert(is_zero_approx(_camera.h_offset) and is_zero_approx(_camera.v_offset), "invalid reserved area falls back to the whole viewport")
+	_navigation.framing_rect_provider = Callable()
+	_camera.keep_aspect = Camera3D.KEEP_HEIGHT
+	_camera.fov = 75.0
+	_navigation.frame_bounds(bounds)
 
 
 func _assert_bounds_visible(bounds: AABB) -> void:

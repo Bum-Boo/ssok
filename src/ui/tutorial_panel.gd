@@ -87,12 +87,12 @@ var _scroll: ScrollContainer
 
 
 func _ready() -> void:
+	visible = false
 	title = "Tutorial"
 	size = Vector2i(700, 620)
 	min_size = Vector2i(480, 440)
 	transient = true
 	exclusive = true
-	visible = false
 	close_requested.connect(close_panel)
 	var background := Panel.new()
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

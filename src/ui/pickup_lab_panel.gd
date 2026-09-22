@@ -59,11 +59,11 @@ func configure(snapshot_provider: Callable, editing_provider: Callable, apply_po
 
 
 func _ready() -> void:
+	visible = false
 	title = "Pickup learning lab"
 	min_size = Vector2i(860, 500)
 	transient = true
 	exclusive = true
-	visible = false
 	close_requested.connect(_close_panel)
 	client = MotionLabClient.new()
 	add_child(client)

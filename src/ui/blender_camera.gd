@@ -16,6 +16,7 @@ var navigation_enabled: bool = true:
 			_stop_navigation()
 var bounds_provider: Callable
 var scene_bounds_provider: Callable
+var framing_rect_provider: Callable
 var pivot: Vector3 = Vector3(0.05, 0.09, 0.0)
 
 var _camera: Camera3D
@@ -24,6 +25,10 @@ var _pitch: float = 0.0
 var _distance: float = 0.3
 var _navigating: bool = false
 var _axis_view: bool = false
+var _framed_bounds: AABB
+var _has_framed_bounds: bool = false
+var _previous_viewport: Rect2
+var _previous_framing_rect: Rect2
 
 
 func _init(camera: Camera3D) -> void:
@@ -34,6 +39,9 @@ func _ready() -> void:
 	_camera.near = minf(_camera.near, 0.001)
 	sync_from_camera()
 	get_window().focus_exited.connect(_stop_navigation)
+	_previous_viewport = _camera.get_viewport().get_visible_rect()
+	_previous_framing_rect = _framing_rect()
+	get_viewport().size_changed.connect(func() -> void: _resize_view.call_deferred())
 
 
 func sync_from_camera() -> void:
@@ -60,16 +68,76 @@ func frame_bounds(bounds: AABB) -> void:
 	if not bounds.position.is_finite() or not bounds.size.is_finite():
 		return
 	pivot = bounds.get_center()
+	var viewport_rect: Rect2 = _camera.get_viewport().get_visible_rect()
+	var framing_rect: Rect2 = _framing_rect()
+	var fit: Vector2 = _fit_bounds(bounds, viewport_rect, framing_rect)
+	_distance = fit.x
+	_camera.size = fit.y
+	_framed_bounds = bounds
+	_has_framed_bounds = true
+	_previous_viewport = viewport_rect
+	_previous_framing_rect = framing_rect
+	_apply_view()
+
+
+func _fit_bounds(bounds: AABB, viewport_rect: Rect2, framing_rect: Rect2) -> Vector2:
+	if framing_rect != viewport_rect:
+		return _fit_in_rect(bounds, viewport_rect, framing_rect)
 	var radius: float = maxf(bounds.size.length() * 0.5, min_distance)
-	var aspect: float = _viewport_aspect()
+	var aspect: float = viewport_rect.size.x / maxf(viewport_rect.size.y, 1.0)
 	var tangent: float = tan(deg_to_rad(_camera.fov) * 0.5)
 	var narrow_tangent: float = tangent * minf(1.0, aspect)
 	if _camera.keep_aspect == Camera3D.KEEP_WIDTH:
 		narrow_tangent = tangent * minf(1.0, 1.0 / aspect)
-	_distance = clampf(radius * 1.2 / sin(atan(narrow_tangent)), min_distance, max_distance)
-	_camera.size = radius * 2.4 * maxf(1.0, 1.0 / aspect)
+	var distance: float = clampf(radius * 1.2 / sin(atan(narrow_tangent)), min_distance, max_distance)
+	var view_size: float = radius * 2.4 * maxf(1.0, 1.0 / aspect)
 	if _camera.keep_aspect == Camera3D.KEEP_WIDTH:
-		_camera.size = radius * 2.4 * maxf(1.0, aspect)
+		view_size = radius * 2.4 * maxf(1.0, aspect)
+	return Vector2(distance, view_size)
+
+
+func _fit_in_rect(bounds: AABB, viewport_rect: Rect2, framing_rect: Rect2) -> Vector2:
+	var target: Rect2 = framing_rect.grow_individual(-framing_rect.size.x * 0.08,
+		-framing_rect.size.y * 0.08, -framing_rect.size.x * 0.08, -framing_rect.size.y * 0.08)
+	var low: Vector2 = (target.position - viewport_rect.position) / viewport_rect.size * 2.0 - Vector2.ONE
+	var high: Vector2 = (target.end - viewport_rect.position) / viewport_rect.size * 2.0 - Vector2.ONE
+	var center: Vector2 = (framing_rect.get_center() - viewport_rect.position) / viewport_rect.size * 2.0 - Vector2.ONE
+	var bottom: float = -high.y
+	var top: float = -low.y
+	center.y = -center.y
+	var tangent: float = tan(deg_to_rad(_camera.fov) * 0.5)
+	var aspect: float = viewport_rect.size.x / maxf(viewport_rect.size.y, 1.0)
+	var tangents: Vector2 = Vector2(tangent * aspect, tangent)
+	if _camera.keep_aspect == Camera3D.KEEP_WIDTH:
+		tangents = Vector2(tangent, tangent / aspect)
+	var view_basis: Basis = Basis.from_euler(Vector3(-_pitch, _yaw, 0.0))
+	var required_distance: float = min_distance
+	var required_height: float = min_distance
+	for index: int in 8:
+		var local: Vector3 = view_basis.inverse() * (bounds.get_endpoint(index) - bounds.get_center())
+		# Solve the four projection edges, including depth and the off-centre view.
+		required_distance = maxf(required_distance, local.z + _camera.near * 2.0)
+		required_distance = maxf(required_distance, (-local.x - low.x * local.z * tangents.x) / ((center.x - low.x) * tangents.x))
+		required_distance = maxf(required_distance, (local.x + high.x * local.z * tangents.x) / ((high.x - center.x) * tangents.x))
+		required_distance = maxf(required_distance, (-local.y - bottom * local.z * tangents.y) / ((center.y - bottom) * tangents.y))
+		required_distance = maxf(required_distance, (local.y + top * local.z * tangents.y) / ((top - center.y) * tangents.y))
+		required_height = maxf(required_height, absf(local.x) * 2.0 * viewport_rect.size.x / (target.size.x * aspect))
+		required_height = maxf(required_height, absf(local.y) * 2.0 * viewport_rect.size.y / target.size.y)
+	return Vector2(clampf(required_distance, min_distance, max_distance),
+		required_height * (aspect if _camera.keep_aspect == Camera3D.KEEP_WIDTH else 1.0))
+
+
+func _resize_view() -> void:
+	var viewport_rect: Rect2 = _camera.get_viewport().get_visible_rect()
+	var framing_rect: Rect2 = _framing_rect()
+	if _has_framed_bounds:
+		var previous: Vector2 = _fit_bounds(_framed_bounds, _previous_viewport, _previous_framing_rect)
+		var current: Vector2 = _fit_bounds(_framed_bounds, viewport_rect, framing_rect)
+		# Keep the learner's pan, orbit and zoom relative to the available framing area.
+		_distance = clampf(_distance * current.x / previous.x, min_distance, max_distance)
+		_camera.size *= current.y / previous.y
+	_previous_viewport = viewport_rect
+	_previous_framing_rect = framing_rect
 	_apply_view()
 
 
@@ -198,6 +266,26 @@ func _toggle_projection() -> void:
 func _apply_view() -> void:
 	var basis: Basis = Basis.from_euler(Vector3(-_pitch, _yaw, 0.0))
 	_camera.global_transform = Transform3D(basis, pivot + basis.z * _distance)
+	var viewport_rect: Rect2 = _camera.get_viewport().get_visible_rect()
+	var offset: Vector2 = _framing_rect().get_center() - viewport_rect.get_center()
+	var height: float = _camera.size
+	if _camera.projection != Camera3D.PROJECTION_ORTHOGONAL:
+		height = 2.0 * _distance * tan(deg_to_rad(_camera.fov) * 0.5)
+	if _camera.keep_aspect == Camera3D.KEEP_WIDTH:
+		height /= _viewport_aspect()
+	_camera.h_offset = -offset.x * height / maxf(viewport_rect.size.y, 1.0)
+	_camera.v_offset = offset.y * height / maxf(viewport_rect.size.y, 1.0)
+
+
+func _framing_rect() -> Rect2:
+	var viewport_rect: Rect2 = _camera.get_viewport().get_visible_rect()
+	if framing_rect_provider.is_valid():
+		var result: Variant = framing_rect_provider.call()
+		if result is Rect2 and result.position.is_finite() and result.size.is_finite():
+			var clipped: Rect2 = viewport_rect.intersection(result)
+			if clipped.size.x >= 2.0 and clipped.size.y >= 2.0:
+				return clipped
+	return viewport_rect
 
 
 func _frame_from_provider(provider: Callable) -> void:

@@ -116,6 +116,7 @@ func _ready() -> void:
 	add_child(preload("res://src/ui/browser_evidence.gd").new())
 	_build_palette()
 	_build_help_hud()
+	navigation.framing_rect_provider = _camera_framing_rect
 	get_viewport().size_changed.connect(_adapt_layout)
 	_adapt_layout()
 	_refresh_control_ui()
@@ -390,6 +391,7 @@ func _build_ui() -> void:
 
 func _build_help_hud() -> void:
 	var tools_panel := PanelContainer.new()
+	tools_panel.name = "ViewportTools"
 	tools_panel.position = Vector2(260, 86)
 	_ui_root.add_child(tools_panel)
 	var tools := HBoxContainer.new()
@@ -591,6 +593,15 @@ func _adapt_layout() -> void:
 	examples_menu.visible = compact
 	for starter: Control in _starter_controls:
 		starter.visible = not compact
+
+
+func _camera_framing_rect() -> Rect2:
+	var library: Rect2 = (_ui_root.get_node("PartsLibrary") as Control).get_global_rect()
+	var program: Rect2 = _side_panel.get_global_rect()
+	var tools: Rect2 = (_ui_root.get_node("ViewportTools") as Control).get_global_rect()
+	var top_left: Vector2 = Vector2(library.end.x + 12.0, tools.end.y + 12.0)
+	var bottom_right: Vector2 = Vector2(program.position.x - 12.0, program.end.y - 12.0)
+	return Rect2(top_left, bottom_right - top_left)
 
 
 func _part_category(definition: PartDef) -> int:
