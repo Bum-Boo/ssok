@@ -1,13 +1,13 @@
 # Native recordings under the corrected motor budget
 
-> The learned movie records the preceding corrected-budget policy; the selected
-> [heading-feedback policy](../heading_feedback_2026-09-22/README.md) has separate evidence.
-> Pickup remains the current recorded pickup behavior. The original metrics and hashes below are retained.
+> The learned movie described here records the preceding corrected-budget policy and remains
+> in Git history at `d986f6a`. Current learned media have [new recording evidence](../heading_recording_2026-09-22/README.md).
+> Pickup remains the current recorded pickup behavior. All original metrics and hashes below are retained.
 
 Both movies use the unchanged application runtime from clean commit `6470757`, native Godot
 4.7.2 GL Compatibility, 60 Hz physics and 30 Hz movie capture. They play at normal speed.
 No policy, actuator limit, graph transform, collision or gravity setting is changed for capture.
-Pickup's existing capture lighting/camera only affect appearance. Current media are in `docs/media/`;
+Pickup's existing capture lighting/camera only affect appearance. This media set is preserved at commit `d986f6a`;
 the replaced old-model videos remain available in Git history at `6470757`.
 
 - **Learned:** frozen policy SHA `d0b91edcee2bf2729ac1392ee3bc19547c9a38d48b96d1a54ea965f614fcf46b`,

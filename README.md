@@ -59,17 +59,16 @@ does not count toward the measured hold.
 [1152 × 648 recording](docs/media/pickup.webm) · [Measurements](docs/evidence/corrected_recordings_2026-09-22/pickup.json) ·
 [Reproduce the capture](docs/media/PICKUP.md)
 
-## Watch a recorded learned walk
+## Watch learned forward walking
 
 ![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
 
-This recording uses the preceding corrected-budget policy at source `6470757`, under the
-**0.25 N·m** cap. Holding W for **12 seconds** moves the robot **41.8 cm** forward; releasing W
+The current selected feedback policy runs under the corrected **0.25 N·m** cap. In this
+recorded episode, holding W for **12 seconds** moves the robot **42.1 cm** forward; releasing W
 leaves it standing. The camera follows its horizontal travel while preserving the editing view.
-The newly selected heading policy is validated separately below; this movie does not depict it.
 
 [1152 × 648 recording](docs/media/learned-walk.mp4) · [Full-size still](docs/media/learned-walk.png) ·
-[Measurements](docs/evidence/corrected_recordings_2026-09-22/learned.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
+[Measurements](docs/evidence/heading_recording_2026-09-22/learned.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
 
 ## What you can explore
 

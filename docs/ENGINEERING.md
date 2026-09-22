@@ -103,9 +103,11 @@ fields truncate by one frame in both policies; the report records their effectiv
 The candidate's isolated browser export travels **41.59–43.16 cm forward**, with at most
 **3.02 cm lateral drift**, over exactly 720 physics intervals. A query-enabled observer reads actual
 state without owning commands or modifying simulation; paired native runs verify identical outcomes
-with the observer enabled and disabled. Playwright supplies actual keyboard input. The previous
-41.8 cm native demonstration uses the preceding policy and is labeled accordingly. New integrated
-clean-build verification and current-policy media remain separate work after adoption.
+with the observer enabled and disabled. Playwright supplies actual keyboard input. The current
+[native recording](evidence/heading_recording_2026-09-22/README.md) uses the committed candidate
+and measures 42.1 cm forward, followed by an upright stop. Its first framing attempt clipped the
+footer; a window-size request corrected the view while every physical metric remained identical.
+New integrated clean-build verification remains a separate gate after adoption.
 
 ## Preserving learner work and verifying the exported app
 

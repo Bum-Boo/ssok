@@ -126,6 +126,6 @@ run and are not required by the portable command above.
 
 [The manifest](manifest.json) records all source jobs, file identities and retained artifact hashes.
 Each managed job completed with exit 0, was fetched and reviewed, and released its resources.
-The previous policy and all of its failures remain preserved. Clean integrated CI/export verification,
-current-policy media and final public delivery remain separate gates after this integration.
+The previous policy and all of its failures remain preserved. The [current-policy recording](../heading_recording_2026-09-22/README.md) now depicts committed
+source `d986f6a`. Clean integrated CI/export verification and final public delivery remain separate gates.
 No UI wording or locale files change: the existing forward-only scope remains explicit.
