@@ -18,7 +18,7 @@ const PHASES: Array[String] = ["ready", "settling", "reaching", "lifting", "hold
 static func defaults() -> Dictionary:
 	return {
 		"crouch_height": 0.20, "torso_lean_deg": 25.0,
-		"reach_seconds": 2.0, "lift_seconds": 2.5,
+		"reach_seconds": 2.0, "lift_seconds": 4.0,
 		"hand_height_offset": 0.075, "hold_shoulder_deg": -35.0,
 		"hold_elbow_deg": -60.0,
 	}

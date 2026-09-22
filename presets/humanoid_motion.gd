@@ -28,7 +28,7 @@ var grasped: bool = false
 var pickup_state: String = "idle"
 var pickup_policy: Dictionary = {
 	"crouch_height": 0.20, "torso_lean_deg": 25.0, "reach_seconds": 2.0,
-	"lift_seconds": 2.5, "hand_height_offset": 0.075,
+	"lift_seconds": 4.0, "hand_height_offset": 0.075,
 	"hold_shoulder_deg": -35.0, "hold_elbow_deg": -60.0,
 }
 var _pickup_time: float = 0.0

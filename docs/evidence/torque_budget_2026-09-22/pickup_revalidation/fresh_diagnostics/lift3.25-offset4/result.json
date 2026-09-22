@@ -1,0 +1,3956 @@
+{
+	"case": {
+		"id": "lift3.25-offset4",
+		"lift_seconds": 3.25,
+		"output": "/home/hojun/.local/share/agent-remote/jobs/20260922-115706-ssok-bounded-pickup-diagnostic-e1c0161a/work/project/out/lift3.25-offset4/result.json",
+		"reverse_links": true,
+		"x": 0.005,
+		"z": 0.01
+	},
+	"metrics": {
+		"cancelled": false,
+		"contact_before_grasp": true,
+		"engine_version": "4.7.2",
+		"fallen": false,
+		"finite": true,
+		"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+		"grasped": true,
+		"hold_seconds": 1.0,
+		"left_contact": false,
+		"lift_m": 0.476193964481354,
+		"max_lift_m": 0.47680002450943,
+		"min_upright": 0.994185030460358,
+		"phase": "succeeded",
+		"physics_hz": 60,
+		"right_contact": false,
+		"score": 177.619396448135,
+		"simulation_seconds": 9.45,
+		"success": true,
+		"upright": 0.99759316444397
+	},
+	"policy": {
+		"crouch_height": 0.2,
+		"hand_height_offset": 0.075,
+		"hold_elbow_deg": -60.0,
+		"hold_shoulder_deg": -35.0,
+		"lift_seconds": 3.25,
+		"reach_seconds": 2.0,
+		"torso_lean_deg": 25.0
+	},
+	"trace": [
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -22.6311144354116,
+					"measured": 0.0,
+					"target": -22.6311144354116
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": 0.0,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": 0.0,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 0.0,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": 0.0,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -22.6311144354116,
+					"measured": 0.0,
+					"target": -22.6311144354116
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": 0.0,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": 0.0,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 0.0,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.0,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00499999988824129,
+				0.147277787327766,
+				0.269999980926514
+			],
+			"frame": 0,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.0,
+				"max_lift_m": 0.0,
+				"min_upright": 1.0,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 0.0,
+				"success": false,
+				"upright": 1.0
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				-0.0000304287004837533,
+				-0.000164981873240322,
+				0.00000750459275877802
+			],
+			"torso_position": [
+				-0.00999989453703165,
+				0.75127774477005,
+				-0.0559999570250511
+			],
+			"torso_up": [
+				-0.000000125075160894994,
+				1.0,
+				-0.000000507144989114749
+			],
+			"torso_velocity": [
+				-0.00000112512543637422,
+				-0.163334906101227,
+				0.00000539299253432546
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -14.4374894293133,
+					"measured": -12.7938365088942,
+					"target": -15.9084447479476
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -11.460795318772,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -13.7219772548289,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 27.1832940003626,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.055010543678481,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -14.4374894293133,
+					"measured": -12.558406718393,
+					"target": -15.9084447479476
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.4757175745612,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -13.729014910995,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 27.0200046678751,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.012692060620464,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00499854004010558,
+				0.148998945951462,
+				0.269994556903839
+			],
+			"frame": 15,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.00100106000900269,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 0.25,
+				"success": false,
+				"upright": 0.999956369400024
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				-0.0304280295968056,
+				-0.00646147644147277,
+				0.0092325247824192
+			],
+			"torso_position": [
+				-0.0107473526149988,
+				0.739952027797699,
+				-0.0511989071965218
+			],
+			"torso_up": [
+				-0.00238120229914784,
+				0.999960482120514,
+				0.00856633856892586
+			],
+			"torso_velocity": [
+				-0.00516264699399471,
+				-0.06416916847229,
+				-0.0420461781322956
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -13.8498257614542,
+					"measured": -13.478451982614,
+					"target": -15.2527353898514
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -11.970423907277,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3351737092661,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6234496321436,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": 0.0929015717179755,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -13.8498257614542,
+					"measured": -13.2817476571595,
+					"target": -15.2527353898514
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9797112570009,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3412115964924,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.5120014354565,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.0165616929555535,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00500044645741582,
+				0.149000659584999,
+				0.269997864961624
+			],
+			"frame": 30,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.00100032985210419,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 0.5,
+				"success": false,
+				"upright": 0.999921083450317
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				-0.025261091068387,
+				-0.00112807168625295,
+				0.0105822626501322
+			],
+			"torso_position": [
+				-0.00995177589356899,
+				0.739339113235474,
+				-0.0477551408112049
+			],
+			"torso_up": [
+				-0.00105535762850195,
+				0.999926090240479,
+				0.0121144270524383
+			],
+			"torso_velocity": [
+				0.000773997628130019,
+				-0.0361233688890934,
+				-0.0457207895815372
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -12.3446879580377,
+					"measured": -13.5906053963329,
+					"target": -13.7352075539114
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -11.9856304696904,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3501864650618,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.7131727046281,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": 0.0336275459193252,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -12.3446879580377,
+					"measured": -13.4119080108515,
+					"target": -13.7352075539114
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9964964468862,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.362178569697,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.5962040075444,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.00894958219523316,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00500001199543476,
+				0.14900067448616,
+				0.269997954368591
+			],
+			"frame": 45,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000999420881271362,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 0.75,
+				"success": false,
+				"upright": 0.99991238117218
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				-0.0164091438055038,
+				-0.000501969130709767,
+				-0.000531100435182452
+			],
+			"torso_position": [
+				-0.0112401572987437,
+				0.739683926105499,
+				-0.0470078811049461
+			],
+			"torso_up": [
+				-0.00310207693837583,
+				0.999915897846222,
+				0.0125936446711421
+			],
+			"torso_velocity": [
+				0.00551543943583965,
+				-0.00454502878710628,
+				-0.0227514617145061
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -11.0557405482064,
+					"measured": -13.8455259854043,
+					"target": -12.4321135042959
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0007823905904,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3539891728822,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.7204775919455,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.0621921674256321,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -11.0557405482064,
+					"measured": -13.6324061540534,
+					"target": -12.4321135042959
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9975858620588,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3645264472242,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6219179622222,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.016822042224334,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00500080967321992,
+				0.149003639817238,
+				0.270002603530884
+			],
+			"frame": 60,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.00099654495716095,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 1.0,
+				"success": false,
+				"upright": 0.999916255474091
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.00116887385956943,
+				0.00990224257111549,
+				-0.0000972035632003099
+			],
+			"torso_position": [
+				-0.00977308582514524,
+				0.739912629127502,
+				-0.0464921295642853
+			],
+			"torso_up": [
+				-0.000979386735707521,
+				0.999916017055511,
+				0.0129252225160599
+			],
+			"torso_velocity": [
+				-0.00480169290676713,
+				0.0147009193897247,
+				0.0000331440242007375
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -9.46042249652809,
+					"measured": -14.4541214536619,
+					"target": -10.3836928039864
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0102592780638,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3552220220274,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.7814199548149,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.0411622417547876,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -9.46042249652809,
+					"measured": -14.3614460319085,
+					"target": -10.3836928039864
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -12.0031225841548,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.363766588679,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.677631815282,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.00754874975009255,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00500290840864182,
+				0.149004146456718,
+				0.270002394914627
+			],
+			"frame": 75,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000995412468910217,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 1.25,
+				"success": false,
+				"upright": 0.999921917915344
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.0404610894620419,
+				0.00474515836685896,
+				-0.0154412649571896
+			],
+			"torso_position": [
+				-0.011060924269259,
+				0.739347338676453,
+				-0.0465961396694183
+			],
+			"torso_up": [
+				-0.00202896748669446,
+				0.999913990497589,
+				0.0129610123112798
+			],
+			"torso_velocity": [
+				0.00710882060229778,
+				0.0290050208568573,
+				0.0389269590377808
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -9.61991813250921,
+					"measured": -14.7964027235387,
+					"target": -9.70504439163284
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0084774524641,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3662783907463,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.7816999925709,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.00239028752411261,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -9.61991813250921,
+					"measured": -14.9967287568006,
+					"target": -9.70504439163284
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -12.0029321926317,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3641149283267,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.7633677648386,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": -0.0192361305648033,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00500245904549956,
+				0.14900615811348,
+				0.270006418228149
+			],
+			"frame": 90,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000993654131889343,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 1.5,
+				"success": false,
+				"upright": 0.99992436170578
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.0665041357278824,
+				0.00584680261090398,
+				0.0277165342122316
+			],
+			"torso_position": [
+				-0.0114670023322105,
+				0.738935768604279,
+				-0.0466790199279785
+			],
+			"torso_up": [
+				-0.00306105287745595,
+				0.999909102916718,
+				0.0131332473829389
+			],
+			"torso_velocity": [
+				-0.0238995663821697,
+				0.0421082712709904,
+				0.0523210428655148
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -10.9276938072252,
+					"measured": -14.7441671443137,
+					"target": -9.42667503042953
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0065957353477,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3537535313558,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8380388079397,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.0399652977934892,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -10.9276938072252,
+					"measured": -14.932656459744,
+					"target": -9.42667503042953
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -12.0007175037933,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3624329942436,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8668178100076,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": -0.0179041369549451,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.0050005610100925,
+				0.14900478720665,
+				0.270005017518997
+			],
+			"frame": 105,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000994667410850525,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 1.75,
+				"success": false,
+				"upright": 0.999947428703308
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.130609899759293,
+				-0.0182307846844196,
+				-0.0151271522045135
+			],
+			"torso_position": [
+				-0.0108789904043078,
+				0.738474607467651,
+				-0.0474146082997322
+			],
+			"torso_up": [
+				-0.00230035511776805,
+				0.999924063682556,
+				0.0121085289865732
+			],
+			"torso_velocity": [
+				0.012958001345396,
+				0.0218038447201252,
+				0.0705183893442154
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -12.299691066656,
+					"measured": -15.2181583670505,
+					"target": -10.5101321453237
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0106144479006,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3390156906742,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8853276226583,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.019058267169432,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -12.299691066656,
+					"measured": -15.1751452507524,
+					"target": -10.5101321453237
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9985864847722,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3628462206884,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8824999243419,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": -0.0041023473521792,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00499689625576138,
+				0.149004831910133,
+				0.269998967647552
+			],
+			"frame": 120,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000995025038719177,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 2.0,
+				"success": false,
+				"upright": 0.999967217445374
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.128580749034882,
+				0.0427157543599606,
+				-0.024001631885767
+			],
+			"torso_position": [
+				-0.00968310702592134,
+				0.738245785236359,
+				-0.0485969409346581
+			],
+			"torso_up": [
+				0.0000774427389842458,
+				0.999947667121887,
+				0.0102345934137702
+			],
+			"torso_velocity": [
+				-0.00232230313122272,
+				0.0141968484967947,
+				0.0833302736282349
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -14.4372907295053,
+					"measured": -16.0795715798888,
+					"target": -12.7489733330183
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0036587540046,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3415326153834,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8412660723226,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.162460318276985,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -14.4372907295053,
+					"measured": -15.9466390231674,
+					"target": -12.7489733330183
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9999738669474,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3651053057564,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8825135847203,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.0160666593207063,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00499745272099972,
+				0.149008348584175,
+				0.270007997751236
+			],
+			"frame": 135,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000992432236671448,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 2.25,
+				"success": false,
+				"upright": 0.999973297119141
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.0497683137655258,
+				-0.0574108995497227,
+				-0.0554647408425808
+			],
+			"torso_position": [
+				-0.0107547231018543,
+				0.738118469715118,
+				-0.0507893785834312
+			],
+			"torso_up": [
+				-0.00171950436197221,
+				0.999969363212585,
+				0.00763994222506881
+			],
+			"torso_velocity": [
+				-0.00701366411522031,
+				-0.00635811127722263,
+				0.0660889521241188
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -15.9584220638617,
+					"measured": -16.4462110118932,
+					"target": -14.4988955780356
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.011364061162,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3478966441425,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8157689761509,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": -0.0520426597314452,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -15.9584220638617,
+					"measured": -16.4310565296722,
+					"target": -14.4988955780356
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9983832866444,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.364367645326,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8795424524313,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.0251479877942,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.00500348536297679,
+				0.149009555578232,
+				0.270008623600006
+			],
+			"frame": 150,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000990554690361023,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 2.5,
+				"success": false,
+				"upright": 0.999978840351105
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.0216804556548595,
+				0.0125127816572785,
+				-0.0317173078656197
+			],
+			"torso_position": [
+				-0.0100299213081598,
+				0.738163590431213,
+				-0.0523360259830952
+			],
+			"torso_up": [
+				-0.00148722250014544,
+				0.999977469444275,
+				0.00655230553820729
+			],
+			"torso_velocity": [
+				0.0076815215870738,
+				-0.00969158671796322,
+				0.041857123374939
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -17.208426765942,
+					"measured": -16.2946354538323,
+					"target": -15.8229407500144
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -12.0095847968832,
+					"target": -12.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3447615873135,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8190850329929,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": 0.0219417275770881,
+					"target": 0.0
+				},
+				"right_ankle": {
+					"command": -17.208426765942,
+					"measured": -16.1997094847474,
+					"target": -15.8229407500144
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9990005649907,
+					"target": -12.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3637221924494,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8771928673568,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.0237850298819252,
+					"target": 0.0
+				}
+			},
+			"box_position": [
+				0.0050021568313241,
+				0.149005815386772,
+				0.270013868808746
+			],
+			"frame": 165,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000993669033050537,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "settling",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 2.75,
+				"success": false,
+				"upright": 0.999981760978699
+			},
+			"phase": "idle",
+			"phase_time": 0.0,
+			"torso_angular_velocity": [
+				0.0065848445519805,
+				0.00300938752479851,
+				-0.0321883149445057
+			],
+			"torso_position": [
+				-0.00969471223652363,
+				0.737884223461151,
+				-0.052919402718544
+			],
+			"torso_up": [
+				-0.00193152809515595,
+				0.999982297420502,
+				0.00562574435025454
+			],
+			"torso_velocity": [
+				0.0418346896767616,
+				0.00205560307949781,
+				0.0194980371743441
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -18.3282546578434,
+					"measured": -16.217862420014,
+					"target": -17.0957308965859
+				},
+				"left_elbow": {
+					"command": -12.0,
+					"measured": -11.9885768425436,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3437917004513,
+					"target": -14.3930880308301
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.8122104475933,
+					"target": 28.7758172653638
+				},
+				"left_shoulder": {
+					"command": 0.0,
+					"measured": 0.0546989729935054,
+					"target": -16.639626617759
+				},
+				"right_ankle": {
+					"command": -18.3282546578434,
+					"measured": -16.2060974191687,
+					"target": -17.0957308965859
+				},
+				"right_elbow": {
+					"command": -12.0,
+					"measured": -11.9984063385329,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3639168528408,
+					"target": -14.3930880308301
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.7732271429055,
+					"target": 28.7758172653638
+				},
+				"right_shoulder": {
+					"command": 0.0,
+					"measured": 0.0195916922704074,
+					"target": -16.639626617759
+				}
+			},
+			"box_position": [
+				0.00500214565545321,
+				0.149004876613617,
+				0.270008862018585
+			],
+			"frame": 180,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000994771718978882,
+				"max_lift_m": 0.0,
+				"min_upright": 0.999813079833984,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 3.0,
+				"success": false,
+				"upright": 0.999975144863129
+			},
+			"phase": "reaching",
+			"phase_time": 0.0166666666666667,
+			"torso_angular_velocity": [
+				0.00345124839805067,
+				0.0348492376506329,
+				-0.0154224131256342
+			],
+			"torso_position": [
+				-0.0119245667010546,
+				0.73839658498764,
+				-0.0530479215085506
+			],
+			"torso_up": [
+				-0.00337549368850887,
+				0.999975740909576,
+				0.00610732985660434
+			],
+			"torso_velocity": [
+				-0.00336597254499793,
+				0.0167311485856771,
+				0.00129390112124383
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -21.1007542914018,
+					"measured": -16.0617140503038,
+					"target": -21.5573282440476
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -1.37823238971367,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -20.1604236013679,
+					"measured": -17.5702091398253,
+					"target": -20.837794084261
+				},
+				"left_knee": {
+					"command": 38.1724097027359,
+					"measured": 33.9766496677288,
+					"target": 39.2459585388924
+				},
+				"left_shoulder": {
+					"command": -17.0926120314536,
+					"measured": -15.5982925453076,
+					"target": -17.1771966008923
+				},
+				"right_ankle": {
+					"command": -21.1007542914018,
+					"measured": -15.817080579896,
+					"target": -21.5573282440476
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -1.37124916161756,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -20.1604236013679,
+					"measured": -17.579419649921,
+					"target": -20.837794084261
+				},
+				"right_knee": {
+					"command": 38.1724097027359,
+					"measured": 33.8541331494917,
+					"target": 39.2459585388924
+				},
+				"right_shoulder": {
+					"command": -17.0926162632252,
+					"measured": -15.574255402071,
+					"target": -17.1771985262113
+				}
+			},
+			"box_position": [
+				0.00500680599361658,
+				0.149007216095924,
+				0.270007282495499
+			],
+			"frame": 195,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.00000153481960296631,
+				"max_lift_m": 0.00000153481960296631,
+				"min_upright": 0.999813079833984,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0000551342964172363,
+				"simulation_seconds": 3.25,
+				"success": false,
+				"upright": 0.999968409538269
+			},
+			"phase": "reaching",
+			"phase_time": 0.266666666666667,
+			"torso_angular_velocity": [
+				-0.0848585292696953,
+				-0.0155858546495438,
+				0.0190101321786642
+			],
+			"torso_position": [
+				-0.0114920996129513,
+				0.729720771312714,
+				-0.0672588720917702
+			],
+			"torso_up": [
+				-0.00288042752072215,
+				0.999955892562866,
+				-0.00894149485975504
+			],
+			"torso_velocity": [
+				0.000660677498672158,
+				-0.0588217601180077,
+				-0.0860123783349991
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -29.2111897457062,
+					"measured": -23.1534106730688,
+					"target": -29.2016745190036
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.797229338238261,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -31.9624129768433,
+					"measured": -27.8474615952547,
+					"target": -32.8302923965299
+				},
+				"left_knee": {
+					"command": 56.1123259536865,
+					"measured": 50.0713313336089,
+					"target": 57.3741843300968
+				},
+				"left_shoulder": {
+					"command": -19.1848066275358,
+					"measured": -18.180621438402,
+					"target": -19.3631127525349
+				},
+				"right_ankle": {
+					"command": -29.2111897457062,
+					"measured": -22.7013699707772,
+					"target": -29.2016745190036
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.770026188877982,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -31.9624129768433,
+					"measured": -27.8837350223893,
+					"target": -32.8302923965299
+				},
+				"right_knee": {
+					"command": 56.1123259536865,
+					"measured": 49.9809713459842,
+					"target": 57.3741843300968
+				},
+				"right_shoulder": {
+					"command": -19.1848042863239,
+					"measured": -18.1729818718154,
+					"target": -19.3631084264632
+				}
+			},
+			"box_position": [
+				0.00500439805909991,
+				0.149007543921471,
+				0.270004570484161
+			],
+			"frame": 210,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.00000181794166564941,
+				"max_lift_m": 0.00000302493572235107,
+				"min_upright": 0.999813079833984,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.000169873237609863,
+				"simulation_seconds": 3.5,
+				"success": false,
+				"upright": 0.999983012676239
+			},
+			"phase": "reaching",
+			"phase_time": 0.516666666666667,
+			"torso_angular_velocity": [
+				0.0278637073934078,
+				0.0201525911688805,
+				0.0514556728303432
+			],
+			"torso_position": [
+				-0.01142243668437,
+				0.704735040664673,
+				-0.0760236829519272
+			],
+			"torso_up": [
+				-0.00319986185058951,
+				0.999978065490723,
+				0.00580431334674358
+			],
+			"torso_velocity": [
+				-0.000215613938053139,
+				-0.121551491320133,
+				-0.0700414478778839
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -36.4814286685232,
+					"measured": -30.7266236794887,
+					"target": -35.6554896204779
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.774405193909606,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -45.3429001014415,
+					"measured": -40.8374517456015,
+					"target": -46.2454402564259
+				},
+				"left_knee": {
+					"command": 74.8654877028829,
+					"measured": 68.8289978889449,
+					"target": 76.0820842165555
+				},
+				"left_shoulder": {
+					"command": -22.5991919352717,
+					"measured": -21.2614021691984,
+					"target": -22.8554887529771
+				},
+				"right_ankle": {
+					"command": -36.4814286685232,
+					"measured": -30.6176958226053,
+					"target": -35.6554896204779
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.75060214473467,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -45.3429001014415,
+					"measured": -40.8746592011052,
+					"target": -46.2454402564259
+				},
+				"right_knee": {
+					"command": 74.8654877028829,
+					"measured": 68.7921148674268,
+					"target": 76.0820842165555
+				},
+				"right_shoulder": {
+					"command": -22.5991868318556,
+					"measured": -21.2552618291345,
+					"target": -22.8554887529771
+				}
+			},
+			"box_position": [
+				0.00500450422987342,
+				0.149006649851799,
+				0.270011126995087
+			],
+			"frame": 225,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.000000581145286560059,
+				"max_lift_m": 0.00000427663326263428,
+				"min_upright": 0.999427318572998,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.000411272048950195,
+				"simulation_seconds": 3.75,
+				"success": false,
+				"upright": 0.999427318572998
+			},
+			"phase": "reaching",
+			"phase_time": 0.766666666666667,
+			"torso_angular_velocity": [
+				0.131407305598259,
+				0.0443280600011349,
+				-0.000970390508882701
+			],
+			"torso_position": [
+				-0.0105977449566126,
+				0.665146112442017,
+				-0.0826226770877838
+			],
+			"torso_up": [
+				-0.00310067902319133,
+				0.99935120344162,
+				0.0358824729919434
+			],
+			"torso_velocity": [
+				-0.00150245020631701,
+				-0.170545965433121,
+				-0.038657009601593
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -41.8510251445899,
+					"measured": -37.8422635303892,
+					"target": -40.4427538057082
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.785249666681735,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -58.6551188598648,
+					"measured": -54.2224231979138,
+					"target": -59.5132915796749
+				},
+				"left_knee": {
+					"command": 92.3102377197295,
+					"measured": 86.8782918650805,
+					"target": 93.40164102972
+				},
+				"left_shoulder": {
+					"command": -26.8525437481386,
+					"measured": -25.2956704779393,
+					"target": -27.1456930735481
+				},
+				"right_ankle": {
+					"command": -41.8510251445899,
+					"measured": -37.2442155817575,
+					"target": -40.4427538057082
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.753357112208565,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -58.6551188598648,
+					"measured": -54.295209108804,
+					"target": -59.5132915796749
+				},
+				"right_knee": {
+					"command": 92.3102377197295,
+					"measured": 86.9472357945626,
+					"target": 93.40164102972
+				},
+				"right_shoulder": {
+					"command": -26.8525428363728,
+					"measured": -25.2197819536186,
+					"target": -27.1456914899755
+				}
+			},
+			"box_position": [
+				0.00500219035893679,
+				0.149004876613617,
+				0.270004659891129
+			],
+			"frame": 240,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": -0.000000149011611938477,
+				"max_lift_m": 0.00000427663326263428,
+				"min_upright": 0.997419416904449,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.0,
+				"simulation_seconds": 4.0,
+				"success": false,
+				"upright": 0.997419416904449
+			},
+			"phase": "reaching",
+			"phase_time": 1.01666666666667,
+			"torso_angular_velocity": [
+				0.153088554739952,
+				-0.0653284415602684,
+				-0.0651294887065887
+			],
+			"torso_position": [
+				-0.0113314911723137,
+				0.616248667240143,
+				-0.085030272603035
+			],
+			"torso_up": [
+				-0.0049115470610559,
+				0.997239530086517,
+				0.0740900039672852
+			],
+			"torso_velocity": [
+				0.00369945797137916,
+				-0.202997118234634,
+				-0.0033128650393337
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -56.8275630456641,
+					"measured": -48.021024657987,
+					"target": -55.1715195366969
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.928799218859364,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -70.8370277013353,
+					"measured": -66.7477367960045,
+					"target": -71.5849234304591
+				},
+				"left_knee": {
+					"command": 107.494367902671,
+					"measured": 102.963537624622,
+					"target": 108.406883897955
+				},
+				"left_shoulder": {
+					"command": -31.6426672935758,
+					"measured": -30.068657896363,
+					"target": -32.006357994278
+				},
+				"right_ankle": {
+					"command": -56.8275630456641,
+					"measured": -48.3113589241313,
+					"target": -55.1715195366969
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.975614082482572,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -70.8370277013353,
+					"measured": -66.8437487651673,
+					"target": -71.5849234304591
+				},
+				"right_knee": {
+					"command": 107.494367902671,
+					"measured": 103.072465481506,
+					"target": 108.406883897955
+				},
+				"right_shoulder": {
+					"command": -31.6426697777644,
+					"measured": -30.0353026675513,
+					"target": -32.0063598904266
+				}
+			},
+			"box_position": [
+				0.00514672324061394,
+				0.149605244398117,
+				0.272359818220139
+			],
+			"frame": 255,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.00056101381778717,
+				"max_lift_m": 0.00056101381778717,
+				"min_upright": 0.995185554027557,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.026819109916687,
+				"simulation_seconds": 4.25,
+				"success": false,
+				"upright": 0.996325671672821
+			},
+			"phase": "reaching",
+			"phase_time": 1.26666666666667,
+			"torso_angular_velocity": [
+				0.0822273343801498,
+				-0.0163072366267443,
+				0.0930273309350014
+			],
+			"torso_position": [
+				-0.0132368681952357,
+				0.569697499275208,
+				-0.103401534259319
+			],
+			"torso_up": [
+				-0.00732163805514574,
+				0.996197521686554,
+				0.0868154540657997
+			],
+			"torso_velocity": [
+				-0.0252298507839441,
+				-0.162574172019958,
+				-0.0913378447294235
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -63.3206462350837,
+					"measured": -58.542582734744,
+					"target": -63.4188786739282
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.908584953845594,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -80.8997334095209,
+					"measured": -77.5672823658708,
+					"target": -81.4701399822371
+				},
+				"left_knee": {
+					"command": 119.611966819042,
+					"measured": 116.213797255934,
+					"target": 120.289296168178
+				},
+				"left_shoulder": {
+					"command": -36.1671160580984,
+					"measured": -34.9883919291044,
+					"target": -36.4329251489867
+				},
+				"right_ankle": {
+					"command": -63.3206462350837,
+					"measured": -58.7743378834717,
+					"target": -63.4188786739282
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.938237259631852,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -80.8997334095209,
+					"measured": -77.6878352047215,
+					"target": -81.4701399822371
+				},
+				"right_knee": {
+					"command": 119.611966819042,
+					"measured": 116.400520967464,
+					"target": 120.289296168178
+				},
+				"right_shoulder": {
+					"command": -36.1671182166803,
+					"measured": -34.9265513963591,
+					"target": -36.4329254019437
+				}
+			},
+			"box_position": [
+				0.00516730593517423,
+				0.151967748999596,
+				0.27250611782074
+			],
+			"frame": 270,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.00277496874332428,
+				"max_lift_m": 0.00277496874332428,
+				"min_upright": 0.995185554027557,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.221145153045654,
+				"simulation_seconds": 4.5,
+				"success": false,
+				"upright": 0.997247219085693
+			},
+			"phase": "reaching",
+			"phase_time": 1.51666666666667,
+			"torso_angular_velocity": [
+				-0.054839164018631,
+				-0.0158186182379723,
+				-0.0193070266395807
+			],
+			"torso_position": [
+				-0.0111492108553648,
+				0.524113595485687,
+				-0.12705685198307
+			],
+			"torso_up": [
+				-0.00420869141817093,
+				0.997315883636475,
+				0.0730986744165421
+			],
+			"torso_velocity": [
+				0.0242945700883865,
+				-0.169853329658508,
+				-0.0750244483351707
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -70.6659214698784,
+					"measured": -66.3434988801664,
+					"target": -73.3349570260078
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.754842518270485,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -87.7970779179871,
+					"measured": -85.7064704601273,
+					"target": -88.1168443728533
+				},
+				"left_knee": {
+					"command": 127.742593335974,
+					"measured": 125.594857175272,
+					"target": 128.116559116077
+				},
+				"left_shoulder": {
+					"command": -39.266397532592,
+					"measured": -38.3069622807602,
+					"target": -39.470152272993
+				},
+				"right_ankle": {
+					"command": -70.6659214698784,
+					"measured": -65.543724709493,
+					"target": -73.3349570260078
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.774889016762766,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -87.7970779179871,
+					"measured": -85.7512286897584,
+					"target": -88.1168443728533
+				},
+				"right_knee": {
+					"command": 127.742593335974,
+					"measured": 125.90676459391,
+					"target": 128.116559116077
+				},
+				"right_shoulder": {
+					"command": -39.266397532592,
+					"measured": -38.3495348498569,
+					"target": -39.4701617282893
+				}
+			},
+			"box_position": [
+				0.00537726562470198,
+				0.14955161511898,
+				0.272565126419067
+			],
+			"frame": 285,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": true,
+				"lift_m": 0.000552311539649963,
+				"max_lift_m": 0.00296251475811005,
+				"min_upright": 0.995185554027557,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": true,
+				"score": 0.178048014640808,
+				"simulation_seconds": 4.75,
+				"success": false,
+				"upright": 0.998409807682037
+			},
+			"phase": "reaching",
+			"phase_time": 1.76666666666667,
+			"torso_angular_velocity": [
+				-0.259963661432266,
+				-0.063423752784729,
+				0.0905478596687317
+			],
+			"torso_position": [
+				-0.00899901334196329,
+				0.487746626138687,
+				-0.146426022052765
+			],
+			"torso_up": [
+				-0.004025774076581,
+				0.998639523983002,
+				0.0519893057644367
+			],
+			"torso_velocity": [
+				-0.0174426063895226,
+				-0.138106480240822,
+				-0.147531434893608
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -74.3804629026367,
+					"measured": -74.6976944993058,
+					"target": -73.2365874994851
+				},
+				"left_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.746034295644666,
+					"target": -0.757317988069235
+				},
+				"left_hip": {
+					"command": -90.3756816478359,
+					"measured": -89.780644149094,
+					"target": -90.3756816478359
+				},
+				"left_knee": {
+					"command": 130.751363295672,
+					"measured": 130.659346822188,
+					"target": 130.751363295672
+				},
+				"left_shoulder": {
+					"command": -41.0512209269549,
+					"measured": -40.6210781828847,
+					"target": -41.1285858607271
+				},
+				"right_ankle": {
+					"command": -74.3804629026367,
+					"measured": -74.3537466632715,
+					"target": -73.2365874994851
+				},
+				"right_elbow": {
+					"command": -0.757317988069235,
+					"measured": -0.741456414714317,
+					"target": -0.757317988069235
+				},
+				"right_hip": {
+					"command": -90.3756816478359,
+					"measured": -89.8933286100209,
+					"target": -90.3756816478359
+				},
+				"right_knee": {
+					"command": 130.751363295672,
+					"measured": 130.580499118409,
+					"target": 130.751363295672
+				},
+				"right_shoulder": {
+					"command": -41.0512208069756,
+					"measured": -40.6929181125749,
+					"target": -41.1285835902143
+				}
+			},
+			"box_position": [
+				0.00470009678974748,
+				0.149160444736481,
+				0.271719992160797
+			],
+			"frame": 300,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": false,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": false,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.0000162571668624878,
+				"max_lift_m": 0.00296251475811005,
+				"min_upright": 0.995185554027557,
+				"phase": "reaching",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 0.00162571668624878,
+				"simulation_seconds": 5.0,
+				"success": false,
+				"upright": 0.999879121780396
+			},
+			"phase": "reaching",
+			"phase_time": 2.01666666666666,
+			"torso_angular_velocity": [
+				-0.0751373097300529,
+				-0.0104007916525006,
+				0.029561024159193
+			],
+			"torso_position": [
+				-0.0112538663670421,
+				0.465099006891251,
+				-0.170486330986023
+			],
+			"torso_up": [
+				-0.0069624986499548,
+				0.999892771244049,
+				0.0128892445936799
+			],
+			"torso_velocity": [
+				0.0000915339624043554,
+				-0.0426000729203224,
+				0.00300921779125929
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -64.1980555437693,
+					"measured": -64.1643953273656,
+					"target": -64.5717902506837
+				},
+				"left_elbow": {
+					"command": -0.837974322882114,
+					"measured": -0.769044135741381,
+					"target": -0.87007976049004
+				},
+				"left_hip": {
+					"command": -90.3336557086623,
+					"measured": -90.3104346022552,
+					"target": -90.3012236678162
+				},
+				"left_knee": {
+					"command": 130.702450242996,
+					"measured": 131.117871081549,
+					"target": 130.664700576584
+				},
+				"left_shoulder": {
+					"command": -40.8837752960913,
+					"measured": -40.8139900458025,
+					"target": -40.8805823496277
+				},
+				"right_ankle": {
+					"command": -64.1980555437693,
+					"measured": -63.4549845594114,
+					"target": -64.5717902506837
+				},
+				"right_elbow": {
+					"command": -0.788942594095546,
+					"measured": -0.76555881827397,
+					"target": -0.821074639736096
+				},
+				"right_hip": {
+					"command": -90.3336557086623,
+					"measured": -90.3758951352606,
+					"target": -90.3012236678162
+				},
+				"right_knee": {
+					"command": 130.702450242996,
+					"measured": 131.186405199681,
+					"target": 130.664700576584
+				},
+				"right_shoulder": {
+					"command": -40.8660258718058,
+					"measured": -40.8457367650648,
+					"target": -40.8628425574165
+				}
+			},
+			"box_position": [
+				0.00489329732954502,
+				0.150692641735077,
+				0.273487329483032
+			],
+			"frame": 315,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.00163623690605164,
+				"max_lift_m": 0.00296251475811005,
+				"min_upright": 0.995185554027557,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 20.1224279403687,
+				"simulation_seconds": 5.25,
+				"success": false,
+				"upright": 0.999833524227142
+			},
+			"phase": "lifting",
+			"phase_time": 0.0666666666666667,
+			"torso_angular_velocity": [
+				-0.0247132182121277,
+				-0.00533364061266184,
+				0.0672593489289284
+			],
+			"torso_position": [
+				-0.00816730596125126,
+				0.464336574077606,
+				-0.156593158841133
+			],
+			"torso_up": [
+				0.00117038888856769,
+				0.999842822551727,
+				0.0176933333277702
+			],
+			"torso_velocity": [
+				-0.0356306135654449,
+				0.00369644886814058,
+				-0.00453956378623843
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -59.6514296662765,
+					"measured": -61.6934377913301,
+					"target": -59.1362490945551
+				},
+				"left_elbow": {
+					"command": -2.21660784304437,
+					"measured": -1.65563390610798,
+					"target": -2.37303102836565
+				},
+				"left_hip": {
+					"command": -88.9383841045791,
+					"measured": -89.4761269951382,
+					"target": -88.7797288373713
+				},
+				"left_knee": {
+					"command": 129.076222009795,
+					"measured": 130.200972826988,
+					"target": 128.891017545947
+				},
+				"left_shoulder": {
+					"command": -40.7466675862816,
+					"measured": -40.721126793847,
+					"target": -40.7311110047921
+				},
+				"right_ankle": {
+					"command": -59.6514296662765,
+					"measured": -61.1288270337801,
+					"target": -59.1362490945551
+				},
+				"right_elbow": {
+					"command": -2.168718684751,
+					"measured": -1.55462021076025,
+					"target": -2.32527150895991
+				},
+				"right_hip": {
+					"command": -88.9383841045791,
+					"measured": -89.5554801329154,
+					"target": -88.7797288373713
+				},
+				"right_knee": {
+					"command": 129.076222009795,
+					"measured": 130.246502867996,
+					"target": 128.891017545947
+				},
+				"right_shoulder": {
+					"command": -40.7293317710806,
+					"measured": -40.6917467351322,
+					"target": -40.7138221187058
+				}
+			},
+			"box_position": [
+				0.00544069288298488,
+				0.152971476316452,
+				0.276535451412201
+			],
+			"frame": 330,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.00339801609516144,
+				"max_lift_m": 0.00339801609516144,
+				"min_upright": 0.995185554027557,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 20.2360433340073,
+				"simulation_seconds": 5.5,
+				"success": false,
+				"upright": 0.999771237373352
+			},
+			"phase": "lifting",
+			"phase_time": 0.316666666666667,
+			"torso_angular_velocity": [
+				0.0411150977015495,
+				-0.00265679438598454,
+				-0.000868524715770036
+			],
+			"torso_position": [
+				-0.00902717933058739,
+				0.467360585927963,
+				-0.151969447731972
+			],
+			"torso_up": [
+				-0.00230086455121636,
+				0.999756395816803,
+				0.0219496302306652
+			],
+			"torso_velocity": [
+				0.0111186383292079,
+				0.0311749391257763,
+				0.049495916813612
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -52.7740045428178,
+					"measured": -55.4179760951382,
+					"target": -51.9014802422958
+				},
+				"left_elbow": {
+					"command": -5.30910164237629,
+					"measured": -4.21925629844794,
+					"target": -5.56828458447797
+				},
+				"left_hip": {
+					"command": -85.7880128451188,
+					"measured": -86.8899100168587,
+					"target": -85.5226115544543
+				},
+				"left_knee": {
+					"command": 125.387222777174,
+					"measured": 127.277966050925,
+					"target": 125.075311276275
+				},
+				"left_shoulder": {
+					"command": -40.4391132317514,
+					"measured": -40.4971239098273,
+					"target": -40.4133369981885
+				},
+				"right_ankle": {
+					"command": -52.7740045428178,
+					"measured": -54.9524030805535,
+					"target": -51.9014802422958
+				},
+				"right_elbow": {
+					"command": -5.26377545104539,
+					"measured": -4.1136756611447,
+					"target": -5.52317319626745
+				},
+				"right_hip": {
+					"command": -85.7880128451188,
+					"measured": -86.9715785887646,
+					"target": -85.5226115544543
+				},
+				"right_knee": {
+					"command": 125.387222777174,
+					"measured": 127.216972461636,
+					"target": 125.075311276275
+				},
+				"right_shoulder": {
+					"command": -40.4227052073743,
+					"measured": -40.4468468873468,
+					"target": -40.3970067322714
+				}
+			},
+			"box_position": [
+				0.00554944155737758,
+				0.159722596406937,
+				0.285585194826126
+			],
+			"frame": 345,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.0103211104869843,
+				"max_lift_m": 0.0103211104869843,
+				"min_upright": 0.995185554027557,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 20.5791276693344,
+				"simulation_seconds": 5.75,
+				"success": false,
+				"upright": 0.999093651771545
+			},
+			"phase": "lifting",
+			"phase_time": 0.566666666666667,
+			"torso_angular_velocity": [
+				0.150628641247749,
+				-0.0605997145175934,
+				-0.0164452865719795
+			],
+			"torso_position": [
+				-0.0101329116150737,
+				0.479626178741455,
+				-0.136158809065819
+			],
+			"torso_up": [
+				-0.00322359357960522,
+				0.99898487329483,
+				0.0449316948652267
+			],
+			"torso_velocity": [
+				0.00706584192812443,
+				0.0566624104976654,
+				0.101858295500278
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -42.2750100029606,
+					"measured": -44.6549366802755,
+					"target": -41.1755816695887
+				},
+				"left_elbow": {
+					"command": -9.7920858568836,
+					"measured": -8.32946691924933,
+					"target": -10.1324705648327
+				},
+				"left_hip": {
+					"command": -81.1647607449671,
+					"measured": -82.745993266277,
+					"target": -80.8107253337088
+				},
+				"left_knee": {
+					"command": 119.92679049312,
+					"measured": 122.43993815613,
+					"target": 119.50618911547
+				},
+				"left_shoulder": {
+					"command": -39.9932719767876,
+					"measured": -40.2120113233035,
+					"target": -39.9594200741038
+				},
+				"right_ankle": {
+					"command": -42.2750100029606,
+					"measured": -44.2698745205322,
+					"target": -41.1755816695887
+				},
+				"right_elbow": {
+					"command": -9.75047502965061,
+					"measured": -8.20003398070394,
+					"target": -10.0911418383306
+				},
+				"right_hip": {
+					"command": -81.1647607449671,
+					"measured": -82.813407233385,
+					"target": -80.8107253337088
+				},
+				"right_knee": {
+					"command": 119.92679049312,
+					"measured": 122.291490824708,
+					"target": 119.50618911547
+				},
+				"right_shoulder": {
+					"command": -39.9782089095512,
+					"measured": -40.1734139243037,
+					"target": -39.9444591269779
+				}
+			},
+			"box_position": [
+				0.00567143457010388,
+				0.169538170099258,
+				0.301039785146713
+			],
+			"frame": 360,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.0201827138662338,
+				"max_lift_m": 0.0201827138662338,
+				"min_upright": 0.995185554027557,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 22.0182713866234,
+				"simulation_seconds": 6.0,
+				"success": false,
+				"upright": 0.9966721534729
+			},
+			"phase": "lifting",
+			"phase_time": 0.816666666666668,
+			"torso_angular_velocity": [
+				0.242743864655495,
+				0.0652095377445221,
+				0.0275977179408073
+			],
+			"torso_position": [
+				-0.0106080882251263,
+				0.497887074947357,
+				-0.107699319720268
+			],
+			"torso_up": [
+				-0.00230593280866742,
+				0.996333301067352,
+				0.0855254530906677
+			],
+			"torso_velocity": [
+				-0.0320495218038559,
+				0.0781843960285187,
+				0.114758528769016
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -42.6263722033286,
+					"measured": -43.8879405874289,
+					"target": -43.1861910556817
+				},
+				"left_elbow": {
+					"command": -15.342190622572,
+					"measured": -13.4285139082711,
+					"target": -15.7422191054356
+				},
+				"left_hip": {
+					"command": -75.3321646665604,
+					"measured": -77.2848540436907,
+					"target": -74.906477712411
+				},
+				"left_knee": {
+					"command": 112.948899201123,
+					"measured": 115.407329499874,
+					"target": 112.4353664567
+				},
+				"left_shoulder": {
+					"command": -39.4413035656772,
+					"measured": -39.3873308678215,
+					"target": -39.4015199768249
+				},
+				"right_ankle": {
+					"command": -42.6263722033286,
+					"measured": -44.2546773496289,
+					"target": -43.1861910556817
+				},
+				"right_elbow": {
+					"command": -15.3051795572385,
+					"measured": -13.3089454704345,
+					"target": -15.7055395718213
+				},
+				"right_hip": {
+					"command": -75.3321646665604,
+					"measured": -77.4000246934755,
+					"target": -74.906477712411
+				},
+				"right_knee": {
+					"command": 112.948899201123,
+					"measured": 115.616702118692,
+					"target": 112.4353664567
+				},
+				"right_shoulder": {
+					"command": -39.4279056064756,
+					"measured": -39.3876518867125,
+					"target": -39.3882420316895
+				}
+			},
+			"box_position": [
+				0.0062753171660006,
+				0.194023966789246,
+				0.285157829523087
+			],
+			"frame": 375,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.0421568602323532,
+				"max_lift_m": 0.0421568602323532,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 23.5126596689224,
+				"simulation_seconds": 6.25,
+				"success": false,
+				"upright": 0.994204223155975
+			},
+			"phase": "lifting",
+			"phase_time": 1.06666666666667,
+			"torso_angular_velocity": [
+				-0.0327359214425087,
+				-0.0745707377791405,
+				0.00160008645616472
+			],
+			"torso_position": [
+				-0.0104141775518656,
+				0.523906350135803,
+				-0.0970148220658302
+			],
+			"torso_up": [
+				-0.00264118961058557,
+				0.9942626953125,
+				0.10693359375
+			],
+			"torso_velocity": [
+				0.00125945289619267,
+				0.108754090964794,
+				0.000858507468365133
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -38.843850261533,
+					"measured": -41.6423485581525,
+					"target": -38.4496892454053
+				},
+				"left_elbow": {
+					"command": -21.6360460754472,
+					"measured": -19.4921185043347,
+					"target": -22.0741603422924
+				},
+				"left_hip": {
+					"command": -68.5381553506664,
+					"measured": -70.7937018036991,
+					"target": -68.0568647983856
+				},
+				"left_knee": {
+					"command": 104.676310701333,
+					"measured": 107.598087353854,
+					"target": 104.083735834233
+				},
+				"left_shoulder": {
+					"command": -38.8153677427069,
+					"measured": -38.7420248403225,
+					"target": -38.7717964506386
+				},
+				"right_ankle": {
+					"command": -38.843850261533,
+					"measured": -41.9031456712311,
+					"target": -38.4496892454053
+				},
+				"right_elbow": {
+					"command": -21.6042511704811,
+					"measured": -19.36799859919,
+					"target": -22.0427285334113
+				},
+				"right_hip": {
+					"command": -68.5381553506664,
+					"measured": -70.9049177739544,
+					"target": -68.0568647983856
+				},
+				"right_knee": {
+					"command": 104.676310701333,
+					"measured": 107.79907250037,
+					"target": 104.083735834233
+				},
+				"right_shoulder": {
+					"command": -38.8038580270119,
+					"measured": -38.7785219561525,
+					"target": -38.7604181752708
+				}
+			},
+			"box_position": [
+				0.00575699098408222,
+				0.245433509349823,
+				0.307134121656418
+			],
+			"frame": 390,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.0929834246635437,
+				"max_lift_m": 0.0929834246635437,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 27.101996243,
+				"simulation_seconds": 6.5,
+				"success": false,
+				"upright": 0.995796322822571
+			},
+			"phase": "lifting",
+			"phase_time": 1.31666666666667,
+			"torso_angular_velocity": [
+				-0.070660263299942,
+				-0.0240714978426695,
+				0.0113839041441679
+			],
+			"torso_position": [
+				-0.00963548757135868,
+				0.551643073558807,
+				-0.0981219261884689
+			],
+			"torso_up": [
+				-0.00201561255380511,
+				0.995903134346008,
+				0.090404286980629
+			],
+			"torso_velocity": [
+				0.0258261878043413,
+				0.110280372202396,
+				-0.00457476219162345
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -36.2858989931033,
+					"measured": -38.5460940337915,
+					"target": -36.3601652696377
+				},
+				"left_elbow": {
+					"command": -28.350282351515,
+					"measured": -26.0654840238186,
+					"target": -28.8049244114088
+				},
+				"left_hip": {
+					"command": -61.018365815627,
+					"measured": -63.5051727894326,
+					"target": -60.4968528176009
+				},
+				"left_knee": {
+					"command": 95.307191349051,
+					"measured": 98.5011154926645,
+					"target": 94.6481300186203
+				},
+				"left_shoulder": {
+					"command": -38.1476242521636,
+					"measured": -38.0681447164307,
+					"target": -38.1024092398318
+				},
+				"right_ankle": {
+					"command": -36.2858989931033,
+					"measured": -38.7782111825452,
+					"target": -36.3601652696377
+				},
+				"right_elbow": {
+					"command": -28.3240520060501,
+					"measured": -25.9648719222497,
+					"target": -28.7790708597727
+				},
+				"right_hip": {
+					"command": -61.018365815627,
+					"measured": -63.6154735143392,
+					"target": -60.4968528176009
+				},
+				"right_knee": {
+					"command": 95.307191349051,
+					"measured": 98.720289432941,
+					"target": 94.6481300186203
+				},
+				"right_shoulder": {
+					"command": -38.1381289000246,
+					"measured": -38.0766243962853,
+					"target": -38.0930502865859
+				}
+			},
+			"box_position": [
+				0.00481023965403438,
+				0.305729448795319,
+				0.314253032207489
+			],
+			"frame": 405,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.152587950229645,
+				"max_lift_m": 0.152587950229645,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 31.668074131012,
+				"simulation_seconds": 6.75,
+				"success": false,
+				"upright": 0.99780797958374
+			},
+			"phase": "lifting",
+			"phase_time": 1.56666666666667,
+			"torso_angular_velocity": [
+				-0.127702698111534,
+				0.00167377747129649,
+				-0.0108173117041588
+			],
+			"torso_position": [
+				-0.0116504309698939,
+				0.581611573696136,
+				-0.102020725607872
+			],
+			"torso_up": [
+				-0.00512634962797165,
+				0.997947096824646,
+				0.0638386234641075
+			],
+			"torso_velocity": [
+				0.00439402693882585,
+				0.111988417804241,
+				-0.021210215985775
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -32.6824580757798,
+					"measured": -34.9928178916866,
+					"target": -32.8851959319826
+				},
+				"left_elbow": {
+					"command": -35.1615295867811,
+					"measured": -32.8761422678997,
+					"target": -35.6111414487905
+				},
+				"left_hip": {
+					"command": -53.0012986237808,
+					"measured": -55.653409300734,
+					"target": -52.4547363079433
+				},
+				"left_knee": {
+					"command": 85.0254465875708,
+					"measured": 88.5666190052593,
+					"target": 84.3120384042513
+				},
+				"left_shoulder": {
+					"command": -37.4702328383343,
+					"measured": -37.3989910834445,
+					"target": -37.4255180886914
+				},
+				"right_ankle": {
+					"command": -32.6824580757798,
+					"measured": -35.0654193874693,
+					"target": -32.8851959319826
+				},
+				"right_elbow": {
+					"command": -35.1409442006176,
+					"measured": -32.7679554865412,
+					"target": -35.5909286875773
+				},
+				"right_hip": {
+					"command": -53.0012986237808,
+					"measured": -55.7417373070806,
+					"target": -52.4547363079433
+				},
+				"right_knee": {
+					"command": 85.0254465875708,
+					"measured": 88.6935239200381,
+					"target": 84.3120384042513
+				},
+				"right_shoulder": {
+					"command": -37.4627809543779,
+					"measured": -37.4131876316344,
+					"target": -37.4182010944994
+				}
+			},
+			"box_position": [
+				0.00463657500222325,
+				0.370716124773026,
+				0.325931936502457
+			],
+			"frame": 420,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.217439144849777,
+				"max_lift_m": 0.217439144849777,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 41.7439144849777,
+				"simulation_seconds": 7.0,
+				"success": false,
+				"upright": 0.999306857585907
+			},
+			"phase": "lifting",
+			"phase_time": 1.81666666666667,
+			"torso_angular_velocity": [
+				-0.140271574258804,
+				0.0253976639360189,
+				0.0353474877774715
+			],
+			"torso_position": [
+				-0.0115276835858822,
+				0.612432301044464,
+				-0.105491064488888
+			],
+			"torso_up": [
+				-0.00407508807256818,
+				0.999388575553894,
+				0.0347264744341373
+			],
+			"torso_velocity": [
+				-0.0198606159538031,
+				0.116539411246777,
+				-0.0193662438541651
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -28.5142816308955,
+					"measured": -30.8910775592297,
+					"target": -27.8841599049242
+				},
+				"left_elbow": {
+					"command": -41.7464179172511,
+					"measured": -39.5596872764322,
+					"target": -42.1694415904432
+				},
+				"left_hip": {
+					"command": -44.7177779689789,
+					"measured": -47.4536101077828,
+					"target": -44.1620222737787
+				},
+				"left_knee": {
+					"command": 74.0196251232105,
+					"measured": 77.8261260448467,
+					"target": 73.265375318474
+				},
+				"left_shoulder": {
+					"command": -36.8153532455058,
+					"measured": -36.748101376299,
+					"target": -36.7732827415042
+				},
+				"right_ankle": {
+					"command": -28.5142816308955,
+					"measured": -30.9675005458529,
+					"target": -27.8841599049242
+				},
+				"right_elbow": {
+					"command": -41.7312898908555,
+					"measured": -39.4690096850111,
+					"target": -42.1546641534971
+				},
+				"right_hip": {
+					"command": -44.7177779689789,
+					"measured": -47.5300604151627,
+					"target": -44.1620222737787
+				},
+				"right_knee": {
+					"command": 74.0196251232105,
+					"measured": 77.8848110301955,
+					"target": 73.265375318474
+				},
+				"right_shoulder": {
+					"command": -36.8098769189363,
+					"measured": -36.7687422079708,
+					"target": -36.7679333278755
+				}
+			},
+			"box_position": [
+				0.0056596715003252,
+				0.434959441423416,
+				0.320597112178802
+			],
+			"frame": 435,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.281573534011841,
+				"max_lift_m": 0.281573534011841,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 46.8282502889633,
+				"simulation_seconds": 7.25,
+				"success": false,
+				"upright": 0.999958574771881
+			},
+			"phase": "lifting",
+			"phase_time": 2.06666666666666,
+			"torso_angular_velocity": [
+				-0.101065427064896,
+				0.0461486801505089,
+				0.0288155898451805
+			],
+			"torso_position": [
+				-0.0106773432344198,
+				0.642754197120667,
+				-0.106695026159286
+			],
+			"torso_up": [
+				-0.00143968593329191,
+				0.999971866607666,
+				0.00736470008268952
+			],
+			"torso_velocity": [
+				-0.0205408986657858,
+				0.129422217607498,
+				0.0122522534802556
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -24.2730689747095,
+					"measured": -26.550266945444,
+					"target": -23.9964800443202
+				},
+				"left_elbow": {
+					"command": -47.7815774789309,
+					"measured": -45.773718251229,
+					"target": -48.1564549723728
+				},
+				"left_hip": {
+					"command": -36.4206006044264,
+					"measured": -39.1437014352218,
+					"target": -35.8741634616826
+				},
+				"left_knee": {
+					"command": 62.5222207809966,
+					"measured": 66.4338213017507,
+					"target": 61.7459465730558
+				},
+				"left_shoulder": {
+					"command": -36.215145217965,
+					"measured": -36.1179412932845,
+					"target": -36.1778629425573
+				},
+				"right_ankle": {
+					"command": -24.2730689747095,
+					"measured": -26.3773692443416,
+					"target": -23.9964800443202
+				},
+				"right_elbow": {
+					"command": -47.7714512134355,
+					"measured": -45.7056485859606,
+					"target": -48.1466393942038
+				},
+				"right_hip": {
+					"command": -36.4206006044264,
+					"measured": -39.2155652705741,
+					"target": -35.8741634616826
+				},
+				"right_knee": {
+					"command": 62.5222207809966,
+					"measured": 66.479071305002,
+					"target": 61.7459465730558
+				},
+				"right_shoulder": {
+					"command": -36.2114795225642,
+					"measured": -36.1388382570501,
+					"target": -36.1743097155787
+				}
+			},
+			"box_position": [
+				0.00692687975242734,
+				0.493931710720062,
+				0.32123675942421
+			],
+			"frame": 450,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.340952038764954,
+				"max_lift_m": 0.340952038764954,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 51.7631930112839,
+				"simulation_seconds": 7.5,
+				"success": false,
+				"upright": 0.999877095222473
+			},
+			"phase": "lifting",
+			"phase_time": 2.31666666666666,
+			"torso_angular_velocity": [
+				-0.099743515253067,
+				0.0220753140747547,
+				-0.0337639935314655
+			],
+			"torso_position": [
+				-0.00854024570435286,
+				0.670250654220581,
+				-0.107121169567108
+			],
+			"torso_up": [
+				0.00125479721464217,
+				0.999849140644073,
+				-0.0173253379762173
+			],
+			"torso_velocity": [
+				0.0129206441342831,
+				0.118032447993755,
+				0.0025521086063236
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -18.8063249884528,
+					"measured": -21.3847075742846,
+					"target": -18.6284756325375
+				},
+				"left_elbow": {
+					"command": -52.9436384078262,
+					"measured": -51.2685439668017,
+					"target": -53.2488117305848
+				},
+				"left_hip": {
+					"command": -28.431343750627,
+					"measured": -31.040962645471,
+					"target": -27.9203866519966
+				},
+				"left_knee": {
+					"command": 50.903288320553,
+					"measured": 54.767602067275,
+					"target": 50.1391060472962
+				},
+				"left_shoulder": {
+					"command": -35.7017684999988,
+					"measured": -35.5909546327775,
+					"target": -35.6714184361373
+				},
+				"right_ankle": {
+					"command": -18.8063249884528,
+					"measured": -21.5671743704142,
+					"target": -18.6284756325375
+				},
+				"right_elbow": {
+					"command": -52.9377903050297,
+					"measured": -51.1858406212366,
+					"target": -53.2432165463695
+				},
+				"right_hip": {
+					"command": -28.431343750627,
+					"measured": -31.0813802898846,
+					"target": -27.9203866519966
+				},
+				"right_knee": {
+					"command": 50.903288320553,
+					"measured": 54.783048540083,
+					"target": 50.1391060472962
+				},
+				"right_shoulder": {
+					"command": -35.6996514941259,
+					"measured": -35.6037851431334,
+					"target": -35.6693929864734
+				}
+			},
+			"box_position": [
+				0.00458197481930256,
+				0.546621024608612,
+				0.331369876861572
+			],
+			"frame": 465,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.394265651702881,
+				"max_lift_m": 0.394265651702881,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 56.4041209220886,
+				"simulation_seconds": 7.75,
+				"success": false,
+				"upright": 0.99928206205368
+			},
+			"phase": "lifting",
+			"phase_time": 2.56666666666666,
+			"torso_angular_velocity": [
+				-0.080313540995121,
+				0.0181781407445669,
+				-0.0600829087197781
+			],
+			"torso_position": [
+				-0.0109557090327144,
+				0.694770932197571,
+				-0.106069691479206
+			],
+			"torso_up": [
+				-0.00128131965175271,
+				0.999232351779938,
+				-0.0391555838286877
+			],
+			"torso_velocity": [
+				0.022937236353755,
+				0.099208228290081,
+				0.00744204316288233
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -14.632324043749,
+					"measured": -16.5684526150162,
+					"target": -14.4000633847318
+				},
+				"left_elbow": {
+					"command": -56.9092308399427,
+					"measured": -55.4302636054551,
+					"target": -57.1231420010851
+				},
+				"left_hip": {
+					"command": -21.2656608534551,
+					"measured": -23.5815388830763,
+					"target": -20.8377940842611
+				},
+				"left_knee": {
+					"command": 39.9210349522447,
+					"measured": 43.4692465762125,
+					"target": 39.2459585388926
+				},
+				"left_shoulder": {
+					"command": -35.307382835894,
+					"measured": -35.4396454520943,
+					"target": -35.2861089665313
+				},
+				"right_ankle": {
+					"command": -14.632324043749,
+					"measured": -16.731019654999,
+					"target": -14.4000633847318
+				},
+				"right_elbow": {
+					"command": -56.90666930231,
+					"measured": -55.3460849390293,
+					"target": -57.1207577466661
+				},
+				"right_hip": {
+					"command": -21.2656608534551,
+					"measured": -23.5888984119069,
+					"target": -20.8377940842611
+				},
+				"right_knee": {
+					"command": 39.9210349522447,
+					"measured": 43.3878409665897,
+					"target": 39.2459585388926
+				},
+				"right_shoulder": {
+					"command": -35.3064555624857,
+					"measured": -35.3704180697616,
+					"target": -35.2852458694239
+				}
+			},
+			"box_position": [
+				0.00454061618074775,
+				0.586944162845612,
+				0.32484358549118
+			],
+			"frame": 480,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.435696005821228,
+				"max_lift_m": 0.435696005821228,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 63.5696005821228,
+				"simulation_seconds": 8.0,
+				"success": false,
+				"upright": 0.998521864414215
+			},
+			"phase": "lifting",
+			"phase_time": 2.81666666666666,
+			"torso_angular_velocity": [
+				-0.0471074506640434,
+				0.0565813928842545,
+				-0.0153278280049562
+			],
+			"torso_position": [
+				-0.0107169281691313,
+				0.713803827762604,
+				-0.104057505726814
+			],
+			"torso_up": [
+				-0.00136036158073694,
+				0.998479247093201,
+				-0.0551120787858963
+			],
+			"torso_velocity": [
+				0.0215731076896191,
+				0.0701718851923943,
+				0.0150893339887261
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -10.6593568356631,
+					"measured": -12.8914074687351,
+					"target": -10.9292488752398
+				},
+				"left_elbow": {
+					"command": -59.3549849112861,
+					"measured": -58.3921546484636,
+					"target": -59.4560759198794
+				},
+				"left_hip": {
+					"command": -15.963182679705,
+					"measured": -17.5600065447526,
+					"target": -15.7195246859446
+				},
+				"left_knee": {
+					"command": 31.3816225282766,
+					"measured": 33.8599422253808,
+					"target": 30.9796822213978
+				},
+				"left_shoulder": {
+					"command": -35.0641479699376,
+					"measured": -35.1418833552275,
+					"target": -35.0540942780261
+				},
+				"right_ankle": {
+					"command": -10.6593568356631,
+					"measured": -12.5893312536339,
+					"target": -10.9292488752398
+				},
+				"right_elbow": {
+					"command": -59.3544503419482,
+					"measured": -58.3605786839306,
+					"target": -59.4556251317654
+				},
+				"right_hip": {
+					"command": -15.963182679705,
+					"measured": -17.6085913878662,
+					"target": -15.7195246859446
+				},
+				"right_knee": {
+					"command": 31.3816225282766,
+					"measured": 33.8464594319592,
+					"target": 30.9796822213978
+				},
+				"right_shoulder": {
+					"command": -35.0639544565081,
+					"measured": -35.0980130501886,
+					"target": -35.0539310932945
+				}
+			},
+			"box_position": [
+				0.00310546741820872,
+				0.613410592079163,
+				0.317929446697235
+			],
+			"frame": 495,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.0,
+				"left_contact": false,
+				"lift_m": 0.463467955589294,
+				"max_lift_m": 0.463467955589294,
+				"min_upright": 0.994185030460358,
+				"phase": "lifting",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 65.9935069084167,
+				"simulation_seconds": 8.25,
+				"success": false,
+				"upright": 0.997969746589661
+			},
+			"phase": "lifting",
+			"phase_time": 3.06666666666666,
+			"torso_angular_velocity": [
+				-0.0266950242221355,
+				-0.0175167340785265,
+				0.0262251459062099
+			],
+			"torso_position": [
+				-0.0121817532926798,
+				0.726470232009888,
+				-0.101569250226021
+			],
+			"torso_up": [
+				-0.00395230343565345,
+				0.997939705848694,
+				-0.0640371069312096
+			],
+			"torso_velocity": [
+				-0.00666294991970062,
+				0.0337231010198593,
+				0.00711683416739106
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -10.3676853111793,
+					"measured": -10.4964460324998,
+					"target": -10.4502678744539
+				},
+				"left_elbow": {
+					"command": -60.0,
+					"measured": -59.6102437548545,
+					"target": -60.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.6383299480298,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 29.0120515374241,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": -35.0,
+					"measured": -35.0143568932342,
+					"target": -35.0
+				},
+				"right_ankle": {
+					"command": -10.3676853111793,
+					"measured": -10.3070892830449,
+					"target": -10.4502678744539
+				},
+				"right_elbow": {
+					"command": -60.0,
+					"measured": -59.5740983937668,
+					"target": -60.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.739194766598,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.9945423474868,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": -35.0,
+					"measured": -34.9705309844248,
+					"target": -35.0
+				}
+			},
+			"box_position": [
+				0.00399132398888469,
+				0.623981356620789,
+				0.327598124742508
+			],
+			"frame": 510,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.05,
+				"left_contact": false,
+				"lift_m": 0.474399089813232,
+				"max_lift_m": 0.474399089813232,
+				"min_upright": 0.994185030460358,
+				"phase": "holding",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 67.1908867359161,
+				"simulation_seconds": 8.5,
+				"success": false,
+				"upright": 0.99772721529007
+			},
+			"phase": "holding",
+			"phase_time": 3.26666666666666,
+			"torso_angular_velocity": [
+				-0.0464082509279251,
+				-0.0152091505005956,
+				0.0150054832920432
+			],
+			"torso_position": [
+				-0.0111489593982697,
+				0.731652855873108,
+				-0.100738547742367
+			],
+			"torso_up": [
+				-0.00152039062231779,
+				0.997674524784088,
+				-0.0681420415639877
+			],
+			"torso_velocity": [
+				-0.0263719204813242,
+				0.00705197965726256,
+				-0.014495431445539
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -10.3722872952069,
+					"measured": -10.3934681241571,
+					"target": -10.4411121979706
+				},
+				"left_elbow": {
+					"command": -60.0,
+					"measured": -59.7122526301086,
+					"target": -60.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3916849869115,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6311438402436,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": -35.0,
+					"measured": -35.0086468550881,
+					"target": -35.0
+				},
+				"right_ankle": {
+					"command": -10.3722872952069,
+					"measured": -10.1870623687603,
+					"target": -10.4411121979706
+				},
+				"right_elbow": {
+					"command": -60.0,
+					"measured": -59.6665654947504,
+					"target": -60.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.48135512543,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6253808681314,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": -35.0,
+					"measured": -34.9614263422612,
+					"target": -35.0
+				}
+			},
+			"box_position": [
+				0.0055076596327126,
+				0.625232577323914,
+				0.327998369932175
+			],
+			"frame": 525,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.3,
+				"left_contact": false,
+				"lift_m": 0.476069152355194,
+				"max_lift_m": 0.476069152355194,
+				"min_upright": 0.994185030460358,
+				"phase": "holding",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 69.0727021694183,
+				"simulation_seconds": 8.75,
+				"success": false,
+				"upright": 0.997590959072113
+			},
+			"phase": "holding",
+			"phase_time": 3.26666666666666,
+			"torso_angular_velocity": [
+				-0.0334718003869057,
+				-0.0535637773573399,
+				-0.0435433946549892
+			],
+			"torso_position": [
+				-0.00991176068782806,
+				0.731777369976044,
+				-0.101294606924057
+			],
+			"torso_up": [
+				0.00030030426569283,
+				0.997552156448364,
+				-0.0699257254600525
+			],
+			"torso_velocity": [
+				0.00936227664351463,
+				-0.00796160008758307,
+				0.0023842800874263
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -10.2142706739916,
+					"measured": -10.244955905939,
+					"target": -10.3060526242921
+				},
+				"left_elbow": {
+					"command": -60.0,
+					"measured": -59.7088853468478,
+					"target": -60.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.3788783822177,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.611373857691,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": -35.0,
+					"measured": -35.0334438568698,
+					"target": -35.0
+				},
+				"right_ankle": {
+					"command": -10.2142706739916,
+					"measured": -10.2466532079477,
+					"target": -10.3060526242921
+				},
+				"right_elbow": {
+					"command": -60.0,
+					"measured": -59.6538818334617,
+					"target": -60.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.437011829791,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6262705002708,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": -35.0,
+					"measured": -34.9565359268155,
+					"target": -35.0
+				}
+			},
+			"box_position": [
+				0.00362106040120125,
+				0.624620854854584,
+				0.317448973655701
+			],
+			"frame": 540,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.55,
+				"left_contact": false,
+				"lift_m": 0.475351810455322,
+				"max_lift_m": 0.476301372051239,
+				"min_upright": 0.994185030460358,
+				"phase": "holding",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 73.0351810455322,
+				"simulation_seconds": 9.0,
+				"success": false,
+				"upright": 0.997597277164459
+			},
+			"phase": "holding",
+			"phase_time": 3.26666666666666,
+			"torso_angular_velocity": [
+				-0.0102880802005529,
+				-0.0127648646011949,
+				-0.028830211609602
+			],
+			"torso_position": [
+				-0.0106368651613593,
+				0.731584191322327,
+				-0.101086318492889
+			],
+			"torso_up": [
+				-0.00221852026879787,
+				0.9975865483284,
+				-0.0693985745310783
+			],
+			"torso_velocity": [
+				0.0385843999683857,
+				0.00673109386116266,
+				-0.00222782976925373
+			]
+		},
+		{
+			"angles": {
+				"left_ankle": {
+					"command": -10.1037078325715,
+					"measured": -10.173803264034,
+					"target": -9.96271910007413
+				},
+				"left_elbow": {
+					"command": -60.0,
+					"measured": -59.7345736883162,
+					"target": -60.0
+				},
+				"left_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.383019184402,
+					"target": -14.3615115629165
+				},
+				"left_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6190373299397,
+					"target": 28.7230231258331
+				},
+				"left_shoulder": {
+					"command": -35.0,
+					"measured": -35.0196195539897,
+					"target": -35.0
+				},
+				"right_ankle": {
+					"command": -10.1037078325715,
+					"measured": -10.2236269327083,
+					"target": -9.96271910007413
+				},
+				"right_elbow": {
+					"command": -60.0,
+					"measured": -59.6892144020382,
+					"target": -60.0
+				},
+				"right_hip": {
+					"command": -14.3615115629165,
+					"measured": -14.4230509231275,
+					"target": -14.3615115629165
+				},
+				"right_knee": {
+					"command": 28.7230231258331,
+					"measured": 28.6406292654534,
+					"target": 28.7230231258331
+				},
+				"right_shoulder": {
+					"command": -35.0,
+					"measured": -34.9621810781645,
+					"target": -35.0
+				}
+			},
+			"box_position": [
+				0.00242204451933503,
+				0.624755620956421,
+				0.323075950145721
+			],
+			"frame": 555,
+			"metrics": {
+				"cancelled": false,
+				"contact_before_grasp": true,
+				"engine_version": "4.7.2",
+				"fallen": false,
+				"finite": true,
+				"graph_fingerprint": "401fbb5664163d4b1e01c4f6b524b8a0ac0a631fc4fce0a4585d7a329fa9ba97",
+				"grasped": true,
+				"hold_seconds": 0.8,
+				"left_contact": false,
+				"lift_m": 0.476242482662201,
+				"max_lift_m": 0.47680002450943,
+				"min_upright": 0.994185030460358,
+				"phase": "holding",
+				"physics_hz": 60,
+				"right_contact": false,
+				"score": 75.140073299408,
+				"simulation_seconds": 9.25,
+				"success": false,
+				"upright": 0.997547209262848
+			},
+			"phase": "holding",
+			"phase_time": 3.26666666666666,
+			"torso_angular_velocity": [
+				0.00605843449011445,
+				-0.0225830562412739,
+				0.0928042754530907
+			],
+			"torso_position": [
+				-0.0120667545124888,
+				0.731510400772095,
+				-0.101424939930439
+			],
+			"torso_up": [
+				-0.00370708480477333,
+				0.997549593448639,
+				-0.0698638930916786
+			],
+			"torso_velocity": [
+				-0.0242360401898623,
+				-0.0206235945224762,
+				-0.00925865489989519
+			]
+		}
+	]
+}

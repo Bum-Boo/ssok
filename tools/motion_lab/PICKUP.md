@@ -81,7 +81,7 @@ their limits are advertised in `/v1/status` under `pickup.metric_bounds` and
 | `crouch_height` | 0.20 m | 0.18..0.26 m |
 | `torso_lean_deg` | 25° | 15..32° |
 | `reach_seconds` | 2 s | 1.5..3.5 s |
-| `lift_seconds` | 2.5 s | 2..4 s |
+| `lift_seconds` | 4.0 s | 2..4 s |
 | `hand_height_offset` | 0.075 m | 0.04..0.095 m |
 | `hold_shoulder_deg` | −35° | −45..−25° |
 | `hold_elbow_deg` | −60° | −75..−45° |

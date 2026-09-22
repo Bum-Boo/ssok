@@ -15,7 +15,7 @@ from .service import LabError, MAX_BODY, MAX_OUTPUT_TOKENS, MODEL, NoRedirect, s
 
 DEFAULT_POLICY = {
     "crouch_height": .20, "torso_lean_deg": 25.0, "reach_seconds": 2.0,
-    "lift_seconds": 2.5, "hand_height_offset": .075,
+    "lift_seconds": 4.0, "hand_height_offset": .075,
     "hold_shoulder_deg": -35.0, "hold_elbow_deg": -60.0,
 }
 BOUNDS = {
