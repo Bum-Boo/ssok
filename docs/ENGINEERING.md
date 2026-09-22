@@ -4,13 +4,14 @@ ssok is an educational robot workshop: a learner assembles and wires reusable pa
 that assembly, and observes it under simulated gravity and contact. The engineering challenge
 is keeping the editor, code, physics and learning experiments accountable to the same robot.
 
-The integrated application is verified at `6470757`: **55 native verification suites**, clean
-Web/Linux exports, Linux startup, and all three actual-browser gates pass. The browser checks
-cover controls, complete project/block authoring, and learned walking followed by upright stopping.
-This remains a **private release checkpoint**. Continuous legacy direction changes, sustained
+The preceding integrated checkpoint `389f817` passes **59 native verification checks**, clean
+Web/Linux exports and all three actual-browser gates in [CI](https://github.com/Bum-Boo/ssok/actions/runs/35698691790).
+The checks cover controls, complete project/block authoring, and learned walking followed by
+upright stopping. The newly selected policy below requires its own clean integration checks.
+This remains **private release preparation**. Continuous legacy direction changes, sustained
 construction-kit walking, final publication review and public delivery are unfinished.
-[Clean-export evidence](evidence/browser_clean_6470757_2026-09-22/README.md) binds the results to
-exact source and served-file hashes; the [release plan](RELEASE_PLAN.md) retains every open gate.
+The earlier [clean `6470757` export](evidence/browser_clean_6470757_2026-09-22/README.md) retains
+its exact source and served-file hashes; the [release plan](RELEASE_PLAN.md) retains every open gate.
 
 ## One graph owns the robot
 
@@ -87,19 +88,24 @@ starts a fresh engine process after an earlier candidate was found to depend on 
 state. Candidate rewards never replace the 12-second, 0.30 m forward, 0.10 m lateral, 30-degree yaw
 and stability gates. Both feet must physically clear the floor, and release must end upright.
 
-Under the corrected 0.25 N·m actuator model, the frozen bundle passes **126/128** new native
-conditions, with **two falls**. The previous weights, explicitly transferred to the same runtime,
-also pass 126/128 with different failed episodes. The new bundle therefore does **not** demonstrate
-an aggregate robustness improvement. It passes all 12 declared actual-app cases and all six declared
-WebAssembly cases; those narrower passes do not erase the wider failures.
-[Complete training and validation](evidence/bounded_feedback_2026-09-22/README.md) include rejected
-candidates, all episode outcomes, policy hashes, source identities and reproducible tooling.
+Under the corrected 0.25 N·m actuator model, the preceding policy passed 126/128 conditions
+with two falls and no aggregate improvement over transferred older weights. Component comparisons
+on those now-observed conditions selected the earlier learned heading coefficient while retaining
+the newer position/velocity coefficients. This is post-training selection, not additional CEM training.
 
-The clean integrated browser export measures **42.9 cm forward, 3.0 cm lateral and 4.4 degrees
-heading drift** over exactly 720 physics intervals. A query-enabled observer reads actual state
-without owning commands or modifying simulation. Playwright supplies browser keyboard input.
-The native demonstration recording separately measures 41.8 cm; it is not substituted for Web
-verification. Neither result proves universal locomotion or real-world transfer.
+Frozen before 256 new paired conditions, the selected bundle passes **255/256 with one fall**,
+compared with **251/256 and five falls** for the preceding bundle. Five reference failures improve,
+one success regresses, and all failures remain disclosed. Twelve actual-app cases and six declared
+WebAssembly cases pass separately. [Complete selection and validation](evidence/heading_feedback_2026-09-22/README.md)
+include all outcomes, unchanged conditions, source identities and reproducible tooling. Nine timing
+fields truncate by one frame in both policies; the report records their effective interpretation.
+
+The candidate's isolated browser export travels **41.59–43.16 cm forward**, with at most
+**3.02 cm lateral drift**, over exactly 720 physics intervals. A query-enabled observer reads actual
+state without owning commands or modifying simulation; paired native runs verify identical outcomes
+with the observer enabled and disabled. Playwright supplies actual keyboard input. The previous
+41.8 cm native demonstration uses the preceding policy and is labeled accordingly. New integrated
+clean-build verification and current-policy media remain separate work after adoption.
 
 ## Preserving learner work and verifying the exported app
 

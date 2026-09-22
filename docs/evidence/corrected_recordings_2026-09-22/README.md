@@ -1,4 +1,8 @@
-# Current native recordings under the corrected motor budget
+# Native recordings under the corrected motor budget
+
+> The learned movie records the preceding corrected-budget policy; the selected
+> [heading-feedback policy](../heading_feedback_2026-09-22/README.md) has separate evidence.
+> Pickup remains the current recorded pickup behavior. The original metrics and hashes below are retained.
 
 Both movies use the unchanged application runtime from clean commit `6470757`, native Godot
 4.7.2 GL Compatibility, 60 Hz physics and 30 Hz movie capture. They play at normal speed.

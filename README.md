@@ -1,6 +1,6 @@
 # ssok · 쏙
 
-> **Physical model corrected (2026-09-22):** current results below use a whole-step motor torque budget. Earlier recordings and measurements used the old per-pass implementation and remain historical. [Cause and regression](docs/adr/0020-whole-step-actuator-torque-budget.md) · [New learned-policy validation](docs/evidence/bounded_feedback_2026-09-22/README.md).
+> **Physical model corrected (2026-09-22):** current results below use a whole-step motor torque budget. Earlier recordings and measurements used the old per-pass implementation and remain historical. [Cause and regression](docs/adr/0020-whole-step-actuator-torque-budget.md) · [Current learned-policy validation](docs/evidence/heading_feedback_2026-09-22/README.md).
 
 **Build a robot. Wire its motors. Make it move.**
 
@@ -39,11 +39,11 @@ pickup experiments. Optional external AI services keep their keys outside the ap
 [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
 [Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
 
-The current feedback policy passes six declared browser start/restart flows in an export with
-recorded source hashes. An earlier clean build failed its walking drift limit; that failure and
-the corrective experiments are retained in [the current validation report](docs/evidence/bounded_feedback_2026-09-22/README.md).
-The integrated [clean `6470757` export](docs/evidence/browser_clean_6470757_2026-09-22/README.md)
-also passes all three browser gates and Linux startup. Public delivery and the remaining motion
+The selected feedback policy passes six declared browser start/restart flows in an isolated export
+with recorded source hashes. [The current validation report](docs/evidence/heading_feedback_2026-09-22/README.md)
+retains the selection process and the remaining failure. The preceding integrated `389f817` checkpoint
+passes 59 native checks, clean Web/Linux builds and all three browser gates. The new policy
+integration requires its own clean export checks; public delivery and the remaining motion
 requirements are still in progress.
 
 ## Watch a real physics trial
@@ -59,13 +59,14 @@ does not count toward the measured hold.
 [1152 × 648 recording](docs/media/pickup.webm) · [Measurements](docs/evidence/corrected_recordings_2026-09-22/pickup.json) ·
 [Reproduce the capture](docs/media/PICKUP.md)
 
-## Watch learned forward walking
+## Watch a recorded learned walk
 
 ![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
 
-The current frozen feedback policy runs under the corrected **0.25 N·m** cap. In this
-recorded episode, holding W for **12 seconds** moves the robot **41.8 cm** forward; releasing W
+This recording uses the preceding corrected-budget policy at source `6470757`, under the
+**0.25 N·m** cap. Holding W for **12 seconds** moves the robot **41.8 cm** forward; releasing W
 leaves it standing. The camera follows its horizontal travel while preserving the editing view.
+The newly selected heading policy is validated separately below; this movie does not depict it.
 
 [1152 × 648 recording](docs/media/learned-walk.mp4) · [Full-size still](docs/media/learned-walk.png) ·
 [Measurements](docs/evidence/corrected_recordings_2026-09-22/learned.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
@@ -122,19 +123,19 @@ backward movement, pickup and running have focused corrected-model passes; the o
 running matrix remains historical until repeated in full.
 
 The current yaw-hip policy combines a learned periodic gait with learned lateral/heading feedback.
-Under the corrected **0.25 N·m** model it passes **63/64 fresh starts and 63/64 restarts**, with
-**two falls**. The old v2 weights transferred into that same corrected runtime also pass 126/128
-with two falls; retraining does not improve aggregate success in this cohort. Twelve actual
-native-app flows and six Chromium WebAssembly flows pass separately. Browser travel is
-40.96–43.30 cm in 12 seconds, with at most 2.98 cm lateral drift.
+Its heading coefficient was selected from an earlier learned policy while retaining the corrected-model
+position/velocity feedback. This is post-training coefficient selection, not another training run.
+Frozen before a new paired evaluation, it passes **255/256 conditions with one fall**; the previous
+bundle passes **251/256 with five falls** on those same conditions. Five failures improve and one
+previously successful condition regresses. Twelve actual native-app flows and six Chromium
+WebAssembly flows pass separately; browser travel is 41.59–43.16 cm in 12 seconds.
 
 These results concern one simulated robot, ±0.004 m/s initial velocity noise, 0–5-second start
 delays and declared restart intervals. They do not guarantee every restart or arbitrary assemblies.
 MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
-[Methods and complete outcomes](docs/evidence/bounded_feedback_2026-09-22/README.md) distinguish
-training, checkpoint selection, held-out evaluation and browser checks. The clean integrated
-checkpoint passes its build/browser gates; public release, continuous manual control and kit
-locomotion remain unfinished.
+[Methods and complete outcomes](docs/evidence/heading_feedback_2026-09-22/README.md) distinguish
+training, component selection, frozen evaluation and browser checks. Clean integrated verification,
+public release, continuous manual control and kit locomotion remain unfinished.
 
 ## Development
 

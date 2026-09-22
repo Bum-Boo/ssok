@@ -8,18 +8,24 @@ application needs neither Python nor an API key to evaluate a policy.
 
 ## Current bundled policy with the corrected torque budget
 
-The bundled `yaw_biped_bounded_v2.json` uses the corrected whole-step 0.25 N·m motor model.
-Its three tied ankle-feedback weights are retrained by CEM while the periodic carrier remains
-fixed. It passes **63/64 fresh starts and 63/64 restarts, with two falls**, in a new frozen
-128-condition native cohort. The old v2 weights transferred to the same model also pass126/128,
-with two different falls. This is corrected-model validation, not improved aggregate robustness.
+The bundled `yaw_biped_heading_v2.json` uses the corrected whole-step 0.25 N·m motor model.
+It retains the CEM-learned periodic carrier and corrected-model position/velocity feedback,
+while selecting the heading coefficient from the earlier learned policy. The three single-component
+variants were compared on 128 already observed development conditions. This is post-training
+coefficient recombination, not a new CEM run; provenance records both stages.
+
+The selected candidate was frozen before a new paired 256-condition evaluation. It passes
+**127/128 fresh starts and 128/128 restarts, with one fall**. The previous corrected-model policy
+passes **127/128 fresh starts and 124/128 restarts, with five falls**, on the same conditions.
+Five failed cases improve and one previously successful case regresses. The remaining candidate
+fall and all other outcomes remain in [the full report](evidence/heading_feedback_2026-09-22/README.md).
+This is an observed cohort improvement, not a guarantee for arbitrary starts or assemblies.
 
 The identical frozen candidate passes twelve actual native-app flows and six declared Chromium
-WebAssembly flows. [Full training, failures, physical gates and browser evidence](evidence/bounded_feedback_2026-09-22/README.md)
-are preserved. The integrated [clean `6470757` export](evidence/browser_clean_6470757_2026-09-22/README.md)
-also passes all three browser gates and Linux startup. This is a private checkpoint; subsequent
-runtime changes and the final published artifacts require their own verification. The earlier
-v2 report below remains a historical result under the old actuator.
+WebAssembly flows. The preceding integrated `389f817` policy/build passes 59 native checks and
+all three browser gates; the new integration requires its own clean build verification. No public
+release is claimed. The [previous corrected-model cohort](evidence/bounded_feedback_2026-09-22/README.md)
+and old-runtime results below remain separate historical evidence.
 
 ## Historical version 2 under the old actuator
 

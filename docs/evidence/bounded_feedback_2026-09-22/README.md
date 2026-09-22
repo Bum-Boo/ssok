@@ -1,5 +1,9 @@
 # Learned feedback with the corrected 0.25 N·m budget
 
+> Historical policy checkpoint: the current bundle uses the separately selected
+> [heading-feedback candidate](../heading_feedback_2026-09-22/README.md). All measurements and
+> original training/selection records below remain unchanged.
+
 This frozen candidate was trained and evaluated with `hinge-per-step-budget-v2`, the physical
 correction in [ADR 0020](../../adr/0020-whole-step-actuator-torque-budget.md). The previous v2
 asset and its old-runtime results remain preserved. Merely replacing that policy's fingerprint
@@ -79,7 +83,7 @@ reviewed: the robot remains upright and fully visible between the app panels. Po
 `414ea50b0e0996c05aa3e54574f40fb2fb31aa778cb51a94ccfa1985c473f6de` is identical across every case;
 it is Godot's canonical JSON representation, distinct from the unchanged file SHA-256 above.
 
-The exact candidate is now bundled as `assets/policies/yaw_biped_bounded_v2.json`. This changes
+This candidate was bundled as `assets/policies/yaw_biped_bounded_v2.json`. This changes
 no UI wording; all four language packs retain the existing forward-only and incompatible-assembly
 instructions. The historical v2 file remains available and must fail the corrected runtime binding.
 The two independent native falls remain a limitation despite these six browser passes. The browser
