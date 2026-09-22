@@ -19,6 +19,17 @@ PROJECT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT))
 from tools.ci.install_godot import BUILD
 
+# Files reached from the bundled documentation, kept outside the application pack.
+DOCUMENTATION_REFERENCES = (
+    "AGENTS.md",
+    "assets/modular_humanoid/README.md",
+    "presets/biped_motion.gd",
+    "tests/biped_motion_check.gd",
+    "tools/motion_lab/MCP.md",
+    "tools/motion_lab/PICKUP.md",
+    "tools/rl_lab/reference/biped_mujoco_ars.json",
+)
+
 
 def execute(command: list[str], log: Path, *, cwd: Path = PROJECT, env=None) -> None:
     print("Running " + " ".join(command), flush=True)
@@ -44,6 +55,10 @@ def copy_notices(destination: Path) -> None:
     for name in ("LICENSE", "THIRD_PARTY_NOTICES.md", "README.md"):
         shutil.copy2(PROJECT / name, destination / name)
     shutil.copytree(PROJECT / "docs", destination / "docs", ignore=shutil.ignore_patterns("*.tmp", "*.bak"))
+    for name in DOCUMENTATION_REFERENCES:
+        target = destination / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(PROJECT / name, target)
 
 
 def main() -> None:

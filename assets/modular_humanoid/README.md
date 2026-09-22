@@ -4,7 +4,13 @@ This is the earlier 37-object robot-specific prefab. Its torso and limb objects 
 rails, panels and guards; their decorative holes are not individual attachment ports. Do not
 describe these as Science Box-style interchangeable elementary parts. Kept unchanged for old
 scenarios and physics regressions. The replacement is [the construction kit](../../docs/CONSTRUCTION_KIT.md),
-with new Blender source `assets/blender/ssok_construction_kit.blend`.
+with final Blender source `assets/blender/ssok_construction_kit_verified.blend`.
+
+The physical measurements at the end of this page use the earlier actuator implementation.
+[ADR 0020](../../docs/adr/0020-whole-step-actuator-torque-budget.md) corrected its per-pass impulse
+budget on 2026-09-22. Current focused walking and pickup regressions pass separately in the
+[corrected-runtime verification](../../docs/evidence/bounded_feedback_2026-09-22/README.md);
+they do not retroactively validate the historical torque interpretation or trajectory values.
 
 Original ssok virtual modules, not calibrated replicas of a commercial humanoid or motor.
 The earlier `assets/humanoid/` block robot remains a separate compatibility example.
@@ -38,6 +44,8 @@ boxes matching its crossmembers; a solid bounding box would incorrectly fill spa
 Motor housings specify `actuator_drives_connected_body = true`, so their output link rotates
 relative to the housing. Internal hinge motors apply bounded equal/opposite impulses. Legs
 use virtual 30–35 Nm limits, arms 12 Nm; these are design parameters, not vendor ratings.
+The current implementation distributes each step's motor impulse across solver passes. Before
+ADR 0020, these numbers were nominal settings whose physical torque could exceed the stated limit.
 
 `ModularHumanoidPreset.answer_code(graph)` produces a wired-pin standing example using
 `Servo(pin).write_relative(angle)` and `sleep(2.0)`. `HumanoidMotion` resolves passive limb roles
@@ -74,16 +82,17 @@ Blender command. The `.blend` retains separately selectable assembled modules an
 source-kit collection. Runtime uses OBJ-derived meshes with external shared PBR resources;
 Blender is not required to run or export the app.
 
-## Measured local baseline (2026-09-15)
+## Historical local baseline before the actuator correction (2026-09-15)
 
-Godot 4.7.2 / GodotPhysics / 60 Hz / 20 simulated seconds, fixed baseline controller:
+Godot 4.7.2 / GodotPhysics / 60 Hz / 20 simulated seconds, fixed baseline controller and the
+earlier per-pass actuator. These numbers do not describe the corrected physical torque limits:
 
 - Walking, with the box moved away in the test setup: 0.86 m forward after a 3-second settle;
   minimum torso upright dot product 0.998.
 - Pickup at the preset location: 0.42 m box lift, stable hold, then gravity-driven release;
-  minimum torso upright dot product 0.924. Reversing link endpoint ordering also passes.
+  minimum torso upright dot product 0.924. Reversing link endpoint ordering also passed.
 - Original block humanoid pickup, original servo-arm physics and original biped regression
-  checks remain passing.
+  checks passed in that baseline.
 
 These are simulation baselines, not Luna training results. The pickup lab separately records
 fresh candidate outcomes; saved metrics never guarantee a later replay or real-world transfer.

@@ -1,6 +1,6 @@
 # Historical command-relative feedback experiment
 
-> **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
+> **Historical actuator results:** [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md) corrected the per-pass impulse budget on 2026-09-22. The measurements on this page predate that correction and do not certify the stated physical torque limits. The current policy's corrected-model validation is linked below.
 
 The current corrected-torque policy and its independent evaluation are documented in
 [the bounded feedback report](evidence/bounded_feedback_2026-09-22/README.md). All results below

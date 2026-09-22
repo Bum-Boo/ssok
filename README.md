@@ -74,7 +74,7 @@ leaves it standing. The camera follows its horizontal travel while preserving th
 
 | Workflow | What actually happens |
 |---|---|
-| Build from reusable parts | 24 elementary construction products form a 181-part humanoid or a 29-part bridge. Holes are real attachment ports; bolts, beams and plates remain individually editable. |
+| Build from reusable parts | The construction catalog offers 25 reusable products, including beams, plates, motors and fasteners. The pickup humanoid has 181 robot parts; the bridge has 29. Holes are real attachment ports, and each part remains editable. |
 | Edit and inspect | Search parts, select, move and rotate with Blender-style controls, constrain axes, cancel or undo. Connections and transforms stay in one graph. |
 | Program a wired robot | A bounded Python-style servo language and profile-derived block controls address the motors connected in the wiring graph. This is a teaching language, not a full Python or Arduino firmware emulator. |
 | Keep and share your work | Versioned JSON snapshots preserve the assembly and learner source. Invalid imports leave the open project untouched; loading never executes code. |
@@ -115,7 +115,9 @@ flowchart LR
 The corrected elementary-kit pickup passes the original 25 cm / 1 second gate, including
 perturbed box positions and reversed graph ordering. Its four-second lift passes 277 physical
 assertions and twelve pickup integration suites, reaching about 47.7 cm. Stable continuous
-walking with the articulated construction kit remains unfinished. Legacy humanoid walking,
+walking with the articulated construction kit remains unfinished. The four-servo manual biped
+also has unresolved failures during continuous direction changes; isolated direction checks do
+not establish reliable continuous control. Legacy humanoid walking,
 backward movement, pickup and running have focused corrected-model passes; the older 14/14
 running matrix remains historical until repeated in full.
 
@@ -131,7 +133,8 @@ delays and declared restart intervals. They do not guarantee every restart or ar
 MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
 [Methods and complete outcomes](docs/evidence/bounded_feedback_2026-09-22/README.md) distinguish
 training, checkpoint selection, held-out evaluation and browser checks. The clean integrated
-checkpoint passes its build/browser gates; public release and kit locomotion remain unfinished.
+checkpoint passes its build/browser gates; public release, continuous manual control and kit
+locomotion remain unfinished.
 
 ## Development
 

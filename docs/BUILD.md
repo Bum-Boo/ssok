@@ -17,6 +17,7 @@ build/venv/bin/python tools/ci/build.py --godot "$PWD/build/toolchain/godot" --v
 build/venv/bin/python -m playwright install chromium
 build/venv/bin/python tools/ci/browser_smoke.py
 build/venv/bin/python tools/ci/browser_authoring.py
+build/venv/bin/python tools/ci/browser_physics.py
 ```
 
 On a minimal Linux image, use `python -m playwright install --with-deps chromium` to install
@@ -37,10 +38,15 @@ The build creates:
 - `build/browser-smoke/` with real Chromium screenshots and console results.
 - `build/browser-authoring/` with saved/reopened project JSON, persistence/import results and
   screenshots of project controls, blocks and the compact desktop layout.
+- `build/browser-physics/` with the actual WebAssembly walking/release measurements, source
+  fingerprints and browser screenshots.
 
 The export resource audit rejects developer tools, tests, documentation, Blender source files
 and environment files in the application pack. The project license, third-party notices, README
 and documentation snapshot accompany both archives as ordinary files beside the application.
+The small source documents, reference policy and code examples linked from that snapshot are
+also bundled at their original relative paths, so those links work offline. They are outside
+the application pack; development and training still use a complete source checkout.
 The Web preset explicitly disables threads, extensions, PWA service workers and simulated
 cross-origin headers. It runs on a normal static host, including GitHub Pages.
 
@@ -115,9 +121,23 @@ that evidence page. Input steps wait for Godot's next canvas frames before actin
 python3 -m http.server 8060 --bind 127.0.0.1 --directory build/web
 ```
 
-Open `http://127.0.0.1:8060/` in a current desktop Chromium or Firefox browser with WebGL 2.
+Open `http://127.0.0.1:8060/` in desktop Chromium with WebGL 2. The retained browser checks use
+Chromium; Firefox and other browsers have not completed this release's interaction/physics gates.
 Keep all exported filenames intact; opening `index.html` directly via `file://` is unsupported.
 Use a keyboard and mouse. The public static demo does not host the optional Python API bridge.
+
+## Run the Linux build
+
+Extract the Linux x86_64 ZIP and keep `ssok.x86_64` and its neighboring PCK file together.
+From the extracted directory, run:
+
+```sh
+chmod +x ssok.x86_64
+./ssok.x86_64
+```
+
+The bundled executable contains the engine; running it does not require installing the Godot editor
+or Python developer tools. This desktop artifact targets Linux x86_64, not Windows or macOS.
 
 ## GitHub Actions and release
 

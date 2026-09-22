@@ -1,6 +1,6 @@
 # Learning locomotion
 
-> **Actuator correction in progress (2026-09-22):** earlier motor-driven measurements used an incorrect per-pass impulse budget. A nominal 0.25 N·m setting produced about 16 N·m in a saturated isolated test at 64 solver iterations. Historical trajectories remain recorded, but do not certify the corrected torque limits. See [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md). Affected pickup, running and learned walking require fresh validation before release.
+> **Actuator corrected (2026-09-22):** [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md) enforces the motor budget across the whole physics step. The current bundled policy has separate corrected-model native and Web validation below. Historical sections retain the earlier per-pass results, whose nominal torque settings did not enforce the stated physical limits.
 
 ssok includes an offline reinforcement-learning laboratory and a small GDScript policy runner.
 Training never calls a paid API unless both `--live` and `--allow-paid` are supplied. The shipped
@@ -16,8 +16,10 @@ with two different falls. This is corrected-model validation, not improved aggre
 
 The identical frozen candidate passes twelve actual native-app flows and six declared Chromium
 WebAssembly flows. [Full training, failures, physical gates and browser evidence](evidence/bounded_feedback_2026-09-22/README.md)
-are preserved. The earlier v2 report below remains a historical result under the old actuator;
-final integrated clean release verification is still separate.
+are preserved. The integrated [clean `6470757` export](evidence/browser_clean_6470757_2026-09-22/README.md)
+also passes all three browser gates and Linux startup. This is a private checkpoint; subsequent
+runtime changes and the final published artifacts require their own verification. The earlier
+v2 report below remains a historical result under the old actuator.
 
 ## Historical version 2 under the old actuator
 
@@ -32,7 +34,8 @@ A policy learned directly in Godot completed **31 of 32 held-out episodes (96.9%
 **zero falls** and **0.422 m mean forward travel**. Each episode launched a fresh Godot process;
 start delays covered 0, 1, 2 and 3 seconds. This narrow held-out test used the same native Linux
 binary and only ±0.003 m/s initial x/z velocity perturbations; it does not establish broad domain robustness. The policy operates the separate graph-derived yaw-hip
-biped with real 0.25 N·m joint motors. These are simulated forward-walking results for this robot.
+biped with a nominal 0.25 N·m motor setting under the earlier per-pass implementation. That setting
+did not enforce a whole-step 0.25 N·m limit. These trajectories describe the historical simulator.
 
 | Shipping-engine check | Successes | Falls | Mean forward travel |
 |---|---:|---:|---:|
@@ -57,9 +60,9 @@ not replace the frozen checkpoint.
 - [Every frozen-policy held-out episode, including the failure](evidence/rl_2026-09-22/godot_yaw_heldout.json)
 - [Initial stop/restart stress results](evidence/rl_2026-09-22/godot_yaw_restart_v1.json)
 
-The actual `main.tscn` application also passes five native checks: W immediately after Run,
+The historical `main.tscn` application also passed five native checks: W immediately after Run,
 W after 1, 2 and 3 seconds, and walking for 3 seconds followed by a 1-second stop and W again.
-Each passes 734 assertions including real keyboard input, upright stopping, graph immutability,
+Each passed 734 assertions including real keyboard input, upright stopping, graph immutability,
 modified-graph rejection and returning to the original starter. Travel is 0.408–0.427 m and minimum
 upright alignment is 0.9577–0.9714. [Per-flow app evidence](evidence/rl_2026-09-22/godot_yaw_app.json)
 records these results.
@@ -77,8 +80,8 @@ The subsequent [clean `0b2fe24` browser run](evidence/browser_clean_0b2fe24_2026
 **failed** the unchanged lateral gate: 0.421612 m forward, 0.101064 m lateral and 10.865577° yaw
 over 12 seconds. The robot remained upright and both feet lifted, but the 0.10 m lateral limit
 still applies. Native fresh-process settle-83 and settle-84 diagnostics passed 737 checks each;
-they did not reproduce or replace the Web failure. The frozen policy therefore needs improved
-start/platform robustness and new clean browser evidence before release approval.
+they did not reproduce or replace the Web failure. This historical checkpoint did not qualify
+for release. The separately evaluated current policy and clean export are described above.
 
 The first [24-episode stop/restart check](evidence/rl_2026-09-22/godot_yaw_restart_v1.json) passed
 22 episodes, with one fall. An expanded characterization used eight walking durations, four pause
