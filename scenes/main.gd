@@ -1,5 +1,9 @@
 extends Node3D
 
+## Emitted when the learner leaves this workshop for the menus (router sessions only).
+signal exit_requested
+signal next_stage_requested(level_id: String)
+
 ## Slice-1 prototype shell: assembly view on the left, learner code on the right,
 ## one toggle between kinematic assembly and physics run mode (ADR 0003).
 
@@ -78,6 +82,14 @@ var _parts_scroll: ScrollContainer
 var _clean_workspace: String = ""
 var _pending_starter: Callable
 var _replace_dialog: ConfirmationDialog
+## Set by the app router before entering the tree: {"mode": "stage"|"lab"|"example", ...}.
+## Empty keeps the full legacy workshop that tests and older entry points use.
+var session: Dictionary = {}
+var stage_hud: StageHud
+var exit_button: Button
+var _level: StageLevel
+var _exit_dialog: ConfirmationDialog
+var _starter_section: Array[Control] = []
 
 
 func _ready() -> void:
@@ -117,7 +129,9 @@ func _ready() -> void:
 		elif stages != null and stages.evaluator.status in ["not_met", "cancelled", "indeterminate"]:
 			stages._show_result()
 		else:
-			_set_status("finished"))
+			_set_status("finished")
+		if stage_hud != null:
+			_schedule_program_end_check())
 	runtime.failed.connect(func(n: int, msg: String) -> void:
 		_show_code_failure(n, msg, int(runtime.last_failure.get("column", 1)))
 		if is_instance_valid(stages):
@@ -152,12 +166,15 @@ func _ready() -> void:
 	_refresh_control_ui()
 	_set_status("Edit mode - select a part, then G to move or R to rotate; connections snap at ports")
 	get_viewport().gui_release_focus()
+	_apply_session()
 	_clean_workspace = _workspace_key()
 
 
 func _process(_delta: float) -> void:
 	_refresh_manual_status()
 	_follow_running_robot()
+	if stage_hud != null and run_mode.is_built() and not stages.evaluator.measurements.is_empty():
+		stage_hud.show_measurement(stages.evaluator.measurements[0].value)
 
 
 func _follow_running_robot() -> void:
@@ -251,6 +268,13 @@ func _build_ui() -> void:
 	brand.add_theme_color_override("font_color", SsokTheme.ACCENT)
 	brand.custom_minimum_size.x = 94
 	bar.add_child(brand)
+	exit_button = SsokTheme.button("Menu", "arrow-left")
+	exit_button.name = "ExitButton"
+	exit_button.visible = false
+	exit_button.clip_text = false
+	exit_button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	exit_button.pressed.connect(_request_exit)
+	bar.add_child(exit_button)
 	projects_button = SsokTheme.button("Projects", "folder-open")
 	projects_button.pressed.connect(_open_projects)
 	bar.add_child(projects_button)
@@ -305,6 +329,7 @@ func _build_ui() -> void:
 	var box := VBoxContainer.new()
 	_side_panel.add_child(box)
 	var title := Label.new()
+	title.name = "ProgramTitle"
 	title.text = "Robot program"
 	title.label_settings = SsokTheme.title_settings()
 	box.add_child(title)
@@ -402,7 +427,7 @@ func _build_ui() -> void:
 	run_button = SsokTheme.button("Run code", "play")
 	run_button.theme_type_variation = &"PrimaryButton"
 	run_button.add_theme_color_override("icon_normal_color", SsokTheme.BG_SUNKEN)
-	run_button.pressed.connect(_on_run_pressed)
+	run_button.pressed.connect(_on_run_button_pressed)
 	box.add_child(run_button)
 	motion_lab = MotionLabPanel.new()
 	motion_lab.theme = _ui_root.theme
@@ -476,6 +501,13 @@ func _build_ui() -> void:
 		_replace_dialog.hide()
 		_replace_with_starter())
 	add_child(_replace_dialog)
+	_exit_dialog = ConfirmationDialog.new()
+	_exit_dialog.theme = _ui_root.theme
+	_exit_dialog.title = "Leave this screen?"
+	_exit_dialog.dialog_text = "Your build and code here are not saved. Save a project first to keep them."
+	_exit_dialog.ok_button_text = "Leave without saving"
+	_exit_dialog.confirmed.connect(func() -> void: exit_requested.emit())
+	add_child(_exit_dialog)
 
 
 func _build_help_hud() -> void:
@@ -598,11 +630,13 @@ func _build_palette() -> void:
 	_no_parts.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_no_parts.visible = false
 	parts_box.add_child(_no_parts)
-	box.add_child(HSeparator.new())
+	var starter_separator := HSeparator.new()
+	box.add_child(starter_separator)
 	var examples := Label.new()
 	examples.text = "STARTER ROBOTS"
 	examples.theme_type_variation = &"SectionLabel"
 	box.add_child(examples)
+	_starter_section = [starter_separator, examples]
 	examples_menu = MenuButton.new()
 	examples_menu.text = "Load an example"
 	examples_menu.custom_minimum_size.y = 36
@@ -691,52 +725,68 @@ func _adapt_layout() -> void:
 	var library: Control = _ui_root.get_node("PartsLibrary")
 	var footer: Control = _ui_root.get_node("WorkspaceFooter")
 	footer.offset_top = -8.0 - maxf(38.0, footer.get_combined_minimum_size().y)
-	library.offset_bottom = footer.offset_top - 12.0
+	# Stage sessions hide the header and footer so panels reach the window edges.
+	library.offset_bottom = footer.offset_top - 12.0 if footer.visible else -12.0
 	_side_panel.offset_bottom = library.offset_bottom
-	library.offset_top = header.get_global_rect().end.y + 12.0
+	library.offset_top = header.get_global_rect().end.y + 12.0 if header.visible else 12.0
 	_side_panel.offset_top = library.offset_top
 	var tools: Control = _ui_root.get_node("ViewportTools")
-	tools.position = Vector2(library.get_global_rect().end.x + 12.0, library.offset_top)
+	tools.position = Vector2(_left_edge() + 12.0, library.offset_top)
 	_layout_flag_mission()
 	_empty_panel.visible = _show_empty_card()
 	if _empty_panel.visible:
-		var available_left: float = library.get_global_rect().end.x + 12.0
+		var available_left: float = _left_edge() + 12.0
 		var available_width: float = _side_panel.get_global_rect().position.x - available_left - 12.0
 		var card_width: float = minf(400.0, available_width)
 		_empty_panel.size = Vector2(card_width, _empty_panel.get_combined_minimum_size().y)
 		_empty_panel.position = Vector2(available_left + (available_width - card_width) * 0.5, flag_mission.get_global_rect().end.y + 16.0)
 	var compact: bool = get_viewport().get_visible_rect().size.y < 800
-	examples_menu.visible = compact
+	examples_menu.visible = compact and session.is_empty()
 	for starter: Control in _starter_controls:
-		starter.visible = not compact
+		starter.visible = not compact and session.is_empty()
+	if stage_hud != null:
+		var area_left: float = _left_edge() + 12.0
+		var area_right: float = _side_panel.get_global_rect().position.x - 12.0
+		stage_hud.layout(Rect2(area_left, library.offset_top, minf(440.0, area_right - area_left), 0))
 
 
 func _layout_flag_mission() -> void:
 	if flag_mission == null or not _ui_root.has_node("ViewportTools"):
 		return
-	var library: Rect2 = (_ui_root.get_node("PartsLibrary") as Control).get_global_rect()
+	var left: float = _left_edge()
 	var tools: Rect2 = (_ui_root.get_node("ViewportTools") as Control).get_global_rect()
 	var program: Rect2 = _side_panel.get_global_rect()
-	var width: float = program.position.x - library.end.x - 24.0
+	var width: float = program.position.x - left - 24.0
 	var beside_tools: bool = width >= 750.0 and SsokTheme.ui_scale <= 1.3
-	flag_mission.offset_left = tools.end.x + 12.0 if beside_tools else library.end.x + 12.0
+	flag_mission.offset_left = tools.end.x + 12.0 if beside_tools else left + 12.0
 	flag_mission.offset_right = program.position.x - 12.0 - get_viewport().get_visible_rect().size.x
 	flag_mission.offset_top = tools.position.y if beside_tools else tools.end.y + 12.0
 	flag_mission.offset_bottom = flag_mission.offset_top + flag_mission.get_combined_minimum_size().y
 
 
 func _show_empty_card() -> bool:
-	if _empty_panel == null or not assembly.graph.parts.is_empty() or mode_button.button_pressed:
+	if _empty_panel == null or not session.is_empty() or not assembly.graph.parts.is_empty() or mode_button.button_pressed:
 		return false
 	var width: float = _side_panel.get_global_rect().position.x - 260.0
 	return width >= 500.0 and get_viewport().get_visible_rect().size.y >= 800.0
 
 
+## Left edge of the 3D area: the parts library when shown, otherwise the window edge.
+func _left_edge() -> float:
+	var library: Control = _ui_root.get_node("PartsLibrary") as Control
+	return library.get_global_rect().end.x if library.visible else 0.0
+
+
 func _camera_framing_rect() -> Rect2:
-	var library: Rect2 = (_ui_root.get_node("PartsLibrary") as Control).get_global_rect()
 	var program: Rect2 = _side_panel.get_global_rect()
-	var tools: Rect2 = (_ui_root.get_node("ViewportTools") as Control).get_global_rect()
-	var top_left: Vector2 = Vector2(library.end.x + 12.0, maxf(tools.end.y, flag_mission.get_global_rect().end.y) + 12.0)
+	var tools_panel: Control = _ui_root.get_node("ViewportTools") as Control
+	var top: float = tools_panel.get_global_rect().end.y if tools_panel.visible else program.position.y - 12.0
+	# Hidden overlays must not shrink the framed area.
+	if flag_mission.visible:
+		top = maxf(top, flag_mission.get_global_rect().end.y)
+	if stage_hud != null and stage_hud.goal_card.visible:
+		top = maxf(top, stage_hud.goal_card.get_global_rect().end.y)
+	var top_left: Vector2 = Vector2(_left_edge() + 12.0, top + 12.0)
 	var bottom_right: Vector2 = Vector2(program.position.x - 12.0, program.end.y - 12.0)
 	return Rect2(top_left, bottom_right - top_left)
 
@@ -992,7 +1042,9 @@ func _on_run_pressed() -> void:
 	if not validation.is_empty():
 		_show_code_failure(validation.line, runtime._translated_error(validation), int(validation.get("column", 1)))
 		return
-	program_tabs.current_tab = 0
+	# Block users keep their blocks in view; the running block is highlighted there.
+	if program_tabs.current_tab != 2 and not program_tabs.is_tab_hidden(0):
+		program_tabs.current_tab = 0
 	control_source.select(CONTROL_CODE)
 	manual_controller.set_enabled(false)
 	if not mode_button.button_pressed:
@@ -1259,6 +1311,10 @@ func _refresh_control_ui() -> void:
 	_refresh_workspace()
 	if control_source == null:
 		return
+	if stage_hud != null:
+		var attempt_active: bool = mode_button.button_pressed
+		run_button.text = "Reset robot" if attempt_active else "Run code"
+		run_button.icon = SsokTheme.icon("rotate-ccw" if attempt_active else "play")
 	var running: bool = mode_button.button_pressed
 	stop_button.disabled = not running
 	_refresh_manual_status()
@@ -1315,6 +1371,9 @@ func _set_status(text: String, is_error: bool = false, arguments: Array = [], tr
 	SsokLocale.bind(status, text, arguments, translated_arguments)
 	status.tooltip_text = status.text
 	status.modulate = Color(1, 0.4, 0.4) if is_error else Color.WHITE
+	# Stage sessions have no footer; only problems the learner must fix reach the goal card.
+	if stage_hud != null and is_error:
+		stage_hud.show_problem(text, arguments, translated_arguments)
 
 
 func _on_language_selected(index: int) -> void:
@@ -1427,3 +1486,163 @@ func _practice_flag_arm() -> void:
 func _on_microbit_arm_pressed() -> void:
 	_load_preset(ServoArmPreset.build_microbit(), ServoArmPreset.microbit_code(), "answer loaded - the finished servo arm")
 	flag_mission.visible = true
+
+
+func _apply_session() -> void:
+	var mode: String = session.get("mode", "")
+	if mode.is_empty():
+		return
+	# Menus decide what to do; the workshop only shows tools for that choice.
+	exit_button.visible = true
+	flag_mission.visible = false
+	flag_mission.show_visual = false
+	tutorial_button.visible = false
+	for control: Control in _starter_section:
+		control.visible = false
+	match mode:
+		"stage":
+			_enter_stage(session.get("level", {}))
+		"lab":
+			_enter_lab()
+		"example":
+			_enter_example(int(session.get("example", 0)))
+	_adapt_layout.call_deferred()
+
+
+func _set_tabs(names: Array) -> void:
+	for index: int in program_tabs.get_tab_count():
+		var tab_name: String = String(program_tabs.get_tab_control(index).name)
+		program_tabs.set_tab_hidden(index, tab_name not in names)
+		if not names.is_empty() and tab_name == names[0]:
+			program_tabs.current_tab = index
+
+
+func _install_level(path: String) -> void:
+	var packed: PackedScene = load(path) as PackedScene
+	if packed == null:
+		return
+	_level = packed.instantiate() as StageLevel
+	var default_floor: Node = get_node_or_null("Floor")
+	if default_floor != null:
+		remove_child(default_floor)
+		default_floor.queue_free()
+	add_child(_level)
+
+
+func _enter_stage(level: Dictionary) -> void:
+	var stage: Dictionary = StageLevels.stage_definition(level)
+	if stage.is_empty():
+		return
+	exit_button.text = "Stages"
+	exit_button.tooltip_text = "Back to the stage list"
+	for control: Control in [projects_button, motion_lab_button, mode_button, control_source, exit_button]:
+		control.visible = false
+	# Focus layout: only the goal card, the program panel and the 3D level stay on screen.
+	for node_name: String in ["WorkspaceHeader", "ViewportTools", "WorkspaceFooter"]:
+		(_ui_root.get_node(node_name) as Control).visible = false
+	_help_panel.visible = false
+	(_side_panel.find_child("ProgramTitle", true, false) as Control).visible = false
+	_install_level(level.scene)
+	var library: Control = _ui_root.get_node("PartsLibrary") as Control
+	var allowed: Array = level.get("parts", [])
+	library.visible = not allowed.is_empty()
+	for button: Button in part_buttons:
+		var definition: PartDef = button.get_meta("part_definition")
+		button.visible = String(definition.id) in allowed
+	flag_mission.show_visual = level.id == "raise-flag"
+	_load_preset(StageLevels.starting_graph(level, stage), level.get("starter_code", stage.scene.source), "Read the mission, then change the program.")
+	stages.load_goal(stage)
+	_set_tabs(level.get("tabs", ["Blocks", "Code"]))
+	control_source.select(CONTROL_CODE)
+	stage_hud = StageHud.new()
+	stage_hud.theme = _ui_root.theme
+	stage_hud.configure(level, not StageLevels.next_after(level.id).is_empty())
+	_ui_root.add_child(stage_hud)
+	stage_hud.start_pressed.connect(func() -> void:
+		get_viewport().gui_release_focus()
+		_set_status("Change the program, then press Run code."))
+	stage_hud.retry_requested.connect(_reset_attempt)
+	stage_hud.next_requested.connect(func() -> void:
+		var next: Dictionary = StageLevels.next_after(level.id)
+		if not next.is_empty():
+			next_stage_requested.emit(next.id))
+	stage_hud.list_requested.connect(func() -> void: exit_requested.emit())
+	stage_hud.exit_pressed.connect(_request_exit)
+	stages.outcome_changed.connect(_on_stage_outcome)
+	if _level != null:
+		navigation.set_view_angles(deg_to_rad(_level.view_yaw_degrees), deg_to_rad(_level.view_pitch_degrees))
+		navigation.frame_bounds(_level.play_area)
+	_refresh_control_ui()
+
+
+func _enter_lab() -> void:
+	motion_lab_button.visible = false
+	stages.set_lab_only(true)
+	_set_tabs(["Blocks", "Code", "Wiring", "Controls", "Stages"])
+	_set_status("Free building: add parts from the library, wire them, then program your robot.")
+	if session.get("open_projects", false):
+		_open_projects.call_deferred()
+
+
+func _enter_example(index: int) -> void:
+	_set_tabs(["Controls", "Blocks", "Code", "Wiring"])
+	# A fresh workshop has nothing to lose, so load without the replace prompt.
+	_clean_workspace = _workspace_key()
+	_load_example_id(index)
+
+
+func _request_exit() -> void:
+	if projects.visible or settings.visible or tutorial.visible or motion_lab.visible or pickup_lab.visible:
+		return
+	runtime.stop()
+	manual_controller.set_enabled(false)
+	motion_program.set_enabled(false)
+	# Stage progress is kept separately; a stage attempt itself needs no save prompt.
+	if session.get("mode", "") == "stage" or _workspace_key() == _clean_workspace:
+		exit_requested.emit()
+	else:
+		_exit_dialog.popup_centered()
+
+
+func _on_run_button_pressed() -> void:
+	# In a stage the same button starts an attempt and, while one runs, puts the robot back.
+	if stage_hud != null and mode_button.button_pressed:
+		_reset_attempt()
+		return
+	if stage_hud != null:
+		stage_hud.show_problem("")
+	_on_run_pressed()
+
+
+func _reset_attempt() -> void:
+	runtime.stop()
+	stages.on_stop()
+	_ensure_assembly_mode()
+	if stage_hud != null:
+		stage_hud.show_measurement(null)
+		stage_hud.show_problem("")
+	_set_status("Robot reset. Change the program, then press Run code.")
+
+
+## A finished program leaves the robot still; waiting for the full time limit would only
+## make learners wait. Allow the longest hold time plus settling before calling it unmet.
+func _schedule_program_end_check() -> void:
+	var execution: int = stages.evaluator.execution_id
+	var grace: float = 1.5
+	for rule: Dictionary in stages.current.get("rules", []):
+		grace = maxf(grace, float(rule.hold_seconds) + 1.5)
+	get_tree().create_timer(grace, false, true).timeout.connect(func() -> void:
+		if stages.evaluator.execution_id == execution and stages.evaluator.status == "running":
+			stages.evaluator.finish("not_met", "program_finished", execution))
+
+
+func _on_stage_outcome(message: String) -> void:
+	if stage_hud == null:
+		return
+	if stages.evaluator.success:
+		var level_id: String = session.get("level", {}).get("id", "")
+		if StageProgress.mark_cleared(level_id) != OK:
+			_set_status("Stage cleared, but progress could not be saved.", true)
+		stage_hud.show_success("The goal was met in the physics run.")
+	elif stages.evaluator.status in ["not_met", "indeterminate"]:
+		stage_hud.show_failure(message)

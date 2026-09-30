@@ -1838,3 +1838,288 @@ msgstr "无法读取目标传感器。请检查接线后重试。"
 
 msgid "Attempt stopped. Your build and code are kept."
 msgstr "尝试已停止。组装和代码已保留。"
+
+msgid "Servo angle"
+msgstr "舵机角度"
+
+msgid "Raise the flag up to the green line."
+msgstr "把旗帜升到绿线处。"
+
+msgid "The castle flag is lying down. Turn the servo so the arm lifts the flag up to the green line."
+msgstr "城堡的旗帜倒下了。转动舵机，让机械臂把旗帜举到绿线处。"
+
+msgid "Change the angle in the servo block."
+msgstr "修改舵机积木里的角度。"
+
+msgid "Press Run code."
+msgstr "点击“运行代码”。"
+
+msgid "Keep the flag on the green line for one second."
+msgstr "让旗帜在绿线处停留一秒。"
+
+msgid "0 degrees keeps the arm down. Try a bigger angle, like 90."
+msgstr "0 度时机械臂是放下的。试试更大的角度，比如 90。"
+
+msgid "Flag height"
+msgstr "旗帜高度"
+
+msgid "Motor power and time"
+msgstr "电机功率与时间"
+
+msgid "Drive the car past the checkered finish line."
+msgstr "让小车开过方格终点线。"
+
+msgid "The car stops before the finish line. Make the motors run long enough to cross it without tipping over."
+msgstr "小车在终点线前停下了。让电机转得久一点，在不翻车的情况下越过终点线。"
+
+msgid "Change how long the motors run."
+msgstr "修改电机运转的时间。"
+
+msgid "Cross the checkered line."
+msgstr "越过方格线。"
+
+msgid "sleep(500) runs the motors for half a second. Let them run longer."
+msgstr "sleep(500) 只让电机转半秒。让它们转得更久一些。"
+
+msgid "Distance driven"
+msgstr "行驶距离"
+
+msgid "Sensor and conditions"
+msgstr "传感器与条件"
+
+msgid "Stop inside the yellow zone without touching the wall."
+msgstr "不碰到墙，停在黄色区域内。"
+
+msgid "Driving for a fixed time crashes into the wall. Use the distance sensor to stop in the yellow zone, 5 to 10 cm from the wall."
+msgstr "按固定时间行驶会撞到墙。用距离传感器，停在离墙 5 到 10 厘米的黄色区域。"
+
+msgid "Read the distance sensor in a loop."
+msgstr "在循环中读取距离传感器。"
+
+msgid "Stop the motors when the wall is close."
+msgstr "墙靠近时让电机停下。"
+
+msgid "Stay still inside the yellow zone."
+msgstr "在黄色区域内保持静止。"
+
+msgid "while sonar.distance_cm() > 10: keeps driving until the wall is 10 cm away."
+msgstr "while sonar.distance_cm() > 10: 会一直行驶，直到离墙 10 厘米。"
+
+msgid "Distance to wall"
+msgstr "到墙的距离"
+
+msgid "Gap bridge"
+msgstr "跨缝桥"
+
+msgid "Downhill cart"
+msgstr "下坡小车"
+
+msgid "Open the gate"
+msgstr "打开道闸"
+
+msgid "Waving robot"
+msgstr "挥手机器人"
+
+msgid "Legged robot 30 cm"
+msgstr "腿式机器人 30 厘米"
+
+msgid "Stop at the line"
+msgstr "停在停止线"
+
+msgid "Draw a square"
+msgstr "画一个正方形"
+
+msgid "Challenge: S course"
+msgstr "挑战：S 形赛道"
+
+msgid "Maze escape"
+msgstr "逃出迷宫"
+
+msgid "Line tracer"
+msgstr "循线小车"
+
+msgid "Color sorting delivery"
+msgstr "按颜色分类配送"
+
+msgid "Parallel parking"
+msgstr "侧方停车"
+
+msgid "Two-robot relay"
+msgstr "双机器人接力"
+
+msgid "Budget challenge"
+msgstr "预算挑战"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Build a robot, code it, and watch it move."
+msgstr "搭建机器人，编写程序，看它动起来。"
+
+msgid "Play stages"
+msgstr "挑战关卡"
+
+msgid "Clear challenges one by one."
+msgstr "一关一关地完成挑战。"
+
+msgid "Free building"
+msgstr "自由搭建"
+
+msgid "Build anything with every part. You can turn it into a challenge."
+msgstr "用所有零件随意搭建，也可以把作品变成挑战。"
+
+msgid "Explore examples"
+msgstr "浏览示例"
+
+msgid "Try finished robots: arms, walkers and humanoids."
+msgstr "试试做好的机器人：机械臂、步行机器人和人形机器人。"
+
+msgid "Open my project"
+msgstr "打开我的项目"
+
+msgid "Continue a saved build."
+msgstr "继续搭建保存的作品。"
+
+msgid "Pick a stage. Each one has its own place, goal and robot."
+msgstr "选择一个关卡。每个关卡的场地、目标和机器人都不同。"
+
+msgid "STAGE %s"
+msgstr "第 %s 关"
+
+msgid "Cleared"
+msgstr "已通关"
+
+msgid "New"
+msgstr "新关卡"
+
+msgid "Play again"
+msgstr "再玩一次"
+
+msgid "Play"
+msgstr "开始"
+
+msgid "Coming soon"
+msgstr "即将推出"
+
+msgid "This stage is not ready yet."
+msgstr "这个关卡还在制作中。"
+
+msgid "Examples"
+msgstr "示例"
+
+msgid "Open a finished robot, run it, then change it."
+msgstr "打开做好的机器人，运行一下，再动手修改。"
+
+msgid "Servo arm"
+msgstr "舵机机械臂"
+
+msgid "One servo lifts an arm. The simplest robot to read."
+msgstr "一个舵机抬起机械臂，是最容易看懂的机器人。"
+
+msgid "Biped"
+msgstr "双足机器人"
+
+msgid "Two legs, four servos. Drive it with WASD."
+msgstr "两条腿，四个舵机。用 WASD 控制。"
+
+msgid "Humanoid (experimental)"
+msgstr "人形机器人（实验性）"
+
+msgid "Walks and picks up a box. Movement is still unstable."
+msgstr "会走路、会捡箱子，但动作还不稳定。"
+
+msgid "Construction-kit humanoid"
+msgstr "组装套件人形机器人"
+
+msgid "Built only from kit beams, plates and fasteners."
+msgstr "只用套件里的梁、板和紧固件搭成。"
+
+msgid "Kit bridge"
+msgstr "套件桥梁"
+
+msgid "The same kit parts, assembled into a bridge."
+msgstr "用同样的套件零件搭成一座桥。"
+
+msgid "Learned biped"
+msgstr "学习型双足机器人"
+
+msgid "Walks with a learned policy. Hold W."
+msgstr "用学习到的策略行走。按住 W。"
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Loading..."
+msgstr "加载中..."
+
+msgid "Hint"
+msgstr "提示"
+
+msgid "Show the mission again"
+msgstr "再看一次任务"
+
+msgid "Press Run code to try it."
+msgstr "点击“运行代码”试试看。"
+
+msgid "Start"
+msgstr "开始"
+
+msgid "Next stage"
+msgstr "下一关"
+
+msgid "Stage list"
+msgstr "关卡列表"
+
+msgid "Stage cleared!"
+msgstr "过关！"
+
+msgid "Try another way"
+msgstr "换个方法试试"
+
+msgid "Not yet"
+msgstr "还差一点"
+
+msgid "%s: %.1f cm (goal: at least %.1f cm)"
+msgstr "%s：%.1f 厘米（目标：至少 %.1f 厘米）"
+
+msgid "%s: %.1f cm (goal: %.1f-%.1f cm)"
+msgstr "%s：%.1f 厘米（目标：%.1f～%.1f 厘米）"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "Leave this screen?"
+msgstr "要离开这个画面吗？"
+
+msgid "Your build and code here are not saved. Save a project first to keep them."
+msgstr "这里的作品和代码还没有保存。想保留的话，请先保存为项目。"
+
+msgid "Leave without saving"
+msgstr "不保存直接离开"
+
+msgid "Back to the stage list"
+msgstr "返回关卡列表"
+
+msgid "Read the mission, then change the program."
+msgstr "先看任务，再修改程序。"
+
+msgid "Change the program, then press Run code."
+msgstr "修改程序，然后点击“运行代码”。"
+
+msgid "Free building: add parts from the library, wire them, then program your robot."
+msgstr "自由搭建：从零件库添加零件并接线，再为机器人编程。"
+
+msgid "Robot reset. Change the program, then press Run code."
+msgstr "机器人已复位。修改程序，然后点击“运行代码”。"
+
+msgid "Stage cleared, but progress could not be saved."
+msgstr "已过关，但无法保存进度。"
+
+msgid "The goal was met in the physics run."
+msgstr "在物理运行中达成了目标。"
+
+msgid "The program ended before the goal was met. Change it and try again."
+msgstr "程序在达成目标前就结束了。修改后再试一次。"
+
+msgid "Reset robot"
+msgstr "机器人复位"

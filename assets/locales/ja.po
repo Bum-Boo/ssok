@@ -1838,3 +1838,288 @@ msgstr "対象センサーを読み取れません。配線を確認して再実
 
 msgid "Attempt stopped. Your build and code are kept."
 msgstr "試行を停止しました。組み立てとコードは保持されています。"
+
+msgid "Servo angle"
+msgstr "サーボの角度"
+
+msgid "Raise the flag up to the green line."
+msgstr "旗を緑の線まで上げよう。"
+
+msgid "The castle flag is lying down. Turn the servo so the arm lifts the flag up to the green line."
+msgstr "お城の旗が倒れています。サーボを回して、アームで旗を緑の線まで持ち上げよう。"
+
+msgid "Change the angle in the servo block."
+msgstr "サーボのブロックの角度を変えよう。"
+
+msgid "Press Run code."
+msgstr "「コードを実行」を押そう。"
+
+msgid "Keep the flag on the green line for one second."
+msgstr "旗を緑の線に1秒とどめよう。"
+
+msgid "0 degrees keeps the arm down. Try a bigger angle, like 90."
+msgstr "0度だとアームは下がったままです。90のような大きい角度を試そう。"
+
+msgid "Flag height"
+msgstr "旗の高さ"
+
+msgid "Motor power and time"
+msgstr "モーターの力と時間"
+
+msgid "Drive the car past the checkered finish line."
+msgstr "車でチェック模様のゴールラインを通過しよう。"
+
+msgid "The car stops before the finish line. Make the motors run long enough to cross it without tipping over."
+msgstr "車がゴールの手前で止まってしまいます。倒れずに線を越えられるよう、モーターを長く回そう。"
+
+msgid "Change how long the motors run."
+msgstr "モーターが回る時間を変えよう。"
+
+msgid "Cross the checkered line."
+msgstr "チェック模様の線を越えよう。"
+
+msgid "sleep(500) runs the motors for half a second. Let them run longer."
+msgstr "sleep(500) ではモーターが0.5秒しか回りません。もっと長く回そう。"
+
+msgid "Distance driven"
+msgstr "走った距離"
+
+msgid "Sensor and conditions"
+msgstr "センサーと条件"
+
+msgid "Stop inside the yellow zone without touching the wall."
+msgstr "壁に触れずに黄色いゾーンの中で止まろう。"
+
+msgid "Driving for a fixed time crashes into the wall. Use the distance sensor to stop in the yellow zone, 5 to 10 cm from the wall."
+msgstr "決まった時間だけ走ると壁にぶつかります。距離センサーを使って、壁から5〜10cmの黄色いゾーンで止まろう。"
+
+msgid "Read the distance sensor in a loop."
+msgstr "くり返しの中で距離センサーを読もう。"
+
+msgid "Stop the motors when the wall is close."
+msgstr "壁が近づいたらモーターを止めよう。"
+
+msgid "Stay still inside the yellow zone."
+msgstr "黄色いゾーンの中で止まったままにしよう。"
+
+msgid "while sonar.distance_cm() > 10: keeps driving until the wall is 10 cm away."
+msgstr "while sonar.distance_cm() > 10: を使うと、壁まで10cmになるまで走り続けます。"
+
+msgid "Distance to wall"
+msgstr "壁までの距離"
+
+msgid "Gap bridge"
+msgstr "すき間の橋"
+
+msgid "Downhill cart"
+msgstr "坂道の台車"
+
+msgid "Open the gate"
+msgstr "遮断機を開けよう"
+
+msgid "Waving robot"
+msgstr "あいさつロボット"
+
+msgid "Legged robot 30 cm"
+msgstr "足つきロボット 30cm"
+
+msgid "Stop at the line"
+msgstr "停止線で止まろう"
+
+msgid "Draw a square"
+msgstr "四角形を描こう"
+
+msgid "Challenge: S course"
+msgstr "チャレンジ！Sコース"
+
+msgid "Maze escape"
+msgstr "迷路からの脱出"
+
+msgid "Line tracer"
+msgstr "ライントレーサー"
+
+msgid "Color sorting delivery"
+msgstr "色分け配達"
+
+msgid "Parallel parking"
+msgstr "縦列駐車"
+
+msgid "Two-robot relay"
+msgstr "2台でリレー"
+
+msgid "Budget challenge"
+msgstr "予算チャレンジ"
+
+msgid "Back"
+msgstr "戻る"
+
+msgid "Build a robot, code it, and watch it move."
+msgstr "ロボットを作って、プログラムして、動かしてみよう。"
+
+msgid "Play stages"
+msgstr "ステージに挑戦"
+
+msgid "Clear challenges one by one."
+msgstr "課題をひとつずつクリアしよう。"
+
+msgid "Free building"
+msgstr "自由に作る"
+
+msgid "Build anything with every part. You can turn it into a challenge."
+msgstr "すべての部品で自由に作れます。作品を課題にもできます。"
+
+msgid "Explore examples"
+msgstr "作例を見る"
+
+msgid "Try finished robots: arms, walkers and humanoids."
+msgstr "完成したロボットを動かしてみよう。アーム、歩くロボット、人型ロボットがあります。"
+
+msgid "Open my project"
+msgstr "マイプロジェクトを開く"
+
+msgid "Continue a saved build."
+msgstr "保存した作品の続きを作ろう。"
+
+msgid "Pick a stage. Each one has its own place, goal and robot."
+msgstr "ステージを選ぼう。ステージごとに場所と目標、ロボットが違います。"
+
+msgid "STAGE %s"
+msgstr "ステージ %s"
+
+msgid "Cleared"
+msgstr "クリア"
+
+msgid "New"
+msgstr "新しい"
+
+msgid "Play again"
+msgstr "もう一度"
+
+msgid "Play"
+msgstr "はじめる"
+
+msgid "Coming soon"
+msgstr "準備中のステージ"
+
+msgid "This stage is not ready yet."
+msgstr "このステージはまだ準備中です。"
+
+msgid "Examples"
+msgstr "作例"
+
+msgid "Open a finished robot, run it, then change it."
+msgstr "完成したロボットを開いて動かし、変えてみよう。"
+
+msgid "Servo arm"
+msgstr "サーボアーム"
+
+msgid "One servo lifts an arm. The simplest robot to read."
+msgstr "サーボ1つでアームを持ち上げます。いちばん読みやすいロボットです。"
+
+msgid "Biped"
+msgstr "二足ロボット"
+
+msgid "Two legs, four servos. Drive it with WASD."
+msgstr "脚2本とサーボ4つ。WASDで動かします。"
+
+msgid "Humanoid (experimental)"
+msgstr "人型ロボット（実験用）"
+
+msgid "Walks and picks up a box. Movement is still unstable."
+msgstr "歩いて箱を拾います。動きはまだ不安定です。"
+
+msgid "Construction-kit humanoid"
+msgstr "組み立てキットの人型ロボット"
+
+msgid "Built only from kit beams, plates and fasteners."
+msgstr "キットの梁と板、留め具だけで作りました。"
+
+msgid "Kit bridge"
+msgstr "キットの橋"
+
+msgid "The same kit parts, assembled into a bridge."
+msgstr "同じキット部品で橋を組み立てました。"
+
+msgid "Learned biped"
+msgstr "学習した二足ロボット"
+
+msgid "Walks with a learned policy. Hold W."
+msgstr "学習した動きで歩きます。Wを押し続けよう。"
+
+msgid "Open"
+msgstr "開く"
+
+msgid "Loading..."
+msgstr "読み込み中..."
+
+msgid "Hint"
+msgstr "ヒント"
+
+msgid "Show the mission again"
+msgstr "ミッションをもう一度見る"
+
+msgid "Press Run code to try it."
+msgstr "「コードを実行」を押して試そう。"
+
+msgid "Start"
+msgstr "スタート"
+
+msgid "Next stage"
+msgstr "次のステージ"
+
+msgid "Stage list"
+msgstr "ステージ一覧"
+
+msgid "Stage cleared!"
+msgstr "ステージクリア！"
+
+msgid "Try another way"
+msgstr "別の方法で試す"
+
+msgid "Not yet"
+msgstr "もう少し"
+
+msgid "%s: %.1f cm (goal: at least %.1f cm)"
+msgstr "%s: %.1fcm（目標: %.1fcm以上）"
+
+msgid "%s: %.1f cm (goal: %.1f-%.1f cm)"
+msgstr "%s: %.1fcm（目標: %.1f〜%.1fcm）"
+
+msgid "Menu"
+msgstr "メニュー"
+
+msgid "Leave this screen?"
+msgstr "この画面を出ますか？"
+
+msgid "Your build and code here are not saved. Save a project first to keep them."
+msgstr "ここで作ったロボットとコードは保存されていません。残すには先にプロジェクトとして保存しよう。"
+
+msgid "Leave without saving"
+msgstr "保存せずに出る"
+
+msgid "Back to the stage list"
+msgstr "ステージ一覧に戻る"
+
+msgid "Read the mission, then change the program."
+msgstr "ミッションを読んで、プログラムを変えてみよう。"
+
+msgid "Change the program, then press Run code."
+msgstr "プログラムを変えてから「コードを実行」を押そう。"
+
+msgid "Free building: add parts from the library, wire them, then program your robot."
+msgstr "自由制作: 部品を出して配線し、ロボットのプログラムを作ろう。"
+
+msgid "Robot reset. Change the program, then press Run code."
+msgstr "ロボットを元に戻しました。プログラムを変えてから「コードを実行」を押そう。"
+
+msgid "Stage cleared, but progress could not be saved."
+msgstr "ステージはクリアしましたが、記録を保存できませんでした。"
+
+msgid "The goal was met in the physics run."
+msgstr "物理シミュレーションで目標を達成しました。"
+
+msgid "The program ended before the goal was met. Change it and try again."
+msgstr "目標に届く前にプログラムが終わりました。変えてもう一度試そう。"
+
+msgid "Reset robot"
+msgstr "最初に戻す"

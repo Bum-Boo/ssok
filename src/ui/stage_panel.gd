@@ -29,6 +29,7 @@ var _run_fingerprint: String = ""
 var _proof_fingerprint: String = ""
 var _run_context: Dictionary = {}
 var _resource_identity: Dictionary = {}
+var _challenge_controls: Array[Control] = []
 
 
 func _ready() -> void:
@@ -62,6 +63,7 @@ func _ready() -> void:
 		clear_goal()
 		lab_requested.emit())
 	content.add_child(lab_button)
+	_challenge_controls = [heading, _picker, load_button, answer_button, lab_button]
 	_status = Label.new()
 	_status.text = "Choose a challenge, or build freely in Lab."
 	_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -104,6 +106,12 @@ func _ready() -> void:
 	assembly.graph_changed.connect(_refresh_targets)
 	_refresh_targets()
 	_title.placeholder_text = tr("My challenge")
+
+
+## Free building reaches challenges from the stage menu, so only authoring stays here.
+func set_lab_only(value: bool) -> void:
+	for control: Control in _challenge_controls:
+		control.visible = not value
 
 
 func _notification(what: int) -> void:
@@ -210,6 +218,7 @@ func _show_result() -> void:
 		"program_error": message = "The program stopped with an error. Fix the highlighted code and try again."
 		"sensor_missing", "sensor_unavailable": message = "The target sensor is unavailable. Check its wiring and try again."
 		"user_stop": message = "Attempt stopped. Your build and code are kept."
+		"program_finished": message = "The program ended before the goal was met. Change it and try again."
 	SsokLocale.bind(_status, message)
 	outcome_changed.emit(message)
 

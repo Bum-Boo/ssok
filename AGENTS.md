@@ -73,7 +73,8 @@ themes, keyboard focus and enlarged/compact screens.
 
 - Follow official GDScript conventions: tabs, snake_case files/members, PascalCase classes,
   static typing, one class_name per file. Comments explain why, not obvious code.
-- Humans compose `.tscn` in Godot; only trivial property tweaks may be edited as text.
+- Humans compose `.tscn` in Godot; only trivial property tweaks may be edited as text. Stage
+  level scenes and menu wrappers are the ADR 0028 exception (generated, then editor-tunable).
 - For application changes, run import and scene-load checks:
   `godot --headless --path . --import --quit` and `godot --headless --path . --quit`.
 - Run the checks appropriate to acceptance criteria, including GUT if available. If automation
