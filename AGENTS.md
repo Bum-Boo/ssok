@@ -89,7 +89,11 @@ themes, keyboard focus and enlarged/compact screens.
 
 - One GitHub issue per implementation task; use existing `owner:human/claude/codex/cheap-llm` labels.
 - `feat/<issue#>-<slug>` for implementation, `docs/<slug>` for scoped documentation preparation.
-  PR to main; Claude reviews and the human merges. Agents never self-merge.
+  PR to main. Integration owner is the latest Claude Fable: it rebases the branch on main,
+  resolves conflicts once, and the human merges. Codex and other agents do not merge or
+  back-merge main into feature branches. No one-sided (`-s ours`) merges; a claim that work is
+  "already incorporated" must show `git cherry` output in the PR.
+- Every commit ends with an `Agent: codex` / `Agent: claude-fable-<ver>` trailer.
 - Short imperative commit subjects. Code/identifiers/comments are English; docs/issues/PRs may
   be Korean. No credentials, private transcripts or large raw logs in onboarding documents.
 - Finish or release task ownership with an explicit checkpoint. Update STATUS when integrating
