@@ -61,8 +61,10 @@ to prevent module-level patches from leaking between suites. An authenticated lo
 HTTP bridge remains alive for the Godot transport tests. Actual OpenAI calls are disabled.
 
 Godot user data/config/cache are redirected to a temporary directory. Personal saved projects,
-language settings and learning scenarios are not modified. Each check has a timeout; a failure
-does not skip later checks. `results.json`, `junit.xml`, `SUMMARY.md` and individual logs retain
+language settings and learning scenarios are not modified.
+The checks share that temporary root; a test that changes a persisted language or preference
+must restore the original bytes (or remove a newly created file) before returning.
+Each check has a timeout; a failure does not skip later checks. `results.json`, `junit.xml`, `SUMMARY.md` and individual logs retain
 every result. Any failed check returns a failing exit status. The running and new-kit acceptance
 checks are included; known limitations are not silently marked as expected passes.
 The runner passes its selected engine through `GODOT`; both optional bridge CLIs honor that

@@ -19,7 +19,8 @@
     "docs/STAGE_CONTRACTS.md",
     "docs/PRELAUNCH_UX_AUDIT_2026-09-30.md",
     "docs/evidence/prelaunch_ux_2026-09-30/README.md",
-    "docs/evidence/merge_2026-09-30/README.md"
+    "docs/evidence/merge_2026-09-30/README.md",
+    "docs/evidence/settings_implementation_2026-09-30/README.md"
   ],
   "routes": {
     "assembly": {
@@ -127,7 +128,8 @@
         "0007",
         "0022",
         "0023",
-        "0025"
+        "0025",
+        "0026"
       ],
       "watch": [
         "scenes/*",
@@ -196,6 +198,31 @@
         "docs/*",
         "tools/docs/*"
       ]
+    },
+    "preferences": {
+      "docs": [
+        "docs/INTERFACE_PREFERENCES.md",
+        "docs/LOCALIZATION.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/ui/interface_preferences.gd",
+        "src/ui/settings_panel.gd",
+        "src/ui/ssok_theme.gd",
+        "scenes/main.gd"
+      ],
+      "adrs": [
+        "0007",
+        "0016",
+        "0026"
+      ],
+      "watch": [
+        "src/ui/interface_preferences.gd",
+        "src/ui/settings_panel.gd",
+        "src/ui/ssok_theme.gd",
+        "tests/interface_preferences_check.gd",
+        "tools/ci/browser_settings.py"
+      ]
     }
   },
   "symbols": {
@@ -255,6 +282,21 @@
         "_prepare_project_document",
         "_load_project"
       ]
+    },
+    "src/ui/interface_preferences.gd": {
+      "class": "InterfacePreferences",
+      "methods": [
+        "set_preference",
+        "load_preferences",
+        "reset_preferences"
+      ]
+    },
+    "src/ui/settings_panel.gd": {
+      "class": "SettingsPanel",
+      "methods": [
+        "open_panel",
+        "close_panel"
+      ]
     }
   },
   "contracts": {
@@ -273,10 +315,10 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "524aecbb4390a2c6d9158a5acc1b1ad017570417c0da5a54fab17340343f885a",
+        "scenes/main.gd": "a98dd6901b063bffaa4045e1f9c58f9e9010179fa7f9e06a0ad4744815f45e9d",
         "src/runtime/mini_runtime.gd": "d79aeb048b47717cd6557f46735bbdf07b9c2357080109938a9cea841c48992a",
         "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54",
-        "src/ui/block_program_panel.gd": "7d162c4ffdffad2f7aed2c2261175932eb2130bd91e5917104e72914d456c71f",
+        "src/ui/block_program_panel.gd": "5f0e1d1236220dd89de8742b677dc7331a9015fbdbd46886cf3e173b7d8e1e22",
         "src/ui/project_panel.gd": "a38fa22ef45307735515477e5ac0048d0e251538f174973da945d36fe91c4c03",
         "src/profiles/learner_program.gd": "31bd49263fa8f6a07b83f5c251ec87cb9d5eb24b9cc80968b3d06a946ae3447d",
         "src/runtime/stage_evaluator.gd": "8818c87ca309a05469211f64f0c2ae2e49b0fb99da74a3a68f6ec1ee2de01eed",
@@ -286,7 +328,7 @@
     "flag-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "src/ui/flag_mission.gd": "422c3d9b7b6a4ca8d71a8bb029be65ef676c15a6c84150d94ed4a6ab0f86e1a6"
+        "src/ui/flag_mission.gd": "d4bc5b4806d11b86ff0d4973e40ea47fd99fefe89fba24d8d12975d95000d741"
       }
     }
   }

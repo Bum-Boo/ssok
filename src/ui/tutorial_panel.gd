@@ -213,7 +213,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 static func _label(parent: Control, font_size: int) -> Label:
 	var label := Label.new()
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_font_size_override("font_size", SsokTheme.font_size(font_size))
 	parent.add_child(label)
 	return label
 

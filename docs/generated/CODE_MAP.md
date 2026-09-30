@@ -16,7 +16,7 @@ ssok/
     core/  (8 GDScript files)
     profiles/  (1 GDScript files)
     runtime/  (19 GDScript files)
-    ui/  (14 GDScript files)
+    ui/  (16 GDScript files)
   presets/
   assets/
     blender/
@@ -114,9 +114,11 @@ ssok/
 | [src/ui/browser_evidence.gd](../../src/ui/browser_evidence.gd) | BrowserEvidence |
 | [src/ui/flag_mission.gd](../../src/ui/flag_mission.gd) | FlagMission |
 | [src/ui/fly_camera.gd](../../src/ui/fly_camera.gd) | FlyCamera |
+| [src/ui/interface_preferences.gd](../../src/ui/interface_preferences.gd) | InterfacePreferences |
 | [src/ui/motion_lab_panel.gd](../../src/ui/motion_lab_panel.gd) | MotionLabPanel |
 | [src/ui/pickup_lab_panel.gd](../../src/ui/pickup_lab_panel.gd) | PickupLabPanel |
 | [src/ui/project_panel.gd](../../src/ui/project_panel.gd) | ProjectPanel |
+| [src/ui/settings_panel.gd](../../src/ui/settings_panel.gd) | SettingsPanel |
 | [src/ui/ssok_locale.gd](../../src/ui/ssok_locale.gd) | SsokLocale |
 | [src/ui/ssok_theme.gd](../../src/ui/ssok_theme.gd) | SsokTheme |
 | [src/ui/stage_panel.gd](../../src/ui/stage_panel.gd) | StagePanel |

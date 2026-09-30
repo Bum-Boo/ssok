@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:48538/?ssok_verify=1",
+  "checks": [
+    {
+      "label": "fresh browser follows light system appearance",
+      "passed": true
+    },
+    {
+      "label": "explicit dark ignores light system appearance",
+      "passed": true
+    },
+    {
+      "label": "system appearance updates while settings are open",
+      "passed": true
+    },
+    {
+      "label": "code 200 percent does not enlarge interface text",
+      "passed": true
+    },
+    {
+      "label": "source_hash preserved through live settings",
+      "passed": true
+    },
+    {
+      "label": "graph_hash preserved through live settings",
+      "passed": true
+    },
+    {
+      "label": "draft_hash preserved through live settings",
+      "passed": true
+    },
+    {
+      "label": "run_mode preserved through live settings",
+      "passed": true
+    },
+    {
+      "label": "code_running preserved through live settings",
+      "passed": true
+    },
+    {
+      "label": "interface 200 percent leaves code at its independent 200 percent",
+      "passed": true
+    },
+    {
+      "label": "all five preferences persist through real browser reload",
+      "passed": true
+    },
+    {
+      "label": "persisted theme and both font sizes apply on new app startup",
+      "passed": true
+    },
+    {
+      "label": "browser console and page have no errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "scope": "Real canvas input, system appearance, explicit override, independent text sizes, mute/volume, draft hashes, persisted reload",
+  "browser": "153.0.8010.12",
+  "before": {
+    "code_font_size": 15,
+    "code_running": false,
+    "dark": false,
+    "draft_hash": "8339807512083796ba802ddd9bfafb82c74ef3452e7855744063970a28ffd02b",
+    "graph_hash": "0cc792602cf4ef6876f2c637207b710829fa8bc6e4121a352262f5f78c13cd00",
+    "locale": "en",
+    "run_mode": false,
+    "settings_open": false,
+    "source_hash": "3c2d4ef51c9c1d7a19683c1fdc4cf8f38c18735fac17cb8298dc781f191b657a",
+    "ui_font_size": 14,
+    "values": {
+      "appearance": "system",
+      "code_scale": 1,
+      "muted": false,
+      "text_scale": 1,
+      "volume": 60
+    }
+  },
+  "after": {
+    "code_font_size": 30,
+    "code_running": false,
+    "dark": true,
+    "draft_hash": "8339807512083796ba802ddd9bfafb82c74ef3452e7855744063970a28ffd02b",
+    "graph_hash": "0cc792602cf4ef6876f2c637207b710829fa8bc6e4121a352262f5f78c13cd00",
+    "locale": "ko",
+    "run_mode": false,
+    "settings_open": false,
+    "source_hash": "3c2d4ef51c9c1d7a19683c1fdc4cf8f38c18735fac17cb8298dc781f191b657a",
+    "ui_font_size": 28,
+    "values": {
+      "appearance": "dark",
+      "code_scale": 2,
+      "muted": true,
+      "text_scale": 2,
+      "volume": 25
+    }
+  },
+  "restored": {
+    "code_font_size": 30,
+    "code_running": false,
+    "dark": true,
+    "draft_hash": "2a0ff2f19a2828d08c7d671d6c9fa155a308de9bb2c036d74d26d238fffb2913",
+    "graph_hash": "",
+    "locale": "ko",
+    "run_mode": false,
+    "settings_open": false,
+    "source_hash": "cc4cf3bd7de51fdb0cf3481254e5267eb575b296ae52096a45b4e3bd481c591b",
+    "ui_font_size": 28,
+    "values": {
+      "appearance": "dark",
+      "code_scale": 2,
+      "muted": true,
+      "text_scale": 2,
+      "volume": 25
+    }
+  }
+}

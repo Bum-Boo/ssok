@@ -55,6 +55,10 @@ documents Resource/JSON relationships; [FLOWS](docs/FLOWS.md) documents current 
 - Record user problem, dated sources, adopted principle, actual before/after evidence,
   validation/localization/cost impact and remaining work in the development note or PR.
 
+For preferences work, read [INTERFACE_PREFERENCES](docs/INTERFACE_PREFERENCES.md) and ADR 0026.
+Keep preferences outside projects, preserve drafts/running code, and verify four languages, both
+themes, keyboard focus and enlarged/compact screens.
+
 ## Localization
 
 - Review localization impact in every change. New/changed/removed user text includes part names,

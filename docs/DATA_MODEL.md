@@ -100,3 +100,7 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 - [저작 검증](../tests/project_store_check.gd), [실행 흐름](FLOWS.md), [ADR 0002](adr/0002-connection-graph-single-source-of-truth.md), [ADR 0022](adr/0022-electrical-links-preserve-placement.md)
 
 커뮤니티 ERD는 계정·권한·버전·리믹스 정책이 확정될 때 별도 문서로 추가해요. 현재 저장 계약의 ERD에 미구현 테이블을 섞지 않아요.
+
+## 로컬 인터페이스 선호도
+
+`Preferences` autoload는 `user://interface.cfg`의 `[interface]` 키 `appearance`, `text_scale`, `code_scale`, `muted`, `volume`을 검증해요. 언어는 기존 `language.cfg`에 유지해요. 그래프/프로젝트/Stage JSON에는 개인 선호를 넣지 않아요. 기본값·타입·한도·실패 계약은 [설정 문서](INTERFACE_PREFERENCES.md)를 따르세요.

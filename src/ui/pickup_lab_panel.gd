@@ -644,7 +644,7 @@ func _label(parent: Node, text: String, font_size: int = 14) -> Label:
 	if parent is HFlowContainer:
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		label.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_font_size_override("font_size", SsokTheme.font_size(font_size))
 	parent.add_child(label)
 	return label
 
