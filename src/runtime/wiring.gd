@@ -9,6 +9,7 @@ const PIN_PREFIX := "pin_"
 ## Returns { pin_number: int -> { "part": int, "port": StringName } } for every wired pin.
 static func pin_map(graph: ConnectionGraph) -> Dictionary:
 	var result := {}
+	var ambiguous: Array[int] = []
 	for link: Dictionary in graph.links:
 		var a_def: PartDef = graph.parts[link.a_part].part_def
 		var b_def: PartDef = graph.parts[link.b_part].part_def
@@ -18,10 +19,15 @@ static func pin_map(graph: ConnectionGraph) -> Dictionary:
 			continue
 		var pin_a := pin_number(a_port)
 		var pin_b := pin_number(b_port)
-		if pin_a >= 0:
-			result[pin_a] = {"part": link.b_part, "port": link.b_port}
-		elif pin_b >= 0:
-			result[pin_b] = {"part": link.a_part, "port": link.a_port}
+		var pin: int = pin_a if pin_a >= 0 else pin_b
+		if pin < 0:
+			continue
+		if result.has(pin) or pin in ambiguous:
+			result.erase(pin)
+			if pin not in ambiguous:
+				ambiguous.append(pin)
+			continue
+		result[pin] = {"part": link.b_part, "port": link.b_port} if pin_a >= 0 else {"part": link.a_part, "port": link.a_port}
 	return result
 
 

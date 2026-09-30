@@ -125,7 +125,7 @@ func _find_partner(definition: PartDef, port: Port) -> Dictionary:
 		if candidate == definition or candidate.id in ACCESSORY_IDS:
 			continue
 		for other: Port in candidate.ports:
-			if other.kind == port.kind and (port.tag in other.accepts or other.tag in port.accepts):
+			if other.kind == port.kind and port.tag in other.accepts and other.tag in port.accepts:
 				return {"definition": candidate, "port": other}
 	return {}
 
@@ -148,7 +148,7 @@ func _check_graph(graph: ConnectionGraph, label: String) -> void:
 		if first_port == null or second_port == null:
 			continue
 		valid = valid and first_port.kind == second_port.kind
-		valid = valid and (first_port.tag in second_port.accepts or second_port.tag in first_port.accepts)
+		valid = valid and first_port.tag in second_port.accepts and second_port.tag in first_port.accepts
 		if first_port.kind == Port.Kind.MECH:
 			var first_position: Vector3 = first.transform * first_port.local_position
 			var second_position: Vector3 = second.transform * second_port.local_position

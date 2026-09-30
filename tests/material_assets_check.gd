@@ -127,7 +127,7 @@ func _check_meshes() -> void:
 			_surface_count += 1
 		_check(valid_geometry, "%s exactly preserves all source vertex/index/normal arrays and AABB" % definition.id)
 		_check(valid_materials, "%s surfaces resolve the correct shared catalog materials" % definition.id)
-	_check(_definitions.size() == 13, "all 13 robot part definitions are checked")
+	_check(_definitions.size() == 19, "all 19 robot part definitions are checked")
 
 
 func _check_modes() -> void:

@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-30",
+  "head": "3a142eb063f83d95a2d0e7a2e297719ff20bce5d",
+  "scope": "Native Korean UI capture and source audit. No paid requests or browser/real-provider verification. Existing Kit WIP present.",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": {
+    "python_service_and_races": 23,
+    "mcp_sdk": 14,
+    "passed": true
+  },
+  "source_sha256": {
+    "scenes/main.gd": "d88849b7bd534fd011578aac3ee24c6114b585389def742d6f44b79a32682567",
+    "src/ui/motion_lab_panel.gd": "d1328399201bc396a1710df1cfd41b3942453f24e4efbbea234ac9204101d47b",
+    "src/ui/tutorial_panel.gd": "7fb96f014514314f08dd2e9be60b44118c695945e5e9ab1a9e6d3403d75c8798",
+    "src/ui/ssok_theme.gd": "1acfe81d7ebc396568afa846d86c4f6e26e7630fe40876c83b31e65fe690c736",
+    "tools/motion_lab/service.py": "21e92347a131d091e7ee8dd503b24570dabc396e846e9a83e69e74ed70dc6c3f",
+    "tools/motion_lab/mcp_server.py": "53f907d3f1d36b5fd4e1f0922a177a3dbc582b6ca4f7b44cd7b30c675365b2e2",
+    "src/runtime/pickup_trial.gd": "245e681d67e4bbee40fa244e3136dc2d6e8f4c918000169b21838cfce0faa9a0"
+  },
+  "capture_sha256": {
+    "01-workshop.png": "d35096e4d8a74f26849e858323935e3e5cc670ada86ea5867ced59120c90f896",
+    "02-tutorial.png": "826c6a9463bdd7074d194378c1d14cc0f644f0758a14598c04e95afe9d15ab92",
+    "03-run.png": "d470ab27f41e64799cf60a6817f54af934014bebd281b8bbc50ea9651561d915",
+    "04-ai-cost.png": "7870cacab70fbf4b03ec71fe4ea160135e15e6c85e3af743975c3b12f99c0560"
+  }
+}

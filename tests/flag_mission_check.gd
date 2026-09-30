@@ -39,7 +39,7 @@ func _run() -> void:
 	mission._action.pressed.emit()
 	await process_frame
 	_check(mission._phase == &"Ready" and not main.mode_button.button_pressed, "retry restores assembled edit state")
-	main.code_edit.text = "from servo import Servo\narm = Servo(9)\narm.write(90)\n"
+	main.code_edit.text = "from servo import Servo\narm = Servo(pin0)\narm.write(90)\n"
 	main.run_button.pressed.emit()
 	for frame: int in 180:
 		await physics_frame

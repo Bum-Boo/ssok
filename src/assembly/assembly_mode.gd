@@ -676,3 +676,19 @@ func _closest_point_on_axis(anchor: Vector3, axis: Vector3, ray_origin: Vector3,
 
 func _update_graph_transform(part: PartNode) -> void:
 	graph.parts[part.graph_index]["transform"] = part.global_transform
+
+
+func connect_parts(first_index: int, first_port_id: StringName, second_index: int, second_port_id: StringName) -> bool:
+	if process_mode == Node.PROCESS_MODE_DISABLED or transform_active or first_index < 0 or second_index < 0 or first_index >= _part_nodes.size() or second_index >= _part_nodes.size() or first_index == second_index:
+		return false
+	var first: PartNode = _part_nodes[first_index]
+	var second: PartNode = _part_nodes[second_index]
+	var port: Port = first.get_port(first_port_id)
+	if port == null or port.kind != Port.Kind.MECH:
+		return false
+	var before: Dictionary = _snapshot()
+	if not snap(first, first_port_id, second, second_port_id):
+		return false
+	_record_action(before)
+	graph_changed.emit()
+	return true

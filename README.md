@@ -28,15 +28,17 @@ godot --path .
 ```
 
 1. Choose **Try the flag mission** and load the servo arm, or assemble and wire one yourself.
-2. Choose **Run code**. The flag follows the real servo arm; the goal completes only after it moves down, rises, and stays at its mark.
+2. Choose **Run code**. The flag follows the real servo arm; the goal uses its observed height. **Build this arm yourself** starts assembly and wiring practice.
 3. Return to edit mode. **Blocks** opens first; change an angle, apply it to code, and try again. Code and free assembly remain available.
 4. Open **Projects** to save a snapshot. Reopen it later, or export its JSON to another device.
-5. The **construction-kit humanoid** and its **AI motion lab** remain available as research exhibits.
+5. Open **Stages** for the flag, finish-line car or sonar braking challenge, or **Free building · Lab** to create and export your own verified challenge.
+6. The **construction-kit humanoid** and its **AI motion lab** remain available as research exhibits.
 
 No account, API key or paid model is needed for local assembly, coding, physics, storage or
 pickup experiments. Optional external AI services keep their keys outside the application.
 
 [Flag mission and reused components](docs/FLAG_MISSION.md) · [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
+[Stages, motors, sonar and bounded learner language](docs/LEARNING_STAGES.md) · [App control API design](docs/APP_CONTROL_API.md) ·
 [Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
 
 The selected feedback policy passes six declared browser start/restart flows in an isolated export

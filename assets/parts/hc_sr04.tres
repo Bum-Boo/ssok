@@ -37,3 +37,4 @@ display_name = "HC-SR04 Ultrasonic"
 mesh = ExtResource("1_jbcnd")
 ports = Array[ExtResource("2_ccjwb")]([SubResource("Port_mount"), SubResource("Port_trig_pin"), SubResource("Port_echo_pin")])
 mass_kg = 0.009
+merge_fixed_connections = true

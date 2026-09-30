@@ -2,7 +2,9 @@
 
 The workshop opens with a servo-arm challenge and the block editor. A learner can load the finished arm, run its program, change an angle, and retry; the code tab and free assembly stay available. Connecting the servo shaft to the arm and wiring the servo to a board pin moves the mission through assembly, wiring, and ready states. The orange flag is a visual marker on the graph-derived arm tip. It has no mass or collision.
 
-The goal depends on the simulated robot. After a run starts, the powered arm tip must first move at least 2 cm below its starting height, then return within 8 mm of that height and stay there for 0.20 seconds. A command alone cannot complete the mission. Stopping, disconnecting the arm, or removing the wire leaves the relevant state; a run that never reaches the mark stays open for correction. The starter currently uses the existing Uno-style `Servo(9)` teaching profile. The planned micro:bit-first board profile is a separate task and is not implied by this starter.
+The goal depends on the simulated robot. A declarative rule requires the powered arm's measured height to reach 0.155 m for 0.20 seconds. A command alone cannot complete the mission. Stopping, disconnecting the arm, or removing the wire leaves the relevant state; a run that never reaches the mark stays open for correction. The starter uses micro:bit V2, `Servo(pin0)` and millisecond sleeps. Existing Uno/generic examples retain their seconds-based interface. The separate Stage challenge holds its height criterion for one second and accepts any assembly that achieves its measured conditions.
+
+"Build this arm yourself" starts with a loose arm and an unwired servo. The mission action connects the compatible mechanical ports using the normal snap/undo path, then opens the Wiring tab. Ready feedback names the actual connected pin; repeated successful runs compare observed peak heights. See [Stages and learner hardware](LEARNING_STAGES.md). The 60-second/5-minute user study remains to be conducted with lab colleagues and a professor.
 
 ## Reused components
 

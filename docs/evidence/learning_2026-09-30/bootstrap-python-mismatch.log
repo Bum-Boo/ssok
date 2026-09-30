@@ -1,0 +1,7 @@
+Using Python 3.11.15 environment at: out/venv
+  × No solution found when resolving dependencies:
+  ╰─▶ Because the current Python version (3.11.15) does not satisfy
+      Python>=3.12 and numpy==2.5.3 depends on Python>=3.12, we can conclude
+      that numpy==2.5.3 cannot be used.
+      And because only numpy<=2.5.3 is available and you require numpy==2.5.3,
+      we can conclude that your requirements are unsatisfiable.

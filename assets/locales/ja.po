@@ -1514,3 +1514,243 @@ msgstr "サーボアームから始めるか、パーツ一覧から選んで自
 
 msgid "Try the servo arm"
 msgstr "サーボアームで始める"
+
+msgid "Add ':' after the condition."
+msgstr "条件の後にコロン（:）を付けてください。"
+
+msgid "Build this arm yourself"
+msgstr "自分でアームを組み立てる"
+
+msgid "Build your own solution. Success uses measured results."
+msgstr "自分の方法で解いてみましょう。実際の動きで成功を判定します。"
+
+msgid "Cannot divide by zero."
+msgstr "0では割れません。割る値を変えてください。"
+
+msgid "Challenge cleared. Change your build and try another solution."
+msgstr "課題をクリアしました。組み立てを変えて別の方法も試しましょう。"
+
+msgid "Challenge data is invalid. Your build is unchanged."
+msgstr "課題ファイルを読み込めません。内容を確認してください。組み立てはそのままです。"
+
+msgid "Challenge exported. Imported files must be tested again."
+msgstr "課題を出力しました。読み込んだ課題は再実行して確認します。"
+
+msgid "Challenge running. Watching the real robot."
+msgstr "課題を実行中です。ロボットの実際の動きを観察しています。"
+
+msgid "Check the command name and its arguments."
+msgstr "コマンド名と括弧内の値を確認してください。"
+
+msgid "Check this expression."
+msgstr "式と括弧を確認してください。"
+
+msgid "Check this symbol."
+msgstr "この記号を確認してください。"
+
+msgid "Choose a challenge, or build freely in Lab."
+msgstr "課題を選ぶか、Labで自由に作りましょう。"
+
+msgid "Choose another variable name."
+msgstr "別の変数名を使ってください。"
+
+msgid "Choose brake or coast."
+msgstr "brake（制動）か coast（惰性走行）を選んでください。"
+
+msgid "Choose forward or reverse and a speed from 0 to 100."
+msgstr "方向は forward か reverse、速度は0～100で指定してください。"
+
+msgid "Code block"
+msgstr "コードブロック"
+
+msgid "Column %d: %s"
+msgstr "%d列：%s"
+
+msgid "Connect distance sensor"
+msgstr "距離センサーをつなぐ"
+
+msgid "Connect wheel motor"
+msgstr "車輪モーターをつなぐ"
+
+msgid "Else"
+msgstr "でなければ"
+
+msgid "Else if"
+msgstr "でなければ、この条件なら"
+
+msgid "Export verified challenge"
+msgstr "確認済みの課題を出力する"
+
+msgid "Flag height: %.1f cm · change from last run: %+.1f cm. Try a different angle."
+msgstr "旗の高さ %.1f cm、前回から %+.1f cm変わりました。角度を変えてみましょう。"
+
+msgid "Free building · Lab"
+msgstr "自由に作る · Lab"
+
+msgid "If"
+msgstr "もし"
+
+msgid "Import challenge"
+msgstr "課題を読み込む"
+
+msgid "Indent the body of this block."
+msgstr "このブロック内のコードを字下げしてください。"
+
+msgid "Lab: build freely. You can turn your build into a challenge."
+msgstr "Labで自由に作りましょう。作品を課題にできます。"
+
+msgid "Load challenge"
+msgstr "課題を始める"
+
+msgid "My challenge"
+msgstr "自分の課題"
+
+msgid "Read distance"
+msgstr "距離を読む"
+
+msgid "Repeat while"
+msgstr "条件が合う間、繰り返す"
+
+msgid "Return to edit mode and choose a target part first."
+msgstr "編集モードに戻り、対象の部品を先に選んでください。"
+
+msgid "Run and clear this exact build and code before exporting."
+msgstr "今の組み立てとコードで課題をクリアしてから出力してください。"
+
+msgid "Run and clear your challenge before exporting it."
+msgstr "出力前に自分で実行して課題をクリアしてください。"
+
+msgid "Run wheel motor"
+msgstr "車輪モーターを回す"
+
+msgid "Set variable"
+msgstr "変数を決める"
+
+msgid "Stages"
+msgstr "ステージ"
+
+msgid "Stages and free building"
+msgstr "ステージと自由制作"
+
+msgid "Stop all motors"
+msgstr "全モーターを止める"
+
+msgid "Stop wheel motor"
+msgstr "車輪モーターを止める"
+
+msgid "This device does not support that command."
+msgstr "この部品では使えないコマンドです。部品とコマンドを確認してください。"
+
+msgid "This expression or block is too deeply nested."
+msgstr "式やブロックの入れ子が深すぎます。分けて書いてください。"
+
+msgid "This import is not supported."
+msgstr "読み込めないモジュールです。例の import 文を確認してください。"
+
+msgid "This variable is not a connected device."
+msgstr "この変数に部品がつながっていません。先に部品をつないでください。"
+
+msgid "Time is up. Change your build or code and try again."
+msgstr "時間が終わりました。組み立てやコードを変えてもう一度試しましょう。"
+
+msgid "Try author solution"
+msgstr "作者の解法を試す"
+
+msgid "Turn my build into a challenge"
+msgstr "自分の組み立てで課題を作る"
+
+msgid "Unexpected indentation."
+msgstr "字下げが合っていません。同じブロックの開始位置をそろえてください。"
+
+msgid "Use '==' to compare values."
+msgstr "値を比べるときは == を使ってください。"
+
+msgid "Use a board pin when connecting hardware."
+msgstr "部品をつなぐときはボードのピンを使ってください。"
+
+msgid "Use a connected echo pin and pulse level 1."
+msgstr "接続済みの echo ピンと信号レベル1を使ってください。"
+
+msgid "Use a finite number here."
+msgstr "ここには有限の数値を使ってください。"
+
+msgid "Use an assignment or a supported command."
+msgstr "変数に値を入れるか、対応するコマンドを使ってください。"
+
+msgid "Use spaces for indentation."
+msgstr "字下げはタブではなく空白でそろえてください。"
+
+msgid "Use this command inside a loop."
+msgstr "このコマンドは繰り返しの中で使ってください。"
+
+msgid "Your servo uses pin %d. Use the same pin in your code, then run."
+msgstr "サーボは%d番ピンにつながっています。コードも同じピンにして実行してください。"
+
+msgid "Height (m)"
+msgstr "高さ（m）"
+
+msgid "Position X (m)"
+msgstr "X位置（m）"
+
+msgid "Distance (cm)"
+msgstr "距離（cm）"
+
+msgid "Speed (m/s)"
+msgstr "速さ（m/s）"
+
+msgid "Upright"
+msgstr "直立の度合い"
+
+msgid "Wall contact (0 or 1)"
+msgstr "壁との接触（0または1）"
+
+msgid "Minimum"
+msgstr "最小値"
+
+msgid "Maximum"
+msgstr "最大値"
+
+msgid "Hold (seconds)"
+msgstr "維持時間（秒）"
+
+msgid "Paste a challenge file here"
+msgstr "ここに課題ファイルを貼り付けます"
+
+msgid "micro:bit V2"
+msgstr "micro:bit V2"
+
+msgid "Motor Driver V2 (DRV8833)"
+msgstr "モータードライバーV2（DRV8833）"
+
+msgid "Motor Driver (TB6612FNG)"
+msgstr "モータードライバー（TB6612FNG）"
+
+msgid "Robot Car Chassis"
+msgstr "ロボットカーの車体"
+
+msgid "Ball Caster"
+msgstr "ボールキャスター"
+
+msgid "Stage Wall"
+msgstr "ステージの壁"
+
+msgid "Cross the finish line"
+msgstr "ゴールラインを越える"
+
+msgid "Brake before the wall"
+msgstr "壁の前で止まる"
+
+msgid "Connect the arm"
+msgstr "アームをつなぐ"
+
+msgid "Open wiring"
+msgstr "配線を開く"
+
+msgid "Connect the loose arm, then wire its servo to a board pin."
+msgstr "離れたアームをつなぎ、サーボとボードのピンをつなぎます。"
+
+msgid "Challenge loaded. Build your own solution."
+msgstr "課題を読み込みました。自分の方法で解いてみましょう。"
+
+msgid "Name '%s' is not defined. Did you mean '%s'?"
+msgstr "'%s' は未定義です。'%s' のことですか？"

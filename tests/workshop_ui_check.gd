@@ -42,7 +42,7 @@ func _run() -> void:
 	await process_frame
 	_check(_main._empty_panel.visible, "empty assembly has a starting point")
 	_check(_main.delete_button.disabled, "delete unavailable without selection")
-	_check(_main.part_buttons.size() == 69, "all catalogs present including the learning biped and sixteen-channel kit board")
+	_check(_main.part_buttons.size() == 75, "all catalogs present including micro:bit and learning hardware")
 	for locale: String in ["ko", "zh_CN", "ja", "en"]:
 		SsokLocale.select_locale(locale, false)
 		if locale != "en":
@@ -70,10 +70,10 @@ func _run() -> void:
 		_check(_visible_parts() == 15, "actuator filter includes the torque micro servo")
 		_main.part_category.select(3)
 		_main.part_category.item_selected.emit(3)
-		_check(_visible_parts() == 9, "electronics filter includes the learning sensor and sixteen-channel board")
+		_check(_visible_parts() == 12, "electronics filter includes micro:bit and both motor drivers")
 		_main.part_category.select(0)
 		_main._filter_parts()
-		_check(_visible_parts() == 69 and not _main._no_parts.visible, "filters restore full catalog")
+		_check(_visible_parts() == 75 and not _main._no_parts.visible, "filters restore full catalog")
 	SsokLocale.select_locale("ko", false)
 	await process_frame
 	await _capture("00-empty")

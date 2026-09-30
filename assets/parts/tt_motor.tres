@@ -30,10 +30,21 @@ local_normal = Vector3(0, -1, 0)
 tag = &"motor_mount"
 accepts = Array[StringName]([&"base_mount"])
 
+[sub_resource type="Resource" id="Resource_ikydu"]
+script = ExtResource("2_uwo4x")
+id = &"power"
+kind = 1
+local_position = Vector3(0.03, 0, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"motor_power"
+accepts = Array[StringName]([&"driver_output"])
+
 [resource]
 script = ExtResource("3_8et5r")
 id = &"tt_motor"
 display_name = "TT Gear Motor"
 mesh = ExtResource("1_ikydu")
-ports = Array[ExtResource("2_uwo4x")]([SubResource("Port_shaft_left"), SubResource("Port_shaft_right"), SubResource("Port_mount")])
+ports = Array[ExtResource("2_uwo4x")]([SubResource("Port_shaft_left"), SubResource("Port_shaft_right"), SubResource("Port_mount"), SubResource("Resource_ikydu")])
 mass_kg = 0.03
+merge_fixed_connections = true
+dc_motor = true

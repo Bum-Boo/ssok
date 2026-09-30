@@ -38,6 +38,7 @@ func _run() -> void:
 	if main.projects.visible:
 		main.projects.close_panel()
 	main._on_answer_pressed()
+	main.program_tabs.current_tab = 0
 	main.code_edit.grab_focus()
 	var source: String = main.code_edit.text
 	await _key(root, KEY_ESCAPE)

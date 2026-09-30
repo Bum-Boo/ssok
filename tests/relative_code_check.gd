@@ -47,7 +47,9 @@ func _run() -> void:
 	_check(drive.target_deg == drive.relative_min_deg, "learner negative target obeys anatomical limit")
 	await runtime.run("hip = Servo(%d)\nhip.write_relative(999)" % pin)
 	_check(drive.target_deg == drive.relative_max_deg, "learner positive target obeys anatomical limit")
-	for expression: String in ["NAN", "INF", "1 + 2", "__import__('os')"]:
+	await runtime.run("hip = Servo(%d)\nhip.write_relative(1 + 2)" % pin)
+	_check(drive.target_deg == 3.0, "bounded arithmetic is accepted in a device argument")
+	for expression: String in ["NAN", "INF", "__import__('os')"]:
 		var previous: float = drive.target_deg
 		var error_count: int = _runtime_errors.size()
 		await runtime.run("hip = Servo(%d)\nhip.write_relative(%s)" % [pin, expression])

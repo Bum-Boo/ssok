@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/motor_driver.res" id="1_soyuj"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_b3hwb"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_u7xo7"]
+
+[sub_resource type="Resource" id="Resource_sye8i"]
+script = ExtResource("2_b3hwb")
+id = &"input_0"
+kind = 1
+local_position = Vector3(-0.015, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_dtws5"]
+script = ExtResource("2_b3hwb")
+id = &"input_8"
+kind = 1
+local_position = Vector3(-0.005, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_p36af"]
+script = ExtResource("2_b3hwb")
+id = &"input_12"
+kind = 1
+local_position = Vector3(0.005, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_tba5u"]
+script = ExtResource("2_b3hwb")
+id = &"input_16"
+kind = 1
+local_position = Vector3(0.015, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_1lf3q"]
+script = ExtResource("2_b3hwb")
+id = &"motor_1"
+kind = 1
+local_position = Vector3(-0.01, 0.004, 0.014)
+tag = &"driver_output"
+accepts = Array[StringName]([&"motor_power"])
+
+[sub_resource type="Resource" id="Resource_vt3fl"]
+script = ExtResource("2_b3hwb")
+id = &"motor_2"
+kind = 1
+local_position = Vector3(0.01, 0.004, 0.014)
+tag = &"driver_output"
+accepts = Array[StringName]([&"motor_power"])
+
+[sub_resource type="Resource" id="Resource_uso3d"]
+script = ExtResource("2_b3hwb")
+id = &"mount_bottom"
+local_position = Vector3(0, -0.004, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"board_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("3_u7xo7")
+id = &"motor_driver"
+display_name = "Motor Driver V2 (DRV8833)"
+mesh = ExtResource("1_soyuj")
+ports = Array[ExtResource("2_b3hwb")]([SubResource("Resource_sye8i"), SubResource("Resource_dtws5"), SubResource("Resource_p36af"), SubResource("Resource_tba5u"), SubResource("Resource_1lf3q"), SubResource("Resource_vt3fl"), SubResource("Resource_uso3d")])
+mass_kg = 0.01
+merge_fixed_connections = true

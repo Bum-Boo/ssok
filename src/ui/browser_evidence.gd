@@ -24,6 +24,7 @@ var _feet: Array[int] = []
 var _foot_air_frames: Array[int] = []
 var _foot_clearance: Array[float] = []
 var _policy_version: int = 1
+var _learner: AppController
 
 
 func _ready() -> void:
@@ -38,6 +39,11 @@ func _physics_process(_delta: float) -> void:
 	_publish_frame += 1
 	if OS.has_feature("web") and _publish_frame % 6 == 0:
 		JavaScriptBridge.eval("window.__ssokPhysics = " + JSON.stringify(snapshot) + ";", true)
+		if _learner == null:
+			_learner = AppController.new()
+			_learner.app = _app
+		var observation: Dictionary = {"result": _learner.invoke("get_result").data, "scene": _learner.invoke("get_scene").data}
+		JavaScriptBridge.eval("window.__ssokLearning = " + JSON.stringify(observation) + ";", true)
 
 
 func _observe() -> void:
@@ -177,3 +183,4 @@ func _finish_walk(body: RigidBody3D, hardware: RunMode, graph: ConnectionGraph, 
 func _exit_tree() -> void:
 	if OS.has_feature("web") and is_physics_processing():
 		JavaScriptBridge.eval("delete window.__ssokPhysics;", true)
+		JavaScriptBridge.eval("delete window.__ssokLearning;", true)

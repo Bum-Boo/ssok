@@ -17,7 +17,7 @@ func _run() -> void:
 	await process_frame
 	_main.runtime.finished.connect(func() -> void: _finished_count += 1)
 	_main.runtime.failed.connect(func(_line: int, message: String) -> void: _runtime_errors.append(message))
-	_main.answer_button.pressed.emit()
+	_main._on_answer_pressed()
 	_main.control_source.select(_main.CONTROL_CODE)
 	_main.mode_button.button_pressed = true
 	_check(not _main.manual_controller.is_enabled(), "code mode excludes movement inputs")

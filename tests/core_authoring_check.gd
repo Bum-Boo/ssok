@@ -34,6 +34,8 @@ func _run() -> void:
 	_check(Wiring.pin_map(assembly.graph).is_empty(), "Ctrl+Z undoes wiring while a toolbar button has focus")
 	await _history_key(true)
 	_check(Wiring.pin_map(assembly.graph).has(10), "Ctrl+Shift+Z restores wiring while a button has focus")
+	main.program_tabs.current_tab = 0
+	await process_frame
 	main.code_edit.grab_focus()
 	await _history_key(false)
 	_check(Wiring.pin_map(assembly.graph).has(10), "code-editor Undo cannot undo the assembly graph")

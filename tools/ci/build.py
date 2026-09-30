@@ -21,6 +21,7 @@ from tools.ci.install_godot import BUILD
 
 # Files reached from the bundled documentation, kept outside the application pack.
 DOCUMENTATION_REFERENCES = (
+    "assets/kenney/SOURCE.json",
     "AGENTS.md",
     "assets/modular_humanoid/README.md",
     "presets/biped_motion.gd",

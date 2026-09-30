@@ -36,6 +36,8 @@ var motion_lab_button: Button
 var motion_lab: MotionLabPanel
 var pickup_lab: PickupLabPanel
 var tutorial: TutorialPanel
+var _highlighted_line: int = -1
+var stages: StagePanel
 var flag_mission: FlagMission
 var tutorial_button: Button
 var _manual_status: Label
@@ -96,9 +98,18 @@ func _ready() -> void:
 
 	runtime = MiniRuntime.new()
 	runtime.hardware = run_mode
-	runtime.line_started.connect(func(n: int) -> void: _set_status("running line %d", false, [n]))
+	runtime.line_started.connect(func(n: int) -> void:
+		_set_status("running line %d", false, [n])
+		if is_instance_valid(code_edit):
+			if _highlighted_line >= 0 and _highlighted_line < code_edit.get_line_count():
+				code_edit.set_line_background_color(_highlighted_line, Color.TRANSPARENT)
+			_highlighted_line = n - 1
+			if n > 0 and n <= code_edit.get_line_count():
+				code_edit.set_line_background_color(n - 1, Color(0.18, 0.3, 0.4, 0.6))
+			if is_instance_valid(blocks):
+				blocks.highlight_line(n))
 	runtime.finished.connect(func() -> void: _set_status("finished"))
-	runtime.failed.connect(func(n: int, msg: String) -> void: _set_status("line %d: %s", true, [n, msg]))
+	runtime.failed.connect(func(n: int, msg: String) -> void: _show_code_failure(n, msg, int(runtime.last_failure.get("column", 1))))
 	add_child(runtime)
 	manual_controller = ManualController.new()
 	add_child(manual_controller)
@@ -193,7 +204,13 @@ func _build_ui() -> void:
 	flag_mission.offset_right = -382
 	flag_mission.offset_top = 86
 	flag_mission.offset_bottom = 252
-	flag_mission.starter_requested.connect(func() -> void: _request_starter(_on_answer_pressed))
+	flag_mission.starter_requested.connect(func() -> void: _request_starter(_on_microbit_arm_pressed))
+	flag_mission.practice_requested.connect(func() -> void:
+		_request_starter(_practice_flag_arm))
+	flag_mission.connect_arm_requested.connect(func() -> void:
+		if not mode_button.button_pressed and assembly.graph.parts.size() >= 3:
+			assembly.connect_parts(2, &"mount_base", 1, &"output_shaft"))
+	flag_mission.wiring_requested.connect(func() -> void: program_tabs.current_tab = 3)
 	flag_mission.run_requested.connect(_on_run_pressed)
 	flag_mission.stop_requested.connect(_on_stop_pressed)
 	flag_mission.retry_requested.connect(func() -> void:
@@ -340,6 +357,20 @@ func _build_ui() -> void:
 	wiring_panel.assembly = assembly
 	wiring_panel.can_edit = func() -> bool: return not mode_button.button_pressed
 	program_tabs.add_child(wiring_panel)
+	stages = StagePanel.new()
+	stages.name = "Stages"
+	stages.assembly = assembly
+	stages.run_mode = run_mode
+	stages.source = func() -> String: return code_edit.text
+	stages.stage_requested.connect(func(stage: Dictionary) -> void:
+		_request_starter(func() -> void:
+			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.")
+			stages.load_goal(stage)
+			flag_mission.visible = stage.id == "raise-flag"))
+	stages.lab_requested.connect(func() -> void:
+		_ensure_assembly_mode()
+		flag_mission.visible = false)
+	program_tabs.add_child(stages)
 	program_tabs.current_tab = 2
 	run_button = SsokTheme.button("Run code", "play")
 	run_button.theme_type_variation = &"PrimaryButton"
@@ -549,7 +580,7 @@ func _build_palette() -> void:
 	examples_menu.get_popup().id_pressed.connect(_load_example_id)
 	box.add_child(examples_menu)
 	answer_button = SsokTheme.button("Answer: servo arm", "box")
-	answer_button.pressed.connect(func() -> void: _request_starter(_on_answer_pressed))
+	answer_button.pressed.connect(func() -> void: _request_starter(_on_microbit_arm_pressed))
 	box.add_child(answer_button)
 	biped_button = SsokTheme.button("Answer: biped", "box")
 	biped_button.pressed.connect(func() -> void: _request_starter(_on_biped_pressed))
@@ -582,7 +613,7 @@ func _build_palette() -> void:
 
 
 func _load_example_id(index: int) -> void:
-	var actions: Array[Callable] = [_on_answer_pressed, _on_biped_pressed, _on_humanoid_pressed, _on_modular_pressed, _on_kit_bridge_pressed, _on_learned_biped_pressed]
+	var actions: Array[Callable] = [_on_microbit_arm_pressed, _on_biped_pressed, _on_humanoid_pressed, _on_modular_pressed, _on_kit_bridge_pressed, _on_learned_biped_pressed]
 	if index >= 0 and index < actions.size():
 		_request_starter(actions[index])
 
@@ -642,6 +673,8 @@ func _camera_framing_rect() -> Rect2:
 
 
 func _part_category(definition: PartDef) -> int:
+	if not definition.board_profile_id.is_empty() or definition.id in [&"motor_driver", &"tb6612_driver"]:
+		return 3
 	var id: String = String(definition.resource_path.get_file().get_basename())
 	if id in ["servo", "tt_motor"] or definition.actuator_torque_nm > 0.0:
 		return 2
@@ -772,7 +805,15 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 	_colorize(assembly)
 	_mark_ports(assembly)
 	code_edit.text = code
+	var profile: BoardProfile = BoardProfile.new()
+	for part: Dictionary in graph.parts:
+		if not part.part_def.board_profile_id.is_empty():
+			profile = BoardProfile.for_id(part.part_def.board_profile_id)
+			break
+	blocks.set_profile(profile)
+	runtime.sleep_scale = profile.sleep_unit_seconds
 	blocks.reset_source(code)
+	stages.clear_goal()
 	_clean_workspace = _workspace_key()
 	navigation.frame_bounds(assembly.get_scene_bounds())
 	_set_status(message)
@@ -850,6 +891,7 @@ func _on_mode_toggled(run: bool) -> void:
 		flag_mission.on_run_mode_changed(true)
 	else:
 		flag_mission.on_run_mode_changed(false)
+		stages.on_stop()
 		navigation.track_displacement(-_follow_offset)
 		_follow_offset = Vector3.ZERO
 		_follow_body = null
@@ -870,7 +912,7 @@ func _on_run_pressed() -> void:
 		return
 	var validation: Dictionary = runtime.validate(code_edit.text, false)
 	if not validation.is_empty():
-		_set_status("line %d: %s", true, [validation.line, validation.error])
+		_show_code_failure(validation.line, runtime._translated_error(validation), int(validation.get("column", 1)))
 		return
 	program_tabs.current_tab = 0
 	control_source.select(CONTROL_CODE)
@@ -879,8 +921,18 @@ func _on_run_pressed() -> void:
 		mode_button.button_pressed = true
 	_apply_control_source()
 	flag_mission.on_run_mode_changed(true)
+	stages.on_run()
 	runtime.run(code_edit.text)
 	_refresh_control_ui()
+
+
+func _show_code_failure(line: int, message: String, column: int) -> void:
+	_set_status("line %d: %s", true, [line, message])
+	for index: int in code_edit.get_line_count():
+		code_edit.set_line_background_color(index, Color(0.6, 0.15, 0.1, 0.5) if index == line - 1 else Color.TRANSPARENT)
+	code_edit.set_caret_line(clampi(line - 1, 0, code_edit.get_line_count() - 1))
+	code_edit.set_caret_column(maxi(0, column - 1))
+	blocks.highlight_line(line)
 
 
 func _on_control_source_selected(_index: int) -> void:
@@ -907,6 +959,7 @@ func _apply_control_source() -> void:
 
 func _on_stop_pressed() -> void:
 	flag_mission.on_stop_pressed()
+	stages.on_stop()
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
@@ -1165,6 +1218,7 @@ func _notification(what: int) -> void:
 		program_tabs.set_tab_title(1, tr("Controls"))
 		program_tabs.set_tab_title(2, tr("Blocks"))
 		program_tabs.set_tab_title(3, tr("Wiring"))
+		program_tabs.set_tab_title(4, tr("Stages"))
 
 
 func _dress_scene() -> void:
@@ -1240,3 +1294,18 @@ static func _colorize(root: Node) -> void:
 				material.albedo_color = PART_COLORS[part_id]
 				mesh.material_override = material
 				break
+
+
+func _practice_flag_arm() -> void:
+	var graph: ConnectionGraph = ServoArmPreset.build_microbit()
+	graph.links.pop_back()
+	graph.links.remove_at(1)
+	graph.parts[2].transform.origin = Vector3(-0.13, 0.11, 0)
+	_load_preset(graph, ServoArmPreset.microbit_code(), "Connect the loose arm, then wire its servo to a board pin.")
+	flag_mission.visible = true
+	program_tabs.current_tab = 2
+
+
+func _on_microbit_arm_pressed() -> void:
+	_load_preset(ServoArmPreset.build_microbit(), ServoArmPreset.microbit_code(), "answer loaded - the finished servo arm")
+	flag_mission.visible = true

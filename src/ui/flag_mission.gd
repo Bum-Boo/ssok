@@ -4,6 +4,9 @@ extends PanelContainer
 signal starter_requested
 signal run_requested
 signal stop_requested
+signal practice_requested
+signal connect_arm_requested
+signal wiring_requested
 signal retry_requested
 
 class ReadyAction extends ActionLeaf:
@@ -31,6 +34,12 @@ var _phase: StringName = &"Intro"
 var _arm_index: int = -1
 var _servo_index: int = -1
 var _wired: bool = false
+var _wire_pin: int = -1
+var goal_rule: Dictionary = StageDefinition.rule("height", "arm_link", 0.155, 100.0, 0.2)
+var _practice: Button
+var _maximum_tip_height: float = 0.0
+var _previous_height: float = NAN
+var _height_change: float = NAN
 var _initial_tip_height: float = 0.0
 var _lowest_tip_height: float = 0.0
 var _steady_seconds: float = 0.0
@@ -74,6 +83,9 @@ func _ready() -> void:
 	_action = SsokTheme.button("Try the flag mission", "play")
 	_action.pressed.connect(_on_action_pressed)
 	layout.add_child(_action)
+	_practice = SsokTheme.button("Build this arm yourself", "code-xml")
+	_practice.pressed.connect(func() -> void: practice_requested.emit())
+	layout.add_child(_practice)
 	_sound = AudioStreamPlayer.new()
 	_sound.volume_db = -13.0
 	add_child(_sound)
@@ -132,6 +144,8 @@ func _build_tree() -> void:
 func _on_state_entered(state_name: StringName) -> void:
 	_phase = state_name
 	if state_name == &"Success":
+		_height_change = _maximum_tip_height - _previous_height if is_finite(_previous_height) else NAN
+		_previous_height = _maximum_tip_height
 		_play(SOUND_SUCCESS)
 	_refresh_text()
 	if state_name == &"Assembly" or state_name == &"Wire":
@@ -144,6 +158,7 @@ func observe_graph() -> void:
 	_arm_index = -1
 	_servo_index = -1
 	_wired = false
+	_wire_pin = -1
 	var graph: ConnectionGraph = _assembly.graph
 	for link: Dictionary in graph.links:
 		var a_index: int = link.a_part
@@ -159,9 +174,12 @@ func observe_graph() -> void:
 			_arm_index = a_index
 			break
 	if _servo_index >= 0:
-		for channel: Dictionary in Wiring.pin_map(graph).values():
+		var mapping: Dictionary = Wiring.pin_map(graph)
+		for pin: int in mapping:
+			var channel: Dictionary = mapping[pin]
 			if channel.part == _servo_index:
 				_wired = true
+				_wire_pin = pin
 				break
 	if _chart != null and _chart.is_inside_tree():
 		if _phase == &"Intro" and _arm_index >= 0:
@@ -177,6 +195,7 @@ func observe_graph() -> void:
 		elif _wired and _phase == &"Wire":
 			_chart.send_event(&"wired")
 	_update_visual()
+	_refresh_text()
 
 
 func on_run_mode_changed(running: bool) -> void:
@@ -188,6 +207,7 @@ func on_run_mode_changed(running: bool) -> void:
 	if _phase == &"Ready" and _can_observe_run():
 		var point: Vector3 = _tip_position()
 		_initial_tip_height = point.y
+		_maximum_tip_height = point.y
 		_lowest_tip_height = point.y
 		_steady_seconds = 0.0
 		_running_seconds = 0.0
@@ -228,11 +248,12 @@ func _observed_flag_raised() -> bool:
 		return false
 	var height: float = _tip_position().y
 	_lowest_tip_height = minf(_lowest_tip_height, height)
-	if _initial_tip_height - _lowest_tip_height >= 0.02 and height >= _initial_tip_height - 0.008:
+	_maximum_tip_height = maxf(_maximum_tip_height, height)
+	if height >= goal_rule.min and height <= goal_rule.max:
 		_steady_seconds += get_physics_process_delta_time()
 	else:
 		_steady_seconds = 0.0
-	return _steady_seconds >= 0.20
+	return _steady_seconds >= goal_rule.hold_seconds
 
 
 func _tip_position() -> Vector3:
@@ -257,8 +278,10 @@ func _on_action_pressed() -> void:
 			_chart.send_event(&"begin")
 			if _assembly.graph.parts.is_empty():
 				starter_requested.emit()
-		&"Assembly", &"Wire":
-			starter_requested.emit()
+		&"Assembly":
+			connect_arm_requested.emit()
+		&"Wire":
+			wiring_requested.emit()
 		&"Ready":
 			run_requested.emit()
 		&"Running":
@@ -276,10 +299,10 @@ func _refresh_text() -> void:
 	match _phase:
 		&"Assembly":
 			description = "Connect the arm to the servo. You can start with the finished example."
-			button = "Load servo arm"
+			button = "Connect the arm"
 		&"Wire":
 			description = "Connect the servo to a board pin. The program uses your actual wiring."
-			button = "Load servo arm"
+			button = "Open wiring"
 		&"Ready":
 			description = "Run the code. Watch the flag move down and return to its mark."
 			button = "Run code"
@@ -293,11 +316,15 @@ func _refresh_text() -> void:
 			description = "Build a small robot, wire its motor, and raise the flag."
 			button = "Try the flag mission"
 	SsokLocale.bind(_message, description)
+	if _phase == &"Ready" and _wire_pin >= 0:
+		SsokLocale.bind(_message, "Your servo uses pin %d. Use the same pin in your code, then run.", [_wire_pin])
+	elif _phase == &"Success" and is_finite(_height_change):
+		SsokLocale.bind(_message, "Flag height: %.1f cm · change from last run: %+.1f cm. Try a different angle.", [_maximum_tip_height * 100.0, _height_change * 100.0])
 	_action.text = button
 
 
 func _play(stream: AudioStream) -> void:
-	if _sound == null or stream == null:
+	if DisplayServer.get_name() == "headless" or _sound == null or stream == null:
 		return
 	_sound.stop()
 	_sound.stream = stream

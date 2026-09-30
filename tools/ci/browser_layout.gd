@@ -34,6 +34,20 @@ func _run() -> void:
 	var tab_bar: TabBar = main.program_tabs.get_tab_bar()
 	_rect("blocks_tab", tab_bar, tab_bar.get_tab_rect(2))
 	_rect("wiring_tab", tab_bar, tab_bar.get_tab_rect(3))
+	_rect("code_tab", tab_bar, tab_bar.get_tab_rect(0))
+	_rect("stages_tab", tab_bar, tab_bar.get_tab_rect(4))
+	main.program_tabs.current_tab = 4
+	await _settle()
+	_point("stage_picker", main.stages._picker)
+	_point("stage_load", _button(main.stages, "Load challenge"))
+	_point("stage_answer", _button(main.stages, "Try author solution"))
+	main._replace_dialog.popup_centered()
+	await _settle()
+	_point("stage_confirm", main._replace_dialog.get_ok_button())
+	main._replace_dialog.hide()
+	main.program_tabs.current_tab = 0
+	await _settle()
+	_point("code_editor", main.code_edit)
 	main.program_tabs.current_tab = 3
 	await _settle()
 	_point("wire_disconnect_first", main.wiring_panel.connections.get_child(0).get_child(1))

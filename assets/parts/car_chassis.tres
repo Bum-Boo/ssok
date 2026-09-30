@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/car_chassis.res" id="1_a3s50"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_hvetp"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_v25o6"]
+
+[sub_resource type="Resource" id="Resource_ik2ay"]
+script = ExtResource("2_hvetp")
+id = &"motor_left"
+local_position = Vector3(-0.004, 0.004, -0.06)
+tag = &"base_mount"
+accepts = Array[StringName]([&"motor_mount"])
+
+[sub_resource type="Resource" id="Resource_c0dxs"]
+script = ExtResource("2_hvetp")
+id = &"motor_right"
+local_position = Vector3(-0.004, 0.004, 0.06)
+tag = &"base_mount"
+accepts = Array[StringName]([&"motor_mount"])
+
+[sub_resource type="Resource" id="Resource_g7s0b"]
+script = ExtResource("2_hvetp")
+id = &"board_mount"
+local_position = Vector3(0.025, 0.004, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"board_mount"])
+
+[sub_resource type="Resource" id="Resource_ol1a5"]
+script = ExtResource("2_hvetp")
+id = &"driver_mount"
+local_position = Vector3(-0.035, 0.004, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"board_mount"])
+
+[sub_resource type="Resource" id="Resource_hcmhs"]
+script = ExtResource("2_hvetp")
+id = &"sensor_mount"
+local_position = Vector3(0.07, 0.06, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"sensor_mount"])
+
+[sub_resource type="Resource" id="Resource_t50ml"]
+script = ExtResource("2_hvetp")
+id = &"caster_mount"
+local_position = Vector3(0.055, -0.004, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"caster_mount"])
+
+[resource]
+script = ExtResource("3_v25o6")
+id = &"car_chassis"
+display_name = "Robot Car Chassis"
+mesh = ExtResource("1_a3s50")
+ports = Array[ExtResource("2_hvetp")]([SubResource("Resource_ik2ay"), SubResource("Resource_c0dxs"), SubResource("Resource_g7s0b"), SubResource("Resource_ol1a5"), SubResource("Resource_hcmhs"), SubResource("Resource_t50ml")])
+mass_kg = 0.08
+merge_fixed_connections = true

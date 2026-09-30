@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Object is locked and can't be freed.
+   at: callp (core/object/object.cpp:787)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/modular_humanoid_check.gd:135)
+       [1] run (res://src/runtime/mini_runtime.gd:58)
+       [2] _step (res://src/runtime/mini_runtime.gd:126)
+       [3] _physics_process (res://src/runtime/mini_runtime.gd:112)
+SCRIPT ERROR: Attempted to free a locked object (calling or emitting).
+          at: _run (res://tests/modular_humanoid_check.gd:135)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/modular_humanoid_check.gd:135)
+              [1] run (res://src/runtime/mini_runtime.gd:58)
+              [2] _step (res://src/runtime/mini_runtime.gd:126)
+              [3] _physics_process (res://src/runtime/mini_runtime.gd:112)
+
+TIMEOUT after 300 seconds

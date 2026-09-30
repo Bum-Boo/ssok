@@ -95,3 +95,21 @@ func _apply() -> void:
 	joint.set_flag(HingeJoint3D.FLAG_USE_LIMIT, true)
 	joint.set_param(HingeJoint3D.PARAM_LIMIT_LOWER, rad)
 	joint.set_param(HingeJoint3D.PARAM_LIMIT_UPPER, rad)
+
+
+func configure_observation(a: RigidBody3D, b: RigidBody3D, owner_is_a: bool) -> void:
+	if torque_limit_nm > 0.0:
+		return
+	_body_a = a if owner_is_a else b
+	_body_b = b if owner_is_a else a
+	_axis_a = _body_a.global_basis.inverse() * joint.global_basis.z
+	_reference_a = _body_a.global_basis.inverse() * joint.global_basis.x
+	_reference_b = _body_b.global_basis.inverse() * joint.global_basis.x
+
+
+func observe_angle() -> float:
+	if not is_instance_valid(_body_a) or not is_instance_valid(_body_b):
+		return 0.0
+	var axis: Vector3 = (_body_a.global_basis * _axis_a).normalized()
+	measured_deg = rad_to_deg((_body_a.global_basis * _reference_a).signed_angle_to(_body_b.global_basis * _reference_b, axis))
+	return measured_deg
