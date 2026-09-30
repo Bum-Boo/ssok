@@ -1,0 +1,17 @@
+test_policy_round_trip (tools.rl_lab.test_rl_lab.EnvTest.test_policy_round_trip) ... ok
+test_step_is_finite_and_success_uses_task_metrics (tools.rl_lab.test_rl_lab.EnvTest.test_step_is_finite_and_success_uses_task_metrics) ... ok
+test_biped_loads_with_one_actuator_per_wired_hinge (tools.rl_lab.test_rl_lab.MjcfTest.test_biped_loads_with_one_actuator_per_wired_hinge) ... ok
+test_compound_export_preserves_mass_and_all_colliders (tools.rl_lab.test_rl_lab.MjcfTest.test_compound_export_preserves_mass_and_all_colliders) ... ok
+test_holds_assembly_pose_standing (tools.rl_lab.test_rl_lab.MjcfTest.test_holds_assembly_pose_standing) ... ok
+test_mjcf_is_deterministic (tools.rl_lab.test_rl_lab.MjcfTest.test_mjcf_is_deterministic) ... ok
+test_physics_rate_is_explicit_and_preserves_control_rate (tools.rl_lab.test_rl_lab.MjcfTest.test_physics_rate_is_explicit_and_preserves_control_rate) ... ok
+test_live_requires_consent_key_and_respects_call_cap (tools.rl_lab.test_rl_lab.PaidRequestGuardTest.test_live_requires_consent_key_and_respects_call_cap) ... error: --live needs --allow-paid; no request was sent
+error: OPENAI_API_KEY is not set in this terminal; no request was sent
+ok
+test_accepts_bounded_numbers_only (tools.rl_lab.test_rl_lab.ProposalTest.test_accepts_bounded_numbers_only) ... ok
+test_mock_reacts_to_drift (tools.rl_lab.test_rl_lab.ProposalTest.test_mock_reacts_to_drift) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.043s
+
+OK

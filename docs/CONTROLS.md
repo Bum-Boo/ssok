@@ -1,0 +1,179 @@
+# 조작법
+
+## 작업실 화면
+
+- 상단: 프로젝트 저장/열기, 실행 모드 전환, 정지, AI 실험실, 책 아이콘(튜토리얼), 언어 선택. 부품·연결 수는 현재 그래프에서 표시한다.
+- 왼쪽: 부품 검색(현재 언어/영어/부품 ID), 구조물·구동 장치·전자 부품 필터, 시작용 로봇.
+- 중앙 도구 모음: 이동, 회전, 로봇에 화면 맞춤, 조작 도움말. 편집 버튼은 선택된 부품이 있고 실행 중이 아닐 때 활성화된다.
+- 오른쪽: 코드/조종 안내/블록/배선 탭과 조종 방식. 탭을 보는 것만으로 모터 제어권은 바뀌지 않는다.
+- 아래 상태 표시줄: 최근 결과와 오류. 긴 문구는 마우스를 올려 전체 내용을 볼 수 있다.
+
+UI 컨트롤에 포커스가 있으면 WASD가 로봇에 전달되지 않는다. 검색·탭 전환은 조립과 코드를 지우지 않는다.
+Tab/Shift+Tab으로 버튼·입력란을 탐색하고 Enter/Space로 버튼을 누른다. 코드 편집 중 Esc는 탭으로
+포커스를 옮기고, 프로젝트·실험실·튜토리얼에서 Esc는 창을 닫는다. Ctrl/Cmd+S는 프로젝트 창을 연다.
+3D 화면을 클릭하거나 UI 포커스를 벗어난 뒤 조종한다. 저장/블록 사용법은 [AUTHORING.md](AUTHORING.md) 참고.
+
+실행 모드에서는 카메라가 지원되는 로봇 몸통의 수평 이동을 따라간다. 가운데 버튼 회전·패닝과
+확대·축소는 그대로 사용할 수 있고, 걷는 동안의 수직 흔들림은 따라가지 않는다. 편집 모드로
+돌아가면 추적한 이동량을 되돌려 원래 조립 위치가 다시 보인다.
+
+## 튜토리얼
+
+상단 언어 선택 옆 **책 아이콘**을 누르면 11단계 안내를 볼 수 있다.
+기본 부품 조립 → 예제 시작 → 부품 추가·연결 → Blender식 편집 → WASD 조종 → 서보 코드 → 블록 프로그램 → 저장·공유 → AI 실험실 → 물리 사람형 로봇 → 조립 키트/집기 실험실 순서다.
+이전·다음으로 이동하고, `닫고 직접 해보기`로 작업실에서 실습한 뒤 다시 열면 보던 단계부터 이어진다.
+`처음부터`로 돌아갈 수 있으며 진행 위치는 앱을 닫기 전까지만 유지한다. 자동 과제 채점 기능은 아니다.
+
+튜토리얼은 기존 조립·코드·동작 정책을 변경하거나 예제를 자동으로 불러오지 않는다.
+열 때 미확정 변환을 취소하고 코드·이동 입력을 멈추며 배경 편집·카메라 입력을 차단한다.
+물리 시뮬레이션 자체는 계속된다. 닫기/Esc/완료 후에도 입력은 정지 상태이며,
+WASD 조종을 다시 선택하거나 실행 모드를 껐다 켜서 재개한다. 코드는 `코드 실행`으로 다시 시작한다.
+실험실과 튜토리얼은 동시에 열리지 않으며, 안내를 읽는 것만으로 외부 연결·실험·유료 동의가 발생하지 않는다.
+한국어·중국어 간체·일본어·영어로 제공한다.
+
+검증: `godot --headless --path . --language en --script tests/tutorial_ui_check.gd`
+화면 캡처: `godot --path . --language en --script tests/tutorial_ui_check.gd -- --screenshots`
+(`user://tutorial_previews/`, 작은 창의 각 언어·단계)
+
+사람형 단계 추가 전 검증 결과: 튜토리얼 headless 351개 / GL Compatibility 화면 캡처 포함 379개 검사 통과.
+1152×648 작업실 안의 700×600 안내 창에서 한중일 줄바꿈·스크롤 끝 안내·고정 탐색 버튼을 확인했다.
+언어팩 17,598개, 기존 작업실 UI 120개, 코드 조종 18개, AI 실험실 UI 36개 검사도 통과했다.
+외부 AI 전송 fixture와 웹 내보내기는 이번 튜토리얼 작업에서 검증하지 않았다.
+
+## 실험용 사람형 로봇
+
+사람형 로봇은 `예제: 사람형 로봇 (실험용)` → 상단 `실행 모드` → 3D 화면 클릭으로 시작한다.
+W/S는 전진/느린 후진, Shift는 **아직 불안정한 달리기 실험**, E는 상자 집기/놓기다.
+패드 왼쪽 스틱 위/아래로 이동하고 B로 달리기를 요청하며 X로 집기/놓기 한다. A/D 회전은 미지원이다.
+기본 위치에서는 움직이지 않고 E를 누르면 앞의 상자를 집을 수 있다. 걷기만 시험하려면 편집 모드에서
+상자를 옆으로 옮긴다. 정지·코드 전환·튜토리얼 열기는 잡기를 해제하며, 넘어진 뒤에는 실행 모드를
+껐다 켜서 리셋한다. 측정 결과와 한계는 [HUMANOID.md](HUMANOID.md) 참고.
+
+## 편집 모드
+
+Blender의 기본 **오브젝트 조작**에 맞춘 조립 화면이다. 메쉬 정점 편집 기능은 아니며,
+기존 부품 치수·질량·연결 포트를 유지한다. 좌표계는 Godot의 **Y-up**, 이동 숫자는 **mm**다.
+
+| 입력 | 동작 |
+|---|---|
+| 왼쪽 클릭 | 파츠 선택. 선택만으로 연결이 해제되지 않는다 |
+| `G` / `R` | 이동 / 회전 시작 |
+| 변환 중 `X`, `Y`, `Z` | 월드축 제한. 같은 축을 다시 누르면 해제 |
+| 숫자, `-`, `.`, Backspace | 거리(mm) / 각도(도) 입력·수정. 예: `G X 10 Enter` |
+| Enter / 왼쪽 클릭 | 확정. 가까운 호환 포트에 스냅 |
+| Esc / 오른쪽 클릭 | 취소. 위치·회전·연결 상태를 함께 복구 |
+| 변환 중 Shift / Ctrl | 미세 조절 / 1mm·15도 단위 조절 |
+| 기즈모 화살표 / 링 드래그 | 축 이동 / 회전. 놓으면 확정, Esc로 취소 |
+| Ctrl+Z / Ctrl+Shift+Z | 추가·삭제·변환 되돌리기 / 다시 실행 |
+| Delete / X | 삭제 / 확인 후 삭제 |
+| 가운데 버튼 드래그 | 시점 회전 |
+| Shift+가운데 버튼 | 화면 이동(패닝) |
+| 휠 / Ctrl+가운데 버튼 | 확대·축소 |
+| 숫자패드 1 / 3 / 7 | 정면 / 오른쪽 / 위. Ctrl을 더하면 반대쪽 |
+| 숫자패드 5 / `.` / Home | 원근·직교 전환 / 선택 파츠에 맞춤 / 전체에 맞춤 |
+
+`S` 크기 변경, 다중 선택, 로컬축 전환, Blender의 전체 편집 명령은 제공하지 않는다.
+크기 변경으로 충돌체·실물 치수·포트가 어긋나는 것을 방지하기 위해 파츠 크기는 고정한다.
+다른 모드로 전환하거나 창/코드 입력으로 포커스를 옮기면 미확정 변환은 취소된다.
+
+`배선` 탭에서 모터 신호와 호환 보드 핀을 골라 연결한다. 배선은 부품 위치·회전을 바꾸지 않고,
+이동·회전 중에도 유지된다. 기계 연결은 변환할 때 해제되며 취소·Undo로 함께 복구된다.
+배선 해제·재연결도 Undo/Redo에 포함된다. 실행 중이거나 변환 중에는 배선 버튼을 사용할 수 없다.
+부품은 최대 256개, 각 축 좌표는 원점에서 ±100 m까지로 저장 형식과 같은 한계를 적용한다.
+
+참조: [Blender 5.2 뷰포트 탐색](https://docs.blender.org/manual/en/5.2/editors/3dview/navigate/navigation.html).
+
+## 실행 모드: 로봇 이동
+
+오른쪽의 `Control: WASD / gamepad movement`를 선택하고 상단 `Run mode`를 켠다.
+키보드는 관절을 하나씩 선택하는 것이 아니라 **로봇 전체의 이동 명령**을 전달한다.
+
+| 키보드 | 게임패드 | 명령 |
+|---|---|---|
+| W / S 또는 ↑ / ↓ | 왼쪽 스틱 위 / 아래 | 전진 / 후진 |
+| A / D 또는 ← / → | 왼쪽 스틱 좌 / 우 | 좌 / 우 회전 |
+| Space | A(남쪽 버튼) | 이동 입력 정지 |
+| Esc / Stop input 버튼 | — | 입력·코드 실행 중지 |
+
+키를 놓으면 이동 입력은 0이 된다. 스틱에는 데드존을 적용한다. 코드 편집기에서 타이핑하거나
+창 포커스를 잃거나 패드 연결이 끊기면 입력을 해제한다. 패드는 포커스 복귀 후 스틱을 중앙으로
+돌려야 다시 조종되며, 동시에 여러 패드의 입력을 섞지 않는다.
+
+이동은 다음 경계로 분리한다.
+
+```text
+WASD / 게임패드 → ManualController → RobotMotionProgram → 관절 동작 → 물리 로봇
+                      이동 명령          미리 작성된 코드
+```
+
+`ManualController.movement_changed(throttle, turn)`은 `[-1, 1]` 범위의 전후진·회전 입력이다.
+`RobotMotionProgram.set_move_input(Vector2(turn, throttle))`이 이를 받아 관절 동작으로 바꾼다.
+컨트롤러 입력 계층은 핀 번호나 관절 개수를 알지 못한다. 사용자 로봇은 이 인터페이스를 구현한
+동작 프로그램을 연결하면 된다. 현재 예제 연결 지점은 `scenes/main.gd`의 `BipedMotion.new()`다.
+
+`Answer: biped`에는 예제 이동 프로그램을 연결한다. 다른 구조의 로봇에는 해당 로봇의
+관절 프로그램이 필요하다. 미연결 모터, TT 모터의 드라이버/API, 자동 로봇 구조 추론은 지원하지
+않는다. 예제는 기계 연결과 전기 배선에서 관절 역할과 핀을 찾으며, 몸체 좌표를 직접 옮기지 않는다.
+
+**기본 2족 이동은 실험용이며, 방향별 속도와 드리프트가 다르다.** 현재 제어기는
+보정된 전진 파형, 후진·회전용 기준 파형, 측정된 기울기·각속도·방향 피드백으로 실제 서보를
+구동한다. 키를 놓으면 속도 제한을 거친 현재 서보 명령각에서 0.3초 동안 중립으로 돌아간다. 회전각은
+수평면에 투영해 몸체의 앞뒤 기울기가 회전 피드백에 섞이지 않게 한다. 시작 시점과
+연결 순서를 바꾼 검사 및 실제 앱의 키 입력을 별도로 검증한다. [제어기/측정 증거](evidence/biped_periodic_2026-09-22/README.md)와
+[네 파라미터의 의미](MOTION_LAB.md)를 확인한다. 이전 파형에서 저장한 평가값은
+이번 제어기를 검증한 결과가 아니므로 새로 평가해야 한다.
+
+내부 관절 프로그램은 `ServoDrive.write_relative()`로 조립 자세 기준 ±90도 범위의 각도를
+보낼 수 있다. 기존 학습 코드의 `servo.write()`는 0~180도 규약을 그대로 유지한다. 이동 예제의
+진폭은 이보다 작게 제한한다. 코드 편집기는 기존 순차 실행 문법을 유지하며, WASD 콜백을
+정의하는 Python 문법이나 임의 로봇의 보행 코드를 자동 생성하는 기능은 추가하지 않았다.
+
+## 코드 실행과의 전환
+
+`Run code`는 이동 입력을 끄고 기존 `MiniRuntime` 프로그램을 실행한다. 이동 모드로 바꾸면
+실행 중인 코드를 취소한다. `sleep()` 뒤에 남은 명령도 새 로봇이나 새 실행에 영향을 주지 않는다.
+실행 모드에서 편집 모드로 돌아가면 물리 오브젝트를 제거하고 조립 그래프의 자세로 복귀한다.
+코드 전용 모드에서 명령을 보내지 않은 서보는 기존처럼 무전원 상태다.
+
+### 기본 부품 조립 키트 / 집기 실험실
+
+`답지: 조립 키트 휴머노이드`는 빔·타공판·꺾쇠·패드·모터를 개별 부품으로 조립한다.
+`답지: 키트 다리`는 같은 기본 부품을 다른 구조로 연결한다. 몸통·팔·다리 일체형 메쉬는
+새 키트에 사용하지 않는다. `조립 키트` 필터에서 기본 부품 24종을 고르고 개별 구멍에 스냅한다.
+최종 Blender 원본은 `assets/blender/ssok_construction_kit_verified.blend`다.
+코드 탭의 예제는 실제 배선 핀을 읽어 만들며 `write_relative(-14.36)`처럼
+조립 자세 기준 부호 있는 각도를 지원한다. 관절별 제한을 벗어난 값은 제한 범위로 잘린다.
+기존 `write(0..180)`과 코드/WASD 단독 제어권은 유지한다.
+
+사람형에서 상단 AI 실험실을 누르면 별도 집기 화면이 열린다. 로컬 또는 Luna 후보를
+1~4개 독립 물리 월드에서 관찰하고, 결과 선택·이름 지정 저장·새 물리 재실행·명시적 적용을 한다.
+실행 중 병렬 수를 바꿀 수 있고, 유료 API 호출 수는 병렬 수가 아니라 라운드 수에 제한된다.
+자세한 사용법·취소/비용 경고·완료 판정은 [PICKUP_LAB.md](PICKUP_LAB.md) 참고.
+기본 부품과 새 구조 검증 기준은 [CONSTRUCTION_KIT.md](CONSTRUCTION_KIT.md)를 참고한다.
+
+키보드와 가상 게임패드 이벤트는 자동 테스트로 검사한다. 실제 USB/Bluetooth 패드 및 브라우저
+장치 인식은 별도 확인 대상이다. 웹에서는 브라우저가 패드를 인식하도록 먼저 버튼을 눌러야 할 수 있다.
+참조: [Godot 게임패드 입력 문서](https://docs.godotengine.org/en/stable/tutorials/inputs/controllers_gamepads_joysticks.html).
+
+## 검증
+
+```sh
+godot --headless --path . --import
+godot --headless --path . --quit
+godot --headless --path . -s tests/blender_camera_check.gd
+godot --headless --path . -s tests/blender_edit_check.gd
+godot --headless --path . -s tests/manual_control_check.gd
+godot --headless --path . -s tests/biped_motion_check.gd
+godot --headless --path . -s tests/control_flow_check.gd
+godot --headless --path . -s tests/assembly_snap_check.gd
+godot --headless --path . -s tests/run_mode_check.gd
+godot --headless --path . -s tests/mesh_assets_check.gd
+godot --headless --path . -s tests/material_assets_check.gd
+```
+
+실제 앱 화면 확인: `godot --path . -s tests/controls_screenshot.gd` →
+`user://control_previews/{edit,run,run_released}.png`.
+
+## Interface preferences
+
+Open the toolbar gear for language, system/light/dark appearance, separate interface/code text sizes and effects audio. Tab moves through controls; Esc closes settings and returns focus to the gear. Settings suspend manual/camera/assembly input while keeping running code and physics active. Preferences are device-local and separate from projects. See [the preference contract](INTERFACE_PREFERENCES.md).

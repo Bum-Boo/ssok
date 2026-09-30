@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="ssok" tests="39" failures="6" time="684.647"><testcase name="import" time="27.831"><failure message="exit 0; see import.log">d UTF-8 leading byte (fb)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a9)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a9)
+Unicode parsing error: Byte 27 is not a correct continuation byte after e8
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte 2f is not a correct continuation byte after ea
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte 37 is not a correct continuation byte after ec
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte 3f is not a correct continuation byte after ee
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bf)
+Unicode parsing error: Byte 3 is not a correct continuation byte after e0
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (91)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b1)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Missing e0 UTF-8 continuation byte
+Unicode parsing error, some characters were replaced with � (U+FFFD): Missing f1 a0 UTF-8 continuation byte
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a0)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (bd)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8b)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (94)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error: Byte ee is not a correct continuation byte after d2
+Unicode parsing error: Byte 3f is not a correct continuation byte after ee
+Unicode parsing error: Byte 6c is not a correct continuation byte after c1
+Unicode parsing error: Byte 37 is not a correct continuation byte after ec
+Unicode parsing error: Byte 6c is not a correct continuation byte after c1
+Unicode parsing error: Byte 2f is not a correct continuation byte after ea
+Unicode parsing error: Byte 6c is not a correct continuation byte after c1
+Unicode parsing error: Byte 27 is not a correct continuation byte after e8
+Unicode parsing error: Byte 6c is not a correct continuation byte after c1
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fd)
+Unicode parsing error: Overlong encoding (c1 a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fb)
+Unicode parsing error: Overlong encoding (c1 a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (f9)
+Unicode parsing error: Overlong encoding (c1 a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 63 is not a correct continuation byte after f7
+Unicode parsing error: Overlong encoding (c1 a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 5b is not a correct continuation byte after f5
+Unicode parsing error: Overlong encoding (c1 a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 53 is not a correct continuation byte after f3
+Unicode parsing error: Overlong encoding (c1 a8)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (a8)
+Unicode parsing error: Byte 3 is not a correct continuation byte after c0
+Unicode parsing error: Byte 2c is not a correct continuation byte after d6
+Unicode parsing error, some characters were replaced with � (U+FFFD): Missing f1 UTF-8 continuation byte
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (80)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Missing f6 UTF-8 continuation byte
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (fe)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (8c)
+ERROR: Condition "meshes.size() != 1" is true. Returning: ERR_BUG
+   at: import (editor/import/3d/resource_importer_obj.cpp:691)
+ERROR: Error importing 'res://out/venv/lib64/python3.14/site-packages/greenlet/platform/switch_arm64_masm.obj'.
+   at: _reimport_file (editor/file_system/editor_file_system.cpp:3093)
+[  90% ] [90m[1mreimport[22m | kit_optical_sensor.obj[39m[0m
+[  90% ] [90m[1mreimport[22m | kit_plate_60_40.obj[39m[0m
+[  91% ] [90m[1mreimport[22m | kit_plate_60_60.obj[39m[0m
+[  91% ] [90m[1mreimport[22m | kit_plate_80_60.obj[39m[0m
+[  92% ] [90m[1mreimport[22m | kit_plate_120_80.obj[39m[0m
+[  92% ] [90m[1mreimport[22m | kit_plate_160_60.obj[39m[0m
+[  93% ] [90m[1mreimport[22m | kit_plate_220_120.obj[39m[0m
+[  93% ] [90m[1mreimport[22m | kit_rubber_pad.obj[39m[0m
+[  94% ] [90m[1mreimport[22m | kit_spacer_20.obj[39m[0m
+[  94% ] [90m[1mreimport[22m | kit_u_bracket_large.obj[39m[0m
+[  95% ] [90m[1mreimport[22m | kit_u_bracket_small.obj[39m[0m
+[  95% ] [90m[1mreimport[22m | modular_arm_bracket.obj[39m[0m
+[  96% ] [90m[1mreimport[22m | modular_arm_motor.obj[39m[0m
+[  96% ] [90m[1mreimport[22m | modular_chest_shell.obj[39m[0m
+[  97% ] [90m[1mreimport[22m | modular_controller.obj[39m[0m
+[  97% ] [90m[1mreimport[22m | modular_foot.obj[39m[0m
+[  98% ] [90m[1mreimport[22m | modular_forearm_frame.obj[39m[0m
+[  98% ] [90m[1mreimport[22m | modular_gripper_hand.obj[39m[0m
+[  99% ] [90m[1mreimport[22m | modular_head_shell.obj[39m[0m
+[  99% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (205 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+</failure></testcase><testcase name="scene-load" time="1.517" /><testcase name="app_controller_check" time="1.467" /><testcase name="assembly_snap_check" time="0.265" /><testcase name="authoring_ui_check" time="1.818" /><testcase name="biped_app_check" time="6.239" /><testcase name="biped_board_clearance_check" time="0.665" /><testcase name="biped_motion_check" time="3.722" /><testcase name="blender_camera_check" time="0.264" /><testcase name="blender_edit_check" time="0.264" /><testcase name="block_program_check" time="1.467" /><testcase name="browser_evidence_check" time="1.968" /><testcase name="construction_kit_check" time="0.665" /><testcase name="construction_kit_motion_check" time="6.328" /><testcase name="construction_kit_store_check" time="1.567" /><testcase name="construction_kit_ui_check" time="1.968" /><testcase name="control_flow_check" time="300.016"><failure message="exit 124; see control_flow_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS code mode excludes movement inputs
+FAIL learner program is sleeping after its first command
+PASS changing command source stops the sleeping program
+SCRIPT ERROR: Invalid access to property or key 'target_deg' on a base object of type 'Nil'.
+          at: _run (res://tests/control_flow_check.gd:31)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/control_flow_check.gd:31)
+
+TIMEOUT after 300 seconds
+</failure></testcase><testcase name="core_authoring_check" time="1.768" /><testcase name="flag_mission_check" time="1.567" /><testcase name="humanoid_contract_check" time="0.264" /><testcase name="humanoid_motion_check-walk" time="1.217" /><testcase name="humanoid_motion_check-backward" time="1.217" /><testcase name="humanoid_motion_check-pick" time="1.216" /><testcase name="humanoid_motion_check-run" time="1.267" /><testcase name="humanoid_motion_check-walk-reverse-links" time="1.217" /><testcase name="humanoid_motion_check-run-reverse-links" time="1.217" /><testcase name="humanoid_motion_check-run-settle-frames=181" time="1.216" /><testcase name="humanoid_ui_check" time="2.219" /><testcase name="humanoid_ui_check-modular" time="2.62" /><testcase name="keyboard_navigation_check" time="1.467"><failure message="exit 1; see keyboard_navigation_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: FAIL arrow keys select the Blocks tab
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/keyboard_navigation_check.gd:124)
+       [1] _run (res://tests/keyboard_navigation_check.gd:48)
+       [2] _key (res://tests/keyboard_navigation_check.gd:99)
+ERROR: FAIL Tab reaches Apply blocks to code
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/keyboard_navigation_check.gd:124)
+       [1] _run (res://tests/keyboard_navigation_check.gd:51)
+       [2] _tab_until (res://tests/keyboard_navigation_check.gd:107)
+       [3] _key (res://tests/keyboard_navigation_check.gd:99)
+keyboard_navigation_check: 23 checks, 2 failures
+</failure></testcase><testcase name="learned_app_check" time="1.868" /><testcase name="learned_policy_check" time="1.317" /><testcase name="learned_tracking_check" time="1.667" /><testcase name="learner_language_check" time="0.264" /><testcase name="localization_check" time="2.018" /><testcase name="manual_control_check" time="0.264" /><testcase name="material_assets_check" time="0.265"><failure message="exit 1; see material_assets_check.log">ared baked normal map with local triplanar mapping
+PASS UnoBlue loads as a web-compatible StandardMaterial3D
+PASS UnoBlue preserves catalog color/PBR values as a shared external resource
+PASS UnoBlue catalog emission is limited to the indicator LED
+PASS UnoBlue has the expected emission state
+PASS UnoBlue uses a shared baked normal map with local triplanar mapping
+PASS palette directory exists
+PASS arduino_uno.tres loads as PartDef
+PASS arduino_uno source and materialized meshes exist
+PASS arduino_uno PartDef uses the persistent materialized mesh
+PASS arduino_uno exactly preserves all source vertex/index/normal arrays and AABB
+PASS arduino_uno surfaces resolve the correct shared catalog materials
+PASS arm_link.tres loads as PartDef
+PASS arm_link source and materialized meshes exist
+PASS arm_link PartDef uses the persistent materialized mesh
+PASS arm_link exactly preserves all source vertex/index/normal arrays and AABB
+PASS arm_link surfaces resolve the correct shared catalog materials
+PASS ball_caster.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/ball_caster.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL ball_caster source and materialized meshes exist
+PASS base.tres loads as PartDef
+PASS base source and materialized meshes exist
+PASS base PartDef uses the persistent materialized mesh
+PASS base exactly preserves all source vertex/index/normal arrays and AABB
+PASS base surfaces resolve the correct shared catalog materials
+PASS biped_body.tres loads as PartDef
+PASS biped_body source and materialized meshes exist
+PASS biped_body PartDef uses the persistent materialized mesh
+PASS biped_body exactly preserves all source vertex/index/normal arrays and AABB
+PASS biped_body surfaces resolve the correct shared catalog materials
+PASS board.tres loads as PartDef
+PASS board source and materialized meshes exist
+PASS board PartDef uses the persistent materialized mesh
+PASS board exactly preserves all source vertex/index/normal arrays and AABB
+PASS board surfaces resolve the correct shared catalog materials
+PASS car_chassis.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/car_chassis.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL car_chassis source and materialized meshes exist
+PASS chassis_plate.tres loads as PartDef
+PASS chassis_plate source and materialized meshes exist
+PASS chassis_plate PartDef uses the persistent materialized mesh
+PASS chassis_plate exactly preserves all source vertex/index/normal arrays and AABB
+PASS chassis_plate surfaces resolve the correct shared catalog materials
+PASS foot.tres loads as PartDef
+PASS foot source and materialized meshes exist
+PASS foot PartDef uses the persistent materialized mesh
+PASS foot exactly preserves all source vertex/index/normal arrays and AABB
+PASS foot surfaces resolve the correct shared catalog materials
+PASS hc_sr04.tres loads as PartDef
+PASS hc_sr04 source and materialized meshes exist
+PASS hc_sr04 PartDef uses the persistent materialized mesh
+PASS hc_sr04 exactly preserves all source vertex/index/normal arrays and AABB
+PASS hc_sr04 surfaces resolve the correct shared catalog materials
+PASS leg_link.tres loads as PartDef
+PASS leg_link source and materialized meshes exist
+PASS leg_link PartDef uses the persistent materialized mesh
+PASS leg_link exactly preserves all source vertex/index/normal arrays and AABB
+PASS leg_link surfaces resolve the correct shared catalog materials
+PASS microbit.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/microbit.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL microbit source and materialized meshes exist
+PASS motor_driver.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/motor_driver.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL motor_driver source and materialized meshes exist
+PASS servo.tres loads as PartDef
+PASS servo source and materialized meshes exist
+PASS servo PartDef uses the persistent materialized mesh
+PASS servo exactly preserves all source vertex/index/normal arrays and AABB
+PASS servo surfaces resolve the correct shared catalog materials
+PASS servo_bracket.tres loads as PartDef
+PASS servo_bracket source and materialized meshes exist
+PASS servo_bracket PartDef uses the persistent materialized mesh
+PASS servo_bracket exactly preserves all source vertex/index/normal arrays and AABB
+PASS servo_bracket surfaces resolve the correct shared catalog materials
+PASS stage_wall.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/stage_wall.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL stage_wall source and materialized meshes exist
+PASS tb6612_driver.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/tb6612_driver.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL tb6612_driver source and materialized meshes exist
+PASS tt_motor.tres loads as PartDef
+PASS tt_motor source and materialized meshes exist
+PASS tt_motor PartDef uses the persistent materialized mesh
+PASS tt_motor exactly preserves all source vertex/index/normal arrays and AABB
+PASS tt_motor surfaces resolve the correct shared catalog materials
+PASS wheel_65.tres loads as PartDef
+PASS wheel_65 source and materialized meshes exist
+PASS wheel_65 PartDef uses the persistent materialized mesh
+PASS wheel_65 exactly preserves all source vertex/index/normal arrays and AABB
+PASS wheel_65 surfaces resolve the correct shared catalog materials
+FAIL all 13 robot part definitions are checked
+PASS ArmBody is bound to a palette mesh
+PASS BaseBody is bound to a palette mesh
+PASS Black is bound to a palette mesh
+PASS BoardBody is bound to a palette mesh
+PASS BracketMetal is bound to a palette mesh
+PASS Brown is bound to a palette mesh
+PASS ChassisMetal is bound to a palette mesh
+PASS Cream is bound to a palette mesh
+PASS DetailAmber is bound to a palette mesh
+PASS DetailCopper is bound to a palette mesh
+PASS DetailGraphite is bound to a palette mesh
+PASS DetailSteel is bound to a palette mesh
+PASS DetailTeal is bound to a palette mesh
+PASS DetailWhite is bound to a palette mesh
+PASS Gold is bound to a palette mesh
+PASS Orange is bound to a palette mesh
+PASS Red is bound to a palette mesh
+PASS RimYellow is bound to a palette mesh
+PASS Rubber is bound to a palette mesh
+PASS SensorBlue is bound to a palette mesh
+PASS ServoBlue is bound to a palette mesh
+PASS ServoBody is bound to a palette mesh
+PASS Shell is bound to a palette mesh
+PASS Silver is bound to a palette mesh
+PASS TtYellow is bound to a palette mesh
+PASS UnoBlue is bound to a palette mesh
+PASS assembly uses each materialized mesh without copying or overriding materials
+PASS run mode uses the same graph-derived materialized meshes as assembly
+material_assets_check: 27 materials, 19 parts, 89 surfaces, 7 failure(s)
+</failure></testcase><testcase name="mesh_assets_check" time="0.465"><failure message="exit 1; see mesh_assets_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS palette directory exists
+PASS arduino_uno.tres loads as PartDef
+PASS arduino_uno uses an imported ArrayMesh
+PASS arduino_uno has valid triangle geometry, normals and materials
+PASS arduino_uno: 3504 triangles (&lt; 5000), 11 surfaces
+PASS arm_link.tres loads as PartDef
+PASS arm_link uses an imported ArrayMesh
+PASS arm_link has valid triangle geometry, normals and materials
+PASS arm_link: 1609 triangles (&lt; 5000), 5 surfaces
+PASS ball_caster.tres loads as PartDef
+FAIL ball_caster uses an imported ArrayMesh
+PASS base.tres loads as PartDef
+PASS base uses an imported ArrayMesh
+PASS base has valid triangle geometry, normals and materials
+PASS base: 2632 triangles (&lt; 5000), 7 surfaces
+PASS biped_body.tres loads as PartDef
+PASS biped_body uses an imported ArrayMesh
+PASS biped_body has valid triangle geometry, normals and materials
+PASS biped_body: 3020 triangles (&lt; 5000), 9 surfaces
+PASS board.tres loads as PartDef
+PASS board uses an imported ArrayMesh
+PASS board has valid triangle geometry, normals and materials
+PASS board: 3096 triangles (&lt; 5000), 7 surfaces
+PASS car_chassis.tres loads as PartDef
+FAIL car_chassis uses an imported ArrayMesh
+PASS chassis_plate.tres loads as PartDef
+PASS chassis_plate uses an imported ArrayMesh
+PASS chassis_plate has valid triangle geometry, normals and materials
+PASS chassis_plate: 2282 triangles (&lt; 5000), 3 surfaces
+PASS foot.tres loads as PartDef
+PASS foot uses an imported ArrayMesh
+PASS foot has valid triangle geometry, normals and materials
+PASS foot: 1940 triangles (&lt; 5000), 7 surfaces
+PASS hc_sr04.tres loads as PartDef
+PASS hc_sr04 uses an imported ArrayMesh
+PASS hc_sr04 has valid triangle geometry, normals and materials
+PASS hc_sr04: 3204 triangles (&lt; 5000), 8 surfaces
+PASS leg_link.tres loads as PartDef
+PASS leg_link uses an imported ArrayMesh
+PASS leg_link has valid triangle geometry, normals and materials
+PASS leg_link: 1044 triangles (&lt; 5000), 6 surfaces
+PASS microbit.tres loads as PartDef
+FAIL microbit uses an imported ArrayMesh
+PASS motor_driver.tres loads as PartDef
+FAIL motor_driver uses an imported ArrayMesh
+PASS servo.tres loads as PartDef
+PASS servo uses an imported ArrayMesh
+PASS servo has valid triangle geometry, normals and materials
+PASS servo: 2280 triangles (&lt; 5000), 12 surfaces
+PASS servo_bracket.tres loads as PartDef
+PASS servo_bracket uses an imported ArrayMesh
+PASS servo_bracket has valid triangle geometry, normals and materials
+PASS servo_bracket: 1560 triangles (&lt; 5000), 3 surfaces
+PASS stage_wall.tres loads as PartDef
+FAIL stage_wall uses an imported ArrayMesh
+PASS tb6612_driver.tres loads as PartDef
+FAIL tb6612_driver uses an imported ArrayMesh
+PASS tt_motor.tres loads as PartDef
+PASS tt_motor uses an imported ArrayMesh
+PASS tt_motor has valid triangle geometry, normals and materials
+PASS tt_motor: 1940 triangles (&lt; 5000), 7 surfaces
+PASS wheel_65.tres loads as PartDef
+PASS wheel_65 uses an imported ArrayMesh
+PASS wheel_65 has valid triangle geometry, normals and materials
+PASS wheel_65: 2032 triangles (&lt; 5000), 4 surfaces
+PASS all existing palette parts are present
+PASS chassis_plate is available in the palette
+PASS chassis_plate.mount_center has a compatible palette part
+FAIL chassis_plate.mount_center proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_center ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS chassis_plate.mount_left has a compatible palette part
+FAIL chassis_plate.mount_left proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_left ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS chassis_plate.mount_right has a compatible palette part
+FAIL chassis_plate.mount_right proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_right ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS chassis_plate.mount_rear has a compatible palette part
+FAIL chassis_plate.mount_rear proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_rear ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS chassis_plate.mount_front has a compatible palette part
+FAIL chassis_plate.mount_front proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_front ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS chassis_plate has tested mechanical ports
+PASS servo_bracket is available in the palette
+PASS servo_bracket.mount_bottom has a compatible palette part
+PASS servo_bracket.mount_bottom proximity snaps to base.mount_top
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_bottom ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket.mount_top has a compatible palette part
+FAIL servo_bracket.mount_top proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_top ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS servo_bracket.mount_rear has a compatible palette part
+FAIL servo_bracket.mount_rear proximity snaps to ball_caster.mount
+FAIL accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_rear ConnectionGraph links have compatible, aligned ports
+FAIL accessory snap aligns the selected port positions
+PASS servo_bracket has tested mechanical ports
+PASS biped ConnectionGraph links have compatible, aligned ports
+PASS biped builds 11 bodies and 4 servo drives
+PASS biped wiring resolves PWM pin 3
+PASS biped wiring resolves PWM pin 5
+PASS biped wiring resolves PWM pin 6
+PASS biped wiring resolves PWM pin 9
+BIPED_MEASUREMENTS initial_height=0.13300 minimum_height=0.12472 final_height=0.13171 upright=0.99898
+PASS complete powered biped answer finishes without runtime errors: 
+PASS all biped transforms and velocities stay finite and near the work surface
+PASS biped finishes at a reasonable standing height (0.13171 m)
+mesh_assets_check: 27 failure(s)
+</failure></testcase><testcase name="modular_humanoid_check-walk" time="300.016"><failure message="exit 124; see modular_humanoid_check-walk.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Object is locked and can't be freed.
+   at: callp (core/object/object.cpp:787)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/modular_humanoid_check.gd:135)
+       [1] run (res://src/runtime/mini_runtime.gd:58)
+       [2] _step (res://src/runtime/mini_runtime.gd:126)
+       [3] _physics_process (res://src/runtime/mini_runtime.gd:112)
+SCRIPT ERROR: Attempted to free a locked object (calling or emitting).
+          at: _run (res://tests/modular_humanoid_check.gd:135)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/modular_humanoid_check.gd:135)
+              [1] run (res://src/runtime/mini_runtime.gd:58)
+              [2] _step (res://src/runtime/mini_runtime.gd:126)
+              [3] _physics_process (res://src/runtime/mini_runtime.gd:112)
+
+TIMEOUT after 300 seconds
+</failure></testcase></testsuite>

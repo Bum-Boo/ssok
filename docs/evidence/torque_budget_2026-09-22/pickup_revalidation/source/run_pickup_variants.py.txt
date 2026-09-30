@@ -1,0 +1,27 @@
+from concurrent.futures import ThreadPoolExecutor
+import hashlib,json,os,subprocess
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+GODOT='/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin'
+out=ROOT/'out';out.mkdir(exist_ok=True)
+subprocess.run([GODOT,'--headless','--path',str(ROOT),'--import'],stdout=(out/'import.log').open('w'),stderr=subprocess.STDOUT,check=True,timeout=90)
+cases=[]
+for lift in (2.5,3.25,4.0):
+    for index,(x,z) in enumerate(((0,0),(-.005,-.01),(.005,-.01),(-.005,.01),(.005,.01))):
+        cases.append(dict(id=f'lift{lift}-offset{index}',x=x,z=z,lift_seconds=lift,reverse_links=index==4))
+(out/'specification.json').write_text(json.dumps(dict(cases=cases,scope='Development diagnostics, unchanged physical model and pickup success criteria',sources={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'src/runtime/servo_drive.gd',ROOT/'src/runtime/kit_humanoid_motion.gd',ROOT/'probe/pickup_variants.gd')}),indent=2))
+def run(case):
+    path=out/case['id'];path.mkdir()
+    spec=dict(case,output=str(path/'result.json'))
+    (path/'input.json').write_text(json.dumps(spec))
+    env=dict(os.environ,XDG_DATA_HOME=str(path/'data'),XDG_CONFIG_HOME=str(path/'config'),XDG_CACHE_HOME=str(path/'cache'))
+    with (path/'engine.log').open('w') as log:
+        result=subprocess.run([GODOT,'--headless','--path',str(ROOT),'--fixed-fps','60','--script','probe/pickup_variants.gd','--',str(path/'input.json')],env=env,stdout=log,stderr=subprocess.STDOUT,timeout=120)
+    data=json.loads((path/'result.json').read_text()) if (path/'result.json').exists() else {}
+    answer=dict(case=case,exit_code=result.returncode,metrics=data.get('metrics'))
+    print(json.dumps(answer),flush=True)
+    return answer
+with ThreadPoolExecutor(max_workers=3) as pool: results=list(pool.map(run,cases))
+(out/'summary.json').write_text(json.dumps(results,indent=2))
+raise SystemExit(int(any(r['exit_code'] for r in results)))

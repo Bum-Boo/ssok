@@ -1,0 +1,42 @@
+[
+  {
+    "case": {
+      "seed": 8100016,
+      "settle_seconds": 2.1666666666666665,
+      "initial_velocity_noise": 0.004
+    },
+    "policy": "candidate",
+    "differences": {}
+  },
+  {
+    "case": {
+      "seed": 8200050,
+      "settle_seconds": 5.0,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 3.7,
+      "restart_pause_seconds": 2.7333333333333334
+    },
+    "policy": "candidate",
+    "differences": {}
+  },
+  {
+    "case": {
+      "seed": 8100016,
+      "settle_seconds": 2.1666666666666665,
+      "initial_velocity_noise": 0.004
+    },
+    "policy": "heading_selected",
+    "differences": {}
+  },
+  {
+    "case": {
+      "seed": 8200050,
+      "settle_seconds": 5.0,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 3.7,
+      "restart_pause_seconds": 2.7333333333333334
+    },
+    "policy": "heading_selected",
+    "differences": {}
+  }
+]

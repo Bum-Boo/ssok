@@ -1,0 +1,14 @@
+{
+  "source_commit": "d986f6aa20e0adccd78413b5d107d41fd711bb2e",
+  "source_snapshot": "Every supplied project file is an exact committed Git blob; no local WIP overlays.",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "policy_sha256": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+  "source_files": 483,
+  "capture": "Unchanged tools/godot/capture_learned_app.gd, actual app, settle60/walk720/stop90 physics intervals, movie30fps, no selected retries.",
+  "capture_output_resolution": [
+    1600,
+    940
+  ],
+  "reason": "The first WSLg capture produced a1600x940 live viewport in a1152x648 movie and clipped the bottom status text. Match MovieWriter output to the observed complete viewport; same committed source, unchanged capture script/policy/physical schedule.",
+  "previous_capture_job": "20260922-171419-ssok-heading-committed-capture-d72422c4"
+}

@@ -1,0 +1,338 @@
+{
+  "schema": 1,
+  "managed": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/START_HERE.md",
+    "docs/STATUS.md",
+    "docs/DATA_MODEL.md",
+    "docs/FLOWS.md",
+    "docs/POLICIES.md",
+    "docs/MAINTENANCE.md",
+    "docs/ARCHITECTURE.md",
+    "docs/TECHNICAL_NOTE_2026-09-30.md",
+    "docs/evidence/contributor_context_2026-09-30/README.md",
+    "docs/INTERFACE_PREFERENCES.md",
+    "docs/SETTINGS_UX_AUDIT_2026-09-30.md",
+    "docs/evidence/settings_ux_2026-09-30/README.md",
+    "docs/STAGE_CONTRACTS.md",
+    "docs/PRELAUNCH_UX_AUDIT_2026-09-30.md",
+    "docs/evidence/prelaunch_ux_2026-09-30/README.md",
+    "docs/evidence/merge_2026-09-30/README.md",
+    "docs/evidence/settings_implementation_2026-09-30/README.md",
+    "docs/evidence/public_release_2026-09-30/README.md"
+  ],
+  "routes": {
+    "assembly": {
+      "docs": [
+        "docs/DATA_MODEL.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/assembly/assembly_mode.gd",
+        "src/ui/wiring_panel.gd"
+      ],
+      "adrs": [
+        "0002",
+        "0007",
+        "0022"
+      ],
+      "watch": [
+        "src/assembly/*",
+        "src/ui/wiring_panel.gd",
+        "src/core/connection_graph.gd",
+        "src/core/part_def.gd",
+        "src/core/port.gd"
+      ]
+    },
+    "storage": {
+      "docs": [
+        "docs/DATA_MODEL.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/core/project_store.gd",
+        "src/runtime/motion_snapshot.gd",
+        "src/ui/project_panel.gd"
+      ],
+      "adrs": [
+        "0002",
+        "0016",
+        "0022"
+      ],
+      "watch": [
+        "src/core/project_store.gd",
+        "src/runtime/motion_snapshot.gd",
+        "src/ui/project_panel.gd"
+      ]
+    },
+    "language": {
+      "docs": [
+        "docs/FLOWS.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/core/board_profile.gd",
+        "src/profiles/learner_program.gd",
+        "src/runtime/mini_runtime.gd",
+        "src/ui/block_program_panel.gd"
+      ],
+      "adrs": [
+        "0004",
+        "0007",
+        "0023"
+      ],
+      "watch": [
+        "src/profiles/*",
+        "src/core/board_profile.gd",
+        "src/blocks/*",
+        "src/runtime/mini_runtime.gd",
+        "src/ui/block_program_panel.gd"
+      ]
+    },
+    "physics": {
+      "docs": [
+        "docs/ARCHITECTURE.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/runtime/run_mode.gd",
+        "src/runtime/servo_drive.gd"
+      ],
+      "adrs": [
+        "0003",
+        "0020"
+      ],
+      "watch": [
+        "src/runtime/run_mode.gd",
+        "src/runtime/servo_drive.gd",
+        "src/runtime/*motion*.gd",
+        "src/runtime/*trial*.gd"
+      ]
+    },
+    "product": {
+      "docs": [
+        "docs/POLICIES.md",
+        "docs/FLAG_MISSION.md",
+        "docs/LOCALIZATION.md",
+        "docs/INTERFACE_PREFERENCES.md",
+        "docs/STAGE_CONTRACTS.md"
+      ],
+      "sources": [
+        "scenes/main.gd",
+        "src/ui/flag_mission.gd",
+        "src/ui/stage_panel.gd",
+        "src/runtime/stage_evaluator.gd"
+      ],
+      "adrs": [
+        "0007",
+        "0022",
+        "0023",
+        "0025",
+        "0026"
+      ],
+      "watch": [
+        "scenes/*",
+        "src/ui/*",
+        "src/core/stage*.gd",
+        "src/runtime/stage*.gd",
+        "assets/locales/*"
+      ]
+    },
+    "ai": {
+      "docs": [
+        "docs/POLICIES.md",
+        "docs/MOTION_LAB.md"
+      ],
+      "sources": [
+        "src/runtime/motion_lab_client.gd",
+        "tools/motion_lab/service.py"
+      ],
+      "adrs": [
+        "0008",
+        "0010"
+      ],
+      "watch": [
+        "src/runtime/motion_lab_client.gd",
+        "tools/motion_lab/*",
+        "tools/app_control/*"
+      ]
+    },
+    "delivery": {
+      "docs": [
+        "docs/BUILD.md",
+        "docs/RELEASE_PLAN.md",
+        "docs/evidence/public_release_2026-09-30/README.md"
+      ],
+      "sources": [
+        "tools/ci/verify.py",
+        "tools/ci/build.py",
+        ".github/workflows/ci.yml"
+      ],
+      "adrs": [
+        "0001",
+        "0013",
+        "0017",
+        "0027"
+      ],
+      "watch": [
+        "project.godot",
+        "export_presets.cfg",
+        "tools/ci/*",
+        ".github/workflows/*"
+      ]
+    },
+    "docs": {
+      "docs": [
+        "docs/MAINTENANCE.md"
+      ],
+      "sources": [
+        "tools/docs/maintain.py",
+        "docs/context.json"
+      ],
+      "adrs": [
+        "0000",
+        "0024"
+      ],
+      "watch": [
+        "AGENTS.md",
+        "CONTRIBUTING.md",
+        "docs/*",
+        "tools/docs/*"
+      ]
+    },
+    "preferences": {
+      "docs": [
+        "docs/INTERFACE_PREFERENCES.md",
+        "docs/LOCALIZATION.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/ui/interface_preferences.gd",
+        "src/ui/settings_panel.gd",
+        "src/ui/ssok_theme.gd",
+        "scenes/main.gd"
+      ],
+      "adrs": [
+        "0007",
+        "0016",
+        "0026"
+      ],
+      "watch": [
+        "src/ui/interface_preferences.gd",
+        "src/ui/settings_panel.gd",
+        "src/ui/ssok_theme.gd",
+        "tests/interface_preferences_check.gd",
+        "tools/ci/browser_settings.py"
+      ]
+    }
+  },
+  "symbols": {
+    "src/core/connection_graph.gd": {
+      "class": "ConnectionGraph"
+    },
+    "src/core/part_def.gd": {
+      "class": "PartDef"
+    },
+    "src/core/port.gd": {
+      "class": "Port"
+    },
+    "src/core/project_store.gd": {
+      "methods": [
+        "document",
+        "save",
+        "parse",
+        "load_project"
+      ],
+      "class": "ProjectStore"
+    },
+    "src/runtime/motion_snapshot.gd": {
+      "methods": [
+        "encode",
+        "decode"
+      ],
+      "class": "MotionSnapshot"
+    },
+    "src/runtime/mini_runtime.gd": {
+      "methods": [
+        "run",
+        "validate",
+        "stop"
+      ],
+      "class": "MiniRuntime"
+    },
+    "src/runtime/run_mode.gd": {
+      "methods": [
+        "build",
+        "teardown",
+        "servo_on_pin"
+      ],
+      "class": "RunMode"
+    },
+    "src/ui/flag_mission.gd": {
+      "methods": [
+        "_build_chart",
+        "_observed_flag_raised"
+      ],
+      "class": "FlagMission"
+    },
+    "scenes/main.gd": {
+      "methods": [
+        "_on_run_pressed",
+        "_on_mode_toggled",
+        "_on_stop_pressed",
+        "_prepare_project_document",
+        "_load_project"
+      ]
+    },
+    "src/ui/interface_preferences.gd": {
+      "class": "InterfacePreferences",
+      "methods": [
+        "set_preference",
+        "load_preferences",
+        "reset_preferences"
+      ]
+    },
+    "src/ui/settings_panel.gd": {
+      "class": "SettingsPanel",
+      "methods": [
+        "open_panel",
+        "close_panel"
+      ]
+    }
+  },
+  "contracts": {
+    "data-model": {
+      "document": "docs/DATA_MODEL.md",
+      "sources": {
+        "src/core/connection_graph.gd": "a06bebbcbfd0df1aaeaf8d845f99846f810790df8e8d34ce84c8f70d087abd3f",
+        "src/core/part_def.gd": "9bf9ddfca1d7fc0700acd0103dceecef5ad66ddb0d3713bedc199cf41dd77616",
+        "src/core/port.gd": "199796a3ddd472f85661dbc094f0b4b47fb5204965768a0da900a906fbbf257f",
+        "src/core/project_store.gd": "87b443ce5e3a48ee2ade5348f1bb3c0f8503c96d35f751a6525aec475b19e4ae",
+        "src/runtime/motion_snapshot.gd": "deaaabc1e4072335bbe3c9125ab775f6efb8da601c0050dee9236bd6723fa803",
+        "src/core/stage_definition.gd": "6683709c7b060e34f449c54e4b53e8b69c2ec8e1c245ba13245da64b8c925c90",
+        "src/core/board_profile.gd": "7c8cd90875285d1e14a7c44343e8f912593ad9fc14ffc46bce3fcfb1251dab3e"
+      }
+    },
+    "execution-flow": {
+      "document": "docs/FLOWS.md",
+      "sources": {
+        "scenes/main.gd": "a98dd6901b063bffaa4045e1f9c58f9e9010179fa7f9e06a0ad4744815f45e9d",
+        "src/runtime/mini_runtime.gd": "d79aeb048b47717cd6557f46735bbdf07b9c2357080109938a9cea841c48992a",
+        "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54",
+        "src/ui/block_program_panel.gd": "5f0e1d1236220dd89de8742b677dc7331a9015fbdbd46886cf3e173b7d8e1e22",
+        "src/ui/project_panel.gd": "a38fa22ef45307735515477e5ac0048d0e251538f174973da945d36fe91c4c03",
+        "src/profiles/learner_program.gd": "31bd49263fa8f6a07b83f5c251ec87cb9d5eb24b9cc80968b3d06a946ae3447d",
+        "src/runtime/stage_evaluator.gd": "8818c87ca309a05469211f64f0c2ae2e49b0fb99da74a3a68f6ec1ee2de01eed",
+        "src/ui/stage_panel.gd": "690042412cc32cc1e58d066987b0d3bffd9e02fc835393b071842986a1cd16b4"
+      }
+    },
+    "flag-flow": {
+      "document": "docs/FLOWS.md",
+      "sources": {
+        "src/ui/flag_mission.gd": "d4bc5b4806d11b86ff0d4973e40ea47fd99fefe89fba24d8d12975d95000d741"
+      }
+    }
+  }
+}

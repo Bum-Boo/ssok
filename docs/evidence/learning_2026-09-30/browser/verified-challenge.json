@@ -1,0 +1,593 @@
+{
+  "author_solution": {
+    "format": "ssok-project",
+    "graph": {
+      "links": [
+        {
+          "a_part": 0,
+          "a_port": "motor_left",
+          "b_part": 1,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0,
+          "a_port": "motor_right",
+          "b_part": 2,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 1,
+          "a_port": "shaft_left",
+          "b_part": 3,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 2,
+          "a_port": "shaft_right",
+          "b_part": 4,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 0,
+          "a_port": "board_mount",
+          "b_part": 5,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0,
+          "a_port": "driver_mount",
+          "b_part": 6,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0,
+          "a_port": "caster_mount",
+          "b_part": 7,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0,
+          "a_port": "sensor_mount",
+          "b_part": 8,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_0",
+          "b_part": 6,
+          "b_port": "input_0"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_8",
+          "b_part": 6,
+          "b_port": "input_8"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_12",
+          "b_part": 6,
+          "b_port": "input_12"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_16",
+          "b_part": 6,
+          "b_port": "input_16"
+        },
+        {
+          "a_part": 6,
+          "a_port": "motor_1",
+          "b_part": 1,
+          "b_port": "power"
+        },
+        {
+          "a_part": 6,
+          "a_port": "motor_2",
+          "b_part": 2,
+          "b_port": "power"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_1",
+          "b_part": 8,
+          "b_port": "trig_pin"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_2",
+          "b_part": 8,
+          "b_port": "echo_pin"
+        }
+      ],
+      "parts": [
+        {
+          "id": "car_chassis",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.06750000268220901,
+            0.0
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            -0.05999999865889549
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            0.05999999865889549
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            -1.0,
+            0.0,
+            8.742277657347586e-08,
+            0.0,
+            1.0,
+            0.0,
+            -8.742277657347586e-08,
+            0.0,
+            -1.0,
+            -0.011500001884996891,
+            0.08250000327825546,
+            -0.0820000022649765
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.011500000953674316,
+            0.08250000327825546,
+            0.0820000022649765
+          ]
+        },
+        {
+          "id": "microbit",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.02500000037252903,
+            0.07400000095367432,
+            0.0
+          ]
+        },
+        {
+          "id": "motor_driver",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.03500000014901161,
+            0.0755000039935112,
+            0.0
+          ]
+        },
+        {
+          "id": "ball_caster",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.054999999701976776,
+            0.06200000271201134,
+            0.0
+          ]
+        },
+        {
+          "id": "hc_sr04",
+          "transform": [
+            -4.371138828673793e-08,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            -4.371138828673793e-08,
+            0.07079999893903732,
+            0.1274999976158142,
+            -3.496911094025279e-11
+          ]
+        },
+        {
+          "id": "stage_wall",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.800000011920929,
+            0.15000000596046448,
+            0.0
+          ]
+        }
+      ],
+      "version": 1
+    },
+    "saved_utc": "2026-09-30T08:15:00",
+    "source": "left = Motor(pin0)\nright = Motor(pin12)\nsonar = Sonar(pin1, pin2)\nwhile sonar.distance_cm() > 10:\n    left.motor_on(\"forward\", 25)\n    right.motor_on(\"forward\", 25)\n    sleep(20)\nstop()\n",
+    "title": "Brake before the wall",
+    "version": 1
+  },
+  "constraints": {
+    "max_parts": 256,
+    "time_limit": 60.0
+  },
+  "format": "ssok-stage",
+  "id": "wall-brake",
+  "rules": [
+    {
+      "hold_seconds": 0.3,
+      "max": 10.0,
+      "metric": "sonar_distance",
+      "min": 5.0,
+      "part_id": "hc_sr04"
+    },
+    {
+      "hold_seconds": 0.3,
+      "max": 0.015,
+      "metric": "speed",
+      "min": 0.0,
+      "part_id": "car_chassis"
+    },
+    {
+      "hold_seconds": 0.0,
+      "max": 0.0,
+      "metric": "wall_contact",
+      "min": 0.0,
+      "part_id": "car_chassis"
+    }
+  ],
+  "scene": {
+    "format": "ssok-project",
+    "graph": {
+      "links": [
+        {
+          "a_part": 0,
+          "a_port": "motor_left",
+          "b_part": 1,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0,
+          "a_port": "motor_right",
+          "b_part": 2,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 1,
+          "a_port": "shaft_left",
+          "b_part": 3,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 2,
+          "a_port": "shaft_right",
+          "b_part": 4,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 0,
+          "a_port": "board_mount",
+          "b_part": 5,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0,
+          "a_port": "driver_mount",
+          "b_part": 6,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0,
+          "a_port": "caster_mount",
+          "b_part": 7,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0,
+          "a_port": "sensor_mount",
+          "b_part": 8,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_0",
+          "b_part": 6,
+          "b_port": "input_0"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_8",
+          "b_part": 6,
+          "b_port": "input_8"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_12",
+          "b_part": 6,
+          "b_port": "input_12"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_16",
+          "b_part": 6,
+          "b_port": "input_16"
+        },
+        {
+          "a_part": 6,
+          "a_port": "motor_1",
+          "b_part": 1,
+          "b_port": "power"
+        },
+        {
+          "a_part": 6,
+          "a_port": "motor_2",
+          "b_part": 2,
+          "b_port": "power"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_1",
+          "b_part": 8,
+          "b_port": "trig_pin"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_2",
+          "b_part": 8,
+          "b_port": "echo_pin"
+        }
+      ],
+      "parts": [
+        {
+          "id": "car_chassis",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.06750000268220901,
+            0.0
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            -0.05999999865889549
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            0.05999999865889549
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            -1.0,
+            0.0,
+            8.742277657347586e-08,
+            0.0,
+            1.0,
+            0.0,
+            -8.742277657347586e-08,
+            0.0,
+            -1.0,
+            -0.011500001884996891,
+            0.08250000327825546,
+            -0.0820000022649765
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.011500000953674316,
+            0.08250000327825546,
+            0.0820000022649765
+          ]
+        },
+        {
+          "id": "microbit",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.02500000037252903,
+            0.07400000095367432,
+            0.0
+          ]
+        },
+        {
+          "id": "motor_driver",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.03500000014901161,
+            0.0755000039935112,
+            0.0
+          ]
+        },
+        {
+          "id": "ball_caster",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.054999999701976776,
+            0.06200000271201134,
+            0.0
+          ]
+        },
+        {
+          "id": "hc_sr04",
+          "transform": [
+            -4.371138828673793e-08,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            -4.371138828673793e-08,
+            0.07079999893903732,
+            0.1274999976158142,
+            -3.496911094025279e-11
+          ]
+        },
+        {
+          "id": "stage_wall",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.800000011920929,
+            0.15000000596046448,
+            0.0
+          ]
+        }
+      ],
+      "version": 1
+    },
+    "saved_utc": "2026-09-30T08:14:24",
+    "source": "left = Motor(pin0)\nright = Motor(pin12)\nsonar = Sonar(pin1, pin2)\nwhile sonar.distance_cm() > 10:\n    left.motor_on(\"forward\", 25)\n    right.motor_on(\"forward\", 25)\n    sleep(20)\nstop()\n",
+    "title": "Brake before the wall",
+    "version": 1
+  },
+  "title": "Brake before the wall",
+  "version": 1
+}

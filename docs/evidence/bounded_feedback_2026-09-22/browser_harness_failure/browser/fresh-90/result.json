@@ -1,0 +1,47 @@
+{
+  "case": {
+    "name": "fresh-90",
+    "settle": 90
+  },
+  "passed": false,
+  "checks": [
+    {
+      "passed": true,
+      "description": "Bundled actual application at 60 Hz"
+    },
+    {
+      "passed": true,
+      "description": "Exact graph fingerprint"
+    },
+    {
+      "passed": true,
+      "description": "Exact version-aware runtime fingerprint"
+    }
+  ],
+  "errors": [],
+  "browser": "153.0.8010.12",
+  "url": "http://127.0.0.1:45153/?ssok_verify=1",
+  "stage": "measure",
+  "initial": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "engine": "4.7.2-stable (official)",
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "physics_hz": 60,
+    "policy_fingerprint": "414ea50b0e0996c05aa3e54574f40fb2fb31aa778cb51a94ccfa1985c473f6de",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+    "ready": true,
+    "runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+    "schema": 1,
+    "settle_frames": 102,
+    "walk_frames": 0
+  }
+}

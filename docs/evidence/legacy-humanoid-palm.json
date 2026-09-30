@@ -1,0 +1,356 @@
+{
+  "date": "2026-09-22",
+  "engine": "Godot 4.7.2 GodotPhysics3D 60 Hz",
+  "remote_job": "20260922-053847-ssok-visible-palm-regression-5c1da5db",
+  "cause": {
+    "hand_centers_x_m": [
+      -0.2,
+      0.2
+    ],
+    "old_forearm_width_m": 0.06,
+    "cargo_width_m": 0.34,
+    "old_lateral_contact_margin_m": 0.0,
+    "all_arm_hinge_axes": "X; no lateral closing degree of freedom"
+  },
+  "correction": {
+    "palm_size_m": [
+      0.09,
+      0.045,
+      0.085
+    ],
+    "palm_center_local_m": [
+      0.0,
+      -0.105,
+      0.0
+    ],
+    "visible_collision_boxes_identical": true,
+    "new_lateral_contact_margin_each_side_m": 0.015,
+    "forearm_total_mass_kg": 0.35,
+    "actuator_torque_nm": 12.0,
+    "measured_auto_com_local_m": [
+      0.0,
+      -0.028501,
+      0.0
+    ],
+    "mass_model_limitation": "Uncalibrated uniform collision-shape mass/inertia; the palm has no separately measured density. Engine-computed COM is read rather than the custom-center property."
+  },
+  "invariants": [
+    "unchanged cargo and initial box position",
+    "no initial robot/cargo collision AABB intersection",
+    "real bilateral hand contact before temporary grips",
+    "unchanged UI 390-frame action window and holding gate",
+    "no teleport, gravity change, hidden collider or external propulsive force"
+  ],
+  "ui_cases": [
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0,
+        "z": 0,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=0",
+          "--box-z=0"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5427 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0,
+        "z": 0,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=0",
+          "--box-z=0"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5431 upright=1.0000\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": -0.002,
+        "z": 0,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=-0.002",
+          "--box-z=0"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5416 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": -0.002,
+        "z": 0,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=-0.002",
+          "--box-z=0"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5443 upright=1.0000\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0.002,
+        "z": 0,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=0.002",
+          "--box-z=0"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5406 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0.002,
+        "z": 0,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=0.002",
+          "--box-z=0"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=120 phase=lifting\nhumanoid_ui_phase: frame=271 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5397 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0,
+        "z": -0.005,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=0",
+          "--box-z=-0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=120 phase=lifting\nhumanoid_ui_phase: frame=271 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5396 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0,
+        "z": -0.005,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=0",
+          "--box-z=-0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=120 phase=lifting\nhumanoid_ui_phase: frame=271 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5444 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0,
+        "z": 0.005,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=0",
+          "--box-z=0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5419 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0,
+        "z": 0.005,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=0",
+          "--box-z=0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=130 phase=lifting\nhumanoid_ui_phase: frame=281 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5398 upright=1.0000\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": -0.002,
+        "z": -0.005,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=-0.002",
+          "--box-z=-0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=121 phase=lifting\nhumanoid_ui_phase: frame=272 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5446 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": -0.002,
+        "z": -0.005,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=-0.002",
+          "--box-z=-0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=123 phase=lifting\nhumanoid_ui_phase: frame=274 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5408 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0.002,
+        "z": 0.005,
+        "settle": 179,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=179",
+          "--box-x=0.002",
+          "--box-z=0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5391 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    },
+    {
+      "spec": {
+        "kind": "ui",
+        "x": 0.002,
+        "z": 0.005,
+        "settle": 181,
+        "args": [
+          "tests/humanoid_ui_check.gd",
+          "--",
+          "--settle-frames=181",
+          "--box-x=0.002",
+          "--box-z=0.005"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_ui_phase: frame=119 phase=lifting\nhumanoid_ui_phase: frame=270 phase=holding\nhumanoid_ui_pickup: modular=false state=holding grasped=true fallen=false cargo_height=0.5418 upright=0.9999\nhumanoid_ui_check: 93 checks, 0 failures\n"
+    }
+  ],
+  "other_cases": [
+    {
+      "spec": {
+        "kind": "walk",
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "walk"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=walk displacement=(0.086145, -0.010491, 0.776838) min_up=0.998 lift=0.000 air_frames=0 longest_flight=0 checks=33 failures=0\n"
+    },
+    {
+      "spec": {
+        "kind": "backward",
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "backward"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=backward displacement=(-0.002221, -0.012043, -0.193346) min_up=0.995 lift=0.000 air_frames=0 longest_flight=0 checks=33 failures=0\n"
+    },
+    {
+      "spec": {
+        "kind": "pick",
+        "args": [
+          "tests/humanoid_motion_check.gd",
+          "--",
+          "pick"
+        ]
+      },
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=pick displacement=(-0.004065, 0.000557, -0.004491) min_up=0.911 lift=0.398 air_frames=0 longest_flight=0 checks=62 failures=0\n"
+    }
+  ],
+  "forearm_sha256": "620c6a23e71e0b408ec50645fe6bb267feb2e43795cd2692390227bf203081a9",
+  "generator_sha256": "32d9ee7856b81e92a8e63c029115f76ab40732b1e6fbee9e76880e26209991ba",
+  "running": "See legacy-humanoid-run.json: current default/reversed/default+1frame pass, broad start/link grid is11/14. Gait refinement remains in progress.",
+  "checkpoint_verification": {
+    "job": "20260922-061158-ssok-palm-checkpoint-72509aab",
+    "cases": [
+      {
+        "action": "walk",
+        "args": [],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=walk displacement=(0.086145, -0.010491, 0.776838) min_up=0.998 lift=0.000 air_frames=0 longest_flight=0 checks=33 failures=0\n"
+      },
+      {
+        "action": "backward",
+        "args": [],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=backward displacement=(-0.002221, -0.012043, -0.193346) min_up=0.995 lift=0.000 air_frames=0 longest_flight=0 checks=33 failures=0\n"
+      },
+      {
+        "action": "walk",
+        "args": [
+          "--reverse-links"
+        ],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=walk displacement=(0.019653, -0.010546, 0.936321) min_up=0.998 lift=0.000 air_frames=0 longest_flight=0 checks=33 failures=0\n"
+      },
+      {
+        "action": "pick",
+        "args": [],
+        "exit": 0,
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nhumanoid_motion_check: action=pick displacement=(-0.004065, 0.000557, -0.004491) min_up=0.911 lift=0.398 air_frames=0 longest_flight=0 checks=62 failures=0\n"
+      }
+    ]
+  }
+}
