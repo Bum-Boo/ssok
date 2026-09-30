@@ -161,6 +161,7 @@ static func populate(theme: Theme) -> void:
 	theme.set_color(&"font_color", &"Button", TEXT)
 	theme.set_color(&"font_focus_color", &"Button", TEXT)
 	theme.set_color(&"font_hover_color", &"Button", TEXT)
+	theme.set_color(&"font_hover_pressed_color", &"Button", TEXT)
 	theme.set_color(&"font_pressed_color", &"Button", TEXT)
 	theme.set_color(&"font_disabled_color", &"Button", TEXT_DIM)
 	for state: StringName in [&"normal", &"hover", &"pressed"]:
@@ -172,7 +173,7 @@ static func populate(theme: Theme) -> void:
 		checkbox_image.load_svg_from_string("<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><rect x='2' y='2' width='16' height='16' rx='3' fill='%s' stroke='#%s' stroke-width='2'/>%s</svg>" % ["#" + ACCENT.to_html(false) if state == &"checked" else "none", TEXT_DIM.to_html(false), mark])
 		theme.set_icon(state, &"CheckBox", ImageTexture.create_from_image(checkbox_image))
 	for type: StringName in [&"OptionButton", &"CheckBox", &"CheckButton"]:
-		for state: StringName in [&"font_color", &"font_hover_color", &"font_pressed_color", &"font_focus_color"]:
+		for state: StringName in [&"font_color", &"font_hover_color", &"font_pressed_color", &"font_hover_pressed_color", &"font_focus_color"]:
 			theme.set_color(state, type, TEXT)
 	theme.set_constant(&"modulate_arrow", &"OptionButton", 1)
 
@@ -224,9 +225,9 @@ static func populate(theme: Theme) -> void:
 	theme.set_stylebox(&"normal", &"PrimaryButton", _flat(ACCENT, 10, Color.TRANSPARENT, 6))
 	theme.set_stylebox(&"hover", &"PrimaryButton", _flat(ACCENT.lightened(0.12), 10, Color.TRANSPARENT, 6))
 	theme.set_stylebox(&"pressed", &"PrimaryButton", _flat(ACCENT.darkened(0.15), 10, Color.TRANSPARENT, 6))
-	for state: StringName in [&"font_color", &"font_hover_color", &"font_pressed_color", &"font_focus_color"]:
+	for state: StringName in [&"font_color", &"font_hover_color", &"font_pressed_color", &"font_hover_pressed_color", &"font_focus_color"]:
 		theme.set_color(state, &"PrimaryButton", BG_SUNKEN)
-	for state: StringName in [&"icon_normal_color", &"icon_hover_color", &"icon_pressed_color", &"icon_focus_color"]:
+	for state: StringName in [&"icon_normal_color", &"icon_hover_color", &"icon_pressed_color", &"icon_hover_pressed_color", &"icon_focus_color"]:
 		theme.set_color(state, &"Button", TEXT)
 		theme.set_color(state, &"PrimaryButton", BG_SUNKEN)
 	theme.set_type_variation(&"QuietButton", &"Button")
