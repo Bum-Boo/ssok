@@ -48,6 +48,7 @@ var _flag: MeshInstance3D
 var _title: Label
 var _message: Label
 var _action: Button
+var _preferences: InterfacePreferences
 var _sound: AudioStreamPlayer
 
 
@@ -73,8 +74,8 @@ func _ready() -> void:
 	add_child(layout)
 	_title = Label.new()
 	_title.text = "Raise the flag"
-	_title.add_theme_font_size_override("font_size", 20)
-	_title.add_theme_color_override("font_color", FLAG_COLOR)
+	_title.add_theme_font_size_override("font_size", SsokTheme.font_size(20))
+	_title.add_theme_color_override("font_color", SsokTheme.ACCENT)
 	layout.add_child(_title)
 	_message = Label.new()
 	_message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -89,6 +90,9 @@ func _ready() -> void:
 	_sound = AudioStreamPlayer.new()
 	_sound.volume_db = -13.0
 	add_child(_sound)
+	_preferences = get_node("/root/Preferences") as InterfacePreferences
+	_preferences.changed.connect(_apply_sound_preferences)
+	_apply_sound_preferences()
 	_build_chart()
 	_build_tree()
 	_refresh_text()
@@ -324,11 +328,20 @@ func _refresh_text() -> void:
 
 
 func _play(stream: AudioStream) -> void:
-	if DisplayServer.get_name() == "headless" or _sound == null or stream == null:
+	if DisplayServer.get_name() == "headless" or _sound == null or stream == null or _preferences.effects_gain() <= 0.0:
 		return
 	_sound.stop()
 	_sound.stream = stream
 	_sound.play()
+
+
+func _apply_sound_preferences() -> void:
+	if _sound == null:
+		return
+	var gain: float = _preferences.effects_gain()
+	_sound.volume_db = -13.0 + linear_to_db(maxf(0.0001, gain))
+	if gain <= 0.0:
+		_sound.stop()
 
 
 func _exit_tree() -> void:

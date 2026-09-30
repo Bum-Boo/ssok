@@ -37,7 +37,7 @@ godot --path .
 No account, API key or paid model is needed for local assembly, coding, physics, storage or
 pickup experiments. Optional external AI services keep their keys outside the application.
 
-[Flag mission and reused components](docs/FLAG_MISSION.md) · [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
+[Flag mission and reused components](docs/FLAG_MISSION.md) · [Controls](docs/CONTROLS.md) · [Interface preferences](docs/INTERFACE_PREFERENCES.md) · [Projects and blocks](docs/AUTHORING.md) ·
 [Stages, motors, sonar and bounded learner language](docs/LEARNING_STAGES.md) · [App control API design](docs/APP_CONTROL_API.md) ·
 [Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
 

@@ -77,6 +77,10 @@ docs/            architecture and decisions
 
 ## Keep language packs current with every update
 
+For settings/theme/text-scale/audio work, read `docs/INTERFACE_PREFERENCES.md` and ADR 0024.
+Keep personal preferences outside project records; preserve drafts and running code when applying them.
+Record actual four-language/light-dark/compact screenshots and run the preference regression check.
+
 - Every update MUST review localization impact. New, changed or removed user-facing text
   (including part names, help, tooltips, dialogs, status/error messages and AI-lab warnings)
   MUST update Korean (`ko`), Simplified Chinese (`zh_CN`) and Japanese (`ja`) together

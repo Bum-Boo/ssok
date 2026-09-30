@@ -1,0 +1,49 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 2,
+  "failures": 0,
+  "results": [
+    {
+      "name": "flag_mission_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.777,
+      "timeout": false,
+      "engine_error": false,
+      "log": "flag_mission_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/flag_mission_check.gd"
+      ]
+    },
+    {
+      "name": "interface_preferences_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.994,
+      "timeout": false,
+      "engine_error": false,
+      "log": "interface_preferences_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/interface_preferences_check.gd"
+      ]
+    }
+  ]
+}

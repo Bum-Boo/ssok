@@ -44,6 +44,16 @@ func _physics_process(_delta: float) -> void:
 			_learner.app = _app
 		var observation: Dictionary = {"result": _learner.invoke("get_result").data, "scene": _learner.invoke("get_scene").data}
 		JavaScriptBridge.eval("window.__ssokLearning = " + JSON.stringify(observation) + ";", true)
+		var preferences: Dictionary = {
+			"values": Preferences.values, "locale": TranslationServer.get_locale(), "dark": SsokTheme.dark,
+			"settings_open": _app.settings.visible, "source_hash": _app.code_edit.text.sha256_text(),
+			"graph_hash": MotionSnapshot.fingerprint(_app._motion_snapshot()),
+			"draft_hash": JSON.stringify(_app.blocks.instructions).sha256_text(),
+			"code_font_size": _app.code_edit.get_theme_font_size("font_size"),
+			"ui_font_size": _app._ui_root.theme.default_font_size,
+			"run_mode": _app.mode_button.button_pressed, "code_running": _app.runtime.is_running(),
+		}
+		JavaScriptBridge.eval("window.__ssokInterface = " + JSON.stringify(preferences) + ";", true)
 
 
 func _observe() -> void:
