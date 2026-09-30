@@ -1,27 +1,52 @@
 # Windows 설치 프로그램·macOS Universal 앱 패키지 — 2026-09-30
 
-## 빌드 정체성
+## 최종 전달 파일·통합 빌드
 
-최종 설치 파일은 clean source `b374211e12a3ec1495229f6dfa188786121d24a0`,
-Godot `4.7.2.stable.official.ed1daf0bf`에서 만들었다. 빌드 시작/끝 HEAD와 작업실 상태를
-대조했으며 `dirty_worktree=false`, `source_changed_during_build=false`다.
-[메타데이터](release.json)와 [SHA256](SHA256SUMS)에 6개 파일의 크기·해시가 있다.
-다운로드 회수 후 6개 파일 모두 원본 SHA256과 일치했다.
-로컬 최종 파일: `build/desktop-packages/` (Git에는 바이너리 미포함).
+최종 전달 파일은 main `6eacf39`를 합친 clean source
+`d7a0b54b77b6ce60e4953b0facae37586a597248`, Godot `4.7.2.stable.official.ed1daf0bf`다.
+빌드 시작/끝 HEAD와 작업실 상태가 같으며 `dirty_worktree=false`,
+`source_changed_during_build=false`다. [최종 메타데이터](integrated/release.json),
+[최종 SHA256](integrated/SHA256SUMS), [4대상 빌드 로그](integrated/build.log)를 보존했다.
+Windows와 Mac 파일을 개인 Himmel에서 회수하고 파일 크기·SHA256 일치를 확인했다.
 
-- Windows x86_64: per-user `setup.exe`, 해당 파일만 담은 installer ZIP, portable ZIP.
-- macOS Universal 2: Intel x86_64와 Apple Silicon arm64를 포함한 `ssok.app` ZIP.
-- Web·Linux 기존 대상도 같은 frozen source에서 export 성공.
+- Windows per-user setup: `build/desktop-main-windows/ssok-desktop-main-20260930-windows-x86_64-setup.exe`
+  (110,048,203 bytes, SHA256 `286b4ac0d26d60f1b4a401ce55d23913a58df3b1c9e447936f2c7f9387a0fef7`).
+- Mac Universal 2 app ZIP: `build/desktop-main-macos/ssok-desktop-main-20260930-macos-universal.zip`
+  (135,235,648 bytes, SHA256 `7cf1a37bc9fd83e40c8678cf2d6a8d3cf0b8c8b7271df2b79555f02de91960d7`).
+- 동일 source의 Web/Linux/Windows portable/installer ZIP도 remote export 성공.
+  최종 전달 두 파일만 좁은 경로로 로컬 회수했다. binaries는 Git 미포함.
 
-기존 6개 이슈 통합 코드 `ed6ed32`를 바탕으로 별도 `feat/39-desktop-installers` 작업실에서
-패키징했다. 이후 branch에는 최신 main `6eacf39`를 통합하고 빌드 도구/문서 2개 충돌을 해결했다.
-Windows/macOS도 새 Stage identity JSON을 명시적으로 포함하도록 맞췄다.
+최종 native Windows **17항목/0실패**:
+[checks](integrated/windows-native/checks.json), [정상 실행](integrated/windows-native/native.stdout),
+[깃발](integrated/windows-native/stage-raise-flag.png),
+[결승선](integrated/windows-native/stage-finish-line.png),
+[벽 앞 정지](integrated/windows-native/stage-wall-brake.png).
+actual UI에서 Stage3개를 각각 성공한 뒤 gated JSON export했고 정상 종료·설치 제거·등록/shortcut 해제·
+추가 사용자 파일 보존까지 확인했다. 새 3개 PNG를 직접 검수했다.
+PNG에서 기존 깃발 미션 상단 오버레이가 차량 Stage에서도 남는 현상은 있으나,
+Stage picker/실측 성공 표시/검증된 각 stage.id의 export는 정상이다. 앱 UI 개선은 별도 출시 UX 범위다.
+JSON들은 fresh-success export gate를 통과한 답안이며 별도 측정값 observer dump는 아니다.
+[최종 Mac 구조/서명 존재 검사](integrated/export-logs/macos-bundle.json)는 두 아키텍처·실행 비트·
+ad-hoc signature·resource seal 7개 성공; 실제 Mac 상호작용 미검증, Developer ID/notarization 없음.
+
+`feat/39-desktop-installers`에 최신 main을 통합해 빌드 도구/문서 2개 충돌을 해결했다.
+Windows/macOS도 main의 Stage identity JSON을 명시적으로 포함한다.
 [통합 focused 검사](integrated-focused/SUMMARY.md) 6묶음/0실패.
-통합 소스는 아직 후보 설치 파일 `b374211`의 정체성과 다르며 재빌드가 필요하다.
-동시 설정 UI 작업은 포함하지 않았다.
-앱 GDScript·장면·부품·PO 변경은 없다. Apple Silicon texture import 설정 하나를 추가했으며
-GL Compatibility, GodotPhysics3D, 정확 엔진 pin, ADR0001/0013/0023을 유지했다.
-NSIS 설치 UI는 en/ko/zh_CN/ja 4언어이며 사용자 권한만 사용한다.
+[최신 GitHub 전체 검사](integrated/github-ci-d7a0b54.log): `d7a0b54`,
+[run36701908984](https://github.com/Bum-Boo/ssok/actions/runs/36701908984), **70묶음/0실패**.
+artifact storage quota 때문에 결과 upload만 실패하고 CI export job은 skip됐으므로 전체 workflow 성공은 아니다.
+별도 개인 Himmel clean all4 export/native17 결과가 이를 구분해 검증한다.
+최종 evidence 추가 후 [offline documentation 검사](final-offline.txt) 1/1 성공.
+동시 설정 UI 작업은 포함하지 않았다. origin/main 대비 앱 GDScript·장면·부품·PO 변경 없음.
+Apple Silicon texture import 설정 한 개만 추가했다. GL Compatibility/GodotPhysics3D/
+정확 엔진 pin과 ADR0001/0013/0023 유지. 설치 UI en/ko/zh_CN/ja 4언어.
+
+## 최초 frozen 후보 (기록 보존)
+
+기존 6이슈 통합 코드에서 만든 첫 clean source `b374211`의
+[메타데이터](release.json), [SHA256](SHA256SUMS), export/실패 결과도 그대로 보존했다.
+그 후보의 Web/Linux/Windows portable/setup/installer ZIP/Mac 6개 파일은 모두 회수·SHA256 일치,
+`build/desktop-packages/`에 있다. 사용자에게 전달하는 최신 파일은 위 `d7a0b54`의 두 파일이다.
 
 ## 검사 결과
 
@@ -62,7 +87,15 @@ Windows publisher signing과 Mac Developer ID/notarization은 제공하지 않�
 공용 연구실 Mac에는 코드·개인자료를 전송하지 않았다. 유료 자원·인증서 사용 없음.
 이번 범위는 빌드 도구와 전달 가능한 후보 파일, PR이며 공개 release/Pages 게시와 main merge는 별도다.
 
-## 개인 Himmel 작업
+## 최종 개인 Himmel 작업
+
+`20260930-192047-ssok-desktop-main-verified-5851e793`: 최신 main 통합 clean `d7a0b54`,
+4대상 export/PCK exclusion+Stage identity audit/Linux startup/NSIS/Mac seals 성공,
+Windows 실제 UI/lifecycle **17/17 PASS**, 완료 exit0. 자원 해제 확인.
+Task-owned app 종료·test install 제거·등록/shortcut 제거 확인, 추가 synthetic user file 유지.
+각 platform archive만 좁은 fetch로 회수했으며 모든 native/빌드 원본은 위 integrated evidence에 있다.
+
+## 이전 개인 Himmel 작업
 
 - `20260930-182408-ssok-desktop-native-v3-b32841c6`: clean 4대상 빌드 성공,
   후속 초기 Windows ExitCode 검사 실패. 해당 job 전체 exit1을 빌드 실패와 구분한다.
