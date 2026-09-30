@@ -1,7 +1,9 @@
 # ssok product release — acceptance and evidence
 
 Owner: Bum-Boo. Delivery issue: [#29](https://github.com/Bum-Boo/ssok/issues/29).
-Started 2026-09-22. Status: **in progress; not released**.
+Started 2026-09-22. Current publication: **v0.2.0 learning-workshop delivery, owner authorized 2026-09-30**.
+
+[ADR 0027](adr/0027-current-workshop-public-release.md) records the current scope: PR40/41 integration, full native/browser gates, four rebuilt platforms, anonymous Pages and Release access, history audit and retained original rights. [Publication evidence](evidence/public_release_2026-09-30/README.md) is the current delivery record. The research-product objectives and dated rows below remain historical; unresolved sustained Kit locomotion is disclosed as an exhibit and is not silently marked complete.
 
 The motor impulse cap previously exceeded its nominal physical torque by being spent once per solver
 pass. ADR 0020 corrects the whole-step budget. Corrected pickup, learned-policy, full native and clean

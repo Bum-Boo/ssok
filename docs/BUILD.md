@@ -227,3 +227,9 @@ installer uses NSIS language packs and translates its architecture message in al
 matching the learning check's optional graphics mode. Omit `--hardware` for CI's headless
 SwiftShader path. Rebuild or regenerate `browser-layout.json` with the same application source
 when changing the board block catalog: the authoring check uses its semantic Wait index.
+
+## Owner-authorized publication on 2026-09-30
+
+[ADR0027](adr/0027-current-workshop-public-release.md) uses a frozen v0.2.0 source and all four exports. GitHub artifact quota currently blocks the Actions upload jobs, so the verified Web payload is committed to the dedicated `gh-pages` branch with `.nojekyll` and Pages serves its root. Final archives, Windows setup, `release.json` and `SHA256SUMS` are attached directly to the versioned GitHub Release. No old artifacts are deleted and billing is unchanged.
+
+This branch deployment is explicit; ordinary main pushes do not publish new application bytes. Match the deployed payload hashes to the frozen build and exercise the anonymous URL after Pages completes. The existing workflow remains available when artifact storage permits it. [Publication evidence](evidence/public_release_2026-09-30/README.md) records the actual status, including any failed attempts. This change adds no application text or language-pack keys.

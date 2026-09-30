@@ -1,7 +1,5 @@
 # ssok · 쏙
 
-> **Physical model corrected (2026-09-22):** current results below use a whole-step motor torque budget. Earlier recordings and measurements used the old per-pass implementation and remain historical. [Cause and regression](docs/adr/0020-whole-step-actuator-torque-budget.md) · [Current learned-policy validation](docs/evidence/heading_feedback_2026-09-22/README.md).
-
 **Build a robot. Wire its motors. Make it move.**
 
 ssok is an educational 3D robotics workshop built with Godot. Snap individual parts together,
@@ -10,18 +8,20 @@ robot under gravity. Save a project, share it, and take it apart to understand h
 
 English · 한국어 · 简体中文 · 日本語
 
+[Open the browser workshop](https://bum-boo.github.io/ssok/) · [Download v0.2.0](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [Developer start](docs/START_HERE.md)
+
 ![Actual ssok workshop: independently assembled humanoid, parts catalog and servo program](docs/media/workshop.png)
 
-> Release preparation is in progress. Web/Linux builds and Windows/macOS packaging are available; public release
-> remains gated on the [verification and delivery checklist](docs/RELEASE_PLAN.md).
-> The first playable path is the servo-arm flag mission. Learned locomotion remains a recorded experiment.
+> The first playable path is the servo-arm flag mission, followed by three measured learning stages.
+> Learned locomotion and construction-kit experiments remain research exhibits with recorded limitations.
 
 ## Try the workshop
 
 Desktop packages include the engine. Windows offers a setup installer or portable ZIP;
 macOS offers an Intel/Apple Silicon `ssok.app` ZIP; Linux offers an executable/PCK ZIP.
 See [installation and platform validation](docs/BUILD.md). Developer ID notarization and
-publisher signing are not configured for this review candidate.
+publisher signing are not configured. macOS has not yet been exercised on a physical Mac.
+See the [publication record](docs/evidence/public_release_2026-09-30/README.md) for the exact source, hashes and checks.
 
 For development, with **Godot 4.7.2** installed:
 
@@ -50,8 +50,8 @@ The selected feedback policy passes six declared browser start/restart flows in 
 with recorded source hashes. [The current validation report](docs/evidence/heading_feedback_2026-09-22/README.md)
 retains the selection process and the remaining failure. The preceding integrated `389f817` checkpoint
 passes 59 native checks, clean Web/Linux builds and all three browser gates. The new policy
-integration requires its own clean export checks; public delivery and the remaining motion
-requirements are still in progress.
+policy is preserved as a research exhibit. Current publication does not claim universal locomotion.
+Earlier recordings used the old per-pass motor implementation; current code uses the corrected whole-step torque budget ([ADR 0020](docs/adr/0020-whole-step-actuator-torque-budget.md)).
 
 ## Watch a real physics trial
 

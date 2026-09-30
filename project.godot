@@ -7,6 +7,7 @@ config_version=5
 [application]
 
 config/name="ssok"
+config/version="0.2.0"
 config/description="Build a robot. Wire its motors. Make it move."
 config/icon="res://assets/branding/ssok.svg"
 boot_splash/image="res://assets/branding/ssok.png"

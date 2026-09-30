@@ -3,6 +3,7 @@
 - Status: accepted
 - Date: 2026-09-22
 - Supersedes: 0006's private-only incubation policy for the reviewed release.
+- Historical full research-product gate scope is superseded for v0.2.0 learning-workshop publication by [0027](0027-current-workshop-public-release.md); original rights and verification/audit requirements remain accepted.
 
 ## Context
 

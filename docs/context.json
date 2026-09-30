@@ -20,7 +20,8 @@
     "docs/PRELAUNCH_UX_AUDIT_2026-09-30.md",
     "docs/evidence/prelaunch_ux_2026-09-30/README.md",
     "docs/evidence/merge_2026-09-30/README.md",
-    "docs/evidence/settings_implementation_2026-09-30/README.md"
+    "docs/evidence/settings_implementation_2026-09-30/README.md",
+    "docs/evidence/public_release_2026-09-30/README.md"
   ],
   "routes": {
     "assembly": {
@@ -161,7 +162,8 @@
     "delivery": {
       "docs": [
         "docs/BUILD.md",
-        "docs/RELEASE_PLAN.md"
+        "docs/RELEASE_PLAN.md",
+        "docs/evidence/public_release_2026-09-30/README.md"
       ],
       "sources": [
         "tools/ci/verify.py",
@@ -171,7 +173,8 @@
       "adrs": [
         "0001",
         "0013",
-        "0017"
+        "0017",
+        "0027"
       ],
       "watch": [
         "project.godot",
