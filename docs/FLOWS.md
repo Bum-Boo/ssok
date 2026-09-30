@@ -85,7 +85,7 @@ flowchart LR
     Clear -->|다음| Loading
 ```
 
-[app.gd](../scenes/app.gd)가 화면을 바꿔요. 메뉴는 `scenes/screens/`의 2D 씬이고 할 일만 고르게 해요. 선택하면 매번 새 `main.tscn`을 `session`과 함께 만들어요. `stage` 세션은 [StageLevels](../src/core/stage_levels.gd)의 레벨 씬(`stages/<id>/level.tscn`)으로 기본 바닥을 바꾸고, 그 스테이지에 필요한 탭·부품만 보여줘요. 프로젝트·AI 실험실·예제·출제·물리 토글·옛 깃발 패널은 숨겨요. [StageHud](../src/ui/stage_hud.gd)가 미션 소개, 목표 카드의 실시간 측정값, 결과 창을 맡아요. `lab`은 스테이지 선택기와 예제를 숨기고 출제는 남겨요. `example`은 출제를 숨겨요. 세션이 없으면 기존 전체 작업실 그대로예요. 레벨 씬은 [make_levels.gd](../tools/godot/make_levels.gd)로 만들고 에디터에서 다듬어도 돼요. 결정은 [ADR 0028](adr/0028-game-screen-flow-and-stage-levels.md)이에요.
+[app.gd](../scenes/app.gd)가 화면을 바꿔요. 메뉴는 `scenes/screens/`의 2D 씬이고 할 일만 고르게 해요. 선택하면 매번 새 `main.tscn`을 `session`과 함께 만들어요. `stage` 세션은 [StageLevels](../src/core/stage_levels.gd)의 레벨 씬(`stages/<id>/level.tscn`)으로 기본 바닥을 바꾸고, 그 스테이지에 필요한 탭·부품만 보여줘요. 프로젝트·AI 실험실·예제·출제·물리 토글·옛 깃발 패널은 숨겨요. [StageHud](../src/ui/stage_hud.gd)가 미션 소개, 목표 카드의 실시간 측정값, 결과 창을 맡아요. `lab`은 스테이지 선택기와 예제를 숨기고 출제는 남겨요. `example`은 출제를 숨겨요. 세션이 없으면 기존 전체 작업실 그대로예요. 웹에서 `?ssok_workshop=1`이나 `?ssok_verify=1`로 열면 메뉴 없이 전체 작업실이 바로 떠요(브라우저 검사용). 레벨 씬은 [make_levels.gd](../tools/godot/make_levels.gd)로 만들고 에디터에서 다듬어도 돼요. 결정은 [ADR 0028](adr/0028-game-screen-flow-and-stage-levels.md)이에요.
 
 ## 깃발 임무
 
