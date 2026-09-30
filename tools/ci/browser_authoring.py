@@ -229,8 +229,13 @@ def main() -> None:
                 capture("10-wiring-before")
                 click("wire_disconnect_first")
                 click("wire_pin")
-                # The first free compatible pin is 10; occupied pins remain disabled.
+                # Mouse-opened Godot menus start without keyboard item focus.
+                # Navigate past the freed original pin to the next free pin, 10.
+                for _ in range(2):
+                    page.keyboard.press("ArrowDown")
+                    page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 page.keyboard.press("Enter")
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 click("wire_connect")
                 capture("11-wiring-after")
                 click("projects")
@@ -240,8 +245,10 @@ def main() -> None:
                 removed = [link for link in old_links if link not in new_links]
                 added = [link for link in new_links if link not in old_links]
                 assert len(removed) == len(added) == 1, "Rewiring must replace exactly one electrical connection"
-                assert "pin_3" in (removed[0]["a_port"], removed[0]["b_port"]) and "pin_10" in (added[0]["a_port"], added[0]["b_port"]), "Selected pin was not reflected in the graph"
-                checks.append("Wiring controls replace pin 3 with pin 10 while preserving every part transform")
+                first_signal = next(link for link in old_links if "signal_pin" in (link["a_port"], link["b_port"]))
+                assert removed == [first_signal] and "pin_10" in (added[0]["a_port"], added[0]["b_port"]), "Selected pin was not reflected in the graph"
+                assert added[0]["a_part"] == first_signal["a_part"] and added[0]["a_port"] == first_signal["a_port"], "Rewiring changed the selected motor endpoint"
+                checks.append("Wiring controls move the selected motor signal to pin 10 while preserving every part transform")
                 click("close_projects")
                 page.keyboard.press("Control+z")
                 click("projects")
