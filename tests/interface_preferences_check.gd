@@ -51,6 +51,16 @@ func _run() -> void:
 		_check(title.text == _main.blocks.profile.operation("servo").label, locale + " retains untranslated block title key")
 		var raw: Label = _main.blocks.rows.get_child(_main.blocks.rows.get_child_count() - 1) as Label
 		_check(raw.text == SsokLocale.format_text("Code block\n%s", ["learner_name = 42"]), locale + " translates raw caption while preserving learner source")
+		root.size = Vector2i(1400, 950)
+		_prefs.set_preference("text_scale", 2.0, _path)
+		await _settle()
+		_check(_main._side_panel.get_global_rect().end.x <= root.size.x, locale + " enlarged program panel stays inside viewport")
+		_check(_workspace() == before, locale + " enlargement preserves the learner workspace")
+		if locale == "ko":
+			await _capture("workshop-ko-200")
+		_prefs.set_preference("text_scale", 1.0, _path)
+		root.size = Vector2i(1600, 1000)
+		await _settle()
 		await _capture("workshop-" + locale)
 		_main._open_settings()
 		_check(_main.settings.language_picker.selected == SsokLocale.LOCALES.find(locale), locale + " settings language mirrors toolbar")

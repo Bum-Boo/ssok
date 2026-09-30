@@ -51,6 +51,8 @@ func _physics_process(_delta: float) -> void:
 			"draft_hash": JSON.stringify(_app.blocks.instructions).sha256_text(),
 			"code_font_size": _app.code_edit.get_theme_font_size("font_size"),
 			"ui_font_size": _app._ui_root.theme.default_font_size,
+			"program_panel_right": _app._side_panel.get_global_rect().end.x,
+			"viewport_width": _app.get_viewport().get_visible_rect().size.x,
 			"run_mode": _app.mode_button.button_pressed, "code_running": _app.runtime.is_running(),
 		}
 		JavaScriptBridge.eval("window.__ssokInterface = " + JSON.stringify(preferences) + ";", true)

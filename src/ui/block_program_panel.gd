@@ -37,6 +37,8 @@ func _ready() -> void:
 	var add_row := HBoxContainer.new()
 	content.add_child(add_row)
 	operation_picker = OptionButton.new()
+	operation_picker.fit_to_longest_item = false
+	operation_picker.clip_text = true
 	operation_picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for descriptor: Dictionary in profile.api:
 		operation_picker.add_item(descriptor.label)

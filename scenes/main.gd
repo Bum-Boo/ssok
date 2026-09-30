@@ -296,6 +296,7 @@ func _build_ui() -> void:
 	_side_panel = PanelContainer.new()
 	_side_panel.name = "ProgramPanel"
 	_side_panel.set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
+	_side_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	_side_panel.offset_left = -364
 	_side_panel.offset_top = 86
 	_side_panel.offset_right = -12
@@ -324,6 +325,7 @@ func _build_ui() -> void:
 	program_tabs.add_child(code_box)
 	var caption := Label.new()
 	caption.text = "Python-style servo program"
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caption.theme_type_variation = &"SectionLabel"
 	code_box.add_child(caption)
 	code_edit = CodeEdit.new()
