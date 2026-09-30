@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-갱신: 2026-09-30, Codex. 사용자 지시로 설치형 PR40과 설정 PR41을 main `dc7d986`에 병합했어요. v0.2.0 공개 전달은 [ADR0027](adr/0027-current-workshop-public-release.md)과 [배포 기록](evidence/public_release_2026-09-30/README.md)을 따라 진행해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.
+갱신: 2026-09-30, Codex. 사용자 지시로 설치형 PR40과 설정 PR41을 병합하고 clean 앱 소스 `af1973b`의 v0.2.0을 공개했어요. [웹 실행](https://bum-boo.github.io/ssok/) · [최종 다운로드](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [배포 기록](evidence/public_release_2026-09-30/README.md). 저장소도 공개예요. native71/0·Windows17/0·같은 파일의 Web5종 최종통과·공개 작성9/설정14와 실제 다운로드 해시를 확인했어요. 첫 실패와 재실행 범위는 배포 기록에서 구분해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.
 
 ## 제품 결정과 구현 상태
 
@@ -14,7 +14,7 @@
 | 판정 | 실제 결과와 예외를 구분 | 인스턴스 대상, 실행 문맥에 묶인 성공 증거, 성공/미달성/중단/판정 불가. Stage v2, v1 읽기 호환 |
 | 부품과 커스텀 | 자기 로봇으로 여러 해법 탐색 | 카탈로그 75종. 구조·행동·과제 커스텀 가능, 색칠·데칼·작품 전시함은 미구현 |
 | 보행 연구 | 이족·Kit 추가 실험 보류, 기존 결과는 전시용 | 기존 구현·결과 보존. 범용 지속 보행 보장 없음 |
-| 출시 | 먼저 시각·게임성·초심자 흐름 보완 | 사용자 명시 요청으로 v0.2.0 배포 진행. 최종 검증본만 gh-pages/Release에 게시하며 일반 main push는 앱 배포 아님 |
+| 출시 | 먼저 시각·게임성·초심자 흐름 보완 | 사용자 명시 요청으로 v0.2.0 공개 완료. 검증본 gh-pages/Release 게시·익명 URL/실제 흐름 확인. 일반 main push는 앱 배포 아님 |
 
 ## 남은 작업과 근거
 
@@ -24,7 +24,7 @@
 - [제품 경험 조사](PRODUCT_EXPERIENCE.md)와 [자연어 작업 요구](NATURAL_LANGUAGE_TASKS.md)는 날짜 있는 조사·요구 기록이에요. 책꽂기 명령창과 범용 실행기가 구현됐다는 뜻은 아니에요.
 - [핵심 작성 검증](evidence/core_authoring_2026-09-30/README.md), [깃발 증거](evidence/flag_mission_2026-09-30/README.md), [문서 도구 기록](evidence/contributor_context_2026-09-30/README.md)은 각 소스의 과거 결과예요. 최신 결과와 구분해요.
 
-문서 정본과 갱신 책임은 [MAINTENANCE](MAINTENANCE.md)에 있어요. 대상 사용자 관찰·학습 효과와 범용 보행 보장은 주장하지 않아요. 공개 전달 완료 여부는 배포 기록의 실제 URL과 검증을 확인해요.
+문서 정본과 갱신 책임은 [MAINTENANCE](MAINTENANCE.md)에 있어요. 대상 사용자 관찰·학습 효과와 범용 보행 보장은 주장하지 않아요. 다음은 첫5분 사용자 관찰과 시각·블록·재도전 경험 개선이에요. 배포 기록은 실제 URL과 소스별 검증을 보존해요.
 
 ## 설정 구현 — issue #38, 병합 PR41
 

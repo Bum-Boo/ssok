@@ -3,6 +3,8 @@
 Owner: Bum-Boo. Delivery issue: [#29](https://github.com/Bum-Boo/ssok/issues/29).
 Started 2026-09-22. Current publication: **v0.2.0 learning-workshop delivery, owner authorized 2026-09-30**.
 
+Current delivery is complete: [public Web workshop](https://bum-boo.github.io/ssok/), [v0.2.0 downloads](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) and public repository. App source `af1973b`, exact six artifact hashes, native71/0, actual Windows17/0, same-payload browser gates and anonymous storage/settings/download checks are in the [publication record](evidence/public_release_2026-09-30/README.md). Research limitations below remain historical/current research requirements, separate from this delivered learning-workshop scope.
+
 [ADR 0027](adr/0027-current-workshop-public-release.md) records the current scope: PR40/41 integration, full native/browser gates, four rebuilt platforms, anonymous Pages and Release access, history audit and retained original rights. [Publication evidence](evidence/public_release_2026-09-30/README.md) is the current delivery record. The research-product objectives and dated rows below remain historical; unresolved sustained Kit locomotion is disclosed as an exhibit and is not silently marked complete.
 
 The motor impulse cap previously exceeded its nominal physical torque by being spent once per solver

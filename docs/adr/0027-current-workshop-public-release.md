@@ -13,7 +13,7 @@ The owner's current product direction is micro:bit-first education and three obs
 
 Audit tracked files and Git history before changing visibility. Retain original all-rights-reserved licensing and third-party notices; public visibility does not grant a new license.
 
-GitHub artifact storage quota currently prevents Actions artifact upload. Publish the exact verified Web payload to a dedicated gh-pages branch with .nojekyll, and configure Pages to use its root. Attach verified versioned desktop/Web archives, Windows setup, manifest and SHA256 to the GitHub release directly. Do not delete existing artifacts or change billing to work around the quota. Application source stays on main; payload identity and anonymous deployed checks accompany release evidence.
+Private preparation runs hit GitHub artifact storage quota. Public-repository native/browser result uploads later succeeded; this did not change the selected delivery method. Publish the exact verified Web payload to a dedicated gh-pages branch with .nojekyll, and configure Pages to use its root. Attach verified versioned desktop/Web archives, Windows setup, manifest and SHA256 to the GitHub release directly. Do not delete existing artifacts or change billing to work around the quota. Application source stays on main; payload identity and anonymous deployed checks accompany release evidence.
 
 A public repository or uploaded ZIP alone is not a completed deployment. Confirm anonymous repository, release downloads and real public Web interaction. Windows is unsigned; macOS is ad-hoc signed, without Developer ID/notarization or physical-Mac verification. Disclose these platform limits in downloads and release notes.
 

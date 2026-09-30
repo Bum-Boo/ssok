@@ -1,0 +1,126 @@
+build	Verify browser project persistence and import safety	﻿2026-09-30T11:18:58.6366697Z ##[group]Run timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_authoring.py
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6368207Z ^[[36;1mtimeout --signal=INT --kill-after=20s 10m python tools/ci/browser_authoring.py^[[0m
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6464202Z shell: /usr/bin/bash -e {0}
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6464655Z env:
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6465113Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6465921Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6466740Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6467478Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6468193Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6468918Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+build	Verify browser project persistence and import safety	2026-09-30T11:18:58.6469508Z ##[endgroup]
+build	Verify browser project persistence and import safety	2026-09-30T11:19:09.6881060Z Workshop ready
+build	Verify browser project persistence and import safety	2026-09-30T11:19:09.6914628Z Click starter
+build	Verify browser project persistence and import safety	2026-09-30T11:19:12.8714918Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:19:20.5184873Z Paste 19 characters into project_name
+build	Verify browser project persistence and import safety	2026-09-30T11:19:20.5288940Z Clipboard contains 19 characters
+build	Verify browser project persistence and import safety	2026-09-30T11:19:20.5305408Z Click project_name
+build	Verify browser project persistence and import safety	2026-09-30T11:19:35.1178560Z SSOK_TEST_PASTE 19
+build	Verify browser project persistence and import safety	2026-09-30T11:19:41.2956358Z Paste dispatched to project_name
+build	Verify browser project persistence and import safety	2026-09-30T11:19:41.3000493Z Click save
+build	Verify browser project persistence and import safety	2026-09-30T11:19:51.2779299Z 01-saved
+build	Verify browser project persistence and import safety	2026-09-30T11:20:22.8489018Z Workshop ready
+build	Verify browser project persistence and import safety	2026-09-30T11:20:22.9220016Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:20:24.0920073Z Click saved_first
+build	Verify browser project persistence and import safety	2026-09-30T11:20:32.5618967Z Click open
+build	Verify browser project persistence and import safety	2026-09-30T11:20:37.7029443Z 02-replace-confirmation
+build	Verify browser project persistence and import safety	2026-09-30T11:20:56.6346489Z Click project_confirm
+build	Verify browser project persistence and import safety	2026-09-30T11:20:59.7424941Z 03-reopened
+build	Verify browser project persistence and import safety	2026-09-30T11:21:20.4129082Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:21:24.0135328Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:21:29.8333211Z 04-exported
+build	Verify browser project persistence and import safety	2026-09-30T11:21:48.3655799Z Paste 3475 characters into transfer_text
+build	Verify browser project persistence and import safety	2026-09-30T11:21:48.3729995Z Clipboard contains 3475 characters
+build	Verify browser project persistence and import safety	2026-09-30T11:21:48.3746985Z Click transfer_text
+build	Verify browser project persistence and import safety	2026-09-30T11:21:58.2758586Z SSOK_TEST_PASTE 3475
+build	Verify browser project persistence and import safety	2026-09-30T11:22:04.4709929Z Paste dispatched to transfer_text
+build	Verify browser project persistence and import safety	2026-09-30T11:22:04.4728639Z Click import
+build	Verify browser project persistence and import safety	2026-09-30T11:22:10.4322410Z 05-import-confirmation
+build	Verify browser project persistence and import safety	2026-09-30T11:22:29.1419436Z Click project_confirm
+build	Verify browser project persistence and import safety	2026-09-30T11:22:32.1019933Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:22:35.5584806Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:22:42.6445270Z Paste 39 characters into transfer_text
+build	Verify browser project persistence and import safety	2026-09-30T11:22:42.6537825Z Clipboard contains 39 characters
+build	Verify browser project persistence and import safety	2026-09-30T11:22:42.6562251Z Click transfer_text
+build	Verify browser project persistence and import safety	2026-09-30T11:22:54.9741165Z SSOK_TEST_PASTE 39
+build	Verify browser project persistence and import safety	2026-09-30T11:23:01.0695325Z Paste dispatched to transfer_text
+build	Verify browser project persistence and import safety	2026-09-30T11:23:01.0765121Z Click import
+build	Verify browser project persistence and import safety	2026-09-30T11:23:06.0741180Z 06-invalid-import-rejected
+build	Verify browser project persistence and import safety	2026-09-30T11:23:24.1199486Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:23:27.2259446Z Click close_projects
+build	Verify browser project persistence and import safety	2026-09-30T11:23:29.7232511Z Click blocks_tab
+build	Verify browser project persistence and import safety	2026-09-30T11:23:33.4704556Z 07-blocks
+build	Verify browser project persistence and import safety	2026-09-30T11:23:58.5130501Z 08-blocks-bottom
+build	Verify browser project persistence and import safety	2026-09-30T11:24:19.3948827Z Click block_operation
+build	Verify browser project persistence and import safety	2026-09-30T11:24:46.5278153Z 08a-wait-operation
+build	Verify browser project persistence and import safety	2026-09-30T11:25:07.9043247Z Click add_block
+build	Verify browser project persistence and import safety	2026-09-30T11:25:11.8924754Z Paste 3 characters into block_seconds
+build	Verify browser project persistence and import safety	2026-09-30T11:25:11.9004838Z Clipboard contains 3 characters
+build	Verify browser project persistence and import safety	2026-09-30T11:25:11.9064457Z Click block_seconds
+build	Verify browser project persistence and import safety	2026-09-30T11:25:23.3153665Z SSOK_TEST_PASTE 3
+build	Verify browser project persistence and import safety	2026-09-30T11:25:29.1104389Z Paste dispatched to block_seconds
+build	Verify browser project persistence and import safety	2026-09-30T11:25:29.1166374Z Click apply_blocks
+build	Verify browser project persistence and import safety	2026-09-30T11:25:33.8404907Z 09-blocks-applied
+build	Verify browser project persistence and import safety	2026-09-30T11:25:54.8846103Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:25:59.5418506Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:26:05.4055105Z Click close_projects
+build	Verify browser project persistence and import safety	2026-09-30T11:26:09.1382385Z Paste 3 characters into block_seconds
+build	Verify browser project persistence and import safety	2026-09-30T11:26:09.1474541Z Clipboard contains 3 characters
+build	Verify browser project persistence and import safety	2026-09-30T11:26:09.1499399Z Click block_seconds
+build	Verify browser project persistence and import safety	2026-09-30T11:26:16.5455351Z SSOK_TEST_PASTE 3
+build	Verify browser project persistence and import safety	2026-09-30T11:26:21.2590049Z Paste dispatched to block_seconds
+build	Verify browser project persistence and import safety	2026-09-30T11:26:21.2658524Z Click run_code
+build	Verify browser project persistence and import safety	2026-09-30T11:26:26.3571831Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:26:31.9062578Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:26:39.9982575Z Click close_projects
+build	Verify browser project persistence and import safety	2026-09-30T11:26:43.1507643Z Click run_mode
+build	Verify browser project persistence and import safety	2026-09-30T11:26:46.1686883Z Click wiring_tab
+build	Verify browser project persistence and import safety	2026-09-30T11:26:48.7468118Z 10-wiring-before
+build	Verify browser project persistence and import safety	2026-09-30T11:27:12.2778730Z Click wire_disconnect_first
+build	Verify browser project persistence and import safety	2026-09-30T11:27:15.7928533Z Click wire_pin
+build	Verify browser project persistence and import safety	2026-09-30T11:27:38.0736255Z Click wire_connect
+build	Verify browser project persistence and import safety	2026-09-30T11:27:41.5521202Z 11-wiring-after
+build	Verify browser project persistence and import safety	2026-09-30T11:28:02.7818003Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:28:06.3697401Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:28:11.1469179Z Click close_projects
+build	Verify browser project persistence and import safety	2026-09-30T11:28:22.0954867Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:28:27.9855106Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:28:35.0089425Z Click close_projects
+build	Verify browser project persistence and import safety	2026-09-30T11:28:47.3179149Z Click projects
+build	Verify browser project persistence and import safety	2026-09-30T11:28:53.1380005Z Click export
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.6954874Z Traceback (most recent call last):
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.6982926Z   File "/home/runner/work/ssok/ssok/tools/ci/browser_authoring.py", line 266, in main
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.6984618Z     redone = export_document("after-wire-redo")
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7044724Z   File "/home/runner/work/ssok/ssok/tools/ci/browser_authoring.py", line 129, in export_document
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7064268Z     click("export")
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7104273Z     ~~~~~^^^^^^^^^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7124637Z   File "/home/runner/work/ssok/ssok/tools/ci/browser_authoring.py", line 101, in click
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7154826Z     page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7173454Z     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7216601Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/playwright/sync_api/_generated.py", line 9413, in evaluate
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7254324Z     self._sync(
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7263794Z     ~~~~~~~~~~^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7294564Z         self._impl_obj.evaluate(expression=expression, arg=mapping.to_impl(arg))
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7295590Z         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7314244Z     )
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7334155Z     ^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7354866Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 113, in _sync
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7356118Z     self._dispatcher_fiber.switch()
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7374179Z     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7394917Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 55, in greenlet_main
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7414358Z     self._loop.run_until_complete(self._connection.run_as_sync())
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7415223Z     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7434792Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/asyncio/base_events.py", line 707, in run_until_complete
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7454196Z     self.run_forever()
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7474155Z     ~~~~~~~~~~~~~~~~^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7475221Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/asyncio/base_events.py", line 678, in run_forever
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7494259Z     self._run_once()
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7514153Z     ~~~~~~~~~~~~~~^^
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7534774Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/asyncio/base_events.py", line 2019, in _run_once
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7535952Z     event_list = self._selector.select(timeout)
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7554630Z   File "/opt/hostedtoolcache/Python/3.14.7/x64/lib/python3.14/selectors.py", line 452, in select
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7574278Z     fd_event_list = self._selector.poll(timeout, max_ev)
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7594179Z KeyboardInterrupt
+build	Verify browser project persistence and import safety	2026-09-30T11:28:58.7594593Z 
+build	Verify browser project persistence and import safety	2026-09-30T11:29:18.6612445Z /home/runner/work/_temp/979a6bb1-9718-49c1-88ed-b265ce05f6bc.sh: line 1:  3133 Killed                  timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_authoring.py
+build	Verify browser project persistence and import safety	2026-09-30T11:29:18.6644188Z ##[error]Process completed with exit code 137.
