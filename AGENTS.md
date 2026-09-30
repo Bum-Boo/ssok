@@ -96,7 +96,8 @@ themes, keyboard focus and enlarged/compact screens.
 - Every commit ends with an `Agent: codex` / `Agent: claude-fable-<ver>` trailer.
 - Short imperative commit subjects. Code/identifiers/comments are English; docs/issues/PRs may
   be Korean. No credentials, private transcripts or large raw logs in onboarding documents.
-- Finish or release task ownership with an explicit checkpoint. Update STATUS when integrating
+- Finish or release task ownership with an explicit checkpoint; the release outcome names the
+  branch that is ready for integration (the integration owner picks up from there). Update STATUS when integrating
   features/directions, and this user's Now/project pointers for meaningful local work.
 
 Detailed contributor procedure: [CONTRIBUTING](CONTRIBUTING.md).
