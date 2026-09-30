@@ -135,6 +135,10 @@ func _refresh_targets() -> void:
 
 func load_goal(stage: Dictionary) -> void:
 	current = stage.duplicate(true)
+	for index: int in _catalog.size():
+		if _catalog[index].id == current.id:
+			_picker.select(index)
+			break
 	evaluator.configure(current)
 	_authoring = false
 	_observing = false
