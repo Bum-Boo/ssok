@@ -83,6 +83,8 @@ func _run() -> void:
 	main.blocks._apply()
 	_check(main.code_edit.text == "unsupported source", "an unrepresentable imported program cannot be cleared by empty blocks")
 	main.free()
+	await process_frame
+	await process_frame
 	print("block_program_check: %d checks, %d failures" % [_checks, _failures])
 	quit(1 if _failures else 0)
 

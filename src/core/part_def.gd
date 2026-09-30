@@ -17,3 +17,15 @@ extends Resource
 @export var physics_frame_priority: int = 0
 ## Hollow frames need several local boxes instead of one solid bounding box.
 @export var collision_boxes: Array[AABB] = []
+
+@export var board_profile_id: String = ""
+@export var dc_motor: bool = false
+@export var motor_stall_torque_nm: float = 0.078
+@export var motor_no_load_rpm: float = 250.0
+@export var driver_supply_voltage: float = 6.0
+@export var driver_voltage_drop: float = 0.3
+@export var wheel_radius: float = 0.0
+@export var wheel_width: float = 0.0
+@export var rolling_friction: float = 0.8
+
+@export var caster_radius: float = 0.0

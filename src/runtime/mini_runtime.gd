@@ -1,152 +1,282 @@
 class_name MiniRuntime
 extends Node
 
-## Minimal MicroPython-flavoured line interpreter for the first slice (ADR 0004 language layer).
-## Knows nothing about boards: hardware comes in through `hardware`, which resolves pins.
-##
-## Supported:
-##   from servo import Servo
-##   name = Servo(<pin>)
-##   name.write(<angle>)
-##   name.write_relative(<signed_angle>)
-##   sleep(<seconds>)
-##   # comments and blank lines
-
 signal line_started(line_no: int)
 signal finished()
 signal failed(line_no: int, message: String)
 signal stopped()
+signal settled()
 
 const MAX_SOURCE_BYTES: int = 65536
 const MAX_LINES: int = 2048
 const MAX_WAIT_SECONDS: float = 60.0
+const OPERATIONS_PER_TICK: int = 128
 
-## Object with `servo_on_pin(pin: int) -> ServoDrive`.
 var hardware: RunMode
-var _servos: Dictionary = {}
-var _running := false
+var _running: bool = false
 var _execution_id: int = 0
-
-var _re_assign := RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*Servo\(\s*(?:pin\s*=\s*)?(\d+)\s*\)$")
-var _re_write := RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\.(write|write_relative)\(\s*(-?\d+(?:\.\d+)?)\s*\)$")
-var _re_sleep := RegEx.create_from_string(r"^sleep\(\s*(\d+(?:\.\d+)?)\s*\)$")
-var _re_import := RegEx.create_from_string(r"^from\s+servo\s+import\s+Servo$")
+var _program: LearnerProgram
+var _variables: Dictionary = {}
+var _servos: Dictionary = {}
+var _pc: int = 0
+var _stack: Array = []
+var _ticks: int = 0
+var _wake_tick: int = 0
+var _error: String = ""
+var current_line: int = 0
+var sleep_scale: float = 1.0
 
 
 func run(source: String) -> void:
 	if _running:
 		return
-	_execution_id += 1
-	var execution_id: int = _execution_id
-	_running = true
-	_servos.clear()
 	var validation: Dictionary = validate(source)
 	if not validation.is_empty():
-		_running = false
-		failed.emit(validation.line, validation.error)
+		failed.emit(validation.line, _translated_error(validation))
 		return
-	var lines := source.split("\n")
-	for i in lines.size():
-		if execution_id != _execution_id:
-			return
-		var line := lines[i].strip_edges()
-		if line.is_empty() or line.begins_with("#"):
-			continue
-		line_started.emit(i + 1)
-		if execution_id != _execution_id:
-			return
-		var error := await _exec(line)
-		# A stopped sleep must not resume against a new graph or a newer program.
-		if execution_id != _execution_id:
-			return
-		if not error.is_empty():
-			_running = false
-			failed.emit(i + 1, error)
-			return
-	_running = false
-	finished.emit()
+	_program = LearnerProgram.new()
+	_program.parse(source)
+	_execution_id += 1
+	_variables.clear()
+	_servos.clear()
+	_pc = 0
+	_stack.clear()
+	_ticks = 0
+	current_line = 0
+	_wake_tick = 0
+	_error = ""
+	_running = true
+	# Preserve immediate finite programs while bounding the work of infinite ones.
+	_step()
+	if _running:
+		await settled
 
 
 func validate(source: String, check_hardware: bool = true) -> Dictionary:
-	if source.to_utf8_buffer().size() > MAX_SOURCE_BYTES:
-		return {"line": 1, "error": tr("This program is too large. Use at most 2048 lines and 64 KiB.")}
-	var lines: PackedStringArray = source.split("\n")
-	if lines.size() > MAX_LINES:
-		return {"line": 1, "error": tr("This program is too large. Use at most 2048 lines and 64 KiB.")}
-	var names: Dictionary = {}
-	for index: int in lines.size():
-		var line: String = lines[index].strip_edges()
-		if line.is_empty() or line.begins_with("#") or _re_import.search(line) != null:
-			continue
-		var error: String = ""
-		var binding: RegExMatch = _re_assign.search(line)
-		var command: RegExMatch = _re_write.search(line)
-		var wait: RegExMatch = _re_sleep.search(line)
-		if binding != null:
-			if binding.get_string(2).length() > 18:
-				error = tr("SyntaxError: %s") % line
-			elif check_hardware and (not is_instance_valid(hardware) or not hardware.is_built()):
-				error = tr("Run mode is not active")
-			elif check_hardware and hardware.servo_on_pin(int(binding.get_string(2))) == null:
-				error = tr("Pin %d has nothing connected") % int(binding.get_string(2))
-			else:
-				names[binding.get_string(1)] = true
-		elif command != null:
-			if not names.has(command.get_string(1)):
-				error = tr("NameError: '%s' is not defined") % command.get_string(1)
-			elif not is_finite(float(command.get_string(3))):
-				error = tr("Servo angles must be finite numbers.")
-		elif wait != null:
-			var seconds: float = float(wait.get_string(1))
-			if not is_finite(seconds) or seconds > MAX_WAIT_SECONDS:
-				error = tr("Wait must be between 0 and 60 seconds.")
-		else:
-			error = tr("SyntaxError: %s") % line
-		if not error.is_empty():
-			return {"line": index + 1, "error": error}
+	var parsed := LearnerProgram.new()
+	var validation: Dictionary = parsed.parse(source)
+	if not validation.is_empty():
+		return validation
+	for binding: Dictionary in parsed.bindings:
+		if check_hardware and (not is_instance_valid(hardware) or not hardware.is_built()):
+			return {"line": binding.line, "error": tr("Run mode is not active")}
+		var pins: Array[int] = []
+		for argument: Dictionary in binding.args:
+			var pin: int = -1
+			if argument.get("kind") == "literal" and typeof(argument.value) in [TYPE_INT, TYPE_FLOAT]:
+				pin = int(argument.value)
+			elif argument.get("kind") == "name" and argument.name.begins_with("pin"):
+				pin = int(argument.name.substr(3))
+			if pin < 0 or pin > 255:
+				return {"line": binding.line, "error": tr("Use a board pin when connecting hardware.")}
+			pins.append(pin)
+		if check_hardware and not hardware.has_device(binding.kind, pins):
+			return {"line": binding.line, "error": tr("Pin %d has nothing connected") % pins[0]}
+	for instruction: Dictionary in parsed.bytecode:
+		if instruction.op == "invoke" and instruction.name == "sleep" and instruction.args[0].get("kind") == "literal":
+			var scale: float = hardware.sleep_scale() if is_instance_valid(hardware) and hardware.is_built() else sleep_scale
+			var seconds: Variant = instruction.args[0].value
+			if typeof(seconds) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(seconds)) or seconds < 0 or seconds * scale > MAX_WAIT_SECONDS:
+				return {"line": instruction.line, "error": tr("Wait must be between 0 and 60 seconds.")}
 	return {}
 
 
 func stop() -> void:
 	_execution_id += 1
-	var was_running: bool = _running
+	var active: bool = _running
 	_running = false
+	_variables.clear()
 	_servos.clear()
-	if was_running:
+	if is_instance_valid(hardware):
+		hardware.stop_motors()
+	if active:
 		stopped.emit()
+		settled.emit()
 
 
 func is_running() -> bool:
 	return _running
 
 
-func _exec(line: String) -> String:
-	if _re_import.search(line):
-		return ""
-	var m := _re_assign.search(line)
-	if m:
-		var pin := int(m.get_string(2))
-		if not is_instance_valid(hardware) or not hardware.is_built():
-			return "Run mode is not active"
-		var servo := hardware.servo_on_pin(pin)
-		if servo == null:
-			return tr("Pin %d has nothing connected") % pin
-		_servos[m.get_string(1)] = servo
-		return ""
-	m = _re_write.search(line)
-	if m:
-		var name := m.get_string(1)
-		if not _servos.has(name):
-			return tr("NameError: '%s' is not defined") % name
-		if not is_instance_valid(_servos[name]):
-			return tr("Servo '%s' is no longer available") % name
-		if m.get_string(2) == "write_relative":
-			(_servos[name] as ServoDrive).write_relative(float(m.get_string(3)))
-		else:
-			(_servos[name] as ServoDrive).write(float(m.get_string(3)))
-		return ""
-	m = _re_sleep.search(line)
-	if m:
-		await get_tree().create_timer(float(m.get_string(1))).timeout
-		return ""
-	return tr("SyntaxError: %s") % line
+func _physics_process(_delta: float) -> void:
+	if _running:
+		_ticks += 1
+		_step()
+
+
+func _step() -> void:
+	if _ticks < _wake_tick:
+		return
+	var execution: int = _execution_id
+	for operation: int in OPERATIONS_PER_TICK:
+		if not _running or execution != _execution_id:
+			return
+		if _pc >= _program.bytecode.size():
+			_running = false
+			finished.emit()
+			settled.emit()
+			return
+		var instruction: Dictionary = _program.bytecode[_pc]
+		if current_line != instruction.line:
+			current_line = instruction.line
+			line_started.emit(current_line)
+		if execution != _execution_id:
+			return
+		_pc += 1
+		match instruction.op:
+			"literal":
+				_stack.append(instruction.value)
+			"name":
+				if instruction.name.begins_with("pin") and instruction.name.substr(3).is_valid_int():
+					_stack.append(int(instruction.name.substr(3)))
+				elif _variables.has(instruction.name):
+					_stack.append(_variables[instruction.name])
+				else:
+					_error = tr("NameError: '%s' is not defined") % instruction.name
+			"store":
+				var value: Variant = _stack.pop_back()
+				_variables[instruction.name] = value
+				if value is ServoDrive:
+					_servos[instruction.name] = value
+			"pop":
+				_stack.pop_back()
+			"invoke":
+				var args: Array = []
+				for index: int in instruction.argc:
+					args.push_front(_stack.pop_back())
+				_stack.append(_call(instruction.name, args))
+			"unary":
+				var value: Variant = _stack.pop_back()
+				if instruction.operator == "not":
+					_stack.append(not _truth(value))
+				elif _numeric(value):
+					_stack.append(-float(value) if instruction.operator == "-" else float(value))
+			"binary":
+				var b: Variant = _stack.pop_back()
+				var a: Variant = _stack.pop_back()
+				_stack.append(_binary(instruction.operator, a, b))
+			"truth":
+				_stack.append(_truth(_stack.pop_back()))
+			"logical_guard":
+				var value: bool = _truth(_stack.pop_back())
+				if instruction.operator == "and" and not value or instruction.operator == "or" and value:
+					_stack.append(value)
+					_pc = instruction.target
+			"test":
+				if not _truth(_stack.pop_back()):
+					_pc = instruction.target
+			"jump":
+				_pc = instruction.target
+
+		if not _error.is_empty():
+			_running = false
+			if is_instance_valid(hardware):
+				hardware.stop_motors()
+			failed.emit(current_line, _error)
+			settled.emit()
+			return
+		if _wake_tick > _ticks:
+			return
+
+
+func _binary(operator: String, a: Variant, b: Variant) -> Variant:
+	if operator == "==":
+		return a == b
+	if operator == "!=":
+		return a != b
+	if not _numeric(a) or not _numeric(b):
+		return null
+	match operator:
+		"+": return _finite(float(a) + float(b))
+		"-": return _finite(float(a) - float(b))
+		"*": return _finite(float(a) * float(b))
+		"/", "//", "%":
+			if float(b) == 0.0:
+				_error = tr("Cannot divide by zero.")
+				return null
+			if operator == "%":
+				return fposmod(float(a), absf(float(b))) if b > 0 else -fposmod(-float(a), absf(float(b)))
+			return floorf(float(a) / float(b)) if operator == "//" else _finite(float(a) / float(b))
+		"<": return a < b
+		"<=": return a <= b
+		">": return a > b
+		">=": return a >= b
+	return null
+
+
+func _call(name: String, args: Array) -> Variant:
+	if name == "running_time":
+		return _ticks * 1000.0 / Engine.physics_ticks_per_second
+	if name == "sleep":
+		var scale: float = hardware.sleep_scale() if is_instance_valid(hardware) and hardware.is_built() else sleep_scale
+		if not _numeric(args[0]) or args[0] < 0 or args[0] * scale > MAX_WAIT_SECONDS:
+			_error = tr("Wait must be between 0 and 60 seconds.")
+			return null
+		_wake_tick = _ticks + maxi(1, int(ceil(float(args[0]) * scale * Engine.physics_ticks_per_second)))
+		return null
+	if not is_instance_valid(hardware) or not hardware.is_built():
+		_error = tr("Run mode is not active")
+		return null
+	if name in ["Servo", "Motor", "Sonar"]:
+		return hardware.device(name, args)
+	if name == "stop":
+		hardware.stop_motors()
+		return null
+	if name == "motor_on":
+		return _device_call(args[0], "motor_on", [args[1], args[2]])
+	if name == "machine.time_pulse_us":
+		var result: Dictionary = hardware.pulse_us(args)
+		_error = result.get("error", "")
+		return result.get("value")
+	var target: String = name.get_slice(".", 0)
+	if not _variables.has(target):
+		_error = tr("NameError: '%s' is not defined") % target
+		return null
+	return _device_call(_variables[target], name.get_slice(".", 1), args)
+
+
+func _device_call(device_value: Variant, method: String, args: Array) -> Variant:
+	if not device_value is Object or not is_instance_valid(device_value):
+		_error = tr("This variable is not a connected device.")
+		return null
+	if not device_value.has_method(method):
+		_error = tr("This device does not support that command.")
+		return null
+	if method in ["write", "write_relative"] and not _numeric(args[0]):
+		return null
+	if method == "motor_on":
+		if not _numeric(args[1]) or args[1] < 0 or args[1] > 100 or args[0] not in ["forward", "reverse", 1, -1]:
+			_error = tr("Choose forward or reverse and a speed from 0 to 100.")
+			return null
+	if method == "stop" and not args.is_empty() and args[0] not in ["brake", "coast"]:
+		_error = tr("Choose brake or coast.")
+		return null
+	return device_value.callv(method, args)
+
+
+func _numeric(value: Variant) -> bool:
+	if typeof(value) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(value)):
+		_error = tr("Use a finite number here.")
+		return false
+	return true
+
+
+func _finite(value: float) -> Variant:
+	return value if _numeric(value) else null
+
+
+func _truth(value: Variant) -> bool:
+	if value is bool:
+		return value
+	if typeof(value) in [TYPE_FLOAT, TYPE_INT]:
+		return value != 0
+	return value != null
+
+
+func _translated_error(validation: Dictionary) -> String:
+	if validation.has("message"):
+		var message: String = tr(validation.message)
+		if not validation.arguments.is_empty():
+			message = message % validation.arguments
+		return tr("Column %d: %s") % [validation.column, message]
+	return validation.error

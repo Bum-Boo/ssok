@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_m26t0"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_jkhqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lcfj"]
+albedo_color = Color(0.8, 0.55, 0.3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s0jof"]
+material = SubResource("StandardMaterial3D_4lcfj")
+size = Vector3(0.02, 0.2, 0.6)
+
+[resource]
+script = ExtResource("2_jkhqj")
+id = &"stage_wall"
+display_name = "Stage Wall"
+mesh = SubResource("BoxMesh_s0jof")
+mass_kg = 2.0
+merge_fixed_connections = true

@@ -43,3 +43,14 @@ static func build() -> ConnectionGraph:
 		{"a_part": 1, "a_port": &"signal_pin", "b_part": 3, "b_port": &"pin_9"},
 	]
 	return graph
+
+
+static func build_microbit() -> ConnectionGraph:
+	var graph: ConnectionGraph = build()
+	graph.parts[3].part_def = load("res://assets/parts/microbit.tres")
+	graph.links[-1].b_port = &"pin_0"
+	return graph
+
+
+static func microbit_code() -> String:
+	return ANSWER_CODE.replace("Servo(9)", "Servo(pin0)").replace("sleep(1)", "sleep(1000)")

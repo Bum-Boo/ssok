@@ -41,6 +41,7 @@ func _run() -> void:
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/block_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/core_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/flag_mission_messages.json")))
+	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/learning_messages.json")))
 	_check(keys.size() >= 189, "complete translation inventory")
 	for locale: String in SsokLocale.LOCALES:
 		_check(SsokLocale.select_locale(locale, false) == OK, "switch " + locale)

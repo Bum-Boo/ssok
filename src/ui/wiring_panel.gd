@@ -115,7 +115,7 @@ func _refresh_pins() -> void:
 		if index == endpoint.part:
 			continue
 		for port: Port in assembly.graph.parts[index].part_def.ports:
-			if port.kind != Port.Kind.ELEC or Wiring.pin_number(port) < 0 or not assembly._ports_accept(source_port, port):
+			if port.kind != Port.Kind.ELEC or not assembly._ports_accept(source_port, port):
 				continue
 			var pin: Dictionary = {"part": index, "port": port.id}
 			pins.append(pin)

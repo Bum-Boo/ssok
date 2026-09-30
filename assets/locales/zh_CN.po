@@ -1514,3 +1514,240 @@ msgstr "从舵机机械臂开始，也可以从零件库中选择零件自己组
 
 msgid "Try the servo arm"
 msgstr "从舵机机械臂开始"
+
+msgid "Add ':' after the condition."
+msgstr "请在条件后添加冒号（:）。"
+
+msgid "Build this arm yourself"
+msgstr "自己组装机械臂"
+
+msgid "Build your own solution. Success uses measured results."
+msgstr "用自己的方法解题。成功由实际运动结果判定。"
+
+msgid "Cannot divide by zero."
+msgstr "不能除以零。请更改除数。"
+
+msgid "Challenge cleared. Change your build and try another solution."
+msgstr "挑战成功。修改组装，试试其他解法。"
+
+msgid "Challenge data is invalid. Your build is unchanged."
+msgstr "无法读取挑战文件。请检查文件内容。组装保持不变。"
+
+msgid "Challenge exported. Imported files must be tested again."
+msgstr "挑战已导出。导入后需要重新运行验证。"
+
+msgid "Challenge running. Watching the real robot."
+msgstr "挑战正在运行。正在观察机器人的实际运动。"
+
+msgid "Check the command name and its arguments."
+msgstr "请检查命令名称和括号内的参数。"
+
+msgid "Check this expression."
+msgstr "请检查表达式和括号。"
+
+msgid "Check this symbol."
+msgstr "请检查这个符号。"
+
+msgid "Choose a challenge, or build freely in Lab."
+msgstr "选择挑战，或在 Lab 中自由制作。"
+
+msgid "Choose another variable name."
+msgstr "请使用其他变量名。"
+
+msgid "Choose brake or coast."
+msgstr "请选择 brake（制动）或 coast（滑行）。"
+
+msgid "Choose forward or reverse and a speed from 0 to 100."
+msgstr "方向使用 forward 或 reverse，速度填写 0~100。"
+
+msgid "Code block"
+msgstr "代码块"
+
+msgid "Column %d: %s"
+msgstr "第%d列：%s"
+
+msgid "Connect distance sensor"
+msgstr "连接距离传感器"
+
+msgid "Connect wheel motor"
+msgstr "连接车轮电机"
+
+msgid "Else"
+msgstr "否则"
+
+msgid "Else if"
+msgstr "否则如果"
+
+msgid "Export verified challenge"
+msgstr "导出已验证的挑战"
+
+msgid "Flag height: %.1f cm · change from last run: %+.1f cm. Try a different angle."
+msgstr "旗帜高度 %.1f cm，比上次变化 %+.1f cm。试试其他角度。"
+
+msgid "Free building · Lab"
+msgstr "自由制作 · Lab"
+
+msgid "If"
+msgstr "如果"
+
+msgid "Import challenge"
+msgstr "导入挑战"
+
+msgid "Indent the body of this block."
+msgstr "请缩进这个代码块的内容。"
+
+msgid "Lab: build freely. You can turn your build into a challenge."
+msgstr "在 Lab 中自由制作。可以把作品变成挑战。"
+
+msgid "Load challenge"
+msgstr "开始挑战"
+
+msgid "My challenge"
+msgstr "我的挑战"
+
+msgid "Read distance"
+msgstr "读取距离"
+
+msgid "Repeat while"
+msgstr "满足条件时重复"
+
+msgid "Return to edit mode and choose a target part first."
+msgstr "请先返回编辑模式并选择目标零件。"
+
+msgid "Run and clear this exact build and code before exporting."
+msgstr "请先用当前组装和代码完成挑战，再导出。"
+
+msgid "Run and clear your challenge before exporting it."
+msgstr "导出前请先运行并完成自己的挑战。"
+
+msgid "Run wheel motor"
+msgstr "运行车轮电机"
+
+msgid "Set variable"
+msgstr "设置变量"
+
+msgid "Stages"
+msgstr "关卡"
+
+msgid "Stages and free building"
+msgstr "关卡与自由制作"
+
+msgid "Stop all motors"
+msgstr "停止所有电机"
+
+msgid "Stop wheel motor"
+msgstr "停止车轮电机"
+
+msgid "This device does not support that command."
+msgstr "这个零件不支持该命令。请检查零件和命令。"
+
+msgid "This expression or block is too deeply nested."
+msgstr "表达式或代码块嵌套过深。请拆分。"
+
+msgid "This import is not supported."
+msgstr "不支持导入这个模块。请参考示例的 import 语句。"
+
+msgid "This variable is not a connected device."
+msgstr "这个变量没有连接设备。请先连接设备。"
+
+msgid "Time is up. Change your build or code and try again."
+msgstr "时间到了。修改组装或代码后再试。"
+
+msgid "Try author solution"
+msgstr "运行作者的解法"
+
+msgid "Turn my build into a challenge"
+msgstr "把作品变成挑战"
+
+msgid "Unexpected indentation."
+msgstr "缩进不一致。请对齐同一代码块的起始位置。"
+
+msgid "Use '==' to compare values."
+msgstr "比较数值时请使用 ==。"
+
+msgid "Use a board pin when connecting hardware."
+msgstr "连接设备时请使用开发板引脚。"
+
+msgid "Use a connected echo pin and pulse level 1."
+msgstr "请使用已连接的 echo 引脚和电平 1。"
+
+msgid "Use a finite number here."
+msgstr "这里请使用有限数值。"
+
+msgid "Use an assignment or a supported command."
+msgstr "请为变量赋值或使用支持的命令。"
+
+msgid "Use spaces for indentation."
+msgstr "请使用空格进行缩进。"
+
+msgid "Use this command inside a loop."
+msgstr "请在循环内使用这个命令。"
+
+msgid "Your servo uses pin %d. Use the same pin in your code, then run."
+msgstr "舵机连接到引脚%d。请在代码中使用相同引脚再运行。"
+
+msgid "Height (m)"
+msgstr "高度（m）"
+
+msgid "Position X (m)"
+msgstr "X位置（m）"
+
+msgid "Distance (cm)"
+msgstr "距离（cm）"
+
+msgid "Speed (m/s)"
+msgstr "速度（m/s）"
+
+msgid "Upright"
+msgstr "竖直程度"
+
+msgid "Wall contact (0 or 1)"
+msgstr "墙壁接触（0或1）"
+
+msgid "Minimum"
+msgstr "最小值"
+
+msgid "Maximum"
+msgstr "最大值"
+
+msgid "Hold (seconds)"
+msgstr "保持时间（秒）"
+
+msgid "Paste a challenge file here"
+msgstr "在此粘贴挑战文件"
+
+msgid "micro:bit V2"
+msgstr "micro:bit V2"
+
+msgid "Motor Driver V2 (DRV8833)"
+msgstr "电机驱动板 V2（DRV8833）"
+
+msgid "Motor Driver (TB6612FNG)"
+msgstr "电机驱动板（TB6612FNG）"
+
+msgid "Robot Car Chassis"
+msgstr "机器人小车底盘"
+
+msgid "Ball Caster"
+msgstr "万向球轮"
+
+msgid "Stage Wall"
+msgstr "关卡墙壁"
+
+msgid "Cross the finish line"
+msgstr "越过终点线"
+
+msgid "Brake before the wall"
+msgstr "在墙前停车"
+
+msgid "Connect the arm"
+msgstr "连接机械臂"
+
+msgid "Open wiring"
+msgstr "打开接线"
+
+msgid "Connect the loose arm, then wire its servo to a board pin."
+msgstr "连接分离的机械臂，再把舵机接到开发板引脚。"
+
+msgid "Challenge loaded. Build your own solution."
+msgstr "挑战已加载。请用自己的方法解题。"

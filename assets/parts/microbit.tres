@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_koxkm"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_khws5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k82ly"]
+albedo_color = Color(0.16, 0.2, 0.27, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_757gd"]
+material = SubResource("StandardMaterial3D_k82ly")
+size = Vector3(0.052, 0.005, 0.043)
+
+[sub_resource type="Resource" id="Resource_2olt7"]
+script = ExtResource("1_koxkm")
+id = &"pin_0"
+kind = 1
+local_position = Vector3(-0.024, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_diqvw"]
+script = ExtResource("1_koxkm")
+id = &"pin_1"
+kind = 1
+local_position = Vector3(-0.016, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_qgevi"]
+script = ExtResource("1_koxkm")
+id = &"pin_2"
+kind = 1
+local_position = Vector3(-0.008, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_nuumw"]
+script = ExtResource("1_koxkm")
+id = &"pin_8"
+kind = 1
+local_position = Vector3(0, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_5rb8w"]
+script = ExtResource("1_koxkm")
+id = &"pin_12"
+kind = 1
+local_position = Vector3(0.008, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_rdxfb"]
+script = ExtResource("1_koxkm")
+id = &"pin_16"
+kind = 1
+local_position = Vector3(0.016, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_ogius"]
+script = ExtResource("1_koxkm")
+id = &"mount_bottom"
+local_position = Vector3(0, -0.0025, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"board_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("2_khws5")
+id = &"microbit"
+display_name = "micro:bit V2"
+mesh = SubResource("BoxMesh_757gd")
+ports = Array[ExtResource("1_koxkm")]([SubResource("Resource_2olt7"), SubResource("Resource_diqvw"), SubResource("Resource_qgevi"), SubResource("Resource_nuumw"), SubResource("Resource_5rb8w"), SubResource("Resource_rdxfb"), SubResource("Resource_ogius")])
+mass_kg = 0.015
+merge_fixed_connections = true
+board_profile_id = "microbit"

@@ -10,7 +10,7 @@ id = &"pin_3"
 kind = 1
 local_position = Vector3(0.02158, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
-accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_5"]
 script = ExtResource("2_ignpw")
@@ -18,7 +18,7 @@ id = &"pin_5"
 kind = 1
 local_position = Vector3(0.0165, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
-accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_6"]
 script = ExtResource("2_ignpw")
@@ -26,7 +26,7 @@ id = &"pin_6"
 kind = 1
 local_position = Vector3(0.01396, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
-accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_9"]
 script = ExtResource("2_ignpw")
@@ -34,7 +34,7 @@ id = &"pin_9"
 kind = 1
 local_position = Vector3(0.00482, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
-accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_10"]
 script = ExtResource("2_ignpw")
@@ -42,7 +42,7 @@ id = &"pin_10"
 kind = 1
 local_position = Vector3(0.00228, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
-accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_11"]
 script = ExtResource("2_ignpw")
@@ -50,7 +50,7 @@ id = &"pin_11"
 kind = 1
 local_position = Vector3(-0.00026, 0.0093, 0.0229)
 tag = &"board_digital_pwm"
-accepts = Array[StringName]([&"pwm_signal", &"digital_io"])
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_2"]
 script = ExtResource("2_ignpw")
@@ -58,7 +58,7 @@ id = &"pin_2"
 kind = 1
 local_position = Vector3(0.02412, 0.0093, 0.0229)
 tag = &"board_digital"
-accepts = Array[StringName]([&"digital_io"])
+accepts = Array[StringName]([&"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_4"]
 script = ExtResource("2_ignpw")
@@ -66,7 +66,7 @@ id = &"pin_4"
 kind = 1
 local_position = Vector3(0.01904, 0.0093, 0.0229)
 tag = &"board_digital"
-accepts = Array[StringName]([&"digital_io"])
+accepts = Array[StringName]([&"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_7"]
 script = ExtResource("2_ignpw")
@@ -74,7 +74,7 @@ id = &"pin_7"
 kind = 1
 local_position = Vector3(0.01142, 0.0093, 0.0229)
 tag = &"board_digital"
-accepts = Array[StringName]([&"digital_io"])
+accepts = Array[StringName]([&"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_8"]
 script = ExtResource("2_ignpw")
@@ -82,7 +82,7 @@ id = &"pin_8"
 kind = 1
 local_position = Vector3(0.00736, 0.0093, 0.0229)
 tag = &"board_digital"
-accepts = Array[StringName]([&"digital_io"])
+accepts = Array[StringName]([&"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_12"]
 script = ExtResource("2_ignpw")
@@ -90,7 +90,7 @@ id = &"pin_12"
 kind = 1
 local_position = Vector3(-0.0028, 0.0093, 0.0229)
 tag = &"board_digital"
-accepts = Array[StringName]([&"digital_io"])
+accepts = Array[StringName]([&"digital_io", &"driver_input"])
 
 [sub_resource type="Resource" id="Port_pin_13"]
 script = ExtResource("2_ignpw")
@@ -98,7 +98,7 @@ id = &"pin_13"
 kind = 1
 local_position = Vector3(-0.00534, 0.0093, 0.0229)
 tag = &"board_digital"
-accepts = Array[StringName]([&"digital_io"])
+accepts = Array[StringName]([&"digital_io", &"driver_input"])
 
 [resource]
 script = ExtResource("3_0ssxu")
@@ -107,3 +107,4 @@ display_name = "Arduino Uno R3"
 mesh = ExtResource("1_k1p20")
 ports = Array[ExtResource("2_ignpw")]([SubResource("Port_pin_3"), SubResource("Port_pin_5"), SubResource("Port_pin_6"), SubResource("Port_pin_9"), SubResource("Port_pin_10"), SubResource("Port_pin_11"), SubResource("Port_pin_2"), SubResource("Port_pin_4"), SubResource("Port_pin_7"), SubResource("Port_pin_8"), SubResource("Port_pin_12"), SubResource("Port_pin_13")])
 mass_kg = 0.025
+board_profile_id = "uno"

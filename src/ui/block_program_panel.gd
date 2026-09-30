@@ -94,7 +94,10 @@ func reset_source(source: String) -> void:
 
 
 func _add_block() -> void:
-	instructions.append(profile.defaults(profile.api[operation_picker.selected].id))
+	var item: Dictionary = profile.defaults(profile.api[operation_picker.selected].id)
+	instructions.append(item)
+	if item.op in ["if", "while"]:
+		instructions.append({"op": "raw", "raw": "    pass", "indent": 4})
 	_rebuild()
 
 
@@ -105,13 +108,19 @@ func _rebuild() -> void:
 	for index: int in instructions.size():
 		var item: Dictionary = instructions[index]
 		if item.op == "raw":
+			if not item.raw.strip_edges().is_empty() and not item.raw.strip_edges().begins_with("#") and not item.raw.begins_with("from "):
+				var code := Label.new()
+				code.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+				code.text = tr("Code block") + "\n" + item.raw
+				code.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+				rows.add_child(code)
 			continue
 		var card := VBoxContainer.new()
 		rows.add_child(card)
 		var heading := HBoxContainer.new()
 		card.add_child(heading)
 		var label := Label.new()
-		label.text = profile.operation(item.op).label
+		label.text = "    ".repeat(int(item.get("indent", 0)) / 4) + tr(profile.operation(item.op).label)
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		heading.add_child(label)
 		var remove_button: Button = SsokTheme.button("", "trash")
@@ -127,7 +136,16 @@ func _rebuild() -> void:
 			name_label.text = parameter.name
 			name_label.custom_minimum_size.x = 80
 			row.add_child(name_label)
-			if parameter.type == "identifier":
+			if parameter.type == "choice":
+				var picker := OptionButton.new()
+				for option: String in parameter.choices:
+					picker.add_item(option)
+				picker.select(parameter.choices.find(item.args[parameter.name]))
+				picker.item_selected.connect(func(selected: int) -> void:
+					item.args[parameter.name] = parameter.choices[selected]
+					item.erase("raw"))
+				row.add_child(picker)
+			elif parameter.type in ["identifier", "expression"]:
 				var edit := LineEdit.new()
 				edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 				edit.text = item.args[parameter.name]
@@ -170,3 +188,10 @@ func _apply() -> bool:
 	_instructions_at_load = instructions.duplicate(true)
 	SsokLocale.bind(feedback, "Code updated. Run code to try your program.")
 	return true
+
+
+func set_profile(value: BoardProfile) -> void:
+	profile = value
+	operation_picker.clear()
+	for descriptor: Dictionary in profile.api:
+		operation_picker.add_item(tr(descriptor.label))

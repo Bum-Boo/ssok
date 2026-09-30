@@ -5,11 +5,13 @@ extends Node3D
 ## Every body and joint here is derived; teardown() must leave no trace.
 
 ## Parts that sit on the table and never move (frozen as static bodies).
-@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno"]
+@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno", &"stage_wall"]
 
 var bodies: Array[RigidBody3D] = []
 ## graph part index -> ServoDrive, for every part that owns a rotating port in a link.
 var servos: Dictionary = {}
+var motors: Dictionary = {}
+var sonars: Dictionary = {}
 var _graph: ConnectionGraph
 var _body_offsets: Array[Transform3D] = []
 
@@ -56,6 +58,8 @@ func teardown() -> void:
 		child.queue_free()
 	bodies.clear()
 	servos.clear()
+	motors.clear()
+	sonars.clear()
 	_body_offsets.clear()
 	_graph = null
 
@@ -151,6 +155,9 @@ func _make_body(entry: Dictionary, index: int) -> RigidBody3D:
 	body.name = "%s_%d" % [def.id, index]
 	body.mass = def.mass_kg
 	body.can_sleep = false
+	body.collision_layer = 3
+	body.contact_monitor = true
+	body.max_contacts_reported = 16
 	_add_part_geometry(body, def, Transform3D.IDENTITY)
 	if def.id in anchored_part_ids:
 		body.freeze = true
@@ -165,6 +172,30 @@ func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transfor
 	mesh.mesh = definition.mesh
 	mesh.transform = offset
 	body.add_child(mesh)
+	if definition.caster_radius > 0.0:
+		var shape := CollisionShape3D.new()
+		var sphere := SphereShape3D.new()
+		sphere.radius = definition.caster_radius
+		shape.shape = sphere
+		shape.transform = offset
+		body.add_child(shape)
+		var material := PhysicsMaterial.new()
+		material.friction = 0.01
+		body.physics_material_override = material
+		return
+	if definition.wheel_radius > 0.0:
+		var shape := CollisionShape3D.new()
+		var cylinder := CylinderShape3D.new()
+		cylinder.radius = definition.wheel_radius
+		cylinder.height = definition.wheel_width
+		shape.shape = cylinder
+		shape.transform = offset * Transform3D(Basis(Vector3.RIGHT, PI / 2.0), Vector3.ZERO)
+		body.add_child(shape)
+		var material := PhysicsMaterial.new()
+		material.friction = definition.rolling_friction
+		body.physics_material_override = material
+		body.angular_damp = 0.02
+		return
 	var bounds_list: Array[AABB] = definition.collision_boxes.duplicate()
 	if bounds_list.is_empty():
 		bounds_list.append(definition.mesh.get_aabb())
@@ -200,10 +231,21 @@ func _make_joint(link: Dictionary) -> void:
 		add_child(hinge)
 		hinge.global_transform = Transform3D(_basis_with_z(axis), anchor)
 		joint = hinge
-		var drive := ServoDrive.new()
-		drive.joint = hinge
-		add_child(drive)
-		servos[link.a_part if a_port.rotates else link.b_part] = drive
+		var owner: int = link.a_part if a_port.rotates else link.b_part
+		if _graph.parts[owner].part_def.dc_motor:
+			var drive := DriveMotor.new()
+			drive.housing = bodies[owner]
+			drive.wheel = body_b if a_port.rotates else body_a
+			drive.axis_local = drive.housing.global_basis.inverse() * (_graph.parts[owner].transform.basis * Vector3.FORWARD)
+			drive.stall_torque_nm = _graph.parts[owner].part_def.motor_stall_torque_nm
+			drive.no_load_rad_s = _graph.parts[owner].part_def.motor_no_load_rpm * TAU / 60.0
+			add_child(drive)
+			motors[owner] = drive
+		else:
+			var drive := ServoDrive.new()
+			drive.joint = hinge
+			add_child(drive)
+			servos[owner] = drive
 	else:
 		var fixed := Generic6DOFJoint3D.new()
 		add_child(fixed)
@@ -213,7 +255,7 @@ func _make_joint(link: Dictionary) -> void:
 	joint.node_b = body_b.get_path()
 	if a_port.rotates or b_port.rotates:
 		var definition: PartDef = a_def if a_port.rotates else b_def
-		if definition.actuator_torque_nm > 0.0:
+		if definition.actuator_torque_nm > 0.0 and not definition.dc_motor:
 			var drive: ServoDrive = servos[link.a_part if a_port.rotates else link.b_part]
 			drive.configure_torque_actuator(body_a, body_b, definition, a_port.rotates)
 
@@ -229,3 +271,121 @@ static func _port(def: PartDef, port_id: StringName) -> Port:
 			return port
 	push_error("Part %s has no port %s" % [def.id, port_id])
 	return null
+
+
+func profile() -> BoardProfile:
+	if _graph != null:
+		for part: Dictionary in _graph.parts:
+			if not part.part_def.board_profile_id.is_empty():
+				return BoardProfile.for_id(part.part_def.board_profile_id)
+	return BoardProfile.new()
+
+
+func sleep_scale() -> float:
+	return profile().sleep_unit_seconds
+
+
+func stop_motors() -> void:
+	for drive: DriveMotor in motors.values():
+		drive.stop()
+
+
+func device(kind: String, args: Array) -> Variant:
+	if kind == "Servo":
+		return servo_on_pin(int(args[0]))
+	if kind == "Motor":
+		return motor_on_pin(int(args[0]))
+	if kind == "Sonar":
+		return sonar_on_pins(int(args[0]), int(args[1]))
+	return null
+
+
+func has_device(kind: String, pins: Array[int]) -> bool:
+	return device(kind, pins) != null
+
+
+func motor_on_pin(pin: int) -> DriveMotor:
+	if _graph == null:
+		return null
+	var wires: Dictionary = Wiring.pin_map(_graph)
+	if not wires.has(pin):
+		return null
+	var driver: int = wires[pin].part
+	if _graph.parts[driver].part_def.id not in [&"motor_driver", &"tb6612_driver"]:
+		return null
+	var input: String = wires[pin].port
+	if input not in ["input_0", "input_12", "input_3", "input_6"]:
+		return null
+	var paired: StringName = &"input_8" if input == "input_0" else (&"input_16" if input == "input_12" else (&"input_4" if input == "input_3" else &"input_7"))
+	var pair_connected: bool = false
+	for mapping: Dictionary in wires.values():
+		if mapping.part == driver and mapping.port == paired:
+			pair_connected = true
+	if not pair_connected:
+		return null
+	var channel: StringName = &"motor_1" if input in ["input_0", "input_3"] else &"motor_2"
+	for link: Dictionary in _graph.links:
+		var motor_index: int = -1
+		if link.a_part == driver and link.a_port == channel:
+			motor_index = link.b_part
+		elif link.b_part == driver and link.b_port == channel:
+			motor_index = link.a_part
+		if motors.has(motor_index):
+			var drive: DriveMotor = motors[motor_index]
+			drive.supply_voltage = _graph.parts[driver].part_def.driver_supply_voltage
+			drive.voltage_drop = _graph.parts[driver].part_def.driver_voltage_drop
+			return drive
+	return null
+
+
+func sonar_on_pins(trigger: int, echo: int) -> SonarSensor:
+	if _graph == null:
+		return null
+	var wires: Dictionary = Wiring.pin_map(_graph)
+	if not wires.has(trigger) or not wires.has(echo):
+		return null
+	var part: int = wires[trigger].part
+	if part != wires[echo].part or _graph.parts[part].part_def.id != &"hc_sr04" or wires[trigger].port != &"trig_pin" or wires[echo].port != &"echo_pin":
+		return null
+	if not sonars.has(part):
+		var sensor := SonarSensor.new()
+		sensor.run_mode = self
+		sensor.part_index = part
+		sonars[part] = sensor
+	return sonars[part]
+
+
+func pulse_us(args: Array) -> Dictionary:
+	var pin: int = int(args[0])
+	if args[1] != 1 or args.size() == 3 and (not args[2] is float and not args[2] is int or args[2] < 0):
+		return {"error": tr("Use a connected echo pin and pulse level 1.")}
+	var wires: Dictionary = Wiring.pin_map(_graph)
+	if not wires.has(pin) or wires[pin].port != &"echo_pin":
+		return {"error": tr("Pin %d has nothing connected") % pin}
+	for other: int in wires:
+		var sensor: SonarSensor = sonar_on_pins(other, pin)
+		if sensor != null:
+			return {"value": sensor.time_pulse_us(int(args[2]) if args.size() == 3 else 1000000)}
+	return {"error": tr("Use a connected echo pin and pulse level 1.")}
+
+
+func robot_rids(start: int) -> Array[RID]:
+	var connected: Array[int] = [start]
+	var changed: bool = true
+	while changed:
+		changed = false
+		for link: Dictionary in _graph.links:
+			if _port(_graph.parts[link.a_part].part_def, link.a_port).kind != Port.Kind.MECH:
+				continue
+			if link.a_part in connected and link.b_part not in connected:
+				connected.append(link.b_part)
+				changed = true
+			elif link.b_part in connected and link.a_part not in connected:
+				connected.append(link.a_part)
+				changed = true
+	var result: Array[RID] = []
+	for index: int in connected:
+		var rid: RID = bodies[index].get_rid()
+		if rid not in result:
+			result.append(rid)
+	return result

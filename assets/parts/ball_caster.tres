@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_2xyff"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_n5esp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjxci"]
+albedo_color = Color(0.6, 0.6, 0.65, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eckya"]
+material = SubResource("StandardMaterial3D_bjxci")
+size = Vector3(0.024, 0.024, 0.024)
+
+[sub_resource type="Resource" id="Resource_312gd"]
+script = ExtResource("1_2xyff")
+id = &"mount"
+local_position = Vector3(0, 0.0015, 0)
+tag = &"caster_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("2_n5esp")
+id = &"ball_caster"
+display_name = "Ball Caster"
+mesh = SubResource("BoxMesh_eckya")
+ports = Array[ExtResource("1_2xyff")]([SubResource("Resource_312gd")])
+mass_kg = 0.005
+caster_radius = 0.012
