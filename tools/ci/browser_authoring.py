@@ -251,11 +251,14 @@ def main() -> None:
                 checks.append("Wiring controls move the selected motor signal to pin 10 while preserving every part transform")
                 click("close_projects")
                 page.keyboard.press("Control+z")
+                # Keyboard acknowledgement can precede Godot's input frame.
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 click("projects")
                 undone = export_document("after-wire-undo")
                 assert len(undone["graph"]["links"]) == len(old_links) - 1, "Undo did not remove the newly connected wire"
                 click("close_projects")
                 page.keyboard.press("Control+Shift+z")
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 click("projects")
                 redone = export_document("after-wire-redo")
                 assert redone["graph"] == rewired["graph"], "Redo did not restore the chosen wire and original transforms"
