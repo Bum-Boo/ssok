@@ -1,0 +1,214 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 10,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 17.053,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.208,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "block_program_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.386,
+      "timeout": false,
+      "engine_error": false,
+      "log": "block_program_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/block_program_check.gd"
+      ]
+    },
+    {
+      "name": "control_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.778,
+      "timeout": false,
+      "engine_error": false,
+      "log": "control_flow_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/control_flow_check.gd"
+      ]
+    },
+    {
+      "name": "flag_mission_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.216,
+      "timeout": false,
+      "engine_error": false,
+      "log": "flag_mission_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/flag_mission_check.gd"
+      ]
+    },
+    {
+      "name": "keyboard_navigation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.616,
+      "timeout": false,
+      "engine_error": false,
+      "log": "keyboard_navigation_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/keyboard_navigation_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.253,
+      "timeout": false,
+      "engine_error": false,
+      "log": "localization_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "project_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.009,
+      "timeout": false,
+      "engine_error": false,
+      "log": "project_store_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/project_store_check.gd"
+      ]
+    },
+    {
+      "name": "viewport_framing_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.278,
+      "timeout": false,
+      "engine_error": false,
+      "log": "viewport_framing_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/viewport_framing_check.gd"
+      ]
+    },
+    {
+      "name": "workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 10.169,
+      "timeout": false,
+      "engine_error": false,
+      "log": "workshop_ui_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-playful-reuse",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-playful-reuse/tests/workshop_ui_check.gd"
+      ]
+    }
+  ]
+}
