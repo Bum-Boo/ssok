@@ -12,6 +12,10 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	# Other checks share user://; exercising the real picker must not change their locale.
+	var original_locale: String = TranslationServer.get_locale()
+	var had_language: bool = FileAccess.file_exists(SsokLocale.SETTINGS_PATH)
+	var original_language: PackedByteArray = FileAccess.get_file_as_bytes(SsokLocale.SETTINGS_PATH) if had_language else PackedByteArray()
 	_prefs = root.get_node("Preferences") as InterfacePreferences
 	root.size = Vector2i(1600, 1000)
 	root.gui_embed_subwindows = true
@@ -129,6 +133,13 @@ func _run() -> void:
 	_main.settings._saved(_prefs.reset_preferences(_path))
 	_check(_prefs.values == InterfacePreferences.DEFAULTS and TranslationServer.get_locale() == locale, "reset preserves selected language")
 	_main.free()
+	SsokLocale.select_locale(original_locale, false)
+	if had_language:
+		var language_file: FileAccess = FileAccess.open(SsokLocale.SETTINGS_PATH, FileAccess.WRITE)
+		language_file.store_buffer(original_language)
+		language_file.close()
+	else:
+		DirAccess.remove_absolute(SsokLocale.SETTINGS_PATH)
 	DirAccess.remove_absolute(_path)
 	await process_frame
 	print("interface_preferences_check: %d checks, %d failures" % [_checks, _failures])

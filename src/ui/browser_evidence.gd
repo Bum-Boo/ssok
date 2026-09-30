@@ -25,10 +25,12 @@ var _foot_air_frames: Array[int] = []
 var _foot_clearance: Array[float] = []
 var _policy_version: int = 1
 var _learner: AppController
+var _preferences: InterfacePreferences
 
 
 func _ready() -> void:
 	_app = get_parent()
+	_preferences = get_node("/root/Preferences") as InterfacePreferences
 	process_physics_priority = 100
 	set_physics_process(OS.has_feature("web") and bool(JavaScriptBridge.eval(
 		"new URLSearchParams(window.location.search).get('ssok_verify') === '1'", true)))
@@ -45,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 		var observation: Dictionary = {"result": _learner.invoke("get_result").data, "scene": _learner.invoke("get_scene").data}
 		JavaScriptBridge.eval("window.__ssokLearning = " + JSON.stringify(observation) + ";", true)
 		var preferences: Dictionary = {
-			"values": Preferences.values, "locale": TranslationServer.get_locale(), "dark": SsokTheme.dark,
+			"values": _preferences.values, "locale": TranslationServer.get_locale(), "dark": SsokTheme.dark,
 			"settings_open": _app.settings.visible, "source_hash": _app.code_edit.text.sha256_text(),
 			"graph_hash": MotionSnapshot.fingerprint(_app._motion_snapshot()),
 			"draft_hash": JSON.stringify(_app.blocks.instructions).sha256_text(),
@@ -196,3 +198,4 @@ func _exit_tree() -> void:
 	if OS.has_feature("web") and is_physics_processing():
 		JavaScriptBridge.eval("delete window.__ssokPhysics;", true)
 		JavaScriptBridge.eval("delete window.__ssokLearning;", true)
+		JavaScriptBridge.eval("delete window.__ssokInterface;", true)
