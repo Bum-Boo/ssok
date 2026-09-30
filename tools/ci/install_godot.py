@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the exact official Linux editor and web/Linux export templates."""
+"""Install the exact official Linux editor and Web/Linux/Windows/macOS export templates."""
 
 from __future__ import annotations
 
@@ -24,6 +24,8 @@ ASSETS = {
 TEMPLATES = (
     "version.txt", "linux_debug.x86_64", "linux_release.x86_64",
     "web_nothreads_debug.zip", "web_nothreads_release.zip",
+    "windows_debug_x86_64.exe", "windows_release_x86_64.exe",
+    "windows_debug_x86_64_console.exe", "windows_release_x86_64_console.exe", "macos.zip",
 )
 
 
@@ -50,7 +52,7 @@ def download(name: str, cache: Path) -> Path:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", type=Path, default=Path("build/toolchain"))
-    parser.add_argument("--templates", action="store_true", help="Also install the web and Linux templates (1.28 GB download)")
+    parser.add_argument("--templates", action="store_true", help="Also install the Web, Linux, Windows and macOS templates (1.28 GB download)")
     args = parser.parse_args()
     if platform.system() != "Linux" or platform.machine() not in {"x86_64", "AMD64"}:
         parser.error("This installer targets Linux x86_64; use the same official version on other hosts")

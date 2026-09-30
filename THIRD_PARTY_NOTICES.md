@@ -44,3 +44,9 @@ document preserve the detailed reference notes. No MeArm model or EEZYbotARM ass
 The Python MCP/API bridge, MuJoCo/NumPy training tools and Playwright browser verifier are installed
 from their pinned dependency files. They are not bundled into the ssok application pack. Their
 own package distributions carry their respective licenses; Godot exports do not embed them.
+
+## Windows installer
+
+The Windows setup/uninstaller is generated with NSIS 3. Its runtime and plug-in notices
+(including zlib and LZMA distribution exceptions) are bundled in `licenses/NSIS-COPYRIGHT.txt`.
+The compiler is build tooling; this does not change the reserved rights of ssok.

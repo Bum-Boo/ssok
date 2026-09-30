@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export, inspect and package Linux and single-threaded Web release artifacts."""
+"""Export, inspect and package Web, Linux, Windows and macOS artifacts."""
 
 from __future__ import annotations
 
@@ -18,6 +18,8 @@ import zipfile
 PROJECT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT))
 from tools.ci.install_godot import BUILD
+from tools.ci.install_nsis import install as install_nsis
+from tools.ci.desktop_package import audit_macos, audit_windows, build_installer, extract_macos, package_zip
 from tools.ci.stage_identity import write_identity
 
 # Files reached from the bundled documentation, kept outside the application pack.
@@ -113,6 +115,7 @@ def copy_notices(destination: Path) -> None:
         "Lucide-LICENSE.txt": PROJECT / "assets/icons/lucide/LICENSE",
         "Godot-LICENSE.txt": PROJECT / "tools/release/licenses/Godot-LICENSE.txt",
         "Godot-COPYRIGHT.txt": PROJECT / "tools/release/licenses/Godot-COPYRIGHT.txt",
+        "NSIS-COPYRIGHT.txt": PROJECT / "tools/release/licenses/NSIS-COPYRIGHT.txt",
         "Beehave-LICENSE.txt": PROJECT / "addons/beehave/LICENSE",
         "Godot-State-Charts-LICENSE.txt": PROJECT / "addons/godot_state_charts/LICENSE",
         "Kenney-Interface-Sounds-LICENSE.txt": PROJECT / "assets/kenney/interface-sounds/LICENSE.txt",
@@ -133,17 +136,28 @@ def main() -> None:
     parser.add_argument("--godot", default=os.environ.get("GODOT", "godot"))
     parser.add_argument("--version", default="development")
     parser.add_argument("--output", type=Path, default=PROJECT / "build")
+    parser.add_argument("--platforms", nargs="+", choices=["Web", "Linux", "Windows", "macOS"],
+                        default=["Web", "Linux", "Windows", "macOS"])
+    parser.add_argument("--makensis", default=os.environ.get("MAKENSIS", "makensis"))
     args = parser.parse_args()
+
     if not re.fullmatch(r"[A-Za-z0-9._-]+", args.version):
         parser.error("Version must contain only letters, numbers, dots, hyphens and underscores")
     actual = subprocess.check_output([args.godot, "--version"], text=True).strip()
     if actual != BUILD:
         parser.error(f"Expected {BUILD}, got {actual}")
+    initial_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=PROJECT, capture_output=True, text=True)
+    initial_status = subprocess.run(["git", "status", "--porcelain"], cwd=PROJECT, capture_output=True, text=True)
     output = args.output.resolve()
     write_identity(PROJECT)
     logs = output / "export-logs"
     logs.mkdir(parents=True, exist_ok=True)
     (output / ".gdignore").touch()
+    if "Windows" in args.platforms and not shutil.which(args.makensis):
+        toolchain = output / "nsis-toolchain"
+        args.makensis = str(install_nsis(toolchain))
+        os.environ["NSISDIR"] = str(toolchain / "usr/share/nsis")
+
     execute([args.godot, "--headless", "--path", str(PROJECT), "--editor", "--import", "--quit"], logs / "import.log")
     base = [args.godot, "--headless", "--path", str(PROJECT)]
     with tempfile.TemporaryDirectory(prefix="ssok-browser-layout-") as temporary:
@@ -151,7 +165,9 @@ def main() -> None:
         execute(base + ["--language", "en", "--script", "res://tools/ci/browser_layout.gd", "--",
                         str(logs / "browser-layout.json")], logs / "browser-layout.log", env=environment)
     artifacts = []
-    for platform, filename in (("Web", "index.html"), ("Linux", "ssok.x86_64")):
+    filenames = {"Web": "index.html", "Linux": "ssok.x86_64", "Windows": "ssok.exe", "macOS": "ssok.zip"}
+    for platform in dict.fromkeys(args.platforms):
+        filename = filenames[platform]
         destination = output / platform.lower()
         destination.mkdir(exist_ok=True)
         # Fresh directories avoid accidentally publishing stale output from earlier builds.
@@ -161,33 +177,51 @@ def main() -> None:
             else:
                 old.unlink()
         execute(base + ["--export-release", platform, str(destination / filename)], logs / f"{platform.lower()}.log")
+        if platform == "macOS":
+            extract_macos(destination / filename, destination)
+            (destination / filename).unlink()
+            audit_macos(destination / "ssok.app", logs / "macos-bundle.json")
+        elif platform == "Windows":
+            audit_windows(destination / filename, logs / "windows-binary.json")
         copy_notices(destination)
         if platform == "Web":
             (destination / ".nojekyll").touch()
             html = (destination / filename).read_text()
             if not re.search(r"(?:const|var) GODOT_THREADS_ENABLED\s*=\s*false", html):
                 raise SystemExit("Web export must be single-threaded for GitHub Pages")
-        else:
+        elif platform == "Linux":
             with tempfile.TemporaryDirectory(prefix="ssok-export-smoke-") as temporary:
                 environment = dict(os.environ, XDG_DATA_HOME=temporary, XDG_CONFIG_HOME=temporary)
                 execute([str(destination / filename), "--headless", "--quit-after", "5"], logs / "linux-startup.log", cwd=destination, env=environment)
         pack = destination / ("index.pck" if platform == "Web" else "ssok.pck")
         if platform == "Linux" and not pack.exists():
             pack = destination / "ssok.x86_64.pck"
+        elif platform == "macOS":
+            pack = destination / "ssok.app/Contents/Resources/ssok.pck"
         with tempfile.TemporaryDirectory(prefix="ssok-pack-audit-") as temporary:
             execute([args.godot, "--headless", "--path", temporary, "--script", str(PROJECT / "tools/ci/check_export.gd"), "--", str(pack), str(logs / f"{platform.lower()}-resources.json")], logs / f"{platform.lower()}-resources.log", cwd=Path(temporary))
-        archive = output / f"ssok-{args.version}-{platform.lower()}{'-x86_64' if platform == 'Linux' else ''}.zip"
-        with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as package:
-            for path in sorted(destination.rglob("*")):
-                if path.is_file():
-                    package.write(path, path.relative_to(destination))
-        with archive.open("rb") as stream:
-            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
-        artifacts.append({"file": archive.name, "sha256": checksum, "bytes": archive.stat().st_size})
+        suffix = {"Web": "web", "Linux": "linux-x86_64", "Windows": "windows-x86_64", "macOS": "macos-universal"}[platform]
+        archive = output / f"ssok-{args.version}-{suffix}.zip"
+        package_zip(destination, archive)
+        products = [archive]
+        if platform == "Windows":
+            installer = output / f"ssok-{args.version}-windows-x86_64-setup.exe"
+            build_installer(destination, installer, args.version, args.makensis, logs / "windows-installer.log")
+            products.append(installer)
+            installer_archive = output / f"ssok-{args.version}-windows-x86_64-installer.zip"
+            with zipfile.ZipFile(installer_archive, "w", zipfile.ZIP_DEFLATED) as package:
+                package.write(installer, installer.name)
+            products.append(installer_archive)
+        for product in products:
+            with product.open("rb") as stream:
+                checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+            artifacts.append({"file": product.name, "sha256": checksum, "bytes": product.stat().st_size})
     commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=PROJECT, capture_output=True, text=True)
     status = subprocess.run(["git", "status", "--porcelain"], cwd=PROJECT, capture_output=True, text=True)
-    metadata = {"version": args.version, "godot": BUILD, "commit": commit.stdout.strip(),
-                "dirty_worktree": bool(status.stdout.strip()), "artifacts": artifacts}
+    metadata = {"version": args.version, "godot": BUILD, "commit": initial_commit.stdout.strip(),
+                "dirty_worktree": bool(initial_status.stdout.strip() or status.stdout.strip()),
+                "source_changed_during_build": initial_commit.stdout != commit.stdout or initial_status.stdout != status.stdout,
+                "artifacts": artifacts}
     (output / "release.json").write_text(json.dumps(metadata, indent=2) + "\n")
     (output / "SHA256SUMS").write_text("".join(f"{a['sha256']}  {a['file']}\n" for a in artifacts))
     print(json.dumps(metadata, indent=2))

@@ -1,0 +1,135 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS palette directory exists
+PASS arduino_uno.tres loads as PartDef
+PASS arduino_uno uses an imported ArrayMesh
+PASS arduino_uno has valid triangle geometry, normals and materials
+PASS arduino_uno: 3504 triangles (< 5000), 11 surfaces
+PASS arm_link.tres loads as PartDef
+PASS arm_link uses an imported ArrayMesh
+PASS arm_link has valid triangle geometry, normals and materials
+PASS arm_link: 1609 triangles (< 5000), 5 surfaces
+PASS ball_caster.tres loads as PartDef
+PASS ball_caster uses an imported ArrayMesh
+PASS ball_caster has valid triangle geometry, normals and materials
+PASS ball_caster: 12 triangles (< 5000), 1 surfaces
+PASS base.tres loads as PartDef
+PASS base uses an imported ArrayMesh
+PASS base has valid triangle geometry, normals and materials
+PASS base: 2632 triangles (< 5000), 7 surfaces
+PASS biped_body.tres loads as PartDef
+PASS biped_body uses an imported ArrayMesh
+PASS biped_body has valid triangle geometry, normals and materials
+PASS biped_body: 3020 triangles (< 5000), 9 surfaces
+PASS board.tres loads as PartDef
+PASS board uses an imported ArrayMesh
+PASS board has valid triangle geometry, normals and materials
+PASS board: 3096 triangles (< 5000), 7 surfaces
+PASS car_chassis.tres loads as PartDef
+PASS car_chassis uses an imported ArrayMesh
+PASS car_chassis has valid triangle geometry, normals and materials
+PASS car_chassis: 12 triangles (< 5000), 1 surfaces
+PASS chassis_plate.tres loads as PartDef
+PASS chassis_plate uses an imported ArrayMesh
+PASS chassis_plate has valid triangle geometry, normals and materials
+PASS chassis_plate: 2282 triangles (< 5000), 3 surfaces
+PASS foot.tres loads as PartDef
+PASS foot uses an imported ArrayMesh
+PASS foot has valid triangle geometry, normals and materials
+PASS foot: 1940 triangles (< 5000), 7 surfaces
+PASS hc_sr04.tres loads as PartDef
+PASS hc_sr04 uses an imported ArrayMesh
+PASS hc_sr04 has valid triangle geometry, normals and materials
+PASS hc_sr04: 3204 triangles (< 5000), 8 surfaces
+PASS leg_link.tres loads as PartDef
+PASS leg_link uses an imported ArrayMesh
+PASS leg_link has valid triangle geometry, normals and materials
+PASS leg_link: 1044 triangles (< 5000), 6 surfaces
+PASS microbit.tres loads as PartDef
+PASS microbit uses an imported ArrayMesh
+PASS microbit has valid triangle geometry, normals and materials
+PASS microbit: 12 triangles (< 5000), 1 surfaces
+PASS motor_driver.tres loads as PartDef
+PASS motor_driver uses an imported ArrayMesh
+PASS motor_driver has valid triangle geometry, normals and materials
+PASS motor_driver: 12 triangles (< 5000), 1 surfaces
+PASS servo.tres loads as PartDef
+PASS servo uses an imported ArrayMesh
+PASS servo has valid triangle geometry, normals and materials
+PASS servo: 2280 triangles (< 5000), 12 surfaces
+PASS servo_bracket.tres loads as PartDef
+PASS servo_bracket uses an imported ArrayMesh
+PASS servo_bracket has valid triangle geometry, normals and materials
+PASS servo_bracket: 1560 triangles (< 5000), 3 surfaces
+PASS stage_wall.tres loads as PartDef
+PASS stage_wall uses an imported ArrayMesh
+PASS stage_wall has valid triangle geometry, normals and materials
+PASS stage_wall: 12 triangles (< 5000), 1 surfaces
+PASS tb6612_driver.tres loads as PartDef
+PASS tb6612_driver uses an imported ArrayMesh
+PASS tb6612_driver has valid triangle geometry, normals and materials
+PASS tb6612_driver: 12 triangles (< 5000), 1 surfaces
+PASS tt_motor.tres loads as PartDef
+PASS tt_motor uses an imported ArrayMesh
+PASS tt_motor has valid triangle geometry, normals and materials
+PASS tt_motor: 1940 triangles (< 5000), 7 surfaces
+PASS wheel_65.tres loads as PartDef
+PASS wheel_65 uses an imported ArrayMesh
+PASS wheel_65 has valid triangle geometry, normals and materials
+PASS wheel_65: 2032 triangles (< 5000), 4 surfaces
+PASS all existing palette parts are present
+PASS chassis_plate is available in the palette
+PASS chassis_plate.mount_center has a compatible palette part
+PASS chassis_plate.mount_center proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_center ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_left has a compatible palette part
+PASS chassis_plate.mount_left proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_left ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_right has a compatible palette part
+PASS chassis_plate.mount_right proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_right ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_rear has a compatible palette part
+PASS chassis_plate.mount_rear proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_rear ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_front has a compatible palette part
+PASS chassis_plate.mount_front proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_front ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate has tested mechanical ports
+PASS servo_bracket is available in the palette
+PASS servo_bracket.mount_bottom has a compatible palette part
+PASS servo_bracket.mount_bottom proximity snaps to base.mount_top
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_bottom ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket.mount_top has a compatible palette part
+PASS servo_bracket.mount_top proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_top ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket.mount_rear has a compatible palette part
+PASS servo_bracket.mount_rear proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_rear ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket has tested mechanical ports
+PASS biped ConnectionGraph links have compatible, aligned ports
+PASS biped builds 11 bodies and 4 servo drives
+PASS biped wiring resolves PWM pin 3
+PASS biped wiring resolves PWM pin 5
+PASS biped wiring resolves PWM pin 6
+PASS biped wiring resolves PWM pin 9
+BIPED_MEASUREMENTS initial_height=0.13300 minimum_height=0.12472 final_height=0.13171 upright=0.99898
+PASS complete powered biped answer finishes without runtime errors: 
+PASS all biped transforms and velocities stay finite and near the work surface
+PASS biped finishes at a reasonable standing height (0.13171 m)
+mesh_assets_check: 0 failure(s)
