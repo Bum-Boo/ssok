@@ -94,7 +94,16 @@ func _run() -> void:
 	await _settle()
 	_point("block_operation", main.blocks.operation_picker)
 	_point("add_block", _button(main.blocks, "+"))
-	main.blocks.operation_picker.select(3)
+	var wait_operation: int = -1
+	for index: int in main.blocks.profile.api.size():
+		if main.blocks.profile.api[index].id == "sleep":
+			wait_operation = index
+			break
+	if wait_operation < 0:
+		push_error("Browser authoring requires a Wait block")
+		quit(1)
+		return
+	main.blocks.operation_picker.select(wait_operation)
 	main.blocks._add_block()
 	await _settle()
 	main.blocks.scroll.scroll_vertical = 1000000
@@ -103,7 +112,7 @@ func _run() -> void:
 	_point("block_seconds", last_card.get_child(1).get_child(1))
 	_point("apply_blocks", _button(main.blocks, "Apply blocks to code"))
 	var output: FileAccess = FileAccess.open(args[0], FileAccess.WRITE)
-	output.store_string(JSON.stringify({"viewport": [root.size.x, root.size.y], "points": _points}, "  ") + "\n")
+	output.store_string(JSON.stringify({"viewport": [root.size.x, root.size.y], "points": _points, "block_wait_index": wait_operation}, "  ") + "\n")
 	main.free()
 	print("Browser layout: %d control anchors" % _points.size())
 	quit()

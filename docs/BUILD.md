@@ -161,3 +161,10 @@ a successful public deployment: open the final URL anonymously and run the brows
 - [Godot license and third-party notices](https://godotengine.org/license/)
 
 This build tooling changes no application text; no language-pack updates are required.
+
+### Browser authoring on local graphics
+
+`browser_authoring.py --hardware --executable /path/to/chrome` uses the local display and OpenGL,
+matching the learning check's optional graphics mode. Omit `--hardware` for CI's headless
+SwiftShader path. Rebuild or regenerate `browser-layout.json` with the same application source
+when changing the board block catalog: the authoring check uses its semantic Wait index.

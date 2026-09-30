@@ -33,3 +33,15 @@ The workflow now runs `browser_learning.py` after export and retains its evidenc
 ## Actual Web learning acceptance
 
 The clean export passes **5/5 browser learning flows**: measured flag success, finish line, sonar stopping before the wall, actual portable Stage v2 download, and UI Stop interrupting an infinite loop. Chromium 153.0.8010.12 / Intel HD 530 OpenGL rendered the application; error-console entries: zero. [Results](web-learning-result.json), [console](web-learning-console.json), [sonar success](web-learning-sonar-success.png), [downloaded challenge](web-learning-verified-challenge.json). These are actual application controls and physics, not fabricated API results. No AI or paid service calls were used.
+
+## Actual Web authoring acceptance
+
+The additional browser regression passes **9/9 flows**: IndexedDB persistence, reload/open/export, pasted project import, invalid import preserving work, block addition/value editing/apply, pending blocks applied on Run, graph-preserving rewiring, keyboard Undo/Redo, and compact viewport capture. [Results](web-authoring-result.json), [console](web-authoring-console.json), [block editor](web-authoring-09-blocks-applied.png), [compact screenshot](web-authoring-12-compact-workshop.png). The compact capture is evidence, not a claim that all small-window UI issues are fixed.
+
+The first attempt's four successful storage flows and stale block-selector failure are preserved under `intermediate/browser-authoring-*`. Its `ArrowUp` selected the new last operation, Stop, instead of Wait; exported code correctly contained `stop()`. The harness now derives `block_wait_index` from the same board profile as the export, navigates to that actual menu item and confirms `sleep(0.2)` in the exported learner source. The optional `--hardware` flag permits actual local OpenGL verification; CI retains its headless default. The regenerated layout describes the unchanged `f6ddc43` app. No app source or translations changed in this test-only correction.
+
+Remote main initially advanced to `30d1ab4` and PRs #30/#37 became MERGED. The local CLI OAuth lacked workflow scope; the existing GitHub app connection wrote the exact reviewed workflows on the integration branch. The CLI then pushed the complete integration, and the app advanced main without force. This preserves the reviewed tree and completed branch ancestry; no new credentials or authorization were needed.
+
+## GitHub main CI
+
+[Main run 36694316111](https://github.com/Bum-Boo/ssok/actions/runs/36694316111) on `30d1ab4` passed the complete native/test step, **69 groups, zero failures**; the separate documentation workflow also succeeded. The verify job then failed uploading results because the Actions artifact storage quota was exceeded. Consequently its build/Pages/release jobs were skipped. [Retained log excerpt](github-main-verification.txt). The locally verified Web/Linux builds and real browser checks above are separate evidence; the entire GitHub workflow is not green. The following commit changes browser test selection/evidence only, leaving app source identical.
