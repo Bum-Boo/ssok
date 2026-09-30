@@ -29,7 +29,7 @@ Web 배포 커밋은 `ae501c516c343e986a4a25586610e5ab451cab36`예요. 검증한
 
 공개 화면은 [기본 밝은 화면](public/workshop.png)과 [새로고침 뒤 한국어/어두운 테마/글자200%](public/settings/05-reloaded.png)를 직접 검수했어요. [로컬 브라우저 상태](delivery/public-browser-state.json), [console](delivery/public-browser-console.log), [page errors](delivery/public-browser-errors.txt)에 공개 주소의 actual WebGL2·single-threaded 실행을 남겼어요. canvas 외부의 DOM 대체 UI로 검증하지 않았어요.
 
-전체 native71종과 Windows17항목은 각각 하나의 실행이에요. Web5종은 첫 시도의 smoke/작성/물리/학습 통과와 수정된 검사기의 설정14항목 재실행으로 확보했어요. 첫 시도를 단일5/5 성공으로 바꾸어 기록하지 않아요. 공개 URL의 세 검사는 한 작업에서 모두 통과했어요.
+Windows JSON 원본은 회수 폴더에 보존했고 저장소 사본은 UTF-8/LF로 정규화했어요. JSON 값은 원본과 일치해요. 전체 native71종과 Windows17항목은 각각 하나의 실행이에요. Web5종은 첫 시도의 smoke/작성/물리/학습 통과와 수정된 검사기의 설정14항목 재실행으로 확보했어요. 첫 시도를 단일5/5 성공으로 바꾸어 기록하지 않아요. 공개 URL의 세 검사는 한 작업에서 모두 통과했어요.
 
 ## 실패와 재실행
 
