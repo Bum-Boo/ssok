@@ -22,14 +22,26 @@ a UTC save timestamp. The graph retains catalog IDs, rigid transforms and valida
 and electrical links. Limits are 256 parts, 1024 links, 64 KiB of learner source, 512 KiB per
 document and 128 saved snapshots. Catalog IDs are allowlisted; arbitrary resource paths are rejected.
 Writes use a temporary file and rename, and snapshots have independent generated IDs.
+The editor refuses a 257th part and transforms beyond 100 m on any axis, matching snapshot limits.
+
+## Wire the assembled robot
+
+Open **Wiring**, choose a motor signal and a compatible board pin, then select **Connect wire**.
+Connections use the actual electrical ports in the current graph. Occupied ports are unavailable;
+use **Disconnect wire** before reassigning a motor. Both operations support Ctrl/Cmd+Z and redo.
+Connecting a wire preserves every part's position and rotation. Moving a part retains its wires
+while detaching mechanical mounts; deleting it removes all incident links. Cancel and undo restore
+the graph together. Wiring controls are disabled during a transform or run mode.
+
+Wires are logical connections: cable geometry, length and tension are not simulated.
 
 ## Code and blocks
 
 **Blocks → Read from code** reads the supported servo subset. Each card is generated from the
 board API descriptors in `src/core/board_profile.gd`. Edit its named inputs or add/remove a command,
 then use **Apply blocks to code**. Applying does not start physics; **Run code** remains explicit.
-Saving or exporting also validates and applies pending blocks. Invalid values or independently
-changed code stop the save and retain both drafts. Starter replacement and **Read from code**
+**Run code**, saving and exporting validate and apply pending blocks. Invalid values or independently
+changed code stop the action and retain both drafts. Starter replacement and **Read from code**
 ask before discarding unapplied blocks. Numeric fields preserve fractional values such as `0.05`.
 
 ```python
@@ -43,7 +55,10 @@ arm.write_relative(-20)
 
 Supported operations are servo binding, absolute angle, signed rest-relative angle and timed wait.
 The teaching runtime resolves pin 9 through the current wiring graph. An unwired pin produces an
-error. `write` uses 0–180 degrees; relative commands use bounded signed offsets. This language is
+error. Before sending any motor command, the runtime checks the whole program for supported syntax,
+defined servo names, connected pins and finite values. A later invalid line cannot partly actuate
+the robot. Programs are limited to 2048 lines and 64 KiB; each wait is at most 60 seconds.
+`write` clamps to 0–180 degrees; relative commands clamp to the joint's bounded signed offsets. This language is
 not full Python and does not compile or upload real-board firmware.
 
 Comments, imports, whitespace and trailing newlines survive an untouched code/block round-trip.
@@ -59,5 +74,7 @@ overwrite it: read the updated source explicitly.
   physical hinge targets and protection against stale block application.
 - `tests/authoring_ui_check.gd`: four languages, compact browser viewport, project/transfer views,
   rendered screenshots and usable catalog/block scrolling areas.
+- `tests/core_authoring_check.gd`: actual wiring controls, placement-preserving graph edits,
+  undo/redo, saved snapshots, code preflight, pending-block execution and saveable workspace limits.
 
 Run these through the isolated [verification runner](BUILD.md); personal saved projects stay untouched.

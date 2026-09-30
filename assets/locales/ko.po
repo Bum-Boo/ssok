@@ -1428,3 +1428,48 @@ msgstr "학습한 전진 보행: W를 누르거나 스틱을 앞으로 미세요
 
 msgid "This learned gait needs its original assembly and physics settings. Reload the learned-biped example to restore them."
 msgstr "이 학습 보행에는 원래 조립과 물리 설정이 필요해요. 학습한 2족 로봇 예제를 다시 불러와 복원하세요."
+
+msgid "Wiring"
+msgstr "배선"
+
+msgid "Connect a motor to a board pin"
+msgstr "모터와 보드 핀을 연결해요"
+
+msgid "Choose the motor signal and a compatible pin. Wiring keeps your parts in place."
+msgstr "모터 신호 포트와 호환되는 핀을 골라요. 배선해도 부품 위치는 그대로예요."
+
+msgid "Motor signal"
+msgstr "모터 신호 포트"
+
+msgid "Board pin"
+msgstr "보드 핀"
+
+msgid "Connect wire"
+msgstr "배선 연결하기"
+
+msgid "Disconnect wire"
+msgstr "배선 끊기"
+
+msgid "Add a motor and a board to wire your robot."
+msgstr "모터와 보드를 추가한 뒤 배선해요."
+
+msgid "Wire connected · Ctrl+Z to undo"
+msgstr "배선을 연결했어요 · Ctrl+Z로 되돌리기"
+
+msgid "Wire disconnected · Ctrl+Z to undo"
+msgstr "배선을 끊었어요 · Ctrl+Z로 되돌리기"
+
+msgid "This program is too large. Use at most 2048 lines and 64 KiB."
+msgstr "코드가 너무 길어요. 2048줄, 64 KiB 이내로 줄여 주세요."
+
+msgid "Servo angles must be finite numbers."
+msgstr "서보 각도에 유효한 숫자를 입력해 주세요."
+
+msgid "Wait must be between 0 and 60 seconds."
+msgstr "대기 시간은 0~60초로 입력해 주세요."
+
+msgid "This project supports up to 256 parts. Delete a part before adding another."
+msgstr "부품은 최대 256개까지 넣어요. 부품 하나를 지운 뒤 추가해 주세요."
+
+msgid "Parts must stay within 100 m of the workspace origin."
+msgstr "부품은 작업실 원점에서 각 축으로 100 m 이내에 놓아 주세요."

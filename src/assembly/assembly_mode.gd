@@ -60,6 +60,15 @@ func _process(_delta: float) -> void:
 
 func spawn_part(definition: PartDef, xform: Transform3D) -> PartNode:
 	cancel_transform()
+	if graph.parts.size() >= MotionSnapshot.MAX_PARTS:
+		status_changed.emit("This project supports up to 256 parts. Delete a part before adding another.")
+		return null
+	if not xform.is_finite():
+		status_changed.emit("Transform exceeds the supported numeric range")
+		return null
+	if maxf(absf(xform.origin.x), maxf(absf(xform.origin.y), absf(xform.origin.z))) > MotionSnapshot.MAX_POSITION:
+		status_changed.emit("Parts must stay within 100 m of the workspace origin.")
+		return null
 	var before := _snapshot()
 	var graph_index := graph.parts.size()
 	graph.parts.append({"part_def": definition, "transform": xform})
@@ -281,39 +290,81 @@ func try_snap(part: PartNode) -> bool:
 	var candidate := _find_nearest_candidate(part)
 	if candidate.is_empty():
 		return false
-	snap(part, candidate["my_port"], candidate["other_part"], candidate["other_port"])
-	return true
+	return snap(part, candidate["my_port"], candidate["other_part"], candidate["other_port"])
 
 
-func snap(part: PartNode, part_port_id: StringName, other_part: PartNode, other_port_id: StringName) -> void:
+func snap(part: PartNode, part_port_id: StringName, other_part: PartNode, other_port_id: StringName) -> bool:
 	if part == null or other_part == null or part == other_part or part not in _part_nodes or other_part not in _part_nodes:
-		return
+		return false
 	var source_port: Port = part.get_port(part_port_id)
 	var target_port: Port = other_part.get_port(other_port_id)
 	if source_port == null or target_port == null or source_port.kind != target_port.kind or not _ports_accept(source_port, target_port):
-		return
+		return false
 	if _is_port_linked(part.graph_index, part_port_id) or _is_port_linked(other_part.graph_index, other_port_id):
-		return
-	var source_normal := part.get_port_global_normal(part_port_id)
-	var target_normal := -other_part.get_port_global_normal(other_port_id)
-	var rotation := Basis(Quaternion(source_normal, target_normal))
-	var aligned_transform := part.global_transform
-	aligned_transform.basis = rotation * aligned_transform.basis
-	part.global_transform = aligned_transform
-	part.global_position += other_part.get_port_global_position(other_port_id) - part.get_port_global_position(part_port_id)
-	_update_graph_transform(part)
+		return false
+	if source_port.kind == Port.Kind.MECH:
+		var source_normal := part.get_port_global_normal(part_port_id)
+		var target_normal := -other_part.get_port_global_normal(other_port_id)
+		var rotation := Basis(Quaternion(source_normal, target_normal))
+		var aligned_transform := part.global_transform
+		aligned_transform.basis = rotation * aligned_transform.basis
+		aligned_transform.origin += other_part.get_port_global_position(other_port_id) - aligned_transform * source_port.local_position
+		if maxf(absf(aligned_transform.origin.x), maxf(absf(aligned_transform.origin.y), absf(aligned_transform.origin.z))) > MotionSnapshot.MAX_POSITION:
+			status_changed.emit("Parts must stay within 100 m of the workspace origin.")
+			return false
+		part.global_transform = aligned_transform
+		_update_graph_transform(part)
 	var link: Dictionary = {
 		"a_part": part.graph_index, "a_port": part_port_id,
 		"b_part": other_part.graph_index, "b_port": other_port_id,
 	}
 	graph.links.append(link)
 	link_added.emit(link)
+	return true
 
 
-func unsnap(part: PartNode) -> void:
+func connect_wire(first_index: int, first_port_id: StringName, second_index: int, second_port_id: StringName) -> bool:
+	if process_mode == Node.PROCESS_MODE_DISABLED or transform_active or first_index < 0 or second_index < 0 or first_index >= _part_nodes.size() or second_index >= _part_nodes.size() or first_index == second_index:
+		return false
+	var first: PartNode = _part_nodes[first_index]
+	var second: PartNode = _part_nodes[second_index]
+	var first_port: Port = first.get_port(first_port_id)
+	var second_port: Port = second.get_port(second_port_id)
+	if first_port == null or second_port == null or first_port.kind != Port.Kind.ELEC or second_port.kind != Port.Kind.ELEC or not _ports_accept(first_port, second_port):
+		return false
+	if _is_port_linked(first_index, first_port_id) or _is_port_linked(second_index, second_port_id):
+		return false
+	var before: Dictionary = _snapshot()
+	if not snap(first, first_port_id, second, second_port_id):
+		return false
+	_record_action(before)
+	graph_changed.emit()
+	status_changed.emit("Wire connected · Ctrl+Z to undo")
+	return true
+
+
+func disconnect_wire(link: Dictionary) -> bool:
+	var index: int = graph.links.find(link)
+	if process_mode == Node.PROCESS_MODE_DISABLED or transform_active or index < 0:
+		return false
+	var port: Port = _part_nodes[link.a_part].get_port(link.a_port)
+	if port == null or port.kind != Port.Kind.ELEC:
+		return false
+	var before: Dictionary = _snapshot()
+	graph.links.remove_at(index)
+	link_removed.emit(link)
+	_record_action(before)
+	graph_changed.emit()
+	status_changed.emit("Wire disconnected · Ctrl+Z to undo")
+	return true
+
+
+func unsnap(part: PartNode, mechanical_only: bool = false) -> void:
 	for index: int in range(graph.links.size() - 1, -1, -1):
 		var link: Dictionary = graph.links[index]
 		if link["a_part"] == part.graph_index or link["b_part"] == part.graph_index:
+			if mechanical_only and part.get_port(link.a_port if link.a_part == part.graph_index else link.b_port).kind == Port.Kind.ELEC:
+				continue
 			var removed_link: Dictionary = graph.links.pop_at(index)
 			link_removed.emit(removed_link)
 
@@ -469,8 +520,11 @@ func _apply_transform() -> void:
 	if not result.is_finite():
 		status_changed.emit("Transform exceeds the supported numeric range")
 		return
+	if maxf(absf(result.origin.x), maxf(absf(result.origin.y), absf(result.origin.z))) > MotionSnapshot.MAX_POSITION:
+		status_changed.emit("Parts must stay within 100 m of the workspace origin.")
+		return
 	if not result.is_equal_approx(_start_transform) and not _detached:
-		unsnap(_selected_part)
+		unsnap(_selected_part, true)
 		_detached = true
 	_selected_part.global_transform = result
 	_update_graph_transform(_selected_part)
