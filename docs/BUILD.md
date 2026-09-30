@@ -145,8 +145,8 @@ or Python developer tools. This desktop artifact targets Linux x86_64, not Windo
 before exporting either target. The workflow retains verification logs even on failure, and uses
 official GitHub Actions pinned by commit SHA. Python dependencies are pinned in the lock file.
 
-Set repository **Settings → Pages → Source → GitHub Actions** once. A successful `main` push
-deploys its Web export; a manual workflow on another branch deploys only if `deploy` is checked.
+Set repository **Settings → Pages → Source → GitHub Actions** once. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision,
+run the workflow manually on that revision with `deploy` checked.
 The `github-pages` environment reports the resulting URL. Publishing a GitHub Release triggers
 the same validation/build and attaches ZIPs, hashes and metadata to that existing release.
 Existing release assets are not silently overwritten. A tag or a build alone is not evidence of
@@ -161,3 +161,10 @@ a successful public deployment: open the final URL anonymously and run the brows
 - [Godot license and third-party notices](https://godotengine.org/license/)
 
 This build tooling changes no application text; no language-pack updates are required.
+
+### Browser authoring on local graphics
+
+`browser_authoring.py --hardware --executable /path/to/chrome` uses the local display and OpenGL,
+matching the learning check's optional graphics mode. Omit `--hardware` for CI's headless
+SwiftShader path. Rebuild or regenerate `browser-layout.json` with the same application source
+when changing the board block catalog: the authoring check uses its semantic Wait index.

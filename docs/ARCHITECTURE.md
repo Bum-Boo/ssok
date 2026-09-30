@@ -1,5 +1,9 @@
 # ssok 아키텍처
 
+새 참여자는 [START_HERE](START_HERE.md)에서 작업 경로를 고르세요. 현재 방향과 구현 단계는
+[STATUS](STATUS.md), 파일 지도는 [CODE_MAP](generated/CODE_MAP.md), 실제 데이터 관계와 호출 흐름은
+[DATA_MODEL](DATA_MODEL.md) / [FLOWS](FLOWS.md)를 참고해요. 아래의 날짜 있는 실험 설명은 이력이에요.
+
 > 2026-09-22: 모터 토크 예산 결함을 [ADR 0020](adr/0020-whole-step-actuator-torque-budget.md)에서 수정했다. 아래 기존 모터 기반 보행·집기·달리기 수치는 이전 구현의 이력이며, 수정된 물리 한계에서의 성공은 별도 재검증 결과로 판단한다.
 
 ## 인터페이스 선호도
@@ -12,7 +16,7 @@
 시뮬레이션 환경. 프리셋(답지)을 보며 탑다운으로 학습하고, 추후 과제를 얹어 과학상자 같은
 교육 플랫폼으로 키운다. 목적은 공간·시간·금전적 제약의 극복.
 
-## 확정된 결정 (2026-09-10)
+## 확정된 구조 결정과 현재 보드 방향
 
 아래는 요약표. 각 결정의 맥락·이유·기각된 대안은 [docs/adr/](adr/)에 있고, 그쪽이 정본이다.
 결정을 뒤집으려면 여기 표를 고치기 전에 새 ADR로 supersede할 것.
@@ -22,7 +26,7 @@
 | 첫 프로토타입 | 조립 + 코드 구동을 최소 기능으로 **동시에** 관통하는 얇은 슬라이스 | [0005](adr/0005-first-slice-scope.md) |
 | 연결 방식 | **포트/소켓 기반**. 기계 스냅은 위치를 정렬하고, **전기 배선(모터→보드 핀)** 은 위치를 보존한다. 배선 탭과 근접 연결 모두 같은 그래프를 수정한다 | [0002](adr/0002-connection-graph-single-source-of-truth.md), [0007](adr/0007-blender-edit-and-manual-control.md), [0022](adr/0022-electrical-links-preserve-placement.md) |
 | 물리 | **하이브리드** — 조립 모드는 키네마틱, 실행 모드는 실물리(RigidBody+Joint+중력) | [0003](adr/0003-hybrid-physics-modes.md) |
-| 타겟 보드 | 현재 가상 서보 보드 API를 제공하며 실제 보드 선정은 미정. 구조를 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md) |
+| 타겟 보드 | 2026-09-30 사용자 결정: micro:bit 먼저, Uno 두 번째. 이 문서 기준 코드는 가상 서보 API이며 프로파일 구현은 별도 작업. 구조는 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md), [현재 상태](STATUS.md) |
 | 코딩 인터페이스 | 블록 ↔ 실제 코드 토글, **둘 다** | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 코드 언어 | 유저가 보드/환경에 따라 선택. 플랫폼이 기본값을 추천. 첫 런타임은 Python(MicroPython 스타일) | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 배포 | 웹 + 데스크톱 모두 (→ GDScript, GL Compatibility) | [0001](adr/0001-engine-and-deployment-targets.md) |
@@ -145,6 +149,9 @@ GPT 가중치 훈련·자율적인 임의 코드 실행·손가락 마찰 파지
 구현 순서와 담당은 GitHub Issues 참고.
 
 ## Part/Port 스펙 (issue #1, 초안 — 에디터 튜닝은 issue #9)
+
+이 절은 첫 슬라이스 당시의 규격 설명이에요. 당시 보드 미정 표현은 현재 micro:bit 우선 결정과
+구분해서 읽어요. 현재 저장·클래스 계약은 [DATA_MODEL](DATA_MODEL.md), 실제 부품 정의는 카탈로그 소스를 따르세요.
 
 첫 프리셋(서보 팔) 3파츠의 포트 정의. 치수는 실제 마이크로 서보(SG90류) 크기를 참고한 플레이스홀더이며,
 `assets/parts/*.tres`로 생성돼 있다. 조립 느낌(스냅 반경, 위치 미세조정)은 issue #9에서 에디터로 다듬을 것 —

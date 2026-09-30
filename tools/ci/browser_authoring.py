@@ -49,6 +49,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("build/browser-authoring"))
     parser.add_argument("--executable")
     parser.add_argument("--url")
+    parser.add_argument("--hardware", action="store_true", help="Use the local display and OpenGL for GPU verification")
     args = parser.parse_args()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -74,8 +75,8 @@ def main() -> None:
     try:
         layout = load_layout(args.directory, output)
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
-                args=["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"])
+            graphics = ["--enable-gpu", "--ignore-gpu-blocklist", "--use-gl=angle", "--use-angle=gl"] if args.hardware else ["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"]
+            browser = playwright.chromium.launch(headless=not args.hardware, executable_path=args.executable, args=graphics)
             context = browser.new_context(viewport=dict(zip(("width", "height"), layout["viewport"])),
                 locale="en-US", accept_downloads=True, permissions=["clipboard-read", "clipboard-write"])
             page = context.new_page()
@@ -196,9 +197,11 @@ def main() -> None:
                 page.wait_for_timeout(300)
                 capture("08-blocks-bottom")
                 click("block_operation")
-                # Up wraps the initial/empty focus to the profile's final Wait operation.
-                page.keyboard.press("ArrowUp")
-                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
+                # Mouse-opened Godot menus start without keyboard focus. Select the
+                # semantic Wait entry; added motor operations can follow it.
+                for _ in range(layout["block_wait_index"] + 1):
+                    page.keyboard.press("ArrowDown")
+                    page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 capture("08a-wait-operation")
                 page.keyboard.press("Enter")
                 page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")

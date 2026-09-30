@@ -142,6 +142,11 @@ public release, continuous manual control and kit locomotion remain unfinished.
 
 ## Development
 
+New contributors and AI sessions: [start here](docs/START_HERE.md) for task-specific reading,
+[current direction and source baseline](docs/STATUS.md), [file map](docs/generated/CODE_MAP.md),
+[data relationships](docs/DATA_MODEL.md), [execution flows](docs/FLOWS.md) and
+[documentation maintenance](docs/MAINTENANCE.md). These are separate from dated experiment history.
+
 ```sh
 python3 tools/ci/install_godot.py --templates
 python3 -m venv build/venv

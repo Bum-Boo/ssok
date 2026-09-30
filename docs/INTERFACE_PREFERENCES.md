@@ -41,3 +41,5 @@ Web 검사는 `tools/ci/browser_settings.py`와 export의 실제 좌표를 사�
 UI 변경 시 4개 언어, 두 테마, 확대/좁은 창의 실제 화면과 관련 회귀·Web/Linux 빌드를 함께 확인해요. 새로운 결과는 [이번 구현 증거](evidence/settings_implementation_2026-09-30/README.md)에 소스 커밋·환경·명령·미검증 범위와 함께 기록해요. 과거 감사 결과는 당시 소스의 증거로 보존해요. 스크린리더·모든 OS의 자동 외관·모든 창 크기까지 검증한 것으로 확대 해석하지 않아요.
 
 구현 API는 [Godot DisplayServer](https://docs.godotengine.org/en/stable/classes/class_displayserver.html), [Theme](https://docs.godotengine.org/en/stable/classes/class_theme.html)를 확인했어요(2026-09-30). 웹 대비 평가와 네이티브 토큰 평가를 구분해요.
+
+기존 [설정 UX 감사](SETTINGS_UX_AUDIT_2026-09-30.md)는 구현 전 상태의 증거예요. 이 구현은 최신 main의 문서 체계와 Stage 계약을 함께 유지해요.

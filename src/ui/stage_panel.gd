@@ -4,11 +4,13 @@ extends VBoxContainer
 signal stage_requested(stage: Dictionary)
 signal lab_requested
 signal outcome_changed(message: String)
+signal attempt_terminated
 
 var assembly: AssemblyMode
 var run_mode: RunMode
 var source: Callable
 var pending_blocks: Callable
+var context_provider: Callable
 var evaluator: StageEvaluator = StageEvaluator.new()
 var current: Dictionary = {}
 var _catalog: Array[Dictionary] = []
@@ -25,6 +27,8 @@ var _authoring: bool = false
 var _observing: bool = false
 var _run_fingerprint: String = ""
 var _proof_fingerprint: String = ""
+var _run_context: Dictionary = {}
+var _resource_identity: Dictionary = {}
 
 
 func _ready() -> void:
@@ -125,13 +129,10 @@ func _number(parent: VBoxContainer, label: String, value: float, minimum: float,
 
 func _refresh_targets() -> void:
 	_target.clear()
-	var ids: Array[String] = []
-	for part: Dictionary in assembly.graph.parts:
-		var id: String = part.part_def.id
-		if id not in ids:
-			ids.append(id)
-			_target.add_item(part.part_def.display_name)
-			_target.set_item_metadata(_target.item_count - 1, id)
+	for index: int in assembly.graph.parts.size():
+		var part: Dictionary = assembly.graph.parts[index]
+		_target.add_item("%s #%d" % [tr(part.part_def.display_name), index + 1])
+		_target.set_item_metadata(_target.item_count - 1, index)
 	_proof_fingerprint = ""
 
 
@@ -141,7 +142,7 @@ func load_goal(stage: Dictionary) -> void:
 		if _catalog[index].id == current.id:
 			_picker.select(index)
 			break
-	evaluator.configure(current)
+	evaluator.configure(current, assembly.graph)
 	_authoring = false
 	_observing = false
 	_proof_fingerprint = ""
@@ -156,33 +157,81 @@ func clear_goal() -> void:
 	SsokLocale.bind(_status, "Lab: build freely. You can turn your build into a challenge.")
 
 
-func on_run() -> void:
+func _context() -> Dictionary:
+	var context: Dictionary = context_provider.call() if context_provider.is_valid() else StageDefinition.runtime_context(run_mode, assembly.graph, _resource_identity)
+	_resource_identity = context.resources
+	if not run_mode.is_built() and not _run_context.is_empty():
+		context.sensor_conditions = _run_context.sensor_conditions.duplicate(true)
+	return context
+
+
+func on_run() -> bool:
 	if current.is_empty():
-		return
-	evaluator.reset()
-	_run_fingerprint = StageDefinition.fingerprint(current, assembly.graph, source.call())
+		return true
 	_proof_fingerprint = ""
+	_observing = false
+	if not evaluator.start(assembly.graph):
+		_show_result()
+		return false
+	# Resolve graph-wired goal sensors before freezing the execution context.
+	for index: int in current.rules.size():
+		if current.rules[index].metric == "sonar_distance":
+			run_mode.sonar_for_part(evaluator.resolve_target(index, assembly.graph).index)
+	_run_context = _context()
+	_run_fingerprint = StageDefinition.fingerprint(current, assembly.graph, source.call(), _run_context)
 	_observing = true
 	SsokLocale.bind(_status, "Challenge running. Watching the real robot.")
+	return true
 
 
 func on_stop() -> void:
+	if _observing:
+		evaluator.finish("cancelled", "user_stop")
+		_proof_fingerprint = ""
+		_show_result()
 	_observing = false
 
 
+func on_program_error() -> void:
+	if _observing:
+		evaluator.finish("not_met", "program_error")
+		_observing = false
+		_proof_fingerprint = ""
+		_show_result()
+
+
+func _show_result() -> void:
+	var message: String = "This attempt could not be judged. Return to edit mode and try again."
+	match evaluator.reason:
+		"target_ambiguous": message = "Several parts match this goal. Choose one target when creating the challenge."
+		"target_missing", "target_changed": message = "The target part changed or was removed. Choose it again and recreate the challenge."
+		"part_limit": message = "This build exceeds the challenge part limit. Remove parts and try again."
+		"time_limit": message = "Time is up. Change your build or code and try again."
+		"program_error": message = "The program stopped with an error. Fix the highlighted code and try again."
+		"sensor_missing", "sensor_unavailable": message = "The target sensor is unavailable. Check its wiring and try again."
+		"user_stop": message = "Attempt stopped. Your build and code are kept."
+	SsokLocale.bind(_status, message)
+	outcome_changed.emit(message)
+
+
 func _physics_process(delta: float) -> void:
-	if not _observing or not run_mode.is_built():
+	if not _observing:
 		return
-	evaluator.observe(run_mode, assembly.graph, delta)
+	# Check the execution contract before observing; a changed goal cannot certify old results.
+	if StageDefinition.fingerprint(current, assembly.graph, source.call(), _context()) != _run_fingerprint:
+		evaluator.finish("indeterminate", "execution_changed")
+	else:
+		evaluator.observe(run_mode, assembly.graph, delta)
 	if evaluator.success:
 		_observing = false
 		_proof_fingerprint = _run_fingerprint
 		SsokLocale.bind(_status, "Challenge cleared. Change your build and try another solution.")
 		outcome_changed.emit("Challenge cleared. Change your build and try another solution.")
-	elif evaluator.expired:
+	elif evaluator.status != "running":
 		_observing = false
-		SsokLocale.bind(_status, "Time is up. Change your build or code and try again.")
-		outcome_changed.emit("Time is up. Change your build or code and try again.")
+		_proof_fingerprint = ""
+		_show_result()
+		attempt_terminated.emit()
 
 
 func _author() -> void:
@@ -192,7 +241,8 @@ func _author() -> void:
 	if run_mode.is_built() or _target.selected < 0:
 		SsokLocale.bind(_status, "Return to edit mode and choose a target part first.")
 		return
-	var rule: Dictionary = StageDefinition.rule(StageDefinition.METRICS[_metric.selected], _target.get_item_metadata(_target.selected), _minimum.value, _maximum.value, _hold.value)
+	var target_index: int = _target.get_item_metadata(_target.selected)
+	var rule: Dictionary = StageDefinition.rule(StageDefinition.METRICS[_metric.selected], String(assembly.graph.parts[target_index].part_def.id), _minimum.value, _maximum.value, _hold.value, target_index)
 	var stage: Dictionary = StageDefinition.create("local-challenge", _title.text, assembly.graph, source.call(), [rule])
 	if stage.is_empty():
 		SsokLocale.bind(_status, "Challenge data is invalid. Your build is unchanged.")
@@ -203,7 +253,7 @@ func _author() -> void:
 
 
 func _export() -> bool:
-	if current.is_empty() or _proof_fingerprint.is_empty() or (pending_blocks.is_valid() and pending_blocks.call()) or _proof_fingerprint != StageDefinition.fingerprint(current, assembly.graph, source.call()):
+	if current.is_empty() or _proof_fingerprint.is_empty() or (pending_blocks.is_valid() and pending_blocks.call()) or _proof_fingerprint != StageDefinition.fingerprint(current, assembly.graph, source.call(), _context()):
 		SsokLocale.bind(_status, "Run and clear this exact build and code before exporting.")
 		return false
 	var stage: Dictionary = current.duplicate(true)

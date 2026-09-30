@@ -21,6 +21,10 @@ func _initialize() -> void:
 	if not ResourceLoader.exists("res://scenes/main.tscn"):
 		push_error("Missing application scene")
 		failures += 1
+	var identity: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/stage_runtime_identity.json")) if FileAccess.file_exists("res://assets/stage_runtime_identity.json") else {}
+	if not identity is Dictionary or not identity.has("res://src/runtime/stage_evaluator.gd"):
+		push_error("Missing stage runtime/model identity manifest")
+		failures += 1
 	print("Export resource audit: %d files, %d failures" % [_files.size(), failures])
 	quit(1 if failures else 0)
 

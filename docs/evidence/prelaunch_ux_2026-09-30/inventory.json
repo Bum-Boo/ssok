@@ -1,0 +1,3899 @@
+{
+  "part_count": 75,
+  "parts": [
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "uno",
+      "category": 3,
+      "dc_motor": false,
+      "id": "arduino_uno",
+      "mass_kg": 0.025,
+      "name": "Arduino Uno R3",
+      "path": "res://assets/parts/arduino_uno.tres",
+      "ports": [
+        {
+          "id": "pin_3",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_5",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_6",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_9",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_10",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_11",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_2",
+          "kind": 1,
+          "tag": "board_digital"
+        },
+        {
+          "id": "pin_4",
+          "kind": 1,
+          "tag": "board_digital"
+        },
+        {
+          "id": "pin_7",
+          "kind": 1,
+          "tag": "board_digital"
+        },
+        {
+          "id": "pin_8",
+          "kind": 1,
+          "tag": "board_digital"
+        },
+        {
+          "id": "pin_12",
+          "kind": 1,
+          "tag": "board_digital"
+        },
+        {
+          "id": "pin_13",
+          "kind": 1,
+          "tag": "board_digital"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "arm_link",
+      "mass_kg": 0.01,
+      "name": "Arm Link",
+      "path": "res://assets/parts/arm_link.tres",
+      "ports": [
+        {
+          "id": "mount_base",
+          "kind": 0,
+          "tag": "arm_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "ball_caster",
+      "mass_kg": 0.005,
+      "name": "Ball Caster",
+      "path": "res://assets/parts/ball_caster.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "caster_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "base",
+      "mass_kg": 0.08,
+      "name": "Base Plate",
+      "path": "res://assets/parts/base.tres",
+      "ports": [
+        {
+          "id": "mount_top",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "biped_body",
+      "mass_kg": 0.04,
+      "name": "Biped Body",
+      "path": "res://assets/parts/biped_body.tres",
+      "ports": [
+        {
+          "id": "hip_left",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "hip_right",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "face",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "board",
+      "mass_kg": 0.03,
+      "name": "Board (placeholder)",
+      "path": "res://assets/parts/board.tres",
+      "ports": [
+        {
+          "id": "pin_9",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_10",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "car_chassis",
+      "mass_kg": 0.08,
+      "name": "Robot Car Chassis",
+      "path": "res://assets/parts/car_chassis.tres",
+      "ports": [
+        {
+          "id": "motor_left",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "motor_right",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "board_mount",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "driver_mount",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "sensor_mount",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "caster_mount",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "chassis_plate",
+      "mass_kg": 0.06,
+      "name": "Chassis Plate 120 mm",
+      "path": "res://assets/parts/chassis_plate.tres",
+      "ports": [
+        {
+          "id": "mount_center",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "mount_left",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "mount_right",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "mount_rear",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "mount_front",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "foot",
+      "mass_kg": 0.02,
+      "name": "Foot",
+      "path": "res://assets/parts/foot.tres",
+      "ports": [
+        {
+          "id": "ankle_front",
+          "kind": 0,
+          "tag": "arm_mount"
+        },
+        {
+          "id": "ankle_back",
+          "kind": 0,
+          "tag": "arm_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "hc_sr04",
+      "mass_kg": 0.009,
+      "name": "HC-SR04 Ultrasonic",
+      "path": "res://assets/parts/hc_sr04.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "sensor_mount"
+        },
+        {
+          "id": "trig_pin",
+          "kind": 1,
+          "tag": "digital_io"
+        },
+        {
+          "id": "echo_pin",
+          "kind": 1,
+          "tag": "digital_io"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "leg_link",
+      "mass_kg": 0.012,
+      "name": "Leg Link",
+      "path": "res://assets/parts/leg_link.tres",
+      "ports": [
+        {
+          "id": "hip_mount",
+          "kind": 0,
+          "tag": "arm_mount"
+        },
+        {
+          "id": "ankle_mount",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "microbit",
+      "category": 3,
+      "dc_motor": false,
+      "id": "microbit",
+      "mass_kg": 0.015,
+      "name": "micro:bit V2",
+      "path": "res://assets/parts/microbit.tres",
+      "ports": [
+        {
+          "id": "pin_0",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_1",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_2",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_8",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_12",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_16",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "mount_bottom",
+          "kind": 0,
+          "tag": "board_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "motor_driver",
+      "mass_kg": 0.01,
+      "name": "Motor Driver V2 (DRV8833)",
+      "path": "res://assets/parts/motor_driver.tres",
+      "ports": [
+        {
+          "id": "input_0",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "input_8",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "input_12",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "input_16",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "motor_1",
+          "kind": 1,
+          "tag": "driver_output"
+        },
+        {
+          "id": "motor_2",
+          "kind": 1,
+          "tag": "driver_output"
+        },
+        {
+          "id": "mount_bottom",
+          "kind": 0,
+          "tag": "board_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "servo",
+      "mass_kg": 0.02,
+      "name": "Servo Motor",
+      "path": "res://assets/parts/servo.tres",
+      "ports": [
+        {
+          "id": "mount_bottom",
+          "kind": 0,
+          "tag": "servo_mount"
+        },
+        {
+          "id": "output_shaft",
+          "kind": 0,
+          "tag": "servo_output"
+        },
+        {
+          "id": "signal_pin",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "servo_bracket",
+      "mass_kg": 0.015,
+      "name": "Servo Angle Bracket",
+      "path": "res://assets/parts/servo_bracket.tres",
+      "ports": [
+        {
+          "id": "mount_bottom",
+          "kind": 0,
+          "tag": "servo_mount"
+        },
+        {
+          "id": "mount_top",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "mount_rear",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "stage_wall",
+      "mass_kg": 2.0,
+      "name": "Stage Wall",
+      "path": "res://assets/parts/stage_wall.tres",
+      "ports": []
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "tb6612_driver",
+      "mass_kg": 0.01,
+      "name": "Motor Driver (TB6612FNG)",
+      "path": "res://assets/parts/tb6612_driver.tres",
+      "ports": [
+        {
+          "id": "input_3",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "input_4",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "input_6",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "input_7",
+          "kind": 1,
+          "tag": "driver_input"
+        },
+        {
+          "id": "motor_1",
+          "kind": 1,
+          "tag": "driver_output"
+        },
+        {
+          "id": "motor_2",
+          "kind": 1,
+          "tag": "driver_output"
+        },
+        {
+          "id": "mount_bottom",
+          "kind": 0,
+          "tag": "board_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": true,
+      "id": "tt_motor",
+      "mass_kg": 0.03,
+      "name": "TT Gear Motor",
+      "path": "res://assets/parts/tt_motor.tres",
+      "ports": [
+        {
+          "id": "shaft_left",
+          "kind": 0,
+          "tag": "motor_shaft"
+        },
+        {
+          "id": "shaft_right",
+          "kind": 0,
+          "tag": "motor_shaft"
+        },
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "motor_mount"
+        },
+        {
+          "id": "power",
+          "kind": 1,
+          "tag": "motor_power"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "wheel_65",
+      "mass_kg": 0.03,
+      "name": "Wheel 65 mm",
+      "path": "res://assets/parts/wheel_65.tres",
+      "ports": [
+        {
+          "id": "hub",
+          "kind": 0,
+          "tag": "wheel_hub"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "cargo_box",
+      "mass_kg": 0.4,
+      "name": "Practice box (0.4 kg)",
+      "path": "res://assets/humanoid/cargo_box.tres",
+      "ports": []
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "humanoid_board",
+      "mass_kg": 0.12,
+      "name": "Virtual humanoid controller",
+      "path": "res://assets/humanoid/humanoid_board.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "pin_20",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_21",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_22",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_23",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_24",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_25",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_26",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_27",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_28",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_29",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 30.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "humanoid_foot",
+      "mass_kg": 0.5,
+      "name": "Humanoid ankle and foot",
+      "path": "res://assets/humanoid/humanoid_foot.tres",
+      "ports": [
+        {
+          "id": "pivot",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 12.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "humanoid_forearm",
+      "mass_kg": 0.35,
+      "name": "Humanoid elbow and hand",
+      "path": "res://assets/humanoid/humanoid_forearm.tres",
+      "ports": [
+        {
+          "id": "pivot",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        },
+        {
+          "id": "grip",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "humanoid_head",
+      "mass_kg": 0.8,
+      "name": "Humanoid head",
+      "path": "res://assets/humanoid/humanoid_head.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 35.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "humanoid_shin",
+      "mass_kg": 0.7,
+      "name": "Humanoid knee actuator",
+      "path": "res://assets/humanoid/humanoid_shin.tres",
+      "ports": [
+        {
+          "id": "pivot",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        },
+        {
+          "id": "ankle",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 35.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "humanoid_thigh",
+      "mass_kg": 1.0,
+      "name": "Humanoid thigh actuator",
+      "path": "res://assets/humanoid/humanoid_thigh.tres",
+      "ports": [
+        {
+          "id": "pivot",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        },
+        {
+          "id": "knee",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "humanoid_torso",
+      "mass_kg": 4.0,
+      "name": "Humanoid torso",
+      "path": "res://assets/humanoid/humanoid_torso.tres",
+      "ports": [
+        {
+          "id": "hip_left",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "shoulder_left",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "hip_right",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "shoulder_right",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "neck",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "board",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 12.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "humanoid_upper_arm",
+      "mass_kg": 0.45,
+      "name": "Humanoid shoulder actuator",
+      "path": "res://assets/humanoid/humanoid_upper_arm.tres",
+      "ports": [
+        {
+          "id": "pivot",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        },
+        {
+          "id": "elbow",
+          "kind": 0,
+          "tag": "humanoid_joint"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 30.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "modular_ankle_servo",
+      "mass_kg": 0.16,
+      "name": "Ankle servo module (30 Nm)",
+      "path": "res://assets/modular_humanoid/parts/modular_ankle_servo.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_arm_bracket",
+      "mass_kg": 0.03,
+      "name": "Arm output U-bracket",
+      "path": "res://assets/modular_humanoid/parts/modular_arm_bracket.tres",
+      "ports": [
+        {
+          "id": "input",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "frame",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_chest_shell",
+      "mass_kg": 0.4,
+      "name": "Removable chest shell",
+      "path": "res://assets/modular_humanoid/parts/modular_chest_shell.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "modular_controller",
+      "mass_kg": 0.12,
+      "name": "Modular PWM controller",
+      "path": "res://assets/modular_humanoid/parts/modular_controller.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "pin_20",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_21",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_22",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_23",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_24",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_25",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_26",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_27",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_28",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_29",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 12.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "modular_elbow_servo",
+      "mass_kg": 0.1,
+      "name": "Elbow servo module (12 Nm)",
+      "path": "res://assets/modular_humanoid/parts/modular_elbow_servo.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_foot",
+      "mass_kg": 0.44,
+      "name": "Rubber-soled foot module",
+      "path": "res://assets/modular_humanoid/parts/modular_foot.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_forearm_frame",
+      "mass_kg": 0.26,
+      "name": "Passive forearm frame",
+      "path": "res://assets/modular_humanoid/parts/modular_forearm_frame.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "hand",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_gripper_hand",
+      "mass_kg": 0.06,
+      "name": "Padded gripper hand",
+      "path": "res://assets/modular_humanoid/parts/modular_gripper_hand.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "grip",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_head_shell",
+      "mass_kg": 0.8,
+      "name": "Optical head module",
+      "path": "res://assets/modular_humanoid/parts/modular_head_shell.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 35.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "modular_hip_servo",
+      "mass_kg": 0.16,
+      "name": "Hip servo module (35 Nm)",
+      "path": "res://assets/modular_humanoid/parts/modular_hip_servo.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 35.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "modular_knee_servo",
+      "mass_kg": 0.16,
+      "name": "Knee servo module (35 Nm)",
+      "path": "res://assets/modular_humanoid/parts/modular_knee_servo.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_leg_bracket",
+      "mass_kg": 0.06,
+      "name": "Leg output U-bracket",
+      "path": "res://assets/modular_humanoid/parts/modular_leg_bracket.tres",
+      "ports": [
+        {
+          "id": "input",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "frame",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_pelvis_shell",
+      "mass_kg": 0.2,
+      "name": "Removable pelvis shell",
+      "path": "res://assets/modular_humanoid/parts/modular_pelvis_shell.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_shin_frame",
+      "mass_kg": 0.48,
+      "name": "Passive shin frame",
+      "path": "res://assets/modular_humanoid/parts/modular_shin_frame.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "ankle",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 12.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "modular_shoulder_servo",
+      "mass_kg": 0.1,
+      "name": "Shoulder servo module (12 Nm)",
+      "path": "res://assets/modular_humanoid/parts/modular_shoulder_servo.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "modular_output"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_thigh_frame",
+      "mass_kg": 0.78,
+      "name": "Passive thigh frame",
+      "path": "res://assets/modular_humanoid/parts/modular_thigh_frame.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "knee",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_torso_frame",
+      "mass_kg": 2.88,
+      "name": "Modular torso frame",
+      "path": "res://assets/modular_humanoid/parts/modular_torso_frame.tres",
+      "ports": [
+        {
+          "id": "hip_left",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "shoulder_left",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "hip_right",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "shoulder_right",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "chest",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "pelvis",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "neck",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "board",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "modular_upper_arm_frame",
+      "mass_kg": 0.32,
+      "name": "Passive upper-arm frame",
+      "path": "res://assets/modular_humanoid/parts/modular_upper_arm_frame.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "modular_bolt"
+        },
+        {
+          "id": "elbow",
+          "kind": 0,
+          "tag": "modular_bolt"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_angle_bracket",
+      "mass_kg": 0.045,
+      "name": "Angle bracket 60 × 40 mm",
+      "path": "res://assets/construction_kit/parts/kit_angle_bracket.tres",
+      "ports": [
+        {
+          "id": "base_0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "upright_1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "upright_1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "upright_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "upright_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "upright_5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "upright_5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_beam_100",
+      "mass_kg": 0.0216,
+      "name": "Perforated beam 100 mm",
+      "path": "res://assets/construction_kit/parts/kit_beam_100.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_beam_140",
+      "mass_kg": 0.03024,
+      "name": "Perforated beam 140 mm",
+      "path": "res://assets/construction_kit/parts/kit_beam_140.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_beam_180",
+      "mass_kg": 0.03888,
+      "name": "Perforated beam 180 mm",
+      "path": "res://assets/construction_kit/parts/kit_beam_180.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_beam_240",
+      "mass_kg": 0.05184,
+      "name": "Perforated beam 240 mm",
+      "path": "res://assets/construction_kit/parts/kit_beam_240.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_beam_260",
+      "mass_kg": 0.05616,
+      "name": "Perforated beam 260 mm",
+      "path": "res://assets/construction_kit/parts/kit_beam_260.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_beam_60",
+      "mass_kg": 0.01296,
+      "name": "Perforated beam 60 mm",
+      "path": "res://assets/construction_kit/parts/kit_beam_60.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_bolt_4",
+      "mass_kg": 0.004,
+      "name": "Mounting bolt 4 × 12 mm",
+      "path": "res://assets/construction_kit/parts/kit_bolt_4.tres",
+      "ports": [
+        {
+          "id": "head_mount",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "tip_mount",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "kit_controller",
+      "mass_kg": 0.1,
+      "name": "Ten-channel controller",
+      "path": "res://assets/construction_kit/parts/kit_controller.tres",
+      "ports": [
+        {
+          "id": "pin_2",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_3",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_4",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_5",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_6",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_7",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_8",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_9",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_10",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_11",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "mount_0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "kit_controller_16",
+      "mass_kg": 0.11,
+      "name": "Sixteen-channel controller",
+      "path": "res://assets/construction_kit/parts/kit_controller_16.tres",
+      "ports": [
+        {
+          "id": "pin_2",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_3",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_4",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_5",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_6",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_7",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_8",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_9",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_10",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_11",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_12",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_13",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_14",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_15",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_16",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "pin_17",
+          "kind": 1,
+          "tag": "board_digital_pwm"
+        },
+        {
+          "id": "mount_0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_coupler_8",
+      "mass_kg": 0.018,
+      "name": "Shaft coupler 8 mm",
+      "path": "res://assets/construction_kit/parts/kit_coupler_8.tres",
+      "ports": [
+        {
+          "id": "bore_front",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "bore_back",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 12.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "kit_motor_12",
+      "mass_kg": 0.28,
+      "name": "Servo motor 12 Nm",
+      "path": "res://assets/construction_kit/parts/kit_motor_12.tres",
+      "ports": [
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "kit_shaft_8"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        },
+        {
+          "id": "mount_0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 35.0,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "kit_motor_35",
+      "mass_kg": 0.65,
+      "name": "Servo motor 35 Nm",
+      "path": "res://assets/construction_kit/parts/kit_motor_35.tres",
+      "ports": [
+        {
+          "id": "output",
+          "kind": 0,
+          "tag": "kit_shaft_8"
+        },
+        {
+          "id": "signal",
+          "kind": 1,
+          "tag": "pwm_signal"
+        },
+        {
+          "id": "mount_0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_nut_4",
+      "mass_kg": 0.002,
+      "name": "Hex nut 4 mm",
+      "path": "res://assets/construction_kit/parts/kit_nut_4.tres",
+      "ports": [
+        {
+          "id": "bore_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "bore_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "kit_optical_sensor",
+      "mass_kg": 0.045,
+      "name": "Optical sensor module",
+      "path": "res://assets/construction_kit/parts/kit_optical_sensor.tres",
+      "ports": [
+        {
+          "id": "mount_0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "mount_1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_plate_120_80",
+      "mass_kg": 0.10368,
+      "name": "Perforated plate 120 × 80 mm",
+      "path": "res://assets/construction_kit/parts/kit_plate_120_80.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h13_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h13_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h14_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h14_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h15_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h15_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h16_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h16_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h17_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h17_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h18_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h18_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h19_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h19_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h20_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h20_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h21_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h21_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h22_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h22_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h23_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h23_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_plate_160_60",
+      "mass_kg": 0.10368,
+      "name": "Perforated plate 160 × 60 mm",
+      "path": "res://assets/construction_kit/parts/kit_plate_160_60.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h13_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h13_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h14_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h14_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h15_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h15_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h16_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h16_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h17_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h17_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h18_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h18_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h19_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h19_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h20_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h20_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h21_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h21_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h22_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h22_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h23_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h23_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_plate_220_120",
+      "mass_kg": 0.28512,
+      "name": "Perforated plate 220 × 120 mm",
+      "path": "res://assets/construction_kit/parts/kit_plate_220_120.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h12_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h13_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h13_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h14_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h14_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h15_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h15_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h16_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h16_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h17_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h17_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h18_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h18_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h19_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h19_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h20_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h20_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h21_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h21_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h22_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h22_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h23_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h23_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h24_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h24_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h25_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h25_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h26_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h26_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h27_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h27_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h28_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h28_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h29_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h29_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_plate_60_40",
+      "mass_kg": 0.02592,
+      "name": "Perforated plate 60 × 40 mm",
+      "path": "res://assets/construction_kit/parts/kit_plate_60_40.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_plate_60_60",
+      "mass_kg": 0.03888,
+      "name": "Perforated plate 60 × 60 mm",
+      "path": "res://assets/construction_kit/parts/kit_plate_60_60.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_plate_80_60",
+      "mass_kg": 0.05184,
+      "name": "Perforated plate 80 × 60 mm",
+      "path": "res://assets/construction_kit/parts/kit_plate_80_60.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h9_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h10_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h11_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_rubber_pad",
+      "mass_kg": 0.028,
+      "name": "Grip pad 60 × 40 mm",
+      "path": "res://assets/construction_kit/parts/kit_rubber_pad.tres",
+      "ports": [
+        {
+          "id": "h0_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h0_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "h1_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_spacer_20",
+      "mass_kg": 0.012,
+      "name": "Through spacer 20 mm",
+      "path": "res://assets/construction_kit/parts/kit_spacer_20.tres",
+      "ports": [
+        {
+          "id": "bore_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "bore_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_u_bracket_large",
+      "mass_kg": 0.07,
+      "name": "U bracket 86 mm",
+      "path": "res://assets/construction_kit/parts/kit_u_bracket_large.tres",
+      "ports": [
+        {
+          "id": "axle_left_front",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "axle_left_back",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "axle_right_front",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "axle_right_back",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "base_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "kit_u_bracket_small",
+      "mass_kg": 0.05,
+      "name": "U bracket 58 mm",
+      "path": "res://assets/construction_kit/parts/kit_u_bracket_small.tres",
+      "ports": [
+        {
+          "id": "axle_left_front",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "axle_left_back",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "axle_right_front",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "axle_right_back",
+          "kind": 0,
+          "tag": "kit_axle_8"
+        },
+        {
+          "id": "base_2_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_2_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_3_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_3_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_4_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "base_4_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_5_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_5_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_6_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_6_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_7_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_7_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_8_front",
+          "kind": 0,
+          "tag": "kit_m4"
+        },
+        {
+          "id": "cheek_8_back",
+          "kind": 0,
+          "tag": "kit_m4"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 3,
+      "dc_motor": false,
+      "id": "learning_hc_sr04",
+      "mass_kg": 0.009,
+      "name": "HC-SR04 Ultrasonic",
+      "path": "res://assets/learning_biped/parts/learning_hc_sr04.tres",
+      "ports": [
+        {
+          "id": "mount",
+          "kind": 0,
+          "tag": "sensor_mount"
+        },
+        {
+          "id": "trig_pin",
+          "kind": 1,
+          "tag": "digital_io"
+        },
+        {
+          "id": "echo_pin",
+          "kind": 1,
+          "tag": "digital_io"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.25,
+      "board_profile": "",
+      "category": 2,
+      "dc_motor": false,
+      "id": "torque_micro_servo",
+      "mass_kg": 0.02,
+      "name": "Torque Micro Servo",
+      "path": "res://assets/learning_biped/parts/torque_micro_servo.tres",
+      "ports": [
+        {
+          "id": "mount_bottom",
+          "kind": 0,
+          "tag": "servo_mount"
+        },
+        {
+          "id": "output_shaft",
+          "kind": 0,
+          "tag": "servo_output"
+        },
+        {
+          "id": "signal_pin",
+          "kind": 1,
+          "tag": "pwm_signal"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "yaw_biped_body",
+      "mass_kg": 0.04,
+      "name": "Yaw Biped Body",
+      "path": "res://assets/learning_biped/parts/yaw_biped_body.tres",
+      "ports": [
+        {
+          "id": "hip_left",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "hip_right",
+          "kind": 0,
+          "tag": "base_mount"
+        },
+        {
+          "id": "face",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    },
+    {
+      "actuator_torque_nm": 0.0,
+      "board_profile": "",
+      "category": 1,
+      "dc_motor": false,
+      "id": "yaw_leg_link",
+      "mass_kg": 0.012,
+      "name": "Yaw Leg Link",
+      "path": "res://assets/learning_biped/parts/yaw_leg_link.tres",
+      "ports": [
+        {
+          "id": "hip_mount",
+          "kind": 0,
+          "tag": "arm_mount"
+        },
+        {
+          "id": "ankle_mount",
+          "kind": 0,
+          "tag": "base_mount"
+        }
+      ]
+    }
+  ],
+  "revision": "90b9930"
+}

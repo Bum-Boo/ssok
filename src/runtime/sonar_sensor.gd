@@ -6,15 +6,18 @@ var part_index: int = -1
 var realistic: bool = false
 var noise_seed: int = 1
 var _sample: int = 0
+var last_state: String = "unavailable"
 var last_valid: bool = false
 var last_distance_cm: float = 401.0
 
 
 func distance_cm() -> float:
+	last_state = "unavailable"
 	last_valid = false
 	last_distance_cm = 401.0
-	if not is_instance_valid(run_mode) or not run_mode.is_built():
+	if not is_instance_valid(run_mode) or not run_mode.is_built() or part_index < 0 or part_index >= run_mode.bodies.size():
 		return last_distance_cm
+	last_state = "out_of_range"
 	var pose: Transform3D = run_mode.part_global_transform(part_index)
 	var origin: Vector3 = pose * Vector3(0, 0, 0.012)
 	var exclusions: Array[RID] = run_mode.robot_rids(part_index)
@@ -40,6 +43,7 @@ func distance_cm() -> float:
 		random.seed = noise_seed + _sample
 		_sample += 1
 		nearest = clampf(nearest + random.randfn(0.0, 0.3), 2.0, 400.0)
+	last_state = "valid"
 	last_valid = true
 	last_distance_cm = nearest
 	return nearest

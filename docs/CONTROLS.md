@@ -173,3 +173,7 @@ godot --headless --path . -s tests/material_assets_check.gd
 
 실제 앱 화면 확인: `godot --path . -s tests/controls_screenshot.gd` →
 `user://control_previews/{edit,run,run_released}.png`.
+
+## Interface preferences
+
+Open the toolbar gear for language, system/light/dark appearance, separate interface/code text sizes and effects audio. Tab moves through controls; Esc closes settings and returns focus to the gear. Settings suspend manual/camera/assembly input while keeping running code and physics active. Preferences are device-local and separate from projects. See [the preference contract](INTERFACE_PREFERENCES.md).
