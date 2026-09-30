@@ -29,8 +29,19 @@ func _run() -> void:
 	_check(assembly.graph.parts == before, "wiring never moves or rotates any part")
 	_check(not assembly.connect_wire(1, &"signal_pin", 3, &"pin_9"), "occupied signal cannot be silently reassigned")
 	_check(not assembly.connect_wire(0, &"mount_top", 3, &"pin_9"), "mechanical ports cannot be wired")
-	_check(assembly.undo() and Wiring.pin_map(assembly.graph).is_empty(), "wire connection participates in undo")
-	_check(assembly.redo() and Wiring.pin_map(assembly.graph).has(10), "wire redo restores the selected pin")
+	main.projects_button.grab_focus()
+	await _history_key(false)
+	_check(Wiring.pin_map(assembly.graph).is_empty(), "Ctrl+Z undoes wiring while a toolbar button has focus")
+	await _history_key(true)
+	_check(Wiring.pin_map(assembly.graph).has(10), "Ctrl+Shift+Z restores wiring while a button has focus")
+	main.code_edit.grab_focus()
+	await _history_key(false)
+	_check(Wiring.pin_map(assembly.graph).has(10), "code-editor Undo cannot undo the assembly graph")
+	root.gui_release_focus()
+	await _history_key(false, true)
+	_check(Wiring.pin_map(assembly.graph).is_empty(), "Command+Z supports browser users on macOS")
+	await _history_key(true, true)
+	_check(Wiring.pin_map(assembly.graph).has(10), "Command+Shift+Z restores wiring")
 	assembly.select_part(assembly._part_nodes[3])
 	_check(assembly.begin_transform(&"translate"), "board transform starts")
 	assembly._constraint = &"X"
@@ -83,6 +94,8 @@ func _run() -> void:
 	_check(drive.powered and drive.target_deg == 35.0, "valid code drives the newly selected pin")
 	_check(not assembly.connect_wire(1, &"signal_pin", 3, &"pin_9"), "electrical editing is blocked during physics execution")
 	_check(panel.source_choice.disabled and not panel.can_edit.call(), "wiring UI follows run-mode ownership")
+	await _history_key(false)
+	_check(Wiring.pin_map(assembly.graph).has(10), "history shortcuts cannot edit the graph during physics execution")
 	main._ensure_assembly_mode()
 	main.code_edit.text = "arm = Servo(10)\narm.write(35)"
 	main.blocks.read_source(main.code_edit.text)
@@ -144,3 +157,17 @@ func _check(condition: bool, message: String) -> void:
 	if not condition:
 		_failures += 1
 		push_error("FAIL " + message)
+
+
+func _history_key(redo: bool, command: bool = false) -> void:
+	var event := InputEventKey.new()
+	event.keycode = KEY_Z
+	event.ctrl_pressed = not command
+	event.meta_pressed = command
+	event.shift_pressed = redo
+	event.pressed = true
+	root.push_input(event)
+	await process_frame
+	event.pressed = false
+	root.push_input(event)
+	await process_frame

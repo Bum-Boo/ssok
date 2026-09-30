@@ -375,6 +375,13 @@ func _text_has_focus() -> bool:
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and (event.ctrl_pressed or event.meta_pressed):
+		var key: Key = event.keycode if event.keycode != KEY_NONE else event.physical_keycode
+		var focus: Control = get_viewport().gui_get_focus_owner()
+		if key == KEY_Z and not (focus is LineEdit or focus is TextEdit):
+			_handle_key(event)
+			get_viewport().set_input_as_handled()
+			return
 	# GUI controls may consume the release of a gizmo drag that began in the viewport.
 	if event is InputEventMouseButton and _gizmo_drag:
 		var button := event as InputEventMouseButton
@@ -430,7 +437,7 @@ func _handle_key(event: InputEventKey) -> bool:
 		return true
 	if not event.pressed:
 		return false
-	if event.ctrl_pressed and key == KEY_Z:
+	if (event.ctrl_pressed or event.meta_pressed) and key == KEY_Z:
 		if event.shift_pressed:
 			redo()
 		else:

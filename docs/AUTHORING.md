@@ -29,6 +29,7 @@ The editor refuses a 257th part and transforms beyond 100 m on any axis, matchin
 Open **Wiring**, choose a motor signal and a compatible board pin, then select **Connect wire**.
 Connections use the actual electrical ports in the current graph. Occupied ports are unavailable;
 use **Disconnect wire** before reassigning a motor. Both operations support Ctrl/Cmd+Z and redo.
+These shortcuts work while buttons have focus; focused code and text fields retain their own undo.
 Connecting a wire preserves every part's position and rotation. Moving a part retains its wires
 while detaching mechanical mounts; deleting it removes all incident links. Cancel and undo restore
 the graph together. Wiring controls are disabled during a transform or run mode.
