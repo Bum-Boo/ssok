@@ -61,6 +61,16 @@ func _run() -> void:
 	main._ensure_assembly_mode()
 	var program: String = "left = Motor(pin0)\nright = Motor(pin12)\nsonar = Sonar(pin1, pin2)\ncount = 0\nwhile sonar.distance_cm() > 10:\n    if count < 4:\n        left.motor_on(\"forward\", 35)\n    else:\n        right.stop(\"coast\")\n    count = count + 1\n    sleep(20)\nstop()"
 	var profile: BoardProfile = BoardProfile.for_id("microbit")
+	main._load_preset(ConnectionGraph.new(), "", "")
+	main._on_palette_pressed(load("res://assets/parts/microbit.tres"))
+	_check(main.blocks.profile.id == "microbit" and main.runtime.sleep_scale == 0.001, "Lab palette board selects its actual profile and sleep unit")
+	_check(main.runtime.validate("sleep(500)", false).is_empty(), "Lab micro:bit preflight accepts milliseconds")
+	main.blocks._add_block()
+	var draft: Array = main.blocks.instructions.duplicate(true)
+	main.assembly.remove_part(main.assembly._part_nodes[0])
+	_check(main.blocks.has_draft() and main.blocks.instructions == draft and main.blocks.profile.id == "generic-servo", "board deletion preserves unapplied blocks and updates the palette")
+	main.assembly.undo()
+	_check(main.blocks.profile.id == "microbit" and main.blocks.instructions == draft, "undo restores the graph-derived board profile")
 	var parsed: Dictionary = ServoProgram.parse(program, profile)
 	_check(not parsed.has("error") and parsed.get("ast") is Array, "blocks use learner AST")
 	if not parsed.has("error"):

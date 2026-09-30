@@ -195,7 +195,8 @@ func set_profile(value: BoardProfile) -> void:
 	profile = value
 	operation_picker.clear()
 	for descriptor: Dictionary in profile.api:
-		operation_picker.add_item(tr(descriptor.label))
+		operation_picker.add_item(descriptor.label)
+	_rebuild()
 
 
 func highlight_line(line: int) -> void:

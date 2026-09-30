@@ -703,6 +703,15 @@ func _refresh_workspace() -> void:
 	if _workspace_state == null:
 		return
 	SsokLocale.bind(_workspace_state, "%d parts / %d connections", [assembly.graph.parts.size(), assembly.graph.links.size()])
+	if blocks != null and runtime != null:
+		var graph_profile: BoardProfile = BoardProfile.new()
+		for entry: Dictionary in assembly.graph.parts:
+			if not entry.part_def.board_profile_id.is_empty():
+				graph_profile = BoardProfile.for_id(entry.part_def.board_profile_id)
+				break
+		if graph_profile.id != blocks.profile.id:
+			blocks.set_profile(graph_profile)
+		runtime.sleep_scale = graph_profile.sleep_unit_seconds
 	if _empty_panel != null:
 		_empty_panel.visible = assembly.graph.parts.is_empty() and not mode_button.button_pressed
 	var can_edit: bool = not mode_button.button_pressed and not assembly.transform_active and assembly.selected_part != null

@@ -57,9 +57,8 @@ def main() -> None:
                     click("stages_tab")
                     if index:
                         click("stage_picker")
-                        page.keyboard.press("Home", delay=100)
-                        page.wait_for_timeout(500)
-                        for _ in range(index):
+                        # A mouse-opened Godot menu starts without keyboard item focus.
+                        for _ in range(index + 1):
                             page.keyboard.press("ArrowDown", delay=100)
                             page.wait_for_timeout(500)
                         page.keyboard.press("Enter", delay=100)
