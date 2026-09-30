@@ -362,6 +362,7 @@ func _build_ui() -> void:
 	stages.assembly = assembly
 	stages.run_mode = run_mode
 	stages.source = func() -> String: return code_edit.text
+	stages.pending_blocks = blocks.has_draft
 	stages.stage_requested.connect(func(stage: Dictionary) -> void:
 		_request_starter(func() -> void:
 			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.")

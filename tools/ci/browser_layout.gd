@@ -41,6 +41,10 @@ func _run() -> void:
 	_point("stage_picker", main.stages._picker)
 	_point("stage_load", _button(main.stages, "Load challenge"))
 	_point("stage_answer", _button(main.stages, "Try author solution"))
+	main.stages.get_child(0).scroll_vertical = 1000000
+	await _settle()
+	_point("stage_export", _button(main.stages, "Export verified challenge"))
+	main.stages.get_child(0).scroll_vertical = 0
 	main._replace_dialog.popup_centered()
 	await _settle()
 	_point("stage_confirm", main._replace_dialog.get_ok_button())

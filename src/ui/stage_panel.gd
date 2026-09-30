@@ -7,6 +7,7 @@ signal lab_requested
 var assembly: AssemblyMode
 var run_mode: RunMode
 var source: Callable
+var pending_blocks: Callable
 var evaluator: StageEvaluator = StageEvaluator.new()
 var current: Dictionary = {}
 var _catalog: Array[Dictionary] = []
@@ -182,6 +183,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _author() -> void:
+	if pending_blocks.is_valid() and pending_blocks.call():
+		SsokLocale.bind(_status, "Blocks are ready. Apply them to update the code; Run code starts the robot.")
+		return
 	if run_mode.is_built() or _target.selected < 0:
 		SsokLocale.bind(_status, "Return to edit mode and choose a target part first.")
 		return
@@ -196,11 +200,15 @@ func _author() -> void:
 
 
 func _export() -> bool:
-	if current.is_empty() or _proof_fingerprint.is_empty() or _proof_fingerprint != StageDefinition.fingerprint(current, assembly.graph, source.call()):
+	if current.is_empty() or _proof_fingerprint.is_empty() or (pending_blocks.is_valid() and pending_blocks.call()) or _proof_fingerprint != StageDefinition.fingerprint(current, assembly.graph, source.call()):
 		SsokLocale.bind(_status, "Run and clear this exact build and code before exporting.")
 		return false
 	var stage: Dictionary = current.duplicate(true)
 	stage.author_solution = ProjectStore.document(stage.title, assembly.graph, source.call())
 	_transfer.text = StageDefinition.serialize(stage)
+	_transfer.select_all()
+	_transfer.grab_focus()
+	if OS.has_feature("web"):
+		JavaScriptBridge.download_buffer(_transfer.text.to_utf8_buffer(), "ssok-challenge.json", "application/json")
 	SsokLocale.bind(_status, "Challenge exported. Imported files must be tested again.")
 	return true

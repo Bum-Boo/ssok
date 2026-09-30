@@ -38,6 +38,9 @@ func _run() -> void:
 		print("STAGE_RESULT ", stage.id, " ", JSON.stringify(main.stages.evaluator.result()))
 		_check(main.stages.evaluator.success, "actual author solution clears " + stage.id)
 		_check(main.stages._export(), "fresh observed proof enables export")
+		main.blocks.instructions.append({"op": "raw", "raw": "# pending edit"})
+		_check(not main.stages._export(), "unapplied block draft cannot export an older verified program")
+		main.blocks.instructions.pop_back()
 		_check(not StageDefinition.parse(main.stages._transfer.text).is_empty(), "exported challenge validates")
 		main.code_edit.text += "\n# changed"
 		_check(not main.stages._export(), "changed source invalidates proof")

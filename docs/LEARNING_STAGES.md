@@ -40,7 +40,8 @@ of whether the learner uses it, so a timer-only solution is judged on the same r
 In Lab, name the challenge, choose a catalog target and a metric/range/hold time, then choose
 "Turn my build into a challenge". Run and clear it with your own code before exporting. Export
 binds to the exact conditions, graph and source; an edit requires a new observed run. Copy the
-JSON to another device and paste it into "Import challenge". Imported files are untrusted and
+JSON to another device and paste it into "Import challenge". Web export also downloads a JSON
+file; desktop export selects its JSON for copying, as in the existing project transfer. Imported files are untrusted and
 must be rerun. Project files retain the old schema; stage files use `ssok-stage` v1 with scene,
 conditions, constraints and an author solution. Judge scripts and arbitrary resource paths are
 rejected. A file's author solution proves nothing about another machine/physics backend.

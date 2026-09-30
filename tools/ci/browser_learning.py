@@ -32,7 +32,7 @@ def main() -> None:
             browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
                 args=["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"])
             context = browser.new_context(viewport=dict(zip(("width", "height"), layout["viewport"])),
-                permissions=["clipboard-read", "clipboard-write"], locale="en-US")
+                permissions=["clipboard-read", "clipboard-write"], locale="en-US", accept_downloads=True)
             page = context.new_page()
             clipboard = context.new_page()
             clipboard.route("**/__clipboard__", lambda route: route.fulfill(body="Synthetic learner code"))
@@ -83,6 +83,17 @@ def main() -> None:
                     result["checks"].append(f"{name}: actual Web physics cleared declarative stage")
                     capture_view(page, output / f"{name}-success.png")
                     print(f"PASS Web {name}: {observation['result']['stage']}", flush=True)
+                click("stages_tab")
+                page.mouse.move(*layout["points"]["stage_picker"])
+                page.mouse.wheel(0, 3000)
+                page.wait_for_timeout(1000)
+                with page.expect_download(timeout=30000) as pending:
+                    click("stage_export")
+                challenge_path = output / "verified-challenge.json"
+                pending.value.save_as(challenge_path)
+                challenge = json.loads(challenge_path.read_text())
+                assert challenge["format"] == "ssok-stage" and len(challenge["author_solution"]["graph"]["parts"]) == 10
+                result["checks"].append("Verified Web challenge downloads as a portable JSON file")
                 click("stop")
                 click("code_tab")
                 source = "while True:\n    pass\n"
