@@ -142,7 +142,9 @@ static func populate(theme: Theme) -> void:
 	var window_border: StyleBoxFlat = _flat(BG, 0, BORDER, 8)
 	window_border.expand_margin_top = font_size(36)
 	theme.set_stylebox(&"embedded_border", &"Window", window_border)
+	theme.set_stylebox(&"embedded_unfocused_border", &"Window", window_border)
 	theme.set_color(&"title_color", &"Window", TEXT)
+	theme.set_color(&"title_unfocused_color", &"Window", TEXT_DIM)
 	var close_image := Image.new()
 	close_image.load_svg_from_string("<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><path d='M4 4L16 16M16 4L4 16' stroke='#%s' stroke-width='2'/></svg>" % TEXT.to_html(false))
 	var close_texture: ImageTexture = ImageTexture.create_from_image(close_image)
@@ -164,6 +166,11 @@ static func populate(theme: Theme) -> void:
 	for state: StringName in [&"normal", &"hover", &"pressed"]:
 		theme.set_stylebox(state, &"CheckBox", _flat(Color.TRANSPARENT, 6, Color.TRANSPARENT, 4))
 	theme.set_stylebox(&"focus", &"CheckBox", _flat(Color.TRANSPARENT, 6, ACCENT, 4))
+	for state: StringName in [&"unchecked", &"checked"]:
+		var checkbox_image := Image.new()
+		var mark: String = "<path d='M5 10L8 13L15 6' fill='none' stroke='#%s' stroke-width='2'/>" % BG_SUNKEN.to_html(false) if state == &"checked" else ""
+		checkbox_image.load_svg_from_string("<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><rect x='2' y='2' width='16' height='16' rx='3' fill='%s' stroke='#%s' stroke-width='2'/>%s</svg>" % ["#" + ACCENT.to_html(false) if state == &"checked" else "none", TEXT_DIM.to_html(false), mark])
+		theme.set_icon(state, &"CheckBox", ImageTexture.create_from_image(checkbox_image))
 	theme.set_color(&"font_focus_color", &"OptionButton", TEXT)
 	theme.set_constant(&"modulate_arrow", &"OptionButton", 1)
 
@@ -201,6 +208,8 @@ static func populate(theme: Theme) -> void:
 	theme.set_stylebox(&"panel", &"PopupMenu", _flat(BG, 8, BORDER, 8))
 	theme.set_stylebox(&"hover", &"PopupMenu", _flat(BG_RAISED, 8, Color.TRANSPARENT, 4))
 	theme.set_color(&"font_color", &"PopupMenu", TEXT)
+	theme.set_color(&"font_hover_color", &"PopupMenu", TEXT)
+	theme.set_color(&"font_disabled_color", &"PopupMenu", TEXT_DIM)
 	theme.set_constant(&"v_separation", &"PopupMenu", 12)
 	theme.set_stylebox(&"panel", &"TabContainer", _flat(BG, 12, Color.TRANSPARENT, 0))
 	for type: StringName in [&"TabContainer", &"TabBar"]:

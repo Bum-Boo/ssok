@@ -113,6 +113,9 @@ func _run() -> void:
 	_point("apply_blocks", _button(main.blocks, "Apply blocks to code"))
 	_point("settings_button", main.settings_button)
 	main._open_settings()
+	var settings_requested_size: Vector2i = root.size - 2 * main.settings.position
+	await _settle()
+	main.settings.size = settings_requested_size
 	await _settle()
 	_point("settings_language", main.settings.language_picker)
 	_point("settings_appearance", main.settings.appearance_picker)
