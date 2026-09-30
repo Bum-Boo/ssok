@@ -39,7 +39,8 @@ func _run() -> void:
 				await physics_frame
 			var evaluator := StageEvaluator.new()
 			var stage: Dictionary = StageCatalog.builtins()[2]
-			evaluator.configure(stage)
+			evaluator.configure(stage, graph)
+			_check(evaluator.start(graph), "start sensor challenge")
 			var program: String = RobotCarPreset.BRAKE_CODE if mode == "sensor" else RobotCarPreset.ANSWER_CODE.replace("55", "35").replace("3000", "1400")
 			runtime.run(program)
 			var stopped_ticks: int = 0
