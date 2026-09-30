@@ -1,0 +1,279 @@
+{
+  "format": "ssok-project",
+  "graph": {
+    "links": [
+      {
+        "a_part": 0,
+        "a_port": "hip_left",
+        "b_part": 1,
+        "b_port": "mount_bottom"
+      },
+      {
+        "a_part": 1,
+        "a_port": "output_shaft",
+        "b_part": 2,
+        "b_port": "hip_mount"
+      },
+      {
+        "a_part": 2,
+        "a_port": "ankle_mount",
+        "b_part": 3,
+        "b_port": "mount_bottom"
+      },
+      {
+        "a_part": 3,
+        "a_port": "output_shaft",
+        "b_part": 4,
+        "b_port": "ankle_front"
+      },
+      {
+        "a_part": 0,
+        "a_port": "hip_right",
+        "b_part": 5,
+        "b_port": "mount_bottom"
+      },
+      {
+        "a_part": 5,
+        "a_port": "output_shaft",
+        "b_part": 6,
+        "b_port": "hip_mount"
+      },
+      {
+        "a_part": 6,
+        "a_port": "ankle_mount",
+        "b_part": 7,
+        "b_port": "mount_bottom"
+      },
+      {
+        "a_part": 7,
+        "a_port": "output_shaft",
+        "b_part": 8,
+        "b_port": "ankle_back"
+      },
+      {
+        "a_part": 0,
+        "a_port": "face",
+        "b_part": 9,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 3,
+        "a_port": "signal_pin",
+        "b_part": 10,
+        "b_port": "pin_9"
+      },
+      {
+        "a_part": 5,
+        "a_port": "signal_pin",
+        "b_part": 10,
+        "b_port": "pin_3"
+      },
+      {
+        "a_part": 7,
+        "a_port": "signal_pin",
+        "b_part": 10,
+        "b_port": "pin_6"
+      },
+      {
+        "a_part": 1,
+        "a_port": "signal_pin",
+        "b_part": 10,
+        "b_port": "pin_10"
+      }
+    ],
+    "parts": [
+      {
+        "id": "biped_body",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.18299999833106995,
+          0.0
+        ]
+      },
+      {
+        "id": "servo",
+        "transform": [
+          -1.0,
+          -8.742277657347586e-08,
+          0.0,
+          8.742277657347586e-08,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.019999999552965164,
+          0.1379999965429306,
+          0.0
+        ]
+      },
+      {
+        "id": "leg_link",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.03750000149011612,
+          0.11900000274181366,
+          0.0
+        ]
+      },
+      {
+        "id": "servo",
+        "transform": [
+          4.371138828673793e-08,
+          -8.742277657347586e-08,
+          1.0,
+          -3.82137093032941e-15,
+          -1.0,
+          -8.742277657347586e-08,
+          1.0,
+          0.0,
+          -4.371138828673793e-08,
+          -0.03750000149011612,
+          0.08400000631809235,
+          0.0
+        ]
+      },
+      {
+        "id": "foot",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.03750000149011612,
+          0.055000003427267075,
+          0.0
+        ]
+      },
+      {
+        "id": "servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          -8.742277657347586e-08,
+          0.0,
+          8.742277657347586e-08,
+          -1.0,
+          0.019999999552965164,
+          0.1379999965429306,
+          0.0
+        ]
+      },
+      {
+        "id": "leg_link",
+        "transform": [
+          -1.0,
+          0.0,
+          8.742277657347586e-08,
+          0.0,
+          1.0,
+          0.0,
+          -8.742277657347586e-08,
+          0.0,
+          -1.0,
+          0.03750000149011612,
+          0.11900000274181366,
+          -9.61650536979164e-10
+        ]
+      },
+      {
+        "id": "servo",
+        "transform": [
+          4.371138828673793e-08,
+          -8.742277657347586e-08,
+          -1.0,
+          -3.82137093032941e-15,
+          -1.0,
+          8.742277657347586e-08,
+          -1.0,
+          0.0,
+          -4.371138828673793e-08,
+          0.03750000149011612,
+          0.08400000631809235,
+          -9.61650536979164e-10
+        ]
+      },
+      {
+        "id": "foot",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.03750000149011612,
+          0.055000003427267075,
+          -9.313225746154785e-10
+        ]
+      },
+      {
+        "id": "hc_sr04",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.19300000369548798,
+          0.02330000139772892
+        ]
+      },
+      {
+        "id": "arduino_uno",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.5,
+          0.05079999938607216,
+          -0.11999999731779099
+        ]
+      }
+    ],
+    "version": 1
+  },
+  "saved_utc": "2026-09-30T02:23:41",
+  "source": "from servo import Servo\n\nleft_hip = Servo(5)\nright_hip = Servo(3)\nleft_foot = Servo(9)\nright_foot = Servo(6)\n\nleft_hip.write(0)\nright_hip.write(0)\nleft_foot.write(0)\nright_foot.write(0)\nsleep(0.5)\n\n# lean onto the right foot, swing the left leg, put it down\nright_foot.write(30)\nsleep(0.4)\nleft_hip.write(20)\nsleep(0.4)\nleft_hip.write(0)\nsleep(0.3)\nright_foot.write(0)\nsleep(0.5)\n\n# lean onto the left foot, swing the right leg, put it down\nleft_foot.write(30)\nsleep(0.4)\nright_hip.write(20)\nsleep(0.4)\nright_hip.write(0)\nsleep(0.3)\nleft_foot.write(0)\nsleep(0.5)\n\nsleep(0.3)",
+  "title": "Browser imported biped",
+  "version": 1
+}

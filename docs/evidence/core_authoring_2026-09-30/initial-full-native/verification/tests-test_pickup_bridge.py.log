@@ -1,0 +1,25 @@
+test_exact_model_one_call_strict_bounded_batch_no_tools_no_storage (tests.test_pickup_bridge.APITests.test_exact_model_one_call_strict_bounded_batch_no_tools_no_storage) ... ok
+test_http_error_no_retry_no_secret_body (tests.test_pickup_bridge.APITests.test_http_error_no_retry_no_secret_body) ... ok
+test_incomplete_refusal_and_bad_shape_fail_but_retain_valid_usage (tests.test_pickup_bridge.APITests.test_incomplete_refusal_and_bad_shape_fail_but_retain_valid_usage) ... ok
+test_invalid_response_and_usage_are_sanitized (tests.test_pickup_bridge.APITests.test_invalid_response_and_usage_are_sanitized) ... ok
+test_missing_usage_stays_unknown_instead_of_claiming_zero_tokens (tests.test_pickup_bridge.APITests.test_missing_usage_stays_unknown_instead_of_claiming_zero_tokens) ... ok
+test_pre_cancel_and_encoding_cancel_never_dispatch (tests.test_pickup_bridge.APITests.test_pre_cancel_and_encoding_cancel_never_dispatch) ... ok
+test_auth_origin_size_and_content_type (tests.test_pickup_bridge.HTTPTests.test_auth_origin_size_and_content_type) ... ok
+test_concurrent_mixed_http_jobs_accept_exactly_one (tests.test_pickup_bridge.HTTPTests.test_concurrent_mixed_http_jobs_accept_exactly_one) ... ok
+test_propose_poll_cancel_and_status (tests.test_pickup_bridge.HTTPTests.test_propose_poll_cancel_and_status) ... ok
+test_biped_call_consumes_same_budget (tests.test_pickup_bridge.ServiceTests.test_biped_call_consumes_same_budget) ... ok
+test_cancel_in_flight_retains_billable_usage_without_candidates (tests.test_pickup_bridge.ServiceTests.test_cancel_in_flight_retains_billable_usage_without_candidates) ... ok
+test_cancellation_before_dispatch_is_free_and_rejects_biped_overlap (tests.test_pickup_bridge.ServiceTests.test_cancellation_before_dispatch_is_free_and_rejects_biped_overlap) ... ok
+test_close_cancels_pickup_and_rejects_new_jobs (tests.test_pickup_bridge.ServiceTests.test_close_cancels_pickup_and_rejects_new_jobs) ... ok
+test_failed_call_still_counts_and_invalid_proposal_retains_usage (tests.test_pickup_bridge.ServiceTests.test_failed_call_still_counts_and_invalid_proposal_retains_usage) ... ok
+test_missing_key_consent_and_budget_are_checked (tests.test_pickup_bridge.ServiceTests.test_missing_key_consent_and_budget_are_checked) ... ok
+test_mock_reports_no_gpt_calls_and_uses_best_eligible_feedback (tests.test_pickup_bridge.ServiceTests.test_mock_reports_no_gpt_calls_and_uses_best_eligible_feedback) ... ok
+test_candidate_schema_count_reason_and_policy (tests.test_pickup_bridge.ValidationTests.test_candidate_schema_count_reason_and_policy) ... ok
+test_default_policy_and_all_numeric_bounds (tests.test_pickup_bridge.ValidationTests.test_default_policy_and_all_numeric_bounds) ... ok
+test_exact_feedback_subset_and_isolation (tests.test_pickup_bridge.ValidationTests.test_exact_feedback_subset_and_isolation) ... ok
+test_request_schema_size_and_integer_limits (tests.test_pickup_bridge.ValidationTests.test_request_schema_size_and_integer_limits) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.543s
+
+OK

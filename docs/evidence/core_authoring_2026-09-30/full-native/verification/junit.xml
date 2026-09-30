@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="ssok" tests="60" failures="1" time="203.479"><testcase name="import" time="3.722" /><testcase name="scene-load" time="0.465" /><testcase name="assembly_snap_check" time="0.264" /><testcase name="authoring_ui_check" time="0.615" /><testcase name="biped_app_check" time="2.87" /><testcase name="biped_board_clearance_check" time="0.565" /><testcase name="biped_motion_check" time="3.521" /><testcase name="blender_camera_check" time="0.264" /><testcase name="blender_edit_check" time="0.265" /><testcase name="block_program_check" time="0.565" /><testcase name="browser_evidence_check" time="1.016" /><testcase name="construction_kit_check" time="0.615" /><testcase name="construction_kit_motion_check" time="5.776" /><testcase name="construction_kit_store_check" time="1.467" /><testcase name="construction_kit_ui_check" time="0.916" /><testcase name="control_flow_check" time="0.565" /><testcase name="core_authoring_check" time="0.816" /><testcase name="humanoid_contract_check" time="0.264" /><testcase name="humanoid_motion_check-walk" time="1.166" /><testcase name="humanoid_motion_check-backward" time="1.166" /><testcase name="humanoid_motion_check-pick" time="1.116" /><testcase name="humanoid_motion_check-run" time="1.116" /><testcase name="humanoid_motion_check-walk-reverse-links" time="1.116" /><testcase name="humanoid_motion_check-run-reverse-links" time="1.116" /><testcase name="humanoid_motion_check-run-settle-frames=181" time="1.116" /><testcase name="humanoid_ui_check" time="1.216" /><testcase name="humanoid_ui_check-modular" time="1.567" /><testcase name="keyboard_navigation_check" time="0.565" /><testcase name="learned_app_check" time="0.916" /><testcase name="learned_policy_check" time="1.216" /><testcase name="learned_tracking_check" time="1.567" /><testcase name="localization_check" time="1.016" /><testcase name="manual_control_check" time="0.264" /><testcase name="material_assets_check" time="0.264" /><testcase name="mesh_assets_check" time="0.465" /><testcase name="modular_humanoid_check-walk" time="1.016" /><testcase name="modular_humanoid_check-pick" time="1.016" /><testcase name="modular_humanoid_check-pick-reverse-links" time="1.016" /><testcase name="modular_pickup_parallel_check" time="2.023" /><testcase name="motion_lab_check" time="4.092" /><testcase name="motion_lab_ui_check" time="120.616"><failure message="exit 1; see motion_lab_ui_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS current biped has a stable snapshot fingerprint
+PASS opening the lab stops manual control
+PASS modal lab suspends code and viewport navigation
+PASS typing a goal cannot leave WASD movement active
+PASS unversioned bridge cannot start a search
+PASS different-program bridge is rejected before evaluation or paid proposals
+PASS applying while physics is running is rejected
+PASS same-graph edit-mode result applies explicitly
+PASS apply changes the existing WASD joint program
+PASS apply changes neither learner code nor assembly
+PASS changed graph invalidates the result immediately
+PASS changing the graph resets its applied policy to defaults
+PASS stale policy cannot be applied to a changed graph
+PASS restoring the exact assembly permits explicit reapplication
+PASS fallen result is rejected
+PASS nonfinite policy is rejected
+PASS bridge metrics must match the locally captured graph fingerprint
+PASS unversioned measurements cannot certify the current controller
+PASS a different controller family cannot supply eligible measurements
+PASS mismatched best rejects the response even when history matches
+PASS malformed best policy cannot hide behind valid history
+PASS malformed history metrics are rejected before rendering
+PASS result can be saved under user://
+PASS saved result excludes token, goal and model output text
+PASS saved measurements retain the controller identity
+PASS saved bounded policy loads without automatic application
+PASS loading alone does not change the active movement program
+PASS live API search requires explicit consent
+PASS live consent permits a valid search request without sending it
+PASS unencrypted non-loopback endpoint is rejected
+PASS loopback-looking external hostname is rejected
+PASS URL credentials are rejected
+PASS invalid TCP port is rejected
+PASS loopback IPv6 and HTTPS origins are accepted
+PASS OpenAI API key pasted in bridge field is rejected
+PASS failed HTTP connection is safe and leaves the lab disconnected
+PASS unavailable active search exposes explicit recovery without silently forgetting
+PASS disconnect requires acknowledgement that the remote search is not cancelled
+PASS confirmed forget permits new bridge credentials after a restart
+PASS lost start response blocks implicit paid retry
+PASS closing and reopening does not silently forget an unknown start
+PASS explicit recovery resets local state without sending a new search
+PASS HTTP fixture is explicitly a mock provider
+FAIL native HTTP starts and polls an isolated Godot trial to completion
+FAIL mock search records baseline and candidate without GPT calls
+SCRIPT ERROR: Invalid call. Nonexistent function 'get' in base 'Nil'.
+          at: _check_http_flow (res://tests/motion_lab_ui_check.gd:176)
+          GDScript backtrace (most recent call first):
+              [0] _check_http_flow (res://tests/motion_lab_ui_check.gd:176)
+PASS closing restores navigation without automatically resuming movement
+motion_lab_ui_check: 46 checks, 2 failures
+</failure></testcase><testcase name="pickup_bridge_ui_check" time="6.878" /><testcase name="pickup_lab_ui_check" time="4.824" /><testcase name="pickup_store_check" time="2.019" /><testcase name="pickup_trial_check" time="3.822" /><testcase name="project_store_check" time="1.216" /><testcase name="relative_code_check" time="0.365" /><testcase name="run_mode_check" time="0.265" /><testcase name="servo_torque_budget_check" time="0.264" /><testcase name="tutorial_ui_check" time="0.816" /><testcase name="viewport_framing_check" time="1.267" /><testcase name="workshop_ui_check" time="0.715" /><testcase name="yaw_biped_check" time="0.264" /><testcase name="tests-motion_mcp_check.py" time="3.972" /><testcase name="tests-test_ci_verify.py" time="0.164" /><testcase name="tests-test_pickup_bridge.py" time="1.667" /><testcase name="tests-test_release_documents.py" time="1.016" /><testcase name="tools-motion_lab-test_races.py" time="1.116" /><testcase name="tools-motion_lab-test_service.py" time="1.166" /><testcase name="tools-rl_lab-test_rl_lab.py" time="0.365" /></testsuite>

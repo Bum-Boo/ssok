@@ -1,0 +1,67 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 3,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.594,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.971,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "core_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.624,
+      "timeout": false,
+      "engine_error": false,
+      "log": "core_authoring_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/core_authoring_check.gd"
+      ]
+    }
+  ]
+}
