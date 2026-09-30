@@ -1,0 +1,18 @@
+test_maintain (unittest.loader._FailedTest.test_maintain) ... ERROR
+
+======================================================================
+ERROR: test_maintain (unittest.loader._FailedTest.test_maintain)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_maintain
+Traceback (most recent call last):
+  File "/home/hojun/.local/share/uv/python/cpython-3.14.7-linux-x86_64-gnu/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/hojun/.local/share/agent-remote/jobs/20260930-175742-ssok-merged-native-66cbbd24/work/tools/docs/test_maintain.py", line 10, in <module>
+    import maintain
+ModuleNotFoundError: No module named 'maintain'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

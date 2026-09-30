@@ -1754,3 +1754,24 @@ msgstr "課題を読み込みました。自分の方法で解いてみましょ
 
 msgid "Name '%s' is not defined. Did you mean '%s'?"
 msgstr "'%s' は未定義です。'%s' のことですか？"
+
+msgid "This attempt could not be judged. Return to edit mode and try again."
+msgstr "今回の試行は判定できません。編集モードに戻って再実行してください。"
+
+msgid "Several parts match this goal. Choose one target when creating the challenge."
+msgstr "目標に該当するパーツが複数あります。課題を作るときに対象を一つ選んでください。"
+
+msgid "The target part changed or was removed. Choose it again and recreate the challenge."
+msgstr "対象パーツが変更または削除されました。選び直して課題を作成してください。"
+
+msgid "This build exceeds the challenge part limit. Remove parts and try again."
+msgstr "課題のパーツ数制限を超えています。パーツを減らして再実行してください。"
+
+msgid "The program stopped with an error. Fix the highlighted code and try again."
+msgstr "コードのエラーで実行が止まりました。表示されたコードを修正して再実行してください。"
+
+msgid "The target sensor is unavailable. Check its wiring and try again."
+msgstr "対象センサーを読み取れません。配線を確認して再実行してください。"
+
+msgid "Attempt stopped. Your build and code are kept."
+msgstr "試行を停止しました。組み立てとコードは保持されています。"

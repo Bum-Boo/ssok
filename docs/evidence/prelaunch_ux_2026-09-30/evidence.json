@@ -1,0 +1,46 @@
+{
+  "source_revision": "90b9930",
+  "capture": "Actual native Godot viewport, automated app actions, GL Compatibility, 1440x900, ko, isolated user settings",
+  "audio": "Dummy; no listening test",
+  "screenshots": [
+    {
+      "file": "screenshots/01-first-entry.png",
+      "sha256": "a206073ce96dee3d44ddebe9e2c41e77d48d75cb079f448457117e92da40bf1b",
+      "captured_at": "2026-09-30T08:00:11.585598+00:00",
+      "inspected": true,
+      "accepted": true
+    },
+    {
+      "file": "screenshots/02-flag-assembly.png",
+      "sha256": "700435ada3e100223e00d56c050ea2145948d24587ed4dc51a8eddd143b39bff",
+      "captured_at": "2026-09-30T08:00:59.208730+00:00",
+      "inspected": true,
+      "accepted": true
+    },
+    {
+      "file": "screenshots/03-flag-result.png",
+      "sha256": "1ec8658b53d79b4822ecc3e43128864299e9b0f3256d712afb27775b7c87e8b5",
+      "captured_at": "2026-09-30T08:02:00.245549+00:00",
+      "inspected": true,
+      "accepted": true
+    },
+    {
+      "file": "screenshots/04-kit-lab-authoring.png",
+      "sha256": "a5a85dcad077ad8804b150fa4a6102df183f2ef745206c6d4e7ffd374b3a98bd",
+      "captured_at": "2026-09-30T08:02:50.547399+00:00",
+      "inspected": true,
+      "accepted": true
+    },
+    {
+      "file": "screenshots/05-car-challenge.png",
+      "sha256": "52232767f72ef4294f31d4cf1860a3b0b8e0a58604aadb0aa05a290cf60045b6",
+      "captured_at": "2026-09-30T08:03:57.167812+00:00",
+      "inspected": true,
+      "accepted": true
+    }
+  ],
+  "driver_exit_code": 143,
+  "driver_exit_note": "All five captures and the real flag Success were recorded before the process ended with SIGTERM; clean scripted shutdown not verified. Reason for termination unconfirmed.",
+  "scope": "UX and visual inventory audit; no fresh release regression, web verification or user study",
+  "source_repository": "Bum-Boo/ssok"
+}

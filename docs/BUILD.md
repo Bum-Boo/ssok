@@ -198,8 +198,8 @@ on native Windows; Mac validation status is recorded separately rather than infe
 before exporting the targets. The workflow retains verification logs even on failure, and uses
 official GitHub Actions pinned by commit SHA. Python dependencies are pinned in the lock file.
 
-Set repository **Settings → Pages → Source → GitHub Actions** once. A successful `main` push
-deploys its Web export; a manual workflow on another branch deploys only if `deploy` is checked.
+Set repository **Settings → Pages → Source → GitHub Actions** once. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision,
+run the workflow manually on that revision with `deploy` checked.
 The `github-pages` environment reports the resulting URL. Publishing a GitHub Release triggers
 the same validation/build and attaches platform ZIPs (including the ZIP containing Windows setup), hashes and metadata
 to that existing release.
@@ -218,3 +218,10 @@ a successful public deployment: open the final URL anonymously and run the brows
 
 This build tooling changes no in-app text; existing PO catalogs remain current. The new
 installer uses NSIS language packs and translates its architecture message in all four languages.
+
+### Browser authoring on local graphics
+
+`browser_authoring.py --hardware --executable /path/to/chrome` uses the local display and OpenGL,
+matching the learning check's optional graphics mode. Omit `--hardware` for CI's headless
+SwiftShader path. Rebuild or regenerate `browser-layout.json` with the same application source
+when changing the board block catalog: the authoring check uses its semantic Wait index.

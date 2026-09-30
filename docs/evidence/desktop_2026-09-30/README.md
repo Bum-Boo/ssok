@@ -14,7 +14,11 @@ Godot `4.7.2.stable.official.ed1daf0bf`에서 만들었다. 빌드 시작/끝 HE
 - Web·Linux 기존 대상도 같은 frozen source에서 export 성공.
 
 기존 6개 이슈 통합 코드 `ed6ed32`를 바탕으로 별도 `feat/39-desktop-installers` 작업실에서
-패키징했다. 동시 진행된 main 통합과 설정 UI 작업을 이 설치 파일에 포함했다고 주장하지 않는다.
+패키징했다. 이후 branch에는 최신 main `6eacf39`를 통합하고 빌드 도구/문서 2개 충돌을 해결했다.
+Windows/macOS도 새 Stage identity JSON을 명시적으로 포함하도록 맞췄다.
+[통합 focused 검사](integrated-focused/SUMMARY.md) 6묶음/0실패.
+통합 소스는 아직 후보 설치 파일 `b374211`의 정체성과 다르며 재빌드가 필요하다.
+동시 설정 UI 작업은 포함하지 않았다.
 앱 GDScript·장면·부품·PO 변경은 없다. Apple Silicon texture import 설정 하나를 추가했으며
 GL Compatibility, GodotPhysics3D, 정확 엔진 pin, ADR0001/0013/0023을 유지했다.
 NSIS 설치 UI는 en/ko/zh_CN/ja 4언어이며 사용자 권한만 사용한다.

@@ -1,0 +1,31 @@
+extends SceneTree
+var main: Node3D
+const OUT: String = "/home/bumboo/Projects/ssok-settings-audit-20260930/build/settings-audit"
+func _initialize() -> void:
+	_run.call_deferred()
+func snapshot() -> String:
+	return var_to_str([main.code_edit.text, main.assembly.graph.parts, main.assembly.graph.links, main.blocks.instructions, main.program_tabs.current_tab, main.mode_button.button_pressed])
+func _run() -> void:
+	root.size = Vector2i(1600, 1000)
+	main = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	await process_frame
+	SsokLocale.select_locale("ko", false)
+	main._on_microbit_arm_pressed()
+	main.code_edit.text += "\n# learner draft / 学習者の下書き\n"
+	main.blocks._add_block()
+	var before: String = snapshot()
+	var result: Dictionary = {"parts": main.assembly.graph.parts.size(), "links": main.assembly.graph.links.size(), "blocks_draft": main.blocks.has_draft(), "source": "4340fe2", "locales": {}}
+	for index: int in [3, 2, 1]:
+		main.language_picker.item_selected.emit(index)
+		for frame: int in range(8):
+			await process_frame
+		result.locales[SsokLocale.LOCALES[index]] = snapshot() == before
+	SsokLocale.select_locale("en", false)
+	for frame: int in range(8):
+		await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT + "/06-populated-english.png")
+	FileAccess.open(OUT + "/populated.json", FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	main.free()
+	quit()

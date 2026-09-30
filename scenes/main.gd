@@ -111,11 +111,14 @@ func _ready() -> void:
 	runtime.finished.connect(func() -> void:
 		if stages != null and stages.evaluator.success:
 			_set_status("Challenge cleared. Change your build and try another solution.")
-		elif stages != null and stages.evaluator.expired:
-			_set_status("Time is up. Change your build or code and try again.")
+		elif stages != null and stages.evaluator.status in ["not_met", "cancelled", "indeterminate"]:
+			stages._show_result()
 		else:
 			_set_status("finished"))
-	runtime.failed.connect(func(n: int, msg: String) -> void: _show_code_failure(n, msg, int(runtime.last_failure.get("column", 1))))
+	runtime.failed.connect(func(n: int, msg: String) -> void:
+		_show_code_failure(n, msg, int(runtime.last_failure.get("column", 1)))
+		if is_instance_valid(stages):
+			stages.on_program_error())
 	add_child(runtime)
 	manual_controller = ManualController.new()
 	add_child(manual_controller)
@@ -367,9 +370,17 @@ func _build_ui() -> void:
 	stages.name = "Stages"
 	stages.assembly = assembly
 	stages.run_mode = run_mode
+	stages.attempt_terminated.connect(func() -> void: runtime.stop())
 	stages.source = func() -> String: return code_edit.text
 	stages.pending_blocks = blocks.has_draft
 	stages.outcome_changed.connect(func(message: String) -> void: _set_status(message))
+	stages.context_provider = func() -> Dictionary:
+		var context: Dictionary = StageDefinition.runtime_context(run_mode, assembly.graph, stages._resource_identity)
+		context.board = blocks.profile.id
+		context.board_api = blocks.profile.api.duplicate(true)
+		context.pin_constants = blocks.profile.pin_constants.duplicate(true)
+		context.sleep_unit_seconds = blocks.profile.sleep_unit_seconds
+		return context
 	stages.stage_requested.connect(func(stage: Dictionary) -> void:
 		_request_starter(func() -> void:
 			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.")
@@ -938,7 +949,14 @@ func _on_run_pressed() -> void:
 		mode_button.button_pressed = true
 	_apply_control_source()
 	flag_mission.on_run_mode_changed(true)
-	stages.on_run()
+	validation = runtime.validate(code_edit.text)
+	if not validation.is_empty():
+		_show_code_failure(validation.line, runtime._translated_error(validation), int(validation.get("column", 1)))
+		return
+	if not stages.on_run():
+		runtime.stop()
+		_refresh_control_ui()
+		return
 	runtime.run(code_edit.text)
 	_refresh_control_ui()
 
@@ -976,12 +994,12 @@ func _apply_control_source() -> void:
 
 func _on_stop_pressed() -> void:
 	flag_mission.on_stop_pressed()
-	stages.on_stop()
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
 	control_source.select(CONTROL_CODE)
 	_set_status("Input stopped - servos hold their last targets; return to edit mode to reset the robot")
+	stages.on_stop()
 	_refresh_control_ui()
 
 

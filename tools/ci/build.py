@@ -20,10 +20,73 @@ sys.path.insert(0, str(PROJECT))
 from tools.ci.install_godot import BUILD
 from tools.ci.install_nsis import install as install_nsis
 from tools.ci.desktop_package import audit_macos, audit_windows, build_installer, extract_macos, package_zip
+from tools.ci.stage_identity import write_identity
 
 # Files reached from the bundled documentation, kept outside the application pack.
 DOCUMENTATION_REFERENCES = (
     "assets/kenney/SOURCE.json",
+    "CONTRIBUTING.md",
+    "presets/biped.gd",
+    "presets/biped_gait.gd",
+    "presets/construction_kit_humanoid.gd",
+    "presets/humanoid.gd",
+    "presets/humanoid_motion.gd",
+    "presets/modular_humanoid.gd",
+    "presets/robot_car.gd",
+    "presets/servo_arm.gd",
+    "presets/yaw_biped.gd",
+    "scenes/main.gd",
+    "src/assembly/assembly_mode.gd",
+    "src/assembly/part_node.gd",
+    "src/assembly/transform_gizmo.gd",
+    "src/blocks/servo_program.gd",
+    "src/core/app_controller.gd",
+    "src/core/board_profile.gd",
+    "src/core/connection_graph.gd",
+    "src/core/part_def.gd",
+    "src/core/port.gd",
+    "src/core/project_store.gd",
+    "src/core/stage_catalog.gd",
+    "src/core/stage_definition.gd",
+    "src/profiles/learner_program.gd",
+    "src/runtime/bundled_biped_motion.gd",
+    "src/runtime/drive_motor.gd",
+    "src/runtime/kit_humanoid_motion.gd",
+    "src/runtime/learned_biped_motion.gd",
+    "src/runtime/manual_controller.gd",
+    "src/runtime/mini_runtime.gd",
+    "src/runtime/motion_lab_client.gd",
+    "src/runtime/motion_policy.gd",
+    "src/runtime/motion_snapshot.gd",
+    "src/runtime/motion_trial.gd",
+    "src/runtime/pickup_policy.gd",
+    "src/runtime/pickup_scenario_store.gd",
+    "src/runtime/pickup_trial.gd",
+    "src/runtime/robot_motion_program.gd",
+    "src/runtime/run_mode.gd",
+    "src/runtime/servo_drive.gd",
+    "src/runtime/sonar_sensor.gd",
+    "src/runtime/stage_evaluator.gd",
+    "src/runtime/wiring.gd",
+    "src/ui/blender_camera.gd",
+    "src/ui/block_program_panel.gd",
+    "src/ui/browser_evidence.gd",
+    "src/ui/flag_mission.gd",
+    "src/ui/fly_camera.gd",
+    "src/ui/motion_lab_panel.gd",
+    "src/ui/pickup_lab_panel.gd",
+    "src/ui/project_panel.gd",
+    "src/ui/ssok_locale.gd",
+    "src/ui/ssok_theme.gd",
+    "src/ui/stage_panel.gd",
+    "src/ui/tutorial_panel.gd",
+    "src/ui/web_clipboard.gd",
+    "src/ui/wiring_panel.gd",
+    "tests/control_flow_check.gd",
+    "tests/core_authoring_check.gd",
+    "tests/flag_mission_check.gd",
+    "tests/project_store_check.gd",
+    "tools/docs/render_diagrams.py",
     "AGENTS.md",
     "assets/modular_humanoid/README.md",
     "presets/biped_motion.gd",
@@ -86,6 +149,7 @@ def main() -> None:
     initial_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=PROJECT, capture_output=True, text=True)
     initial_status = subprocess.run(["git", "status", "--porcelain"], cwd=PROJECT, capture_output=True, text=True)
     output = args.output.resolve()
+    write_identity(PROJECT)
     logs = output / "export-logs"
     logs.mkdir(parents=True, exist_ok=True)
     (output / ".gdignore").touch()
