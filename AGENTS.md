@@ -77,7 +77,7 @@ docs/            architecture and decisions
 
 ## Keep language packs current with every update
 
-For settings/theme/text-scale/audio work, read `docs/INTERFACE_PREFERENCES.md` and ADR 0024.
+For settings/theme/text-scale/audio work, read `docs/INTERFACE_PREFERENCES.md` and ADR 0026.
 Keep personal preferences outside project records; preserve drafts and running code when applying them.
 Record actual four-language/light-dark/compact screenshots and run the preference regression check.
 

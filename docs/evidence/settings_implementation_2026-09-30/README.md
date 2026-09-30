@@ -1,6 +1,6 @@
 # 설정·테마·언어 구현 검증 — 2026-09-30
 
-issue #38. 통합 소스 `ed6ed32` 위에 적용했어요. 감사 당시의 소스와 별개이며 [설정 계약](../../INTERFACE_PREFERENCES.md), [ADR 0024](../../adr/0024-interface-preferences.md)를 따릅니다.
+issue #38. 통합 소스 `ed6ed32` 위에 적용했어요. 감사 당시의 소스와 별개이며 [설정 계약](../../INTERFACE_PREFERENCES.md), [ADR 0026](../../adr/0026-interface-preferences.md)를 따릅니다.
 
 ## 네이티브
 

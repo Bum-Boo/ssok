@@ -1,6 +1,6 @@
 # 설정·테마·언어
 
-갱신: 2026-09-30. 사용자 승인에 따라 issue #38에서 구현했어요. 결정 경계는 [ADR 0024](adr/0024-interface-preferences.md)를 따르세요.
+갱신: 2026-09-30. 사용자 승인에 따라 issue #38에서 구현했어요. 결정 경계는 [ADR 0026](adr/0026-interface-preferences.md)를 따르세요.
 
 ## 사용법
 

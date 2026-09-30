@@ -4,7 +4,7 @@
 
 ## 인터페이스 선호도
 
-테마·화면/코드 글자·효과음은 그래프나 프로젝트와 분리한 로컬 설정으로 저장해요. 공유 Theme와 기존 컨트롤을 갱신해 학습자 초안과 실행 VM을 보존해요. 진입점·저장 계약·검증 갱신 규칙은 [설정 문서](INTERFACE_PREFERENCES.md)와 [ADR 0024](adr/0024-interface-preferences.md)에 있어요.
+테마·화면/코드 글자·효과음은 그래프나 프로젝트와 분리한 로컬 설정으로 저장해요. 공유 Theme와 기존 컨트롤을 갱신해 학습자 초안과 실행 VM을 보존해요. 진입점·저장 계약·검증 갱신 규칙은 [설정 문서](INTERFACE_PREFERENCES.md)와 [ADR 0026](adr/0026-interface-preferences.md)에 있어요.
 
 ## 비전
 

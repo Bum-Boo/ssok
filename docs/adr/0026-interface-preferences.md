@@ -1,4 +1,4 @@
-# 0024 — Local interface preferences without rebuilding learner work
+# 0026 — Local interface preferences without rebuilding learner work
 
 - Status: accepted
 - Date: 2026-09-30
