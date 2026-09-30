@@ -102,7 +102,10 @@ func _ready() -> void:
 		if is_instance_valid(code_edit):
 			code_edit.set_line_background_color(n - 1, Color(0.18, 0.3, 0.4, 0.6)))
 	runtime.finished.connect(func() -> void: _set_status("finished"))
-	runtime.failed.connect(func(n: int, msg: String) -> void: _set_status("line %d: %s", true, [n, msg]))
+	runtime.failed.connect(func(n: int, msg: String) -> void:
+		_set_status("line %d: %s", true, [n, msg])
+		if is_instance_valid(stages):
+			stages.on_program_error())
 	add_child(runtime)
 	manual_controller = ManualController.new()
 	add_child(manual_controller)
@@ -354,7 +357,15 @@ func _build_ui() -> void:
 	stages.name = "Stages"
 	stages.assembly = assembly
 	stages.run_mode = run_mode
+	stages.attempt_terminated.connect(func() -> void: runtime.stop())
 	stages.source = func() -> String: return code_edit.text
+	stages.context_provider = func() -> Dictionary:
+		var context: Dictionary = StageDefinition.runtime_context(run_mode, assembly.graph, stages._resource_identity)
+		context.board = blocks.profile.id
+		context.board_api = blocks.profile.api.duplicate(true)
+		context.pin_constants = blocks.profile.pin_constants.duplicate(true)
+		context.sleep_unit_seconds = blocks.profile.sleep_unit_seconds
+		return context
 	stages.stage_requested.connect(func(stage: Dictionary) -> void:
 		_request_starter(func() -> void:
 			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.")
@@ -912,7 +923,14 @@ func _on_run_pressed() -> void:
 		mode_button.button_pressed = true
 	_apply_control_source()
 	flag_mission.on_run_mode_changed(true)
-	stages.on_run()
+	validation = runtime.validate(code_edit.text)
+	if not validation.is_empty():
+		_set_status("line %d: %s", true, [validation.line, validation.error])
+		return
+	if not stages.on_run():
+		runtime.stop()
+		_refresh_control_ui()
+		return
 	runtime.run(code_edit.text)
 	_refresh_control_ui()
 

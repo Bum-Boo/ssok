@@ -18,6 +18,7 @@ import zipfile
 PROJECT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT))
 from tools.ci.install_godot import BUILD
+from tools.ci.stage_identity import write_identity
 
 # Files reached from the bundled documentation, kept outside the application pack.
 DOCUMENTATION_REFERENCES = (
@@ -76,6 +77,7 @@ def main() -> None:
     if actual != BUILD:
         parser.error(f"Expected {BUILD}, got {actual}")
     output = args.output.resolve()
+    write_identity(PROJECT)
     logs = output / "export-logs"
     logs.mkdir(parents=True, exist_ok=True)
     (output / ".gdignore").touch()
