@@ -110,6 +110,8 @@ flowchart LR
 [Architecture](docs/ARCHITECTURE.md) · [Decision records](docs/adr/) ·
 [Pickup evidence](docs/CONSTRUCTION_KIT.md) · [RL methods and results](docs/RL_LAB.md)
 
+[한국어 기술노트 (2026-09-30)](docs/TECHNICAL_NOTE_2026-09-30.md) records the implemented workflows, physical evidence, UX research, reused components, AI connection boundaries and the current learning roadmap.
+
 ## Current measured limits
 
 The corrected elementary-kit pickup passes the original 25 cm / 1 second gate, including
