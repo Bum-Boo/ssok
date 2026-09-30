@@ -171,7 +171,9 @@ static func populate(theme: Theme) -> void:
 		var mark: String = "<path d='M5 10L8 13L15 6' fill='none' stroke='#%s' stroke-width='2'/>" % BG_SUNKEN.to_html(false) if state == &"checked" else ""
 		checkbox_image.load_svg_from_string("<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><rect x='2' y='2' width='16' height='16' rx='3' fill='%s' stroke='#%s' stroke-width='2'/>%s</svg>" % ["#" + ACCENT.to_html(false) if state == &"checked" else "none", TEXT_DIM.to_html(false), mark])
 		theme.set_icon(state, &"CheckBox", ImageTexture.create_from_image(checkbox_image))
-	theme.set_color(&"font_focus_color", &"OptionButton", TEXT)
+	for type: StringName in [&"OptionButton", &"CheckBox", &"CheckButton"]:
+		for state: StringName in [&"font_color", &"font_hover_color", &"font_pressed_color", &"font_focus_color"]:
+			theme.set_color(state, type, TEXT)
 	theme.set_constant(&"modulate_arrow", &"OptionButton", 1)
 
 	theme.set_stylebox(&"normal", &"CheckButton", _flat(Color.TRANSPARENT, 4, Color.TRANSPARENT, 0))

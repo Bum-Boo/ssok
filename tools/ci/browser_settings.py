@@ -40,6 +40,7 @@ def main() -> None:
 
     def check(condition, label):
         checks.append({"label": label, "passed": bool(condition)})
+        print(("PASS " if condition else "FAIL ") + label, flush=True)
         persist()
         assert condition, label
 
@@ -64,11 +65,16 @@ def main() -> None:
                 page.wait_for_timeout(400)
 
             def choose(name, index):
+                print(f"Select {name} item {index}", flush=True)
                 click(name)
-                page.keyboard.press("Home")
-                for _ in range(index):
+                # Mouse-opened Godot menus start without keyboard item focus.
+                for _ in range(index + 1):
                     page.keyboard.press("ArrowDown")
+                    page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
+                if name == "settings_appearance" and not (output / "00-appearance-menu.png").exists():
+                    capture_view(page, output / "00-appearance-menu.png")
                 page.keyboard.press("Enter")
+                page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 page.wait_for_timeout(500)
 
             try:
@@ -103,6 +109,7 @@ def main() -> None:
                 page.keyboard.press("Home")
                 for _ in range(5):
                     page.keyboard.press("ArrowRight")
+                    page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
                 wait("window.__ssokInterface.values.volume === 25")
                 choose("settings_appearance", 2)
                 capture_view(page, output / "02-korean-settings.png")

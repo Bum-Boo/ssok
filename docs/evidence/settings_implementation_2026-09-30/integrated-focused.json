@@ -1,0 +1,361 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 17,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.597,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.446,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "app_controller_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.335,
+      "timeout": false,
+      "engine_error": false,
+      "log": "app_controller_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/app_controller_check.gd"
+      ]
+    },
+    {
+      "name": "authoring_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.293,
+      "timeout": false,
+      "engine_error": false,
+      "log": "authoring_ui_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/authoring_ui_check.gd"
+      ]
+    },
+    {
+      "name": "block_program_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.644,
+      "timeout": false,
+      "engine_error": false,
+      "log": "block_program_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/block_program_check.gd"
+      ]
+    },
+    {
+      "name": "control_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.304,
+      "timeout": false,
+      "engine_error": false,
+      "log": "control_flow_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/control_flow_check.gd"
+      ]
+    },
+    {
+      "name": "core_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.064,
+      "timeout": false,
+      "engine_error": false,
+      "log": "core_authoring_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/core_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "flag_mission_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.549,
+      "timeout": false,
+      "engine_error": false,
+      "log": "flag_mission_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/flag_mission_check.gd"
+      ]
+    },
+    {
+      "name": "interface_preferences_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 13.295,
+      "timeout": false,
+      "engine_error": false,
+      "log": "interface_preferences_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/interface_preferences_check.gd"
+      ]
+    },
+    {
+      "name": "keyboard_navigation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 8.25,
+      "timeout": false,
+      "engine_error": false,
+      "log": "keyboard_navigation_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/keyboard_navigation_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 10.106,
+      "timeout": false,
+      "engine_error": false,
+      "log": "localization_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "manual_control_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.979,
+      "timeout": false,
+      "engine_error": false,
+      "log": "manual_control_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/manual_control_check.gd"
+      ]
+    },
+    {
+      "name": "stage_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 28.574,
+      "timeout": false,
+      "engine_error": false,
+      "log": "stage_authoring_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/stage_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "stage_contract_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 28.089,
+      "timeout": false,
+      "engine_error": false,
+      "log": "stage_contract_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/stage_contract_check.gd"
+      ]
+    },
+    {
+      "name": "stage_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.087,
+      "timeout": false,
+      "engine_error": false,
+      "log": "stage_ui_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/stage_ui_check.gd"
+      ]
+    },
+    {
+      "name": "viewport_framing_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.2,
+      "timeout": false,
+      "engine_error": false,
+      "log": "viewport_framing_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/viewport_framing_check.gd"
+      ]
+    },
+    {
+      "name": "workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.333,
+      "timeout": false,
+      "engine_error": false,
+      "log": "workshop_ui_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/workshop_ui_check.gd"
+      ]
+    }
+  ]
+}

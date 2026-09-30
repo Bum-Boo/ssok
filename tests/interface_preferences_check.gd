@@ -64,6 +64,7 @@ func _run() -> void:
 		var theme: Theme = _main._ui_root.theme
 		_check(_contrast(theme.get_color("font_color", "Label"), SsokTheme.BG) >= 4.5, appearance + " body contrast")
 		_check(_contrast(theme.get_color("font_focus_color", "OptionButton"), SsokTheme.BG_RAISED) >= 4.5, appearance + " focused selector contrast")
+		_check(_contrast(theme.get_color("font_pressed_color", "OptionButton"), SsokTheme.ACCENT_DOWN) >= 4.5, appearance + " open selector text contrast")
 		_check(_contrast(theme.get_color("font_hover_color", "PopupMenu"), SsokTheme.BG_RAISED) >= 4.5, appearance + " selected menu text contrast")
 		_check((theme.get_stylebox("embedded_unfocused_border", "Window") as StyleBoxFlat).bg_color == SsokTheme.BG, appearance + " embedded window retains palette when browser focus changes")
 		_check(_contrast(SsokTheme.TEXT_DIM, SsokTheme.BG_RAISED) >= 4.5, appearance + " secondary text contrast")
