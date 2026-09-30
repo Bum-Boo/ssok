@@ -51,6 +51,9 @@ var _follow_position: Vector3
 var _follow_offset: Vector3 = Vector3.ZERO
 
 var _ui_root: Control
+var settings: SettingsPanel
+var settings_button: Button
+var _settings_manual_enabled: bool = false
 var language_picker: OptionButton
 var _spawn_count := 0
 var program_tabs: TabContainer
@@ -133,6 +136,7 @@ func _ready() -> void:
 		if motion_program is HumanoidMotion:
 			motion_program.interact())
 
+	SsokTheme.configure(Preferences.dark_appearance(), Preferences.values.text_scale, Preferences.values.code_scale)
 	_build_ui()
 	add_child(preload("res://src/ui/web_clipboard.gd").new())
 	add_child(preload("res://src/ui/browser_evidence.gd").new())
@@ -142,6 +146,8 @@ func _ready() -> void:
 	_layout_flag_mission()
 	navigation.framing_rect_provider = _camera_framing_rect
 	get_viewport().size_changed.connect(_adapt_layout)
+	Preferences.changed.connect(_apply_preferences)
+	SsokTheme.remember(self)
 	_adapt_layout()
 	_refresh_control_ui()
 	_set_status("Edit mode - select a part, then G to move or R to rotate; connections snap at ports")
@@ -241,7 +247,7 @@ func _build_ui() -> void:
 	var brand := Label.new()
 	brand.text = "ssok"
 	brand.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	brand.add_theme_font_size_override("font_size", 24)
+	brand.add_theme_font_size_override("font_size", SsokTheme.font_size(24))
 	brand.add_theme_color_override("font_color", SsokTheme.ACCENT)
 	brand.custom_minimum_size.x = 94
 	bar.add_child(brand)
@@ -280,10 +286,17 @@ func _build_ui() -> void:
 	language_picker.tooltip_text = tr("Language")
 	language_picker.item_selected.connect(_on_language_selected)
 	bar.add_child(language_picker)
+	settings_button = SsokTheme.button("", "cog")
+	settings_button.name = "SettingsButton"
+	settings_button.custom_minimum_size.x = 36
+	settings_button.tooltip_text = "Settings"
+	settings_button.pressed.connect(_open_settings)
+	bar.add_child(settings_button)
 
 	_side_panel = PanelContainer.new()
 	_side_panel.name = "ProgramPanel"
 	_side_panel.set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
+	_side_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	_side_panel.offset_left = -364
 	_side_panel.offset_top = 86
 	_side_panel.offset_right = -12
@@ -296,6 +309,8 @@ func _build_ui() -> void:
 	title.label_settings = SsokTheme.title_settings()
 	box.add_child(title)
 	control_source = OptionButton.new()
+	control_source.fit_to_longest_item = false
+	control_source.clip_text = true
 	control_source.add_item("Control: WASD / gamepad movement", CONTROL_MANUAL)
 	control_source.add_item("Control: Learner code", CONTROL_CODE)
 	control_source.focus_mode = Control.FOCUS_ALL
@@ -310,6 +325,7 @@ func _build_ui() -> void:
 	program_tabs.add_child(code_box)
 	var caption := Label.new()
 	caption.text = "Python-style servo program"
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caption.theme_type_variation = &"SectionLabel"
 	code_box.add_child(caption)
 	code_edit = CodeEdit.new()
@@ -320,15 +336,7 @@ func _build_ui() -> void:
 	code_edit.highlight_current_line = true
 	code_edit.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	code_edit.custom_minimum_size.y = 100
-	var syntax := CodeHighlighter.new()
-	syntax.number_color = Color("e6bb84")
-	syntax.function_color = Color("86b9ef")
-	syntax.symbol_color = Color("a3afbe")
-	syntax.add_keyword_color("from", Color("c9a1ee"))
-	syntax.add_keyword_color("import", Color("c9a1ee"))
-	syntax.add_keyword_color("Servo", SsokTheme.ACCENT)
-	syntax.add_color_region("#", "", Color("8193a7"), true)
-	code_edit.syntax_highlighter = syntax
+	code_edit.syntax_highlighter = SsokTheme.code_highlighter()
 	code_box.add_child(code_edit)
 	var controls_scroll := ScrollContainer.new()
 	controls_scroll.follow_focus = true
@@ -410,6 +418,10 @@ func _build_ui() -> void:
 	tutorial.theme = _ui_root.theme
 	add_child(tutorial)
 	tutorial.panel_closed.connect(_close_tutorial)
+	settings = SettingsPanel.new()
+	settings.theme = _ui_root.theme
+	add_child(settings)
+	settings.panel_closed.connect(_close_settings)
 	projects = ProjectPanel.new()
 	projects.theme = _ui_root.theme
 	projects.configure(_project_document, _prepare_project_document)
@@ -426,6 +438,7 @@ func _build_ui() -> void:
 	assembly.transform_active_changed.connect(func(_active: bool) -> void: _refresh_workspace())
 
 	var footer := PanelContainer.new()
+	footer.name = "WorkspaceFooter"
 	footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	footer.offset_left = 12
 	footer.offset_right = -12
@@ -433,7 +446,7 @@ func _build_ui() -> void:
 	footer.offset_bottom = -8
 	_ui_root.add_child(footer)
 	status = Label.new()
-	status.add_theme_font_size_override("font_size", 12)
+	status.add_theme_font_size_override("font_size", SsokTheme.font_size(12))
 	status.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	footer.add_child(status)
 	_delete_dialog = ConfirmationDialog.new()
@@ -504,11 +517,8 @@ func _build_help_hud() -> void:
 	_help_panel.add_child(_help_label)
 
 	_empty_panel = PanelContainer.new()
-	_empty_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
-	_empty_panel.offset_left = -220
-	_empty_panel.offset_right = 100
-	_empty_panel.offset_top = -92
-	_empty_panel.offset_bottom = 92
+	_empty_panel.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	_empty_panel.size = Vector2(400, 200)
 	_ui_root.add_child(_empty_panel)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 16)
@@ -516,7 +526,7 @@ func _build_help_hud() -> void:
 	var title := Label.new()
 	title.text = "Raise a flag with your robot."
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	title.add_theme_font_size_override("font_size", 22)
+	title.add_theme_font_size_override("font_size", SsokTheme.font_size(22))
 	box.add_child(title)
 	var detail := Label.new()
 	detail.text = "Start with the servo arm, or build your own from the parts library."
@@ -528,6 +538,8 @@ func _build_help_hud() -> void:
 	start.pressed.connect(func() -> void: flag_mission._action.pressed.emit())
 	box.add_child(start)
 	_refresh_workspace()
+	flag_mission.minimum_size_changed.connect(_adapt_layout.call_deferred)
+	_empty_panel.minimum_size_changed.connect(_adapt_layout.call_deferred)
 
 
 func _build_palette() -> void:
@@ -665,7 +677,34 @@ func _replace_with_starter() -> void:
 func _adapt_layout() -> void:
 	if examples_menu == null:
 		return
+	var header: Control = _ui_root.get_node("WorkspaceHeader")
+	header.offset_bottom = 12.0 + maxf(62.0, 36.0 * SsokTheme.ui_scale + 24.0)
+	var compact_header: bool = get_viewport().get_visible_rect().size.x < 1200.0 or SsokTheme.ui_scale >= 1.5
+	projects_button.text = "" if compact_header else "Projects"
+	mode_button.text = "" if compact_header else "Run mode (physics)"
+	stop_button.text = "" if compact_header else "Stop"
+	motion_lab_button.text = "" if compact_header else "AI motion lab"
+	_workspace_state.visible = not compact_header
+	for button: Button in [projects_button, mode_button, stop_button, motion_lab_button]:
+		button.custom_minimum_size.x = 36
+		button.clip_text = compact_header
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	var footer: Control = _ui_root.get_node("WorkspaceFooter")
+	footer.offset_top = -8.0 - maxf(38.0, footer.get_combined_minimum_size().y)
+	library.offset_bottom = footer.offset_top - 12.0
+	_side_panel.offset_bottom = library.offset_bottom
+	library.offset_top = header.get_global_rect().end.y + 12.0
+	_side_panel.offset_top = library.offset_top
+	var tools: Control = _ui_root.get_node("ViewportTools")
+	tools.position = Vector2(library.get_global_rect().end.x + 12.0, library.offset_top)
 	_layout_flag_mission()
+	_empty_panel.visible = _show_empty_card()
+	if _empty_panel.visible:
+		var available_left: float = library.get_global_rect().end.x + 12.0
+		var available_width: float = _side_panel.get_global_rect().position.x - available_left - 12.0
+		var card_width: float = minf(400.0, available_width)
+		_empty_panel.size = Vector2(card_width, _empty_panel.get_combined_minimum_size().y)
+		_empty_panel.position = Vector2(available_left + (available_width - card_width) * 0.5, flag_mission.get_global_rect().end.y + 16.0)
 	var compact: bool = get_viewport().get_visible_rect().size.y < 800
 	examples_menu.visible = compact
 	for starter: Control in _starter_controls:
@@ -673,20 +712,31 @@ func _adapt_layout() -> void:
 
 
 func _layout_flag_mission() -> void:
-	if flag_mission == null:
+	if flag_mission == null or not _ui_root.has_node("ViewportTools"):
 		return
-	var width: float = get_viewport().get_visible_rect().size.x
-	flag_mission.offset_left = 452.0 if width >= 1200.0 else 260.0
-	flag_mission.offset_right = -382.0 if width >= 1200.0 else -376.0
-	flag_mission.offset_top = 86.0 if width >= 1200.0 else 142.0
-	flag_mission.offset_bottom = 252.0 if width >= 1200.0 else 328.0
+	var library: Rect2 = (_ui_root.get_node("PartsLibrary") as Control).get_global_rect()
+	var tools: Rect2 = (_ui_root.get_node("ViewportTools") as Control).get_global_rect()
+	var program: Rect2 = _side_panel.get_global_rect()
+	var width: float = program.position.x - library.end.x - 24.0
+	var beside_tools: bool = width >= 750.0 and SsokTheme.ui_scale <= 1.3
+	flag_mission.offset_left = tools.end.x + 12.0 if beside_tools else library.end.x + 12.0
+	flag_mission.offset_right = program.position.x - 12.0 - get_viewport().get_visible_rect().size.x
+	flag_mission.offset_top = tools.position.y if beside_tools else tools.end.y + 12.0
+	flag_mission.offset_bottom = flag_mission.offset_top + flag_mission.get_combined_minimum_size().y
+
+
+func _show_empty_card() -> bool:
+	if _empty_panel == null or not assembly.graph.parts.is_empty() or mode_button.button_pressed:
+		return false
+	var width: float = _side_panel.get_global_rect().position.x - 260.0
+	return width >= 500.0 and get_viewport().get_visible_rect().size.y >= 800.0
 
 
 func _camera_framing_rect() -> Rect2:
 	var library: Rect2 = (_ui_root.get_node("PartsLibrary") as Control).get_global_rect()
 	var program: Rect2 = _side_panel.get_global_rect()
 	var tools: Rect2 = (_ui_root.get_node("ViewportTools") as Control).get_global_rect()
-	var top_left: Vector2 = Vector2(library.end.x + 12.0, tools.end.y + 12.0)
+	var top_left: Vector2 = Vector2(library.end.x + 12.0, maxf(tools.end.y, flag_mission.get_global_rect().end.y) + 12.0)
 	var bottom_right: Vector2 = Vector2(program.position.x - 12.0, program.end.y - 12.0)
 	return Rect2(top_left, bottom_right - top_left)
 
@@ -732,7 +782,7 @@ func _refresh_workspace() -> void:
 			blocks.set_profile(graph_profile)
 		runtime.sleep_scale = graph_profile.sleep_unit_seconds
 	if _empty_panel != null:
-		_empty_panel.visible = assembly.graph.parts.is_empty() and not mode_button.button_pressed
+		_empty_panel.visible = _show_empty_card()
 	var can_edit: bool = not mode_button.button_pressed and not assembly.transform_active and assembly.selected_part != null
 	if delete_button != null:
 		delete_button.disabled = not can_edit
@@ -1007,7 +1057,7 @@ func _open_motion_lab() -> void:
 	if motion_program is BundledBipedMotion:
 		_set_status(BundledBipedMotion.HELP)
 		return
-	if tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
+	if settings.visible or tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
 		return
 	runtime.stop()
 	manual_controller.set_enabled(false)
@@ -1031,7 +1081,7 @@ func _close_motion_lab() -> void:
 
 
 func _open_tutorial() -> void:
-	if motion_lab.visible or _delete_dialog.visible or tutorial.visible or pickup_lab.visible or projects.visible:
+	if settings.visible or motion_lab.visible or _delete_dialog.visible or tutorial.visible or pickup_lab.visible or projects.visible:
 		return
 	runtime.stop()
 	manual_controller.set_enabled(false)
@@ -1075,8 +1125,40 @@ func _apply_blocks(source: String) -> bool:
 	return true
 
 
+func _apply_preferences() -> void:
+	if _ui_root == null:
+		return
+	var dark: bool = Preferences.dark_appearance()
+	if dark == SsokTheme.dark and Preferences.values.text_scale == SsokTheme.ui_scale and Preferences.values.code_scale == SsokTheme.code_scale:
+		return
+	SsokTheme.remember(self)
+	SsokTheme.configure(dark, Preferences.values.text_scale, Preferences.values.code_scale)
+	_ui_root.theme.merge_with(SsokTheme.build())
+	SsokTheme.adapt(self)
+	code_edit.syntax_highlighter = SsokTheme.code_highlighter()
+	_adapt_layout.call_deferred()
+
+
+func _open_settings() -> void:
+	if settings.visible or tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
+		return
+	_settings_manual_enabled = manual_controller.is_enabled()
+	manual_controller.set_enabled(false)
+	assembly.cancel_transform()
+	assembly.process_mode = Node.PROCESS_MODE_DISABLED
+	navigation.navigation_enabled = false
+	settings.open_panel()
+
+
+func _close_settings() -> void:
+	assembly.process_mode = Node.PROCESS_MODE_DISABLED if mode_button.button_pressed else Node.PROCESS_MODE_INHERIT
+	navigation.navigation_enabled = true
+	manual_controller.set_enabled(_settings_manual_enabled and mode_button.button_pressed)
+	settings_button.grab_focus()
+
+
 func _open_projects() -> void:
-	if tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
+	if settings.visible or tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
 		return
 	runtime.stop()
 	manual_controller.set_enabled(false)
@@ -1239,7 +1321,7 @@ func _on_language_selected(index: int) -> void:
 	var error: Error = SsokLocale.select_locale(SsokLocale.LOCALES[index])
 	if error != OK:
 		_set_status("Language changed, but the preference could not be saved.", true)
-	get_viewport().gui_release_focus()
+	language_picker.grab_focus.call_deferred()
 
 
 func _notification(what: int) -> void:
@@ -1254,6 +1336,7 @@ func _notification(what: int) -> void:
 		program_tabs.set_tab_title(2, tr("Blocks"))
 		program_tabs.set_tab_title(3, tr("Wiring"))
 		program_tabs.set_tab_title(4, tr("Stages"))
+		_adapt_layout.call_deferred()
 
 
 func _dress_scene() -> void:

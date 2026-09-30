@@ -25,10 +25,12 @@ var _foot_air_frames: Array[int] = []
 var _foot_clearance: Array[float] = []
 var _policy_version: int = 1
 var _learner: AppController
+var _preferences: InterfacePreferences
 
 
 func _ready() -> void:
 	_app = get_parent()
+	_preferences = get_node("/root/Preferences") as InterfacePreferences
 	process_physics_priority = 100
 	set_physics_process(OS.has_feature("web") and bool(JavaScriptBridge.eval(
 		"new URLSearchParams(window.location.search).get('ssok_verify') === '1'", true)))
@@ -44,6 +46,18 @@ func _physics_process(_delta: float) -> void:
 			_learner.app = _app
 		var observation: Dictionary = {"result": _learner.invoke("get_result").data, "scene": _learner.invoke("get_scene").data}
 		JavaScriptBridge.eval("window.__ssokLearning = " + JSON.stringify(observation) + ";", true)
+		var preferences: Dictionary = {
+			"values": _preferences.values, "locale": TranslationServer.get_locale(), "dark": SsokTheme.dark,
+			"settings_open": _app.settings.visible, "source_hash": _app.code_edit.text.sha256_text(),
+			"graph_hash": MotionSnapshot.fingerprint(_app._motion_snapshot()),
+			"draft_hash": JSON.stringify(_app.blocks.instructions).sha256_text(),
+			"code_font_size": _app.code_edit.get_theme_font_size("font_size"),
+			"ui_font_size": _app._ui_root.theme.default_font_size,
+			"program_panel_right": _app._side_panel.get_global_rect().end.x,
+			"viewport_width": _app.get_viewport().get_visible_rect().size.x,
+			"run_mode": _app.mode_button.button_pressed, "code_running": _app.runtime.is_running(),
+		}
+		JavaScriptBridge.eval("window.__ssokInterface = " + JSON.stringify(preferences) + ";", true)
 
 
 func _observe() -> void:
@@ -184,3 +198,4 @@ func _exit_tree() -> void:
 	if OS.has_feature("web") and is_physics_processing():
 		JavaScriptBridge.eval("delete window.__ssokPhysics;", true)
 		JavaScriptBridge.eval("delete window.__ssokLearning;", true)
+		JavaScriptBridge.eval("delete window.__ssokInterface;", true)

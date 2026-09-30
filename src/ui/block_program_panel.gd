@@ -37,6 +37,8 @@ func _ready() -> void:
 	var add_row := HBoxContainer.new()
 	content.add_child(add_row)
 	operation_picker = OptionButton.new()
+	operation_picker.fit_to_longest_item = false
+	operation_picker.clip_text = true
 	operation_picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for descriptor: Dictionary in profile.api:
 		operation_picker.add_item(descriptor.label)
@@ -50,7 +52,7 @@ func _ready() -> void:
 	content.add_child(apply_button)
 	feedback = Label.new()
 	feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	feedback.add_theme_font_size_override("font_size", 12)
+	feedback.add_theme_font_size_override("font_size", SsokTheme.font_size(12))
 	feedback.max_lines_visible = 2
 	feedback.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	content.add_child(feedback)
@@ -111,7 +113,7 @@ func _rebuild() -> void:
 			if not item.raw.strip_edges().is_empty() and not item.raw.strip_edges().begins_with("#") and not item.raw.begins_with("from "):
 				var code := Label.new()
 				code.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-				code.text = tr("Code block") + "\n" + item.raw
+				SsokLocale.bind(code, "Code block\n%s", [item.raw])
 				code.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 				rows.add_child(code)
 			continue
@@ -121,7 +123,11 @@ func _rebuild() -> void:
 		var heading := HBoxContainer.new()
 		card.add_child(heading)
 		var label := Label.new()
-		label.text = "    ".repeat(int(item.get("indent", 0)) / 4) + tr(profile.operation(item.op).label)
+		var indent := Control.new()
+		indent.custom_minimum_size.x = int(item.get("indent", 0)) * 4
+		heading.add_child(indent)
+		label.text = profile.operation(item.op).label
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		heading.add_child(label)
 		var remove_button: Button = SsokTheme.button("", "trash")

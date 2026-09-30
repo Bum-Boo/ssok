@@ -19,9 +19,13 @@
 ## 남은 작업과 근거
 
 - [출시 전 화면·부품·커스텀 점검](PRELAUNCH_UX_AUDIT_2026-09-30.md)은 실제 `90b9930` 화면 5장과 부품 목록을 포함해요. 신규 시각안·꾸미기·챕터 진행은 제안이에요.
-- 설정 UI 구현은 별도 `feat/38-interface-preferences`, Windows/macOS 설치 패키지는 별도 desktop 작업이에요. 이 통합에 진행 중 변경을 포함하지 않았어요. 최신 소유권은 `agent-task list --project ssok`와 이슈/PR을 확인해요.
+- 설정 UI는 아래 issue #38 작업 브랜치에서 구현·검증했어요. Windows/macOS 설치 패키지는 별도 desktop PR #40이에요. main 통합과 공개 배포는 각각의 리뷰를 따르며 최신 소유권은 `agent-task list --project ssok`와 이슈/PR을 확인해요.
 - [Stage 계약](STAGE_CONTRACTS.md), [학습 구현](LEARNING_STAGES.md), [구조 결정](adr/INDEX.md), [데이터 관계](DATA_MODEL.md), [실행 흐름](FLOWS.md)이 현재 계약의 시작점이에요.
 - [제품 경험 조사](PRODUCT_EXPERIENCE.md)와 [자연어 작업 요구](NATURAL_LANGUAGE_TASKS.md)는 날짜 있는 조사·요구 기록이에요. 책꽂기 명령창과 범용 실행기가 구현됐다는 뜻은 아니에요.
 - [핵심 작성 검증](evidence/core_authoring_2026-09-30/README.md), [깃발 증거](evidence/flag_mission_2026-09-30/README.md), [문서 도구 기록](evidence/contributor_context_2026-09-30/README.md)은 각 소스의 과거 결과예요. 최신 결과와 구분해요.
 
 문서 정본과 갱신 책임은 [MAINTENANCE](MAINTENANCE.md)에 있어요. 대상 사용자 관찰·최종 공개 출시 완료는 아직 주장하지 않아요.
+
+## 설정 작업 브랜치 — issue #38
+
+`feat/38-interface-preferences`에서 시스템/밝게/어둡게, 독립 화면/코드 글자 크기, 효과음 선호를 구현했어요. 언어 전환 시 블록 원문과 포커스를 유지하고 작은 창의 안내 겹침을 수정했어요. 계약은 [INTERFACE_PREFERENCES](INTERFACE_PREFERENCES.md), 결과는 [구현 증거](evidence/settings_implementation_2026-09-30/README.md)예요. main/공개 배포에 적용됐다는 뜻은 아니며 최신 main `6eacf39` 통합 후 검증 상태를 증거 문서에서 확인해요.
