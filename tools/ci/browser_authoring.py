@@ -215,9 +215,48 @@ def main() -> None:
                 assert edited["source"].startswith(saved["source"]) and edited["source"].endswith("sleep(0.2)"), "Added/edited sleep block was not applied to learner code"
                 checks.append("Actual block addition, numeric editing and Apply preserve prior source and update exported code")
                 click("close_projects")
+                replace_text("block_seconds", "0.3")
+                click("run_code")
+                page.wait_for_timeout(400)
+                click("projects")
+                executed = export_document("after-pending-block-run")
+                assert executed["graph"] == saved["graph"], "Running pending blocks changed the authored graph"
+                assert executed["source"].endswith("sleep(0.3)"), "Run code did not apply the visible pending block value"
+                checks.append("Run code applies pending blocks without requiring a separate Apply action")
+                click("close_projects")
+                click("run_mode")
+                click("wiring_tab")
+                capture("10-wiring-before")
+                click("wire_disconnect_first")
+                click("wire_pin")
+                # The first free compatible pin is 10; occupied pins remain disabled.
+                page.keyboard.press("Enter")
+                click("wire_connect")
+                capture("11-wiring-after")
+                click("projects")
+                rewired = export_document("after-rewire")
+                assert rewired["graph"]["parts"] == saved["graph"]["parts"], "Electrical rewiring moved or rotated an assembled part"
+                old_links, new_links = saved["graph"]["links"], rewired["graph"]["links"]
+                removed = [link for link in old_links if link not in new_links]
+                added = [link for link in new_links if link not in old_links]
+                assert len(removed) == len(added) == 1, "Rewiring must replace exactly one electrical connection"
+                assert "pin_3" in (removed[0]["a_port"], removed[0]["b_port"]) and "pin_10" in (added[0]["a_port"], added[0]["b_port"]), "Selected pin was not reflected in the graph"
+                checks.append("Wiring controls replace pin 3 with pin 10 while preserving every part transform")
+                click("close_projects")
+                page.keyboard.press("Control+z")
+                click("projects")
+                undone = export_document("after-wire-undo")
+                assert len(undone["graph"]["links"]) == len(old_links) - 1, "Undo did not remove the newly connected wire"
+                click("close_projects")
+                page.keyboard.press("Control+Shift+z")
+                click("projects")
+                redone = export_document("after-wire-redo")
+                assert redone["graph"] == rewired["graph"], "Redo did not restore the chosen wire and original transforms"
+                checks.append("Actual keyboard Undo/Redo restores electrical edits in the exported graph")
+                click("close_projects")
                 page.set_viewport_size({"width": 1152, "height": 577})
-                capture("10-compact-workshop")
-                checks.append("Rendered Blocks tab and compact 1152×577 workshop captured for review")
+                capture("12-compact-workshop")
+                checks.append("Rendered Blocks/Wiring tabs and compact 1152×577 workshop captured for review")
                 errors = [entry for entry in logs if entry["type"] == "error" or entry["text"].startswith(("ERROR:", "SCRIPT ERROR:"))]
                 assert not errors, f"Browser reported errors: {errors}"
                 result.update(passed=True, errors=errors, browser=browser.version)

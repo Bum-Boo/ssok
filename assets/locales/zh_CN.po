@@ -1428,3 +1428,48 @@ msgstr "学习到的前进步态：按住 W 或向前推动摇杆，松开即停
 
 msgid "This learned gait needs its original assembly and physics settings. Reload the learned-biped example to restore them."
 msgstr "此学习步态需要原始装配和物理设置。请重新加载已学习步态的双足机器人示例以恢复。"
+
+msgid "Wiring"
+msgstr "接线"
+
+msgid "Connect a motor to a board pin"
+msgstr "将电机连接到开发板引脚"
+
+msgid "Choose the motor signal and a compatible pin. Wiring keeps your parts in place."
+msgstr "选择电机信号接口和兼容引脚。接线不会移动零件。"
+
+msgid "Motor signal"
+msgstr "电机信号接口"
+
+msgid "Board pin"
+msgstr "开发板引脚"
+
+msgid "Connect wire"
+msgstr "连接导线"
+
+msgid "Disconnect wire"
+msgstr "断开导线"
+
+msgid "Add a motor and a board to wire your robot."
+msgstr "添加电机和开发板后，为机器人接线。"
+
+msgid "Wire connected · Ctrl+Z to undo"
+msgstr "导线已连接 · Ctrl+Z 撤销"
+
+msgid "Wire disconnected · Ctrl+Z to undo"
+msgstr "导线已断开 · Ctrl+Z 撤销"
+
+msgid "This program is too large. Use at most 2048 lines and 64 KiB."
+msgstr "程序过大。请缩减至 2048 行、64 KiB 以内。"
+
+msgid "Servo angles must be finite numbers."
+msgstr "伺服角度必须是有限数值。"
+
+msgid "Wait must be between 0 and 60 seconds."
+msgstr "等待时间必须在 0 到 60 秒之间。"
+
+msgid "This project supports up to 256 parts. Delete a part before adding another."
+msgstr "项目最多支持 256 个零件。请先删除一个零件再添加。"
+
+msgid "Parts must stay within 100 m of the workspace origin."
+msgstr "零件在各轴上的坐标必须位于工作区原点的 100 m 范围内。"

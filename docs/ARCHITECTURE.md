@@ -16,7 +16,7 @@
 | 항목 | 결정 | ADR |
 |---|---|---|
 | 첫 프로토타입 | 조립 + 코드 구동을 최소 기능으로 **동시에** 관통하는 얇은 슬라이스 | [0005](adr/0005-first-slice-scope.md) |
-| 연결 방식 | **포트/소켓 기반 + 근접 스냅**. 기계 조인트뿐 아니라 **전기 배선(모터→보드 핀)** 도 포트. 조립 중 변환은 그래프에 기록하고 스냅 위에 겹친다 | [0002](adr/0002-connection-graph-single-source-of-truth.md), [0007](adr/0007-blender-edit-and-manual-control.md) |
+| 연결 방식 | **포트/소켓 기반**. 기계 스냅은 위치를 정렬하고, **전기 배선(모터→보드 핀)** 은 위치를 보존한다. 배선 탭과 근접 연결 모두 같은 그래프를 수정한다 | [0002](adr/0002-connection-graph-single-source-of-truth.md), [0007](adr/0007-blender-edit-and-manual-control.md), [0022](adr/0022-electrical-links-preserve-placement.md) |
 | 물리 | **하이브리드** — 조립 모드는 키네마틱, 실행 모드는 실물리(RigidBody+Joint+중력) | [0003](adr/0003-hybrid-physics-modes.md) |
 | 타겟 보드 | 현재 가상 서보 보드 API를 제공하며 실제 보드 선정은 미정. 구조를 특정 보드에 종속시키지 않음 | [0004](adr/0004-hardware-abstraction-three-layers.md) |
 | 코딩 인터페이스 | 블록 ↔ 실제 코드 토글, **둘 다** | [0004](adr/0004-hardware-abstraction-three-layers.md) |
@@ -54,13 +54,17 @@ ID와 강체 변환만 읽으며, 불러오기는 편집 모드로 돌아가고 
 `BoardProfile.api`는 선언적인 명령·인자·한계를 제공한다. `BlockProgramPanel`이 이를 읽어
 편집 카드를 만들고 `ServoProgram`이 지원하는 코드 부분집합과 왕복한다. 미수정 줄의 주석·공백을
 보존하고, 지원하지 않는 줄이나 코드/블록 충돌은 조용히 삭제하지 않는다. 저장·내보내기는 유효한
-블록 초안까지 반영한다. 구체적인 사용자 흐름과 제한은 [AUTHORING.md](AUTHORING.md) 참고.
+블록 초안까지 반영하며 코드 실행도 같은 검사를 거친다. `MiniRuntime`은 실행 전 전체 소스의
+문법·변수·배선을 검사해 뒤쪽 오류가 앞쪽 모터 명령을 일부 실행하지 않도록 한다.
+구체적인 사용자 흐름과 제한은 [AUTHORING.md](AUTHORING.md) 참고.
 
 ### 편집·조종 입력 (2026-09-15)
 
 사용자 요청에 따라 오른쪽 버튼 비행 카메라를 `BlenderCamera`의 가운데 버튼 회전/패닝으로
 교체한다. `AssemblyMode`의 G/R 변환은 취소·Undo 시 그래프 위치와 연결을 함께 복구한다.
 ADR 0007이 기존 ADR 0002의 "자유 배치 후순위" 범위만 변경하며, 포트·그래프 정본 규칙은 유지한다.
+ADR 0022에 따라 `WiringPanel`은 실제 ELEC 포트와 호환 핀을 그래프에서 읽고 위치를 바꾸지 않고
+연결·해제한다. 변환은 기계 링크만 해제하고 배선은 유지한다. 삭제·Undo·저장은 동일한 그래프를 쓴다.
 
 실행 중 WASD/패드 입력은 `ManualController`의 이동 명령이며, `RobotMotionProgram`에
 미리 작성된 관절 동작 코드가 이를 소비한다. 입력 자체가 개별 관절이나 고정 핀을 선택하지 않는다.

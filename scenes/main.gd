@@ -65,6 +65,7 @@ var projects: ProjectPanel
 var projects_button: Button
 var project_title: String = "My robot"
 var blocks: BlockProgramPanel
+var wiring_panel: WiringPanel
 var examples_menu: MenuButton
 var _starter_controls: Array[Control] = []
 var _parts_scroll: ScrollContainer
@@ -315,6 +316,11 @@ func _build_ui() -> void:
 	blocks.source_requested.connect(func() -> void: blocks.read_source(code_edit.text))
 	blocks.apply_source = _apply_blocks
 	blocks.read_source(code_edit.text)
+	wiring_panel = WiringPanel.new()
+	wiring_panel.name = "Wiring"
+	wiring_panel.assembly = assembly
+	wiring_panel.can_edit = func() -> bool: return not mode_button.button_pressed
+	program_tabs.add_child(wiring_panel)
 	run_button = SsokTheme.button("Run code", "play")
 	run_button.theme_type_variation = &"PrimaryButton"
 	run_button.add_theme_color_override("icon_normal_color", SsokTheme.BG_SUNKEN)
@@ -674,6 +680,8 @@ func _on_palette_pressed(definition: PartDef) -> void:
 	_spawn_count += 1
 	var position := Vector3(-0.1 + 0.07 * column, ServoArmPreset.FLOOR_TOP + 0.03, 0.08 + 0.07 * row)
 	var part := assembly.spawn_part(definition, Transform3D(Basis.IDENTITY, position))
+	if part == null:
+		return
 	_colorize(part)
 	_mark_ports(part)
 	assembly.select_part(part)
@@ -824,6 +832,12 @@ func _on_mode_toggled(run: bool) -> void:
 
 func _on_run_pressed() -> void:
 	if runtime.is_running() or motion_lab.visible or tutorial.visible or pickup_lab.visible:
+		return
+	if blocks.has_draft() and not blocks._apply():
+		return
+	var validation: Dictionary = runtime.validate(code_edit.text, false)
+	if not validation.is_empty():
+		_set_status("line %d: %s", true, [validation.line, validation.error])
 		return
 	program_tabs.current_tab = 0
 	control_source.select(CONTROL_CODE)
@@ -1043,6 +1057,8 @@ func _refresh_control_ui() -> void:
 	var running: bool = mode_button.button_pressed
 	stop_button.disabled = not running
 	_refresh_manual_status()
+	if wiring_panel != null:
+		wiring_panel.refresh_actions()
 	if _help_label != null:
 		var camera_help: String = "MMB orbit · Shift+MMB pan · wheel zoom · Numpad 1/3/7 views · Numpad . frame"
 		var edit_help: String = "LMB select · G move / R rotate · X/Y/Z axis · number: mm / degrees · Enter/LMB confirm · Esc/RMB cancel · Ctrl+Z undo"
@@ -1113,6 +1129,7 @@ func _notification(what: int) -> void:
 		program_tabs.set_tab_title(0, tr("Code"))
 		program_tabs.set_tab_title(1, tr("Controls"))
 		program_tabs.set_tab_title(2, tr("Blocks"))
+		program_tabs.set_tab_title(3, tr("Wiring"))
 
 
 func _dress_scene() -> void:

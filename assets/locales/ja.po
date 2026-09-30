@@ -1428,3 +1428,48 @@ msgstr "学習した前進歩行：W を押すかスティックを前に倒し�
 
 msgid "This learned gait needs its original assembly and physics settings. Reload the learned-biped example to restore them."
 msgstr "この学習歩行には元の組み立てと物理設定が必要です。歩行学習済み二足ロボットの例を読み込み直してください。"
+
+msgid "Wiring"
+msgstr "配線"
+
+msgid "Connect a motor to a board pin"
+msgstr "モーターとボードのピンをつなぐ"
+
+msgid "Choose the motor signal and a compatible pin. Wiring keeps your parts in place."
+msgstr "モーターの信号ポートと対応するピンを選びます。配線しても部品の位置は変わりません。"
+
+msgid "Motor signal"
+msgstr "モーター信号ポート"
+
+msgid "Board pin"
+msgstr "ボードのピン"
+
+msgid "Connect wire"
+msgstr "配線をつなぐ"
+
+msgid "Disconnect wire"
+msgstr "配線を外す"
+
+msgid "Add a motor and a board to wire your robot."
+msgstr "モーターとボードを追加して配線しましょう。"
+
+msgid "Wire connected · Ctrl+Z to undo"
+msgstr "配線をつなぎました · Ctrl+Z で元に戻す"
+
+msgid "Wire disconnected · Ctrl+Z to undo"
+msgstr "配線を外しました · Ctrl+Z で元に戻す"
+
+msgid "This program is too large. Use at most 2048 lines and 64 KiB."
+msgstr "プログラムが大きすぎます。2048行、64 KiB以内にしてください。"
+
+msgid "Servo angles must be finite numbers."
+msgstr "サーボの角度には有限の数値を入力してください。"
+
+msgid "Wait must be between 0 and 60 seconds."
+msgstr "待ち時間は0〜60秒で入力してください。"
+
+msgid "This project supports up to 256 parts. Delete a part before adding another."
+msgstr "部品は256個まで追加できます。部品を1つ削除してから追加してください。"
+
+msgid "Parts must stay within 100 m of the workspace origin."
+msgstr "各軸の部品座標は作業スペースの原点から100 m以内にしてください。"

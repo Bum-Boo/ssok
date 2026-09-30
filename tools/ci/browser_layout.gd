@@ -30,6 +30,13 @@ func _run() -> void:
 	await _settle()
 	var tab_bar: TabBar = main.program_tabs.get_tab_bar()
 	_rect("blocks_tab", tab_bar, tab_bar.get_tab_rect(2))
+	_rect("wiring_tab", tab_bar, tab_bar.get_tab_rect(3))
+	main.program_tabs.current_tab = 3
+	await _settle()
+	_point("wire_disconnect_first", main.wiring_panel.connections.get_child(0).get_child(1))
+	_point("wire_pin", main.wiring_panel.pin_choice)
+	_point("wire_connect", main.wiring_panel.connect_button)
+	main.program_tabs.current_tab = 0
 	main._open_projects()
 	var requested_size: Vector2i = root.size - 2 * main.projects.position
 	await _settle()
