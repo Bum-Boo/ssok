@@ -12,13 +12,18 @@ English · 한국어 · 简体中文 · 日本語
 
 ![Actual ssok workshop: independently assembled humanoid, parts catalog and servo program](docs/media/workshop.png)
 
-> Release preparation is in progress. Browser and Linux builds run locally; public release
+> Release preparation is in progress. Web/Linux builds and Windows/macOS packaging are available; public release
 > remains gated on the [verification and delivery checklist](docs/RELEASE_PLAN.md).
 > The first playable path is the servo-arm flag mission. Learned locomotion remains a recorded experiment.
 
 ## Try the workshop
 
-With **Godot 4.7.2** installed:
+Desktop packages include the engine. Windows offers a setup installer or portable ZIP;
+macOS offers an Intel/Apple Silicon `ssok.app` ZIP; Linux offers an executable/PCK ZIP.
+See [installation and platform validation](docs/BUILD.md). Developer ID notarization and
+publisher signing are not configured for this review candidate.
+
+For development, with **Godot 4.7.2** installed:
 
 ```sh
 git clone https://github.com/Bum-Boo/ssok.git
