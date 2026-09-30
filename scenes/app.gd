@@ -18,7 +18,18 @@ var current_name: String = ""
 func _ready() -> void:
 	SsokTheme.configure(Preferences.dark_appearance(), Preferences.values.text_scale, Preferences.values.code_scale)
 	Preferences.changed.connect(_on_preferences_changed)
+	if _direct_workshop_requested():
+		_replace((load(WORKSHOP) as PackedScene).instantiate(), "workshop")
+		return
 	show_title()
+
+
+## Browser gates click workshop coordinates, so `?ssok_workshop=1` (or the existing
+## `?ssok_verify=1` evidence mode) opens the full legacy workshop without menus.
+func _direct_workshop_requested() -> bool:
+	if not OS.has_feature("web"):
+		return false
+	return bool(JavaScriptBridge.eval("(() => { const q = new URLSearchParams(window.location.search); return q.get('ssok_workshop') === '1' || q.get('ssok_verify') === '1'; })()", true))
 
 
 func _replace(node: Node, screen_name: String) -> void:

@@ -53,6 +53,8 @@ def main() -> None:
         server = ThreadingHTTPServer(("127.0.0.1", 0), partial(Handler, directory=str(args.directory.resolve())))
         threading.Thread(target=server.serve_forever, daemon=True).start()
     url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
+    # The app opens on menus; this gate exercises the workshop coordinates directly.
+    url += ("&" if "?" in url else "?") + "ssok_workshop=1"
     logs, errors = [], []
     result = {"url": url, "passed": False, "errors": errors,
         "viewport": [1400, 950],

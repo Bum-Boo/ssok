@@ -77,6 +77,8 @@ func _build_goal_card() -> void:
 	var hint_button: Button = SsokTheme.button("Hint", "sparkles")
 	hint_button.name = "HintButton"
 	hint_button.toggle_mode = true
+	hint_button.clip_text = false
+	hint_button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 	hint_button.toggled.connect(func(show: bool) -> void: hint_label.visible = show)
 	top.add_child(hint_button)
 	var again: Button = SsokTheme.button("", "book-open")

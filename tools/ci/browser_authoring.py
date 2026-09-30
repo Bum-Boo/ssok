@@ -57,7 +57,9 @@ def main() -> None:
     if not args.url:
         server = ThreadingHTTPServer(("127.0.0.1", 0), partial(Handler, directory=str(args.directory.resolve())))
         threading.Thread(target=server.serve_forever, daemon=True).start()
-    url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
+    base_url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
+    # The app opens on menus; this gate exercises the workshop coordinates directly.
+    url = base_url + ("&" if "?" in base_url else "?") + "ssok_workshop=1"
     logs, checks = [], []
     result = {"url": url, "passed": False, "checks": checks}
 
@@ -81,7 +83,7 @@ def main() -> None:
                 locale="en-US", accept_downloads=True, permissions=["clipboard-read", "clipboard-write"])
             page = context.new_page()
             clipboard_page = context.new_page()
-            clipboard_url = url.rstrip("/") + "/__ssok_test_clipboard__"
+            clipboard_url = base_url.split("?")[0].rstrip("/") + "/__ssok_test_clipboard__"
             clipboard_page.route(clipboard_url, lambda route: route.fulfill(body="<p>Synthetic project transfer</p>"))
             clipboard_page.goto(clipboard_url)
             def record_console(message):
