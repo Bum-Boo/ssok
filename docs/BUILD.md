@@ -172,10 +172,11 @@ The exported Mac app must receive its own real-device interaction check before c
 verified macOS behavior; Linux structure/signature checks do not establish that result.
 Private project code is not sent to the shared lab Mac.
 
-The native Windows verifier is developer tooling. Generate its isolated external Stage driver,
-then run `tools/ci/windows/verify_installer.ps1` with `-Installer`, `-Work` (a new path) and
-`-StageScript`. It refuses an existing ssok install, captures the exported app's actual GPU
-rendering/Stage measurements, and tests per-user installation, shortcuts, registration,
+The native Windows verifier is developer tooling. Run `tools/ci/windows/verify_installer.ps1`
+from a PowerShell STA session with `-Installer`, `-Work` (a new path) and `-Layout` pointing to
+that exact build's `export-logs/browser-layout.json`. It refuses an existing ssok install,
+uses native Windows mouse/keyboard input to clear and export all three Stage solutions,
+captures only the foreground task app and restores the clipboard, and tests per-user installation, shortcuts, registration,
 uninstallation and preservation of an extra synthetic user file.
 
 For a focused desktop export on Linux:
@@ -200,7 +201,8 @@ official GitHub Actions pinned by commit SHA. Python dependencies are pinned in 
 Set repository **Settings → Pages → Source → GitHub Actions** once. A successful `main` push
 deploys its Web export; a manual workflow on another branch deploys only if `deploy` is checked.
 The `github-pages` environment reports the resulting URL. Publishing a GitHub Release triggers
-the same validation/build and attaches ZIPs, Windows setup, hashes and metadata to that existing release.
+the same validation/build and attaches platform ZIPs (including the ZIP containing Windows setup), hashes and metadata
+to that existing release.
 Existing release assets are not silently overwritten. A tag or a build alone is not evidence of
 a successful public deployment: open the final URL anonymously and run the browser smoke with
 `--url https://OWNER.github.io/ssok/` after publication.
