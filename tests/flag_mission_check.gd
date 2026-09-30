@@ -19,11 +19,16 @@ func _run() -> void:
 	await process_frame
 	var mission: FlagMission = main.flag_mission
 	_check(mission._phase == &"Intro", "mission starts before preset")
+	_check(main._empty_panel.visible and not mission.visible, "wide start shows one invitation")
+	_check(main.control_source.selected == main.CONTROL_CODE and main.program_tabs.current_tab == 2, "block-first start selects code control")
 	mission._action.pressed.emit()
+	await process_frame
 	await process_frame
 	_check(main.assembly.graph.parts.size() == 4, "starter loads actual graph")
 	_check(mission._phase == &"Ready", "linked arm and graph-wired servo reach ready")
 	_check(mission._flag.visible, "flag follows graph part")
+	var camera: Camera3D = main.get_node("Camera3D") as Camera3D
+	_check(camera.unproject_position(mission._tip_position()).y > mission.get_global_rect().end.y, "flag tip stays below task card")
 	main.run_button.pressed.emit()
 	await process_frame
 	_check(mission._phase == &"Running", "run enters observed task")
@@ -52,6 +57,16 @@ func _run() -> void:
 	main.assembly.graph.links.pop_back()
 	main.assembly.graph_changed.emit()
 	_check(mission._phase == &"Wire", "removing the graph connection removes mission readiness")
+	main._on_biped_pressed()
+	await process_frame
+	_check(not mission.visible and not mission._flag.visible, "unrelated example hides flag UI and visual")
+	_check(is_equal_approx(main._camera_framing_rect().position.y, (main._ui_root.get_node("ViewportTools") as Control).get_global_rect().end.y + 12.0), "hidden mission does not reserve camera space")
+	await _capture("biped")
+	main._on_microbit_arm_pressed()
+	await process_frame
+	_check(mission.visible and mission._flag.visible, "flag example restores task UI and visual")
+	_check(mission.size.x <= 500.0, "mission card leaves room for the 3D scene")
+	await _capture("flag")
 	mission._sound.stop()
 	mission._sound.stream = null
 	mission = null
@@ -61,3 +76,12 @@ func _run() -> void:
 	await process_frame
 	print("flag_mission_check: %d checks, %d failure(s)" % [_checks, _failures])
 	quit(1 if _failures else 0)
+
+
+func _capture(name: String) -> void:
+	if "--screenshots" not in OS.get_cmdline_user_args() or DisplayServer.get_name() == "headless":
+		return
+	await process_frame
+	await RenderingServer.frame_post_draw
+	DirAccess.make_dir_recursive_absolute("user://flag_ui_previews")
+	_check(root.get_texture().get_image().save_png("user://flag_ui_previews/" + name + ".png") == OK, "capture " + name)
