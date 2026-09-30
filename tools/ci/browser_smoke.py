@@ -56,7 +56,7 @@ def main() -> None:
     logs, errors = [], []
     result = {"url": url, "passed": False, "errors": errors,
         "viewport": [1400, 950],
-        "scope": "Export loading, canvas rendering, starter and run/stop input; screenshots require review"}
+        "scope": "Export loading, canvas rendering, servo-arm starter, program run and stop; screenshots require review"}
 
     def persist():
         (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
@@ -85,13 +85,13 @@ def main() -> None:
                 assert canvas.is_visible(), "WebGL canvas is not visible"
                 capture(page, "01-workshop")
                 # Canvas controls have no DOM selectors; the build captures their actual layout.
-                page.mouse.click(*layout["points"]["starter"])
+                page.mouse.click(*layout["points"]["flag_starter"])
                 page.wait_for_timeout(400)
-                capture(page, "02-biped")
-                page.mouse.click(*layout["points"]["run_mode"])
-                page.wait_for_timeout(1200)
-                capture(page, "03-running")
-                page.mouse.click(*layout["points"]["run_mode"])
+                capture(page, "02-servo-arm")
+                page.mouse.click(*layout["points"]["flag_action"])
+                page.wait_for_timeout(30000)
+                capture(page, "03-flag-result")
+                page.mouse.click(*layout["points"]["stop"])
                 page.wait_for_timeout(200)
                 errors.extend(item["text"] for item in logs if item["type"] == "error" or item["text"].startswith(("ERROR:", "SCRIPT ERROR:")))
                 result.update(single_threaded=True, browser=browser.version)

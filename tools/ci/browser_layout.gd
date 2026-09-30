@@ -20,9 +20,12 @@ func _run() -> void:
 	var main: Node3D = load("res://scenes/main.tscn").instantiate()
 	root.add_child(main)
 	await _settle()
-	_point("starter", _button(main._empty_panel, "Start with a biped"))
+	_point("starter", main.biped_button)
+	_point("flag_starter", _button(main._empty_panel, "Try the servo arm"))
+	_point("flag_action", main.flag_mission._action)
 	_point("projects", main.projects_button)
 	_point("run_mode", main.mode_button)
+	_point("stop", main.stop_button)
 	_point("learned_starter", main.learned_biped_button)
 	_points["world_focus"] = [root.size.x * 0.5, root.size.y * 0.5]
 	_point("run_code", main.run_button)
@@ -56,6 +59,11 @@ func _run() -> void:
 		return
 	_rect("saved_first", main.projects.library, main.projects.library.get_item_rect(0))
 	_point("open", main.projects.open_button)
+	main.projects._confirmation.dialog_text = "Replace the current assembly and code? Save a snapshot first if you want to keep them."
+	main.projects._confirmation.popup_centered()
+	await _settle()
+	_point("project_confirm", main.projects._confirmation.get_ok_button())
+	main.projects._confirmation.hide()
 	main.projects.tabs.current_tab = 1
 	await _settle()
 	_point("transfer_text", main.projects.transfer_edit)

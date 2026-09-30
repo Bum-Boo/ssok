@@ -36,6 +36,7 @@ var motion_lab_button: Button
 var motion_lab: MotionLabPanel
 var pickup_lab: PickupLabPanel
 var tutorial: TutorialPanel
+var flag_mission: FlagMission
 var tutorial_button: Button
 var _manual_status: Label
 var _movement_instructions: Label
@@ -117,6 +118,8 @@ func _ready() -> void:
 	add_child(preload("res://src/ui/browser_evidence.gd").new())
 	_build_palette()
 	_build_help_hud()
+	_ui_root.move_child(flag_mission, _ui_root.get_child_count() - 1)
+	_layout_flag_mission()
 	navigation.framing_rect_provider = _camera_framing_rect
 	get_viewport().size_changed.connect(_adapt_layout)
 	_adapt_layout()
@@ -182,6 +185,22 @@ func _build_ui() -> void:
 	_ui_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_ui_root.theme = SsokTheme.build()
 	layer.add_child(_ui_root)
+	flag_mission = FlagMission.new()
+	flag_mission.theme = _ui_root.theme
+	flag_mission.configure(assembly, run_mode, self)
+	flag_mission.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	flag_mission.offset_left = 452
+	flag_mission.offset_right = -382
+	flag_mission.offset_top = 86
+	flag_mission.offset_bottom = 252
+	flag_mission.starter_requested.connect(func() -> void: _request_starter(_on_answer_pressed))
+	flag_mission.run_requested.connect(_on_run_pressed)
+	flag_mission.stop_requested.connect(_on_stop_pressed)
+	flag_mission.retry_requested.connect(func() -> void:
+		if mode_button.button_pressed:
+			mode_button.button_pressed = false
+		code_edit.grab_focus())
+	_ui_root.add_child(flag_mission)
 
 	var top := PanelContainer.new()
 	top.name = "WorkspaceHeader"
@@ -321,6 +340,7 @@ func _build_ui() -> void:
 	wiring_panel.assembly = assembly
 	wiring_panel.can_edit = func() -> bool: return not mode_button.button_pressed
 	program_tabs.add_child(wiring_panel)
+	program_tabs.current_tab = 2
 	run_button = SsokTheme.button("Run code", "play")
 	run_button.theme_type_variation = &"PrimaryButton"
 	run_button.add_theme_color_override("icon_normal_color", SsokTheme.BG_SUNKEN)
@@ -444,18 +464,18 @@ func _build_help_hud() -> void:
 	box.add_theme_constant_override("separation", 16)
 	_empty_panel.add_child(box)
 	var title := Label.new()
-	title.text = "Build something that moves."
+	title.text = "Raise a flag with your robot."
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title.add_theme_font_size_override("font_size", 22)
 	box.add_child(title)
 	var detail := Label.new()
-	detail.text = "Start with a robot example, or add parts from the library."
+	detail.text = "Start with the servo arm, or build your own from the parts library."
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(detail)
-	var start := SsokTheme.button("Start with a biped", "box")
+	var start := SsokTheme.button("Try the servo arm", "box")
 	start.theme_type_variation = &"PrimaryButton"
 	start.add_theme_color_override("icon_normal_color", SsokTheme.BG_SUNKEN)
-	start.pressed.connect(func() -> void: _request_starter(_on_biped_pressed))
+	start.pressed.connect(func() -> void: flag_mission._action.pressed.emit())
 	box.add_child(start)
 	_refresh_workspace()
 
@@ -595,10 +615,21 @@ func _replace_with_starter() -> void:
 func _adapt_layout() -> void:
 	if examples_menu == null:
 		return
+	_layout_flag_mission()
 	var compact: bool = get_viewport().get_visible_rect().size.y < 800
 	examples_menu.visible = compact
 	for starter: Control in _starter_controls:
 		starter.visible = not compact
+
+
+func _layout_flag_mission() -> void:
+	if flag_mission == null:
+		return
+	var width: float = get_viewport().get_visible_rect().size.x
+	flag_mission.offset_left = 452.0 if width >= 1200.0 else 260.0
+	flag_mission.offset_right = -382.0 if width >= 1200.0 else -376.0
+	flag_mission.offset_top = 86.0 if width >= 1200.0 else 142.0
+	flag_mission.offset_bottom = 252.0 if width >= 1200.0 else 328.0
 
 
 func _camera_framing_rect() -> Rect2:
@@ -816,7 +847,9 @@ func _on_mode_toggled(run: bool) -> void:
 		manual_controller.configure(run_mode)
 		motion_program.configure(run_mode, assembly.graph)
 		_apply_control_source()
+		flag_mission.on_run_mode_changed(true)
 	else:
+		flag_mission.on_run_mode_changed(false)
 		navigation.track_displacement(-_follow_offset)
 		_follow_offset = Vector3.ZERO
 		_follow_body = null
@@ -845,6 +878,7 @@ func _on_run_pressed() -> void:
 	if not mode_button.button_pressed:
 		mode_button.button_pressed = true
 	_apply_control_source()
+	flag_mission.on_run_mode_changed(true)
 	runtime.run(code_edit.text)
 	_refresh_control_ui()
 
@@ -872,6 +906,7 @@ func _apply_control_source() -> void:
 
 
 func _on_stop_pressed() -> void:
+	flag_mission.on_stop_pressed()
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
@@ -1151,7 +1186,7 @@ func _dress_scene() -> void:
 	add_child(world_env)
 	var floor_mesh := $Floor/MeshInstance3D as MeshInstance3D
 	var floor_material := StandardMaterial3D.new()
-	floor_material.albedo_color = Color(0.55, 0.56, 0.55)
+	floor_material.albedo_color = Color(0.52, 0.49, 0.44)
 	floor_material.roughness = 0.9
 	floor_mesh.material_override = floor_material
 

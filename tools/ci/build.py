@@ -49,6 +49,9 @@ def copy_notices(destination: Path) -> None:
         "Lucide-LICENSE.txt": PROJECT / "assets/icons/lucide/LICENSE",
         "Godot-LICENSE.txt": PROJECT / "tools/release/licenses/Godot-LICENSE.txt",
         "Godot-COPYRIGHT.txt": PROJECT / "tools/release/licenses/Godot-COPYRIGHT.txt",
+        "Beehave-LICENSE.txt": PROJECT / "addons/beehave/LICENSE",
+        "Godot-State-Charts-LICENSE.txt": PROJECT / "addons/godot_state_charts/LICENSE",
+        "Kenney-Interface-Sounds-LICENSE.txt": PROJECT / "assets/kenney/interface-sounds/LICENSE.txt",
     }
     for name, source in sources.items():
         shutil.copy2(source, notices / name)

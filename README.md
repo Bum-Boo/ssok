@@ -14,7 +14,7 @@ English · 한국어 · 简体中文 · 日本語
 
 > Release preparation is in progress. Browser and Linux builds run locally; public release
 > remains gated on the [verification and delivery checklist](docs/RELEASE_PLAN.md).
-> Learned locomotion is an active experiment, with measured results rather than a claim of universal robotics AI.
+> The first playable path is the servo-arm flag mission. Learned locomotion remains a recorded experiment.
 
 ## Try the workshop
 
@@ -27,16 +27,16 @@ godot --headless --path . --import --quit
 godot --path .
 ```
 
-1. Load **Answer: servo arm** from the parts library. Short windows use **Load an example**.
-2. Choose **Run code**. The program controls the servo connected to its actual board pin.
-3. Return to edit mode. Try **Blocks**, change an angle, apply it to code and run again.
+1. Choose **Try the flag mission** and load the servo arm, or assemble and wire one yourself.
+2. Choose **Run code**. The flag follows the real servo arm; the goal completes only after it moves down, rises, and stays at its mark.
+3. Return to edit mode. **Blocks** opens first; change an angle, apply it to code, and try again. Code and free assembly remain available.
 4. Open **Projects** to save a snapshot. Reopen it later, or export its JSON to another device.
-5. Try the **construction-kit humanoid** and its **AI motion lab** for observable pickup trials.
+5. The **construction-kit humanoid** and its **AI motion lab** remain available as research exhibits.
 
 No account, API key or paid model is needed for local assembly, coding, physics, storage or
 pickup experiments. Optional external AI services keep their keys outside the application.
 
-[Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
+[Flag mission and reused components](docs/FLAG_MISSION.md) · [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
 [Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
 
 The selected feedback policy passes six declared browser start/restart flows in an isolated export

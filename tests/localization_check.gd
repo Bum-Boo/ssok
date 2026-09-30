@@ -40,6 +40,7 @@ func _run() -> void:
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/project_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/block_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/core_messages.json")))
+	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/flag_mission_messages.json")))
 	_check(keys.size() >= 189, "complete translation inventory")
 	for locale: String in SsokLocale.LOCALES:
 		_check(SsokLocale.select_locale(locale, false) == OK, "switch " + locale)
@@ -60,6 +61,7 @@ func _run() -> void:
 						_check(SsokLocale.ui_font.has_char(character.unicode_at(0)), locale + " glyph: " + character)
 		_check(_main.language_picker.selected == SsokLocale.LOCALES.find(locale), "selector stays in sync")
 		_check(_main.run_button.tr(_main.run_button.text) == TranslationServer.translate("Run code"), "native button translation")
+		_check(_main.flag_mission._message.text == TranslationServer.translate("Build a small robot, wire its motor, and raise the flag."), "flag mission translates when language changes")
 		_check(_main.status.text.contains(TranslationServer.translate("Foot")), "live formatted part name")
 		_check(panel.status_label.text.contains(TranslationServer.translate("COMPLETED")), "live job state")
 		_check(panel.result_label.text.contains("0.2500"), "measured numeric precision retained")
