@@ -82,6 +82,9 @@ jobs:
       - name: Measure real WebAssembly learned walking and stopping
         if: ${{ !cancelled() && steps.export.outcome == 'success' && steps.browser_setup.outcome == 'success' }}
         run: timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_physics.py
+      - name: Verify learning stages, challenge download and loop cancellation
+        if: ${{ !cancelled() && steps.export.outcome == 'success' && steps.browser_setup.outcome == 'success' }}
+        run: timeout --signal=INT --kill-after=20s 10m python tools/ci/browser_learning.py --directory build/web --output build/browser-learning
       - name: Retain real browser screenshots and console output
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -91,6 +94,7 @@ jobs:
             build/browser-smoke/
             build/browser-authoring/
             build/browser-physics/
+            build/browser-learning/
           if-no-files-found: warn
       - name: Save downloadable builds and manifests
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

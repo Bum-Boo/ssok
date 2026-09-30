@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-import maintain
+from tools.docs import maintain
 
 
 class DocumentationCheckTest(unittest.TestCase):
