@@ -50,6 +50,7 @@ var _message: Label
 var _action: Button
 var _preferences: InterfacePreferences
 var _sound: AudioStreamPlayer
+var _mission_active: bool = true
 
 
 func configure(assembly: AssemblyMode, run_mode: RunMode, visual_parent: Node3D) -> void:
@@ -64,6 +65,12 @@ func configure(assembly: AssemblyMode, run_mode: RunMode, visual_parent: Node3D)
 	_assembly.link_added.connect(func(_link: Dictionary) -> void: _play(SOUND_SNAP))
 	_assembly.graph_changed.connect(observe_graph)
 	observe_graph()
+
+
+func set_mission_active(active: bool) -> void:
+	_mission_active = active
+	visible = active
+	_update_visual()
 
 
 func _ready() -> void:
@@ -208,6 +215,8 @@ func on_run_mode_changed(running: bool) -> void:
 		if _phase == &"Running":
 			_chart.send_event(&"stopped")
 		return
+	if not _mission_active:
+		return
 	if _phase == &"Ready" and _can_observe_run():
 		var point: Vector3 = _tip_position()
 		_initial_tip_height = point.y
@@ -226,7 +235,7 @@ func on_stop_pressed() -> void:
 
 func _physics_process(_delta: float) -> void:
 	_update_visual()
-	if _phase != &"Running":
+	if not _mission_active or _phase != &"Running":
 		return
 	_running_seconds += get_physics_process_delta_time()
 	match _tree.tick():
@@ -270,7 +279,7 @@ func _tip_position() -> Vector3:
 func _update_visual() -> void:
 	if _flag == null:
 		return
-	_flag.visible = _arm_index >= 0
+	_flag.visible = _mission_active and _arm_index >= 0
 	if _flag.visible:
 		_flag.global_position = _tip_position()
 

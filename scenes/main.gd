@@ -78,6 +78,7 @@ var _parts_scroll: ScrollContainer
 var _clean_workspace: String = ""
 var _pending_starter: Callable
 var _replace_dialog: ConfirmationDialog
+var _preset_frame_request: int = 0
 
 
 func _ready() -> void:
@@ -391,14 +392,15 @@ func _build_ui() -> void:
 		return context
 	stages.stage_requested.connect(func(stage: Dictionary) -> void:
 		_request_starter(func() -> void:
-			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.")
-			stages.load_goal(stage)
-			flag_mission.visible = stage.id == "raise-flag"))
+			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.", stage.id == "raise-flag")
+			stages.load_goal(stage)))
 	stages.lab_requested.connect(func() -> void:
 		_ensure_assembly_mode()
-		flag_mission.visible = false)
+		flag_mission.set_mission_active(false)
+		_adapt_layout())
 	program_tabs.add_child(stages)
 	program_tabs.current_tab = 2
+	control_source.select(CONTROL_CODE)
 	run_button = SsokTheme.button("Run code", "play")
 	run_button.theme_type_variation = &"PrimaryButton"
 	run_button.add_theme_color_override("icon_normal_color", SsokTheme.BG_SUNKEN)
@@ -699,12 +701,17 @@ func _adapt_layout() -> void:
 	tools.position = Vector2(library.get_global_rect().end.x + 12.0, library.offset_top)
 	_layout_flag_mission()
 	_empty_panel.visible = _show_empty_card()
+	_sync_start_panels()
 	if _empty_panel.visible:
 		var available_left: float = library.get_global_rect().end.x + 12.0
 		var available_width: float = _side_panel.get_global_rect().position.x - available_left - 12.0
 		var card_width: float = minf(400.0, available_width)
-		_empty_panel.size = Vector2(card_width, _empty_panel.get_combined_minimum_size().y)
-		_empty_panel.position = Vector2(available_left + (available_width - card_width) * 0.5, flag_mission.get_global_rect().end.y + 16.0)
+		var card_height: float = _empty_panel.get_combined_minimum_size().y
+		_empty_panel.size = Vector2(card_width, card_height)
+		var canvas_top: float = tools.get_global_rect().end.y + 16.0
+		var canvas_bottom: float = footer.get_global_rect().position.y - 16.0
+		var card_top: float = maxf(canvas_top, canvas_top + (canvas_bottom - canvas_top - card_height) * 0.5)
+		_empty_panel.position = Vector2(available_left + (available_width - card_width) * 0.5, card_top)
 	var compact: bool = get_viewport().get_visible_rect().size.y < 800
 	examples_menu.visible = compact
 	for starter: Control in _starter_controls:
@@ -720,23 +727,31 @@ func _layout_flag_mission() -> void:
 	var width: float = program.position.x - library.end.x - 24.0
 	var beside_tools: bool = width >= 750.0 and SsokTheme.ui_scale <= 1.3
 	flag_mission.offset_left = tools.end.x + 12.0 if beside_tools else library.end.x + 12.0
-	flag_mission.offset_right = program.position.x - 12.0 - get_viewport().get_visible_rect().size.x
+	var available_right: float = program.position.x - 12.0
+	flag_mission.offset_right = minf(available_right, flag_mission.offset_left + 500.0) - get_viewport().get_visible_rect().size.x
 	flag_mission.offset_top = tools.position.y if beside_tools else tools.end.y + 12.0
 	flag_mission.offset_bottom = flag_mission.offset_top + flag_mission.get_combined_minimum_size().y
 
 
 func _show_empty_card() -> bool:
-	if _empty_panel == null or not assembly.graph.parts.is_empty() or mode_button.button_pressed:
+	if _empty_panel == null or not flag_mission._mission_active or not assembly.graph.parts.is_empty() or mode_button.button_pressed:
 		return false
 	var width: float = _side_panel.get_global_rect().position.x - 260.0
 	return width >= 500.0 and get_viewport().get_visible_rect().size.y >= 800.0
+
+
+func _sync_start_panels() -> void:
+	flag_mission.visible = flag_mission._mission_active and not _empty_panel.visible
 
 
 func _camera_framing_rect() -> Rect2:
 	var library: Rect2 = (_ui_root.get_node("PartsLibrary") as Control).get_global_rect()
 	var program: Rect2 = _side_panel.get_global_rect()
 	var tools: Rect2 = (_ui_root.get_node("ViewportTools") as Control).get_global_rect()
-	var top_left: Vector2 = Vector2(library.end.x + 12.0, maxf(tools.end.y, flag_mission.get_global_rect().end.y) + 12.0)
+	var content_top: float = tools.end.y
+	if flag_mission.visible:
+		content_top = maxf(content_top, flag_mission.get_global_rect().end.y)
+	var top_left: Vector2 = Vector2(library.end.x + 12.0, content_top + 12.0)
 	var bottom_right: Vector2 = Vector2(program.position.x - 12.0, program.end.y - 12.0)
 	return Rect2(top_left, bottom_right - top_left)
 
@@ -783,6 +798,7 @@ func _refresh_workspace() -> void:
 		runtime.sleep_scale = graph_profile.sleep_unit_seconds
 	if _empty_panel != null:
 		_empty_panel.visible = _show_empty_card()
+		_sync_start_panels()
 	var can_edit: bool = not mode_button.button_pressed and not assembly.transform_active and assembly.selected_part != null
 	if delete_button != null:
 		delete_button.disabled = not can_edit
@@ -842,7 +858,10 @@ func _on_delete_pressed() -> void:
 
 
 func _on_answer_pressed() -> void:
-	_load_preset(ServoArmPreset.build(), ServoArmPreset.ANSWER_CODE, "answer loaded - the finished servo arm")
+	_load_preset(ServoArmPreset.build(), ServoArmPreset.ANSWER_CODE, "answer loaded - the finished servo arm", true)
+	control_source.select(CONTROL_CODE)
+	program_tabs.current_tab = 2
+	_refresh_control_ui()
 
 
 func _on_biped_pressed() -> void:
@@ -877,8 +896,9 @@ func _on_kit_bridge_pressed() -> void:
 	_filter_parts()
 
 
-func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void:
+func _load_preset(graph: ConnectionGraph, code: String, message: String, show_flag_mission: bool = false) -> void:
 	_ensure_assembly_mode()
+	flag_mission.set_mission_active(show_flag_mission)
 	assembly.load_graph(graph)
 	_colorize(assembly)
 	_mark_ports(assembly)
@@ -893,9 +913,18 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 	blocks.reset_source(code)
 	stages.clear_goal()
 	_clean_workspace = _workspace_key()
+	_adapt_layout()
+	_preset_frame_request += 1
 	navigation.frame_bounds(assembly.get_scene_bounds())
+	_frame_loaded_preset(_preset_frame_request)
 	_set_status(message)
 	get_viewport().gui_release_focus()
+
+
+func _frame_loaded_preset(request: int) -> void:
+	await get_tree().process_frame
+	if request == _preset_frame_request:
+		navigation.frame_bounds(assembly.get_scene_bounds())
 
 
 func _ensure_assembly_mode() -> void:
@@ -1419,11 +1448,14 @@ func _practice_flag_arm() -> void:
 	graph.links.pop_back()
 	graph.links.remove_at(1)
 	graph.parts[2].transform.origin = Vector3(-0.13, 0.11, 0)
-	_load_preset(graph, ServoArmPreset.microbit_code(), "Connect the loose arm, then wire its servo to a board pin.")
-	flag_mission.visible = true
+	_load_preset(graph, ServoArmPreset.microbit_code(), "Connect the loose arm, then wire its servo to a board pin.", true)
+	control_source.select(CONTROL_CODE)
 	program_tabs.current_tab = 2
+	_refresh_control_ui()
 
 
 func _on_microbit_arm_pressed() -> void:
-	_load_preset(ServoArmPreset.build_microbit(), ServoArmPreset.microbit_code(), "answer loaded - the finished servo arm")
-	flag_mission.visible = true
+	_load_preset(ServoArmPreset.build_microbit(), ServoArmPreset.microbit_code(), "answer loaded - the finished servo arm", true)
+	control_source.select(CONTROL_CODE)
+	program_tabs.current_tab = 2
+	_refresh_control_ui()
