@@ -83,7 +83,7 @@ def main() -> None:
                 wait("!window.__ssokInterface.dark")
                 check(state()["values"]["appearance"] == "system", "fresh browser follows light system appearance")
                 click("flag_starter")
-                wait("window.__ssokLearning.scene.graph.parts.length > 0")
+                wait("window.__ssokLearning?.scene?.graph?.parts?.length > 0")
                 before = state()
                 click("settings_button")
                 wait("window.__ssokInterface.settings_open")

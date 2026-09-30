@@ -142,8 +142,9 @@ These results concern one simulated robot, ±0.004 m/s initial velocity noise, 0
 delays and declared restart intervals. They do not guarantee every restart or arbitrary assemblies.
 MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
 [Methods and complete outcomes](docs/evidence/heading_feedback_2026-09-22/README.md) distinguish
-training, component selection, frozen evaluation and browser checks. Clean integrated verification,
-public release, continuous manual control and kit locomotion remain unfinished.
+training, component selection, frozen evaluation and browser checks. The v0.2.0 learning workshop
+is publicly delivered with integrated verification; continuous manual control and sustained kit
+locomotion remain research limitations. [Current delivery evidence](docs/evidence/public_release_2026-09-30/README.md).
 
 ## Development
 

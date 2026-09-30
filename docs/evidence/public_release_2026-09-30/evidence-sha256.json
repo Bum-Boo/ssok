@@ -1,0 +1,215 @@
+{
+  "source_commit": "af1973b28424aa89bed92db47312cbb14b655e16",
+  "files": [
+    {
+      "path": ".gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9508,
+      "sha256": "bb07714ffd71c3ed912dda2e314f72df540107c925a6f08b2c64983f7ec93f69"
+    },
+    {
+      "path": "browser/authoring/console.json",
+      "bytes": 1098,
+      "sha256": "f3b5f0e455dfc90d4867887ad7d45236ce1e9d6bdb3df8358086c128b53d92ab"
+    },
+    {
+      "path": "browser/authoring/result.json",
+      "bytes": 929,
+      "sha256": "2af31feec9d8fc9a3db6648408d938ca5615f4d195ab9c123b6214e0c94f33a3"
+    },
+    {
+      "path": "browser/learning/console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "path": "browser/learning/result.json",
+      "bytes": 21030,
+      "sha256": "0338459da17f97ff827f6055ca3f347865bbce294285200831f29a8c4c56a57c"
+    },
+    {
+      "path": "browser/physics/console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "path": "browser/physics/result.json",
+      "bytes": 3669,
+      "sha256": "94e5488770125f0e76160c0e2f7d11070632fd05fab1b90828081194efba9bcc"
+    },
+    {
+      "path": "browser/settings/console.json",
+      "bytes": 793,
+      "sha256": "63f79c746e0517ac2e48dd701836b4aec7c0d759d20776dd8a13adaca161c2a3"
+    },
+    {
+      "path": "browser/settings/result.json",
+      "bytes": 3559,
+      "sha256": "fffa9831ee3c17b688885f37cb1002096facdd52c56cea26948dc88beaa33b08"
+    },
+    {
+      "path": "browser/smoke/console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "path": "browser/smoke/result.json",
+      "bytes": 314,
+      "sha256": "6cf2d2e1954e26d688fc99a91e08c75766c177712ed36f8fe6210d06de9c3cc8"
+    },
+    {
+      "path": "delivery/SHA256SUMS",
+      "bytes": 580,
+      "sha256": "7f53338f39abc2fe7142c89a2780e36e3f01d90f333d77a9e7497e3264733412"
+    },
+    {
+      "path": "delivery/anonymous-delivery.json",
+      "bytes": 9301,
+      "sha256": "67f236bab3864d4750b2c5038f52e298f8fdace555f3494cf15afae186a48625"
+    },
+    {
+      "path": "delivery/gitleaks-redacted.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "delivery/pages-api.json",
+      "bytes": 317,
+      "sha256": "5e636504be88305db0ab9a4435de89a07ff775fc68f9ad47b540af34591fd5f6"
+    },
+    {
+      "path": "delivery/pages-build.json",
+      "bytes": 1183,
+      "sha256": "48971a2decb896cbd443f1e67f57c7add4ebce359525a5465470de5f6eae2ff1"
+    },
+    {
+      "path": "delivery/public-browser-console.log",
+      "bytes": 287,
+      "sha256": "b1bee729aaf29bcda9737d92af8d080de5a02e8afbe3daccce2427589f1ec465"
+    },
+    {
+      "path": "delivery/public-browser-errors.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "delivery/public-browser-state.json",
+      "bytes": 605,
+      "sha256": "5a0288376736b708c6e237873a70291f774c00b4856fd1d596ce78fa2d0695c5"
+    },
+    {
+      "path": "delivery/release-event-cancelled.json",
+      "bytes": 166,
+      "sha256": "cf110b2181a609630bfac83679b6759384f3b385b40e1a7e353ff5688728d45d"
+    },
+    {
+      "path": "delivery/release.json",
+      "bytes": 1232,
+      "sha256": "d1afb6c8a7a20126fe83a934fa2c66a328f70f76e1e8cdf6c516711500c70e42"
+    },
+    {
+      "path": "delivery/source-ci.json",
+      "bytes": 6925,
+      "sha256": "8e80a86247143a5d8b5e8f6c05f4be6aecbc12aaacc8741987f7f7662aece23a"
+    },
+    {
+      "path": "failures/browser-missing-libs.json",
+      "bytes": 5003,
+      "sha256": "79f13f5d7c5af067c07a1892bc3e9d624b0c2f7485953964284403805efb72bb"
+    },
+    {
+      "path": "failures/ci-authoring-timeout.log",
+      "bytes": 15607,
+      "sha256": "ae136d0bc1acea0081fcc4e02b8b2c7ae9f50be8eb2e0b79c503e06dc52709be"
+    },
+    {
+      "path": "failures/settings-before-ready.json",
+      "bytes": 1566,
+      "sha256": "81363a4f2262a96c39d0d6bb2233a84db7db399882df3af2983669f6c72164e3"
+    },
+    {
+      "path": "native/SUMMARY.md",
+      "bytes": 3224,
+      "sha256": "00990e342966b0e28942e69b4f396ac815f8eb0b3fe2792522ade4eaa689554e"
+    },
+    {
+      "path": "native/junit.xml",
+      "bytes": 4049,
+      "sha256": "234096f406b0db59b7fb71b555c3d1dd49a7a09b5e6db9ea4e40a775197bd8dc"
+    },
+    {
+      "path": "native/results.json",
+      "bytes": 52315,
+      "sha256": "56170a994b81d87a96bdf8c1618eb8f7990e60ebc0b2d45fe5c238fea5ea2832"
+    },
+    {
+      "path": "public/authoring/console.json",
+      "bytes": 1098,
+      "sha256": "f3b5f0e455dfc90d4867887ad7d45236ce1e9d6bdb3df8358086c128b53d92ab"
+    },
+    {
+      "path": "public/authoring/result.json",
+      "bytes": 937,
+      "sha256": "6f8dc588643c7be2a0e4c45206d2ac544def0eec957ca861878b6db1c36cd1b4"
+    },
+    {
+      "path": "public/settings/05-reloaded.png",
+      "bytes": 166333,
+      "sha256": "3e14491f20194a48463f0500268c7aebea391433a7ceedf212e0d6c0ea9e7cd4"
+    },
+    {
+      "path": "public/settings/console.json",
+      "bytes": 793,
+      "sha256": "63f79c746e0517ac2e48dd701836b4aec7c0d759d20776dd8a13adaca161c2a3"
+    },
+    {
+      "path": "public/settings/result.json",
+      "bytes": 3567,
+      "sha256": "cef6d6f67f309d09054789e5e9de2f8c6466d92d995f6a5e2675e9fbcec8f8bd"
+    },
+    {
+      "path": "public/smoke/console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "path": "public/smoke/result.json",
+      "bytes": 322,
+      "sha256": "bf045a0e88d8f530511a6ba3ed6d85e9a764eabce452a734eb479218938cd305"
+    },
+    {
+      "path": "public/workshop.png",
+      "bytes": 166801,
+      "sha256": "5da9b830064af0d5fb878a066c98794b3ddb149a8a3935a35e574fad4c6e2df7"
+    },
+    {
+      "path": "windows/checks.json",
+      "bytes": 1809,
+      "sha256": "40bce192ad6cffa560f4522d5cb076a3f15c40f94c1c593b779777cedc902771"
+    },
+    {
+      "path": "windows/stage-finish-line.json",
+      "bytes": 12128,
+      "sha256": "9c575dbbd5606186d45f30ba5216719931b9198b4ca43bcab0b8fc2cbecaf4d4"
+    },
+    {
+      "path": "windows/stage-raise-flag.json",
+      "bytes": 4493,
+      "sha256": "27cbc068b7dab8676352ef06ea126406351fff33b95b7ba7c895d2ab4dd86fbf"
+    },
+    {
+      "path": "windows/stage-raise-flag.png",
+      "bytes": 189351,
+      "sha256": "abaf15f255b98ec8388b79e846bd2ee060f9a445de24ea22fc0c85fcb3d596ef"
+    },
+    {
+      "path": "windows/stage-wall-brake.json",
+      "bytes": 13125,
+      "sha256": "8eb558809c5cb6b30fc5910ec0763748d8ad817eca03cd5c65d3a871c9aa5014"
+    }
+  ]
+}

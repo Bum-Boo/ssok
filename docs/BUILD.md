@@ -200,7 +200,7 @@ on native Windows; Mac validation status is recorded separately rather than infe
 before exporting the targets. The workflow retains verification logs even on failure, and uses
 official GitHub Actions pinned by commit SHA. Python dependencies are pinned in the lock file.
 
-Set repository **Settings → Pages → Source → GitHub Actions** once. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision,
+The current v0.2.0 site uses `gh-pages` branch-root delivery (see below). For an intentional migration to workflow delivery, set **Settings → Pages → Source → GitHub Actions** and verify the new payload/anonymous URL. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision through that workflow,
 run the workflow manually on that revision with `deploy` checked.
 The `github-pages` environment reports the resulting URL. Publishing a GitHub Release triggers
 the same validation/build and attaches platform ZIPs (including the ZIP containing Windows setup), hashes and metadata
@@ -230,6 +230,6 @@ when changing the board block catalog: the authoring check uses its semantic Wai
 
 ## Owner-authorized publication on 2026-09-30
 
-[ADR0027](adr/0027-current-workshop-public-release.md) uses a frozen v0.2.0 source and all four exports. GitHub artifact quota currently blocks the Actions upload jobs, so the verified Web payload is committed to the dedicated `gh-pages` branch with `.nojekyll` and Pages serves its root. Final archives, Windows setup, `release.json` and `SHA256SUMS` are attached directly to the versioned GitHub Release. No old artifacts are deleted and billing is unchanged.
+[ADR0027](adr/0027-current-workshop-public-release.md) uses frozen v0.2.0 source `af1973b` and all four exports. Private preparation hit GitHub artifact quota; public native/browser result uploads subsequently succeeded. The selected delivery still commits the exact verified Web payload to `gh-pages` with `.nojekyll`, and Pages serves its root. Final archives, Windows setup, `release.json` and `SHA256SUMS` are attached directly to the versioned GitHub Release. No old artifacts are deleted and billing is unchanged.
 
-This branch deployment is explicit; ordinary main pushes do not publish new application bytes. Match the deployed payload hashes to the frozen build and exercise the anonymous URL after Pages completes. The existing workflow remains available when artifact storage permits it. [Publication evidence](evidence/public_release_2026-09-30/README.md) records the actual status, including any failed attempts. This change adds no application text or language-pack keys.
+This branch deployment is explicit; ordinary main pushes do not publish new application bytes. Match deployed payload hashes to the frozen build and exercise the anonymous URL after Pages completes. When attaching verified assets directly, inspect and cancel only that release's duplicate `release` event run before it tries to attach a separate rebuild. Keep the source verification run and all previous artifacts. [Publication evidence](evidence/public_release_2026-09-30/README.md) records the actual public URL, source, hashes, interactions and failed attempts. This change adds no application text or language-pack keys.
