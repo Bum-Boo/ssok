@@ -1,0 +1,167 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 8,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.741,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.489,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "browser_evidence_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.189,
+      "timeout": false,
+      "engine_error": false,
+      "log": "browser_evidence_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/browser_evidence_check.gd"
+      ]
+    },
+    {
+      "name": "interface_preferences_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 15.316,
+      "timeout": false,
+      "engine_error": false,
+      "log": "interface_preferences_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/interface_preferences_check.gd"
+      ]
+    },
+    {
+      "name": "learned_app_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.843,
+      "timeout": false,
+      "engine_error": false,
+      "log": "learned_app_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/learned_app_check.gd"
+      ]
+    },
+    {
+      "name": "motion_lab_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.807,
+      "timeout": false,
+      "engine_error": false,
+      "log": "motion_lab_ui_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/motion_lab_ui_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_bridge_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 21.705,
+      "timeout": false,
+      "engine_error": false,
+      "log": "pickup_bridge_ui_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/pickup_bridge_ui_check.gd"
+      ]
+    },
+    {
+      "name": "tests-test_release_documents.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.728,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-test_release_documents.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/test_release_documents.py",
+        "-v"
+      ]
+    }
+  ]
+}
