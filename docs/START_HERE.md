@@ -19,7 +19,7 @@
 | 저장, 가져오기, 버전 | [데이터 관계](DATA_MODEL.md), [저작 흐름](AUTHORING.md) | `src/core/project_store.gd`, `src/runtime/motion_snapshot.gd` | 0002, 0016, 0022 |
 | 보드, 언어, 블록 | [실행 흐름](FLOWS.md), [저작 흐름](AUTHORING.md) | `src/core/board_profile.gd`, `src/runtime/mini_runtime.gd`, `src/blocks/servo_program.gd` | 0004, 0007 |
 | 물리, 모터 | [아키텍처](ARCHITECTURE.md), [실행 흐름](FLOWS.md) | `src/runtime/run_mode.gd`, `src/runtime/servo_drive.gd` | 0003, 0020; 로봇별 ADR 추가 |
-| 첫 경험, 과제, UI | [제품 정책](POLICIES.md), [깃발 임무](FLAG_MISSION.md), [번역](LOCALIZATION.md) | `scenes/main.gd`, `src/ui/flag_mission.gd` | 0007, 0022; 새 과제 계약은 별도 |
+| 첫 경험, 과제, UI | [제품 정책](POLICIES.md), [깃발 임무](FLAG_MISSION.md), [번역](LOCALIZATION.md), [설정 경험 검토안](INTERFACE_PREFERENCES.md) | `scenes/main.gd`, `src/ui/flag_mission.gd` | 0007, 0022; 새 과제 계약은 별도 |
 | AI, 외부 도구 | [제품 정책](POLICIES.md), [MOTION_LAB](MOTION_LAB.md) | `src/runtime/motion_lab_client.gd`, `tools/motion_lab/service.py` | 0008, 0010 |
 | 빌드, 배포 | [BUILD](BUILD.md), [RELEASE_PLAN](RELEASE_PLAN.md) | `tools/ci/verify.py`, `tools/ci/build.py`, `.github/workflows/ci.yml` | 0001, 0013, 0017 |
 | 문서, 다이어그램 | [갱신 규칙](MAINTENANCE.md) | `docs/context.json`, `tools/docs/maintain.py` | 0000, 0023 |

@@ -12,7 +12,10 @@
     "docs/MAINTENANCE.md",
     "docs/ARCHITECTURE.md",
     "docs/TECHNICAL_NOTE_2026-09-30.md",
-    "docs/evidence/contributor_context_2026-09-30/README.md"
+    "docs/evidence/contributor_context_2026-09-30/README.md",
+    "docs/INTERFACE_PREFERENCES.md",
+    "docs/SETTINGS_UX_AUDIT_2026-09-30.md",
+    "docs/evidence/settings_ux_2026-09-30/README.md"
   ],
   "routes": {
     "assembly": {
@@ -105,7 +108,8 @@
       "docs": [
         "docs/POLICIES.md",
         "docs/FLAG_MISSION.md",
-        "docs/LOCALIZATION.md"
+        "docs/LOCALIZATION.md",
+        "docs/INTERFACE_PREFERENCES.md"
       ],
       "sources": [
         "scenes/main.gd",
