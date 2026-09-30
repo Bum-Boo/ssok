@@ -1,0 +1,78 @@
+{
+  "engine_version": "4.7.2-stable (official)",
+  "episode": {
+    "metrics": {
+      "cancelled": false,
+      "contact_before_grasp": true,
+      "engine_version": "4.7.2",
+      "fallen": false,
+      "finite": true,
+      "graph_fingerprint": "fba6ce380f2d81b57952406fd18999786628580aacbaa2319ee05a0e983256e5",
+      "grasped": true,
+      "hold_seconds": 1.0,
+      "left_contact": false,
+      "lift_m": 0.475256621837616,
+      "max_lift_m": 0.477074682712555,
+      "min_upright": 0.995029628276825,
+      "phase": "succeeded",
+      "physics_hz": 60,
+      "right_contact": false,
+      "score": 177.525662183762,
+      "simulation_seconds": 8.9,
+      "success": true,
+      "upright": 0.997502088546753
+    },
+    "policy": {
+      "crouch_height": 0.2,
+      "hand_height_offset": 0.075,
+      "hold_elbow_deg": -60.0,
+      "hold_shoulder_deg": -35.0,
+      "lift_seconds": 2.5,
+      "reach_seconds": 2.0,
+      "torso_lean_deg": 25.0
+    }
+  },
+  "physics_hz": 60,
+  "playback_speed": 1.0,
+  "render_fps": 30,
+  "schema": 1,
+  "capture_clock_seconds": 9.9,
+  "retained_result_seconds": 1.0,
+  "source_sha256": {
+    "src/runtime/kit_humanoid_motion.gd": "9c0974e2b75b09a61bf07dfd42d4301c4382a6951766abf6357bc0bd27d38d46",
+    "presets/humanoid_motion.gd": "4205867a83da123de8a4ae9c997d07c029040dcf6225d65ce4410a597ca1d385",
+    "src/runtime/run_mode.gd": "9df8a670bea35292c1e3449da0525f3a55b596708e903667bbf337ec9d2bc286",
+    "src/runtime/servo_drive.gd": "a62e5b049c6379b3f759919e9469d7e0b2eb8c00dbe91e12139012dcb52df5b3",
+    "src/runtime/pickup_trial.gd": "245e681d67e4bbee40fa244e3136dc2d6e8f4c918000169b21838cfce0faa9a0",
+    "presets/construction_kit_humanoid.gd": "0e1c314dda81454bc240a31005ddee303178e233422703fa72c8c6538a757498"
+  },
+  "media": {
+    "pickup.webm": {
+      "bytes": 2777814,
+      "sha256": "59579ad9dc269c6b2eb089f2a94fd288e1527fc3d890cc1585afa095ec391f4a",
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "duration_seconds": 10.0,
+      "frames": 300,
+      "codec": "VP9",
+      "audio": false
+    },
+    "pickup.gif": {
+      "bytes": 2984329,
+      "sha256": "8e8303739a8d2d36f3be824c5452b304574f6247ae8caeba07666c3f29325318",
+      "width": 720,
+      "height": 405,
+      "duration_seconds": 10.0,
+      "frames": 150,
+      "nominal_fps": 15,
+      "timing_note": "GIF frame delays are quantized to centiseconds; 150 frames span 10 seconds."
+    },
+    "pickup.png": {
+      "bytes": 88788,
+      "sha256": "9624aa5f81b772b75eedf8578d15ddea73f37fe6869023210a565f1792e5d779",
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

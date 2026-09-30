@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ssok bounded linear policy v1/v2",
+  "description": "Graph-bound 30 Hz policy. V2 appends command-start lateral position, lateral velocity and horizontal heading error. Numerical validity alone does not establish locomotion success.",
+  "type": "object",
+  "required": [
+    "format",
+    "version",
+    "control_hz",
+    "joint_pins",
+    "weights",
+    "obs_mean",
+    "obs_var",
+    "action_scale_deg",
+    "gait_hz"
+  ],
+  "$defs": {
+    "observation": {
+      "type": "array",
+      "minItems": 21,
+      "maxItems": 24,
+      "items": {
+        "type": "number",
+        "minimum": -10000,
+        "maximum": 10000
+      }
+    }
+  },
+  "properties": {
+    "format": {
+      "const": "ssok-linear-policy"
+    },
+    "version": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "control_hz": {
+      "const": 30
+    },
+    "robot_id": {
+      "enum": [
+        "biped",
+        "yaw_biped"
+      ]
+    },
+    "graph_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "runtime_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "robot_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "joint_pins": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "weights": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "$ref": "#/$defs/observation"
+      }
+    },
+    "obs_mean": {
+      "$ref": "#/$defs/observation"
+    },
+    "obs_var": {
+      "type": "array",
+      "minItems": 21,
+      "maxItems": 24,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100000000.0
+      }
+    },
+    "action_scale_deg": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 60
+    },
+    "gait_hz": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 3
+    },
+    "startup_seconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "godot_joint_signs": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "enum": [
+          -1,
+          1
+        ]
+      }
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "version": {
+            "const": 1
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "weights": {
+            "items": {
+              "minItems": 21,
+              "maxItems": 21
+            }
+          },
+          "obs_mean": {
+            "minItems": 21,
+            "maxItems": 21
+          },
+          "obs_var": {
+            "minItems": 21,
+            "maxItems": 21
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "version": {
+            "const": 2
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "weights": {
+            "items": {
+              "minItems": 24,
+              "maxItems": 24
+            }
+          },
+          "obs_mean": {
+            "minItems": 24,
+            "maxItems": 24
+          },
+          "obs_var": {
+            "minItems": 24,
+            "maxItems": 24
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/ball_caster.res" id="1_n5esp"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_bjxci"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_eckya"]
+
+[sub_resource type="Resource" id="Resource_312gd"]
+script = ExtResource("2_bjxci")
+id = &"mount"
+local_position = Vector3(0, 0.0015, 0)
+tag = &"caster_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("3_eckya")
+id = &"ball_caster"
+display_name = "Ball Caster"
+mesh = ExtResource("1_n5esp")
+ports = Array[ExtResource("2_bjxci")]([SubResource("Resource_312gd")])
+mass_kg = 0.005
+caster_radius = 0.012

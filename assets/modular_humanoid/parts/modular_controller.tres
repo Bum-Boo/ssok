@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_controller.res" id="1_ndc2f"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_2fs3l"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_2jfcx"]
+
+[sub_resource type="Resource" id="Resource_3mdbg"]
+script = ExtResource("2_2fs3l")
+id = &"mount"
+local_normal = Vector3(0, 0, 1)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_3bv2g"]
+script = ExtResource("2_2fs3l")
+id = &"pin_20"
+kind = 1
+local_position = Vector3(-0.046, -0.032, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_867h7"]
+script = ExtResource("2_2fs3l")
+id = &"pin_21"
+kind = 1
+local_position = Vector3(-0.046, -0.016, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_5qufs"]
+script = ExtResource("2_2fs3l")
+id = &"pin_22"
+kind = 1
+local_position = Vector3(-0.046, 0, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_v5pi2"]
+script = ExtResource("2_2fs3l")
+id = &"pin_23"
+kind = 1
+local_position = Vector3(-0.046, 0.016, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_8xgfy"]
+script = ExtResource("2_2fs3l")
+id = &"pin_24"
+kind = 1
+local_position = Vector3(-0.046, 0.032, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_v6leq"]
+script = ExtResource("2_2fs3l")
+id = &"pin_25"
+kind = 1
+local_position = Vector3(0.046, -0.032, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_a3ur3"]
+script = ExtResource("2_2fs3l")
+id = &"pin_26"
+kind = 1
+local_position = Vector3(0.046, -0.016, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_dvblv"]
+script = ExtResource("2_2fs3l")
+id = &"pin_27"
+kind = 1
+local_position = Vector3(0.046, 0, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_mn06b"]
+script = ExtResource("2_2fs3l")
+id = &"pin_28"
+kind = 1
+local_position = Vector3(0.046, 0.016, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_801bn"]
+script = ExtResource("2_2fs3l")
+id = &"pin_29"
+kind = 1
+local_position = Vector3(0.046, 0.032, -0.014)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[resource]
+script = ExtResource("3_2jfcx")
+id = &"modular_controller"
+display_name = "Modular PWM controller"
+mesh = ExtResource("1_ndc2f")
+ports = Array[ExtResource("2_2fs3l")]([SubResource("Resource_3mdbg"), SubResource("Resource_3bv2g"), SubResource("Resource_867h7"), SubResource("Resource_5qufs"), SubResource("Resource_v5pi2"), SubResource("Resource_8xgfy"), SubResource("Resource_v6leq"), SubResource("Resource_a3ur3"), SubResource("Resource_dvblv"), SubResource("Resource_mn06b"), SubResource("Resource_801bn")])
+mass_kg = 0.12
+merge_fixed_connections = true

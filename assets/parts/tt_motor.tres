@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/tt_motor.res" id="1_ikydu"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_uwo4x"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_8et5r"]
+
+[sub_resource type="Resource" id="Port_shaft_left"]
+script = ExtResource("2_uwo4x")
+id = &"shaft_left"
+local_position = Vector3(-0.024, 0, -0.009)
+local_normal = Vector3(0, 0, -1)
+tag = &"motor_shaft"
+accepts = Array[StringName]([&"wheel_hub"])
+rotates = true
+
+[sub_resource type="Resource" id="Port_shaft_right"]
+script = ExtResource("2_uwo4x")
+id = &"shaft_right"
+local_position = Vector3(-0.024, 0, 0.009)
+local_normal = Vector3(0, 0, 1)
+tag = &"motor_shaft"
+accepts = Array[StringName]([&"wheel_hub"])
+rotates = true
+
+[sub_resource type="Resource" id="Port_mount"]
+script = ExtResource("2_uwo4x")
+id = &"mount"
+local_position = Vector3(-0.0165, -0.011, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"motor_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[sub_resource type="Resource" id="Resource_ikydu"]
+script = ExtResource("2_uwo4x")
+id = &"power"
+kind = 1
+local_position = Vector3(0.03, 0, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"motor_power"
+accepts = Array[StringName]([&"driver_output"])
+
+[resource]
+script = ExtResource("3_8et5r")
+id = &"tt_motor"
+display_name = "TT Gear Motor"
+mesh = ExtResource("1_ikydu")
+ports = Array[ExtResource("2_uwo4x")]([SubResource("Port_shaft_left"), SubResource("Port_shaft_right"), SubResource("Port_mount"), SubResource("Resource_ikydu")])
+mass_kg = 0.03
+merge_fixed_connections = true
+dc_motor = true

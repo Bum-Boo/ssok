@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/wheel_65.res" id="1_bftew"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_unsi8"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_uymmq"]
+
+[sub_resource type="Resource" id="Port_hub"]
+script = ExtResource("2_unsi8")
+id = &"hub"
+local_position = Vector3(0, 0, -0.013)
+local_normal = Vector3(0, 0, -1)
+tag = &"wheel_hub"
+accepts = Array[StringName]([&"motor_shaft"])
+
+[resource]
+script = ExtResource("3_uymmq")
+id = &"wheel_65"
+display_name = "Wheel 65 mm"
+mesh = ExtResource("1_bftew")
+ports = Array[ExtResource("2_unsi8")]([SubResource("Port_hub")])
+mass_kg = 0.03
+wheel_radius = 0.0325
+wheel_width = 0.026

@@ -1,0 +1,251 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 12,
+  "failures": 0,
+  "results": [
+    {
+      "name": "construction_kit_motion_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 26.659,
+      "timeout": false,
+      "log": "construction_kit_motion_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/construction_kit_motion_check.gd"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-pick",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.878,
+      "timeout": false,
+      "log": "humanoid_motion_check-pick.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/humanoid_motion_check.gd",
+        "--",
+        "pick"
+      ]
+    },
+    {
+      "name": "humanoid_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.979,
+      "timeout": false,
+      "log": "humanoid_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/humanoid_ui_check.gd"
+      ]
+    },
+    {
+      "name": "humanoid_ui_check-modular",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.592,
+      "timeout": false,
+      "log": "humanoid_ui_check-modular.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/humanoid_ui_check.gd",
+        "--",
+        "--modular"
+      ]
+    },
+    {
+      "name": "modular_humanoid_check-pick",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.029,
+      "timeout": false,
+      "log": "modular_humanoid_check-pick.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/modular_humanoid_check.gd",
+        "--",
+        "pick"
+      ]
+    },
+    {
+      "name": "modular_humanoid_check-pick-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.232,
+      "timeout": false,
+      "log": "modular_humanoid_check-pick-reverse-links.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/modular_humanoid_check.gd",
+        "--",
+        "pick",
+        "--reverse-links"
+      ]
+    },
+    {
+      "name": "modular_pickup_parallel_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.098,
+      "timeout": false,
+      "log": "modular_pickup_parallel_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/modular_pickup_parallel_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_bridge_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 22.533,
+      "timeout": false,
+      "log": "pickup_bridge_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/pickup_bridge_ui_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_lab_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 17.485,
+      "timeout": false,
+      "log": "pickup_lab_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/pickup_lab_ui_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.701,
+      "timeout": false,
+      "log": "pickup_store_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/pickup_store_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_trial_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.294,
+      "timeout": false,
+      "log": "pickup_trial_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/pickup_trial_check.gd"
+      ]
+    },
+    {
+      "name": "tests-test_pickup_bridge.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.028,
+      "timeout": false,
+      "log": "tests-test_pickup_bridge.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/test_pickup_bridge.py",
+        "-v"
+      ]
+    }
+  ]
+}

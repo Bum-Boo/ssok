@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_tm072"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_ptfuq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_heopf"]
+albedo_color = Color(0.14901961, 0.23921569, 0.30588236, 1)
+metallic = 0.3
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8krs"]
+material = SubResource("StandardMaterial3D_heopf")
+size = Vector3(0.22, 0.06, 0.22)
+
+[sub_resource type="Resource" id="Resource_tvrhw"]
+script = ExtResource("1_tm072")
+id = &"pivot"
+local_position = Vector3(0, 0.03, -0.035)
+local_normal = Vector3(1, 0, 0)
+tag = &"humanoid_joint"
+accepts = Array[StringName]([&"humanoid_joint"])
+rotates = true
+
+[sub_resource type="Resource" id="Resource_hkbsc"]
+script = ExtResource("1_tm072")
+id = &"signal"
+kind = 1
+tag = &"pwm_signal"
+accepts = Array[StringName]([&"board_digital_pwm"])
+
+[resource]
+script = ExtResource("2_ptfuq")
+id = &"humanoid_foot"
+display_name = "Humanoid ankle and foot"
+mesh = SubResource("BoxMesh_m8krs")
+ports = Array[ExtResource("1_tm072")]([SubResource("Resource_tvrhw"), SubResource("Resource_hkbsc")])
+mass_kg = 0.5
+actuator_torque_nm = 30.0
+actuator_min_deg = -75.0
+actuator_max_deg = 75.0

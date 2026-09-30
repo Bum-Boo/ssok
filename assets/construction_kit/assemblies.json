@@ -1,0 +1,6924 @@
+{
+	"assemblies": [
+		{
+			"id": "humanoid",
+			"links": [
+				{
+					"a_part": 0,
+					"a_port": "h0_front",
+					"b_part": 1,
+					"b_port": "h6_back"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h20_front",
+					"b_part": 2,
+					"b_port": "h6_back"
+				},
+				{
+					"a_part": 1,
+					"a_port": "h0_front",
+					"b_part": 3,
+					"b_port": "h3_back"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h0_front",
+					"b_part": 3,
+					"b_port": "h8_back"
+				},
+				{
+					"a_part": 1,
+					"a_port": "h12_front",
+					"b_part": 4,
+					"b_port": "h2_back"
+				},
+				{
+					"a_part": 4,
+					"a_port": "h4_front",
+					"b_part": 5,
+					"b_port": "h9_back"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h12_front",
+					"b_part": 6,
+					"b_port": "h2_back"
+				},
+				{
+					"a_part": 6,
+					"a_port": "h4_front",
+					"b_part": 7,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h0_back",
+					"b_part": 8,
+					"b_port": "mount_0_front"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h3_back",
+					"b_part": 8,
+					"b_port": "mount_1_front"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h20_back",
+					"b_part": 8,
+					"b_port": "mount_2_front"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h23_back",
+					"b_part": 8,
+					"b_port": "mount_3_front"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h11_front",
+					"b_part": 9,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 9,
+					"a_port": "h10_front",
+					"b_part": 10,
+					"b_port": "mount_0_back"
+				},
+				{
+					"a_part": 3,
+					"a_port": "h2_front",
+					"b_part": 11,
+					"b_port": "upright_3_back"
+				},
+				{
+					"a_part": 11,
+					"a_port": "base_2_back",
+					"b_part": 12,
+					"b_port": "mount_2_front"
+				},
+				{
+					"a_part": 12,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_2"
+				},
+				{
+					"a_part": 12,
+					"a_port": "output",
+					"b_part": 13,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 13,
+					"a_port": "cheek_5_back",
+					"b_part": 14,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 13,
+					"a_port": "cheek_6_back",
+					"b_part": 15,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 14,
+					"a_port": "h1_back",
+					"b_part": 16,
+					"b_port": "mount_2_back"
+				},
+				{
+					"a_part": 15,
+					"a_port": "h1_back",
+					"b_part": 16,
+					"b_port": "mount_3_back"
+				},
+				{
+					"a_part": 14,
+					"a_port": "h6_front",
+					"b_part": 17,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 15,
+					"a_port": "h6_front",
+					"b_part": 17,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 16,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_3"
+				},
+				{
+					"a_part": 16,
+					"a_port": "output",
+					"b_part": 18,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 18,
+					"a_port": "cheek_5_back",
+					"b_part": 19,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 18,
+					"a_port": "cheek_6_back",
+					"b_part": 20,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 19,
+					"a_port": "h1_back",
+					"b_part": 21,
+					"b_port": "mount_2_back"
+				},
+				{
+					"a_part": 20,
+					"a_port": "h1_back",
+					"b_part": 21,
+					"b_port": "mount_3_back"
+				},
+				{
+					"a_part": 19,
+					"a_port": "h6_front",
+					"b_part": 22,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 20,
+					"a_port": "h6_front",
+					"b_part": 22,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 21,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_4"
+				},
+				{
+					"a_part": 21,
+					"a_port": "output",
+					"b_part": 23,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 23,
+					"a_port": "base_2_back",
+					"b_part": 24,
+					"b_port": "h8_front"
+				},
+				{
+					"a_part": 24,
+					"a_port": "h3_back",
+					"b_part": 25,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 24,
+					"a_port": "h9_back",
+					"b_part": 26,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 24,
+					"a_port": "h15_back",
+					"b_part": 27,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 23,
+					"a_port": "base_4_back",
+					"b_part": 28,
+					"b_port": "h6_front"
+				},
+				{
+					"a_part": 28,
+					"a_port": "h3_back",
+					"b_part": 29,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 28,
+					"a_port": "h9_back",
+					"b_part": 30,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 28,
+					"a_port": "h15_back",
+					"b_part": 31,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 5,
+					"a_port": "h4_front",
+					"b_part": 32,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 32,
+					"a_port": "bore_front",
+					"b_part": 33,
+					"b_port": "upright_3_back"
+				},
+				{
+					"a_part": 33,
+					"a_port": "base_2_back",
+					"b_part": 34,
+					"b_port": "mount_2_front"
+				},
+				{
+					"a_part": 34,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_5"
+				},
+				{
+					"a_part": 34,
+					"a_port": "output",
+					"b_part": 35,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 35,
+					"a_port": "cheek_5_back",
+					"b_part": 36,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 35,
+					"a_port": "cheek_6_back",
+					"b_part": 37,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 36,
+					"a_port": "h0_back",
+					"b_part": 38,
+					"b_port": "mount_2_back"
+				},
+				{
+					"a_part": 37,
+					"a_port": "h0_back",
+					"b_part": 38,
+					"b_port": "mount_3_back"
+				},
+				{
+					"a_part": 36,
+					"a_port": "h6_front",
+					"b_part": 39,
+					"b_port": "h4_back"
+				},
+				{
+					"a_part": 37,
+					"a_port": "h6_front",
+					"b_part": 39,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 38,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_6"
+				},
+				{
+					"a_part": 38,
+					"a_port": "output",
+					"b_part": 40,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 40,
+					"a_port": "cheek_5_back",
+					"b_part": 41,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 40,
+					"a_port": "cheek_6_back",
+					"b_part": 42,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 41,
+					"a_port": "h6_front",
+					"b_part": 43,
+					"b_port": "h4_back"
+				},
+				{
+					"a_part": 42,
+					"a_port": "h6_front",
+					"b_part": 43,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 42,
+					"a_port": "h0_front",
+					"b_part": 44,
+					"b_port": "base_2_front"
+				},
+				{
+					"a_part": 44,
+					"a_port": "upright_3_back",
+					"b_part": 45,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 45,
+					"a_port": "h7_front",
+					"b_part": 46,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 3,
+					"a_port": "h10_front",
+					"b_part": 47,
+					"b_port": "upright_3_back"
+				},
+				{
+					"a_part": 47,
+					"a_port": "base_2_back",
+					"b_part": 48,
+					"b_port": "mount_2_back"
+				},
+				{
+					"a_part": 48,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_7"
+				},
+				{
+					"a_part": 48,
+					"a_port": "output",
+					"b_part": 49,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 49,
+					"a_port": "cheek_7_front",
+					"b_part": 50,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 49,
+					"a_port": "cheek_8_front",
+					"b_part": 51,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 50,
+					"a_port": "h1_back",
+					"b_part": 52,
+					"b_port": "mount_2_front"
+				},
+				{
+					"a_part": 51,
+					"a_port": "h1_back",
+					"b_part": 52,
+					"b_port": "mount_3_front"
+				},
+				{
+					"a_part": 50,
+					"a_port": "h6_front",
+					"b_part": 53,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 51,
+					"a_port": "h6_front",
+					"b_part": 53,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 52,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_8"
+				},
+				{
+					"a_part": 52,
+					"a_port": "output",
+					"b_part": 54,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 54,
+					"a_port": "cheek_7_front",
+					"b_part": 55,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 54,
+					"a_port": "cheek_8_front",
+					"b_part": 56,
+					"b_port": "h11_back"
+				},
+				{
+					"a_part": 55,
+					"a_port": "h1_back",
+					"b_part": 57,
+					"b_port": "mount_2_front"
+				},
+				{
+					"a_part": 56,
+					"a_port": "h1_back",
+					"b_part": 57,
+					"b_port": "mount_3_front"
+				},
+				{
+					"a_part": 55,
+					"a_port": "h6_front",
+					"b_part": 58,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 56,
+					"a_port": "h6_front",
+					"b_part": 58,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 57,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_9"
+				},
+				{
+					"a_part": 57,
+					"a_port": "output",
+					"b_part": 59,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 59,
+					"a_port": "base_2_back",
+					"b_part": 60,
+					"b_port": "h8_front"
+				},
+				{
+					"a_part": 60,
+					"a_port": "h3_back",
+					"b_part": 61,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 60,
+					"a_port": "h9_back",
+					"b_part": 62,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 60,
+					"a_port": "h15_back",
+					"b_part": 63,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 59,
+					"a_port": "base_4_back",
+					"b_part": 64,
+					"b_port": "h6_front"
+				},
+				{
+					"a_part": 64,
+					"a_port": "h3_back",
+					"b_part": 65,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 64,
+					"a_port": "h9_back",
+					"b_part": 66,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 64,
+					"a_port": "h15_back",
+					"b_part": 67,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 7,
+					"a_port": "h7_front",
+					"b_part": 68,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 68,
+					"a_port": "bore_front",
+					"b_part": 69,
+					"b_port": "upright_3_back"
+				},
+				{
+					"a_part": 69,
+					"a_port": "base_2_back",
+					"b_part": 70,
+					"b_port": "mount_2_back"
+				},
+				{
+					"a_part": 70,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_10"
+				},
+				{
+					"a_part": 70,
+					"a_port": "output",
+					"b_part": 71,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 71,
+					"a_port": "cheek_7_front",
+					"b_part": 72,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 71,
+					"a_port": "cheek_8_front",
+					"b_part": 73,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 72,
+					"a_port": "h0_back",
+					"b_part": 74,
+					"b_port": "mount_2_front"
+				},
+				{
+					"a_part": 73,
+					"a_port": "h0_back",
+					"b_part": 74,
+					"b_port": "mount_3_front"
+				},
+				{
+					"a_part": 72,
+					"a_port": "h6_front",
+					"b_part": 75,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 73,
+					"a_port": "h6_front",
+					"b_part": 75,
+					"b_port": "h4_back"
+				},
+				{
+					"a_part": 74,
+					"a_port": "signal",
+					"b_part": 8,
+					"b_port": "pin_11"
+				},
+				{
+					"a_part": 74,
+					"a_port": "output",
+					"b_part": 76,
+					"b_port": "axle_right_back"
+				},
+				{
+					"a_part": 76,
+					"a_port": "cheek_7_front",
+					"b_part": 77,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 76,
+					"a_port": "cheek_8_front",
+					"b_part": 78,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 77,
+					"a_port": "h6_front",
+					"b_part": 79,
+					"b_port": "h7_back"
+				},
+				{
+					"a_part": 78,
+					"a_port": "h6_front",
+					"b_part": 79,
+					"b_port": "h4_back"
+				},
+				{
+					"a_part": 78,
+					"a_port": "h0_front",
+					"b_part": 80,
+					"b_port": "base_2_front"
+				},
+				{
+					"a_part": 80,
+					"a_port": "upright_3_back",
+					"b_part": 81,
+					"b_port": "h10_back"
+				},
+				{
+					"a_part": 81,
+					"a_port": "h4_front",
+					"b_part": 82,
+					"b_port": "h1_back"
+				},
+				{
+					"a_part": 1,
+					"a_port": "h0_back",
+					"b_part": 83,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 3,
+					"a_port": "h3_front",
+					"b_part": 84,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h0_back",
+					"b_part": 85,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 3,
+					"a_port": "h8_front",
+					"b_part": 86,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 1,
+					"a_port": "h12_back",
+					"b_part": 87,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 4,
+					"a_port": "h2_front",
+					"b_part": 88,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 4,
+					"a_port": "h4_back",
+					"b_part": 89,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 5,
+					"a_port": "h9_front",
+					"b_part": 90,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h12_back",
+					"b_part": 91,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 6,
+					"a_port": "h2_front",
+					"b_part": 92,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 6,
+					"a_port": "h4_back",
+					"b_part": 93,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 7,
+					"a_port": "h1_front",
+					"b_part": 94,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h11_back",
+					"b_part": 95,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 9,
+					"a_port": "h0_front",
+					"b_part": 96,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 3,
+					"a_port": "h2_back",
+					"b_part": 97,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 11,
+					"a_port": "upright_3_front",
+					"b_part": 98,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 13,
+					"a_port": "cheek_5_front",
+					"b_part": 99,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 14,
+					"a_port": "h11_front",
+					"b_part": 100,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 13,
+					"a_port": "cheek_6_front",
+					"b_part": 101,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 15,
+					"a_port": "h11_front",
+					"b_part": 102,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 14,
+					"a_port": "h6_back",
+					"b_part": 103,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 17,
+					"a_port": "h1_front",
+					"b_part": 104,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 15,
+					"a_port": "h6_back",
+					"b_part": 105,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 17,
+					"a_port": "h7_front",
+					"b_part": 106,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 18,
+					"a_port": "cheek_5_front",
+					"b_part": 107,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 19,
+					"a_port": "h11_front",
+					"b_part": 108,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 18,
+					"a_port": "cheek_6_front",
+					"b_part": 109,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 20,
+					"a_port": "h11_front",
+					"b_part": 110,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 19,
+					"a_port": "h6_back",
+					"b_part": 111,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 22,
+					"a_port": "h1_front",
+					"b_part": 112,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 20,
+					"a_port": "h6_back",
+					"b_part": 113,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 22,
+					"a_port": "h7_front",
+					"b_part": 114,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 23,
+					"a_port": "base_2_front",
+					"b_part": 115,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 24,
+					"a_port": "h8_back",
+					"b_part": 116,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 23,
+					"a_port": "base_4_front",
+					"b_part": 117,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 28,
+					"a_port": "h6_back",
+					"b_part": 118,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 35,
+					"a_port": "cheek_5_front",
+					"b_part": 119,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 36,
+					"a_port": "h10_front",
+					"b_part": 120,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 35,
+					"a_port": "cheek_6_front",
+					"b_part": 121,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 37,
+					"a_port": "h10_front",
+					"b_part": 122,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 36,
+					"a_port": "h6_back",
+					"b_part": 123,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 39,
+					"a_port": "h4_front",
+					"b_part": 124,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 37,
+					"a_port": "h6_back",
+					"b_part": 125,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 39,
+					"a_port": "h7_front",
+					"b_part": 126,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 40,
+					"a_port": "cheek_5_front",
+					"b_part": 127,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 41,
+					"a_port": "h10_front",
+					"b_part": 128,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 40,
+					"a_port": "cheek_6_front",
+					"b_part": 129,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 42,
+					"a_port": "h10_front",
+					"b_part": 130,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 41,
+					"a_port": "h6_back",
+					"b_part": 131,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 43,
+					"a_port": "h4_front",
+					"b_part": 132,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 42,
+					"a_port": "h6_back",
+					"b_part": 133,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 43,
+					"a_port": "h7_front",
+					"b_part": 134,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 42,
+					"a_port": "h0_back",
+					"b_part": 135,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 44,
+					"a_port": "base_2_back",
+					"b_part": 136,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 44,
+					"a_port": "upright_3_front",
+					"b_part": 137,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 45,
+					"a_port": "h1_front",
+					"b_part": 138,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 3,
+					"a_port": "h10_back",
+					"b_part": 139,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 47,
+					"a_port": "upright_3_front",
+					"b_part": 140,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 49,
+					"a_port": "cheek_7_back",
+					"b_part": 141,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 50,
+					"a_port": "h11_front",
+					"b_part": 142,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 49,
+					"a_port": "cheek_8_back",
+					"b_part": 143,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 51,
+					"a_port": "h11_front",
+					"b_part": 144,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 50,
+					"a_port": "h6_back",
+					"b_part": 145,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 53,
+					"a_port": "h7_front",
+					"b_part": 146,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 51,
+					"a_port": "h6_back",
+					"b_part": 147,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 53,
+					"a_port": "h1_front",
+					"b_part": 148,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 54,
+					"a_port": "cheek_7_back",
+					"b_part": 149,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 55,
+					"a_port": "h11_front",
+					"b_part": 150,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 54,
+					"a_port": "cheek_8_back",
+					"b_part": 151,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 56,
+					"a_port": "h11_front",
+					"b_part": 152,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 55,
+					"a_port": "h6_back",
+					"b_part": 153,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 58,
+					"a_port": "h7_front",
+					"b_part": 154,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 56,
+					"a_port": "h6_back",
+					"b_part": 155,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 58,
+					"a_port": "h1_front",
+					"b_part": 156,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 59,
+					"a_port": "base_2_front",
+					"b_part": 157,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 60,
+					"a_port": "h8_back",
+					"b_part": 158,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 59,
+					"a_port": "base_4_front",
+					"b_part": 159,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 64,
+					"a_port": "h6_back",
+					"b_part": 160,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 71,
+					"a_port": "cheek_7_back",
+					"b_part": 161,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 72,
+					"a_port": "h10_front",
+					"b_part": 162,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 71,
+					"a_port": "cheek_8_back",
+					"b_part": 163,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 73,
+					"a_port": "h10_front",
+					"b_part": 164,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 72,
+					"a_port": "h6_back",
+					"b_part": 165,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 75,
+					"a_port": "h7_front",
+					"b_part": 166,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 73,
+					"a_port": "h6_back",
+					"b_part": 167,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 75,
+					"a_port": "h4_front",
+					"b_part": 168,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 76,
+					"a_port": "cheek_7_back",
+					"b_part": 169,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 77,
+					"a_port": "h10_front",
+					"b_part": 170,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 76,
+					"a_port": "cheek_8_back",
+					"b_part": 171,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 78,
+					"a_port": "h10_front",
+					"b_part": 172,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 77,
+					"a_port": "h6_back",
+					"b_part": 173,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 79,
+					"a_port": "h7_front",
+					"b_part": 174,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 78,
+					"a_port": "h6_back",
+					"b_part": 175,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 79,
+					"a_port": "h4_front",
+					"b_part": 176,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 78,
+					"a_port": "h0_back",
+					"b_part": 177,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 80,
+					"a_port": "base_2_back",
+					"b_part": 178,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 80,
+					"a_port": "upright_3_front",
+					"b_part": 179,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 81,
+					"a_port": "h10_front",
+					"b_part": 180,
+					"b_port": "bore_back"
+				}
+			],
+			"name": "Construction-kit humanoid",
+			"parts": [
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_plate_120_80",
+					"instance_id": 0,
+					"position": [
+						-0.00999999977648258,
+						0.754000008106232,
+						-0.0500000007450581
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 1,
+					"position": [
+						-0.0600000023841858,
+						0.724000036716461,
+						-0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 2,
+					"position": [
+						0.0399999991059303,
+						0.724000036716461,
+						-0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							-1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 3,
+					"position": [
+						-0.00000000186264514923096,
+						0.60400003194809,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_100",
+					"instance_id": 4,
+					"position": [
+						-0.0600000023841858,
+						0.844000041484833,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							-1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 5,
+					"position": [
+						-0.13000001013279,
+						0.884000062942505,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_100",
+					"instance_id": 6,
+					"position": [
+						0.0399999991059303,
+						0.844000041484833,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							-1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 7,
+					"position": [
+						0.129999995231628,
+						0.884000062942505,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_controller",
+					"instance_id": 8,
+					"position": [
+						-0.00999999977648258,
+						0.754000008106232,
+						-0.0560000017285347
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 9,
+					"position": [
+						-0.0199999995529652,
+						0.903999984264374,
+						-0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_optical_sensor",
+					"instance_id": 10,
+					"position": [
+						0.0,
+						0.983999967575073,
+						-0.0319999977946281
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							-1.0,
+							0.0
+						],
+						[
+							1.0,
+							-0.0000000437113882867379,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 11,
+					"position": [
+						-0.0799999982118607,
+						0.60400003194809,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_35",
+					"instance_id": 12,
+					"position": [
+						-0.13400000333786,
+						0.584000051021576,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_large",
+					"instance_id": 13,
+					"position": [
+						-0.13400000333786,
+						0.584000051021576,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 14,
+					"position": [
+						-0.181000009179115,
+						0.464000076055527,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 15,
+					"position": [
+						-0.181000009179115,
+						0.464000076055527,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_35",
+					"instance_id": 16,
+					"position": [
+						-0.144999995827675,
+						0.344000071287155,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_60_60",
+					"instance_id": 17,
+					"position": [
+						-0.185000017285347,
+						0.464000076055527,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_large",
+					"instance_id": 18,
+					"position": [
+						-0.144999995827675,
+						0.344000071287155,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 19,
+					"position": [
+						-0.19200000166893,
+						0.224000051617622,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 20,
+					"position": [
+						-0.19200000166893,
+						0.224000051617622,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_35",
+					"instance_id": 21,
+					"position": [
+						-0.156000003218651,
+						0.104000054299831,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_60_60",
+					"instance_id": 22,
+					"position": [
+						-0.196000009775162,
+						0.224000051617622,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_large",
+					"instance_id": 23,
+					"position": [
+						-0.156000003218651,
+						0.104000054299831,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_160_60",
+					"instance_id": 24,
+					"position": [
+						-0.195999994874001,
+						0.06000005453825,
+						0.0299999993294477
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 25,
+					"position": [
+						-0.195999994874001,
+						0.0540000535547733,
+						-0.0200000014156103
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 26,
+					"position": [
+						-0.195999994874001,
+						0.0540000535547733,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 27,
+					"position": [
+						-0.195999994874001,
+						0.0540000535547733,
+						0.0599999986588955
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_160_60",
+					"instance_id": 28,
+					"position": [
+						-0.11600000411272,
+						0.06000005453825,
+						0.0299999993294477
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 29,
+					"position": [
+						-0.11600000411272,
+						0.0540000535547733,
+						-0.0200000014156103
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 30,
+					"position": [
+						-0.11600000411272,
+						0.0540000535547733,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 31,
+					"position": [
+						-0.11600000411272,
+						0.0540000535547733,
+						0.0599999986588955
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_spacer_20",
+					"instance_id": 32,
+					"position": [
+						-0.160000011324883,
+						0.884000062942505,
+						-0.0259999986737967
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							-1.0,
+							0.0
+						],
+						[
+							1.0,
+							-0.0000000437113882867379,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 33,
+					"position": [
+						-0.160000011324883,
+						0.884000062942505,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_12",
+					"instance_id": 34,
+					"position": [
+						-0.200000002980232,
+						0.874000072479248,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_small",
+					"instance_id": 35,
+					"position": [
+						-0.200000002980232,
+						0.874000072479248,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 36,
+					"position": [
+						-0.233000010251999,
+						0.774000108242035,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 37,
+					"position": [
+						-0.233000010251999,
+						0.774000108242035,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_12",
+					"instance_id": 38,
+					"position": [
+						-0.211000010371208,
+						0.654000103473663,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 39,
+					"position": [
+						-0.237000018358231,
+						0.784000098705292,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_small",
+					"instance_id": 40,
+					"position": [
+						-0.211000010371208,
+						0.654000103473663,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 41,
+					"position": [
+						-0.244000017642975,
+						0.554000079631805,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 42,
+					"position": [
+						-0.244000017642975,
+						0.554000079631805,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 43,
+					"position": [
+						-0.248000025749207,
+						0.564000070095062,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0000000437113882867379,
+							1.0,
+							-0.00000000000000382137093032941
+						],
+						[
+							1.0,
+							-0.0000000437113882867379,
+							-0.0000000874227765734759
+						],
+						[
+							-0.0000000874227765734759,
+							0.0,
+							-1.0
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 44,
+					"position": [
+						-0.230000019073486,
+						0.444000065326691,
+						0.0239999983459711
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 45,
+					"position": [
+						-0.200000017881393,
+						0.444000065326691,
+						0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 46,
+					"position": [
+						-0.170000016689301,
+						0.444000065326691,
+						0.0520000010728836
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							-0.0000000437113882867379,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 47,
+					"position": [
+						0.0799999982118607,
+						0.60400003194809,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_35",
+					"instance_id": 48,
+					"position": [
+						0.133999988436699,
+						0.584000051021576,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_large",
+					"instance_id": 49,
+					"position": [
+						0.133999988436699,
+						0.584000051021576,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 50,
+					"position": [
+						0.180999994277954,
+						0.464000076055527,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 51,
+					"position": [
+						0.180999994277954,
+						0.464000076055527,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_35",
+					"instance_id": 52,
+					"position": [
+						0.144999995827675,
+						0.344000071287155,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_60_60",
+					"instance_id": 53,
+					"position": [
+						0.185000002384186,
+						0.464000076055527,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_large",
+					"instance_id": 54,
+					"position": [
+						0.144999995827675,
+						0.344000071287155,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 55,
+					"position": [
+						0.19200000166893,
+						0.224000051617622,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_260",
+					"instance_id": 56,
+					"position": [
+						0.19200000166893,
+						0.224000051617622,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_35",
+					"instance_id": 57,
+					"position": [
+						0.156000003218651,
+						0.104000054299831,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_60_60",
+					"instance_id": 58,
+					"position": [
+						0.196000009775162,
+						0.224000051617622,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_large",
+					"instance_id": 59,
+					"position": [
+						0.156000003218651,
+						0.104000054299831,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_160_60",
+					"instance_id": 60,
+					"position": [
+						0.116000019013882,
+						0.06000005453825,
+						0.0299999993294477
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 61,
+					"position": [
+						0.116000019013882,
+						0.0540000535547733,
+						-0.0200000014156103
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 62,
+					"position": [
+						0.116000019013882,
+						0.0540000535547733,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 63,
+					"position": [
+						0.116000019013882,
+						0.0540000535547733,
+						0.0599999986588955
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_160_60",
+					"instance_id": 64,
+					"position": [
+						0.195999994874001,
+						0.06000005453825,
+						0.0299999993294477
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 65,
+					"position": [
+						0.195999994874001,
+						0.0540000535547733,
+						-0.0200000014156103
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 66,
+					"position": [
+						0.195999994874001,
+						0.0540000535547733,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 67,
+					"position": [
+						0.195999994874001,
+						0.0540000535547733,
+						0.0599999986588955
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_spacer_20",
+					"instance_id": 68,
+					"position": [
+						0.159999996423721,
+						0.884000062942505,
+						-0.0259999986737967
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							-0.0000000437113882867379,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 69,
+					"position": [
+						0.159999996423721,
+						0.884000062942505,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_12",
+					"instance_id": 70,
+					"position": [
+						0.199999988079071,
+						0.874000072479248,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_small",
+					"instance_id": 71,
+					"position": [
+						0.199999988079071,
+						0.874000072479248,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 72,
+					"position": [
+						0.232999995350838,
+						0.774000108242035,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 73,
+					"position": [
+						0.232999995350838,
+						0.774000108242035,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_motor_12",
+					"instance_id": 74,
+					"position": [
+						0.210999995470047,
+						0.654000103473663,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 75,
+					"position": [
+						0.237000003457069,
+						0.784000098705292,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_u_bracket_small",
+					"instance_id": 76,
+					"position": [
+						0.210999995470047,
+						0.654000103473663,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 77,
+					"position": [
+						0.244000002741814,
+						0.554000079631805,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_240",
+					"instance_id": 78,
+					"position": [
+						0.244000002741814,
+						0.554000079631805,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 79,
+					"position": [
+						0.248000010848045,
+						0.564000070095062,
+						0.0140000004321337
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0000000437113882867379,
+							-1.0,
+							-0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							-0.0000000437113882867379,
+							0.0000000874227765734759
+						],
+						[
+							-0.0000000874227765734759,
+							0.0,
+							-1.0
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 80,
+					"position": [
+						0.230000004172325,
+						0.444000065326691,
+						0.0240000020712614
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 81,
+					"position": [
+						0.200000002980232,
+						0.444000065326691,
+						0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 82,
+					"position": [
+						0.170000001788139,
+						0.444000065326691,
+						0.0520000010728836
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 83,
+					"position": [
+						-0.0600000023841858,
+						0.60400003194809,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 84,
+					"position": [
+						-0.0600000023841858,
+						0.60400003194809,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 85,
+					"position": [
+						0.0399999991059303,
+						0.60400003194809,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 86,
+					"position": [
+						0.0399999991059303,
+						0.60400003194809,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 87,
+					"position": [
+						-0.0600000023841858,
+						0.844000041484833,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 88,
+					"position": [
+						-0.0600000023841858,
+						0.844000041484833,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 89,
+					"position": [
+						-0.0600000023841858,
+						0.884000062942505,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 90,
+					"position": [
+						-0.0600000023841858,
+						0.884000062942505,
+						-0.0339999981224537
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 91,
+					"position": [
+						0.0399999991059303,
+						0.844000041484833,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 92,
+					"position": [
+						0.0399999991059303,
+						0.844000041484833,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 93,
+					"position": [
+						0.0399999991059303,
+						0.884000062942505,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 94,
+					"position": [
+						0.0399999991059303,
+						0.884000062942505,
+						-0.0339999981224537
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 95,
+					"position": [
+						-0.0199999995529652,
+						0.783999979496002,
+						-0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 96,
+					"position": [
+						-0.0199999995529652,
+						0.783999979496002,
+						-0.0419999994337559
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 97,
+					"position": [
+						-0.0799999982118607,
+						0.60400003194809,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 98,
+					"position": [
+						-0.0799999982118607,
+						0.60400003194809,
+						-0.0339999981224537
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 99,
+					"position": [
+						-0.181000009179115,
+						0.564000070095062,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 100,
+					"position": [
+						-0.185000017285347,
+						0.564000070095062,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 101,
+					"position": [
+						-0.181000009179115,
+						0.564000070095062,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 102,
+					"position": [
+						-0.185000017285347,
+						0.564000070095062,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 103,
+					"position": [
+						-0.185000002384186,
+						0.464000076055527,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 104,
+					"position": [
+						-0.189000025391579,
+						0.464000076055527,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 105,
+					"position": [
+						-0.185000002384186,
+						0.464000076055527,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 106,
+					"position": [
+						-0.189000025391579,
+						0.464000076055527,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 107,
+					"position": [
+						-0.19200000166893,
+						0.324000060558319,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 108,
+					"position": [
+						-0.196000009775162,
+						0.324000060558319,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 109,
+					"position": [
+						-0.19200000166893,
+						0.324000060558319,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 110,
+					"position": [
+						-0.196000009775162,
+						0.324000060558319,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 111,
+					"position": [
+						-0.195999994874001,
+						0.224000051617622,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 112,
+					"position": [
+						-0.200000017881393,
+						0.224000051617622,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 113,
+					"position": [
+						-0.195999994874001,
+						0.224000051617622,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 114,
+					"position": [
+						-0.200000017881393,
+						0.224000051617622,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 115,
+					"position": [
+						-0.175999999046326,
+						0.06000005453825,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 116,
+					"position": [
+						-0.175999999046326,
+						0.0560000538825989,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 117,
+					"position": [
+						-0.136000007390976,
+						0.06000005453825,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 118,
+					"position": [
+						-0.136000007390976,
+						0.0560000538825989,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 119,
+					"position": [
+						-0.232999995350838,
+						0.864000082015991,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 120,
+					"position": [
+						-0.237000018358231,
+						0.864000141620636,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 121,
+					"position": [
+						-0.232999995350838,
+						0.864000082015991,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 122,
+					"position": [
+						-0.237000018358231,
+						0.864000141620636,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 123,
+					"position": [
+						-0.237000003457069,
+						0.784000098705292,
+						0.00400000018998981
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 124,
+					"position": [
+						-0.241000026464462,
+						0.784000098705292,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 125,
+					"position": [
+						-0.237000003457069,
+						0.784000098705292,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 126,
+					"position": [
+						-0.241000026464462,
+						0.784000098705292,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 127,
+					"position": [
+						-0.244000002741814,
+						0.644000113010406,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 128,
+					"position": [
+						-0.248000025749207,
+						0.644000113010406,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 129,
+					"position": [
+						-0.244000002741814,
+						0.644000113010406,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 130,
+					"position": [
+						-0.248000025749207,
+						0.644000113010406,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 131,
+					"position": [
+						-0.248000010848045,
+						0.564000070095062,
+						0.00400000018998981
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 132,
+					"position": [
+						-0.252000033855438,
+						0.564000070095062,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 133,
+					"position": [
+						-0.248000010848045,
+						0.564000070095062,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 134,
+					"position": [
+						-0.252000033855438,
+						0.564000070095062,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 135,
+					"position": [
+						-0.248000010848045,
+						0.444000065326691,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							-1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 136,
+					"position": [
+						-0.252000004053116,
+						0.444000065326691,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							-0.0000000874227765734759
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0000000874227765734759,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 137,
+					"position": [
+						-0.230000019073486,
+						0.444000065326691,
+						0.046000000089407
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							-0.0000000874227765734759
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0000000874227765734759,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 138,
+					"position": [
+						-0.230000019073486,
+						0.444000065326691,
+						0.0500000007450581
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 139,
+					"position": [
+						0.0799999982118607,
+						0.60400003194809,
+						-0.0379999987781048
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 140,
+					"position": [
+						0.0799999982118607,
+						0.60400003194809,
+						-0.0339999981224537
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 141,
+					"position": [
+						0.180999994277954,
+						0.564000070095062,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 142,
+					"position": [
+						0.185000002384186,
+						0.564000070095062,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 143,
+					"position": [
+						0.180999994277954,
+						0.564000070095062,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 144,
+					"position": [
+						0.185000002384186,
+						0.564000070095062,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 145,
+					"position": [
+						0.184999987483025,
+						0.464000076055527,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 146,
+					"position": [
+						0.189000010490417,
+						0.464000076055527,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 147,
+					"position": [
+						0.184999987483025,
+						0.464000076055527,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 148,
+					"position": [
+						0.189000010490417,
+						0.464000076055527,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 149,
+					"position": [
+						0.19200000166893,
+						0.324000060558319,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 150,
+					"position": [
+						0.196000009775162,
+						0.324000060558319,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 151,
+					"position": [
+						0.19200000166893,
+						0.324000060558319,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 152,
+					"position": [
+						0.196000009775162,
+						0.324000060558319,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 153,
+					"position": [
+						0.195999994874001,
+						0.224000051617622,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 154,
+					"position": [
+						0.200000017881393,
+						0.224000051617622,
+						-0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 155,
+					"position": [
+						0.195999994874001,
+						0.224000051617622,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 156,
+					"position": [
+						0.200000017881393,
+						0.224000051617622,
+						0.0199999995529652
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 157,
+					"position": [
+						0.136000007390976,
+						0.06000005453825,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 158,
+					"position": [
+						0.136000007390976,
+						0.0560000538825989,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 159,
+					"position": [
+						0.175999999046326,
+						0.06000005453825,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 160,
+					"position": [
+						0.175999999046326,
+						0.0560000538825989,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 161,
+					"position": [
+						0.232999980449677,
+						0.864000082015991,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 162,
+					"position": [
+						0.237000003457069,
+						0.864000141620636,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 163,
+					"position": [
+						0.232999980449677,
+						0.864000082015991,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 164,
+					"position": [
+						0.237000003457069,
+						0.864000141620636,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 165,
+					"position": [
+						0.236999988555908,
+						0.784000098705292,
+						0.00400000018998981
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 166,
+					"position": [
+						0.241000011563301,
+						0.784000098705292,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 167,
+					"position": [
+						0.236999988555908,
+						0.784000098705292,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 168,
+					"position": [
+						0.241000011563301,
+						0.784000098705292,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 169,
+					"position": [
+						0.244000002741814,
+						0.644000113010406,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 170,
+					"position": [
+						0.248000010848045,
+						0.644000113010406,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 171,
+					"position": [
+						0.244000002741814,
+						0.644000113010406,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 172,
+					"position": [
+						0.248000010848045,
+						0.644000113010406,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 173,
+					"position": [
+						0.248000010848045,
+						0.564000070095062,
+						0.00400000018998981
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 174,
+					"position": [
+						0.252000033855438,
+						0.564000070095062,
+						0.00400000065565109
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 175,
+					"position": [
+						0.248000010848045,
+						0.564000070095062,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 176,
+					"position": [
+						0.252000033855438,
+						0.564000070095062,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 177,
+					"position": [
+						0.248000010848045,
+						0.444000065326691,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 178,
+					"position": [
+						0.252000033855438,
+						0.444000065326691,
+						0.0240000002086163
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							-0.0000000874227765734759
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0000000874227765734759,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 179,
+					"position": [
+						0.230000004172325,
+						0.444000065326691,
+						0.0460000038146973
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							-0.0000000874227765734759
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0000000874227765734759,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 180,
+					"position": [
+						0.230000004172325,
+						0.444000065326691,
+						0.0500000007450581
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							0.0,
+							0.0,
+							1.0
+						]
+					],
+					"catalog_id": "cargo_box",
+					"instance_id": 181,
+					"position": [
+						0.0,
+						0.150000005960464,
+						0.259999990463257
+					]
+				}
+			]
+		},
+		{
+			"id": "bridge",
+			"links": [
+				{
+					"a_part": 0,
+					"a_port": "h2_back",
+					"b_part": 1,
+					"b_port": "base_2_back"
+				},
+				{
+					"a_part": 1,
+					"a_port": "upright_3_front",
+					"b_part": 2,
+					"b_port": "h4_front"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h0_front",
+					"b_part": 3,
+					"b_port": "upright_3_back"
+				},
+				{
+					"a_part": 3,
+					"a_port": "base_2_back",
+					"b_part": 4,
+					"b_port": "h8_front"
+				},
+				{
+					"a_part": 4,
+					"a_port": "h3_back",
+					"b_part": 5,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 4,
+					"a_port": "h9_back",
+					"b_part": 6,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h26_back",
+					"b_part": 7,
+					"b_port": "base_2_back"
+				},
+				{
+					"a_part": 7,
+					"a_port": "upright_3_front",
+					"b_part": 8,
+					"b_port": "h4_front"
+				},
+				{
+					"a_part": 8,
+					"a_port": "h0_front",
+					"b_part": 9,
+					"b_port": "upright_3_back"
+				},
+				{
+					"a_part": 9,
+					"a_port": "base_2_back",
+					"b_part": 10,
+					"b_port": "h8_front"
+				},
+				{
+					"a_part": 10,
+					"a_port": "h3_back",
+					"b_part": 11,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 10,
+					"a_port": "h9_back",
+					"b_part": 12,
+					"b_port": "h0_back"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h2_front",
+					"b_part": 13,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 1,
+					"a_port": "base_2_front",
+					"b_part": 14,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 1,
+					"a_port": "upright_3_back",
+					"b_part": 15,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h4_back",
+					"b_part": 16,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 2,
+					"a_port": "h0_back",
+					"b_part": 17,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 3,
+					"a_port": "upright_3_front",
+					"b_part": 18,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 3,
+					"a_port": "base_2_front",
+					"b_part": 19,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 4,
+					"a_port": "h8_back",
+					"b_part": 20,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 0,
+					"a_port": "h26_front",
+					"b_part": 21,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 7,
+					"a_port": "base_2_front",
+					"b_part": 22,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 7,
+					"a_port": "upright_3_back",
+					"b_part": 23,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 8,
+					"a_port": "h4_back",
+					"b_part": 24,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 8,
+					"a_port": "h0_back",
+					"b_part": 25,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 9,
+					"a_port": "upright_3_front",
+					"b_part": 26,
+					"b_port": "bore_back"
+				},
+				{
+					"a_part": 9,
+					"a_port": "base_2_front",
+					"b_part": 27,
+					"b_port": "head_mount"
+				},
+				{
+					"a_part": 10,
+					"a_port": "h8_back",
+					"b_part": 28,
+					"b_port": "bore_back"
+				}
+			],
+			"name": "Construction-kit bridge",
+			"parts": [
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_220_120",
+					"instance_id": 0,
+					"position": [
+						0.0,
+						0.189999997615814,
+						0.0
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							-0.0000000874227765734759,
+							-1.0,
+							0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							0.0000000874227765734759,
+							0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 1,
+					"position": [
+						-0.0100000016391277,
+						0.167999997735023,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_100",
+					"instance_id": 2,
+					"position": [
+						0.00399999879300594,
+						0.127999991178513,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 3,
+					"position": [
+						0.0259999986737967,
+						0.0879999920725822,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 4,
+					"position": [
+						0.00599999912083149,
+						0.0659999921917915,
+						-0.109999999403954
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 5,
+					"position": [
+						0.00599999912083149,
+						0.0599999949336052,
+						-0.119999997317791
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 6,
+					"position": [
+						0.00599999912083149,
+						0.0599999949336052,
+						-0.0799999982118607
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							-0.0000000874227765734759,
+							-1.0,
+							0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							0.0000000874227765734759,
+							0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 7,
+					"position": [
+						-0.0100000016391277,
+						0.167999997735023,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_beam_100",
+					"instance_id": 8,
+					"position": [
+						0.00399999879300594,
+						0.127999991178513,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_angle_bracket",
+					"instance_id": 9,
+					"position": [
+						0.0259999986737967,
+						0.0879999920725822,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_plate_80_60",
+					"instance_id": 10,
+					"position": [
+						0.00599999912083149,
+						0.0659999921917915,
+						0.0900000035762787
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 11,
+					"position": [
+						0.00599999912083149,
+						0.0599999949336052,
+						0.0800000056624413
+					]
+				},
+				{
+					"basis": [
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-0.0000000437113882867379,
+							1.0
+						],
+						[
+							0.0,
+							-1.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_rubber_pad",
+					"instance_id": 12,
+					"position": [
+						0.00599999912083149,
+						0.0599999949336052,
+						0.120000004768372
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 13,
+					"position": [
+						-0.00999999977648258,
+						0.186000004410744,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 14,
+					"position": [
+						-0.00999999977648258,
+						0.181999996304512,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0000000874227765734759,
+							1.0,
+							-0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							0.0000000874227765734759,
+							0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 15,
+					"position": [
+						0.00399999786168337,
+						0.167999997735023,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0000000874227765734759,
+							1.0,
+							-0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							0.0000000874227765734759,
+							0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 16,
+					"position": [
+						-0.00000000139698386192322,
+						0.167999982833862,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 17,
+					"position": [
+						0.00799999851733446,
+						0.0879999920725822,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 18,
+					"position": [
+						0.011999998241663,
+						0.0879999920725822,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 19,
+					"position": [
+						0.0259999986737967,
+						0.0659999921917915,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 20,
+					"position": [
+						0.0259999986737967,
+						0.0619999952614307,
+						-0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 21,
+					"position": [
+						-0.00999999977648258,
+						0.186000004410744,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 22,
+					"position": [
+						-0.00999999977648258,
+						0.181999996304512,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0000000874227765734759,
+							1.0,
+							-0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							0.0000000874227765734759,
+							0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 23,
+					"position": [
+						0.00399999786168337,
+						0.167999997735023,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0000000437113882867379,
+							0.0,
+							1.0
+						],
+						[
+							0.0000000874227765734759,
+							1.0,
+							-0.00000000000000382137093032941
+						],
+						[
+							-1.0,
+							0.0000000874227765734759,
+							0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 24,
+					"position": [
+						-0.00000000139698386192322,
+						0.167999982833862,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 25,
+					"position": [
+						0.00799999851733446,
+						0.0879999920725822,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							-0.0000000437113882867379,
+							0.0,
+							-1.0
+						],
+						[
+							0.0,
+							1.0,
+							0.0
+						],
+						[
+							1.0,
+							0.0,
+							-0.0000000437113882867379
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 26,
+					"position": [
+						0.011999998241663,
+						0.0879999920725822,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_bolt_4",
+					"instance_id": 27,
+					"position": [
+						0.0259999986737967,
+						0.0659999921917915,
+						0.100000001490116
+					]
+				},
+				{
+					"basis": [
+						[
+							0.0,
+							0.0,
+							-1.0
+						],
+						[
+							1.0,
+							0.0,
+							0.0
+						],
+						[
+							0.0,
+							-1.0,
+							0.0
+						]
+					],
+					"catalog_id": "kit_nut_4",
+					"instance_id": 28,
+					"position": [
+						0.0259999986737967,
+						0.0619999952614307,
+						0.100000001490116
+					]
+				}
+			]
+		}
+	],
+	"source": "ConnectionGraph",
+	"version": 1
+}

@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="PartDef" format=4]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_kiewv"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_gpget"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riv4l"]
+albedo_color = Color(0.5294118, 0.62352943, 0.7058824, 1)
+metallic = 0.3
+roughness = 0.55
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u3de"]
+albedo_color = Color(0.14901961, 0.23921569, 0.30588236, 1)
+roughness = 0.9
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_80q3b"]
+_surfaces = [{
+"aabb": AABB(-0.03, -0.11, -0.035, 0.06, 0.22, 0.07),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAACAAQAAgAGAAQAAQADAAUAAwAHAAUACAAKAAwACgAOAAwACQALAA0ACwAPAA0AEAASABQAEgAWABQAEQATABUAEwAXABUA"),
+"material": SubResource("StandardMaterial3D_riv4l"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("j8L1vK5H4T0pXA89j8L1PK5H4T0pXA+9j8L1PK5H4T0pXA89j8L1vK5H4T0pXA+9j8L1vK5H4b0pXA89j8L1PK5H4b0pXA+9j8L1PK5H4b0pXA89j8L1vK5H4b0pXA+9j8L1PK5H4T0pXA89j8L1vK5H4T0pXA+9j8L1PK5H4T0pXA+9j8L1vK5H4T0pXA89j8L1PK5H4b0pXA89j8L1vK5H4b0pXA+9j8L1PK5H4b0pXA+9j8L1vK5H4b0pXA89j8L1PK5H4T0pXA89j8L1vK5H4b0pXA89j8L1vK5H4T0pXA89j8L1PK5H4b0pXA89j8L1PK5H4T0pXA+9j8L1vK5H4b0pXA+9j8L1vK5H4T0pXA+9j8L1PK5H4b0pXA+9/3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}, {
+"aabb": AABB(-0.045, -0.1275, -0.0425, 0.09, 0.045, 0.085),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAACAAQAAgAGAAQAAQADAAUAAwAHAAUACAAKAAwACgAOAAwACQALAA0ACwAPAA0AEAASABQAEgAWABQAEQATABUAEwAXABUA"),
+"material": SubResource("StandardMaterial3D_4u3de"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("7FE4vcL1qL17FC497FE4PcL1qL17FC697FE4PcL1qL17FC497FE4vcL1qL17FC697FE4vVyPAr57FC497FE4PVyPAr57FC697FE4PVyPAr57FC497FE4vVyPAr57FC697FE4PcL1qL17FC497FE4vcL1qL17FC697FE4PcL1qL17FC697FE4vcL1qL17FC497FE4PVyPAr57FC497FE4vVyPAr57FC697FE4PVyPAr57FC697FE4vVyPAr57FC497FE4PcL1qL17FC497FE4vVyPAr57FC497FE4vcL1qL17FC497FE4PVyPAr57FC497FE4PcL1qL17FC697FE4vVyPAr57FC697FE4vcL1qL17FC697FE4PVyPAr57FC69/3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[sub_resource type="Resource" id="Resource_h5mna"]
+script = ExtResource("1_kiewv")
+id = &"pivot"
+local_position = Vector3(0, 0.11, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"humanoid_joint"
+accepts = Array[StringName]([&"humanoid_joint"])
+rotates = true
+
+[sub_resource type="Resource" id="Resource_hjllv"]
+script = ExtResource("1_kiewv")
+id = &"signal"
+kind = 1
+tag = &"pwm_signal"
+accepts = Array[StringName]([&"board_digital_pwm"])
+
+[sub_resource type="Resource" id="Resource_75mxv"]
+script = ExtResource("1_kiewv")
+id = &"grip"
+local_position = Vector3(0, -0.11, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"humanoid_joint"
+accepts = Array[StringName]([&"humanoid_joint"])
+
+[resource]
+script = ExtResource("2_gpget")
+id = &"humanoid_forearm"
+display_name = "Humanoid elbow and hand"
+mesh = SubResource("ArrayMesh_80q3b")
+ports = Array[ExtResource("1_kiewv")]([SubResource("Resource_h5mna"), SubResource("Resource_hjllv"), SubResource("Resource_75mxv")])
+mass_kg = 0.35
+actuator_torque_nm = 12.0
+actuator_min_deg = -140.0
+actuator_max_deg = 10.0
+collision_boxes = Array[AABB]([AABB(-0.03, -0.11, -0.035, 0.06, 0.22, 0.07), AABB(-0.045, -0.1275, -0.0425, 0.09, 0.045, 0.085)])

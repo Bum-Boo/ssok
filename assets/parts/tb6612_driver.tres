@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/tb6612_driver.res" id="1_fnwqp"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_oipbl"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_xudqx"]
+
+[sub_resource type="Resource" id="Resource_285wu"]
+script = ExtResource("2_oipbl")
+id = &"input_3"
+kind = 1
+local_position = Vector3(-0.015, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_ido3a"]
+script = ExtResource("2_oipbl")
+id = &"input_4"
+kind = 1
+local_position = Vector3(-0.005, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_8307s"]
+script = ExtResource("2_oipbl")
+id = &"input_6"
+kind = 1
+local_position = Vector3(0.005, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_wje1y"]
+script = ExtResource("2_oipbl")
+id = &"input_7"
+kind = 1
+local_position = Vector3(0.015, 0.004, -0.014)
+tag = &"driver_input"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_k824d"]
+script = ExtResource("2_oipbl")
+id = &"motor_1"
+kind = 1
+local_position = Vector3(-0.01, 0.004, 0.014)
+tag = &"driver_output"
+accepts = Array[StringName]([&"motor_power"])
+
+[sub_resource type="Resource" id="Resource_sj2a7"]
+script = ExtResource("2_oipbl")
+id = &"motor_2"
+kind = 1
+local_position = Vector3(0.01, 0.004, 0.014)
+tag = &"driver_output"
+accepts = Array[StringName]([&"motor_power"])
+
+[sub_resource type="Resource" id="Resource_86pvj"]
+script = ExtResource("2_oipbl")
+id = &"mount_bottom"
+local_position = Vector3(0, -0.004, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"board_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("3_xudqx")
+id = &"tb6612_driver"
+display_name = "Motor Driver (TB6612FNG)"
+mesh = ExtResource("1_fnwqp")
+ports = Array[ExtResource("2_oipbl")]([SubResource("Resource_285wu"), SubResource("Resource_ido3a"), SubResource("Resource_8307s"), SubResource("Resource_wje1y"), SubResource("Resource_k824d"), SubResource("Resource_sj2a7"), SubResource("Resource_86pvj")])
+mass_kg = 0.01
+merge_fixed_connections = true

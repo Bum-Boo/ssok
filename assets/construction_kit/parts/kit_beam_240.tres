@@ -1,0 +1,209 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_beam_240.res" id="1_qlj3s"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_j0cwu"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_qiy34"]
+
+[sub_resource type="Resource" id="Resource_6otgx"]
+script = ExtResource("2_j0cwu")
+id = &"h0_front"
+local_position = Vector3(0, -0.11, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_hkan7"]
+script = ExtResource("2_j0cwu")
+id = &"h0_back"
+local_position = Vector3(0, -0.11, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_a12wj"]
+script = ExtResource("2_j0cwu")
+id = &"h1_front"
+local_position = Vector3(0, -0.09, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_qvrn4"]
+script = ExtResource("2_j0cwu")
+id = &"h1_back"
+local_position = Vector3(0, -0.09, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_5v7el"]
+script = ExtResource("2_j0cwu")
+id = &"h2_front"
+local_position = Vector3(0, -0.07, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_3j7ma"]
+script = ExtResource("2_j0cwu")
+id = &"h2_back"
+local_position = Vector3(0, -0.07, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_fok84"]
+script = ExtResource("2_j0cwu")
+id = &"h3_front"
+local_position = Vector3(0, -0.05, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_fdcf6"]
+script = ExtResource("2_j0cwu")
+id = &"h3_back"
+local_position = Vector3(0, -0.05, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_5icd1"]
+script = ExtResource("2_j0cwu")
+id = &"h4_front"
+local_position = Vector3(0, -0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_a18um"]
+script = ExtResource("2_j0cwu")
+id = &"h4_back"
+local_position = Vector3(0, -0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_6npoj"]
+script = ExtResource("2_j0cwu")
+id = &"h5_front"
+local_position = Vector3(0, -0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_531st"]
+script = ExtResource("2_j0cwu")
+id = &"h5_back"
+local_position = Vector3(0, -0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_8tpei"]
+script = ExtResource("2_j0cwu")
+id = &"h6_front"
+local_position = Vector3(0, 0.01, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_7e5cn"]
+script = ExtResource("2_j0cwu")
+id = &"h6_back"
+local_position = Vector3(0, 0.01, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_whrh0"]
+script = ExtResource("2_j0cwu")
+id = &"h7_front"
+local_position = Vector3(0, 0.03, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_vloy1"]
+script = ExtResource("2_j0cwu")
+id = &"h7_back"
+local_position = Vector3(0, 0.03, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_d0hw8"]
+script = ExtResource("2_j0cwu")
+id = &"h8_front"
+local_position = Vector3(0, 0.05, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_pv1td"]
+script = ExtResource("2_j0cwu")
+id = &"h8_back"
+local_position = Vector3(0, 0.05, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_cj7ts"]
+script = ExtResource("2_j0cwu")
+id = &"h9_front"
+local_position = Vector3(0, 0.07, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_22lmo"]
+script = ExtResource("2_j0cwu")
+id = &"h9_back"
+local_position = Vector3(0, 0.07, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_phet2"]
+script = ExtResource("2_j0cwu")
+id = &"h10_front"
+local_position = Vector3(0, 0.09, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_yp4jm"]
+script = ExtResource("2_j0cwu")
+id = &"h10_back"
+local_position = Vector3(0, 0.09, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_32b1q"]
+script = ExtResource("2_j0cwu")
+id = &"h11_front"
+local_position = Vector3(0, 0.11, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_bwq3a"]
+script = ExtResource("2_j0cwu")
+id = &"h11_back"
+local_position = Vector3(0, 0.11, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_qiy34")
+id = &"kit_beam_240"
+display_name = "Perforated beam 240 mm"
+mesh = ExtResource("1_qlj3s")
+ports = Array[ExtResource("2_j0cwu")]([SubResource("Resource_6otgx"), SubResource("Resource_hkan7"), SubResource("Resource_a12wj"), SubResource("Resource_qvrn4"), SubResource("Resource_5v7el"), SubResource("Resource_3j7ma"), SubResource("Resource_fok84"), SubResource("Resource_fdcf6"), SubResource("Resource_5icd1"), SubResource("Resource_a18um"), SubResource("Resource_6npoj"), SubResource("Resource_531st"), SubResource("Resource_8tpei"), SubResource("Resource_7e5cn"), SubResource("Resource_whrh0"), SubResource("Resource_vloy1"), SubResource("Resource_d0hw8"), SubResource("Resource_pv1td"), SubResource("Resource_cj7ts"), SubResource("Resource_22lmo"), SubResource("Resource_phet2"), SubResource("Resource_yp4jm"), SubResource("Resource_32b1q"), SubResource("Resource_bwq3a")])
+mass_kg = 0.05184
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.01, -0.12, -0.002, 0.02, 0.24, 0.004)])

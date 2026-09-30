@@ -1,0 +1,92 @@
+[
+  {
+    "en": "Wiring",
+    "ko": "배선",
+    "zh_CN": "接线",
+    "ja": "配線"
+  },
+  {
+    "en": "Connect a motor to a board pin",
+    "ko": "모터와 보드 핀을 연결해요",
+    "zh_CN": "将电机连接到开发板引脚",
+    "ja": "モーターとボードのピンをつなぐ"
+  },
+  {
+    "en": "Choose the motor signal and a compatible pin. Wiring keeps your parts in place.",
+    "ko": "모터 신호 포트와 호환되는 핀을 골라요. 배선해도 부품 위치는 그대로예요.",
+    "zh_CN": "选择电机信号接口和兼容引脚。接线不会移动零件。",
+    "ja": "モーターの信号ポートと対応するピンを選びます。配線しても部品の位置は変わりません。"
+  },
+  {
+    "en": "Motor signal",
+    "ko": "모터 신호 포트",
+    "zh_CN": "电机信号接口",
+    "ja": "モーター信号ポート"
+  },
+  {
+    "en": "Board pin",
+    "ko": "보드 핀",
+    "zh_CN": "开发板引脚",
+    "ja": "ボードのピン"
+  },
+  {
+    "en": "Connect wire",
+    "ko": "배선 연결하기",
+    "zh_CN": "连接导线",
+    "ja": "配線をつなぐ"
+  },
+  {
+    "en": "Disconnect wire",
+    "ko": "배선 끊기",
+    "zh_CN": "断开导线",
+    "ja": "配線を外す"
+  },
+  {
+    "en": "Add a motor and a board to wire your robot.",
+    "ko": "모터와 보드를 추가한 뒤 배선해요.",
+    "zh_CN": "添加电机和开发板后，为机器人接线。",
+    "ja": "モーターとボードを追加して配線しましょう。"
+  },
+  {
+    "en": "Wire connected · Ctrl+Z to undo",
+    "ko": "배선을 연결했어요 · Ctrl+Z로 되돌리기",
+    "zh_CN": "导线已连接 · Ctrl+Z 撤销",
+    "ja": "配線をつなぎました · Ctrl+Z で元に戻す"
+  },
+  {
+    "en": "Wire disconnected · Ctrl+Z to undo",
+    "ko": "배선을 끊었어요 · Ctrl+Z로 되돌리기",
+    "zh_CN": "导线已断开 · Ctrl+Z 撤销",
+    "ja": "配線を外しました · Ctrl+Z で元に戻す"
+  },
+  {
+    "en": "This program is too large. Use at most 2048 lines and 64 KiB.",
+    "ko": "코드가 너무 길어요. 2048줄, 64 KiB 이내로 줄여 주세요.",
+    "zh_CN": "程序过大。请缩减至 2048 行、64 KiB 以内。",
+    "ja": "プログラムが大きすぎます。2048行、64 KiB以内にしてください。"
+  },
+  {
+    "en": "Servo angles must be finite numbers.",
+    "ko": "서보 각도에 유효한 숫자를 입력해 주세요.",
+    "zh_CN": "伺服角度必须是有限数值。",
+    "ja": "サーボの角度には有限の数値を入力してください。"
+  },
+  {
+    "en": "Wait must be between 0 and 60 seconds.",
+    "ko": "대기 시간은 0~60초로 입력해 주세요.",
+    "zh_CN": "等待时间必须在 0 到 60 秒之间。",
+    "ja": "待ち時間は0〜60秒で入力してください。"
+  },
+  {
+    "en": "This project supports up to 256 parts. Delete a part before adding another.",
+    "ko": "부품은 최대 256개까지 넣어요. 부품 하나를 지운 뒤 추가해 주세요.",
+    "zh_CN": "项目最多支持 256 个零件。请先删除一个零件再添加。",
+    "ja": "部品は256個まで追加できます。部品を1つ削除してから追加してください。"
+  },
+  {
+    "en": "Parts must stay within 100 m of the workspace origin.",
+    "ko": "부품은 작업실 원점에서 각 축으로 100 m 이내에 놓아 주세요.",
+    "zh_CN": "零件在各轴上的坐标必须位于工作区原点的 100 m 范围内。",
+    "ja": "各軸の部品座標は作業スペースの原点から100 m以内にしてください。"
+  }
+]

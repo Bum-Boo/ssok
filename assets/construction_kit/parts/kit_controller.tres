@@ -1,0 +1,172 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_controller.res" id="1_yquh0"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_jde8m"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_vk486"]
+
+[sub_resource type="Resource" id="Resource_46d2f"]
+script = ExtResource("2_jde8m")
+id = &"pin_2"
+kind = 1
+local_position = Vector3(-0.04, -0.024, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_lki7p"]
+script = ExtResource("2_jde8m")
+id = &"pin_3"
+kind = 1
+local_position = Vector3(-0.04, -0.012, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_at3br"]
+script = ExtResource("2_jde8m")
+id = &"pin_4"
+kind = 1
+local_position = Vector3(-0.04, 0, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_s12sr"]
+script = ExtResource("2_jde8m")
+id = &"pin_5"
+kind = 1
+local_position = Vector3(-0.04, 0.012, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_xdsnu"]
+script = ExtResource("2_jde8m")
+id = &"pin_6"
+kind = 1
+local_position = Vector3(-0.04, 0.024, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_2o3bf"]
+script = ExtResource("2_jde8m")
+id = &"pin_7"
+kind = 1
+local_position = Vector3(0.04, -0.024, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_j8q3c"]
+script = ExtResource("2_jde8m")
+id = &"pin_8"
+kind = 1
+local_position = Vector3(0.04, -0.012, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_ds6kc"]
+script = ExtResource("2_jde8m")
+id = &"pin_9"
+kind = 1
+local_position = Vector3(0.04, 0, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_yr4d8"]
+script = ExtResource("2_jde8m")
+id = &"pin_10"
+kind = 1
+local_position = Vector3(0.04, 0.012, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_2ih6a"]
+script = ExtResource("2_jde8m")
+id = &"pin_11"
+kind = 1
+local_position = Vector3(0.04, 0.024, -0.012)
+local_normal = Vector3(0, 0, -1)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal"])
+
+[sub_resource type="Resource" id="Resource_71li4"]
+script = ExtResource("2_jde8m")
+id = &"mount_0_front"
+local_position = Vector3(-0.05, -0.03, 0.004)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_tlnuh"]
+script = ExtResource("2_jde8m")
+id = &"mount_0_back"
+local_position = Vector3(-0.05, -0.03, -0.004)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_qm5rn"]
+script = ExtResource("2_jde8m")
+id = &"mount_1_front"
+local_position = Vector3(-0.05, 0.03, 0.004)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_uqra2"]
+script = ExtResource("2_jde8m")
+id = &"mount_1_back"
+local_position = Vector3(-0.05, 0.03, -0.004)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_0mrep"]
+script = ExtResource("2_jde8m")
+id = &"mount_2_front"
+local_position = Vector3(0.05, -0.03, 0.004)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_i5dp8"]
+script = ExtResource("2_jde8m")
+id = &"mount_2_back"
+local_position = Vector3(0.05, -0.03, -0.004)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_xmyiy"]
+script = ExtResource("2_jde8m")
+id = &"mount_3_front"
+local_position = Vector3(0.05, 0.03, 0.004)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_1ix65"]
+script = ExtResource("2_jde8m")
+id = &"mount_3_back"
+local_position = Vector3(0.05, 0.03, -0.004)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_vk486")
+id = &"kit_controller"
+display_name = "Ten-channel controller"
+mesh = ExtResource("1_yquh0")
+ports = Array[ExtResource("2_jde8m")]([SubResource("Resource_46d2f"), SubResource("Resource_lki7p"), SubResource("Resource_at3br"), SubResource("Resource_s12sr"), SubResource("Resource_xdsnu"), SubResource("Resource_2o3bf"), SubResource("Resource_j8q3c"), SubResource("Resource_ds6kc"), SubResource("Resource_yr4d8"), SubResource("Resource_2ih6a"), SubResource("Resource_71li4"), SubResource("Resource_tlnuh"), SubResource("Resource_qm5rn"), SubResource("Resource_uqra2"), SubResource("Resource_0mrep"), SubResource("Resource_i5dp8"), SubResource("Resource_xmyiy"), SubResource("Resource_1ix65")])
+mass_kg = 0.1
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+physics_frame_priority = 100
+collision_boxes = Array[AABB]([AABB(-0.06, -0.04, -0.016199999, 0.12, 0.08, 0.0202)])

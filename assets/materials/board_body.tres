@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_8vbf0"]
+
+[resource]
+resource_name = "BoardBody"
+albedo_color = Color(0.17184411, 0.6180314, 0.38109186, 1)
+metallic_specular = 0.45
+roughness = 0.3
+normal_enabled = true
+normal_scale = 0.07
+normal_texture = ExtResource("1_8vbf0")
+uv1_scale = Vector3(280, 280, 280)
+uv1_triplanar = true

@@ -1,0 +1,21 @@
+{
+  "actuator_model": "hinge-per-step-budget-v2",
+  "selected_lift_seconds": 4.0,
+  "selection_cases": 15,
+  "original_regression_lifts": [
+    2.5,
+    3.25,
+    4.0
+  ],
+  "jobs": [
+    "20260922-115706-ssok-bounded-pickup-diagnostic-e1c0161a",
+    "20260922-120135-ssok-bounded-pickup-regression-b7f056f3"
+  ],
+  "source_hashes": {
+    "src/runtime/pickup_policy.gd": "c449f25e012fcfb2b21b269d73428e790ea3da50391d8afe56e9cfc95704fe3d",
+    "presets/humanoid_motion.gd": "1273c5c3f3339c81a74bfff1e7ad91276b1ba026e9abc3ec24c0fcad6fa6f1aa",
+    "src/runtime/kit_humanoid_motion.gd": "6d59f60696b257c600ee41e72c200f641ae722091f69796259a57fc2685cf0b0",
+    "tools/motion_lab/pickup.py": "e6f611283c57bf89f544b5bd39deb912145e00514a869babd0d688a98727c7af",
+    "src/runtime/servo_drive.gd": "3db647e0071b5c1dd63700b17bc215a5e015ea5ddae6960d13b63ba784d0df24"
+  }
+}

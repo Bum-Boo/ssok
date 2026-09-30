@@ -1,0 +1,1756 @@
+msgid ""
+msgstr ""
+"Language: ko\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+
+msgid "ssok - robot workshop"
+msgstr "ssok - 로봇 작업실"
+
+msgid "Language"
+msgstr "언어"
+
+msgid "Language changed, but the preference could not be saved."
+msgstr "언어를 변경했지만 설정을 저장하지 못했어."
+
+msgid "Run mode (physics)"
+msgstr "실행 모드 (물리)"
+
+msgid "Control: WASD / gamepad movement"
+msgstr "조종: WASD / 게임패드 이동"
+
+msgid "Control: Learner code"
+msgstr "조종: 작성한 코드"
+
+msgid "Run code"
+msgstr "코드 실행"
+
+msgid "Stop input / code"
+msgstr "조종 / 코드 정지"
+
+msgid "AI motion lab"
+msgstr "AI 동작 실험실"
+
+msgid "Parts"
+msgstr "부품"
+
+msgid "Delete selected"
+msgstr "선택 부품 삭제"
+
+msgid "Answer: servo arm"
+msgstr "예제: 서보 팔"
+
+msgid "Answer: biped"
+msgstr "예제: 이족 로봇"
+
+msgid "Delete selected part?"
+msgstr "선택한 부품을 삭제할까?"
+
+msgid "Remove the part and its connections? Ctrl+Z restores them."
+msgstr "부품과 연결을 삭제해. Ctrl+Z로 복원할 수 있어."
+
+msgid "OK"
+msgstr "확인"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Arduino Uno R3"
+msgstr "Arduino Uno R3"
+
+msgid "Board (placeholder)"
+msgstr "보드 (임시)"
+
+msgid "Leg Link"
+msgstr "다리 링크"
+
+msgid "Wheel 65 mm"
+msgstr "바퀴 65 mm"
+
+msgid "TT Gear Motor"
+msgstr "TT 기어 모터"
+
+msgid "HC-SR04 Ultrasonic"
+msgstr "HC-SR04 초음파 센서"
+
+msgid "Servo Angle Bracket"
+msgstr "서보 앵글 브래킷"
+
+msgid "Foot"
+msgstr "발"
+
+msgid "Chassis Plate 120 mm"
+msgstr "섀시 플레이트 120 mm"
+
+msgid "Servo Motor"
+msgstr "서보 모터"
+
+msgid "Arm Link"
+msgstr "팔 링크"
+
+msgid "Biped Body"
+msgstr "이족 로봇 몸통"
+
+msgid "Base Plate"
+msgstr "베이스 플레이트"
+
+msgid "Edit mode - select a part, then G to move or R to rotate; connections snap at ports"
+msgstr "편집 모드 - 부품 선택 후 G로 이동, R로 회전. 포트끼리 가까이 두면 연결돼."
+
+msgid "running line %d"
+msgstr "%d번째 줄 실행 중"
+
+msgid "finished"
+msgstr "실행 완료"
+
+msgid "line %d: %s"
+msgstr "%d번째 줄: %s"
+
+msgid "Added %s - G to move, R to rotate, Enter to confirm"
+msgstr "%s 추가 - G 이동, R 회전, Enter 확정"
+
+msgid "Return to edit mode and finish the current transform before deleting"
+msgstr "편집 모드로 돌아가 변환을 마친 뒤 삭제해."
+
+msgid "part removed"
+msgstr "부품 삭제 완료"
+
+msgid "click a part first, then delete it"
+msgstr "먼저 삭제할 부품을 클릭해."
+
+msgid "answer loaded - the finished servo arm"
+msgstr "예제 로드 완료 - 완성된 서보 팔"
+
+msgid "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example"
+msgstr "이족 로봇 로드 완료 - 실행 모드에서 WASD / 스틱 조종, 코드 실행으로 제자리걸음 예제"
+
+msgid "Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel"
+msgstr "편집 모드 - G 이동 / R 회전 / X,Y,Z 축 제한 / Esc 취소"
+
+msgid "W/S forward/back · A/D turn · left stick · Space stop"
+msgstr "W/S 전진·후진 · A/D 회전 · 왼쪽 스틱 · Space 정지"
+
+msgid "Code control - press Run code; movement inputs are disabled"
+msgstr "코드 조종 - 코드 실행을 눌러. 이동 입력은 꺼져 있어."
+
+msgid "Input stopped - servos hold their last targets; return to edit mode to reset the robot"
+msgstr "입력 정지 - 서보는 마지막 목표를 유지해. 편집 모드로 돌아가면 로봇이 초기화돼."
+
+msgid "Motion lab closed. Movement remains stopped; select WASD control or toggle Run mode when ready."
+msgstr "실험실을 닫았어. 조종은 정지 상태야. 준비되면 WASD 조종을 선택하거나 실행 모드를 전환해."
+
+msgid "Evaluated parameters applied to the WASD program; assembly and learner source are unchanged"
+msgstr "평가한 파라미터를 WASD 프로그램에 적용했어. 조립과 작성한 코드는 그대로야."
+
+msgid "Assembly changed: evaluated motion parameters reset to the experimental defaults. Search again for this graph."
+msgstr "조립이 바뀌어 동작 파라미터를 실험용 기본값으로 초기화했어. 현재 조립으로 다시 탐색해."
+
+msgid "MMB orbit · Shift+MMB pan · wheel zoom · Numpad 1/3/7 views · Numpad . frame"
+msgstr "마우스 중간 버튼: 시점 회전 · Shift+중간 버튼: 화면 이동 · 휠: 확대/축소 · 숫자패드 1/3/7: 시점 · 숫자패드 .: 화면 맞춤"
+
+msgid "LMB select · G move / R rotate · X/Y/Z axis · number: mm / degrees · Enter/LMB confirm · Esc/RMB cancel · Ctrl+Z undo"
+msgstr "왼쪽 클릭: 선택 · G 이동 / R 회전 · X/Y/Z 축 · 숫자: mm / 도 · Enter/왼쪽 클릭: 확정 · Esc/오른쪽 클릭: 취소 · Ctrl+Z 되돌리기"
+
+msgid "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
+msgstr "W/S 전진·후진 · A/D 회전 · 왼쪽 스틱 · Space/패드 A 제동 · Esc 입력 정지"
+
+msgid "Code control · Run code to start · Stop input / code to cancel · Esc stops"
+msgstr "코드 조종 · 코드 실행으로 시작 · 조종 / 코드 정지로 취소 · Esc 정지"
+
+msgid "Choose a control source, then enter Run mode.\nPart dimensions are fixed; G uses mm and R uses degrees."
+msgstr "조종 방식을 선택하고 실행 모드를 켜.\n부품 치수는 고정이야. G는 mm, R은 도 단위야."
+
+msgid "Code owns the motors. Keyboard/gamepad control is off."
+msgstr "코드가 모터를 제어 중이야. 키보드/게임패드 조종은 꺼져 있어."
+
+msgid "Load Answer: biped for the movement example."
+msgstr "이동 예제는 '예제: 이족 로봇'을 불러와."
+
+msgid "Keyboard ready · no gamepad detected"
+msgstr "키보드 준비됨 · 게임패드 없음"
+
+msgid "Gamepad: %s"
+msgstr "게임패드: %s"
+
+msgid "Biped demo: experimental gait (slow / drift)\nForward %+.2f · Turn %+.2f\n%s"
+msgstr "이족 예제: 실험용 보행 (느림 / 표류)\n전후진 %+.2f · 회전 %+.2f\n%s"
+
+msgid "ssok - AI motion lab"
+msgstr "ssok - AI 동작 실험실"
+
+msgid "Motion search - wired biped"
+msgstr "동작 탐색 - 배선된 이족 로봇"
+
+msgid "Propose parameters -> simulate -> compare -> explicitly apply. This does not train GPT weights. Other robot programs are not supported yet."
+msgstr "파라미터 제안 → 시뮬레이션 → 비교 → 직접 적용. GPT 가중치 학습은 아니야. 다른 로봇 프로그램은 아직 지원하지 않아."
+
+msgid "Bridge origin (loopback HTTP / deployed HTTPS)"
+msgstr "브리지 주소 (로컬 HTTP / 배포된 HTTPS)"
+
+msgid "Bridge bearer token - RAM only. Never enter an OpenAI API key here."
+msgstr "브리지 인증 토큰 - 메모리에만 보관해. 여기에 OpenAI API 키를 입력하지 마."
+
+msgid "Token from your local bridge terminal"
+msgstr "로컬 브리지 터미널의 토큰"
+
+msgid "Check connection"
+msgstr "연결 확인"
+
+msgid "Disconnect / forget"
+msgstr "연결 해제 / 기록 지우기"
+
+msgid "Recover from an unavailable bridge. Forgetting does not cancel a remote job."
+msgstr "브리지 연결 문제에서 복구해. 기록을 지워도 원격 작업은 취소되지 않아."
+
+msgid "Forget local search status?"
+msgstr "로컬 탐색 상태를 지울까?"
+
+msgid "This only disconnects the local UI. It does NOT cancel a search on the bridge.\nA submitted job may still run and API charges may continue.\nCheck or stop the bridge before starting another paid search.\nLocal connection status and pending results will be cleared."
+msgstr "로컬 UI 연결만 해제해. 브리지의 탐색은 취소되지 않아.\n제출된 작업이 계속 실행되고 API 요금이 발생할 수 있어.\n다른 유료 탐색 전에 브리지를 확인하거나 중지해.\n로컬 연결 상태와 대기 중인 결과가 지워져."
+
+msgid "Not connected. OPENAI_API_KEY is configured only on the bridge."
+msgstr "연결 안 됨. OPENAI_API_KEY는 브리지에서만 설정해."
+
+msgid "Goal (sent to the bridge/model along with this assembly snapshot)"
+msgstr "목표 (조립 스냅샷과 함께 브리지/모델로 전송돼)"
+
+msgid "Walk forward while staying upright and reducing drift"
+msgstr "똑바로 서서 표류를 줄이며 앞으로 걸어가"
+
+msgid "Evaluate: forward (W)"
+msgstr "평가: 전진 (W)"
+
+msgid "Evaluate: backward (S)"
+msgstr "평가: 후진 (S)"
+
+msgid "Evaluate: turn left (A)"
+msgstr "평가: 좌회전 (A)"
+
+msgid "Evaluate: turn right (D)"
+msgstr "평가: 우회전 (D)"
+
+msgid "Direction fixes the measured objective; language does not replace the scoring rule. One direction is evaluated per search."
+msgstr "방향이 측정 목표를 정해. 자연어가 평가 규칙을 바꾸지는 않아. 한 번에 한 방향만 평가해."
+
+msgid "Proposal rounds (1-4)"
+msgstr "제안 횟수 (1~4)"
+
+msgid "Allow paid OpenAI requests for this search"
+msgstr "이번 탐색의 유료 OpenAI 요청 허용"
+
+msgid "Mock mode uses deterministic fixtures, not GPT. Live requests may incur costs; cancelling an in-flight API request may still be billed."
+msgstr "모의 모드는 GPT가 아닌 고정된 테스트 제안을 사용해. 실제 요청은 유료일 수 있고, 전송 중인 API 요청은 취소해도 과금될 수 있어."
+
+msgid "Start search"
+msgstr "탐색 시작"
+
+msgid "Cancel search"
+msgstr "탐색 취소"
+
+msgid "Load Answer: biped, configure the bridge, then check the connection."
+msgstr "'예제: 이족 로봇'을 불러오고 브리지를 설정한 뒤 연결을 확인해."
+
+msgid "Evaluation history appears here (baseline, then candidates)."
+msgstr "평가 기록이 여기에 표시돼 (기준 동작 → 후보 동작)."
+
+msgid "No measured result yet."
+msgstr "아직 측정 결과가 없어."
+
+msgid "Apply best to WASD program (edit mode only)"
+msgstr "최선 결과를 WASD에 적용 (편집 모드만)"
+
+msgid "Save best locally"
+msgstr "최선 결과 저장"
+
+msgid "Load saved best"
+msgstr "저장한 결과 불러오기"
+
+msgid "Save/load: user://motion_lab_best.json. Stores bounded parameters, numeric metrics and assembly/controller IDs; no token, goal, model text or API key."
+msgstr "저장/불러오기: user://motion_lab_best.json. 제한된 파라미터, 수치 측정값, 조립·제어기 식별값을 저장해. 토큰·목표·모델 텍스트·API 키는 저장하지 않아."
+
+msgid "Checking bridge..."
+msgstr "브리지 확인 중…"
+
+msgid "Previous start outcome is unknown. Confirm bridge status, then use Disconnect / forget before reconnecting."
+msgstr "이전 시작 요청의 결과를 알 수 없어. 브리지 상태를 확인한 뒤 연결 해제 / 기록 지우기를 하고 다시 연결해."
+
+msgid "A search or connection request is already active"
+msgstr "이미 탐색 또는 연결 요청이 진행 중이야."
+
+msgid "Check the bridge connection first"
+msgstr "먼저 브리지 연결을 확인해."
+
+msgid "Paid OpenAI requests require explicit consent for this search"
+msgstr "이번 탐색의 유료 OpenAI 요청에 직접 동의해야 해."
+
+msgid "Set OPENAI_API_KEY on the bridge, not in Godot"
+msgstr "OPENAI_API_KEY는 Godot이 아닌 브리지에 설정해."
+
+msgid "Load a valid wired biped assembly before searching"
+msgstr "탐색 전에 배선된 유효한 이족 로봇을 불러와."
+
+msgid "Goal must contain 1..2000 characters"
+msgstr "목표는 1~2000자로 입력해."
+
+msgid "No compatible motion program is configured"
+msgstr "호환되는 동작 프로그램이 없어."
+
+msgid "Evaluating the current policy as a baseline..."
+msgstr "현재 동작을 기준으로 평가 중…"
+
+msgid "No eligible result yet. Fallen or nonfinite candidates cannot be applied."
+msgstr "아직 적용할 결과가 없어. 넘어진 후보나 비정상 수치의 후보는 적용할 수 없어."
+
+msgid "Starting isolated baseline and candidate evaluations..."
+msgstr "독립 시뮬레이션으로 기준·후보 평가 시작 중…"
+
+msgid "Cancellation requested. An already-sent API request may still be billed."
+msgstr "취소를 요청했어. 이미 보낸 API 요청은 과금될 수 있어."
+
+msgid "Waiting for the search ID, then sending cancellation. Do not start another search."
+msgstr "탐색 ID를 기다린 뒤 취소 요청을 보낼게. 새 탐색은 시작하지 마."
+
+msgid "Unexpected bridge capabilities; no search was started"
+msgstr "예상하지 못한 브리지 응답이야. 탐색은 시작하지 않았어."
+
+msgid "MOCK - no GPT calls; real Godot physics evaluations."
+msgstr "모의 모드 - GPT 호출 없음. 실제 Godot 물리로 평가해."
+
+msgid "OPENAI - %s; key configured: %s. Explicit paid consent required."
+msgstr "OPENAI - %s · 키 설정: %s. 유료 요청에 직접 동의해야 해."
+
+msgid "Connected. Only the selected direction will be evaluated; improvement is not guaranteed."
+msgstr "연결됐어. 선택한 방향만 평가하며, 개선을 보장하지는 않아."
+
+msgid "Invalid bridge result; no policy was applied"
+msgstr "유효하지 않은 브리지 결과야. 동작은 적용하지 않았어."
+
+msgid "%s | evaluations: %d | API calls: %s | tokens: %s%s"
+msgstr "%s | 평가: %d | API 호출: %s | 토큰: %s%s"
+
+msgid "QUEUED"
+msgstr "대기 중"
+
+msgid "BASELINE"
+msgstr "기준 평가 중"
+
+msgid "PROPOSING"
+msgstr "후보 제안 중"
+
+msgid "EVALUATING"
+msgstr "평가 중"
+
+msgid "CANCELLING"
+msgstr "취소 중"
+
+msgid "COMPLETED"
+msgstr "완료"
+
+msgid "FAILED"
+msgstr "실패"
+
+msgid "CANCELLED"
+msgstr "취소됨"
+
+msgid " Start outcome is unknown: a submitted bridge job may still run or be billed. No retry until explicit Disconnect / forget."
+msgstr " 시작 결과를 알 수 없어. 제출한 브리지 작업은 계속 실행되거나 과금될 수 있어. 연결 해제 / 기록 지우기 전에는 재시도하지 않아."
+
+msgid " Search may still be running on the bridge; Cancel can be retried."
+msgstr " 브리지에서 탐색이 계속될 수 있어. 취소는 다시 시도할 수 있어."
+
+msgid "Not connected. Check the bridge process and bearer token."
+msgstr "연결 안 됨. 브리지 프로세스와 인증 토큰을 확인해."
+
+msgid "Disconnected. Edit connection details and check the bridge again."
+msgstr "연결 해제됨. 연결 정보를 수정하고 다시 확인해."
+
+msgid "No local result retained. Any remote job was NOT cancelled by disconnecting."
+msgstr "로컬 결과를 지웠어. 연결을 해제해도 원격 작업은 취소되지 않아."
+
+msgid "Local history forgotten; check the bridge before starting another paid search."
+msgstr "로컬 기록을 지웠어. 새 유료 탐색 전에 브리지를 확인해."
+
+msgid "Local status cleared only. A remote search may still run or be billed; no new request was sent."
+msgstr "로컬 상태만 지웠어. 원격 탐색은 계속 실행되거나 과금될 수 있어. 새 요청은 보내지 않았어."
+
+msgid "Connection details changed. Check connection again."
+msgstr "연결 정보가 바뀌었어. 다시 연결을 확인해."
+
+msgid "Wait for the search to finish or cancel it before applying"
+msgstr "탐색을 마치거나 취소한 뒤 적용해."
+
+msgid "No finite, non-fallen evaluated policy is available"
+msgstr "수치가 정상이고 넘어지지 않은 평가 결과가 없어."
+
+msgid "Return to edit mode before applying a policy"
+msgstr "동작을 적용하려면 편집 모드로 돌아가."
+
+msgid "Assembly changed since evaluation; search again for this exact graph"
+msgstr "평가 이후 조립이 바뀌었어. 현재 조립으로 다시 탐색해."
+
+msgid "Application rejected; nothing was changed"
+msgstr "적용이 거부됐어. 변경된 내용은 없어."
+
+msgid "Applied to the WASD joint program. Close this window and enter Run mode to try it. Source code and assembly are unchanged."
+msgstr "WASD 관절 프로그램에 적용했어. 창을 닫고 실행 모드에서 시험해 봐. 코드와 조립은 그대로야."
+
+msgid "Baseline"
+msgstr "기준 동작"
+
+msgid "Candidate %d"
+msgstr "후보 %d"
+
+msgid "%s: score %.3f | forward %+.2f mm | yaw %+.1f deg | fallen %s | finite %s"
+msgstr "%s: 점수 %.3f | 전진 %+.2f mm | 회전 %+.1f 도 | 넘어짐 %s | 유한값 %s"
+
+msgid "Baseline evaluation is pending."
+msgstr "기준 동작 평가 대기 중."
+
+msgid "Measured best: score %.4f | finite: true | fallen: false\nForward %+.4f m | lateral %+.4f m | yaw %+.3f rad\nMinimum upright %.3f | minimum height %.4f m\n%s\nA better score is not proof of walking. One direction is not a guarantee for all WASD commands."
+msgstr "측정한 최선 결과: 점수 %.4f | 유한값: 참 | 넘어짐: 거짓\n전진 %+.4f m | 측면 %+.4f m | 회전 %+.3f rad\n최소 직립도 %.3f | 최소 높이 %.4f m\n%s\n높은 점수가 보행의 증거는 아니야. 한 방향의 결과가 모든 WASD 동작을 보장하지 않아."
+
+msgid "No completed, safe result to save"
+msgstr "저장할 수 있는 완료된 안전한 결과가 없어."
+
+msgid "Could not save the result under user://"
+msgstr "user://에 결과를 저장하지 못했어."
+
+msgid "Saved bounded policy and measured metrics to %s; no credentials or prompt text."
+msgstr "%s에 제한된 동작과 측정값을 저장했어. 인증 정보와 프롬프트는 저장하지 않았어."
+
+msgid "No valid saved result at %s"
+msgstr "%s에 유효한 저장 결과가 없어."
+
+msgid "Saved result is invalid; nothing was loaded"
+msgstr "저장 결과가 유효하지 않아. 아무것도 불러오지 않았어."
+
+msgid "Loaded local parameters and recorded metrics (not re-evaluated). Apply requires the exact same assembly in edit mode."
+msgstr "로컬 파라미터와 측정 기록을 불러왔어 (재평가하지 않음). 같은 조립의 편집 모드에서만 적용할 수 있어."
+
+msgid "true"
+msgstr "참"
+
+msgid "false"
+msgstr "거짓"
+
+msgid "No robot movement program configured"
+msgstr "로봇 이동 프로그램이 없어."
+
+msgid "Part deleted · Ctrl+Z to undo"
+msgstr "부품 삭제됨 · Ctrl+Z 되돌리기"
+
+msgid "Transform confirmed · Ctrl+Z to undo"
+msgstr "변환 확정 · Ctrl+Z 되돌리기"
+
+msgid "Transform unchanged"
+msgstr "변환 변경 없음"
+
+msgid "Transform cancelled"
+msgstr "변환 취소됨"
+
+msgid "Undo"
+msgstr "되돌리기"
+
+msgid "Redo"
+msgstr "다시 실행"
+
+msgid "Numeric input is limited to 16 characters"
+msgstr "숫자는 16자까지 입력할 수 있어."
+
+msgid "Part dimensions are fixed · Scaling is unavailable"
+msgstr "부품 치수는 고정 · 크기 변경 불가"
+
+msgid "Transform value must be finite"
+msgstr "변환 값은 유한한 수여야 해."
+
+msgid "Transform exceeds the supported numeric range"
+msgstr "변환 값이 지원 범위를 넘었어."
+
+msgid "Move"
+msgstr "이동"
+
+msgid "Rotate"
+msgstr "회전"
+
+msgid "View"
+msgstr "시점"
+
+msgid "mouse"
+msgstr "마우스"
+
+msgid "%s · %s · %s %s | X/Y/Z axis · Enter/LMB confirm · Esc/RMB cancel · Ctrl snap · Shift precise"
+msgstr "%s · %s · %s %s | X/Y/Z 축 · Enter/왼쪽 클릭 확정 · Esc/오른쪽 클릭 취소 · Ctrl 스냅 · Shift 미세 조정"
+
+msgid "Run mode is not active"
+msgstr "실행 모드가 꺼져 있어."
+
+msgid "Pin %d has nothing connected"
+msgstr "핀 %d에 연결된 부품이 없어."
+
+msgid "NameError: '%s' is not defined"
+msgstr "NameError: '%s'이(가) 정의되지 않았어."
+
+msgid "Servo '%s' is no longer available"
+msgstr "서보 '%s'을(를) 더 이상 사용할 수 없어."
+
+msgid "SyntaxError: %s"
+msgstr "문법 오류: %s"
+
+msgid "Use a loopback HTTP origin or an authenticated HTTPS origin, without a path or credentials"
+msgstr "경로나 인증 정보 없이 로컬 HTTP 또는 인증된 HTTPS 주소를 입력해."
+
+msgid "Endpoint port must be between 1 and 65535"
+msgstr "포트는 1~65535여야 해."
+
+msgid "A bridge request is already in progress"
+msgstr "브리지 요청이 이미 진행 중이야."
+
+msgid "Enter the bridge bearer token (24..256 printable ASCII characters), not an OpenAI API key"
+msgstr "OpenAI API 키가 아닌 브리지 토큰을 입력해 (출력 가능한 ASCII 24~256자)."
+
+msgid "OpenAI API keys belong in the bridge environment, never in this field"
+msgstr "OpenAI API 키는 이 입력란이 아닌 브리지 환경에 설정해."
+
+msgid "Bridge returned an invalid search ID"
+msgstr "브리지가 유효하지 않은 탐색 ID를 반환했어."
+
+msgid "Could not start the bridge request (error %d)"
+msgstr "브리지 요청을 시작하지 못했어 (오류 %d)."
+
+msgid "Bridge connection failed, timed out or exceeded the response limit. Nothing was applied."
+msgstr "브리지 연결 실패, 시간 초과 또는 응답 크기 초과야. 아무것도 적용하지 않았어."
+
+msgid "Check token, service state and request limits."
+msgstr "토큰, 서비스 상태, 요청 제한을 확인해."
+
+msgid "Bridge HTTP %d: %s No automatic retry."
+msgstr "브리지 HTTP %d: %s 자동 재시도는 하지 않아."
+
+msgid "Bridge returned invalid JSON; nothing was applied"
+msgstr "브리지가 유효하지 않은 JSON을 반환했어. 아무것도 적용하지 않았어."
+
+msgid "Build a wired biped before using the movement program"
+msgstr "이동 프로그램을 쓰려면 배선된 이족 로봇을 조립해."
+
+msgid "Movement program needs one unambiguous biped body"
+msgstr "이동 프로그램에는 이족 로봇 몸통이 정확히 하나 필요해."
+
+msgid "No biped motion program: connect a two-leg body with four servos"
+msgstr "이족 동작 프로그램 없음: 두 다리 몸통에 서보 4개를 연결해."
+
+msgid "Incomplete %s leg: connect hip, leg, ankle servo and foot"
+msgstr "%s 다리 미완성: 엉덩이, 다리, 발목 서보, 발을 연결해."
+
+msgid "Each hip and ankle needs its own servo"
+msgstr "각 엉덩이와 발목에는 별도 서보가 필요해."
+
+msgid "Wire %s to one unambiguous board PWM pin"
+msgstr "%s을(를) 보드의 PWM 핀 하나에 연결해."
+
+msgid "Experimental biped joint program: forward/back and turn"
+msgstr "실험용 이족 관절 프로그램: 전진·후진·회전"
+
+msgid "left"
+msgstr "왼쪽"
+
+msgid "right"
+msgstr "오른쪽"
+
+msgid "left hip"
+msgstr "왼쪽 엉덩이"
+
+msgid "right hip"
+msgstr "오른쪽 엉덩이"
+
+msgid "left ankle"
+msgstr "왼쪽 발목"
+
+msgid "right ankle"
+msgstr "오른쪽 발목"
+
+msgid "Stop"
+msgstr "정지"
+
+msgid "Robot program"
+msgstr "로봇 프로그램"
+
+msgid "Code"
+msgstr "코드"
+
+msgid "Controls"
+msgstr "조종 안내"
+
+msgid "Python-style servo program"
+msgstr "Python 스타일 서보 코드"
+
+msgid "Move your robot"
+msgstr "로봇 조종하기"
+
+msgid "W / S   Forward / backward\nA / D   Turn left / right\nSpace   Brake\nEsc   Stop input"
+msgstr "W / S   전진 / 후진\nA / D   좌회전 / 우회전\nSpace   제동\nEsc   입력 정지"
+
+msgid "Choose WASD control, then enable Run mode. Click the 3D view before using the keyboard."
+msgstr "WASD 조종을 선택하고 실행 모드를 켜. 키보드를 쓰기 전에 3D 화면을 클릭해."
+
+msgid "Frame robot"
+msgstr "로봇에 화면 맞추기"
+
+msgid "Build something that moves."
+msgstr "움직이는 로봇을 만들어 봐."
+
+msgid "Start with a robot example, or add parts from the library."
+msgstr "로봇 예제로 시작하거나 부품 라이브러리에서 직접 추가해."
+
+msgid "Start with a biped"
+msgstr "이족 로봇으로 시작"
+
+msgid "Parts library"
+msgstr "부품 라이브러리"
+
+msgid "Search parts..."
+msgstr "부품 검색…"
+
+msgid "All parts"
+msgstr "모든 부품"
+
+msgid "Structure"
+msgstr "구조물"
+
+msgid "Actuators"
+msgstr "구동 장치"
+
+msgid "Electronics"
+msgstr "전자 부품"
+
+msgid "No matching parts"
+msgstr "검색 결과가 없어"
+
+msgid "STARTER ROBOTS"
+msgstr "시작용 로봇"
+
+msgid "%d parts / %d connections"
+msgstr "부품 %d개 / 연결 %d개"
+
+msgid "1. Connect"
+msgstr "1. 연결"
+
+msgid "2. Search"
+msgstr "2. 탐색"
+
+msgid "3. Results"
+msgstr "3. 결과"
+
+msgid "Tutorial"
+msgstr "튜토리얼"
+
+msgid "Restart tutorial"
+msgstr "처음부터"
+
+msgid "Previous"
+msgstr "이전"
+
+msgid "Next"
+msgstr "다음"
+
+msgid "Finish tutorial"
+msgstr "튜토리얼 마치기"
+
+msgid "Close and try it"
+msgstr "닫고 직접 해보기"
+
+msgid "Step %d of %d"
+msgstr "%d / %d 단계"
+
+msgid "Tutorial closed. Input remains stopped; select WASD control or toggle Run mode when ready."
+msgstr "튜토리얼을 닫았어. 입력은 정지 상태야. 준비되면 WASD 조종을 다시 선택하거나 실행 모드를 껐다 켜줘."
+
+msgid "Start with a robot"
+msgstr "로봇 예제로 시작하기"
+
+msgid "Close this guide to try each step, then reopen the book icon to continue. Your place is kept until the app closes.\n\nIn the left library, choose Answer: biped for movement, or Answer: servo arm for a simple coding example. Loading a starter replaces the current assembly and code."
+msgstr "단계를 읽고 닫아서 직접 해본 뒤, 책 아이콘을 다시 누르면 이어서 볼 수 있어. 앱을 닫기 전까지 보던 단계를 기억해.\n\n왼쪽 라이브러리에서 이동을 해보려면 ‘예제: 이족 로봇’, 간단한 코딩을 해보려면 ‘예제: 서보 팔’을 골라줘. 예제를 불러오면 현재 조립과 코드가 교체돼."
+
+msgid "Look around: middle mouse to orbit, Shift + middle mouse to pan, wheel to zoom."
+msgstr "둘러보기: 마우스 가운데 버튼으로 시점 회전, Shift + 가운데 버튼으로 화면 이동, 휠로 확대·축소."
+
+msgid "Add and connect parts"
+msgstr "부품 추가하고 연결하기"
+
+msgid "In edit mode, search the Parts library or use its category filter, then click a part to add it. Select it in the 3D view and press G to move it near a compatible yellow port. Confirm to snap.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot."
+msgstr "편집 모드에서 부품 라이브러리를 검색하거나 분류로 좁힌 뒤, 부품을 눌러 추가해. 3D 화면에서 부품을 선택하고 G로 호환되는 노란 포트 근처에 옮긴 후 확정하면 연결돼.\n\n기계 연결은 부품을 서로 고정해. 전기 연결은 서보와 보드 핀을 이어줘. 코드에서도 로봇에 실제 배선된 핀을 사용해야 해."
+
+msgid "Ctrl + Z undoes an addition, deletion or transform. Selection alone does not disconnect parts."
+msgstr "Ctrl + Z로 추가·삭제·변환을 되돌려. 부품을 선택하기만 해서는 연결이 끊어지지 않아."
+
+msgid "Edit with familiar shortcuts"
+msgstr "익숙한 단축키로 편집하기"
+
+msgid "Select a part, then press G to move or R to rotate. Press X, Y or Z to constrain the world axis. Type a distance in millimetres or an angle in degrees.\n\nTry G, X, 10, Enter to move 10 mm. Enter confirms; Esc cancels and restores connections. This is object editing, not Blender mesh or vertex editing."
+msgstr "부품을 선택하고 G로 이동, R로 회전해. X·Y·Z를 누르면 월드 축을 제한해. 거리는 밀리미터, 각도는 도 단위로 입력하면 돼.\n\nG, X, 10, Enter를 차례로 눌러 10 mm 옮겨봐. Enter는 확정, Esc는 취소하고 연결까지 복구해. 오브젝트 편집이며, Blender의 메쉬·정점 편집 기능은 아니야."
+
+msgid "Use Frame robot to fit the view. Part scaling is not supported; the vertical axis is Y."
+msgstr "‘로봇에 화면 맞추기’으로 전체를 볼 수 있어. 부품 크기 변경은 지원하지 않으며, 위쪽 축은 Y야."
+
+msgid "Drive with WASD"
+msgstr "WASD로 조종하기"
+
+msgid "Load the biped example, choose Control: WASD / gamepad movement on the right, then enable Run mode at the top. Click the 3D view before driving.\n\nW / S moves forward / backward; A / D turns. A gamepad's left stick sends the same commands. Space brakes; Esc or Stop disables input. The experimental biped gait can be slow or drift; other robots need their own joint program."
+msgstr "이족 로봇 예제를 불러오고, 오른쪽에서 ‘조종: WASD / 게임패드 이동’을 선택한 뒤 상단 실행 모드를 켜줘. 조종 전에 3D 화면을 클릭해.\n\nW / S는 전진·후진, A / D는 회전이야. 게임패드 왼쪽 스틱도 같은 명령을 보내. Space는 제동, Esc나 정지는 입력을 꺼. 이족 보행은 실험용이라 느리거나 방향이 틀어질 수 있어. 다른 로봇에는 그에 맞는 관절 프로그램이 필요해."
+
+msgid "Opening this guide stops code and movement input, not physics. After closing, select WASD control again or toggle Run mode to resume."
+msgstr "이 안내를 열면 코드와 이동 입력은 멈추지만 물리는 계속돼. 닫은 뒤 WASD 조종을 다시 선택하거나 실행 모드를 껐다 켜면 조종을 재개할 수 있어."
+
+msgid "Run your own servo code"
+msgstr "직접 쓴 서보 코드 실행하기"
+
+msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. Run code enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
+msgstr "첫 코딩 연습은 서보 팔 예제를 불러와 코드 탭의 프로그램부터 살펴봐. ‘코드 실행’을 누르면 물리가 켜지고, 프로그램이 배선된 서보를 제어해.\n\n코드와 WASD가 동시에 로봇을 조종하지는 않아. 편집기에 글을 입력해도 로봇은 움직이지 않아. 정지는 프로그램을 취소하고, 편집 모드로 돌아가면 조립 자세가 복원돼."
+
+msgid "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code."
+msgstr "편집기는 간단한 Python 스타일 서보 문법을 지원해. Python 전체 기능은 아니야. 예제를 불러오면 현재 코드가 교체돼."
+
+msgid "Explore the AI motion lab"
+msgstr "AI 동작 실험실 살펴보기"
+
+msgid "Open AI motion lab: Connect checks the optional external bridge; Search sets a goal and trial count; Results compares measured trials. Start with the bridge's mock mode without paid model calls.\n\nLive GPT calls require a server-side API key, model access and explicit paid consent. This searches bounded gait parameters, not model training. Apply a valid best result only in edit mode with the same robot assembly."
+msgstr "AI 동작 실험실을 열어봐. 연결에서 별도 외부 브리지를 확인하고, 탐색에서 목표와 횟수를 정한 뒤, 결과에서 측정값을 비교해. 유료 모델 호출이 없는 브리지의 mock 모드부터 시작하면 돼.\n\n실제 GPT 호출에는 서버의 API 키, 모델 사용 권한과 명시적인 유료 호출 동의가 필요해. 모델 자체를 훈련하는 게 아니라 제한된 보행 파라미터를 탐색해. 같은 로봇 조립을 유지한 편집 모드에서만 유효한 최선 결과를 적용할 수 있어."
+
+msgid "This guide never connects to a service, starts a trial or grants paid consent. Close it when you are ready to explore."
+msgstr "튜토리얼은 서비스에 연결하거나 실험을 시작하거나 유료 호출에 동의하지 않아. 준비되면 닫고 직접 살펴봐."
+
+msgid "Humanoid torso"
+msgstr "사람형 몸통"
+
+msgid "Humanoid head"
+msgstr "사람형 머리"
+
+msgid "Virtual humanoid controller"
+msgstr "가상 사람형 제어 보드"
+
+msgid "Humanoid thigh actuator"
+msgstr "사람형 허벅지 구동부"
+
+msgid "Humanoid knee actuator"
+msgstr "사람형 무릎 구동부"
+
+msgid "Humanoid shoulder actuator"
+msgstr "사람형 어깨 구동부"
+
+msgid "Humanoid elbow and hand"
+msgstr "사람형 팔꿈치와 손"
+
+msgid "Humanoid ankle and foot"
+msgstr "사람형 발목과 발"
+
+msgid "Practice box (0.4 kg)"
+msgstr "연습용 박스 (0.4 kg)"
+
+msgid "Experimental humanoid: torque-controlled joints"
+msgstr "실험용 사람형: 토크 제한 관절 제어"
+
+msgid "Humanoid fell. Return to edit mode to reset."
+msgstr "사람형 로봇이 넘어졌어. 편집 모드로 돌아가 초기화해줘."
+
+msgid "Move closer and face the box before picking it up."
+msgstr "박스 가까이에서 정면을 향한 뒤 집어줘."
+
+msgid "Could not reach the box. Reset and move closer."
+msgstr "박스에 손이 닿지 않았어. 초기화하고 더 가까이 가줘."
+
+msgid "Box gripped through hand contact. Lifting."
+msgstr "양손 접촉으로 박스를 잡았어. 들어 올리는 중이야."
+
+msgid "Box held. E releases it; Stop also releases the grip."
+msgstr "박스를 들고 있어. E로 놓을 수 있고, 정지를 눌러도 손을 놓아."
+
+msgid "Box released under gravity."
+msgstr "박스를 놓았어. 중력에 따라 떨어져."
+
+msgid "Answer: humanoid (experimental)"
+msgstr "예제: 사람형 로봇 (실험용)"
+
+msgid "Humanoid loaded. W/S walk, Shift sprint trial, E pick up or release. A/D turning is not supported yet."
+msgstr "사람형 로봇을 불러왔어. W/S 걷기, Shift 달리기 실험, E 집기·놓기. A/D 회전은 아직 지원하지 않아."
+
+msgid "AI search currently supports only the four-servo biped, not the humanoid."
+msgstr "AI 탐색은 현재 서보 4개 이족 로봇만 지원하며, 사람형 로봇은 지원하지 않아."
+
+msgid "Humanoid physics prototype\nW/S: walk · Shift: sprint trial\nE: pick up / release · Space: brake\nA/D turning is not supported yet.\nStop or opening a guide releases the box.\nAI search is not available for this robot."
+msgstr "사람형 물리 프로토타입\nW/S: 걷기 · Shift: 달리기 실험\nE: 집기·놓기 · Space: 제동\nA/D 회전은 아직 지원하지 않아.\n정지하거나 안내를 열면 박스를 놓아.\n이 로봇은 AI 탐색을 지원하지 않아."
+
+msgid "Try the physics humanoid"
+msgstr "물리 기반 사람형 로봇 체험하기"
+
+msgid "Choose Answer: humanoid (experimental), enable Run mode and click the 3D view. W/S walks; hold Shift for a sprint trial. Gamepad B requests sprint and X interacts. A/D turning is not supported yet.\n\nStand close to the box and press E. The robot crouches, reaches with both arms and grips only after both hands contact the box. Press E again to release it under gravity."
+msgstr "‘예제: 사람형 로봇 (실험용)’을 고르고 실행 모드를 켠 뒤 3D 화면을 클릭해. W/S로 걷고 Shift를 누른 채 달리기를 시험할 수 있어. 게임패드 B는 달리기, X는 상호작용이야. A/D 회전은 아직 지원하지 않아.\n\n박스 가까이 서서 E를 눌러봐. 로봇이 몸을 낮추고 두 팔을 뻗어 양손이 박스에 닿은 뒤에만 잡아. E를 다시 누르면 놓고, 박스는 중력으로 떨어져."
+
+msgid "This is a simplified ten-joint physics prototype, not trained human motion. Sprinting is not stable yet and can fall. Stop, code control or opening this guide releases the box. Reset in edit mode after a fall. AI search still supports only the four-servo biped."
+msgstr "관절 10개의 단순화된 물리 프로토타입이며, 사람 동작을 학습한 모델은 아니야. 달리기는 아직 불안정하고 넘어질 수 있어. 정지·코드 조종·안내 열기는 박스를 놓게 해. 넘어지면 편집 모드에서 초기화해줘. AI 탐색은 서보 4개 이족 로봇만 지원해."
+
+msgid "Humanoid needs all ten joints and unambiguous wiring. Reload the humanoid preset to reset."
+msgstr "사람형 로봇에는 관절 10개와 중복 없는 배선이 필요해요. 사람형 예제를 다시 불러와 초기화하세요."
+
+msgid "Pickup learning lab"
+msgstr "상자 집기 학습실"
+
+msgid "Watch independent physics trials, compare outcomes, then save a scenario. Luna proposes controller parameters; GPT weights are not trained."
+msgstr "독립된 물리 실험을 지켜보고 결과를 비교한 뒤 시나리오를 저장하세요. Luna는 동작 파라미터를 제안하며, GPT 가중치를 훈련하지는 않아요."
+
+msgid "Experiments"
+msgstr "실험"
+
+msgid "Local search (no GPT)"
+msgstr "로컬 탐색 (GPT 미사용)"
+
+msgid "GPT-5.6 Luna via bridge"
+msgstr "브리지로 GPT-5.6 Luna 연결"
+
+msgid "Parallel trials"
+msgstr "동시 실험 수"
+
+msgid "Rounds"
+msgstr "라운드"
+
+msgid "Start pickup search"
+msgstr "집기 탐색 시작"
+
+msgid "Each round tests four candidates. Change parallelism while running (1–4); fewer lanes drain existing trials. More lanes need more CPU/GPU, not more API calls per round."
+msgstr "라운드마다 후보 4개를 시험해요. 실행 중 동시 실험 수를 1–4개로 바꿀 수 있어요. 줄이면 진행 중인 실험은 끝까지 실행해요. 실험 수가 많을수록 CPU/GPU 사용량은 늘지만, 라운드당 API 호출 수는 늘지 않아요."
+
+msgid "Waiting for a trial"
+msgstr "실험 대기 중"
+
+msgid "Measured candidates — select any result"
+msgstr "측정된 후보 — 결과를 선택하세요"
+
+msgid "Scenario name"
+msgstr "시나리오 이름"
+
+msgid "Save selected scenario"
+msgstr "선택한 시나리오 저장"
+
+msgid "Replay in physics"
+msgstr "물리 실험으로 재검증"
+
+msgid "Apply selected pickup"
+msgstr "선택한 집기 동작 적용"
+
+msgid "Saved scenarios"
+msgstr "저장한 시나리오"
+
+msgid "Saved scenarios include the exact assembly, bounded policy and recorded metrics, not credentials or prompts. Loading does not prove success; replay to verify again."
+msgstr "시나리오에는 정확한 조립 구조, 제한된 동작 파라미터, 측정값이 저장돼요. 인증 정보나 프롬프트는 저장하지 않아요. 불러오기만으로 성공이 보장되지는 않으니 다시 실행해 검증하세요."
+
+msgid "Refresh library"
+msgstr "목록 새로고침"
+
+msgid "Select saved scenario"
+msgstr "저장한 시나리오 선택"
+
+msgid "Luna connection"
+msgstr "Luna 연결"
+
+msgid "Pickup goal (sent with measured feedback, never learner source code)"
+msgstr "집기 목표 (측정값과 함께 전송, 학습자 코드는 제외)"
+
+msgid "Pick up the box with both hands and hold it without falling."
+msgstr "양손으로 상자를 집어 들고 넘어지지 않게 유지해 줘."
+
+msgid "At most one Luna request per round, within the shared bridge call budget. Cancellation may still bill an in-flight call. No automatic paid retries; results may fail."
+msgstr "브리지의 공용 호출 한도 안에서 라운드당 Luna를 최대 1회 호출해요. 취소해도 이미 전송된 요청은 과금될 수 있어요. 유료 요청은 자동 재시도하지 않으며, 동작이 실패할 수도 있어요."
+
+msgid "Ready for local physics search. Luna is optional."
+msgstr "로컬 물리 탐색을 시작할 수 있어요. Luna 연결은 선택 사항이에요."
+
+msgid "Load a valid humanoid assembly before searching."
+msgstr "탐색 전에 올바르게 조립된 휴머노이드를 불러오세요."
+
+msgid "Requested rounds exceed the remaining bridge API-call budget."
+msgstr "요청한 라운드 수가 브리지의 남은 API 호출 한도를 넘었어요."
+
+msgid "Evaluating a measured baseline before proposing candidates."
+msgstr "후보를 제안하기 전에 기준 동작을 물리 실험으로 측정하고 있어요."
+
+msgid "Pickup trial could not start. Check the assembly and wiring."
+msgstr "집기 실험을 시작하지 못했어요. 조립과 배선을 확인하세요."
+
+msgid "Search finished: %d measured trials. Select a result to replay or save."
+msgstr "탐색 완료: 실험 %d개를 측정했어요. 결과를 선택해 재검증하거나 저장하세요."
+
+msgid "Round %d / %d — preparing four candidates."
+msgstr "라운드 %d / %d — 후보 4개를 준비하고 있어요."
+
+msgid "Invalid pickup proposal; nothing was applied."
+msgstr "집기 제안이 올바르지 않아 아무것도 적용하지 않았어요."
+
+msgid "Invalid pickup result; nothing was saved or applied."
+msgstr "집기 결과가 올바르지 않아 저장하거나 적용하지 않았어요."
+
+msgid "Trial %d · %s\nLift %.1f cm · hold %.1f s"
+msgstr "실험 %d · %s\n들어 올림 %.1f cm · 유지 %.1f s"
+
+msgid "Selected trial %d · %s · lift %.1f cm · hold %.1f s · score %.2f\nSource: %s · %s"
+msgstr "선택한 실험 %d · %s · 들어 올림 %.1f cm · 유지 %.1f s · 점수 %.2f\n출처: %s · %s"
+
+msgid "Fresh physics evaluation"
+msgstr "새 물리 실험으로 검증됨"
+
+msgid "Saved metrics — replay required before applying"
+msgstr "저장된 측정값 — 적용 전에 재검증 필요"
+
+msgid "Pickup scenario %d"
+msgstr "집기 시나리오 %d"
+
+msgid "Scenario saved locally: %s"
+msgstr "시나리오를 로컬에 저장했어요: %s"
+
+msgid "Replaying the selected assembly and policy in fresh physics."
+msgstr "선택한 조립 구조와 동작 파라미터로 새 물리 실험을 실행하고 있어요."
+
+msgid "Apply requires a successful fresh trial and the unchanged assembly in edit mode."
+msgstr "적용하려면 새 실험이 성공해야 하며, 편집 모드의 조립 구조가 실험 때와 같아야 해요."
+
+msgid "Pickup policy applied. Close the lab, enter Run mode and press E."
+msgstr "집기 동작을 적용했어요. 학습실을 닫고 실행 모드에서 E를 누르세요."
+
+msgid "Saved scenario is invalid; nothing was loaded."
+msgstr "저장된 시나리오가 올바르지 않아 불러오지 않았어요."
+
+msgid "Loaded a saved scenario without changing the workshop. Replay to verify it."
+msgstr "작업실을 바꾸지 않고 저장된 시나리오를 불러왔어요. 다시 실행해 검증하세요."
+
+msgid "Trial %d · %s · %.1f cm · score %.2f"
+msgstr "실험 %d · %s · %.1f cm · 점수 %.2f"
+
+msgid "Local trials stopped. An already-sent Luna request may still be billed."
+msgstr "로컬 실험을 멈췄어요. 이미 전송된 Luna 요청은 과금될 수 있어요."
+
+msgid "Bridge does not support pickup proposals. Update the local bridge."
+msgstr "브리지가 집기 제안을 지원하지 않아요. 로컬 브리지를 업데이트하세요."
+
+msgid "Provider: %s · shared API calls %d / %d"
+msgstr "제공자: %s · 공용 API 호출 %d / %d"
+
+msgid "Pickup bridge connected. Local physics will verify every proposal."
+msgstr "집기 브리지에 연결됐어요. 모든 제안은 로컬 물리 실험으로 검증해요."
+
+msgid "Pickup proposal failed. Check bridge settings and request limits; no automatic retry."
+msgstr "집기 제안에 실패했어요. 브리지 설정과 요청 한도를 확인하세요. 자동으로 재시도하지 않아요."
+
+msgid "Luna submission outcome is unknown. Check the bridge before using Disconnect / forget. No automatic retry."
+msgstr "Luna 요청이 접수됐는지 확인할 수 없어요. 연결 끊기 / 잊기를 누르기 전에 브리지를 확인하세요. 자동으로 재시도하지 않아요."
+
+msgid "Disconnected locally. Any remote request was NOT cancelled by forgetting."
+msgstr "로컬 연결을 끊었어요. 잊기를 눌러도 원격 요청은 취소되지 않아요."
+
+msgid "Pickup succeeded"
+msgstr "집기 성공"
+
+msgid "Pickup failed"
+msgstr "집기 실패"
+
+msgid "Scenario name or source is invalid."
+msgstr "시나리오 이름이나 출처가 올바르지 않아요."
+
+msgid "The local scenario library is full (64 files)."
+msgstr "로컬 시나리오 보관함이 가득 찼어요 (64개)."
+
+msgid "Scenario data is invalid; nothing was saved."
+msgstr "시나리오 데이터가 올바르지 않아 저장하지 않았어요."
+
+msgid "Could not save the scenario under user://."
+msgstr "시나리오를 user://에 저장하지 못했어요."
+
+msgid "Pickup policy must contain exactly seven parameters"
+msgstr "집기 동작에는 정확히 7개의 파라미터가 필요해요"
+
+msgid "Pickup policy is missing a required parameter"
+msgstr "집기 동작에 필수 파라미터가 빠져 있어요"
+
+msgid "Pickup parameters must be finite numbers"
+msgstr "집기 파라미터는 유한한 숫자여야 해요"
+
+msgid "Pickup parameter is outside its safety bounds"
+msgstr "집기 파라미터가 안전 범위를 벗어났어요"
+
+msgid "Baseline pickup parameters"
+msgstr "기준 집기 파라미터"
+
+msgid "Bounded variation around the best measured pickup"
+msgstr "최선의 측정 결과를 바탕으로 한 범위 내 조정"
+
+msgid "A pickup trial is already running"
+msgstr "이미 집기 실험을 실행 중이에요"
+
+msgid "Pickup trial must be attached to the scene tree"
+msgstr "집기 실험이 씬 트리에 연결되어 있어야 해요"
+
+msgid "Pickup trial needs a wired humanoid and one reachable box"
+msgstr "집기 실험에는 배선된 휴머노이드와 손이 닿는 상자 1개가 필요해요"
+
+msgid "ready"
+msgstr "준비됨"
+
+msgid "settling"
+msgstr "자세 안정화 중"
+
+msgid "reaching"
+msgstr "팔 뻗는 중"
+
+msgid "lifting"
+msgstr "들어 올리는 중"
+
+msgid "holding"
+msgstr "유지 중"
+
+msgid "succeeded"
+msgstr "성공"
+
+msgid "failed"
+msgstr "실패"
+
+msgid "cancelled"
+msgstr "취소됨"
+
+msgid "baseline"
+msgstr "기준 동작"
+
+msgid "local"
+msgstr "로컬 탐색"
+
+msgid "mock"
+msgstr "모의 제안 (GPT 미사용)"
+
+msgid "openai"
+msgstr "OpenAI"
+
+msgid "replay"
+msgstr "재검증"
+
+msgid "Answer: modular humanoid"
+msgstr "답지: 모듈형 휴머노이드"
+
+msgid "Modular humanoid loaded. Run mode: W/S and E. Code tab: signed joint commands. AI lab: parallel pickup search."
+msgstr "모듈형 휴머노이드를 불러왔어요. 실행 모드: W/S와 E. 코드 탭: 양·음수 관절 명령. AI 학습실: 집기 병렬 탐색."
+
+msgid "Modular torso frame"
+msgstr "모듈형 몸통 프레임"
+
+msgid "Removable chest shell"
+msgstr "탈착식 가슴 외장"
+
+msgid "Removable pelvis shell"
+msgstr "탈착식 골반 외장"
+
+msgid "Optical head module"
+msgstr "광학 헤드 모듈"
+
+msgid "Modular PWM controller"
+msgstr "모듈형 PWM 제어기"
+
+msgid "Hip servo module (35 Nm)"
+msgstr "고관절 서보 모듈 (35 Nm)"
+
+msgid "Knee servo module (35 Nm)"
+msgstr "무릎 서보 모듈 (35 Nm)"
+
+msgid "Ankle servo module (30 Nm)"
+msgstr "발목 서보 모듈 (30 Nm)"
+
+msgid "Shoulder servo module (12 Nm)"
+msgstr "어깨 서보 모듈 (12 Nm)"
+
+msgid "Elbow servo module (12 Nm)"
+msgstr "팔꿈치 서보 모듈 (12 Nm)"
+
+msgid "Arm output U-bracket"
+msgstr "팔 출력축 U자 브래킷"
+
+msgid "Leg output U-bracket"
+msgstr "다리 출력축 U자 브래킷"
+
+msgid "Passive thigh frame"
+msgstr "무동력 허벅지 프레임"
+
+msgid "Passive shin frame"
+msgstr "무동력 정강이 프레임"
+
+msgid "Passive upper-arm frame"
+msgstr "무동력 위팔 프레임"
+
+msgid "Passive forearm frame"
+msgstr "무동력 아래팔 프레임"
+
+msgid "Padded gripper hand"
+msgstr "패드형 그리퍼 손"
+
+msgid "Rubber-soled foot module"
+msgstr "고무 밑창 발 모듈"
+
+msgid "Cancelled"
+msgstr "취소됨"
+
+msgid "Motion trials require 60 Hz physics and time_scale 1"
+msgstr "동작 실험에는 60 Hz 물리와 time_scale 1이 필요해요"
+
+msgid "Assembly cannot be encoded as a safe catalog graph"
+msgstr "이 조립 구조는 안전한 카탈로그 그래프로 변환할 수 없어요"
+
+msgid "Humanoid experiment: W/S walk, Shift running experiment (unstable), E pick/release. The gripper needs contact with both hands. AI lab: parallel pickup search; no GPT weight training."
+msgstr "휴머노이드 실험: W/S 걷기, Shift 달리기 실험 (불안정), E 집기/놓기. 양손이 상자에 닿아야 잡을 수 있어요. AI 학습실: 집기 병렬 탐색, GPT 가중치 훈련은 하지 않아요."
+
+msgid "Modular humanoid and pickup lab"
+msgstr "모듈형 휴머노이드와 집기 학습실"
+
+msgid "This is a simplified ten-joint physics prototype, not trained human motion. Sprinting is not stable yet and can fall. Stop, code control or opening this guide releases the box. Reset in edit mode after a fall. The pickup lab searches bounded parameters."
+msgstr "관절 10개의 단순화된 물리 시제품이며, 학습된 사람 동작은 아니에요. 달리기는 아직 불안정해 넘어질 수 있어요. 정지하거나 코드 제어로 바꾸거나 이 가이드를 열면 상자를 놓아요. 넘어지면 편집 모드에서 초기화하세요. 집기 학습실은 정해진 범위 안의 파라미터를 탐색해요."
+
+msgid "Load Answer: modular humanoid to inspect separate motors, brackets, frames, hands and shells. The Code tab controls wired joints with write_relative(). In the AI lab, start locally or connect Luna, increase parallel trials from 1 to 4, select a result and save it. Saved scenarios must be replayed before applying; API calls need explicit consent."
+msgstr "답지: 모듈형 휴머노이드를 불러와 분리된 모터, 브래킷, 프레임, 손, 외장을 살펴보세요. 코드 탭에서는 write_relative()로 배선된 관절을 제어해요. AI 학습실에서 로컬로 시작하거나 Luna에 연결한 뒤, 동시 실험 수를 1개에서 4개까지 늘리고 결과를 선택해 저장하세요. 저장한 시나리오는 적용 전에 다시 실행해야 하며, API 호출에는 명시적 동의가 필요해요."
+
+msgid "Perforated beam 60 mm"
+msgstr "타공 빔 60 mm"
+
+msgid "Perforated beam 100 mm"
+msgstr "타공 빔 100 mm"
+
+msgid "Perforated beam 140 mm"
+msgstr "타공 빔 140 mm"
+
+msgid "Perforated beam 180 mm"
+msgstr "타공 빔 180 mm"
+
+msgid "Perforated beam 240 mm"
+msgstr "타공 빔 240 mm"
+
+msgid "Perforated beam 260 mm"
+msgstr "타공 빔 260 mm"
+
+msgid "Perforated plate 60 × 40 mm"
+msgstr "타공판 60 × 40 mm"
+
+msgid "Perforated plate 60 × 60 mm"
+msgstr "타공판 60 × 60 mm"
+
+msgid "Perforated plate 80 × 60 mm"
+msgstr "타공판 80 × 60 mm"
+
+msgid "Perforated plate 120 × 80 mm"
+msgstr "타공판 120 × 80 mm"
+
+msgid "Perforated plate 160 × 60 mm"
+msgstr "타공판 160 × 60 mm"
+
+msgid "Perforated plate 220 × 120 mm"
+msgstr "타공판 220 × 120 mm"
+
+msgid "Angle bracket 60 × 40 mm"
+msgstr "L자 브래킷 60 × 40 mm"
+
+msgid "U bracket 86 mm"
+msgstr "U자 브래킷 86 mm"
+
+msgid "U bracket 58 mm"
+msgstr "U자 브래킷 58 mm"
+
+msgid "Through spacer 20 mm"
+msgstr "관통 스페이서 20 mm"
+
+msgid "Shaft coupler 8 mm"
+msgstr "축 커플러 8 mm"
+
+msgid "Mounting bolt 4 × 12 mm"
+msgstr "체결 볼트 4 × 12 mm"
+
+msgid "Hex nut 4 mm"
+msgstr "육각 너트 4 mm"
+
+msgid "Grip pad 60 × 40 mm"
+msgstr "그립 패드 60 × 40 mm"
+
+msgid "Servo motor 35 Nm"
+msgstr "서보 모터 35 Nm"
+
+msgid "Servo motor 12 Nm"
+msgstr "서보 모터 12 Nm"
+
+msgid "Ten-channel controller"
+msgstr "10채널 제어기"
+
+msgid "Optical sensor module"
+msgstr "광학 센서 모듈"
+
+msgid "Answer: construction-kit humanoid"
+msgstr "답지: 조립 키트 휴머노이드"
+
+msgid "Answer: kit bridge"
+msgstr "답지: 키트 다리 구조물"
+
+msgid "Construction kit"
+msgstr "조립 키트"
+
+msgid "Construction-kit humanoid loaded. Each beam, plate, bracket and connector is a separate part. Select a part to inspect its holes; G moves it."
+msgstr "조립 키트 휴머노이드를 불러왔어요. 빔, 판, 브래킷, 연결 부품이 각각 분리되어 있어요. 부품을 선택해 구멍을 살펴보고 G로 이동하세요."
+
+msgid "Kit bridge loaded: the same beams, plates and fasteners, assembled into a different structure."
+msgstr "키트 다리 구조물을 불러왔어요. 같은 빔, 판, 체결 부품을 다른 구조로 조립한 예제예요."
+
+msgid "Build with interchangeable parts"
+msgstr "호환되는 기본 부품으로 조립하기"
+
+msgid "Choose Answer: construction-kit humanoid, then open AI motion lab. Start locally or connect Luna, increase parallel trials from 1 to 4, select a measured result and save it. Saved scenarios must be replayed before applying; paid API calls need explicit consent."
+msgstr "답지: 조립 키트 휴머노이드를 선택한 뒤 AI 동작 학습실을 여세요. 로컬로 시작하거나 Luna에 연결하고, 동시 실험 수를 1개에서 4개까지 늘려 측정된 결과를 선택해 저장하세요. 저장한 시나리오는 적용 전에 다시 실행해야 하며, 유료 API 호출에는 명시적 동의가 필요해요."
+
+msgid "Choose Answer: construction-kit humanoid or Answer: kit bridge. Both use the same 20 mm-pitch beams, plates, brackets and connectors. Select one part, move it with G and snap a matching hole to another part. The Blender file includes a parts tray, assembled examples and an exploded view; no torso or limb is one joined frame."
+msgstr "답지: 조립 키트 휴머노이드 또는 답지: 키트 다리 구조물을 선택하세요. 둘 다 구멍 간격이 20 mm인 같은 빔, 판, 브래킷, 연결 부품을 사용해요. 부품 하나를 선택하고 G로 이동해 호환되는 구멍을 다른 부품에 맞물리세요. Blender 파일에는 부품 트레이, 조립 예제, 분해도가 있어요. 몸통이나 팔다리가 하나로 합쳐진 프레임은 없어요."
+
+msgid "The kit uses ssok's own virtual dimensions, not a certified commercial standard. Motors are complete units; structural beams, plates and covers remain separate."
+msgstr "이 키트는 ssok 자체의 가상 치수를 사용하며, 인증된 상용 규격은 아니에요. 모터는 완성된 장치이고, 구조용 빔, 판, 덮개는 각각 분리되어 있어요."
+
+msgid "Projects"
+msgstr "프로젝트"
+
+msgid "Keep building. Pick up where you left off."
+msgstr "만들던 로봇을 저장하고 이어서 시작하세요."
+
+msgid "Saved on this device. Export a copy before clearing browser data or changing devices."
+msgstr "이 기기에 저장돼요. 브라우저 데이터를 지우거나 기기를 바꾸기 전에 사본을 내보내세요."
+
+msgid "Project name"
+msgstr "프로젝트 이름"
+
+msgid "Save a snapshot"
+msgstr "현재 상태 저장"
+
+msgid "Export project"
+msgstr "프로젝트 내보내기"
+
+msgid "Saved projects"
+msgstr "저장한 프로젝트"
+
+msgid "Open selected"
+msgstr "선택한 프로젝트 열기"
+
+msgid "Delete snapshot"
+msgstr "저장본 삭제"
+
+msgid "Import / export"
+msgstr "가져오기 / 내보내기"
+
+msgid "Copy this project JSON to share it, or paste a project here to import. Imported code never runs automatically."
+msgstr "프로젝트 JSON을 복사해 공유하거나, 여기에 붙여 넣어 가져오세요. 가져온 코드는 자동으로 실행되지 않아요."
+
+msgid "Copy JSON"
+msgstr "JSON 복사"
+
+msgid "Project JSON copied."
+msgstr "프로젝트 JSON을 복사했어요."
+
+msgid "Import project"
+msgstr "프로젝트 가져오기"
+
+msgid "Confirm project action"
+msgstr "프로젝트 작업 확인"
+
+msgid "Save creates a new snapshot; earlier versions are kept."
+msgstr "저장할 때마다 새 저장본을 만들고 이전 버전도 보관해요."
+
+msgid "Project saved. Your previous snapshots are still available."
+msgstr "프로젝트를 저장했어요. 이전 저장본도 그대로 있어요."
+
+msgid "Project data is invalid or too large."
+msgstr "프로젝트 데이터가 올바르지 않거나 너무 커요."
+
+msgid "Your project library is full. Export or delete a saved project first."
+msgstr "프로젝트 보관함이 가득 찼어요. 저장본을 내보내거나 삭제한 뒤 다시 저장하세요."
+
+msgid "Could not save this project. Export a copy to keep your work."
+msgstr "프로젝트를 저장하지 못했어요. 작업을 보관하려면 사본을 내보내세요."
+
+msgid "Project JSON is ready. Keep a copy outside this device."
+msgstr "프로젝트 JSON을 준비했어요. 다른 곳에도 사본을 보관하세요."
+
+msgid "This is not a valid ssok project. Your current work is unchanged."
+msgstr "올바른 ssok 프로젝트가 아니에요. 현재 작업은 그대로 유지돼요."
+
+msgid "Replace the current assembly and code? Save a snapshot first if you want to keep them."
+msgstr "현재 조립과 코드를 바꿀까요? 보관하려면 먼저 현재 상태를 저장하세요."
+
+msgid "Delete this saved snapshot? Other snapshots and your open project are kept."
+msgstr "이 저장본을 삭제할까요? 다른 저장본과 현재 작업은 유지돼요."
+
+msgid "Snapshot deleted."
+msgstr "저장본을 삭제했어요."
+
+msgid "Could not delete this snapshot."
+msgstr "저장본을 삭제하지 못했어요."
+
+msgid "Project opened. Code runs only when you press Run code."
+msgstr "프로젝트를 열었어요. 코드 실행을 눌러야 코드가 동작해요."
+
+msgid "Blocks"
+msgstr "블록"
+
+msgid "Connect servo"
+msgstr "서보 연결"
+
+msgid "Set servo angle"
+msgstr "서보 각도 설정"
+
+msgid "Set relative angle"
+msgstr "상대 각도 설정"
+
+msgid "Wait"
+msgstr "기다리기"
+
+msgid "Virtual servo board"
+msgstr "가상 서보 보드"
+
+msgid "Build a program with blocks"
+msgstr "블록으로 프로그램 만들기"
+
+msgid "Read from code"
+msgstr "코드를 블록으로 읽기"
+
+msgid "Add block"
+msgstr "블록 추가"
+
+msgid "Apply blocks to code"
+msgstr "블록을 코드에 반영"
+
+msgid "Remove block"
+msgstr "블록 삭제"
+
+msgid "name"
+msgstr "이름"
+
+msgid "pin"
+msgstr "핀"
+
+msgid "angle"
+msgstr "각도"
+
+msgid "seconds"
+msgstr "초"
+
+msgid "This program is too large for the block editor."
+msgstr "이 프로그램은 블록 편집기로 열기에 너무 커요."
+
+msgid "This line cannot be represented as a block. Your code is unchanged."
+msgstr "이 줄은 블록으로 표시할 수 없어요. 코드는 그대로 유지돼요."
+
+msgid "This command is outside the board API limits. Your code is unchanged."
+msgstr "이 명령은 보드 API 범위를 벗어나요. 코드는 그대로 유지돼요."
+
+msgid "A block contains an invalid value. Your code is unchanged."
+msgstr "블록에 올바르지 않은 값이 있어요. 코드는 그대로 유지돼요."
+
+msgid "Blocks are ready. Apply them to update the code; Run code starts the robot."
+msgstr "블록을 준비했어요. 코드에 반영한 뒤 코드 실행을 누르면 로봇이 움직여요."
+
+msgid "Code updated. Run code to try your program."
+msgstr "코드를 갱신했어요. 코드 실행을 눌러 확인하세요."
+
+msgid "Code changed after these blocks were loaded. Read from code before applying."
+msgstr "블록을 읽은 뒤 코드가 바뀌었어요. 최신 코드를 블록으로 다시 읽어 주세요."
+
+msgid "Load an example"
+msgstr "예제 불러오기"
+
+msgid "No saved projects yet. Save your first snapshot above."
+msgstr "아직 저장한 프로젝트가 없어요. 위에서 첫 저장본을 만들어 보세요."
+
+msgid "Keep your changes?"
+msgstr "변경 내용을 보관할까요?"
+
+msgid "This example will replace your assembly and code. Save a snapshot to keep your changes."
+msgstr "이 예제를 열면 현재 조립과 코드가 바뀌어요. 변경 내용을 보관하려면 저장하세요."
+
+msgid "Replace without saving"
+msgstr "저장하지 않고 바꾸기"
+
+msgid "Save and switch"
+msgstr "저장하고 바꾸기"
+
+msgid "Replace unapplied blocks with the current code?"
+msgstr "아직 반영하지 않은 블록을 현재 코드로 바꿀까요?"
+
+msgid "Resolve the block editor error before saving or exporting. Your changes are kept."
+msgstr "저장하거나 내보내기 전에 블록 편집기의 오류를 해결해 주세요. 변경 내용은 유지돼요."
+
+msgid "Saving or exporting applies valid blocks to your code."
+msgstr "저장하거나 내보내면 올바른 블록이 코드에 반영돼요."
+
+msgid "Esc leaves the code editor. Tab moves between controls."
+msgstr "Esc로 코드 편집기를 벗어나고 Tab으로 다른 컨트롤로 이동해요."
+
+msgid "Build a program from blocks"
+msgstr "블록으로 프로그램 만들기"
+
+msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
+msgstr "블록 탭에서 코드를 블록으로 읽기를 선택하세요. 각도를 바꾸거나 기다리기 블록을 추가한 뒤 코드에 반영하세요. 코드 실행을 눌러야 로봇이 움직이며, 블록 반영만으로 자동 실행되지 않아요.\n\n저장하거나 내보낼 때도 올바른 미반영 블록이 포함돼요. 코드와 블록을 따로 수정했다면 충돌을 해결한 뒤 저장하세요. 지원하지 않는 코드는 그대로 보존돼요."
+
+msgid "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus."
+msgstr "Tab과 Shift+Tab으로 컨트롤 사이를 이동해요. Esc는 코드 편집기를 벗어나거나 대화상자를 닫아요. UI에 포커스가 있으면 로봇 조종이 멈춰요."
+
+msgid "Save and share your robot"
+msgstr "로봇 저장하고 공유하기"
+
+msgid "Open Projects or press Ctrl / Cmd + S. Name your robot and choose Save a snapshot. Each save keeps earlier versions. Select a saved project and Open selected to restore its assembly and code without running it.\n\nExport project gives you portable JSON; the browser downloads a file. To open a shared project, paste its JSON in Import / export and choose Import project, then confirm replacement."
+msgstr "프로젝트를 열거나 Ctrl/Cmd+S를 누르세요. 로봇 이름을 짓고 현재 상태 저장을 선택하세요. 저장할 때마다 이전 버전도 유지돼요. 저장한 프로젝트를 선택해 열면 조립과 코드를 복원하며 자동 실행하지 않아요.\n\n프로젝트 내보내기로 JSON을 얻을 수 있고, 브라우저에서는 파일을 다운로드해요. 공유받은 JSON을 가져오기/내보내기에 붙여 넣고 프로젝트 가져오기를 선택한 뒤 교체를 확인하세요."
+
+msgid "Projects are stored on this device. Keep an exported copy before clearing browser data or changing computers. Loading a starter asks before replacing unsaved work."
+msgstr "프로젝트는 이 기기에 저장돼요. 브라우저 데이터를 지우거나 컴퓨터를 바꾸기 전에 내보낸 사본을 보관하세요. 예제를 불러올 때 저장하지 않은 작업이 있으면 교체 전에 확인해요."
+
+msgid "Yaw Biped Body"
+msgstr "요 회전 2족 몸체"
+
+msgid "Yaw Leg Link"
+msgstr "요 회전 다리 링크"
+
+msgid "Torque Micro Servo"
+msgstr "토크 제한 마이크로 서보"
+
+msgid "Sixteen-channel controller"
+msgstr "16채널 컨트롤러"
+
+msgid "Answer: learned biped"
+msgstr "예제: 학습한 2족 로봇"
+
+msgid "Learned biped loaded. Choose Run mode, then hold W to walk forward."
+msgstr "학습한 2족 로봇을 불러왔어요. 실행 모드에서 W를 누르고 있으면 앞으로 걸어요."
+
+msgid "Learned forward gait: hold W or push the stick forward; release to stop. Reverse and turning are not supported."
+msgstr "학습한 전진 보행: W를 누르거나 스틱을 앞으로 미세요. 놓으면 멈춰요. 후진과 회전은 지원하지 않아요."
+
+msgid "This learned gait needs its original assembly and physics settings. Reload the learned-biped example to restore them."
+msgstr "이 학습 보행에는 원래 조립과 물리 설정이 필요해요. 학습한 2족 로봇 예제를 다시 불러와 복원하세요."
+
+msgid "Wiring"
+msgstr "배선"
+
+msgid "Connect a motor to a board pin"
+msgstr "모터와 보드 핀을 연결해요"
+
+msgid "Choose the motor signal and a compatible pin. Wiring keeps your parts in place."
+msgstr "모터 신호 포트와 호환되는 핀을 골라요. 배선해도 부품 위치는 그대로예요."
+
+msgid "Motor signal"
+msgstr "모터 신호 포트"
+
+msgid "Board pin"
+msgstr "보드 핀"
+
+msgid "Connect wire"
+msgstr "배선 연결하기"
+
+msgid "Disconnect wire"
+msgstr "배선 끊기"
+
+msgid "Add a motor and a board to wire your robot."
+msgstr "모터와 보드를 추가한 뒤 배선해요."
+
+msgid "Wire connected · Ctrl+Z to undo"
+msgstr "배선을 연결했어요 · Ctrl+Z로 되돌리기"
+
+msgid "Wire disconnected · Ctrl+Z to undo"
+msgstr "배선을 끊었어요 · Ctrl+Z로 되돌리기"
+
+msgid "This program is too large. Use at most 2048 lines and 64 KiB."
+msgstr "코드가 너무 길어요. 2048줄, 64 KiB 이내로 줄여 주세요."
+
+msgid "Servo angles must be finite numbers."
+msgstr "서보 각도에 유효한 숫자를 입력해 주세요."
+
+msgid "Wait must be between 0 and 60 seconds."
+msgstr "대기 시간은 0~60초로 입력해 주세요."
+
+msgid "This project supports up to 256 parts. Delete a part before adding another."
+msgstr "부품은 최대 256개까지 넣어요. 부품 하나를 지운 뒤 추가해 주세요."
+
+msgid "Parts must stay within 100 m of the workspace origin."
+msgstr "부품은 작업실 원점에서 각 축으로 100 m 이내에 놓아 주세요."
+msgid "Raise the flag"
+msgstr "깃발을 올려요"
+
+msgid "Try the flag mission"
+msgstr "깃발 올리기"
+
+msgid "Connect the arm to the servo. You can start with the finished example."
+msgstr "팔을 서보에 연결해요. 완성된 예제로 시작해도 좋아요."
+
+msgid "Load servo arm"
+msgstr "서보 팔 불러오기"
+
+msgid "Connect the servo to a board pin. The program uses your actual wiring."
+msgstr "서보를 보드 핀에 연결해요. 코드는 실제 배선을 따라 움직여요."
+
+msgid "Run the code. Watch the flag move down and return to its mark."
+msgstr "코드를 실행해요. 깃발이 내려갔다가 목표 높이로 돌아오는지 보세요."
+
+msgid "The flag is moving. The real arm position decides success."
+msgstr "깃발이 움직이고 있어요. 실제 팔의 위치로 성공을 판단해요."
+
+msgid "The flag reached its mark and stayed there. Change one angle and try again."
+msgstr "깃발이 목표 높이에 도착해 잠시 유지됐어요. 각도 하나를 바꿔 다시 해보세요."
+
+msgid "Try again"
+msgstr "다시 해보기"
+
+msgid "Build a small robot, wire its motor, and raise the flag."
+msgstr "작은 로봇을 만들고, 모터를 연결해 깃발을 올려요."
+
+msgid "The flag has not reached its mark. Change an angle and try again."
+msgstr "깃발이 아직 목표 높이에 닿지 않았어요. 각도를 바꿔 다시 해보세요."
+
+msgid "Raise a flag with your robot."
+msgstr "로봇으로 깃발을 올려요."
+
+msgid "Start with the servo arm, or build your own from the parts library."
+msgstr "서보 팔로 시작하거나 부품을 골라 직접 만들어 보세요."
+
+msgid "Try the servo arm"
+msgstr "서보 팔로 시작"
+
+msgid "Add ':' after the condition."
+msgstr "조건 뒤에 콜론(:)을 붙여 주세요."
+
+msgid "Build this arm yourself"
+msgstr "팔 직접 조립하기"
+
+msgid "Build your own solution. Success uses measured results."
+msgstr "자기 방식으로 풀어 보세요. 실제 움직임으로 성공을 판정해요."
+
+msgid "Cannot divide by zero."
+msgstr "0으로 나눌 수 없어요. 나누는 값을 바꿔 주세요."
+
+msgid "Challenge cleared. Change your build and try another solution."
+msgstr "과제를 해결했어요. 조립을 바꿔 다른 방법도 시도해 보세요."
+
+msgid "Challenge data is invalid. Your build is unchanged."
+msgstr "과제 파일을 읽지 못했어요. 파일 내용을 확인해 주세요. 조립은 그대로예요."
+
+msgid "Challenge exported. Imported files must be tested again."
+msgstr "과제 파일을 만들었어요. 불러온 과제는 다시 실행해 확인해요."
+
+msgid "Challenge running. Watching the real robot."
+msgstr "과제를 실행 중이에요. 로봇의 실제 움직임을 보고 있어요."
+
+msgid "Check the command name and its arguments."
+msgstr "명령 이름과 괄호 안의 값을 확인해 주세요."
+
+msgid "Check this expression."
+msgstr "계산식과 괄호를 확인해 주세요."
+
+msgid "Check this symbol."
+msgstr "이 기호를 확인해 주세요."
+
+msgid "Choose a challenge, or build freely in Lab."
+msgstr "과제를 고르거나 Lab에서 자유롭게 만들어 보세요."
+
+msgid "Choose another variable name."
+msgstr "다른 변수 이름을 써 주세요."
+
+msgid "Choose brake or coast."
+msgstr "brake(제동)나 coast(관성 주행)를 골라 주세요."
+
+msgid "Choose forward or reverse and a speed from 0 to 100."
+msgstr "방향은 forward나 reverse로, 속도는 0~100으로 써 주세요."
+
+msgid "Code block"
+msgstr "코드 블록"
+
+msgid "Column %d: %s"
+msgstr "%d열: %s"
+
+msgid "Connect distance sensor"
+msgstr "거리 센서 연결하기"
+
+msgid "Connect wheel motor"
+msgstr "바퀴 모터 연결하기"
+
+msgid "Else"
+msgstr "아니면"
+
+msgid "Else if"
+msgstr "아니면 이 조건일 때"
+
+msgid "Export verified challenge"
+msgstr "확인한 과제 내보내기"
+
+msgid "Flag height: %.1f cm · change from last run: %+.1f cm. Try a different angle."
+msgstr "깃발 높이 %.1f cm, 이전보다 %+.1f cm 달라졌어요. 각도를 바꿔 보세요."
+
+msgid "Free building · Lab"
+msgstr "자유롭게 만들기 · Lab"
+
+msgid "If"
+msgstr "만약"
+
+msgid "Import challenge"
+msgstr "과제 불러오기"
+
+msgid "Indent the body of this block."
+msgstr "이 블록 안의 코드를 들여 써 주세요."
+
+msgid "Lab: build freely. You can turn your build into a challenge."
+msgstr "Lab에서 자유롭게 만들어요. 만든 조립을 과제로 바꿔도 돼요."
+
+msgid "Load challenge"
+msgstr "과제 시작하기"
+
+msgid "My challenge"
+msgstr "내 과제"
+
+msgid "Read distance"
+msgstr "거리 읽기"
+
+msgid "Repeat while"
+msgstr "조건이 맞는 동안 반복하기"
+
+msgid "Return to edit mode and choose a target part first."
+msgstr "편집 모드로 돌아가 목표 부품을 먼저 골라 주세요."
+
+msgid "Run and clear this exact build and code before exporting."
+msgstr "지금 조립과 코드로 과제를 성공한 뒤 내보내 주세요."
+
+msgid "Run and clear your challenge before exporting it."
+msgstr "내보내기 전에 직접 실행해서 과제를 풀어 주세요."
+
+msgid "Run wheel motor"
+msgstr "바퀴 모터 돌리기"
+
+msgid "Set variable"
+msgstr "변수 정하기"
+
+msgid "Stages"
+msgstr "스테이지"
+
+msgid "Stages and free building"
+msgstr "스테이지와 자유 제작"
+
+msgid "Stop all motors"
+msgstr "모터 모두 멈추기"
+
+msgid "Stop wheel motor"
+msgstr "바퀴 모터 멈추기"
+
+msgid "This device does not support that command."
+msgstr "이 부품에서는 쓸 수 없는 명령이에요. 부품과 명령을 확인해 주세요."
+
+msgid "This expression or block is too deeply nested."
+msgstr "계산식이나 블록을 너무 많이 겹쳤어요. 나누어 써 주세요."
+
+msgid "This import is not supported."
+msgstr "불러올 수 없는 모듈이에요. 예제의 import 문을 확인해 주세요."
+
+msgid "This variable is not a connected device."
+msgstr "이 변수에 연결된 부품이 없어요. 먼저 부품을 연결해 주세요."
+
+msgid "Time is up. Change your build or code and try again."
+msgstr "시간이 끝났어요. 조립이나 코드를 바꿔 다시 해 보세요."
+
+msgid "Try author solution"
+msgstr "만든 사람의 풀이 실행하기"
+
+msgid "Turn my build into a challenge"
+msgstr "내 조립으로 과제 만들기"
+
+msgid "Unexpected indentation."
+msgstr "들여쓰기가 맞지 않아요. 같은 블록의 시작 위치를 맞춰 주세요."
+
+msgid "Use '==' to compare values."
+msgstr "값을 비교할 때는 ==를 써 주세요."
+
+msgid "Use a board pin when connecting hardware."
+msgstr "부품을 연결할 때는 보드 핀을 써 주세요."
+
+msgid "Use a connected echo pin and pulse level 1."
+msgstr "연결된 echo 핀과 신호 레벨 1을 써 주세요."
+
+msgid "Use a finite number here."
+msgstr "여기에는 유한한 숫자를 써 주세요."
+
+msgid "Use an assignment or a supported command."
+msgstr "변수에 값을 넣거나 지원하는 명령을 써 주세요."
+
+msgid "Use spaces for indentation."
+msgstr "들여쓰기는 탭 대신 공백으로 맞춰 주세요."
+
+msgid "Use this command inside a loop."
+msgstr "이 명령은 반복문 안에서 써 주세요."
+
+msgid "Your servo uses pin %d. Use the same pin in your code, then run."
+msgstr "서보는 %d번 핀에 연결돼 있어요. 코드에도 같은 핀을 쓰고 실행해 주세요."
+
+msgid "Height (m)"
+msgstr "높이 (m)"
+
+msgid "Position X (m)"
+msgstr "X 위치 (m)"
+
+msgid "Distance (cm)"
+msgstr "거리 (cm)"
+
+msgid "Speed (m/s)"
+msgstr "속력 (m/s)"
+
+msgid "Upright"
+msgstr "바로 선 정도"
+
+msgid "Wall contact (0 or 1)"
+msgstr "벽 접촉 (0 또는 1)"
+
+msgid "Minimum"
+msgstr "최솟값"
+
+msgid "Maximum"
+msgstr "최댓값"
+
+msgid "Hold (seconds)"
+msgstr "유지 시간 (초)"
+
+msgid "Paste a challenge file here"
+msgstr "여기에 과제 파일을 붙여 넣어요"
+
+msgid "micro:bit V2"
+msgstr "micro:bit V2"
+
+msgid "Motor Driver V2 (DRV8833)"
+msgstr "모터 드라이버 V2 (DRV8833)"
+
+msgid "Motor Driver (TB6612FNG)"
+msgstr "모터 드라이버 (TB6612FNG)"
+
+msgid "Robot Car Chassis"
+msgstr "로봇 자동차 차체"
+
+msgid "Ball Caster"
+msgstr "볼 캐스터"
+
+msgid "Stage Wall"
+msgstr "스테이지 벽"
+
+msgid "Cross the finish line"
+msgstr "결승선 넘기"
+
+msgid "Brake before the wall"
+msgstr "벽 앞에서 멈추기"
+
+msgid "Connect the arm"
+msgstr "팔 연결하기"
+
+msgid "Open wiring"
+msgstr "배선 열기"
+
+msgid "Connect the loose arm, then wire its servo to a board pin."
+msgstr "떨어진 팔을 연결한 뒤 서보와 보드 핀을 이어요."
+
+msgid "Challenge loaded. Build your own solution."
+msgstr "과제를 불러왔어요. 자기 방식으로 풀어 보세요."
+
+msgid "Name '%s' is not defined. Did you mean '%s'?"
+msgstr "'%s'라는 이름이 없어요. '%s'를 쓰려던 건가요?"

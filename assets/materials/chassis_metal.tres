@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/brushed_normal.res" id="1_xhxxq"]
+
+[resource]
+resource_name = "ChassisMetal"
+albedo_color = Color(0.5271128, 0.57487106, 0.6180314, 1)
+metallic = 1.0
+roughness = 0.4
+normal_enabled = true
+normal_scale = 0.16
+normal_texture = ExtResource("1_xhxxq")
+uv1_scale = Vector3(200, 200, 200)
+uv1_triplanar = true

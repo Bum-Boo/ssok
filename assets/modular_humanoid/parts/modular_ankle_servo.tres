@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_leg_motor.res" id="1_8hech"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_vsqj3"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_oj5t8"]
+
+[sub_resource type="Resource" id="Resource_q4ub4"]
+script = ExtResource("2_vsqj3")
+id = &"mount"
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[sub_resource type="Resource" id="Resource_fyitp"]
+script = ExtResource("2_vsqj3")
+id = &"output"
+local_normal = Vector3(1, 0, 0)
+tag = &"modular_output"
+accepts = Array[StringName]([&"modular_output"])
+rotates = true
+
+[sub_resource type="Resource" id="Resource_quwvs"]
+script = ExtResource("2_vsqj3")
+id = &"signal"
+kind = 1
+local_position = Vector3(0, 0.01, -0.034)
+tag = &"pwm_signal"
+accepts = Array[StringName]([&"board_digital_pwm"])
+
+[resource]
+script = ExtResource("3_oj5t8")
+id = &"modular_ankle_servo"
+display_name = "Ankle servo module (30 Nm)"
+mesh = ExtResource("1_8hech")
+ports = Array[ExtResource("2_vsqj3")]([SubResource("Resource_q4ub4"), SubResource("Resource_fyitp"), SubResource("Resource_quwvs")])
+mass_kg = 0.16
+actuator_torque_nm = 30.0
+actuator_min_deg = -75.0
+actuator_max_deg = 75.0
+actuator_drives_connected_body = true
+merge_fixed_connections = true

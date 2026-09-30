@@ -1,0 +1,41 @@
+{
+	"capture_clock_seconds": 11.2666666666667,
+	"engine_version": "4.7.2-stable (official)",
+	"episode": {
+		"metrics": {
+			"cancelled": false,
+			"contact_before_grasp": true,
+			"engine_version": "4.7.2",
+			"fallen": false,
+			"finite": true,
+			"graph_fingerprint": "fba6ce380f2d81b57952406fd18999786628580aacbaa2319ee05a0e983256e5",
+			"grasped": true,
+			"hold_seconds": 1.0,
+			"left_contact": false,
+			"lift_m": 0.47614061832428,
+			"max_lift_m": 0.477346479892731,
+			"min_upright": 0.993473470211029,
+			"phase": "succeeded",
+			"physics_hz": 60,
+			"right_contact": false,
+			"score": 177.614061832428,
+			"simulation_seconds": 10.2666666666667,
+			"success": true,
+			"upright": 0.997741937637329
+		},
+		"policy": {
+			"crouch_height": 0.2,
+			"hand_height_offset": 0.075,
+			"hold_elbow_deg": -60.0,
+			"hold_shoulder_deg": -35.0,
+			"lift_seconds": 4.0,
+			"reach_seconds": 2.0,
+			"torso_lean_deg": 25.0
+		}
+	},
+	"physics_hz": 60,
+	"playback_speed": 1.0,
+	"render_fps": 30,
+	"retained_result_seconds": 1.0,
+	"schema": 1
+}

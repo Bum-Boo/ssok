@@ -1,17 +1,159 @@
-# ssok (쏙)
+# ssok · 쏙
 
-마우스로 파츠를 **쏙** 끼워 로봇을 조립하고, 실제 보드 기반 코드로 구동하는 교육용 3D 시뮬레이터.
-디지털 과학상자를 지향한다 — 공간·시간·비용의 제약 없이 로봇 조립과 코딩을 배울 수 있게.
+> **Physical model corrected (2026-09-22):** current results below use a whole-step motor torque budget. Earlier recordings and measurements used the old per-pass implementation and remain historical. [Cause and regression](docs/adr/0020-whole-step-actuator-torque-budget.md) · [Current learned-policy validation](docs/evidence/heading_feedback_2026-09-22/README.md).
 
-- 설계와 첫 마일스톤: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
-- 결정 기록(ADR): [docs/adr/](docs/adr/)
-- 기여 규칙(사람·에이전트 공통): [AGENTS.md](AGENTS.md)
+**Build a robot. Wire its motors. Make it move.**
 
-## 실행
+ssok is an educational 3D robotics workshop built with Godot. Snap individual parts together,
+inspect the wiring, write a small servo program or assemble it from blocks, then test the same
+robot under gravity. Save a project, share it, and take it apart to understand how it works.
 
-Godot **4.7.2** (버전 고정 — 올릴 땐 `AGENTS.md`의 업그레이드 절차를 따를 것).
+English · 한국어 · 简体中文 · 日本語
+
+![Actual ssok workshop: independently assembled humanoid, parts catalog and servo program](docs/media/workshop.png)
+
+> Release preparation is in progress. Browser and Linux builds run locally; public release
+> remains gated on the [verification and delivery checklist](docs/RELEASE_PLAN.md).
+> The first playable path is the servo-arm flag mission. Learned locomotion remains a recorded experiment.
+
+## Try the workshop
+
+With **Godot 4.7.2** installed:
 
 ```sh
-godot --path .            # 에디터 없이 실행
-godot --path . --editor   # 에디터로 열기
+git clone https://github.com/Bum-Boo/ssok.git
+cd ssok
+godot --headless --path . --import --quit
+godot --path .
 ```
+
+1. Choose **Try the flag mission** and load the servo arm, or assemble and wire one yourself.
+2. Choose **Run code**. The flag follows the real servo arm; the goal uses its observed height. **Build this arm yourself** starts assembly and wiring practice.
+3. Return to edit mode. **Blocks** opens first; change an angle, apply it to code, and try again. Code and free assembly remain available.
+4. Open **Projects** to save a snapshot. Reopen it later, or export its JSON to another device.
+5. Open **Stages** for the flag, finish-line car or sonar braking challenge, or **Free building · Lab** to create and export your own verified challenge.
+6. The **construction-kit humanoid** and its **AI motion lab** remain available as research exhibits.
+
+No account, API key or paid model is needed for local assembly, coding, physics, storage or
+pickup experiments. Optional external AI services keep their keys outside the application.
+
+[Flag mission and reused components](docs/FLAG_MISSION.md) · [Controls](docs/CONTROLS.md) · [Projects and blocks](docs/AUTHORING.md) ·
+[Stages, motors, sonar and bounded learner language](docs/LEARNING_STAGES.md) · [App control API design](docs/APP_CONTROL_API.md) ·
+[Build and verify](docs/BUILD.md) · [Engineering case study](docs/ENGINEERING.md)
+
+The selected feedback policy passes six declared browser start/restart flows in an isolated export
+with recorded source hashes. [The current validation report](docs/evidence/heading_feedback_2026-09-22/README.md)
+retains the selection process and the remaining failure. The preceding integrated `389f817` checkpoint
+passes 59 native checks, clean Web/Linux builds and all three browser gates. The new policy
+integration requires its own clean export checks; public delivery and the remaining motion
+requirements are still in progress.
+
+## Watch a real physics trial
+
+![Actual construction-kit robot making contact with and lifting a box under gravity](docs/media/pickup.gif)
+
+This recording uses the corrected motor budget and a four-second lift. It raises the box
+**47.7 cm** and holds it for **1 second**, after bilateral contact activates the grasp constraints.
+The robot is assembled from the same individual
+parts available in the workshop. The final result stays on screen after evaluation; that pause
+does not count toward the measured hold.
+
+[1152 × 648 recording](docs/media/pickup.webm) · [Measurements](docs/evidence/corrected_recordings_2026-09-22/pickup.json) ·
+[Reproduce the capture](docs/media/PICKUP.md)
+
+## Watch learned forward walking
+
+![The learned biped walking inside the actual ssok workshop](docs/media/learned-walk.gif)
+
+The current selected feedback policy runs under the corrected **0.25 N·m** cap. In this
+recorded episode, holding W for **12 seconds** moves the robot **42.1 cm** forward; releasing W
+leaves it standing. The camera follows its horizontal travel while preserving the editing view.
+
+[1152 × 648 recording](docs/media/learned-walk.mp4) · [Full-size still](docs/media/learned-walk.png) ·
+[Measurements](docs/evidence/heading_recording_2026-09-22/learned.json) · [Reproduce the capture](docs/media/LEARNED_WALK.md)
+
+## What you can explore
+
+| Workflow | What actually happens |
+|---|---|
+| Build from reusable parts | The construction catalog offers 25 reusable products, including beams, plates, motors and fasteners. The pickup humanoid has 181 robot parts; the bridge has 29. Holes are real attachment ports, and each part remains editable. |
+| Edit and inspect | Search parts, select, move and rotate with Blender-style controls, constrain axes, cancel or undo. Connections and transforms stay in one graph. |
+| Program a wired robot | A bounded Python-style servo language and profile-derived block controls address the motors connected in the wiring graph. This is a teaching language, not a full Python or Arduino firmware emulator. |
+| Keep and share your work | Versioned JSON snapshots preserve the assembly and learner source. Invalid imports leave the open project untouched; loading never executes code. |
+| Observe physical experiments | Gravity, contacts and bounded motor torques determine pickup results. Independent trial worlds retain their measured successes and failures. |
+| Inspect learning research | Reproduce MuJoCo policy training and Godot evaluation. Results, held-out seeds and transfer failures are included alongside the code. |
+
+The original virtual construction standard is **not a certified hardware kit**. The simulator
+does not establish that a learned or hand-written controller is safe on a real robot.
+
+## Engineering at a glance
+
+```mermaid
+flowchart LR
+    Parts[Parts and ports] --> Graph[ConnectionGraph]
+    Graph --> Editor[Assembly and undo]
+    Graph --> Physics[Bodies, joints and wired motors]
+    Graph --> Project[Portable project JSON]
+    Profile[Board API descriptors] --> Blocks[Block editor]
+    Blocks <--> Code[Learner code]
+    Code --> Runtime[Language runtime]
+    Runtime --> Physics
+    Physics --> Metrics[Measured trial results]
+    Metrics --> Search[Bounded search / policy training]
+    Search --> Evaluation[Independent evaluation]
+```
+
+- **One assembly authority:** editor, physics, wiring, persistence and learning derive from `ConnectionGraph`.
+- **Web and desktop:** GDScript, GL Compatibility and a single-threaded Web export share the same application.
+- **Measured behavior:** a contact-gated gripper cannot succeed by moving the box in code or disabling gravity.
+- **Explicit ownership:** learner code, manual movement and experiments cannot command a robot simultaneously.
+- **Reproducible checks:** isolated data directories, a mock HTTP/MCP bridge, pinned toolchains, retained failure logs and exported-resource audits.
+
+[Architecture](docs/ARCHITECTURE.md) · [Decision records](docs/adr/) ·
+[Pickup evidence](docs/CONSTRUCTION_KIT.md) · [RL methods and results](docs/RL_LAB.md)
+
+[한국어 기술노트 (2026-09-30)](docs/TECHNICAL_NOTE_2026-09-30.md) records the implemented workflows, physical evidence, UX research, reused components, AI connection boundaries and the current learning roadmap.
+
+## Current measured limits
+
+The corrected elementary-kit pickup passes the original 25 cm / 1 second gate, including
+perturbed box positions and reversed graph ordering. Its four-second lift passes 277 physical
+assertions and twelve pickup integration suites, reaching about 47.7 cm. Stable continuous
+walking with the articulated construction kit remains unfinished. The four-servo manual biped
+also has unresolved failures during continuous direction changes; isolated direction checks do
+not establish reliable continuous control. Legacy humanoid walking,
+backward movement, pickup and running have focused corrected-model passes; the older 14/14
+running matrix remains historical until repeated in full.
+
+The current yaw-hip policy combines a learned periodic gait with learned lateral/heading feedback.
+Its heading coefficient was selected from an earlier learned policy while retaining the corrected-model
+position/velocity feedback. This is post-training coefficient selection, not another training run.
+Frozen before a new paired evaluation, it passes **255/256 conditions with one fall**; the previous
+bundle passes **251/256 with five falls** on those same conditions. Five failures improve and one
+previously successful condition regresses. Twelve actual native-app flows and six Chromium
+WebAssembly flows pass separately; browser travel is 41.59–43.16 cm in 12 seconds.
+
+These results concern one simulated robot, ±0.004 m/s initial velocity noise, 0–5-second start
+delays and declared restart intervals. They do not guarantee every restart or arbitrary assemblies.
+MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
+[Methods and complete outcomes](docs/evidence/heading_feedback_2026-09-22/README.md) distinguish
+training, component selection, frozen evaluation and browser checks. Clean integrated verification,
+public release, continuous manual control and kit locomotion remain unfinished.
+
+## Development
+
+```sh
+python3 tools/ci/install_godot.py --templates
+python3 -m venv build/venv
+build/venv/bin/python -m pip install -r tools/ci/requirements-lock.txt
+build/venv/bin/python tools/ci/verify.py --godot "$PWD/build/toolchain/godot"
+build/venv/bin/python tools/ci/build.py --godot "$PWD/build/toolchain/godot" --version preview
+```
+
+The full procedure, browser checks and artifact layout are in [BUILD.md](docs/BUILD.md).
+Contributors should read [AGENTS.md](AGENTS.md) and existing decisions before changing the architecture.
+UI changes include English, Korean, Simplified Chinese and Japanese together.
+
+Original work is by **Bum-Boo**, with AI-assisted implementation and verification documented through
+the repository's changes and decisions. Original project rights are retained; third-party engine,
+font and icon licenses are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

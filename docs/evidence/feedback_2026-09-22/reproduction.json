@@ -1,0 +1,17 @@
+{
+  "job": "20260922-071132-ssok-feedback-reproduction-351fb113",
+  "completed_exit_code": 0,
+  "comparison": "Packaged stdlib trainer versus original isolated search, first iteration including all80training episodes and16initial+8validation episodes",
+  "checks": {
+    "training_cases": true,
+    "training_parameters": true,
+    "training_results": true,
+    "scores": true,
+    "candidate_parameters": true,
+    "validation": true,
+    "improved": true,
+    "sigma": true,
+    "initial": true,
+    "best_iteration_metadata": true
+  }
+}

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_arm_bracket.res" id="1_50ui1"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_32vic"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_1n01d"]
+
+[sub_resource type="Resource" id="Resource_7r1o6"]
+script = ExtResource("2_32vic")
+id = &"input"
+local_normal = Vector3(-1, 0, 0)
+tag = &"modular_output"
+accepts = Array[StringName]([&"modular_output"])
+
+[sub_resource type="Resource" id="Resource_xar5u"]
+script = ExtResource("2_32vic")
+id = &"frame"
+local_position = Vector3(0, -0.032, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_1n01d")
+id = &"modular_arm_bracket"
+display_name = "Arm output U-bracket"
+mesh = ExtResource("1_50ui1")
+ports = Array[ExtResource("2_32vic")]([SubResource("Resource_7r1o6"), SubResource("Resource_xar5u")])
+mass_kg = 0.03
+merge_fixed_connections = true

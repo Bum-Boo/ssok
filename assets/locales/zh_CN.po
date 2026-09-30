@@ -1,0 +1,1756 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+
+msgid "ssok - robot workshop"
+msgstr "ssok - 机器人工作室"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Language changed, but the preference could not be saved."
+msgstr "语言已切换，但无法保存设置。"
+
+msgid "Run mode (physics)"
+msgstr "运行模式（物理）"
+
+msgid "Control: WASD / gamepad movement"
+msgstr "控制：WASD / 手柄移动"
+
+msgid "Control: Learner code"
+msgstr "控制：编写的代码"
+
+msgid "Run code"
+msgstr "运行代码"
+
+msgid "Stop input / code"
+msgstr "停止控制 / 代码"
+
+msgid "AI motion lab"
+msgstr "AI 动作实验室"
+
+msgid "Parts"
+msgstr "零件"
+
+msgid "Delete selected"
+msgstr "删除所选零件"
+
+msgid "Answer: servo arm"
+msgstr "示例：舵机机械臂"
+
+msgid "Answer: biped"
+msgstr "示例：双足机器人"
+
+msgid "Delete selected part?"
+msgstr "删除所选零件？"
+
+msgid "Remove the part and its connections? Ctrl+Z restores them."
+msgstr "删除零件及其连接。可用 Ctrl+Z 恢复。"
+
+msgid "OK"
+msgstr "确定"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Arduino Uno R3"
+msgstr "Arduino Uno R3"
+
+msgid "Board (placeholder)"
+msgstr "开发板（占位）"
+
+msgid "Leg Link"
+msgstr "腿部连杆"
+
+msgid "Wheel 65 mm"
+msgstr "轮子 65 mm"
+
+msgid "TT Gear Motor"
+msgstr "TT 减速电机"
+
+msgid "HC-SR04 Ultrasonic"
+msgstr "HC-SR04 超声波传感器"
+
+msgid "Servo Angle Bracket"
+msgstr "舵机直角支架"
+
+msgid "Foot"
+msgstr "脚掌"
+
+msgid "Chassis Plate 120 mm"
+msgstr "底盘板 120 mm"
+
+msgid "Servo Motor"
+msgstr "舵机"
+
+msgid "Arm Link"
+msgstr "机械臂连杆"
+
+msgid "Biped Body"
+msgstr "双足机器人机身"
+
+msgid "Base Plate"
+msgstr "底板"
+
+msgid "Edit mode - select a part, then G to move or R to rotate; connections snap at ports"
+msgstr "编辑模式：选择零件，G 移动，R 旋转；接口靠近时自动吸附。"
+
+msgid "running line %d"
+msgstr "正在执行第 %d 行"
+
+msgid "finished"
+msgstr "执行完毕"
+
+msgid "line %d: %s"
+msgstr "第 %d 行：%s"
+
+msgid "Added %s - G to move, R to rotate, Enter to confirm"
+msgstr "已添加 %s：G 移动，R 旋转，Enter 确认"
+
+msgid "Return to edit mode and finish the current transform before deleting"
+msgstr "请返回编辑模式并结束当前变换后再删除。"
+
+msgid "part removed"
+msgstr "零件已删除"
+
+msgid "click a part first, then delete it"
+msgstr "请先点击要删除的零件。"
+
+msgid "answer loaded - the finished servo arm"
+msgstr "示例已加载：完成的舵机机械臂"
+
+msgid "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example"
+msgstr "双足机器人已加载：运行模式下用 WASD / 摇杆移动，或运行代码体验踏步示例"
+
+msgid "Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel"
+msgstr "编辑模式：G 移动 / R 旋转 / X,Y,Z 约束轴 / Esc 取消"
+
+msgid "W/S forward/back · A/D turn · left stick · Space stop"
+msgstr "W/S 前进·后退 · A/D 转向 · 左摇杆 · Space 停止"
+
+msgid "Code control - press Run code; movement inputs are disabled"
+msgstr "代码控制：点击运行代码；移动输入已禁用。"
+
+msgid "Input stopped - servos hold their last targets; return to edit mode to reset the robot"
+msgstr "输入已停止：舵机保持最后目标；返回编辑模式可重置机器人。"
+
+msgid "Motion lab closed. Movement remains stopped; select WASD control or toggle Run mode when ready."
+msgstr "实验室已关闭，移动仍停止。准备好后选择 WASD 控制或切换运行模式。"
+
+msgid "Evaluated parameters applied to the WASD program; assembly and learner source are unchanged"
+msgstr "已将评估参数应用到 WASD 程序；装配和编写的代码未更改。"
+
+msgid "Assembly changed: evaluated motion parameters reset to the experimental defaults. Search again for this graph."
+msgstr "装配已更改：动作参数已恢复实验默认值。请根据当前装配重新搜索。"
+
+msgid "MMB orbit · Shift+MMB pan · wheel zoom · Numpad 1/3/7 views · Numpad . frame"
+msgstr "鼠标中键：环绕 · Shift+中键：平移 · 滚轮：缩放 · 小键盘 1/3/7：视图 · 小键盘 .：聚焦"
+
+msgid "LMB select · G move / R rotate · X/Y/Z axis · number: mm / degrees · Enter/LMB confirm · Esc/RMB cancel · Ctrl+Z undo"
+msgstr "左键：选择 · G 移动 / R 旋转 · X/Y/Z 轴 · 数值：mm / 度 · Enter/左键：确认 · Esc/右键：取消 · Ctrl+Z 撤销"
+
+msgid "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
+msgstr "W/S 前进·后退 · A/D 转向 · 左摇杆 · Space/手柄 A 制动 · Esc 停止输入"
+
+msgid "Code control · Run code to start · Stop input / code to cancel · Esc stops"
+msgstr "代码控制 · 运行代码以开始 · 停止控制 / 代码以取消 · Esc 停止"
+
+msgid "Choose a control source, then enter Run mode.\nPart dimensions are fixed; G uses mm and R uses degrees."
+msgstr "选择控制方式，然后进入运行模式。\n零件尺寸固定；G 使用 mm，R 使用度。"
+
+msgid "Code owns the motors. Keyboard/gamepad control is off."
+msgstr "代码正在控制电机。键盘/手柄控制已关闭。"
+
+msgid "Load Answer: biped for the movement example."
+msgstr "请加载“双足机器人”示例体验移动。"
+
+msgid "Keyboard ready · no gamepad detected"
+msgstr "键盘就绪 · 未检测到手柄"
+
+msgid "Gamepad: %s"
+msgstr "手柄：%s"
+
+msgid "Biped demo: experimental gait (slow / drift)\nForward %+.2f · Turn %+.2f\n%s"
+msgstr "双足示例：实验步态（缓慢 / 漂移）\n前后 %+.2f · 转向 %+.2f\n%s"
+
+msgid "ssok - AI motion lab"
+msgstr "ssok - AI 动作实验室"
+
+msgid "Motion search - wired biped"
+msgstr "动作搜索：已接线的双足机器人"
+
+msgid "Propose parameters -> simulate -> compare -> explicitly apply. This does not train GPT weights. Other robot programs are not supported yet."
+msgstr "提出参数 → 模拟 → 比较 → 手动应用。这不会训练 GPT 权重。目前不支持其他机器人程序。"
+
+msgid "Bridge origin (loopback HTTP / deployed HTTPS)"
+msgstr "桥接服务地址（本机 HTTP / 部署的 HTTPS）"
+
+msgid "Bridge bearer token - RAM only. Never enter an OpenAI API key here."
+msgstr "桥接服务令牌：仅存于内存。不要在此输入 OpenAI API 密钥。"
+
+msgid "Token from your local bridge terminal"
+msgstr "本机桥接服务终端中的令牌"
+
+msgid "Check connection"
+msgstr "检查连接"
+
+msgid "Disconnect / forget"
+msgstr "断开 / 清除记录"
+
+msgid "Recover from an unavailable bridge. Forgetting does not cancel a remote job."
+msgstr "从桥接连接异常中恢复。清除记录不会取消远程任务。"
+
+msgid "Forget local search status?"
+msgstr "清除本地搜索状态？"
+
+msgid "This only disconnects the local UI. It does NOT cancel a search on the bridge.\nA submitted job may still run and API charges may continue.\nCheck or stop the bridge before starting another paid search.\nLocal connection status and pending results will be cleared."
+msgstr "这只断开本地界面，不会取消桥接服务上的搜索。\n已提交的任务可能继续运行并产生 API 费用。\n再次付费搜索前，请检查或停止桥接服务。\n本地连接状态和待处理结果将被清除。"
+
+msgid "Not connected. OPENAI_API_KEY is configured only on the bridge."
+msgstr "未连接。OPENAI_API_KEY 仅在桥接服务中配置。"
+
+msgid "Goal (sent to the bridge/model along with this assembly snapshot)"
+msgstr "目标（与装配快照一起发送给桥接服务/模型）"
+
+msgid "Walk forward while staying upright and reducing drift"
+msgstr "保持直立并减少漂移，向前行走"
+
+msgid "Evaluate: forward (W)"
+msgstr "评估：前进（W）"
+
+msgid "Evaluate: backward (S)"
+msgstr "评估：后退（S）"
+
+msgid "Evaluate: turn left (A)"
+msgstr "评估：左转（A）"
+
+msgid "Evaluate: turn right (D)"
+msgstr "评估：右转（D）"
+
+msgid "Direction fixes the measured objective; language does not replace the scoring rule. One direction is evaluated per search."
+msgstr "方向决定测量目标；自然语言不会替代评分规则。每次搜索只评估一个方向。"
+
+msgid "Proposal rounds (1-4)"
+msgstr "提案轮数（1～4）"
+
+msgid "Allow paid OpenAI requests for this search"
+msgstr "允许本次搜索使用付费 OpenAI 请求"
+
+msgid "Mock mode uses deterministic fixtures, not GPT. Live requests may incur costs; cancelling an in-flight API request may still be billed."
+msgstr "模拟模式使用固定测试提案，不使用 GPT。实际请求可能收费；已发出的 API 请求即使取消仍可能计费。"
+
+msgid "Start search"
+msgstr "开始搜索"
+
+msgid "Cancel search"
+msgstr "取消搜索"
+
+msgid "Load Answer: biped, configure the bridge, then check the connection."
+msgstr "加载双足机器人示例，配置桥接服务，然后检查连接。"
+
+msgid "Evaluation history appears here (baseline, then candidates)."
+msgstr "评估记录显示在此处（先基准，再候选）。"
+
+msgid "No measured result yet."
+msgstr "尚无测量结果。"
+
+msgid "Apply best to WASD program (edit mode only)"
+msgstr "将最佳结果应用于 WASD（仅编辑模式）"
+
+msgid "Save best locally"
+msgstr "保存最佳结果到本地"
+
+msgid "Load saved best"
+msgstr "加载已保存的结果"
+
+msgid "Save/load: user://motion_lab_best.json. Stores bounded parameters, numeric metrics and assembly/controller IDs; no token, goal, model text or API key."
+msgstr "保存/加载：user://motion_lab_best.json。保存限定参数、数值指标及装配和控制器标识，不保存令牌、目标、模型文本或 API 密钥。"
+
+msgid "Checking bridge..."
+msgstr "正在检查桥接服务…"
+
+msgid "Previous start outcome is unknown. Confirm bridge status, then use Disconnect / forget before reconnecting."
+msgstr "上次启动结果未知。请确认桥接服务状态，断开并清除记录后重新连接。"
+
+msgid "A search or connection request is already active"
+msgstr "搜索或连接请求已在进行。"
+
+msgid "Check the bridge connection first"
+msgstr "请先检查桥接服务连接。"
+
+msgid "Paid OpenAI requests require explicit consent for this search"
+msgstr "本次付费 OpenAI 请求需要明确同意。"
+
+msgid "Set OPENAI_API_KEY on the bridge, not in Godot"
+msgstr "请在桥接服务中设置 OPENAI_API_KEY，不要在 Godot 中设置。"
+
+msgid "Load a valid wired biped assembly before searching"
+msgstr "搜索前请加载接线有效的双足机器人。"
+
+msgid "Goal must contain 1..2000 characters"
+msgstr "目标须为 1～2000 个字符。"
+
+msgid "No compatible motion program is configured"
+msgstr "未配置兼容的动作程序。"
+
+msgid "Evaluating the current policy as a baseline..."
+msgstr "正在评估当前策略作为基准…"
+
+msgid "No eligible result yet. Fallen or nonfinite candidates cannot be applied."
+msgstr "尚无合格结果。跌倒或数值非有限的候选不可应用。"
+
+msgid "Starting isolated baseline and candidate evaluations..."
+msgstr "正在启动独立的基准和候选评估…"
+
+msgid "Cancellation requested. An already-sent API request may still be billed."
+msgstr "已请求取消。已发送的 API 请求仍可能计费。"
+
+msgid "Waiting for the search ID, then sending cancellation. Do not start another search."
+msgstr "正在等待搜索 ID，随后发送取消请求。请勿开始其他搜索。"
+
+msgid "Unexpected bridge capabilities; no search was started"
+msgstr "桥接服务能力响应异常；未开始搜索。"
+
+msgid "MOCK - no GPT calls; real Godot physics evaluations."
+msgstr "模拟模式：不调用 GPT；使用真实 Godot 物理评估。"
+
+msgid "OPENAI - %s; key configured: %s. Explicit paid consent required."
+msgstr "OPENAI - %s；密钥已配置：%s。需要明确同意付费。"
+
+msgid "Connected. Only the selected direction will be evaluated; improvement is not guaranteed."
+msgstr "已连接。仅评估所选方向，不保证改善。"
+
+msgid "Invalid bridge result; no policy was applied"
+msgstr "桥接服务结果无效；未应用策略。"
+
+msgid "%s | evaluations: %d | API calls: %s | tokens: %s%s"
+msgstr "%s | 评估：%d | API 调用：%s | 令牌：%s%s"
+
+msgid "QUEUED"
+msgstr "排队中"
+
+msgid "BASELINE"
+msgstr "基准评估中"
+
+msgid "PROPOSING"
+msgstr "提案中"
+
+msgid "EVALUATING"
+msgstr "评估中"
+
+msgid "CANCELLING"
+msgstr "取消中"
+
+msgid "COMPLETED"
+msgstr "已完成"
+
+msgid "FAILED"
+msgstr "失败"
+
+msgid "CANCELLED"
+msgstr "已取消"
+
+msgid " Start outcome is unknown: a submitted bridge job may still run or be billed. No retry until explicit Disconnect / forget."
+msgstr " 启动结果未知：已提交任务可能继续运行或计费。在手动断开并清除记录前不会重试。"
+
+msgid " Search may still be running on the bridge; Cancel can be retried."
+msgstr " 搜索可能仍在桥接服务上运行；可重试取消。"
+
+msgid "Not connected. Check the bridge process and bearer token."
+msgstr "未连接。请检查桥接进程和认证令牌。"
+
+msgid "Disconnected. Edit connection details and check the bridge again."
+msgstr "已断开。请修改连接信息并再次检查。"
+
+msgid "No local result retained. Any remote job was NOT cancelled by disconnecting."
+msgstr "未保留本地结果。断开连接并未取消远程任务。"
+
+msgid "Local history forgotten; check the bridge before starting another paid search."
+msgstr "本地记录已清除；再次付费搜索前请检查桥接服务。"
+
+msgid "Local status cleared only. A remote search may still run or be billed; no new request was sent."
+msgstr "仅清除了本地状态。远程搜索可能继续运行或计费；未发送新请求。"
+
+msgid "Connection details changed. Check connection again."
+msgstr "连接信息已更改。请重新检查连接。"
+
+msgid "Wait for the search to finish or cancel it before applying"
+msgstr "请等待搜索结束或取消后再应用。"
+
+msgid "No finite, non-fallen evaluated policy is available"
+msgstr "没有数值有限且未跌倒的已评估策略。"
+
+msgid "Return to edit mode before applying a policy"
+msgstr "应用策略前请返回编辑模式。"
+
+msgid "Assembly changed since evaluation; search again for this exact graph"
+msgstr "装配在评估后发生变化；请对当前构型重新搜索。"
+
+msgid "Application rejected; nothing was changed"
+msgstr "应用被拒绝；未作任何更改。"
+
+msgid "Applied to the WASD joint program. Close this window and enter Run mode to try it. Source code and assembly are unchanged."
+msgstr "已应用到 WASD 关节程序。关闭此窗口并进入运行模式试用。代码和装配未变。"
+
+msgid "Baseline"
+msgstr "基准"
+
+msgid "Candidate %d"
+msgstr "候选 %d"
+
+msgid "%s: score %.3f | forward %+.2f mm | yaw %+.1f deg | fallen %s | finite %s"
+msgstr "%s：得分 %.3f | 前进 %+.2f mm | 偏航 %+.1f 度 | 跌倒 %s | 有限值 %s"
+
+msgid "Baseline evaluation is pending."
+msgstr "基准评估待处理。"
+
+msgid "Measured best: score %.4f | finite: true | fallen: false\nForward %+.4f m | lateral %+.4f m | yaw %+.3f rad\nMinimum upright %.3f | minimum height %.4f m\n%s\nA better score is not proof of walking. One direction is not a guarantee for all WASD commands."
+msgstr "最佳测量结果：得分 %.4f | 有限值：是 | 跌倒：否\n前进 %+.4f m | 侧移 %+.4f m | 偏航 %+.3f rad\n最低直立度 %.3f | 最低高度 %.4f m\n%s\n高分不等于学会行走。单方向结果不保证所有 WASD 动作。"
+
+msgid "No completed, safe result to save"
+msgstr "没有已完成且安全的可保存结果。"
+
+msgid "Could not save the result under user://"
+msgstr "无法将结果保存到 user://。"
+
+msgid "Saved bounded policy and measured metrics to %s; no credentials or prompt text."
+msgstr "已将限定策略和测量指标保存至 %s；未保存认证信息或提示文本。"
+
+msgid "No valid saved result at %s"
+msgstr "%s 中没有有效的已保存结果。"
+
+msgid "Saved result is invalid; nothing was loaded"
+msgstr "保存的结果无效；未加载任何内容。"
+
+msgid "Loaded local parameters and recorded metrics (not re-evaluated). Apply requires the exact same assembly in edit mode."
+msgstr "已加载本地参数和记录指标（未重新评估）。仅能在完全相同装配的编辑模式下应用。"
+
+msgid "true"
+msgstr "是"
+
+msgid "false"
+msgstr "否"
+
+msgid "No robot movement program configured"
+msgstr "未配置机器人移动程序。"
+
+msgid "Part deleted · Ctrl+Z to undo"
+msgstr "零件已删除 · Ctrl+Z 撤销"
+
+msgid "Transform confirmed · Ctrl+Z to undo"
+msgstr "变换已确认 · Ctrl+Z 撤销"
+
+msgid "Transform unchanged"
+msgstr "变换未更改"
+
+msgid "Transform cancelled"
+msgstr "变换已取消"
+
+msgid "Undo"
+msgstr "撤销"
+
+msgid "Redo"
+msgstr "重做"
+
+msgid "Numeric input is limited to 16 characters"
+msgstr "数值输入最多 16 个字符。"
+
+msgid "Part dimensions are fixed · Scaling is unavailable"
+msgstr "零件尺寸固定 · 不可缩放"
+
+msgid "Transform value must be finite"
+msgstr "变换值必须是有限数。"
+
+msgid "Transform exceeds the supported numeric range"
+msgstr "变换值超出支持范围。"
+
+msgid "Move"
+msgstr "移动"
+
+msgid "Rotate"
+msgstr "旋转"
+
+msgid "View"
+msgstr "视图"
+
+msgid "mouse"
+msgstr "鼠标"
+
+msgid "%s · %s · %s %s | X/Y/Z axis · Enter/LMB confirm · Esc/RMB cancel · Ctrl snap · Shift precise"
+msgstr "%s · %s · %s %s | X/Y/Z 轴 · Enter/左键确认 · Esc/右键取消 · Ctrl 吸附 · Shift 精调"
+
+msgid "Run mode is not active"
+msgstr "运行模式未启用。"
+
+msgid "Pin %d has nothing connected"
+msgstr "引脚 %d 未连接任何部件。"
+
+msgid "NameError: '%s' is not defined"
+msgstr "NameError：'%s' 未定义。"
+
+msgid "Servo '%s' is no longer available"
+msgstr "舵机 '%s' 已不可用。"
+
+msgid "SyntaxError: %s"
+msgstr "语法错误：%s"
+
+msgid "Use a loopback HTTP origin or an authenticated HTTPS origin, without a path or credentials"
+msgstr "请使用本机 HTTP 或经过认证的 HTTPS 地址，不含路径或凭据。"
+
+msgid "Endpoint port must be between 1 and 65535"
+msgstr "端口须在 1～65535 之间。"
+
+msgid "A bridge request is already in progress"
+msgstr "桥接服务请求已在进行。"
+
+msgid "Enter the bridge bearer token (24..256 printable ASCII characters), not an OpenAI API key"
+msgstr "请输入桥接令牌（24～256 个可打印 ASCII 字符），而不是 OpenAI API 密钥。"
+
+msgid "OpenAI API keys belong in the bridge environment, never in this field"
+msgstr "OpenAI API 密钥应放在桥接服务环境中，不能填在此处。"
+
+msgid "Bridge returned an invalid search ID"
+msgstr "桥接服务返回了无效搜索 ID。"
+
+msgid "Could not start the bridge request (error %d)"
+msgstr "无法启动桥接请求（错误 %d）。"
+
+msgid "Bridge connection failed, timed out or exceeded the response limit. Nothing was applied."
+msgstr "桥接连接失败、超时或响应超限。未应用任何内容。"
+
+msgid "Check token, service state and request limits."
+msgstr "请检查令牌、服务状态和请求限制。"
+
+msgid "Bridge HTTP %d: %s No automatic retry."
+msgstr "桥接 HTTP %d：%s 不会自动重试。"
+
+msgid "Bridge returned invalid JSON; nothing was applied"
+msgstr "桥接服务返回了无效 JSON；未应用任何内容。"
+
+msgid "Build a wired biped before using the movement program"
+msgstr "使用移动程序前，请组装并接线双足机器人。"
+
+msgid "Movement program needs one unambiguous biped body"
+msgstr "移动程序需要且只能有一个明确的双足机身。"
+
+msgid "No biped motion program: connect a two-leg body with four servos"
+msgstr "无双足动作程序：请将双腿机身与四个舵机连接。"
+
+msgid "Incomplete %s leg: connect hip, leg, ankle servo and foot"
+msgstr "%s腿未完成：请连接髋关节、腿、踝舵机和脚掌。"
+
+msgid "Each hip and ankle needs its own servo"
+msgstr "每个髋关节和踝关节都需要独立舵机。"
+
+msgid "Wire %s to one unambiguous board PWM pin"
+msgstr "请将%s接线到唯一的开发板 PWM 引脚。"
+
+msgid "Experimental biped joint program: forward/back and turn"
+msgstr "实验性双足关节程序：前进、后退、转向"
+
+msgid "left"
+msgstr "左"
+
+msgid "right"
+msgstr "右"
+
+msgid "left hip"
+msgstr "左髋关节"
+
+msgid "right hip"
+msgstr "右髋关节"
+
+msgid "left ankle"
+msgstr "左踝关节"
+
+msgid "right ankle"
+msgstr "右踝关节"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Robot program"
+msgstr "机器人程序"
+
+msgid "Code"
+msgstr "代码"
+
+msgid "Controls"
+msgstr "操作指南"
+
+msgid "Python-style servo program"
+msgstr "Python 风格舵机代码"
+
+msgid "Move your robot"
+msgstr "操控机器人"
+
+msgid "W / S   Forward / backward\nA / D   Turn left / right\nSpace   Brake\nEsc   Stop input"
+msgstr "W / S   前进 / 后退\nA / D   左转 / 右转\nSpace   制动\nEsc   停止输入"
+
+msgid "Choose WASD control, then enable Run mode. Click the 3D view before using the keyboard."
+msgstr "选择 WASD 控制并开启运行模式。使用键盘前请点击 3D 视图。"
+
+msgid "Frame robot"
+msgstr "聚焦机器人"
+
+msgid "Build something that moves."
+msgstr "造一个会动的机器人。"
+
+msgid "Start with a robot example, or add parts from the library."
+msgstr "从机器人示例开始，或从零件库添加零件。"
+
+msgid "Start with a biped"
+msgstr "从双足机器人开始"
+
+msgid "Parts library"
+msgstr "零件库"
+
+msgid "Search parts..."
+msgstr "搜索零件…"
+
+msgid "All parts"
+msgstr "全部零件"
+
+msgid "Structure"
+msgstr "结构件"
+
+msgid "Actuators"
+msgstr "执行器"
+
+msgid "Electronics"
+msgstr "电子元件"
+
+msgid "No matching parts"
+msgstr "没有匹配的零件"
+
+msgid "STARTER ROBOTS"
+msgstr "入门机器人"
+
+msgid "%d parts / %d connections"
+msgstr "%d 个零件 / %d 个连接"
+
+msgid "1. Connect"
+msgstr "1. 连接"
+
+msgid "2. Search"
+msgstr "2. 搜索"
+
+msgid "3. Results"
+msgstr "3. 结果"
+
+msgid "Tutorial"
+msgstr "教程"
+
+msgid "Restart tutorial"
+msgstr "重新开始"
+
+msgid "Previous"
+msgstr "上一步"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "Finish tutorial"
+msgstr "完成教程"
+
+msgid "Close and try it"
+msgstr "关闭并尝试"
+
+msgid "Step %d of %d"
+msgstr "第 %d 步，共 %d 步"
+
+msgid "Tutorial closed. Input remains stopped; select WASD control or toggle Run mode when ready."
+msgstr "教程已关闭，输入仍已停止。准备好后，请重新选择 WASD 操控或切换运行模式。"
+
+msgid "Start with a robot"
+msgstr "从机器人示例开始"
+
+msgid "Close this guide to try each step, then reopen the book icon to continue. Your place is kept until the app closes.\n\nIn the left library, choose Answer: biped for movement, or Answer: servo arm for a simple coding example. Loading a starter replaces the current assembly and code."
+msgstr "阅读每一步后关闭教程进行尝试，再点击书本图标即可继续。关闭应用前会保留当前步骤。\n\n在左侧库中，选择“示例：双足机器人”体验移动，或选择“示例：舵机机械臂”练习简单编程。加载示例会替换当前装配和代码。"
+
+msgid "Look around: middle mouse to orbit, Shift + middle mouse to pan, wheel to zoom."
+msgstr "观察视图：鼠标中键旋转，Shift + 中键平移，滚轮缩放。"
+
+msgid "Add and connect parts"
+msgstr "添加并连接零件"
+
+msgid "In edit mode, search the Parts library or use its category filter, then click a part to add it. Select it in the 3D view and press G to move it near a compatible yellow port. Confirm to snap.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot."
+msgstr "在编辑模式中搜索零件库或按分类筛选，然后点击零件添加。在 3D 视图中选中零件，按 G 将其移到兼容的黄色端口附近，确认后吸附连接。\n\n机械连接用于固定零件。电气连接将舵机映射到开发板引脚；代码必须使用机器人实际接线的引脚。"
+
+msgid "Ctrl + Z undoes an addition, deletion or transform. Selection alone does not disconnect parts."
+msgstr "Ctrl + Z 撤销添加、删除或变换。仅选中零件不会断开连接。"
+
+msgid "Edit with familiar shortcuts"
+msgstr "使用熟悉的快捷键编辑"
+
+msgid "Select a part, then press G to move or R to rotate. Press X, Y or Z to constrain the world axis. Type a distance in millimetres or an angle in degrees.\n\nTry G, X, 10, Enter to move 10 mm. Enter confirms; Esc cancels and restores connections. This is object editing, not Blender mesh or vertex editing."
+msgstr "选中零件后，按 G 移动或 R 旋转。按 X、Y 或 Z 限制世界坐标轴。距离以毫米输入，角度以度输入。\n\n依次按 G、X、10、Enter 可移动 10 mm。Enter 确认；Esc 取消并恢复连接。这是对象编辑，不是 Blender 的网格或顶点编辑。"
+
+msgid "Use Frame robot to fit the view. Part scaling is not supported; the vertical axis is Y."
+msgstr "使用“聚焦机器人”让视图适合机器人。不支持缩放零件；竖直轴为 Y。"
+
+msgid "Drive with WASD"
+msgstr "使用 WASD 操控"
+
+msgid "Load the biped example, choose Control: WASD / gamepad movement on the right, then enable Run mode at the top. Click the 3D view before driving.\n\nW / S moves forward / backward; A / D turns. A gamepad's left stick sends the same commands. Space brakes; Esc or Stop disables input. The experimental biped gait can be slow or drift; other robots need their own joint program."
+msgstr "加载双足机器人示例，在右侧选择 WASD / 手柄移动操控，再开启顶部的运行模式。操控前先点击 3D 视图。\n\nW / S 前进或后退；A / D 转向。手柄左摇杆发送相同指令。Space 制动；Esc 或停止按钮禁用输入。实验性双足步态可能较慢或偏航；其他机器人需要各自的关节程序。"
+
+msgid "Opening this guide stops code and movement input, not physics. After closing, select WASD control again or toggle Run mode to resume."
+msgstr "打开教程会停止代码和移动输入，但不会暂停物理。关闭后，重新选择 WASD 操控或切换运行模式即可恢复操控。"
+
+msgid "Run your own servo code"
+msgstr "运行自己的舵机代码"
+
+msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. Run code enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
+msgstr "首次编程练习可加载舵机机械臂示例，在代码页查看程序。运行代码会开启物理，并让程序控制已接线的舵机。\n\n代码和 WASD 不会同时操控机器人。在编辑器中打字不会移动机器人。停止会取消程序；返回编辑模式可恢复装配姿态。"
+
+msgid "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code."
+msgstr "编辑器支持精简的 Python 风格舵机语言，而非完整 Python 运行时。加载示例会替换当前代码。"
+
+msgid "Explore the AI motion lab"
+msgstr "探索 AI 动作实验室"
+
+msgid "Open AI motion lab: Connect checks the optional external bridge; Search sets a goal and trial count; Results compares measured trials. Start with the bridge's mock mode without paid model calls.\n\nLive GPT calls require a server-side API key, model access and explicit paid consent. This searches bounded gait parameters, not model training. Apply a valid best result only in edit mode with the same robot assembly."
+msgstr "打开 AI 动作实验室：连接页检查可选的外部桥接服务；搜索页设置目标和试验次数；结果页比较实测数据。可先使用桥接服务的 mock 模式，不调用付费模型。\n\n真实 GPT 调用需要服务器端 API 密钥、模型访问权限及明确的付费同意。这是有限范围内的步态参数搜索，不是模型训练。仅在编辑模式下、机器人装配未改变时，才能应用有效的最佳结果。"
+
+msgid "This guide never connects to a service, starts a trial or grants paid consent. Close it when you are ready to explore."
+msgstr "本教程不会连接服务、启动试验或授予付费同意。准备好后，关闭教程自行探索。"
+
+msgid "Humanoid torso"
+msgstr "人形躯干"
+
+msgid "Humanoid head"
+msgstr "人形头部"
+
+msgid "Virtual humanoid controller"
+msgstr "虚拟人形控制板"
+
+msgid "Humanoid thigh actuator"
+msgstr "人形大腿执行器"
+
+msgid "Humanoid knee actuator"
+msgstr "人形膝关节执行器"
+
+msgid "Humanoid shoulder actuator"
+msgstr "人形肩关节执行器"
+
+msgid "Humanoid elbow and hand"
+msgstr "人形肘部与手"
+
+msgid "Humanoid ankle and foot"
+msgstr "人形踝关节与脚"
+
+msgid "Practice box (0.4 kg)"
+msgstr "练习箱（0.4 kg）"
+
+msgid "Experimental humanoid: torque-controlled joints"
+msgstr "实验性人形：限力矩关节控制"
+
+msgid "Humanoid fell. Return to edit mode to reset."
+msgstr "人形机器人跌倒了。返回编辑模式重置。"
+
+msgid "Move closer and face the box before picking it up."
+msgstr "请靠近并正对箱子后再抓取。"
+
+msgid "Could not reach the box. Reset and move closer."
+msgstr "无法够到箱子。请重置并靠近一些。"
+
+msgid "Box gripped through hand contact. Lifting."
+msgstr "双手接触后已抓住箱子，正在抬起。"
+
+msgid "Box held. E releases it; Stop also releases the grip."
+msgstr "已托住箱子。按 E 释放；停止也会松开抓握。"
+
+msgid "Box released under gravity."
+msgstr "箱子已释放，将在重力作用下落下。"
+
+msgid "Answer: humanoid (experimental)"
+msgstr "示例：人形机器人（实验）"
+
+msgid "Humanoid loaded. W/S walk, Shift sprint trial, E pick up or release. A/D turning is not supported yet."
+msgstr "已加载人形机器人。W/S 行走，Shift 试跑，E 抓取或释放。暂不支持 A/D 转向。"
+
+msgid "AI search currently supports only the four-servo biped, not the humanoid."
+msgstr "AI 搜索目前仅支持四舵机双足机器人，暂不支持人形机器人。"
+
+msgid "Humanoid physics prototype\nW/S: walk · Shift: sprint trial\nE: pick up / release · Space: brake\nA/D turning is not supported yet.\nStop or opening a guide releases the box.\nAI search is not available for this robot."
+msgstr "人形物理原型\nW/S：行走 · Shift：试跑\nE：抓取 / 释放 · Space：制动\n暂不支持 A/D 转向。\n停止或打开指南会释放箱子。\n此机器人暂不支持 AI 搜索。"
+
+msgid "Try the physics humanoid"
+msgstr "体验物理人形机器人"
+
+msgid "Choose Answer: humanoid (experimental), enable Run mode and click the 3D view. W/S walks; hold Shift for a sprint trial. Gamepad B requests sprint and X interacts. A/D turning is not supported yet.\n\nStand close to the box and press E. The robot crouches, reaches with both arms and grips only after both hands contact the box. Press E again to release it under gravity."
+msgstr "选择“示例：人形机器人（实验）”，开启运行模式并点击 3D 视图。W/S 行走，按住 Shift 试跑。手柄 B 请求试跑，X 进行交互。暂不支持 A/D 转向。\n\n站在箱子附近按 E。机器人会下蹲并伸出双臂，只有双手都接触箱子后才会抓握。再次按 E 释放，箱子会在重力作用下落下。"
+
+msgid "This is a simplified ten-joint physics prototype, not trained human motion. Sprinting is not stable yet and can fall. Stop, code control or opening this guide releases the box. Reset in edit mode after a fall. AI search still supports only the four-servo biped."
+msgstr "这是简化的十关节物理原型，并非学习了人类动作的模型。试跑尚不稳定，可能跌倒。停止、切换代码控制或打开本指南都会释放箱子。跌倒后请在编辑模式中重置。AI 搜索仍仅支持四舵机双足机器人。"
+
+msgid "Humanoid needs all ten joints and unambiguous wiring. Reload the humanoid preset to reset."
+msgstr "人形机器人需要完整的 10 个关节及无歧义接线。请重新载入人形示例以重置。"
+
+msgid "Pickup learning lab"
+msgstr "拾箱学习实验室"
+
+msgid "Watch independent physics trials, compare outcomes, then save a scenario. Luna proposes controller parameters; GPT weights are not trained."
+msgstr "观察独立的物理实验，比较结果并保存场景。Luna 只提出控制参数，不训练 GPT 模型权重。"
+
+msgid "Experiments"
+msgstr "实验"
+
+msgid "Local search (no GPT)"
+msgstr "本地搜索（不使用 GPT）"
+
+msgid "GPT-5.6 Luna via bridge"
+msgstr "通过桥接连接 GPT-5.6 Luna"
+
+msgid "Parallel trials"
+msgstr "并行实验数"
+
+msgid "Rounds"
+msgstr "轮数"
+
+msgid "Start pickup search"
+msgstr "开始拾箱搜索"
+
+msgid "Each round tests four candidates. Change parallelism while running (1–4); fewer lanes drain existing trials. More lanes need more CPU/GPU, not more API calls per round."
+msgstr "每轮测试 4 个候选方案。运行时可将并行数调为 1–4；减少时会等待已有实验完成。更多并行实验会增加 CPU/GPU 负载，但不会增加每轮 API 调用数。"
+
+msgid "Waiting for a trial"
+msgstr "等待实验"
+
+msgid "Measured candidates — select any result"
+msgstr "已测量的候选方案 — 请选择结果"
+
+msgid "Scenario name"
+msgstr "场景名称"
+
+msgid "Save selected scenario"
+msgstr "保存所选场景"
+
+msgid "Replay in physics"
+msgstr "重新进行物理验证"
+
+msgid "Apply selected pickup"
+msgstr "应用所选拾箱动作"
+
+msgid "Saved scenarios"
+msgstr "已保存的场景"
+
+msgid "Saved scenarios include the exact assembly, bounded policy and recorded metrics, not credentials or prompts. Loading does not prove success; replay to verify again."
+msgstr "场景保存完整装配结构、限定范围的动作参数和测量记录，不保存凭据或提示词。加载不代表验证成功，请重新运行物理实验。"
+
+msgid "Refresh library"
+msgstr "刷新场景库"
+
+msgid "Select saved scenario"
+msgstr "选择已保存场景"
+
+msgid "Luna connection"
+msgstr "Luna 连接"
+
+msgid "Pickup goal (sent with measured feedback, never learner source code)"
+msgstr "拾箱目标（与测量反馈一同发送，不发送学习者代码）"
+
+msgid "Pick up the box with both hands and hold it without falling."
+msgstr "用双手拾起箱子并保持稳定，不要摔倒。"
+
+msgid "At most one Luna request per round, within the shared bridge call budget. Cancellation may still bill an in-flight call. No automatic paid retries; results may fail."
+msgstr "在桥接服务的共享调用限额内，每轮最多请求 Luna 一次。取消后已发送的请求仍可能计费。不自动重试付费请求，动作也可能失败。"
+
+msgid "Ready for local physics search. Luna is optional."
+msgstr "本地物理搜索已就绪，Luna 连接为可选项。"
+
+msgid "Load a valid humanoid assembly before searching."
+msgstr "搜索前请加载有效的类人机器人装配。"
+
+msgid "Requested rounds exceed the remaining bridge API-call budget."
+msgstr "请求的轮数超出桥接服务剩余的 API 调用限额。"
+
+msgid "Evaluating a measured baseline before proposing candidates."
+msgstr "正在进行基准物理实验，随后再提出候选方案。"
+
+msgid "Pickup trial could not start. Check the assembly and wiring."
+msgstr "无法开始拾箱实验，请检查装配和接线。"
+
+msgid "Search finished: %d measured trials. Select a result to replay or save."
+msgstr "搜索完成：已测量 %d 次实验。选择结果以重新验证或保存。"
+
+msgid "Round %d / %d — preparing four candidates."
+msgstr "第 %d / %d 轮 — 正在准备 4 个候选方案。"
+
+msgid "Invalid pickup proposal; nothing was applied."
+msgstr "拾箱提案无效，未应用任何内容。"
+
+msgid "Invalid pickup result; nothing was saved or applied."
+msgstr "拾箱结果无效，未保存或应用任何内容。"
+
+msgid "Trial %d · %s\nLift %.1f cm · hold %.1f s"
+msgstr "实验 %d · %s\n抬升 %.1f cm · 保持 %.1f s"
+
+msgid "Selected trial %d · %s · lift %.1f cm · hold %.1f s · score %.2f\nSource: %s · %s"
+msgstr "所选实验 %d · %s · 抬升 %.1f cm · 保持 %.1f s · 得分 %.2f\n来源：%s · %s"
+
+msgid "Fresh physics evaluation"
+msgstr "刚完成的物理评估"
+
+msgid "Saved metrics — replay required before applying"
+msgstr "已保存的测量值 — 应用前须重新验证"
+
+msgid "Pickup scenario %d"
+msgstr "拾箱场景 %d"
+
+msgid "Scenario saved locally: %s"
+msgstr "场景已保存到本地：%s"
+
+msgid "Replaying the selected assembly and policy in fresh physics."
+msgstr "正在对所选装配和动作参数进行新的物理实验。"
+
+msgid "Apply requires a successful fresh trial and the unchanged assembly in edit mode."
+msgstr "应用前须有成功的新实验结果，且编辑模式中的装配须与实验时一致。"
+
+msgid "Pickup policy applied. Close the lab, enter Run mode and press E."
+msgstr "拾箱动作已应用。关闭实验室，进入运行模式后按 E。"
+
+msgid "Saved scenario is invalid; nothing was loaded."
+msgstr "已保存的场景无效，未加载任何内容。"
+
+msgid "Loaded a saved scenario without changing the workshop. Replay to verify it."
+msgstr "已加载保存的场景，未更改工作区。请重新运行以验证。"
+
+msgid "Trial %d · %s · %.1f cm · score %.2f"
+msgstr "实验 %d · %s · %.1f cm · 得分 %.2f"
+
+msgid "Local trials stopped. An already-sent Luna request may still be billed."
+msgstr "本地实验已停止。已发送的 Luna 请求仍可能计费。"
+
+msgid "Bridge does not support pickup proposals. Update the local bridge."
+msgstr "桥接服务不支持拾箱提案，请更新本地桥接服务。"
+
+msgid "Provider: %s · shared API calls %d / %d"
+msgstr "提供方：%s · 共享 API 调用 %d / %d"
+
+msgid "Pickup bridge connected. Local physics will verify every proposal."
+msgstr "拾箱桥接已连接。每个提案都将通过本地物理实验验证。"
+
+msgid "Pickup proposal failed. Check bridge settings and request limits; no automatic retry."
+msgstr "拾箱提案失败。请检查桥接设置和请求限额；不会自动重试。"
+
+msgid "Luna submission outcome is unknown. Check the bridge before using Disconnect / forget. No automatic retry."
+msgstr "无法确认 Luna 请求是否已提交。使用“断开 / 忘记”前请检查桥接服务。不会自动重试。"
+
+msgid "Disconnected locally. Any remote request was NOT cancelled by forgetting."
+msgstr "已断开本地连接。“忘记”不会取消远端请求。"
+
+msgid "Pickup succeeded"
+msgstr "拾箱成功"
+
+msgid "Pickup failed"
+msgstr "拾箱失败"
+
+msgid "Scenario name or source is invalid."
+msgstr "场景名称或来源无效。"
+
+msgid "The local scenario library is full (64 files)."
+msgstr "本地场景库已满（64 个文件）。"
+
+msgid "Scenario data is invalid; nothing was saved."
+msgstr "场景数据无效，未保存任何内容。"
+
+msgid "Could not save the scenario under user://."
+msgstr "无法将场景保存到 user://。"
+
+msgid "Pickup policy must contain exactly seven parameters"
+msgstr "拾箱策略必须恰好包含 7 个参数"
+
+msgid "Pickup policy is missing a required parameter"
+msgstr "拾箱策略缺少必需参数"
+
+msgid "Pickup parameters must be finite numbers"
+msgstr "拾箱参数必须是有限数值"
+
+msgid "Pickup parameter is outside its safety bounds"
+msgstr "拾箱参数超出安全范围"
+
+msgid "Baseline pickup parameters"
+msgstr "基准拾箱参数"
+
+msgid "Bounded variation around the best measured pickup"
+msgstr "围绕最佳测量结果进行限定范围调整"
+
+msgid "A pickup trial is already running"
+msgstr "拾箱实验已在运行"
+
+msgid "Pickup trial must be attached to the scene tree"
+msgstr "拾箱实验必须连接到场景树"
+
+msgid "Pickup trial needs a wired humanoid and one reachable box"
+msgstr "拾箱实验需要已接线的类人机器人和一个可触及的箱子"
+
+msgid "ready"
+msgstr "就绪"
+
+msgid "settling"
+msgstr "姿态稳定中"
+
+msgid "reaching"
+msgstr "伸手中"
+
+msgid "lifting"
+msgstr "抬升中"
+
+msgid "holding"
+msgstr "保持中"
+
+msgid "succeeded"
+msgstr "成功"
+
+msgid "failed"
+msgstr "失败"
+
+msgid "cancelled"
+msgstr "已取消"
+
+msgid "baseline"
+msgstr "基准动作"
+
+msgid "local"
+msgstr "本地搜索"
+
+msgid "mock"
+msgstr "模拟提案（未使用 GPT）"
+
+msgid "openai"
+msgstr "OpenAI"
+
+msgid "replay"
+msgstr "重新验证"
+
+msgid "Answer: modular humanoid"
+msgstr "示例：模块化类人机器人"
+
+msgid "Modular humanoid loaded. Run mode: W/S and E. Code tab: signed joint commands. AI lab: parallel pickup search."
+msgstr "已加载模块化类人机器人。运行模式：W/S 和 E。代码页：有正负方向的关节命令。AI 实验室：并行拾箱搜索。"
+
+msgid "Modular torso frame"
+msgstr "模块化躯干框架"
+
+msgid "Removable chest shell"
+msgstr "可拆卸胸部外壳"
+
+msgid "Removable pelvis shell"
+msgstr "可拆卸骨盆外壳"
+
+msgid "Optical head module"
+msgstr "光学头部模块"
+
+msgid "Modular PWM controller"
+msgstr "模块化 PWM 控制器"
+
+msgid "Hip servo module (35 Nm)"
+msgstr "髋关节舵机模块（35 Nm）"
+
+msgid "Knee servo module (35 Nm)"
+msgstr "膝关节舵机模块（35 Nm）"
+
+msgid "Ankle servo module (30 Nm)"
+msgstr "踝关节舵机模块（30 Nm）"
+
+msgid "Shoulder servo module (12 Nm)"
+msgstr "肩关节舵机模块（12 Nm）"
+
+msgid "Elbow servo module (12 Nm)"
+msgstr "肘关节舵机模块（12 Nm）"
+
+msgid "Arm output U-bracket"
+msgstr "手臂输出轴 U 形支架"
+
+msgid "Leg output U-bracket"
+msgstr "腿部输出轴 U 形支架"
+
+msgid "Passive thigh frame"
+msgstr "被动式大腿框架"
+
+msgid "Passive shin frame"
+msgstr "被动式小腿框架"
+
+msgid "Passive upper-arm frame"
+msgstr "被动式上臂框架"
+
+msgid "Passive forearm frame"
+msgstr "被动式前臂框架"
+
+msgid "Padded gripper hand"
+msgstr "带软垫的夹持手"
+
+msgid "Rubber-soled foot module"
+msgstr "橡胶底脚部模块"
+
+msgid "Cancelled"
+msgstr "已取消"
+
+msgid "Motion trials require 60 Hz physics and time_scale 1"
+msgstr "动作实验要求 60 Hz 物理频率和 time_scale 1"
+
+msgid "Assembly cannot be encoded as a safe catalog graph"
+msgstr "无法将此装配转换为安全的目录图"
+
+msgid "Humanoid experiment: W/S walk, Shift running experiment (unstable), E pick/release. The gripper needs contact with both hands. AI lab: parallel pickup search; no GPT weight training."
+msgstr "类人机器人实验：W/S 行走，Shift 试跑（不稳定），E 拾取/放下。夹持时需要双手接触箱子。AI 实验室：并行拾箱搜索，不训练 GPT 权重。"
+
+msgid "Modular humanoid and pickup lab"
+msgstr "模块化类人机器人与拾箱实验室"
+
+msgid "This is a simplified ten-joint physics prototype, not trained human motion. Sprinting is not stable yet and can fall. Stop, code control or opening this guide releases the box. Reset in edit mode after a fall. The pickup lab searches bounded parameters."
+msgstr "这是简化的十关节物理原型，并非学得的人类动作。奔跑尚不稳定，可能摔倒。停止、切换到代码控制或打开本指南都会放下箱子。摔倒后请在编辑模式中重置。拾箱实验室只搜索限定范围内的参数。"
+
+msgid "Load Answer: modular humanoid to inspect separate motors, brackets, frames, hands and shells. The Code tab controls wired joints with write_relative(). In the AI lab, start locally or connect Luna, increase parallel trials from 1 to 4, select a result and save it. Saved scenarios must be replayed before applying; API calls need explicit consent."
+msgstr "加载“示例：模块化类人机器人”，查看独立的电机、支架、框架、手和外壳。代码页可用 write_relative() 控制已接线的关节。在 AI 实验室中本地开始或连接 Luna，将并行实验数从 1 增加到 4，选择结果并保存。保存的场景须重新验证后才能应用；API 调用需要明确同意。"
+
+msgid "Perforated beam 60 mm"
+msgstr "多孔梁 60 mm"
+
+msgid "Perforated beam 100 mm"
+msgstr "多孔梁 100 mm"
+
+msgid "Perforated beam 140 mm"
+msgstr "多孔梁 140 mm"
+
+msgid "Perforated beam 180 mm"
+msgstr "多孔梁 180 mm"
+
+msgid "Perforated beam 240 mm"
+msgstr "多孔梁 240 mm"
+
+msgid "Perforated beam 260 mm"
+msgstr "多孔梁 260 mm"
+
+msgid "Perforated plate 60 × 40 mm"
+msgstr "多孔板 60 × 40 mm"
+
+msgid "Perforated plate 60 × 60 mm"
+msgstr "多孔板 60 × 60 mm"
+
+msgid "Perforated plate 80 × 60 mm"
+msgstr "多孔板 80 × 60 mm"
+
+msgid "Perforated plate 120 × 80 mm"
+msgstr "多孔板 120 × 80 mm"
+
+msgid "Perforated plate 160 × 60 mm"
+msgstr "多孔板 160 × 60 mm"
+
+msgid "Perforated plate 220 × 120 mm"
+msgstr "多孔板 220 × 120 mm"
+
+msgid "Angle bracket 60 × 40 mm"
+msgstr "直角支架 60 × 40 mm"
+
+msgid "U bracket 86 mm"
+msgstr "U 形支架 86 mm"
+
+msgid "U bracket 58 mm"
+msgstr "U 形支架 58 mm"
+
+msgid "Through spacer 20 mm"
+msgstr "通孔隔柱 20 mm"
+
+msgid "Shaft coupler 8 mm"
+msgstr "联轴器 8 mm"
+
+msgid "Mounting bolt 4 × 12 mm"
+msgstr "安装螺栓 4 × 12 mm"
+
+msgid "Hex nut 4 mm"
+msgstr "六角螺母 4 mm"
+
+msgid "Grip pad 60 × 40 mm"
+msgstr "防滑垫 60 × 40 mm"
+
+msgid "Servo motor 35 Nm"
+msgstr "舵机 35 Nm"
+
+msgid "Servo motor 12 Nm"
+msgstr "舵机 12 Nm"
+
+msgid "Ten-channel controller"
+msgstr "十通道控制器"
+
+msgid "Optical sensor module"
+msgstr "光学传感器模块"
+
+msgid "Answer: construction-kit humanoid"
+msgstr "示例：拼装套件类人机器人"
+
+msgid "Answer: kit bridge"
+msgstr "示例：套件桥梁"
+
+msgid "Construction kit"
+msgstr "拼装套件"
+
+msgid "Construction-kit humanoid loaded. Each beam, plate, bracket and connector is a separate part. Select a part to inspect its holes; G moves it."
+msgstr "已加载拼装套件类人机器人。每根梁、板、支架和连接件都是独立零件。选中零件可查看孔位，按 G 移动。"
+
+msgid "Kit bridge loaded: the same beams, plates and fasteners, assembled into a different structure."
+msgstr "已加载套件桥梁：用相同的梁、板和紧固件拼装成不同的结构。"
+
+msgid "Build with interchangeable parts"
+msgstr "用可互换的零件拼装"
+
+msgid "Choose Answer: construction-kit humanoid, then open AI motion lab. Start locally or connect Luna, increase parallel trials from 1 to 4, select a measured result and save it. Saved scenarios must be replayed before applying; paid API calls need explicit consent."
+msgstr "选择“示例：拼装套件类人机器人”，然后打开 AI 动作实验室。本地开始或连接 Luna，将并行实验数从 1 增加到 4，选择测量结果并保存。保存的场景须重新运行后才能应用；付费 API 调用需要明确同意。"
+
+msgid "Choose Answer: construction-kit humanoid or Answer: kit bridge. Both use the same 20 mm-pitch beams, plates, brackets and connectors. Select one part, move it with G and snap a matching hole to another part. The Blender file includes a parts tray, assembled examples and an exploded view; no torso or limb is one joined frame."
+msgstr "选择“示例：拼装套件类人机器人”或“示例：套件桥梁”。两者都使用相同的 20 mm 孔距梁、板、支架和连接件。选中一个零件，按 G 移动，将兼容的孔位吸附到另一个零件。Blender 文件包含零件托盘、拼装示例和爆炸图；躯干与四肢都不是合并成一体的框架。"
+
+msgid "The kit uses ssok's own virtual dimensions, not a certified commercial standard. Motors are complete units; structural beams, plates and covers remain separate."
+msgstr "本套件采用 ssok 自定义的虚拟尺寸，并非经过认证的商业标准。电机是完整单元；结构梁、板和盖板均保持独立。"
+
+msgid "Projects"
+msgstr "项目"
+
+msgid "Keep building. Pick up where you left off."
+msgstr "保存作品，随时继续搭建。"
+
+msgid "Saved on this device. Export a copy before clearing browser data or changing devices."
+msgstr "保存在此设备上。清除浏览器数据或更换设备前，请导出副本。"
+
+msgid "Project name"
+msgstr "项目名称"
+
+msgid "Save a snapshot"
+msgstr "保存快照"
+
+msgid "Export project"
+msgstr "导出项目"
+
+msgid "Saved projects"
+msgstr "已保存的项目"
+
+msgid "Open selected"
+msgstr "打开所选项目"
+
+msgid "Delete snapshot"
+msgstr "删除快照"
+
+msgid "Import / export"
+msgstr "导入 / 导出"
+
+msgid "Copy this project JSON to share it, or paste a project here to import. Imported code never runs automatically."
+msgstr "复制项目 JSON 以分享，或在此粘贴项目以导入。导入的代码不会自动运行。"
+
+msgid "Copy JSON"
+msgstr "复制 JSON"
+
+msgid "Project JSON copied."
+msgstr "已复制项目 JSON。"
+
+msgid "Import project"
+msgstr "导入项目"
+
+msgid "Confirm project action"
+msgstr "确认项目操作"
+
+msgid "Save creates a new snapshot; earlier versions are kept."
+msgstr "每次保存都会创建新快照，早期版本将保留。"
+
+msgid "Project saved. Your previous snapshots are still available."
+msgstr "项目已保存。以前的快照仍可使用。"
+
+msgid "Project data is invalid or too large."
+msgstr "项目数据无效或过大。"
+
+msgid "Your project library is full. Export or delete a saved project first."
+msgstr "项目库已满。请先导出或删除一个已保存的项目。"
+
+msgid "Could not save this project. Export a copy to keep your work."
+msgstr "无法保存项目。请导出副本以保留作品。"
+
+msgid "Project JSON is ready. Keep a copy outside this device."
+msgstr "项目 JSON 已就绪。请在此设备之外保存一份副本。"
+
+msgid "This is not a valid ssok project. Your current work is unchanged."
+msgstr "这不是有效的 ssok 项目。当前作品未更改。"
+
+msgid "Replace the current assembly and code? Save a snapshot first if you want to keep them."
+msgstr "替换当前装配和代码？如需保留，请先保存快照。"
+
+msgid "Delete this saved snapshot? Other snapshots and your open project are kept."
+msgstr "删除此快照？其他快照和当前项目将保留。"
+
+msgid "Snapshot deleted."
+msgstr "快照已删除。"
+
+msgid "Could not delete this snapshot."
+msgstr "无法删除此快照。"
+
+msgid "Project opened. Code runs only when you press Run code."
+msgstr "项目已打开。仅在点击运行代码后执行。"
+
+msgid "Blocks"
+msgstr "积木"
+
+msgid "Connect servo"
+msgstr "连接舵机"
+
+msgid "Set servo angle"
+msgstr "设置舵机角度"
+
+msgid "Set relative angle"
+msgstr "设置相对角度"
+
+msgid "Wait"
+msgstr "等待"
+
+msgid "Virtual servo board"
+msgstr "虚拟舵机控制板"
+
+msgid "Build a program with blocks"
+msgstr "用积木编写程序"
+
+msgid "Read from code"
+msgstr "从代码读取"
+
+msgid "Add block"
+msgstr "添加积木"
+
+msgid "Apply blocks to code"
+msgstr "将积木应用到代码"
+
+msgid "Remove block"
+msgstr "删除积木"
+
+msgid "name"
+msgstr "名称"
+
+msgid "pin"
+msgstr "引脚"
+
+msgid "angle"
+msgstr "角度"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "This program is too large for the block editor."
+msgstr "此程序超出了积木编辑器的大小限制。"
+
+msgid "This line cannot be represented as a block. Your code is unchanged."
+msgstr "此行无法表示为积木。代码未更改。"
+
+msgid "This command is outside the board API limits. Your code is unchanged."
+msgstr "此命令超出了控制板 API 的范围。代码未更改。"
+
+msgid "A block contains an invalid value. Your code is unchanged."
+msgstr "积木中有无效值。代码未更改。"
+
+msgid "Blocks are ready. Apply them to update the code; Run code starts the robot."
+msgstr "积木已就绪。应用后可更新代码，点击运行代码启动机器人。"
+
+msgid "Code updated. Run code to try your program."
+msgstr "代码已更新。运行代码来试试程序。"
+
+msgid "Code changed after these blocks were loaded. Read from code before applying."
+msgstr "读取积木后代码已更改。请重新从代码读取后再应用。"
+
+msgid "Load an example"
+msgstr "加载示例"
+
+msgid "No saved projects yet. Save your first snapshot above."
+msgstr "还没有保存的项目。请在上方保存第一个快照。"
+
+msgid "Keep your changes?"
+msgstr "保留更改吗？"
+
+msgid "This example will replace your assembly and code. Save a snapshot to keep your changes."
+msgstr "此示例将替换当前装配和代码。保存快照可保留更改。"
+
+msgid "Replace without saving"
+msgstr "不保存并替换"
+
+msgid "Save and switch"
+msgstr "保存并切换"
+
+msgid "Replace unapplied blocks with the current code?"
+msgstr "用当前代码替换尚未应用的积木吗？"
+
+msgid "Resolve the block editor error before saving or exporting. Your changes are kept."
+msgstr "请先解决积木编辑器中的错误，再保存或导出。您的更改会保留。"
+
+msgid "Saving or exporting applies valid blocks to your code."
+msgstr "保存或导出时会将有效积木应用到代码。"
+
+msgid "Esc leaves the code editor. Tab moves between controls."
+msgstr "按 Esc 离开代码编辑器，按 Tab 在控件间移动。"
+
+msgid "Build a program from blocks"
+msgstr "用积木构建程序"
+
+msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
+msgstr "打开积木并选择从代码读取。修改角度或添加等待积木，然后应用到代码。点击运行代码才会启动机器人，应用积木不会自动运行。\n\n保存或导出也会包含尚未应用的有效积木。如果分别修改了代码和积木，请先解决冲突再保存。不支持的代码会保持原样。"
+
+msgid "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus."
+msgstr "使用 Tab 和 Shift + Tab 在控件间移动。Esc 可离开代码编辑器或关闭对话框。界面控件获得焦点时，机器人控制会暂停。"
+
+msgid "Save and share your robot"
+msgstr "保存并分享机器人"
+
+msgid "Open Projects or press Ctrl / Cmd + S. Name your robot and choose Save a snapshot. Each save keeps earlier versions. Select a saved project and Open selected to restore its assembly and code without running it.\n\nExport project gives you portable JSON; the browser downloads a file. To open a shared project, paste its JSON in Import / export and choose Import project, then confirm replacement."
+msgstr "打开项目或按 Ctrl / Cmd + S。为机器人命名并保存快照。每次保存都会保留旧版本。选择已保存的项目并打开，即可恢复装配和代码，且不会自动运行。\n\n导出项目可获得可移植的 JSON，浏览器会下载文件。要打开分享的项目，请将 JSON 粘贴到导入/导出，选择导入项目并确认替换。"
+
+msgid "Projects are stored on this device. Keep an exported copy before clearing browser data or changing computers. Loading a starter asks before replacing unsaved work."
+msgstr "项目保存在当前设备上。清除浏览器数据或更换电脑前，请保留导出的副本。加载示例会在替换未保存的工作前询问。"
+
+msgid "Yaw Biped Body"
+msgstr "偏航双足机身"
+
+msgid "Yaw Leg Link"
+msgstr "偏航腿部连杆"
+
+msgid "Torque Micro Servo"
+msgstr "限扭微型舵机"
+
+msgid "Sixteen-channel controller"
+msgstr "十六通道控制器"
+
+msgid "Answer: learned biped"
+msgstr "示例：学习步态机器人"
+
+msgid "Learned biped loaded. Choose Run mode, then hold W to walk forward."
+msgstr "已加载学习步态的双足机器人。进入运行模式，按住 W 向前行走。"
+
+msgid "Learned forward gait: hold W or push the stick forward; release to stop. Reverse and turning are not supported."
+msgstr "学习到的前进步态：按住 W 或向前推动摇杆，松开即停止。不支持后退和转向。"
+
+msgid "This learned gait needs its original assembly and physics settings. Reload the learned-biped example to restore them."
+msgstr "此学习步态需要原始装配和物理设置。请重新加载已学习步态的双足机器人示例以恢复。"
+
+msgid "Wiring"
+msgstr "接线"
+
+msgid "Connect a motor to a board pin"
+msgstr "将电机连接到开发板引脚"
+
+msgid "Choose the motor signal and a compatible pin. Wiring keeps your parts in place."
+msgstr "选择电机信号接口和兼容引脚。接线不会移动零件。"
+
+msgid "Motor signal"
+msgstr "电机信号接口"
+
+msgid "Board pin"
+msgstr "开发板引脚"
+
+msgid "Connect wire"
+msgstr "连接导线"
+
+msgid "Disconnect wire"
+msgstr "断开导线"
+
+msgid "Add a motor and a board to wire your robot."
+msgstr "添加电机和开发板后，为机器人接线。"
+
+msgid "Wire connected · Ctrl+Z to undo"
+msgstr "导线已连接 · Ctrl+Z 撤销"
+
+msgid "Wire disconnected · Ctrl+Z to undo"
+msgstr "导线已断开 · Ctrl+Z 撤销"
+
+msgid "This program is too large. Use at most 2048 lines and 64 KiB."
+msgstr "程序过大。请缩减至 2048 行、64 KiB 以内。"
+
+msgid "Servo angles must be finite numbers."
+msgstr "伺服角度必须是有限数值。"
+
+msgid "Wait must be between 0 and 60 seconds."
+msgstr "等待时间必须在 0 到 60 秒之间。"
+
+msgid "This project supports up to 256 parts. Delete a part before adding another."
+msgstr "项目最多支持 256 个零件。请先删除一个零件再添加。"
+
+msgid "Parts must stay within 100 m of the workspace origin."
+msgstr "零件在各轴上的坐标必须位于工作区原点的 100 m 范围内。"
+msgid "Raise the flag"
+msgstr "升起旗帜"
+
+msgid "Try the flag mission"
+msgstr "挑战升旗任务"
+
+msgid "Connect the arm to the servo. You can start with the finished example."
+msgstr "把机械臂接到舵机上。也可以从完成的示例开始。"
+
+msgid "Load servo arm"
+msgstr "载入舵机机械臂"
+
+msgid "Connect the servo to a board pin. The program uses your actual wiring."
+msgstr "把舵机接到主板引脚上。程序会按照实际接线运行。"
+
+msgid "Run the code. Watch the flag move down and return to its mark."
+msgstr "运行代码，看看旗帜是否先下降，再回到目标高度。"
+
+msgid "The flag is moving. The real arm position decides success."
+msgstr "旗帜正在移动。是否成功取决于机械臂的实际位置。"
+
+msgid "The flag reached its mark and stayed there. Change one angle and try again."
+msgstr "旗帜到达目标高度并保持了一会儿。改一个角度，再试一次。"
+
+msgid "Try again"
+msgstr "再试一次"
+
+msgid "Build a small robot, wire its motor, and raise the flag."
+msgstr "组装小机器人，接好电机，升起旗帜。"
+
+msgid "The flag has not reached its mark. Change an angle and try again."
+msgstr "旗帜还没有到达目标高度。调整角度，再试一次。"
+
+msgid "Raise a flag with your robot."
+msgstr "用你的机器人升起旗帜。"
+
+msgid "Start with the servo arm, or build your own from the parts library."
+msgstr "从舵机机械臂开始，也可以从零件库中选择零件自己组装。"
+
+msgid "Try the servo arm"
+msgstr "从舵机机械臂开始"
+
+msgid "Add ':' after the condition."
+msgstr "请在条件后添加冒号（:）。"
+
+msgid "Build this arm yourself"
+msgstr "自己组装机械臂"
+
+msgid "Build your own solution. Success uses measured results."
+msgstr "用自己的方法解题。成功由实际运动结果判定。"
+
+msgid "Cannot divide by zero."
+msgstr "不能除以零。请更改除数。"
+
+msgid "Challenge cleared. Change your build and try another solution."
+msgstr "挑战成功。修改组装，试试其他解法。"
+
+msgid "Challenge data is invalid. Your build is unchanged."
+msgstr "无法读取挑战文件。请检查文件内容。组装保持不变。"
+
+msgid "Challenge exported. Imported files must be tested again."
+msgstr "挑战已导出。导入后需要重新运行验证。"
+
+msgid "Challenge running. Watching the real robot."
+msgstr "挑战正在运行。正在观察机器人的实际运动。"
+
+msgid "Check the command name and its arguments."
+msgstr "请检查命令名称和括号内的参数。"
+
+msgid "Check this expression."
+msgstr "请检查表达式和括号。"
+
+msgid "Check this symbol."
+msgstr "请检查这个符号。"
+
+msgid "Choose a challenge, or build freely in Lab."
+msgstr "选择挑战，或在 Lab 中自由制作。"
+
+msgid "Choose another variable name."
+msgstr "请使用其他变量名。"
+
+msgid "Choose brake or coast."
+msgstr "请选择 brake（制动）或 coast（滑行）。"
+
+msgid "Choose forward or reverse and a speed from 0 to 100."
+msgstr "方向使用 forward 或 reverse，速度填写 0~100。"
+
+msgid "Code block"
+msgstr "代码块"
+
+msgid "Column %d: %s"
+msgstr "第%d列：%s"
+
+msgid "Connect distance sensor"
+msgstr "连接距离传感器"
+
+msgid "Connect wheel motor"
+msgstr "连接车轮电机"
+
+msgid "Else"
+msgstr "否则"
+
+msgid "Else if"
+msgstr "否则如果"
+
+msgid "Export verified challenge"
+msgstr "导出已验证的挑战"
+
+msgid "Flag height: %.1f cm · change from last run: %+.1f cm. Try a different angle."
+msgstr "旗帜高度 %.1f cm，比上次变化 %+.1f cm。试试其他角度。"
+
+msgid "Free building · Lab"
+msgstr "自由制作 · Lab"
+
+msgid "If"
+msgstr "如果"
+
+msgid "Import challenge"
+msgstr "导入挑战"
+
+msgid "Indent the body of this block."
+msgstr "请缩进这个代码块的内容。"
+
+msgid "Lab: build freely. You can turn your build into a challenge."
+msgstr "在 Lab 中自由制作。可以把作品变成挑战。"
+
+msgid "Load challenge"
+msgstr "开始挑战"
+
+msgid "My challenge"
+msgstr "我的挑战"
+
+msgid "Read distance"
+msgstr "读取距离"
+
+msgid "Repeat while"
+msgstr "满足条件时重复"
+
+msgid "Return to edit mode and choose a target part first."
+msgstr "请先返回编辑模式并选择目标零件。"
+
+msgid "Run and clear this exact build and code before exporting."
+msgstr "请先用当前组装和代码完成挑战，再导出。"
+
+msgid "Run and clear your challenge before exporting it."
+msgstr "导出前请先运行并完成自己的挑战。"
+
+msgid "Run wheel motor"
+msgstr "运行车轮电机"
+
+msgid "Set variable"
+msgstr "设置变量"
+
+msgid "Stages"
+msgstr "关卡"
+
+msgid "Stages and free building"
+msgstr "关卡与自由制作"
+
+msgid "Stop all motors"
+msgstr "停止所有电机"
+
+msgid "Stop wheel motor"
+msgstr "停止车轮电机"
+
+msgid "This device does not support that command."
+msgstr "这个零件不支持该命令。请检查零件和命令。"
+
+msgid "This expression or block is too deeply nested."
+msgstr "表达式或代码块嵌套过深。请拆分。"
+
+msgid "This import is not supported."
+msgstr "不支持导入这个模块。请参考示例的 import 语句。"
+
+msgid "This variable is not a connected device."
+msgstr "这个变量没有连接设备。请先连接设备。"
+
+msgid "Time is up. Change your build or code and try again."
+msgstr "时间到了。修改组装或代码后再试。"
+
+msgid "Try author solution"
+msgstr "运行作者的解法"
+
+msgid "Turn my build into a challenge"
+msgstr "把作品变成挑战"
+
+msgid "Unexpected indentation."
+msgstr "缩进不一致。请对齐同一代码块的起始位置。"
+
+msgid "Use '==' to compare values."
+msgstr "比较数值时请使用 ==。"
+
+msgid "Use a board pin when connecting hardware."
+msgstr "连接设备时请使用开发板引脚。"
+
+msgid "Use a connected echo pin and pulse level 1."
+msgstr "请使用已连接的 echo 引脚和电平 1。"
+
+msgid "Use a finite number here."
+msgstr "这里请使用有限数值。"
+
+msgid "Use an assignment or a supported command."
+msgstr "请为变量赋值或使用支持的命令。"
+
+msgid "Use spaces for indentation."
+msgstr "请使用空格进行缩进。"
+
+msgid "Use this command inside a loop."
+msgstr "请在循环内使用这个命令。"
+
+msgid "Your servo uses pin %d. Use the same pin in your code, then run."
+msgstr "舵机连接到引脚%d。请在代码中使用相同引脚再运行。"
+
+msgid "Height (m)"
+msgstr "高度（m）"
+
+msgid "Position X (m)"
+msgstr "X位置（m）"
+
+msgid "Distance (cm)"
+msgstr "距离（cm）"
+
+msgid "Speed (m/s)"
+msgstr "速度（m/s）"
+
+msgid "Upright"
+msgstr "竖直程度"
+
+msgid "Wall contact (0 or 1)"
+msgstr "墙壁接触（0或1）"
+
+msgid "Minimum"
+msgstr "最小值"
+
+msgid "Maximum"
+msgstr "最大值"
+
+msgid "Hold (seconds)"
+msgstr "保持时间（秒）"
+
+msgid "Paste a challenge file here"
+msgstr "在此粘贴挑战文件"
+
+msgid "micro:bit V2"
+msgstr "micro:bit V2"
+
+msgid "Motor Driver V2 (DRV8833)"
+msgstr "电机驱动板 V2（DRV8833）"
+
+msgid "Motor Driver (TB6612FNG)"
+msgstr "电机驱动板（TB6612FNG）"
+
+msgid "Robot Car Chassis"
+msgstr "机器人小车底盘"
+
+msgid "Ball Caster"
+msgstr "万向球轮"
+
+msgid "Stage Wall"
+msgstr "关卡墙壁"
+
+msgid "Cross the finish line"
+msgstr "越过终点线"
+
+msgid "Brake before the wall"
+msgstr "在墙前停车"
+
+msgid "Connect the arm"
+msgstr "连接机械臂"
+
+msgid "Open wiring"
+msgstr "打开接线"
+
+msgid "Connect the loose arm, then wire its servo to a board pin."
+msgstr "连接分离的机械臂，再把舵机接到开发板引脚。"
+
+msgid "Challenge loaded. Build your own solution."
+msgstr "挑战已加载。请用自己的方法解题。"
+
+msgid "Name '%s' is not defined. Did you mean '%s'?"
+msgstr "名称 '%s' 未定义。你想用的是 '%s' 吗？"

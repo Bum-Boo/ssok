@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/hc_sr04.res" id="1_r8pgq"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_rhiej"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_lkqxk"]
+
+[sub_resource type="Resource" id="Resource_6burm"]
+script = ExtResource("2_rhiej")
+id = &"mount"
+local_position = Vector3(0, 0, -0.0008)
+local_normal = Vector3(0, 0, -1)
+tag = &"sensor_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[sub_resource type="Resource" id="Resource_oavqo"]
+script = ExtResource("2_rhiej")
+id = &"trig_pin"
+kind = 1
+local_position = Vector3(-0.00127, -0.0185, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"digital_io"
+accepts = Array[StringName]([&"board_digital", &"board_digital_pwm"])
+
+[sub_resource type="Resource" id="Resource_yc1jg"]
+script = ExtResource("2_rhiej")
+id = &"echo_pin"
+kind = 1
+local_position = Vector3(0.00127, -0.0185, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"digital_io"
+accepts = Array[StringName]([&"board_digital", &"board_digital_pwm"])
+
+[resource]
+script = ExtResource("3_lkqxk")
+id = &"learning_hc_sr04"
+display_name = "HC-SR04 Ultrasonic"
+mesh = ExtResource("1_r8pgq")
+ports = Array[ExtResource("2_rhiej")]([SubResource("Resource_6burm"), SubResource("Resource_oavqo"), SubResource("Resource_yc1jg")])
+mass_kg = 0.009
+merge_fixed_connections = true

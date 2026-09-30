@@ -7,10 +7,36 @@ config_version=5
 [application]
 
 config/name="ssok"
+config/description="Build a robot. Wire its motors. Make it move."
+config/icon="res://assets/branding/ssok.svg"
+boot_splash/image="res://assets/branding/ssok.png"
+boot_splash/bg_color=Color(0.0901961, 0.109804, 0.141176, 1)
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+Language="*res://src/ui/ssok_locale.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/beehave/plugin.cfg")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/locales/ko.po", "res://assets/locales/zh_CN.po", "res://assets/locales/ja.po")
+locale/fallback="en"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[physics]
+
+3d/solver/solver_iterations=64
+3d/solver/contact_max_allowed_penetration=0.001
+3d/solver/contact_recycle_radius=0.001
+3d/solver/contact_max_separation=0.005

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/rubber_normal.res" id="1_olacq"]
+
+[resource]
+resource_name = "Rubber"
+albedo_color = Color(0.1428257, 0.15170372, 0.16007765, 1)
+metallic_specular = 0.25
+roughness = 0.86
+normal_enabled = true
+normal_scale = 0.24
+normal_texture = ExtResource("1_olacq")
+uv1_scale = Vector3(160, 160, 160)
+uv1_triplanar = true

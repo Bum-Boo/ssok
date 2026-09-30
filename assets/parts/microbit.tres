@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/microbit.res" id="1_khws5"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_k82ly"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_757gd"]
+
+[sub_resource type="Resource" id="Resource_2olt7"]
+script = ExtResource("2_k82ly")
+id = &"pin_0"
+kind = 1
+local_position = Vector3(-0.024, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_diqvw"]
+script = ExtResource("2_k82ly")
+id = &"pin_1"
+kind = 1
+local_position = Vector3(-0.016, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_qgevi"]
+script = ExtResource("2_k82ly")
+id = &"pin_2"
+kind = 1
+local_position = Vector3(-0.008, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_nuumw"]
+script = ExtResource("2_k82ly")
+id = &"pin_8"
+kind = 1
+local_position = Vector3(0, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_5rb8w"]
+script = ExtResource("2_k82ly")
+id = &"pin_12"
+kind = 1
+local_position = Vector3(0.008, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_rdxfb"]
+script = ExtResource("2_k82ly")
+id = &"pin_16"
+kind = 1
+local_position = Vector3(0.016, 0.0025, 0.019)
+tag = &"board_digital_pwm"
+accepts = Array[StringName]([&"pwm_signal", &"digital_io", &"driver_input"])
+
+[sub_resource type="Resource" id="Resource_ogius"]
+script = ExtResource("2_k82ly")
+id = &"mount_bottom"
+local_position = Vector3(0, -0.0025, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"board_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("3_757gd")
+id = &"microbit"
+display_name = "micro:bit V2"
+mesh = ExtResource("1_khws5")
+ports = Array[ExtResource("2_k82ly")]([SubResource("Resource_2olt7"), SubResource("Resource_diqvw"), SubResource("Resource_qgevi"), SubResource("Resource_nuumw"), SubResource("Resource_5rb8w"), SubResource("Resource_rdxfb"), SubResource("Resource_ogius")])
+mass_kg = 0.015
+merge_fixed_connections = true
+board_profile_id = "microbit"

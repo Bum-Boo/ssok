@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/servo_bracket.res" id="1_y0hqt"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_d80me"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_2moxn"]
+
+[sub_resource type="Resource" id="Port_mount_bottom"]
+script = ExtResource("2_d80me")
+id = &"mount_bottom"
+local_position = Vector3(0, -0.002, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"servo_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[sub_resource type="Resource" id="Port_mount_top"]
+script = ExtResource("2_d80me")
+id = &"mount_top"
+local_position = Vector3(0, 0.002, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[sub_resource type="Resource" id="Port_mount_rear"]
+script = ExtResource("2_d80me")
+id = &"mount_rear"
+local_position = Vector3(0, 0.016, -0.015)
+local_normal = Vector3(0, 0, -1)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[resource]
+script = ExtResource("3_2moxn")
+id = &"servo_bracket"
+display_name = "Servo Angle Bracket"
+mesh = ExtResource("1_y0hqt")
+ports = Array[ExtResource("2_d80me")]([SubResource("Port_mount_bottom"), SubResource("Port_mount_top"), SubResource("Port_mount_rear")])
+mass_kg = 0.015

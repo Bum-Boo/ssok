@@ -1,0 +1,53 @@
+{
+  "base_commit": "389f817deacbf62dfb3ff73dfa132301e4be7329",
+  "candidate_sha256": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+  "scope": "Actual WASM app six declared fresh/restart keyboard flows under frozen heading candidate; read-only multi-episode observer retained. No runtime/physics changes. First repeat observer on/off native parity with same candidate. Not a clean release because candidate and observer are isolated modifications.",
+  "schedule": [
+    {
+      "name": "fresh-60",
+      "settle": 60
+    },
+    {
+      "name": "fresh-90",
+      "settle": 90
+    },
+    {
+      "name": "fresh-150",
+      "settle": 150
+    },
+    {
+      "name": "restart-21-18",
+      "settle": 60,
+      "warmup": 21,
+      "pause": 18
+    },
+    {
+      "name": "restart-120-60",
+      "settle": 60,
+      "warmup": 120,
+      "pause": 60
+    },
+    {
+      "name": "restart-222-180",
+      "settle": 60,
+      "warmup": 222,
+      "pause": 180
+    }
+  ],
+  "patch_sha256": {
+    "export_presets.cfg": "4cebc05065378e1c8fd3245753f379106c9f218084bbdca6ce2fbb1b51bdef47",
+    "src/ui/browser_evidence.gd": "b45bfc3505f56a17b7ab3be6eeb175433d2a848c29a04c64b16c0ddb40a5d0f9",
+    "assets/policies/yaw_biped_bounded_v2.json": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+    "tools/ci/native_parity.gd": "0811818ec57fa640826ae367b3c74a389b8cefdb752429a9899bf6387182da18",
+    "tools/ci/browser_layout.gd": "ea82f3652d8e0f43f7135f904ad98d3501b9beb77a0fa149d680e4c76432c318"
+  },
+  "tools_sha256": {
+    "browser_smoke.py": "4e27d18a02d019651fb650be9a89be3731628c82113d168535ea12ebd3cb0c0e",
+    "browser_matrix.py": "e07ee8d84bdd4d4281ad82b115f04e6074092b3929f6d64b6b0458700c22a365"
+  },
+  "template_sha256": {
+    "version.txt": "38885c88f75abbc797a1db7559719800279a00cfb9fa8b2e2868a7f6f84bad2e",
+    "web_nothreads_release.zip": "d3ee2f08cef0cf3cf6678a6355a92a8db48ccdd35cbd2e8bfd5f0e8a0b4032a0"
+  },
+  "template_source": "Byte-identical members of previously verified pinned Godot4.7.2 official TPZ, archive SHA f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011"
+}

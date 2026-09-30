@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/chassis_plate.res" id="1_pfabl"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_ftkwd"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_f02ts"]
+
+[sub_resource type="Resource" id="Port_mount_center"]
+script = ExtResource("2_ftkwd")
+id = &"mount_center"
+local_position = Vector3(0, 0.002, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[sub_resource type="Resource" id="Port_mount_left"]
+script = ExtResource("2_ftkwd")
+id = &"mount_left"
+local_position = Vector3(-0.04, 0.002, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[sub_resource type="Resource" id="Port_mount_right"]
+script = ExtResource("2_ftkwd")
+id = &"mount_right"
+local_position = Vector3(0.04, 0.002, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[sub_resource type="Resource" id="Port_mount_rear"]
+script = ExtResource("2_ftkwd")
+id = &"mount_rear"
+local_position = Vector3(0, 0.002, -0.025)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[sub_resource type="Resource" id="Port_mount_front"]
+script = ExtResource("2_ftkwd")
+id = &"mount_front"
+local_position = Vector3(0, 0.002, 0.025)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount", &"motor_mount", &"sensor_mount"])
+
+[resource]
+script = ExtResource("3_f02ts")
+id = &"chassis_plate"
+display_name = "Chassis Plate 120 mm"
+mesh = ExtResource("1_pfabl")
+ports = Array[ExtResource("2_ftkwd")]([SubResource("Port_mount_center"), SubResource("Port_mount_left"), SubResource("Port_mount_right"), SubResource("Port_mount_rear"), SubResource("Port_mount_front")])
+mass_kg = 0.06

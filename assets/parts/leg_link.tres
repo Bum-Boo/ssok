@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/meshes/leg_link.res" id="1_uf303"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_30bg2"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_nsus1"]
+
+[sub_resource type="Resource" id="Port_hip_mount"]
+script = ExtResource("2_30bg2")
+id = &"hip_mount"
+local_position = Vector3(0.006, 0.014, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"arm_mount"
+accepts = Array[StringName]([&"servo_output"])
+
+[sub_resource type="Resource" id="Port_ankle_mount"]
+script = ExtResource("2_30bg2")
+id = &"ankle_mount"
+local_position = Vector3(0, -0.02, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount"])
+
+[resource]
+script = ExtResource("3_nsus1")
+id = &"leg_link"
+display_name = "Leg Link"
+mesh = ExtResource("1_uf303")
+ports = Array[ExtResource("2_30bg2")]([SubResource("Port_hip_mount"), SubResource("Port_ankle_mount")])
+mass_kg = 0.012

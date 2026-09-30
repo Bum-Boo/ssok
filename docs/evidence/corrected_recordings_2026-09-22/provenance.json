@@ -1,0 +1,144 @@
+{
+  "application_source_commit": "6470757aba1f34afbc30105bf6c77cb117707264",
+  "application_dirty": false,
+  "learned_capture_script_change": "Pass policy version to runtime fingerprint; measure heading and displacement in the horizontal command frame. Read-only changes; native trajectories have identical minimum height/uprightness and stopped uprightness.",
+  "actuator_model": "hinge-per-step-budget-v2",
+  "media": {
+    "learned-walk.mp4": {
+      "sha256": "c1276461f033b48b61ed57a2cd28198c18c3a59226b14a98fde83ed45816f173",
+      "bytes": 3099705,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1152,
+            "height": 648,
+            "r_frame_rate": "30/1",
+            "nb_frames": "437"
+          }
+        ],
+        "format": {
+          "duration": "14.566667"
+        }
+      }
+    },
+    "learned-walk.gif": {
+      "sha256": "55f66441ca9840348e755b38c74951c11dd08db4c7f151e3f55f6eea0f9cf085",
+      "bytes": 6075304,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 540,
+            "r_frame_rate": "10/1",
+            "nb_frames": "146"
+          }
+        ],
+        "format": {
+          "duration": "14.600000"
+        }
+      }
+    },
+    "learned-walk.png": {
+      "sha256": "9b7b6ffb5648d2f2e353f78f93eb3d46428ede3a46cdd30ca6bcdef2cd2e0a8a",
+      "bytes": 268615,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1600,
+            "height": 900,
+            "r_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    },
+    "pickup.webm": {
+      "sha256": "6d44ae9e6bf4d91c65b7ace3c42771a8e8fc52e3169d58feaf07106219ebda4c",
+      "bytes": 2110567,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1152,
+            "height": 648,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "duration": "11.366000"
+        }
+      }
+    },
+    "pickup.gif": {
+      "sha256": "7df6bfa778c58d41214df9e2de57402498dd9e394d815ff29d6c17d6cd9b64ba",
+      "bytes": 4056754,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 720,
+            "height": 405,
+            "r_frame_rate": "15/1",
+            "nb_frames": "171"
+          }
+        ],
+        "format": {
+          "duration": "11.400000"
+        }
+      }
+    },
+    "pickup.png": {
+      "sha256": "3ad557a7d6ddd2efa6c582fdbcbc9f827afa349a1250f3b6599d4da26fdf48b2",
+      "bytes": 88569,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1280,
+            "height": 720,
+            "r_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    }
+  },
+  "source_sha256": {
+    "project.godot": "007eca654c58e0976aa8d8542a2823f69c10e46e2b5d56c32679b3382eee6bf9",
+    "src/runtime/servo_drive.gd": "3db647e0071b5c1dd63700b17bc215a5e015ea5ddae6960d13b63ba784d0df24",
+    "src/runtime/learned_biped_motion.gd": "b9c8b7ec0cd71c665bae657e4b7ae1979dd288ea59294598e08d535d69f8e235",
+    "src/runtime/bundled_biped_motion.gd": "69a414d11faf49ba4e7c673cf05312d0984d2975f446a79c83c7b8ad0c194b8a",
+    "src/runtime/kit_humanoid_motion.gd": "9c0974e2b75b09a61bf07dfd42d4301c4382a6951766abf6357bc0bd27d38d46",
+    "src/runtime/pickup_policy.gd": "c449f25e012fcfb2b21b269d73428e790ea3da50391d8afe56e9cfc95704fe3d",
+    "src/runtime/pickup_trial.gd": "245e681d67e4bbee40fa244e3136dc2d6e8f4c918000169b21838cfce0faa9a0",
+    "presets/humanoid_motion.gd": "1273c5c3f3339c81a74bfff1e7ad91276b1ba026e9abc3ec24c0fcad6fa6f1aa",
+    "presets/construction_kit_humanoid.gd": "0e1c314dda81454bc240a31005ddee303178e233422703fa72c8c6538a757498",
+    "assets/policies/yaw_biped_bounded_v2.json": "d0b91edcee2bf2729ac1392ee3bc19547c9a38d48b96d1a54ea965f614fcf46b"
+  },
+  "visual_review": {
+    "learned_sample_seconds": [
+      1,
+      7,
+      13.5
+    ],
+    "learned_fully_visible": true,
+    "pickup_fully_visible": true
+  },
+  "capture_script_sha256": {
+    "capture_learned_app.gd.txt": "6116355cceeb1d654b3278078ff62f89e24818a45cf55f0f4cb5fbf9c25873c5",
+    "capture_pickup.gd.txt": "edb64e02bd3d070b7ee5017a24b36f32df15ca44360c31c24b5d8a804620260b"
+  },
+  "raw_avi_sha256": {
+    "learned-app-v2.avi": "d1d1ab3365e8ef53ff39e9d7ab08e45bd80211567191035e27d0ca510eaa6d4b",
+    "pickup-bounded.avi": "d7a57a9d49a602fb4da77ca8693389d25a3a0505e126ece266936176a7e13bb9"
+  }
+}

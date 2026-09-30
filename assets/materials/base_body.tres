@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/materials/textures/plastic_normal.res" id="1_v2byj"]
+
+[resource]
+resource_name = "BaseBody"
+albedo_color = Color(0.30353206, 0.32272613, 0.34064347, 1)
+metallic_specular = 0.4
+roughness = 0.46
+normal_enabled = true
+normal_scale = 0.12
+normal_texture = ExtResource("1_v2byj")
+uv1_scale = Vector3(220, 220, 220)
+uv1_triplanar = true

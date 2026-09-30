@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_beam_100.res" id="1_jpcv1"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_i0d0f"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_w1v2b"]
+
+[sub_resource type="Resource" id="Resource_8bjgm"]
+script = ExtResource("2_i0d0f")
+id = &"h0_front"
+local_position = Vector3(0, -0.04, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_w6rqf"]
+script = ExtResource("2_i0d0f")
+id = &"h0_back"
+local_position = Vector3(0, -0.04, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_pc0h7"]
+script = ExtResource("2_i0d0f")
+id = &"h1_front"
+local_position = Vector3(0, -0.02, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_veous"]
+script = ExtResource("2_i0d0f")
+id = &"h1_back"
+local_position = Vector3(0, -0.02, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ol5r7"]
+script = ExtResource("2_i0d0f")
+id = &"h2_front"
+local_position = Vector3(0, 0, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_7g7hf"]
+script = ExtResource("2_i0d0f")
+id = &"h2_back"
+local_position = Vector3(0, 0, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_coee3"]
+script = ExtResource("2_i0d0f")
+id = &"h3_front"
+local_position = Vector3(0, 0.02, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_rwl8b"]
+script = ExtResource("2_i0d0f")
+id = &"h3_back"
+local_position = Vector3(0, 0.02, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_etv8l"]
+script = ExtResource("2_i0d0f")
+id = &"h4_front"
+local_position = Vector3(0, 0.04, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ce6d4"]
+script = ExtResource("2_i0d0f")
+id = &"h4_back"
+local_position = Vector3(0, 0.04, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_w1v2b")
+id = &"kit_beam_100"
+display_name = "Perforated beam 100 mm"
+mesh = ExtResource("1_jpcv1")
+ports = Array[ExtResource("2_i0d0f")]([SubResource("Resource_8bjgm"), SubResource("Resource_w6rqf"), SubResource("Resource_pc0h7"), SubResource("Resource_veous"), SubResource("Resource_ol5r7"), SubResource("Resource_7g7hf"), SubResource("Resource_coee3"), SubResource("Resource_rwl8b"), SubResource("Resource_etv8l"), SubResource("Resource_ce6d4")])
+mass_kg = 0.0216
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.01, -0.05, -0.002, 0.02, 0.1, 0.004)])

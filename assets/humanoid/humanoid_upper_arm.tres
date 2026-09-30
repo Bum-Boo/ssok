@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/port.gd" id="1_awnwg"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="2_suy61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rfco"]
+albedo_color = Color(0.5294118, 0.62352943, 0.7058824, 1)
+metallic = 0.3
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_mm8jo"]
+material = SubResource("StandardMaterial3D_8rfco")
+size = Vector3(0.07, 0.22, 0.075)
+
+[sub_resource type="Resource" id="Resource_iuirw"]
+script = ExtResource("1_awnwg")
+id = &"pivot"
+local_position = Vector3(0, 0.11, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"humanoid_joint"
+accepts = Array[StringName]([&"humanoid_joint"])
+rotates = true
+
+[sub_resource type="Resource" id="Resource_5av8g"]
+script = ExtResource("1_awnwg")
+id = &"signal"
+kind = 1
+tag = &"pwm_signal"
+accepts = Array[StringName]([&"board_digital_pwm"])
+
+[sub_resource type="Resource" id="Resource_mx7md"]
+script = ExtResource("1_awnwg")
+id = &"elbow"
+local_position = Vector3(0, -0.11, 0)
+local_normal = Vector3(1, 0, 0)
+tag = &"humanoid_joint"
+accepts = Array[StringName]([&"humanoid_joint"])
+
+[resource]
+script = ExtResource("2_suy61")
+id = &"humanoid_upper_arm"
+display_name = "Humanoid shoulder actuator"
+mesh = SubResource("BoxMesh_mm8jo")
+ports = Array[ExtResource("1_awnwg")]([SubResource("Resource_iuirw"), SubResource("Resource_5av8g"), SubResource("Resource_mx7md")])
+mass_kg = 0.45
+actuator_torque_nm = 12.0
+actuator_min_deg = -140.0
+actuator_max_deg = 70.0

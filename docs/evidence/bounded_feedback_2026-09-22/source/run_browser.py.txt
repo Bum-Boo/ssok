@@ -1,0 +1,15 @@
+import json,os,shutil,subprocess
+from pathlib import Path
+
+root=Path(__file__).resolve().parent
+prior=Path('/home/hojun/.local/share/agent-remote/jobs/20260922-071716-ssok-v2-wasm-six-cases-ab31c8f5/work')
+out=root/'out';out.mkdir(exist_ok=True)
+for name in ('release.json','probe-source.json','SHA256SUMS','schedule.json','web-payload.json'):
+    shutil.copy2(root/name,out/name)
+environment=dict(os.environ)
+environment['LD_LIBRARY_PATH']=str(prior/'.browser-libs/usr/lib/x86_64-linux-gnu')+(':'+environment['LD_LIBRARY_PATH'] if environment.get('LD_LIBRARY_PATH') else '')
+command=[str(prior/'.venv/bin/python'),str(root/'tools/browser_matrix.py'),'--directory',str(root/'web'),'--output',str(out/'browser'),'--schedule',str(root/'schedule.json')]
+with (out/'browser.log').open('w') as log:
+    result=subprocess.run(command,cwd=root,env=environment,stdout=log,stderr=subprocess.STDOUT,timeout=900)
+(out/'runner-result.json').write_text(json.dumps(dict(command=command,exit_code=result.returncode),indent=2))
+raise SystemExit(result.returncode)

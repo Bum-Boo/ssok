@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/modular_humanoid/meshes/modular_chest_shell.res" id="1_8jnft"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_veif7"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_cilm8"]
+
+[sub_resource type="Resource" id="Resource_g2n28"]
+script = ExtResource("2_veif7")
+id = &"mount"
+local_normal = Vector3(0, 0, -1)
+tag = &"modular_bolt"
+accepts = Array[StringName]([&"modular_bolt"])
+
+[resource]
+script = ExtResource("3_cilm8")
+id = &"modular_chest_shell"
+display_name = "Removable chest shell"
+mesh = ExtResource("1_8jnft")
+ports = Array[ExtResource("2_veif7")]([SubResource("Resource_g2n28")])
+mass_kg = 0.4
+merge_fixed_connections = true

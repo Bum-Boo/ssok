@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "color_space": "linear",
+  "families": {
+    "smooth": {"noise_scale": 0, "bump_strength": 0, "bump_distance": 0, "roughness_variation": 0, "stretch": [1, 1, 1], "texture_scale": 1, "normal_scale": 0},
+    "plastic": {"noise_scale": 2400, "bump_strength": 0.12, "bump_distance": 0.000015, "roughness_variation": 0.035, "stretch": [1, 1, 1], "texture_scale": 220, "normal_scale": 0.12},
+    "rubber": {"noise_scale": 1800, "bump_strength": 0.22, "bump_distance": 0.000035, "roughness_variation": 0.045, "stretch": [1, 1, 1], "texture_scale": 160, "normal_scale": 0.24},
+    "brushed": {"noise_scale": 1500, "bump_strength": 0.14, "bump_distance": 0.000012, "roughness_variation": 0.06, "stretch": [1, 10, 1], "texture_scale": 200, "normal_scale": 0.16},
+    "pcb": {"noise_scale": 3200, "bump_strength": 0.07, "bump_distance": 0.000008, "roughness_variation": 0.025, "stretch": [1, 1, 1], "texture_scale": 280, "normal_scale": 0.07}
+  },
+  "materials": {
+    "ArmBody": {"label": "Ivory nylon link", "family": "plastic", "base_color": [0.93, 0.90, 0.78], "metallic": 0, "roughness": 0.42, "specular": 0.4},
+    "BaseBody": {"label": "Graphite ABS base", "family": "plastic", "base_color": [0.075, 0.085, 0.095], "metallic": 0, "roughness": 0.46, "specular": 0.4},
+    "Black": {"label": "Molded black connector", "family": "plastic", "base_color": [0.015, 0.018, 0.020], "metallic": 0, "roughness": 0.55, "specular": 0.35},
+    "BoardBody": {"label": "Green PCB solder mask", "family": "pcb", "base_color": [0.025, 0.34, 0.12], "metallic": 0, "roughness": 0.3, "specular": 0.45},
+    "BracketMetal": {"label": "Brushed steel bracket", "family": "brushed", "base_color": [0.30, 0.35, 0.42], "metallic": 1, "roughness": 0.34, "specular": 0.5},
+    "Brown": {"label": "Brown cable insulation", "family": "rubber", "base_color": [0.22, 0.055, 0.018], "metallic": 0, "roughness": 0.62, "specular": 0.3},
+    "ChassisMetal": {"label": "Brushed aluminum chassis", "family": "brushed", "base_color": [0.24, 0.29, 0.34], "metallic": 1, "roughness": 0.4, "specular": 0.5},
+    "Cream": {"label": "Cream nylon servo horn", "family": "plastic", "base_color": [0.88, 0.84, 0.69], "metallic": 0, "roughness": 0.38, "specular": 0.4},
+    "DetailAmber": {"label": "Amber indicator LED", "family": "smooth", "base_color": [1, 0.47, 0.035], "metallic": 0, "roughness": 0.22, "specular": 0.5, "emission_energy": 0.35},
+    "DetailCopper": {"label": "Coated PCB traces", "family": "pcb", "base_color": [0.29, 0.57, 0.44], "metallic": 0, "roughness": 0.27, "specular": 0.48},
+    "DetailGraphite": {"label": "Graphite panel insert", "family": "plastic", "base_color": [0.035, 0.055, 0.065], "metallic": 0, "roughness": 0.5, "specular": 0.38},
+    "DetailSteel": {"label": "Machined steel fasteners", "family": "brushed", "base_color": [0.29, 0.36, 0.40], "metallic": 1, "roughness": 0.26, "specular": 0.5},
+    "DetailTeal": {"label": "Satin teal trim", "family": "plastic", "base_color": [0.015, 0.49, 0.48], "metallic": 0, "roughness": 0.32, "specular": 0.45},
+    "DetailWhite": {"label": "White silkscreen and trim", "family": "smooth", "base_color": [0.94, 0.96, 0.94], "metallic": 0, "roughness": 0.5, "specular": 0.3},
+    "Gold": {"label": "Gold-plated contacts", "family": "smooth", "base_color": [0.92, 0.57, 0.08], "metallic": 1, "roughness": 0.23, "specular": 0.5},
+    "Orange": {"label": "Orange cable insulation", "family": "rubber", "base_color": [0.95, 0.22, 0.015], "metallic": 0, "roughness": 0.58, "specular": 0.3},
+    "Red": {"label": "Red cable insulation", "family": "rubber", "base_color": [0.72, 0.025, 0.018], "metallic": 0, "roughness": 0.58, "specular": 0.3},
+    "RimYellow": {"label": "Yellow ABS wheel hub", "family": "plastic", "base_color": [0.93, 0.78, 0.18], "metallic": 0, "roughness": 0.36, "specular": 0.42},
+    "Rubber": {"label": "Matte rubber tire and grip", "family": "rubber", "base_color": [0.018, 0.020, 0.022], "metallic": 0, "roughness": 0.86, "specular": 0.25},
+    "SensorBlue": {"label": "Blue sensor solder mask", "family": "pcb", "base_color": [0.02, 0.16, 0.45], "metallic": 0, "roughness": 0.3, "specular": 0.45},
+    "ServoBlue": {"label": "Glossy blue servo cap", "family": "plastic", "base_color": [0.035, 0.22, 0.72], "metallic": 0, "roughness": 0.25, "specular": 0.48},
+    "ServoBody": {"label": "Blue servo housing", "family": "plastic", "base_color": [0.025, 0.18, 0.62], "metallic": 0, "roughness": 0.29, "specular": 0.45},
+    "Shell": {"label": "Satin white ABS shell", "family": "plastic", "base_color": [0.90, 0.91, 0.93], "metallic": 0, "roughness": 0.34, "specular": 0.45},
+    "Silver": {"label": "Brushed aluminum sensor can", "family": "brushed", "base_color": [0.58, 0.62, 0.65], "metallic": 1, "roughness": 0.28, "specular": 0.5},
+    "Temporary_cutter": {"label": "Internal boolean cutter", "family": "smooth", "base_color": [0, 0, 0], "metallic": 0, "roughness": 0.5, "specular": 0.3, "hidden": true},
+    "TtYellow": {"label": "Yellow nylon gearbox", "family": "plastic", "base_color": [0.95, 0.72, 0.08], "metallic": 0, "roughness": 0.4, "specular": 0.4},
+    "UnoBlue": {"label": "Teal Arduino solder mask", "family": "pcb", "base_color": [0, 0.30, 0.42], "metallic": 0, "roughness": 0.3, "specular": 0.45}
+  }
+}

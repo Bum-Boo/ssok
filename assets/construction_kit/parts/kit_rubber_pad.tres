@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_rubber_pad.res" id="1_nduy7"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_e5o2y"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_npfab"]
+
+[sub_resource type="Resource" id="Resource_tc6de"]
+script = ExtResource("2_e5o2y")
+id = &"h0_front"
+local_position = Vector3(-0.02, 0, 0.004)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_s1eck"]
+script = ExtResource("2_e5o2y")
+id = &"h0_back"
+local_position = Vector3(-0.02, 0, -0.004)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_bcfi8"]
+script = ExtResource("2_e5o2y")
+id = &"h1_front"
+local_position = Vector3(0.02, 0, 0.004)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_o1ab4"]
+script = ExtResource("2_e5o2y")
+id = &"h1_back"
+local_position = Vector3(0.02, 0, -0.004)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_npfab")
+id = &"kit_rubber_pad"
+display_name = "Grip pad 60 × 40 mm"
+mesh = ExtResource("1_nduy7")
+ports = Array[ExtResource("2_e5o2y")]([SubResource("Resource_tc6de"), SubResource("Resource_s1eck"), SubResource("Resource_bcfi8"), SubResource("Resource_o1ab4")])
+mass_kg = 0.028
+actuator_min_deg = -140.0
+actuator_max_deg = 140.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.03, -0.02, -0.004, 0.06, 0.04, 0.008)])
