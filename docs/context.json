@@ -1,0 +1,274 @@
+{
+  "schema": 1,
+  "managed": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/START_HERE.md",
+    "docs/STATUS.md",
+    "docs/DATA_MODEL.md",
+    "docs/FLOWS.md",
+    "docs/POLICIES.md",
+    "docs/MAINTENANCE.md",
+    "docs/ARCHITECTURE.md",
+    "docs/TECHNICAL_NOTE_2026-09-30.md",
+    "docs/evidence/contributor_context_2026-09-30/README.md"
+  ],
+  "routes": {
+    "assembly": {
+      "docs": [
+        "docs/DATA_MODEL.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/assembly/assembly_mode.gd",
+        "src/ui/wiring_panel.gd"
+      ],
+      "adrs": [
+        "0002",
+        "0007",
+        "0022"
+      ],
+      "watch": [
+        "src/assembly/*",
+        "src/ui/wiring_panel.gd",
+        "src/core/connection_graph.gd",
+        "src/core/part_def.gd",
+        "src/core/port.gd"
+      ]
+    },
+    "storage": {
+      "docs": [
+        "docs/DATA_MODEL.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/core/project_store.gd",
+        "src/runtime/motion_snapshot.gd",
+        "src/ui/project_panel.gd"
+      ],
+      "adrs": [
+        "0002",
+        "0016",
+        "0022"
+      ],
+      "watch": [
+        "src/core/project_store.gd",
+        "src/runtime/motion_snapshot.gd",
+        "src/ui/project_panel.gd"
+      ]
+    },
+    "language": {
+      "docs": [
+        "docs/FLOWS.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/core/board_profile.gd",
+        "src/blocks/servo_program.gd",
+        "src/runtime/mini_runtime.gd",
+        "src/ui/block_program_panel.gd"
+      ],
+      "adrs": [
+        "0004",
+        "0007"
+      ],
+      "watch": [
+        "src/profiles/*",
+        "src/core/board_profile.gd",
+        "src/blocks/*",
+        "src/runtime/mini_runtime.gd",
+        "src/ui/block_program_panel.gd"
+      ]
+    },
+    "physics": {
+      "docs": [
+        "docs/ARCHITECTURE.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/runtime/run_mode.gd",
+        "src/runtime/servo_drive.gd"
+      ],
+      "adrs": [
+        "0003",
+        "0020"
+      ],
+      "watch": [
+        "src/runtime/run_mode.gd",
+        "src/runtime/servo_drive.gd",
+        "src/runtime/*motion*.gd",
+        "src/runtime/*trial*.gd"
+      ]
+    },
+    "product": {
+      "docs": [
+        "docs/POLICIES.md",
+        "docs/FLAG_MISSION.md",
+        "docs/LOCALIZATION.md"
+      ],
+      "sources": [
+        "scenes/main.gd",
+        "src/ui/flag_mission.gd"
+      ],
+      "adrs": [
+        "0007",
+        "0022"
+      ],
+      "watch": [
+        "scenes/*",
+        "src/ui/*",
+        "src/core/stage*.gd",
+        "src/runtime/stage*.gd",
+        "assets/locales/*"
+      ]
+    },
+    "ai": {
+      "docs": [
+        "docs/POLICIES.md",
+        "docs/MOTION_LAB.md"
+      ],
+      "sources": [
+        "src/runtime/motion_lab_client.gd",
+        "tools/motion_lab/service.py"
+      ],
+      "adrs": [
+        "0008",
+        "0010"
+      ],
+      "watch": [
+        "src/runtime/motion_lab_client.gd",
+        "tools/motion_lab/*",
+        "tools/app_control/*"
+      ]
+    },
+    "delivery": {
+      "docs": [
+        "docs/BUILD.md",
+        "docs/RELEASE_PLAN.md"
+      ],
+      "sources": [
+        "tools/ci/verify.py",
+        "tools/ci/build.py",
+        ".github/workflows/ci.yml"
+      ],
+      "adrs": [
+        "0001",
+        "0013",
+        "0017"
+      ],
+      "watch": [
+        "project.godot",
+        "export_presets.cfg",
+        "tools/ci/*",
+        ".github/workflows/*"
+      ]
+    },
+    "docs": {
+      "docs": [
+        "docs/MAINTENANCE.md"
+      ],
+      "sources": [
+        "tools/docs/maintain.py",
+        "docs/context.json"
+      ],
+      "adrs": [
+        "0000",
+        "0023"
+      ],
+      "watch": [
+        "AGENTS.md",
+        "CONTRIBUTING.md",
+        "docs/*",
+        "tools/docs/*"
+      ]
+    }
+  },
+  "symbols": {
+    "src/core/connection_graph.gd": {
+      "class": "ConnectionGraph"
+    },
+    "src/core/part_def.gd": {
+      "class": "PartDef"
+    },
+    "src/core/port.gd": {
+      "class": "Port"
+    },
+    "src/core/project_store.gd": {
+      "methods": [
+        "document",
+        "save",
+        "parse",
+        "load_project"
+      ],
+      "class": "ProjectStore"
+    },
+    "src/runtime/motion_snapshot.gd": {
+      "methods": [
+        "encode",
+        "decode"
+      ],
+      "class": "MotionSnapshot"
+    },
+    "src/runtime/mini_runtime.gd": {
+      "methods": [
+        "run",
+        "validate",
+        "stop"
+      ],
+      "class": "MiniRuntime"
+    },
+    "src/runtime/run_mode.gd": {
+      "methods": [
+        "build",
+        "teardown",
+        "servo_on_pin"
+      ],
+      "class": "RunMode"
+    },
+    "src/ui/flag_mission.gd": {
+      "methods": [
+        "_build_chart",
+        "_observed_flag_raised"
+      ],
+      "class": "FlagMission"
+    },
+    "scenes/main.gd": {
+      "methods": [
+        "_on_run_pressed",
+        "_on_mode_toggled",
+        "_on_stop_pressed",
+        "_prepare_project_document",
+        "_load_project"
+      ]
+    }
+  },
+  "contracts": {
+    "data-model": {
+      "document": "docs/DATA_MODEL.md",
+      "sources": {
+        "src/core/connection_graph.gd": "a06bebbcbfd0df1aaeaf8d845f99846f810790df8e8d34ce84c8f70d087abd3f",
+        "src/core/part_def.gd": "28a55546ba60283456e660937acab9974bdeee587423b710764edf0b3526f9e1",
+        "src/core/port.gd": "199796a3ddd472f85661dbc094f0b4b47fb5204965768a0da900a906fbbf257f",
+        "src/core/project_store.gd": "87b443ce5e3a48ee2ade5348f1bb3c0f8503c96d35f751a6525aec475b19e4ae",
+        "src/runtime/motion_snapshot.gd": "deaaabc1e4072335bbe3c9125ab775f6efb8da601c0050dee9236bd6723fa803"
+      }
+    },
+    "execution-flow": {
+      "document": "docs/FLOWS.md",
+      "sources": {
+        "scenes/main.gd": "4536d36eafae622c19e364e3c1f57109cc089da6a263bb00e45f7e16308338f5",
+        "src/runtime/mini_runtime.gd": "e4871f2efcce0dae2d0455c921d73fd65930280a32ddf4d718b972c27ae4ed37",
+        "src/runtime/run_mode.gd": "9df8a670bea35292c1e3449da0525f3a55b596708e903667bbf337ec9d2bc286",
+        "src/ui/block_program_panel.gd": "092fa3869c2b65864dfee21cb0dd5489f84da40abf0a810a94eed0f5b25e7a3b",
+        "src/ui/project_panel.gd": "a38fa22ef45307735515477e5ac0048d0e251538f174973da945d36fe91c4c03"
+      }
+    },
+    "flag-flow": {
+      "document": "docs/FLOWS.md",
+      "sources": {
+        "src/ui/flag_mission.gd": "e3be45f7e41467eb15eae5009ec695a42a5d141f51a40baebffd7193ac02f530"
+      }
+    }
+  }
+}
