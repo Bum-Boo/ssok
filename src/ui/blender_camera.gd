@@ -252,6 +252,16 @@ func _set_axis_view(yaw: float, pitch: float) -> void:
 	_apply_view()
 
 
+## Stage levels choose the starting view direction (radians, same convention as orbiting).
+func set_view_angles(yaw: float, pitch: float) -> void:
+	if _camera.projection == Camera3D.PROJECTION_ORTHOGONAL:
+		_toggle_projection()
+	_axis_view = false
+	_yaw = yaw
+	_pitch = clampf(pitch, -PI * 0.5 + 0.001, PI * 0.5 - 0.001)
+	_apply_view()
+
+
 func _toggle_projection() -> void:
 	var tangent: float = tan(deg_to_rad(_camera.fov) * 0.5)
 	if _camera.projection == Camera3D.PROJECTION_ORTHOGONAL:

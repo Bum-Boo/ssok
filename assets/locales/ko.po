@@ -1839,3 +1839,288 @@ msgstr "대상 센서를 읽을 수 없어요. 배선을 확인하고 다시 실
 
 msgid "Attempt stopped. Your build and code are kept."
 msgstr "시도를 멈췄어요. 조립과 코드는 그대로 남아 있어요."
+
+msgid "Servo angle"
+msgstr "서보 각도"
+
+msgid "Raise the flag up to the green line."
+msgstr "깃발을 초록 선까지 올려요."
+
+msgid "The castle flag is lying down. Turn the servo so the arm lifts the flag up to the green line."
+msgstr "성의 깃발이 누워 있어요. 서보를 돌려서 팔이 깃발을 초록 선까지 들어 올리게 해 봐요."
+
+msgid "Change the angle in the servo block."
+msgstr "서보 블록의 각도를 바꿔요."
+
+msgid "Press Run code."
+msgstr "코드 실행을 눌러요."
+
+msgid "Keep the flag on the green line for one second."
+msgstr "깃발이 초록 선에 1초 동안 머물면 성공이에요."
+
+msgid "0 degrees keeps the arm down. Try a bigger angle, like 90."
+msgstr "0도면 팔이 내려가 있어요. 90처럼 더 큰 각도를 넣어 봐요."
+
+msgid "Flag height"
+msgstr "깃발 높이"
+
+msgid "Motor power and time"
+msgstr "모터 힘과 시간"
+
+msgid "Drive the car past the checkered finish line."
+msgstr "자동차가 체크무늬 결승선을 지나가게 해요."
+
+msgid "The car stops before the finish line. Make the motors run long enough to cross it without tipping over."
+msgstr "자동차가 결승선 앞에서 멈춰요. 넘어지지 않고 선을 넘을 만큼 모터를 오래 돌려 봐요."
+
+msgid "Change how long the motors run."
+msgstr "모터가 도는 시간을 바꿔요."
+
+msgid "Cross the checkered line."
+msgstr "체크무늬 선을 넘어요."
+
+msgid "sleep(500) runs the motors for half a second. Let them run longer."
+msgstr "sleep(500)은 모터를 0.5초만 돌려요. 더 오래 돌려 봐요."
+
+msgid "Distance driven"
+msgstr "달린 거리"
+
+msgid "Sensor and conditions"
+msgstr "센서와 조건문"
+
+msgid "Stop inside the yellow zone without touching the wall."
+msgstr "벽에 닿지 않고 노란 구역 안에서 멈춰요."
+
+msgid "Driving for a fixed time crashes into the wall. Use the distance sensor to stop in the yellow zone, 5 to 10 cm from the wall."
+msgstr "정해진 시간만큼 달리면 벽에 부딪혀요. 거리 센서로 벽에서 5~10cm 떨어진 노란 구역에 멈춰 봐요."
+
+msgid "Read the distance sensor in a loop."
+msgstr "반복문 안에서 거리 센서 값을 읽어요."
+
+msgid "Stop the motors when the wall is close."
+msgstr "벽이 가까워지면 모터를 멈춰요."
+
+msgid "Stay still inside the yellow zone."
+msgstr "노란 구역 안에서 멈춰 있어요."
+
+msgid "while sonar.distance_cm() > 10: keeps driving until the wall is 10 cm away."
+msgstr "while sonar.distance_cm() > 10: 을 쓰면 벽까지 10cm가 될 때까지 계속 달려요."
+
+msgid "Distance to wall"
+msgstr "벽까지 거리"
+
+msgid "Gap bridge"
+msgstr "틈새 다리"
+
+msgid "Downhill cart"
+msgstr "비탈길 수레"
+
+msgid "Open the gate"
+msgstr "차단기 열기"
+
+msgid "Waving robot"
+msgstr "인사 로봇"
+
+msgid "Legged robot 30 cm"
+msgstr "다리 달린 로봇 30cm"
+
+msgid "Stop at the line"
+msgstr "정지선 멈춤"
+
+msgid "Draw a square"
+msgstr "사각형 그리기"
+
+msgid "Challenge: S course"
+msgstr "도전! S코스"
+
+msgid "Maze escape"
+msgstr "미로 탈출"
+
+msgid "Line tracer"
+msgstr "라인 트레이서"
+
+msgid "Color sorting delivery"
+msgstr "색깔 분류 배달"
+
+msgid "Parallel parking"
+msgstr "평행 주차"
+
+msgid "Two-robot relay"
+msgstr "두 대 릴레이"
+
+msgid "Budget challenge"
+msgstr "예산 챌린지"
+
+msgid "Back"
+msgstr "뒤로"
+
+msgid "Build a robot, code it, and watch it move."
+msgstr "로봇을 만들고 코딩해서 움직여 봐요."
+
+msgid "Play stages"
+msgstr "스테이지 도전하기"
+
+msgid "Clear challenges one by one."
+msgstr "과제를 하나씩 깨 나가요."
+
+msgid "Free building"
+msgstr "자유롭게 만들기"
+
+msgid "Build anything with every part. You can turn it into a challenge."
+msgstr "모든 부품으로 마음대로 만들어요. 만든 것을 과제로 바꿔도 돼요."
+
+msgid "Explore examples"
+msgstr "예제 둘러보기"
+
+msgid "Try finished robots: arms, walkers and humanoids."
+msgstr "완성된 로봇을 움직여 봐요. 로봇 팔, 걷는 로봇, 사람형 로봇이 있어요."
+
+msgid "Open my project"
+msgstr "내 프로젝트 열기"
+
+msgid "Continue a saved build."
+msgstr "저장해 둔 작품을 이어서 만들어요."
+
+msgid "Pick a stage. Each one has its own place, goal and robot."
+msgstr "스테이지를 골라요. 스테이지마다 장소와 목표, 로봇이 달라요."
+
+msgid "STAGE %s"
+msgstr "스테이지 %s"
+
+msgid "Cleared"
+msgstr "성공"
+
+msgid "New"
+msgstr "새 스테이지"
+
+msgid "Play again"
+msgstr "다시 하기"
+
+msgid "Play"
+msgstr "시작하기"
+
+msgid "Coming soon"
+msgstr "준비 중인 스테이지"
+
+msgid "This stage is not ready yet."
+msgstr "아직 만들고 있는 스테이지예요."
+
+msgid "Examples"
+msgstr "예제"
+
+msgid "Open a finished robot, run it, then change it."
+msgstr "완성된 로봇을 열어 움직여 보고 고쳐 봐요."
+
+msgid "Servo arm"
+msgstr "서보 팔"
+
+msgid "One servo lifts an arm. The simplest robot to read."
+msgstr "서보 하나가 팔을 들어 올려요. 가장 읽기 쉬운 로봇이에요."
+
+msgid "Biped"
+msgstr "이족 로봇"
+
+msgid "Two legs, four servos. Drive it with WASD."
+msgstr "다리 두 개에 서보 네 개예요. WASD로 움직여요."
+
+msgid "Humanoid (experimental)"
+msgstr "사람형 로봇 (실험용)"
+
+msgid "Walks and picks up a box. Movement is still unstable."
+msgstr "걷고 상자를 집어요. 움직임은 아직 불안정해요."
+
+msgid "Construction-kit humanoid"
+msgstr "조립 키트 사람형 로봇"
+
+msgid "Built only from kit beams, plates and fasteners."
+msgstr "키트의 빔과 판, 나사만으로 만들었어요."
+
+msgid "Kit bridge"
+msgstr "키트 다리"
+
+msgid "The same kit parts, assembled into a bridge."
+msgstr "같은 키트 부품으로 다리를 만들었어요."
+
+msgid "Learned biped"
+msgstr "학습한 이족 로봇"
+
+msgid "Walks with a learned policy. Hold W."
+msgstr "학습한 방식으로 걸어요. W를 누르고 있어요."
+
+msgid "Open"
+msgstr "열기"
+
+msgid "Loading..."
+msgstr "불러오는 중..."
+
+msgid "Hint"
+msgstr "힌트"
+
+msgid "Show the mission again"
+msgstr "미션 다시 보기"
+
+msgid "Press Run code to try it."
+msgstr "코드 실행을 눌러 확인해 봐요."
+
+msgid "Start"
+msgstr "시작하기"
+
+msgid "Next stage"
+msgstr "다음 스테이지"
+
+msgid "Stage list"
+msgstr "스테이지 목록"
+
+msgid "Stage cleared!"
+msgstr "스테이지 성공!"
+
+msgid "Try another way"
+msgstr "다른 방법으로 해 보기"
+
+msgid "Not yet"
+msgstr "아직이에요"
+
+msgid "%s: %.1f cm (goal: at least %.1f cm)"
+msgstr "%s: %.1fcm (목표: %.1fcm 이상)"
+
+msgid "%s: %.1f cm (goal: %.1f-%.1f cm)"
+msgstr "%s: %.1fcm (목표: %.1f~%.1fcm)"
+
+msgid "Menu"
+msgstr "메뉴"
+
+msgid "Leave this screen?"
+msgstr "이 화면에서 나갈까요?"
+
+msgid "Your build and code here are not saved. Save a project first to keep them."
+msgstr "여기서 만든 로봇과 코드는 저장되지 않았어요. 남겨 두려면 먼저 프로젝트로 저장해요."
+
+msgid "Leave without saving"
+msgstr "저장하지 않고 나가기"
+
+msgid "Back to the stage list"
+msgstr "스테이지 목록으로 돌아가기"
+
+msgid "Read the mission, then change the program."
+msgstr "미션을 읽고 프로그램을 고쳐 봐요."
+
+msgid "Change the program, then press Run code."
+msgstr "프로그램을 고친 다음 코드 실행을 눌러요."
+
+msgid "Free building: add parts from the library, wire them, then program your robot."
+msgstr "자유 제작: 부품을 꺼내 연결하고 배선한 다음 프로그램을 만들어요."
+
+msgid "Robot reset. Change the program, then press Run code."
+msgstr "로봇을 처음 자리로 돌렸어요. 프로그램을 고친 다음 코드 실행을 눌러요."
+
+msgid "Stage cleared, but progress could not be saved."
+msgstr "스테이지는 성공했지만 기록을 저장하지 못했어요."
+
+msgid "The goal was met in the physics run."
+msgstr "물리 실행에서 목표를 달성했어요."
+
+msgid "The program ended before the goal was met. Change it and try again."
+msgstr "목표에 닿기 전에 프로그램이 끝났어요. 고친 다음 다시 해 봐요."
+
+msgid "Reset robot"
+msgstr "처음 자리로"

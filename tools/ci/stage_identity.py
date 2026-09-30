@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
-DIRECTORIES = ("src/core", "src/runtime", "src/profiles", "assets/parts", "assets/meshes")
+DIRECTORIES = ("src/core", "src/runtime", "src/profiles", "assets/parts", "assets/meshes", "stages")
 
 
 def write_identity(project: Path) -> Path:
@@ -13,7 +13,7 @@ def write_identity(project: Path) -> Path:
         "res://" + path.relative_to(project).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
         for directory in DIRECTORIES
         for path in sorted((project / directory).rglob("*"))
-        if path.suffix in {".gd", ".tres", ".res"}
+        if path.suffix in {".gd", ".tres", ".res", ".tscn"}
     }
     target = project / "assets/stage_runtime_identity.json"
     target.write_text(json.dumps(hashes, sort_keys=True, indent=2) + "\n")

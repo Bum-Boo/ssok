@@ -36,6 +36,8 @@ var _servo_index: int = -1
 var _wired: bool = false
 var _wire_pin: int = -1
 var goal_rule: Dictionary = StageDefinition.rule("height", "arm_link", 0.155, 100.0, 0.2)
+## Stage sessions show the flag only in the flag stage; other robots with an arm link stay plain.
+var show_visual: bool = true
 var _practice: Button
 var _maximum_tip_height: float = 0.0
 var _previous_height: float = NAN
@@ -270,7 +272,7 @@ func _tip_position() -> Vector3:
 func _update_visual() -> void:
 	if _flag == null:
 		return
-	_flag.visible = _arm_index >= 0
+	_flag.visible = show_visual and _arm_index >= 0
 	if _flag.visible:
 		_flag.global_position = _tip_position()
 

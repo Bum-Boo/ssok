@@ -1,0 +1,572 @@
+[
+  {
+    "en": "Servo angle",
+    "ko": "서보 각도",
+    "zh_CN": "舵机角度",
+    "ja": "サーボの角度"
+  },
+  {
+    "en": "Raise the flag up to the green line.",
+    "ko": "깃발을 초록 선까지 올려요.",
+    "zh_CN": "把旗帜升到绿线处。",
+    "ja": "旗を緑の線まで上げよう。"
+  },
+  {
+    "en": "The castle flag is lying down. Turn the servo so the arm lifts the flag up to the green line.",
+    "ko": "성의 깃발이 누워 있어요. 서보를 돌려서 팔이 깃발을 초록 선까지 들어 올리게 해 봐요.",
+    "zh_CN": "城堡的旗帜倒下了。转动舵机，让机械臂把旗帜举到绿线处。",
+    "ja": "お城の旗が倒れています。サーボを回して、アームで旗を緑の線まで持ち上げよう。"
+  },
+  {
+    "en": "Change the angle in the servo block.",
+    "ko": "서보 블록의 각도를 바꿔요.",
+    "zh_CN": "修改舵机积木里的角度。",
+    "ja": "サーボのブロックの角度を変えよう。"
+  },
+  {
+    "en": "Press Run code.",
+    "ko": "코드 실행을 눌러요.",
+    "zh_CN": "点击“运行代码”。",
+    "ja": "「コードを実行」を押そう。"
+  },
+  {
+    "en": "Keep the flag on the green line for one second.",
+    "ko": "깃발이 초록 선에 1초 동안 머물면 성공이에요.",
+    "zh_CN": "让旗帜在绿线处停留一秒。",
+    "ja": "旗を緑の線に1秒とどめよう。"
+  },
+  {
+    "en": "0 degrees keeps the arm down. Try a bigger angle, like 90.",
+    "ko": "0도면 팔이 내려가 있어요. 90처럼 더 큰 각도를 넣어 봐요.",
+    "zh_CN": "0 度时机械臂是放下的。试试更大的角度，比如 90。",
+    "ja": "0度だとアームは下がったままです。90のような大きい角度を試そう。"
+  },
+  {
+    "en": "Flag height",
+    "ko": "깃발 높이",
+    "zh_CN": "旗帜高度",
+    "ja": "旗の高さ"
+  },
+  {
+    "en": "Motor power and time",
+    "ko": "모터 힘과 시간",
+    "zh_CN": "电机功率与时间",
+    "ja": "モーターの力と時間"
+  },
+  {
+    "en": "Drive the car past the checkered finish line.",
+    "ko": "자동차가 체크무늬 결승선을 지나가게 해요.",
+    "zh_CN": "让小车开过方格终点线。",
+    "ja": "車でチェック模様のゴールラインを通過しよう。"
+  },
+  {
+    "en": "The car stops before the finish line. Make the motors run long enough to cross it without tipping over.",
+    "ko": "자동차가 결승선 앞에서 멈춰요. 넘어지지 않고 선을 넘을 만큼 모터를 오래 돌려 봐요.",
+    "zh_CN": "小车在终点线前停下了。让电机转得久一点，在不翻车的情况下越过终点线。",
+    "ja": "車がゴールの手前で止まってしまいます。倒れずに線を越えられるよう、モーターを長く回そう。"
+  },
+  {
+    "en": "Change how long the motors run.",
+    "ko": "모터가 도는 시간을 바꿔요.",
+    "zh_CN": "修改电机运转的时间。",
+    "ja": "モーターが回る時間を変えよう。"
+  },
+  {
+    "en": "Cross the checkered line.",
+    "ko": "체크무늬 선을 넘어요.",
+    "zh_CN": "越过方格线。",
+    "ja": "チェック模様の線を越えよう。"
+  },
+  {
+    "en": "sleep(500) runs the motors for half a second. Let them run longer.",
+    "ko": "sleep(500)은 모터를 0.5초만 돌려요. 더 오래 돌려 봐요.",
+    "zh_CN": "sleep(500) 只让电机转半秒。让它们转得更久一些。",
+    "ja": "sleep(500) ではモーターが0.5秒しか回りません。もっと長く回そう。"
+  },
+  {
+    "en": "Distance driven",
+    "ko": "달린 거리",
+    "zh_CN": "行驶距离",
+    "ja": "走った距離"
+  },
+  {
+    "en": "Sensor and conditions",
+    "ko": "센서와 조건문",
+    "zh_CN": "传感器与条件",
+    "ja": "センサーと条件"
+  },
+  {
+    "en": "Stop inside the yellow zone without touching the wall.",
+    "ko": "벽에 닿지 않고 노란 구역 안에서 멈춰요.",
+    "zh_CN": "不碰到墙，停在黄色区域内。",
+    "ja": "壁に触れずに黄色いゾーンの中で止まろう。"
+  },
+  {
+    "en": "Driving for a fixed time crashes into the wall. Use the distance sensor to stop in the yellow zone, 5 to 10 cm from the wall.",
+    "ko": "정해진 시간만큼 달리면 벽에 부딪혀요. 거리 센서로 벽에서 5~10cm 떨어진 노란 구역에 멈춰 봐요.",
+    "zh_CN": "按固定时间行驶会撞到墙。用距离传感器，停在离墙 5 到 10 厘米的黄色区域。",
+    "ja": "決まった時間だけ走ると壁にぶつかります。距離センサーを使って、壁から5〜10cmの黄色いゾーンで止まろう。"
+  },
+  {
+    "en": "Read the distance sensor in a loop.",
+    "ko": "반복문 안에서 거리 센서 값을 읽어요.",
+    "zh_CN": "在循环中读取距离传感器。",
+    "ja": "くり返しの中で距離センサーを読もう。"
+  },
+  {
+    "en": "Stop the motors when the wall is close.",
+    "ko": "벽이 가까워지면 모터를 멈춰요.",
+    "zh_CN": "墙靠近时让电机停下。",
+    "ja": "壁が近づいたらモーターを止めよう。"
+  },
+  {
+    "en": "Stay still inside the yellow zone.",
+    "ko": "노란 구역 안에서 멈춰 있어요.",
+    "zh_CN": "在黄色区域内保持静止。",
+    "ja": "黄色いゾーンの中で止まったままにしよう。"
+  },
+  {
+    "en": "while sonar.distance_cm() > 10: keeps driving until the wall is 10 cm away.",
+    "ko": "while sonar.distance_cm() > 10: 을 쓰면 벽까지 10cm가 될 때까지 계속 달려요.",
+    "zh_CN": "while sonar.distance_cm() > 10: 会一直行驶，直到离墙 10 厘米。",
+    "ja": "while sonar.distance_cm() > 10: を使うと、壁まで10cmになるまで走り続けます。"
+  },
+  {
+    "en": "Distance to wall",
+    "ko": "벽까지 거리",
+    "zh_CN": "到墙的距离",
+    "ja": "壁までの距離"
+  },
+  {
+    "en": "Gap bridge",
+    "ko": "틈새 다리",
+    "zh_CN": "跨缝桥",
+    "ja": "すき間の橋"
+  },
+  {
+    "en": "Downhill cart",
+    "ko": "비탈길 수레",
+    "zh_CN": "下坡小车",
+    "ja": "坂道の台車"
+  },
+  {
+    "en": "Open the gate",
+    "ko": "차단기 열기",
+    "zh_CN": "打开道闸",
+    "ja": "遮断機を開けよう"
+  },
+  {
+    "en": "Waving robot",
+    "ko": "인사 로봇",
+    "zh_CN": "挥手机器人",
+    "ja": "あいさつロボット"
+  },
+  {
+    "en": "Legged robot 30 cm",
+    "ko": "다리 달린 로봇 30cm",
+    "zh_CN": "腿式机器人 30 厘米",
+    "ja": "足つきロボット 30cm"
+  },
+  {
+    "en": "Stop at the line",
+    "ko": "정지선 멈춤",
+    "zh_CN": "停在停止线",
+    "ja": "停止線で止まろう"
+  },
+  {
+    "en": "Draw a square",
+    "ko": "사각형 그리기",
+    "zh_CN": "画一个正方形",
+    "ja": "四角形を描こう"
+  },
+  {
+    "en": "Challenge: S course",
+    "ko": "도전! S코스",
+    "zh_CN": "挑战：S 形赛道",
+    "ja": "チャレンジ！Sコース"
+  },
+  {
+    "en": "Maze escape",
+    "ko": "미로 탈출",
+    "zh_CN": "逃出迷宫",
+    "ja": "迷路からの脱出"
+  },
+  {
+    "en": "Line tracer",
+    "ko": "라인 트레이서",
+    "zh_CN": "循线小车",
+    "ja": "ライントレーサー"
+  },
+  {
+    "en": "Color sorting delivery",
+    "ko": "색깔 분류 배달",
+    "zh_CN": "按颜色分类配送",
+    "ja": "色分け配達"
+  },
+  {
+    "en": "Parallel parking",
+    "ko": "평행 주차",
+    "zh_CN": "侧方停车",
+    "ja": "縦列駐車"
+  },
+  {
+    "en": "Two-robot relay",
+    "ko": "두 대 릴레이",
+    "zh_CN": "双机器人接力",
+    "ja": "2台でリレー"
+  },
+  {
+    "en": "Budget challenge",
+    "ko": "예산 챌린지",
+    "zh_CN": "预算挑战",
+    "ja": "予算チャレンジ"
+  },
+  {
+    "en": "Back",
+    "ko": "뒤로",
+    "zh_CN": "返回",
+    "ja": "戻る"
+  },
+  {
+    "en": "Build a robot, code it, and watch it move.",
+    "ko": "로봇을 만들고 코딩해서 움직여 봐요.",
+    "zh_CN": "搭建机器人，编写程序，看它动起来。",
+    "ja": "ロボットを作って、プログラムして、動かしてみよう。"
+  },
+  {
+    "en": "Play stages",
+    "ko": "스테이지 도전하기",
+    "zh_CN": "挑战关卡",
+    "ja": "ステージに挑戦"
+  },
+  {
+    "en": "Clear challenges one by one.",
+    "ko": "과제를 하나씩 깨 나가요.",
+    "zh_CN": "一关一关地完成挑战。",
+    "ja": "課題をひとつずつクリアしよう。"
+  },
+  {
+    "en": "Free building",
+    "ko": "자유롭게 만들기",
+    "zh_CN": "自由搭建",
+    "ja": "自由に作る"
+  },
+  {
+    "en": "Build anything with every part. You can turn it into a challenge.",
+    "ko": "모든 부품으로 마음대로 만들어요. 만든 것을 과제로 바꿔도 돼요.",
+    "zh_CN": "用所有零件随意搭建，也可以把作品变成挑战。",
+    "ja": "すべての部品で自由に作れます。作品を課題にもできます。"
+  },
+  {
+    "en": "Explore examples",
+    "ko": "예제 둘러보기",
+    "zh_CN": "浏览示例",
+    "ja": "作例を見る"
+  },
+  {
+    "en": "Try finished robots: arms, walkers and humanoids.",
+    "ko": "완성된 로봇을 움직여 봐요. 로봇 팔, 걷는 로봇, 사람형 로봇이 있어요.",
+    "zh_CN": "试试做好的机器人：机械臂、步行机器人和人形机器人。",
+    "ja": "完成したロボットを動かしてみよう。アーム、歩くロボット、人型ロボットがあります。"
+  },
+  {
+    "en": "Open my project",
+    "ko": "내 프로젝트 열기",
+    "zh_CN": "打开我的项目",
+    "ja": "マイプロジェクトを開く"
+  },
+  {
+    "en": "Continue a saved build.",
+    "ko": "저장해 둔 작품을 이어서 만들어요.",
+    "zh_CN": "继续搭建保存的作品。",
+    "ja": "保存した作品の続きを作ろう。"
+  },
+  {
+    "en": "Pick a stage. Each one has its own place, goal and robot.",
+    "ko": "스테이지를 골라요. 스테이지마다 장소와 목표, 로봇이 달라요.",
+    "zh_CN": "选择一个关卡。每个关卡的场地、目标和机器人都不同。",
+    "ja": "ステージを選ぼう。ステージごとに場所と目標、ロボットが違います。"
+  },
+  {
+    "en": "STAGE %s",
+    "ko": "스테이지 %s",
+    "zh_CN": "第 %s 关",
+    "ja": "ステージ %s"
+  },
+  {
+    "en": "Cleared",
+    "ko": "성공",
+    "zh_CN": "已通关",
+    "ja": "クリア"
+  },
+  {
+    "en": "New",
+    "ko": "새 스테이지",
+    "zh_CN": "新关卡",
+    "ja": "新しい"
+  },
+  {
+    "en": "Play again",
+    "ko": "다시 하기",
+    "zh_CN": "再玩一次",
+    "ja": "もう一度"
+  },
+  {
+    "en": "Play",
+    "ko": "시작하기",
+    "zh_CN": "开始",
+    "ja": "はじめる"
+  },
+  {
+    "en": "Coming soon",
+    "ko": "준비 중인 스테이지",
+    "zh_CN": "即将推出",
+    "ja": "準備中のステージ"
+  },
+  {
+    "en": "This stage is not ready yet.",
+    "ko": "아직 만들고 있는 스테이지예요.",
+    "zh_CN": "这个关卡还在制作中。",
+    "ja": "このステージはまだ準備中です。"
+  },
+  {
+    "en": "Examples",
+    "ko": "예제",
+    "zh_CN": "示例",
+    "ja": "作例"
+  },
+  {
+    "en": "Open a finished robot, run it, then change it.",
+    "ko": "완성된 로봇을 열어 움직여 보고 고쳐 봐요.",
+    "zh_CN": "打开做好的机器人，运行一下，再动手修改。",
+    "ja": "完成したロボットを開いて動かし、変えてみよう。"
+  },
+  {
+    "en": "Servo arm",
+    "ko": "서보 팔",
+    "zh_CN": "舵机机械臂",
+    "ja": "サーボアーム"
+  },
+  {
+    "en": "One servo lifts an arm. The simplest robot to read.",
+    "ko": "서보 하나가 팔을 들어 올려요. 가장 읽기 쉬운 로봇이에요.",
+    "zh_CN": "一个舵机抬起机械臂，是最容易看懂的机器人。",
+    "ja": "サーボ1つでアームを持ち上げます。いちばん読みやすいロボットです。"
+  },
+  {
+    "en": "Biped",
+    "ko": "이족 로봇",
+    "zh_CN": "双足机器人",
+    "ja": "二足ロボット"
+  },
+  {
+    "en": "Two legs, four servos. Drive it with WASD.",
+    "ko": "다리 두 개에 서보 네 개예요. WASD로 움직여요.",
+    "zh_CN": "两条腿，四个舵机。用 WASD 控制。",
+    "ja": "脚2本とサーボ4つ。WASDで動かします。"
+  },
+  {
+    "en": "Humanoid (experimental)",
+    "ko": "사람형 로봇 (실험용)",
+    "zh_CN": "人形机器人（实验性）",
+    "ja": "人型ロボット（実験用）"
+  },
+  {
+    "en": "Walks and picks up a box. Movement is still unstable.",
+    "ko": "걷고 상자를 집어요. 움직임은 아직 불안정해요.",
+    "zh_CN": "会走路、会捡箱子，但动作还不稳定。",
+    "ja": "歩いて箱を拾います。動きはまだ不安定です。"
+  },
+  {
+    "en": "Construction-kit humanoid",
+    "ko": "조립 키트 사람형 로봇",
+    "zh_CN": "组装套件人形机器人",
+    "ja": "組み立てキットの人型ロボット"
+  },
+  {
+    "en": "Built only from kit beams, plates and fasteners.",
+    "ko": "키트의 빔과 판, 나사만으로 만들었어요.",
+    "zh_CN": "只用套件里的梁、板和紧固件搭成。",
+    "ja": "キットの梁と板、留め具だけで作りました。"
+  },
+  {
+    "en": "Kit bridge",
+    "ko": "키트 다리",
+    "zh_CN": "套件桥梁",
+    "ja": "キットの橋"
+  },
+  {
+    "en": "The same kit parts, assembled into a bridge.",
+    "ko": "같은 키트 부품으로 다리를 만들었어요.",
+    "zh_CN": "用同样的套件零件搭成一座桥。",
+    "ja": "同じキット部品で橋を組み立てました。"
+  },
+  {
+    "en": "Learned biped",
+    "ko": "학습한 이족 로봇",
+    "zh_CN": "学习型双足机器人",
+    "ja": "学習した二足ロボット"
+  },
+  {
+    "en": "Walks with a learned policy. Hold W.",
+    "ko": "학습한 방식으로 걸어요. W를 누르고 있어요.",
+    "zh_CN": "用学习到的策略行走。按住 W。",
+    "ja": "学習した動きで歩きます。Wを押し続けよう。"
+  },
+  {
+    "en": "Open",
+    "ko": "열기",
+    "zh_CN": "打开",
+    "ja": "開く"
+  },
+  {
+    "en": "Loading...",
+    "ko": "불러오는 중...",
+    "zh_CN": "加载中...",
+    "ja": "読み込み中..."
+  },
+  {
+    "en": "Hint",
+    "ko": "힌트",
+    "zh_CN": "提示",
+    "ja": "ヒント"
+  },
+  {
+    "en": "Show the mission again",
+    "ko": "미션 다시 보기",
+    "zh_CN": "再看一次任务",
+    "ja": "ミッションをもう一度見る"
+  },
+  {
+    "en": "Press Run code to try it.",
+    "ko": "코드 실행을 눌러 확인해 봐요.",
+    "zh_CN": "点击“运行代码”试试看。",
+    "ja": "「コードを実行」を押して試そう。"
+  },
+  {
+    "en": "Start",
+    "ko": "시작하기",
+    "zh_CN": "开始",
+    "ja": "スタート"
+  },
+  {
+    "en": "Next stage",
+    "ko": "다음 스테이지",
+    "zh_CN": "下一关",
+    "ja": "次のステージ"
+  },
+  {
+    "en": "Stage list",
+    "ko": "스테이지 목록",
+    "zh_CN": "关卡列表",
+    "ja": "ステージ一覧"
+  },
+  {
+    "en": "Stage cleared!",
+    "ko": "스테이지 성공!",
+    "zh_CN": "过关！",
+    "ja": "ステージクリア！"
+  },
+  {
+    "en": "Try another way",
+    "ko": "다른 방법으로 해 보기",
+    "zh_CN": "换个方法试试",
+    "ja": "別の方法で試す"
+  },
+  {
+    "en": "Not yet",
+    "ko": "아직이에요",
+    "zh_CN": "还差一点",
+    "ja": "もう少し"
+  },
+  {
+    "en": "%s: %.1f cm (goal: at least %.1f cm)",
+    "ko": "%s: %.1fcm (목표: %.1fcm 이상)",
+    "zh_CN": "%s：%.1f 厘米（目标：至少 %.1f 厘米）",
+    "ja": "%s: %.1fcm（目標: %.1fcm以上）"
+  },
+  {
+    "en": "%s: %.1f cm (goal: %.1f-%.1f cm)",
+    "ko": "%s: %.1fcm (목표: %.1f~%.1fcm)",
+    "zh_CN": "%s：%.1f 厘米（目标：%.1f～%.1f 厘米）",
+    "ja": "%s: %.1fcm（目標: %.1f〜%.1fcm）"
+  },
+  {
+    "en": "Menu",
+    "ko": "메뉴",
+    "zh_CN": "菜单",
+    "ja": "メニュー"
+  },
+  {
+    "en": "Leave this screen?",
+    "ko": "이 화면에서 나갈까요?",
+    "zh_CN": "要离开这个画面吗？",
+    "ja": "この画面を出ますか？"
+  },
+  {
+    "en": "Your build and code here are not saved. Save a project first to keep them.",
+    "ko": "여기서 만든 로봇과 코드는 저장되지 않았어요. 남겨 두려면 먼저 프로젝트로 저장해요.",
+    "zh_CN": "这里的作品和代码还没有保存。想保留的话，请先保存为项目。",
+    "ja": "ここで作ったロボットとコードは保存されていません。残すには先にプロジェクトとして保存しよう。"
+  },
+  {
+    "en": "Leave without saving",
+    "ko": "저장하지 않고 나가기",
+    "zh_CN": "不保存直接离开",
+    "ja": "保存せずに出る"
+  },
+  {
+    "en": "Back to the stage list",
+    "ko": "스테이지 목록으로 돌아가기",
+    "zh_CN": "返回关卡列表",
+    "ja": "ステージ一覧に戻る"
+  },
+  {
+    "en": "Read the mission, then change the program.",
+    "ko": "미션을 읽고 프로그램을 고쳐 봐요.",
+    "zh_CN": "先看任务，再修改程序。",
+    "ja": "ミッションを読んで、プログラムを変えてみよう。"
+  },
+  {
+    "en": "Change the program, then press Run code.",
+    "ko": "프로그램을 고친 다음 코드 실행을 눌러요.",
+    "zh_CN": "修改程序，然后点击“运行代码”。",
+    "ja": "プログラムを変えてから「コードを実行」を押そう。"
+  },
+  {
+    "en": "Free building: add parts from the library, wire them, then program your robot.",
+    "ko": "자유 제작: 부품을 꺼내 연결하고 배선한 다음 프로그램을 만들어요.",
+    "zh_CN": "自由搭建：从零件库添加零件并接线，再为机器人编程。",
+    "ja": "自由制作: 部品を出して配線し、ロボットのプログラムを作ろう。"
+  },
+  {
+    "en": "Robot reset. Change the program, then press Run code.",
+    "ko": "로봇을 처음 자리로 돌렸어요. 프로그램을 고친 다음 코드 실행을 눌러요.",
+    "zh_CN": "机器人已复位。修改程序，然后点击“运行代码”。",
+    "ja": "ロボットを元に戻しました。プログラムを変えてから「コードを実行」を押そう。"
+  },
+  {
+    "en": "Stage cleared, but progress could not be saved.",
+    "ko": "스테이지는 성공했지만 기록을 저장하지 못했어요.",
+    "zh_CN": "已过关，但无法保存进度。",
+    "ja": "ステージはクリアしましたが、記録を保存できませんでした。"
+  },
+  {
+    "en": "The goal was met in the physics run.",
+    "ko": "물리 실행에서 목표를 달성했어요.",
+    "zh_CN": "在物理运行中达成了目标。",
+    "ja": "物理シミュレーションで目標を達成しました。"
+  },
+  {
+    "en": "The program ended before the goal was met. Change it and try again.",
+    "ko": "목표에 닿기 전에 프로그램이 끝났어요. 고친 다음 다시 해 봐요.",
+    "zh_CN": "程序在达成目标前就结束了。修改后再试一次。",
+    "ja": "目標に届く前にプログラムが終わりました。変えてもう一度試そう。"
+  },
+  {
+    "en": "Reset robot",
+    "ko": "처음 자리로",
+    "zh_CN": "机器人复位",
+    "ja": "最初に戻す"
+  }
+]
