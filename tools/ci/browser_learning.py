@@ -18,6 +18,7 @@ def main() -> None:
     parser.add_argument("--directory", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--executable")
+    parser.add_argument("--hardware", action="store_true", help="Use the local display and OpenGL for GPU verification")
     args = parser.parse_args()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -27,10 +28,15 @@ def main() -> None:
     url = f"http://127.0.0.1:{server.server_address[1]}/?ssok_verify=1"
     result = {"passed": False, "checks": [], "stages": [], "url": url}
     console = []
+
+    def persist():
+        (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+        (output / "console.json").write_text(json.dumps(console, indent=2) + "\n")
+
     try:
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(headless=True, executable_path=args.executable,
-                args=["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"])
+            graphics = ["--enable-gpu", "--ignore-gpu-blocklist", "--use-gl=angle", "--use-angle=gl"] if args.hardware else ["--enable-unsafe-swiftshader", "--use-gl=angle", "--use-angle=swiftshader"]
+            browser = playwright.chromium.launch(headless=not args.hardware, executable_path=args.executable, args=graphics)
             context = browser.new_context(viewport=dict(zip(("width", "height"), layout["viewport"])),
                 permissions=["clipboard-read", "clipboard-write"], locale="en-US", accept_downloads=True)
             page = context.new_page()
@@ -51,6 +57,11 @@ def main() -> None:
                 page.wait_for_function("window.__ssokLearning !== undefined", timeout=120000)
                 print("Web observations ready", flush=True)
                 result["browser"] = browser.version
+                result["renderer"] = page.evaluate("""() => {
+                    const gl = document.querySelector('canvas').getContext('webgl2');
+                    const debug = gl.getExtension('WEBGL_debug_renderer_info');
+                    return debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+                }""")
                 for index, name in enumerate(["flag", "finish", "sonar"]):
                     print(f"Starting Web {name}", flush=True)
                     click("stop")
@@ -81,6 +92,7 @@ def main() -> None:
                     assert [rule["metric"] for rule in observation["result"]["stage"]["measurements"]] == expected_metrics, observation
                     result["stages"].append({"name": name, "observation": observation})
                     result["checks"].append(f"{name}: actual Web physics cleared declarative stage")
+                    persist()
                     capture_view(page, output / f"{name}-success.png")
                     print(f"PASS Web {name}: {observation['result']['stage']}", flush=True)
                 click("stages_tab")
@@ -94,6 +106,7 @@ def main() -> None:
                 challenge = json.loads(challenge_path.read_text())
                 assert challenge["format"] == "ssok-stage" and len(challenge["author_solution"]["graph"]["parts"]) == 10
                 result["checks"].append("Verified Web challenge downloads as a portable JSON file")
+                persist()
                 click("stop")
                 click("code_tab")
                 source = "while True:\n    pass\n"
@@ -101,9 +114,10 @@ def main() -> None:
                 clipboard.evaluate("text => navigator.clipboard.writeText(text)", source)
                 page.bring_to_front()
                 click("code_editor")
-                page.keyboard.press("Control+A")
-                page.keyboard.press("Control+V")
-                page.wait_for_function("window.__ssokLearning.scene.source === 'while True:\\n    pass\\n'")
+                page.keyboard.press("Control+A", delay=100)
+                page.wait_for_timeout(250)
+                page.keyboard.press("Control+V", delay=100)
+                page.wait_for_function("expected => window.__ssokLearning.scene.source === expected", arg=source, timeout=30000)
                 click("run_code")
                 page.wait_for_function("window.__ssokLearning.result.running === true")
                 page.wait_for_timeout(1500)
@@ -123,8 +137,7 @@ def main() -> None:
             finally:
                 browser.close()
     finally:
-        (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
-        (output / "console.json").write_text(json.dumps(console, indent=2) + "\n")
+        persist()
         server.shutdown()
         server.server_close()
 

@@ -108,7 +108,13 @@ func _ready() -> void:
 				code_edit.set_line_background_color(n - 1, Color(0.18, 0.3, 0.4, 0.6))
 			if is_instance_valid(blocks):
 				blocks.highlight_line(n))
-	runtime.finished.connect(func() -> void: _set_status("finished"))
+	runtime.finished.connect(func() -> void:
+		if stages != null and stages.evaluator.success:
+			_set_status("Challenge cleared. Change your build and try another solution.")
+		elif stages != null and stages.evaluator.expired:
+			_set_status("Time is up. Change your build or code and try again.")
+		else:
+			_set_status("finished"))
 	runtime.failed.connect(func(n: int, msg: String) -> void: _show_code_failure(n, msg, int(runtime.last_failure.get("column", 1))))
 	add_child(runtime)
 	manual_controller = ManualController.new()
@@ -363,6 +369,7 @@ func _build_ui() -> void:
 	stages.run_mode = run_mode
 	stages.source = func() -> String: return code_edit.text
 	stages.pending_blocks = blocks.has_draft
+	stages.outcome_changed.connect(func(message: String) -> void: _set_status(message))
 	stages.stage_requested.connect(func(stage: Dictionary) -> void:
 		_request_starter(func() -> void:
 			_load_preset(ProjectStore.graph_from(stage.scene), stage.scene.source, "Challenge loaded. Build your own solution.")

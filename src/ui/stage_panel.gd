@@ -3,6 +3,7 @@ extends VBoxContainer
 
 signal stage_requested(stage: Dictionary)
 signal lab_requested
+signal outcome_changed(message: String)
 
 var assembly: AssemblyMode
 var run_mode: RunMode
@@ -177,9 +178,11 @@ func _physics_process(delta: float) -> void:
 		_observing = false
 		_proof_fingerprint = _run_fingerprint
 		SsokLocale.bind(_status, "Challenge cleared. Change your build and try another solution.")
+		outcome_changed.emit("Challenge cleared. Change your build and try another solution.")
 	elif evaluator.expired:
 		_observing = false
 		SsokLocale.bind(_status, "Time is up. Change your build or code and try again.")
+		outcome_changed.emit("Time is up. Change your build or code and try again.")
 
 
 func _author() -> void:

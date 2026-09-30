@@ -37,6 +37,7 @@ func _run() -> void:
 				break
 		print("STAGE_RESULT ", stage.id, " ", JSON.stringify(main.stages.evaluator.result()))
 		_check(main.stages.evaluator.success, "actual author solution clears " + stage.id)
+		_check(main.status.text == main.tr("Challenge cleared. Change your build and try another solution."), "stage outcome remains visible while viewing code")
 		_check(main.stages._export(), "fresh observed proof enables export")
 		main.blocks.instructions.append({"op": "raw", "raw": "# pending edit"})
 		_check(not main.stages._export(), "unapplied block draft cannot export an older verified program")
