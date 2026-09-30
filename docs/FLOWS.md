@@ -1,6 +1,6 @@
 # 실행과 저장 흐름
 
-실선으로 표현한 아래 세 도식은 [STATUS](STATUS.md)의 기준 코드예요. 마지막 도식은 후속 설계이며 현재 앱의 전체 상태 머신으로 사용하지 않아요.
+아래 도식은 [STATUS](STATUS.md)의 통합 소스에 있는 책임과 흐름을 요약해요.
 
 ## 코드 실행과 제어권
 
@@ -16,15 +16,17 @@ flowchart TD
     Syntax -->|오류| Edit
     Syntax -->|통과| Owner[수동 명령 해제 / 코드 제어 선택]
     Owner --> Build[필요하면 그래프에서 물리 생성]
-    Build --> Validate[MiniRuntime.run: 전체 배선까지 검사]
+    Build --> Validate[전체 배선까지 검사]
     Validate -->|오류| Error[failed 신호 / 모터 명령 미전송]
-    Validate -->|통과| Execute[서보 명령과 비동기 sleep]
+    Validate -->|통과| Goal[Stage 대상 검사와 실행 문맥 고정]
+    Goal -->|거부| Error
+    Goal -->|통과| Execute[bounded VM: 서보·모터·센서·조건·반복]
     Execute --> Complete[finished 신호]
     Execute --> Stop[사용자 Stop / 모드·제어권 변경]
-    Stop --> Invalidate[execution_id 증가 / 늦은 sleep 무효화]
+    Stop --> Invalidate[execution_id 증가 / 대기·VM 무효화]
 ```
 
-`scenes/main.gd`가 실행 버튼과 제어권을 조정하고 `MiniRuntime`이 명령을 해석해요. 코드 종료와 임무 성공은 다른 사건이에요. 현재 Stop은 명령을 중단하고 서보의 마지막 목표를 유지해요. 물리 정지나 초기 자세 복원으로 해석하지 않아요. 편집 모드 복귀는 `RunMode.teardown()` 뒤 원본 그래프를 다시 보여줘요.
+`scenes/main.gd`가 실행 버튼과 제어권을 조정하고 `MiniRuntime`이 명령을 해석해요. 코드 종료와 임무 성공은 다른 사건이에요. Stop은 VM을 중단하고 DC 모터를 정지하며 서보의 마지막 목표를 유지해요. 진행 중 Stage 시도는 cancelled로 기록해요. 물리 정지나 초기 자세 복원으로 해석하지 않아요. 편집 모드 복귀는 `RunMode.teardown()` 뒤 원본 그래프를 다시 보여줘요.
 
 ## 저장과 가져오기
 
@@ -84,21 +86,26 @@ stateDiagram-v2
 
 이것은 대표 경로예요. 그래프를 관찰해 기계 연결이 없어지면 Assembly, 배선이 없어지면 Wire로 돌아가는 경로가 모든 관련 상태에 추가돼요. 실제 전이는 [FlagMission._build_chart](../src/ui/flag_mission.gd), 실제 판정은 `_observed_flag_raised()`를 확인해요. 정확한 높이·유지 조건은 [FLAG_MISSION](FLAG_MISSION.md)에 있어요. 깃발 완료가 학습 효과나 다른 로봇의 성공을 인증하지 않아요.
 
-## 후속 Stage와 공유 설계
+## Stage 판정과 공유
 
 ```mermaid
 flowchart LR
-    Task[과제 버전 / 환경 / 목표] -.-> Preflight[대상과 제약 검사]
-    Graph[편집 그래프와 코드] -.-> Preflight
-    Preflight -.-> Run[실행 스냅샷 / 단일 제어권]
-    Run -.-> Observe[실제 관측]
-    Observe -.-> Outcome[성공 / 미달성 / 중단 / 판정 불가]
-    Outcome -.-> Evidence[과제와 실행 버전에 연결한 증거]
-    Evidence -.-> Verify[공유 시 기준 환경 재검증]
+    Task[Stage v2 / 환경 / 규칙] --> Preflight[인스턴스 대상과 부품 수 검사]
+    Graph[편집 그래프와 코드] --> Preflight
+    Preflight -->|유효| Run[배선 센서 준비 / 실행 문맥 fingerprint]
+    Preflight -->|거부| Invalid[미달성 또는 판정 불가]
+    Run --> Observe[실제 물리 관측 / 문맥 변경 검사]
+    Observe --> Outcome[성공 / 미달성 / 중단 / 판정 불가]
+    Outcome -->|성공| Proof[현재 실행 fingerprint 보존]
+    Proof --> Verify[출제 상태 / 미적용 블록 / 문맥 재검사]
+    Verify -->|유효| Export[JSON 내보내기 / Web 파일 다운로드]
+    Export --> Import[가져올 때 구조 검사 / 성공 증거 초기화]
 ```
 
-점선은 추가할 계약이에요. `issues-31-36` 작업의 부분 구현은 통합 후 다시 대조해요. 대상 객체 ID, 환경과 로봇의 경계, 실행 중 변경 방지, 취소 뒤 늦은 응답, 시스템 오류의 판정 제외를 명세해야 해요. 과제/환경 변경으로 기존 성공 인증이 유효한지 결정하고 저장 버전 이행과 함께 기록해요.
+목표·그래프·코드·센서 조건 변경은 이전 성공 증거를 무효화해요. 편집 모드 복귀만으로 성공 증거를 지우지는 않아요. Stage의 센서는 학습 코드가 직접 읽지 않아도 그래프 배선에서 준비한 뒤 실행 문맥을 고정해요. 누락·중복·교체 대상, 센서/물리 오류는 판정 불가, 시간초과·프로그램 오류는 미달성, 사용자 중단은 cancelled예요. 종료한 시도의 늦은 결과는 적용하지 않아요. 범위 밖 초음파는 null 관측으로 계속 실행해요.
+
+규칙은 선언형 수치이며 임의 판정 코드를 실행하지 않아요. 코드 종료 후에도 물리 목표 관측은 계속될 수 있고, 프로그램 오류/중단은 시도를 종료해요. 실패 이유와 복구 행동은 과제 패널과 공통 상태 표시줄에 나타나요. 서버 공유·계정·검증 서명은 미구현이에요. [계약 상세](STAGE_CONTRACTS.md)를 함께 읽어요.
 
 ## 소스와 확인할 검사
 
-[main.gd](../scenes/main.gd), [MiniRuntime](../src/runtime/mini_runtime.gd), [RunMode](../src/runtime/run_mode.gd), [BlockProgramPanel](../src/ui/block_program_panel.gd), [ProjectPanel](../src/ui/project_panel.gd), [FlagMission](../src/ui/flag_mission.gd)가 근거예요. 검사는 [core_authoring](../tests/core_authoring_check.gd), [control_flow](../tests/control_flow_check.gd), [flag_mission](../tests/flag_mission_check.gd)를 작업 범위에 맞춰 실행해요. 이 문서 작성으로 앱 검사를 새로 통과한 것은 아니에요.
+[main.gd](../scenes/main.gd), [MiniRuntime](../src/runtime/mini_runtime.gd), [RunMode](../src/runtime/run_mode.gd), [BlockProgramPanel](../src/ui/block_program_panel.gd), [ProjectPanel](../src/ui/project_panel.gd), [FlagMission](../src/ui/flag_mission.gd)가 근거예요. 검사는 [core_authoring](../tests/core_authoring_check.gd), [control_flow](../tests/control_flow_check.gd), [flag_mission](../tests/flag_mission_check.gd)를 작업 범위에 맞춰 실행해요. Stage 관련 검사는 `stage_contract_check`, `stage_authoring_check`, `stage_ui_check`, `sonar_stage_check`예요. 실제 통합 결과는 [증거](evidence/merge_2026-09-30/README.md)에 기록해요.

@@ -13,11 +13,10 @@ ssok/
   src/
     assembly/  (3 GDScript files)
     blocks/  (1 GDScript files)
-    core/  (5 GDScript files)
-    profiles/  (0 GDScript files)
-      (placeholder; inspect before assuming implementation)
-    runtime/  (16 GDScript files)
-    ui/  (13 GDScript files)
+    core/  (8 GDScript files)
+    profiles/  (1 GDScript files)
+    runtime/  (19 GDScript files)
+    ui/  (14 GDScript files)
   presets/
   assets/
     blender/
@@ -40,6 +39,7 @@ ssok/
   tests/
     fixtures/
   tools/
+    app_control/
     blender/
     ci/
     docs/
@@ -73,6 +73,7 @@ ssok/
 | [presets/humanoid.gd](../../presets/humanoid.gd) | HumanoidPreset |
 | [presets/humanoid_motion.gd](../../presets/humanoid_motion.gd) | HumanoidMotion |
 | [presets/modular_humanoid.gd](../../presets/modular_humanoid.gd) | ModularHumanoidPreset |
+| [presets/robot_car.gd](../../presets/robot_car.gd) | RobotCarPreset |
 | [presets/servo_arm.gd](../../presets/servo_arm.gd) | ServoArmPreset |
 | [presets/yaw_biped.gd](../../presets/yaw_biped.gd) | YawBipedPreset |
 | [scenes/main.gd](../../scenes/main.gd) | (scene script) |
@@ -80,12 +81,17 @@ ssok/
 | [src/assembly/part_node.gd](../../src/assembly/part_node.gd) | PartNode |
 | [src/assembly/transform_gizmo.gd](../../src/assembly/transform_gizmo.gd) | TransformGizmo |
 | [src/blocks/servo_program.gd](../../src/blocks/servo_program.gd) | ServoProgram |
+| [src/core/app_controller.gd](../../src/core/app_controller.gd) | AppController |
 | [src/core/board_profile.gd](../../src/core/board_profile.gd) | BoardProfile |
 | [src/core/connection_graph.gd](../../src/core/connection_graph.gd) | ConnectionGraph |
 | [src/core/part_def.gd](../../src/core/part_def.gd) | PartDef |
 | [src/core/port.gd](../../src/core/port.gd) | Port |
 | [src/core/project_store.gd](../../src/core/project_store.gd) | ProjectStore |
+| [src/core/stage_catalog.gd](../../src/core/stage_catalog.gd) | StageCatalog |
+| [src/core/stage_definition.gd](../../src/core/stage_definition.gd) | StageDefinition |
+| [src/profiles/learner_program.gd](../../src/profiles/learner_program.gd) | LearnerProgram |
 | [src/runtime/bundled_biped_motion.gd](../../src/runtime/bundled_biped_motion.gd) | BundledBipedMotion |
+| [src/runtime/drive_motor.gd](../../src/runtime/drive_motor.gd) | DriveMotor |
 | [src/runtime/kit_humanoid_motion.gd](../../src/runtime/kit_humanoid_motion.gd) | KitHumanoidMotion |
 | [src/runtime/learned_biped_motion.gd](../../src/runtime/learned_biped_motion.gd) | LearnedBipedMotion |
 | [src/runtime/manual_controller.gd](../../src/runtime/manual_controller.gd) | ManualController |
@@ -100,6 +106,8 @@ ssok/
 | [src/runtime/robot_motion_program.gd](../../src/runtime/robot_motion_program.gd) | RobotMotionProgram |
 | [src/runtime/run_mode.gd](../../src/runtime/run_mode.gd) | RunMode |
 | [src/runtime/servo_drive.gd](../../src/runtime/servo_drive.gd) | ServoDrive |
+| [src/runtime/sonar_sensor.gd](../../src/runtime/sonar_sensor.gd) | SonarSensor |
+| [src/runtime/stage_evaluator.gd](../../src/runtime/stage_evaluator.gd) | StageEvaluator |
 | [src/runtime/wiring.gd](../../src/runtime/wiring.gd) | Wiring |
 | [src/ui/blender_camera.gd](../../src/ui/blender_camera.gd) | BlenderCamera |
 | [src/ui/block_program_panel.gd](../../src/ui/block_program_panel.gd) | BlockProgramPanel |
@@ -111,6 +119,7 @@ ssok/
 | [src/ui/project_panel.gd](../../src/ui/project_panel.gd) | ProjectPanel |
 | [src/ui/ssok_locale.gd](../../src/ui/ssok_locale.gd) | SsokLocale |
 | [src/ui/ssok_theme.gd](../../src/ui/ssok_theme.gd) | SsokTheme |
+| [src/ui/stage_panel.gd](../../src/ui/stage_panel.gd) | StagePanel |
 | [src/ui/tutorial_panel.gd](../../src/ui/tutorial_panel.gd) | TutorialPanel |
 | [src/ui/web_clipboard.gd](../../src/ui/web_clipboard.gd) | WebClipboard |
 | [src/ui/wiring_panel.gd](../../src/ui/wiring_panel.gd) | WiringPanel |

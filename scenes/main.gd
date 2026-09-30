@@ -994,12 +994,12 @@ func _apply_control_source() -> void:
 
 func _on_stop_pressed() -> void:
 	flag_mission.on_stop_pressed()
-	stages.on_stop()
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
 	control_source.select(CONTROL_CODE)
 	_set_status("Input stopped - servos hold their last targets; return to edit mode to reset the robot")
+	stages.on_stop()
 	_refresh_control_ui()
 
 

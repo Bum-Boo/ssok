@@ -145,8 +145,8 @@ or Python developer tools. This desktop artifact targets Linux x86_64, not Windo
 before exporting either target. The workflow retains verification logs even on failure, and uses
 official GitHub Actions pinned by commit SHA. Python dependencies are pinned in the lock file.
 
-Set repository **Settings → Pages → Source → GitHub Actions** once. A successful `main` push
-deploys its Web export; a manual workflow on another branch deploys only if `deploy` is checked.
+Set repository **Settings → Pages → Source → GitHub Actions** once. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision,
+run the workflow manually on that revision with `deploy` checked.
 The `github-pages` environment reports the resulting URL. Publishing a GitHub Release triggers
 the same validation/build and attaches ZIPs, hashes and metadata to that existing release.
 Existing release assets are not silently overwritten. A tag or a build alone is not evidence of

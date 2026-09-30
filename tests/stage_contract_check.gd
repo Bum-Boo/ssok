@@ -96,12 +96,15 @@ func _run() -> void:
 	run_mode.teardown()
 	var car: ConnectionGraph = RobotCarPreset.build()
 	var sonar_stage: Dictionary = StageDefinition.create("sensor-test", "Sensor test", car, "", [StageDefinition.rule("sonar_distance", "hc_sr04", 0, 10)])
+	var sensor_wire: Dictionary = car.links.pop_back()
 	judge.configure(sonar_stage, car)
 	run_mode.build(car)
 	judge.start(car)
 	judge.observe(run_mode, car, 0.01)
 	_check(judge.reason == "sensor_missing" and judge.status == "indeterminate", "unwired/unavailable observation differs from range miss")
-	run_mode.sonar_on_pins(1, 2)
+	run_mode.teardown()
+	car.links.append(sensor_wire)
+	run_mode.build(car)
 	judge.start(car)
 	await physics_frame
 	judge.observe(run_mode, car, 0.01)
@@ -139,6 +142,16 @@ func _run() -> void:
 	ProjectSettings.set_setting("physics/3d/solver/solver_iterations", settings_before)
 	main.stages.current.scene.graph.parts[0].transform[9] += 0.01
 	_check(not main.stages._export(), "UI export rejects altered stage environment")
+	main._ensure_assembly_mode()
+	# The goal may observe sonar even when the learner uses a timer-only program.
+	main._load_preset(RobotCarPreset.build(), "sleep(5000)\n", "")
+	main.stages.load_goal(sonar_stage)
+	main._on_run_pressed()
+	for tick: int in 5:
+		await physics_frame
+	_check(main.stages.evaluator.status == "running" and main.stages.evaluator.measurements[0].state == "out_of_range", "goal initializes graph sensor before fingerprinting timer-only run")
+	main._on_stop_pressed()
+	_check(main.status.text == tr("Attempt stopped. Your build and code are kept."), "stage cancellation reaches global footer")
 	main.free()
 	await process_frame
 	await process_frame

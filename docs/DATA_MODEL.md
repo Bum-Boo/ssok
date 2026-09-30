@@ -65,9 +65,9 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 | `PartDef` / `Port` | 카탈로그 부품, 질량, 메쉬, 포트와 관절 속성 | 프로젝트는 리소스 경로 대신 카탈로그 ID를 참조 |
 | `ConnectionGraph` | 배치된 `parts`와 `links` | 편집 조립의 정본. 물리 결과로 자동 덮어쓰지 않음 |
 | `AssemblyMode` | 그래프와 편집 노드, Undo/Redo 스냅샷 | 같은 조립을 편집하고 전기 연결은 위치 보존 |
-| `RunMode` | 파생 강체, 관절, 핀→서보 매핑 | teardown으로 제거. 물리 노드는 저장하지 않음 |
-| `BoardProfile` | ID, 추천 언어와 명령/인자 API | 인터프리터를 포함하지 않음 |
-| `ServoProgram` / `BlockProgramPanel` | 지원 코드의 명령 표현과 미적용 초안 | 학습자 source와 충돌하면 양쪽 보존 |
+| `RunMode` | 파생 강체, 관절, 그래프 배선의 서보·DC 모터·초음파 매핑 | teardown으로 제거. 물리 노드는 저장하지 않음 |
+| `BoardProfile` | ID, 명령/인자 API, 핀 상수와 sleep 단위 | 인터프리터를 포함하지 않음 |
+| `LearnerProgram` / `BlockProgramPanel` | 지원 코드의 명령 표현과 미적용 초안 | 학습자 source와 충돌하면 양쪽 보존 |
 | `ProjectStore` / `MotionSnapshot` | JSON 계약과 검증 | 불러오기에서 자동 코드 실행 금지 |
 
 ## 프로젝트 v1의 실제 모양
@@ -83,7 +83,15 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 
 현재 한도는 프로젝트 JSON 512 KiB, source 64 KiB, 제목 80자, 저장 파일 128개, 부품 256개, 링크 1024개, 각 좌표 절댓값 100m예요. 디스크 파일 ID는 24자리 소문자 hex이며 JSON 내부의 학습자 객체 ID가 아니에요. 정확한 한도와 거부 정책은 아래 소스를 따르고 변경 때 이 설명도 검토해요.
 
-`ProjectStore.save()`는 새 ID의 `.tmp` 파일을 쓴 뒤 rename해 독립 스냅샷을 만들어요. 기존 파일을 수정하는 자동 저장, 클라우드 병합과 미저장 작업 복구는 현재 계약에 없어요. Stage·환경·실행 증거를 저장하려면 v1의 exact-key 검사와 이행 경로를 먼저 설계해야 해요.
+`ProjectStore.save()`는 새 ID의 `.tmp` 파일을 쓴 뒤 rename해 독립 스냅샷을 만들어요. 기존 파일을 수정하는 자동 저장, 클라우드 병합과 미저장 작업 복구는 현재 계약에 없어요. Stage는 아래 별도 문서 형식으로 프로젝트 v1을 포함해요. 프로젝트 v1의 exact-key에 Stage 필드를 덧붙이지 않아요.
+
+## Stage v2의 관계와 실행 증거
+
+`ssok-stage` v2는 `id`, `title`, `scene`, `author_solution`, `rules`, `constraints`를 가져요. `scene`과 `author_solution`은 각각 프로젝트 v1 문서예요. v1 Stage도 읽으며 v2로 생성해요. 규칙은 metric, part_id, min/max, hold_seconds와 target_index를 포함해요. `target_index = -1`은 일치하는 종류가 정확히 하나일 때만 허용해요. 직접 선택한 인덱스는 로딩 시 그래프 인스턴스 토큰에 묶이며 삭제·대체하면 재선택이 필요해요. 이 토큰은 저장하는 영구 객체 ID가 아니에요.
+
+판정은 `StageEvaluator`가 실제 물리를 관측해요. 성공 증거는 과제 전체, 그래프/소스, 엔진·런타임·모델, 보드 API/시간 단위, 물리 설정, 센서 조건의 fingerprint에 묶여요. 파일에 신뢰할 인증서를 담지 않으며 가져온 과제는 다시 성공해야 해요. [Stage 계약](STAGE_CONTRACTS.md)과 [ADR 0025](adr/0025-stage-targets-proofs-and-outcomes.md)를 따라요.
+
+보드 profile은 현재 그래프에서 파생하며 저장 문서에 별도 중복 필드를 넣지 않아요. 미적용 블록은 독립 초안으로 보존하고 과제 출제·내보내기에서 적용을 요구해요. 외관 색·데칼과 클라우드 진행 기록은 이 스키마에 없어요.
 
 ## 근거와 확장 지점
 
