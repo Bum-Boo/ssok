@@ -19,15 +19,14 @@
 
 ## 진행 작업과 근거
 
-2026-10-11 Windows 안정화 로컬 초안: 카메라 대기 밀림15.3→1.2mm/10초·고정 이미지 목표9/9를 확인했어요.
-독립 물리 판정은0/9(14cm 기준 유지)로 별도 미달성이에요. blank/frozen 대조와 실제 앱 Run→operator→AI
-재관측/Stop 근거를 보존했어요. 설정 검사 오염·Windows HTTP413 reset·Stage 탭 검사 좌표를 수정한 뒤
-현재 native full81/0(입력426hash변경0), 실제 POSIX3/0. 첫 전체81/5와 browser4/5 실패도 보존해요.
-Astra가 실제 타이틀 Settings 글자 잘림을 확인해 Opus가 기존 속성2개로 수정했고, 네 언어·양 테마·확대/compact
-80설정·16실제 화면/키보드 검사와 독립 Opus 최종 소스 리뷰를 통과했어요. 사용자 문구/번역/패널은 그대로예요.
-이전 Fable actual fetch/rebase는3e75cea/up-to-date, 최신 소스의 Fable 통합과 clean4exports/최종Web5종/nativeinstaller
-검증은 다음이에요. 첫4export dirty/source_changed 경고와 native installer 집계 실패를 보존하며 통합/공개하지 않았어요.
-[현재 검증·미완료·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/README.md). 아래는 이전 소스 이력이에요.
+2026-10-11 Windows 안정화 검토 초안 r2: 고정 카메라 이미지9/9·독립 물리0/9(14cm 기준 유지).
+Windows full81/0·실제POSIX3/0, clean4exports/6hashes, 같은Web5/5·실제설치17/0을 통과했어요.
+패키지 소스f31f8d5/version0.3.1-camera-r2;426입력 동일. 최종 문서 후속과 앱 패키지를 구분해요.
+Settings 잘림은 Opus 속성2개 수정/독립리뷰, Astra16화면·80설정·16키보드·실시간4언어 검증 통과.
+최종 패키지10화면 Astra 검수와 최신Fable 기능리뷰/실제fetch·rebase(up-to-date4eb059f)도 통과했어요.
+첫81/5·Web4/5·dirty export·설치 집계 실패는 보존했고 통합/공개하지 않았어요. 물리0/9·Mac실기기·
+Arch원자료/taskCLI release·human merge/정확한 버전 공개 승인은 남았어요.
+[검증·버전·미완료·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/README.md). 아래는 이전 소스 이력이에요.
 
 2026-10-10 `feat/32-robot-camera-loop`의 **로컬 초안**: graph 차량의640×480 카메라,
 유한 행동·실측 정지·재관측, 외부 CLI/MCP와 Claude 작성 패널, 목표 Run→명시적으로 켠
@@ -48,7 +47,7 @@ Claude Fable5-1의 최신 기능 소스 리뷰 pass; 변경 없는 패널 SHA f8
 
 Arch 전원이 꺼져 최신 원자료 일부 회수와 기존 task revision16의 CLI release는 미완료예요.
 Windows 개발·검증 근거와 다음 절차는 [Claude 인계](../CLAUDE-REVIEW.md)에 있어요.
-다음은 Fable 실제 통합, human merge, full release/package 검사와 해당 버전/범위 공개 승인,
+다음은 최종 인계 commit의 Fable rebase, human merge와 해당 버전/범위 공개 승인,
 이미지 목표 정밀도예요. 현재 main 통합·공개 배포·카탈로그 카메라·범용 로봇/학습은 미완료예요.
 
 - [출시 전 화면·부품·커스텀 점검](PRELAUNCH_UX_AUDIT_2026-09-30.md)은 실제 `90b9930` 화면 5장과 부품 목록을 포함해요. 신규 시각안·꾸미기·챕터 진행은 제안이에요.

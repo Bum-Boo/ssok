@@ -1,14 +1,24 @@
-# Robot camera loop — local design review
+# Robot camera loop — reviewed local draft r2
 
-Latest local draft: [stabilization r2 checks](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/README.md).
-Current Windows full81/0 (source426hashes unchanged); frozen camera image9/9 and independent physical0/9;
-blank/frozen negative controls and real app Run retained. Title Settings clipping fix SHA5f813490…a8c8c1:
-Claude Opus5-5 authored, native Astra16after PNGs and independent Opus final source review PASS/no blockers.
-Catalogs/strings unchanged; camera panel f8afbc47…54da5 unchanged with its prior separate Opus review.
-Latest functional Fable review/actual feature rebase and final clean4exports/5browser/nativeinstaller are next.
-No main merge, push/publication or exact-version user publication approval. Earlier sections are dated history.
+Final runtime record: [stabilization r2](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/README.md).
+App/packages f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4, version0.3.1-camera-r2; later final docs commit
+changes no app/test/tool input. Windows full81/0, same clean Web5/5, exact installed Windows17/0,
+clean4exports/resource audits and6artifact hashes PASS. Final Astra10image findings PASS within scope.
+Opus5-5 authored and independently reviewed Title2properties (SHA5f813490…a8c8c1);80geometry/16keyboard
+and live4language/focus cases pass. Unchanged camera panel retains separate Opus review.
+Latest actual Fable5-1 functional review PASS and separate actual fetch/rebase f31 up-to-date against4eb059f;
+final docs-only commit goes to Fable for actual rebase, then human review/merge. No push/merge/publication.
+Camera image9/9 remains independent physical0/9; no navigation, hidden-distance, monetary-cap or backend attestation.
 
-## Current Windows stabilization handoff — 2026-10-10
+Remaining: human review/merge, exact reviewed-version/scope publication approval, physical calibration,
+native Mac UI, powered-off Arch raw recovery and generated task rev16 CLI checkpoint/release. Exact Mac
+archive hash and commands/source/runtime/failure links are in the r2 record. Before Arch task release,
+check existing CLI show/release help and live owner/lease; generated state is untouched. All historic failures
+and older dated pending statements are preserved below. Current restoration instructions/receipts:
+`C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
+Final docs-only localization impact: no UI strings/catalog changes, graphs/VM/physics diagrams unchanged.
+
+## Historical Windows stabilization handoff — 2026-10-10
 
 Owner: issue32/task `ssok/robot-camera-loop-20261010`, Codex session `ssok-stabilize-20261010-1`.
 Checkout: `C:/Users/Hojun/Projects/ssok-ai-loop`, `feat/32-robot-camera-loop`, HEAD4eb059f,

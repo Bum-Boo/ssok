@@ -1,3 +1,49 @@
+# Stabilization r2 — reviewed local draft
+
+Final runtime checkpoint 2026-10-11T02:45:08+09:00. App/package source **f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4**;
+version **0.3.1-camera-r2**, feature `feat/32-robot-camera-loop`, existing issue32/task/session.
+This follow-up changes documentation/evidence only. No main merge, push or publication.
+
+| Acceptance check | Actual result | Evidence |
+|---|---|---|
+| Windows full native |81programs/0failures;426input hashes unchanged, import/load/localization included |[summary](full-native-final-r2/SUMMARY.md) |
+| Clean exports |Web/Linux/Windows/macOS,6artifacts; dirty=false/source_changed=false; resource audits and actual Linux startup pass |[release](final-build/release.json), [checksums](final-build/SHA256SUMS), [byte readback](final-build/artifact-readback-final-r2.json) |
+| Same clean Web payload |5/5 existing smoke/authoring/physics/learning/settings gates; source/payload unchanged |[receipt](browser-final-clean-r2/receipt.json) |
+| Same Windows installer |17/0, actual default Title/map/3Stage programs and persistent clears, normal close/logclean, install/registration/shortcut/uninstall, extra-user-file preservation |[receipt](native-installer-final-clean-r2/receipt.json), [checks](native-installer-final-clean-r2/checks.json) |
+| Title Settings fix |80geometry/16GUI keyboard cases, Astra16after images and independent Opus5-5 review PASS; live existing picker4/0 at200% compact size preserves same Title and focus |[runtime](title-clip-after-r2/geometry.json), [live language](title-live-language-r2/result.json), [Opus](opus-title-clip-independent-review/result.json) |
+| Final packaged images |Astra actually viewed10native/Web frames; displayed labels/map/success/Stop fit within bounded scope |[findings](astra-final-package-r2.json), [image identity](astra-final-image-hashes.json) |
+| Functional review and actual integration |Latest actual Fable5-1 PASS/no blockers; actual separate fetch/rebase on f31, up-to-date no-op against4eb059f; cherry3feature commits |[review](fable-integration-final-r2/result.json), [actual Git proof](fable-integration-final-r2/coordinator-proof.json) |
+
+The camera's frozen3×3 study remains **image9/9, independent physical0/9**. Actual gap14.1289..14.9976cm
+exceeds unchanged14cm maximum. No criterion, robot pose, finite torque, evaluator or model distance input
+was changed to turn this into success. Blank/frozen strict failures and all original red gates remain below.
+Tool/time bounds do not prove model identity, empty context, billing/request caps or universal navigation.
+
+The native gate measured installed PE/PCK hashes matching export bytes. Builder windows-binary.json still
+says native_runtime_verified=false because it predates this separate runtime receipt; original metadata is
+unchanged. Mac structure/two architectures/ad-hoc seals pass; **native Mac interaction is unrun**. Linux
+startup is actual headless verification, not native graphics. Existing Web gates use the workshop query
+entry; default Title/map routing is verified by native Windows, not separately claimed as a default Web gate.
+The ten-image review does not itself attest physics, persistence, process shutdown, clipboard or downloads.
+
+Local artifacts: `build/camera-release-clean-r2/ssok-0.3.1-camera-r2-windows-x86_64-setup.exe` and the other
+five files named in release.json. Installer SHA256 ebfde14e4b6b23e539bf08acb253dc9cfb3781e24ad4db441ed58c7fc55f4f06.
+The immutable packages contain the documentation available at build source f31; later final runtime results
+live in this documentation-only follow-up. Do not rewrite historical package metadata or imply public release.
+
+Next owner: latest Fable performs actual rebase of the final documentation commit, then human review/merge.
+Publication still requires the user's exact reviewed-version/scope approval. Physical calibration, native Mac,
+and powered-off Arch raw recovery/formal task CLI release remain open. After Arch returns, first run
+`/home/bumboo/.local/bin/agent-task show ssok robot-camera-loop-20261010` and `release --help`; check
+owner/lease before checkpoint/release. Never edit generated state/Handoff or take another live owner's task.
+Exact raw recovery folders are in [the existing stabilization manifest](../../stabilization/arch-uncollected-observations.json).
+On an owned Mac, verify archive SHA6be170ac8ffe5970a907f98367b5a39b238a63f71e25cc9bf0bdd46ca5de53f9,
+then default Title/map/three stages, preferences/focus and normal close/logs. No private source is sent to a shared lab Mac.
+Records/selected recovery: `C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
+No user-facing strings/catalog changes were needed in this final documentation pass.
+
+## Historical checkpoint before final clean build — 2026-10-11T02:01:20+09:00
+
 # Stabilization verification r2 — local draft
 
 Checkpoint 2026-10-11T02:01:20+09:00 · issue32 / existing task robot-camera-loop-20261010 / feature feat/32-robot-camera-loop.

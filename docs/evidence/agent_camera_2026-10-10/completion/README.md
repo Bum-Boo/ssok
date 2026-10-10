@@ -3,7 +3,9 @@
 Latest checkpoint: [verified r2 and preserved failures](verified-r2/README.md).
 Windows full81/0 on the current Title draft, four-language actual captures/Astra and independent Opus review pass.
 Frozen camera image9/9 remains separate from physical0/9. Blind controls and actual operator are retained.
-Latest Fable integration and final clean4exports/5browser/nativeinstaller are next; no merge/publication.
+Latest actual Fable functional review/rebase PASS; clean4exports, same Web5/5 and Windows installer17/0 pass.
+Package app source f31f8d5/version0.3.1-camera-r2; final runtime evidence is a separate docs-only follow-up.
+Native Mac/Arch raw/task release, physical0/9, human merge and exact-version publication approval remain open.
 
 The following sections are dated history, with their original pending/failure statements preserved.
 
