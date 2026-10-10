@@ -1,0 +1,44 @@
+{
+  "verdict": "proposed_patch_pending_render_validation",
+  "source_identity": {
+    "head": "28609ea",
+    "file": "src/ui/project_panel.gd",
+    "input_sha256": "a38fa22ef45307735515477e5ac0048d0e251538f174973da945d36fe91c4c03",
+    "theme_sha256_unchanged": "6651484f561ca2ea71336b7b9041fc8f00b0821ce147b7ed9ebb675525be0ead"
+  },
+  "cause_hypotheses_and_scope": {
+    "clipped_labels": {
+      "hypothesis": "SsokTheme.button sets clip_text=true and OVERRUN_TRIM_ELLIPSIS. In Godot 4.x, either setting makes Button minimum width ignore the text, so HBoxContainer rows shrink each button to its custom 80px floor. 80px minus icon, h_separation and stylebox margins leaves about 35-40px for text, which matches the observed 'Expo', 'Impo' and 'Delet'.",
+      "confidence": "high from source reading; the 4.7.2 minimum-size rule still needs confirmation by render",
+      "repair": "A local _full_label() restores clip_text=false and OVERRUN_NO_TRIMMING on this panel's six buttons. The action rows become HFlowContainer so enlarged or CJK labels wrap to a new line instead of overflowing. The global SsokTheme.button policy is not changed."
+    },
+    "low_contrast_confirmation": {
+      "hypothesis_A_primary": "SsokTheme defines no AcceptDialog 'panel' stylebox, so the dialog keeps the engine-default dark gray panel. Its body Label takes Label font_color=TEXT from the propagated SsokTheme. In the light palette TEXT is 172330, which gives dark text on dark gray and matches the observation. This also implies the theme does propagate through the parent Window.",
+      "hypothesis_B": "The nested ConfirmationDialog has no explicit theme, unlike main.gd's dialogs, and resolves theme items differently from ProjectPanel. This would not by itself explain dark text, because the default Label color is white. It is not excluded until rendered.",
+      "not_proven": "Neither hypothesis is confirmed. The screenshot does not establish which palette was active.",
+      "repair": "Assign theme explicitly, matching the main.gd dialog pattern. Add a StyleBoxFlat panel override using SsokTheme.BG, which matches the parent Panel and Window border surface. SsokTheme.remember/adapt maps the bg_color role, so theme switches keep updating it because _confirmation is a normal child of ProjectPanel."
+    },
+    "enlarged_and_compact_fit": "The body above the footer (heading through tabs) moves into a ScrollContainer with horizontal scrolling disabled and follow_focus on. The footer, with message and Close, stays outside the scroll area and stays visible. The window size scales with ui_scale and is clamped to the visible area. The clamp reserves the embedded title height on both sides so the title bar stays on screen. At 100% the computed size is unchanged (760x520) in both 960x640 and 1400x950. The ItemList and TextEdit get a 96px minimum height so they stay usable inside the scroll. The confirmation dialog autowraps at a scaled 420px width clamped to the screen.",
+    "unchanged": "All strings and localization keys, confirmation texts, OK/Cancel semantics, _confirm_action, the Esc handling in _input (still gated on _confirmation.visible), focus grab, tab titles, ProjectStore calls, graph, keyboard and preference boundaries, the palette, the type scale, and other files.",
+    "localization_impact": "No user text added, changed or removed."
+  },
+  "exact_unified_patch": "See the PATCH block below. Lines are indented with literal tabs. Apply with `git apply` against a38fa22e.",
+  "verification_requirements": [
+    "Confirm project_panel.gd hash a38fa22e… before applying; run `godot --headless --path . --import --quit` and `godot --headless --path . --quit`; run existing project/preferences tests (tests/interface_preferences_check.gd) and localization_check.gd (expected unchanged).",
+    "Render ProjectPanel Saved and Import/export tabs, and both confirmation variants (import replace, snapshot delete), for en, ko, zh_CN and ja; light and dark; UI scales 100, 115, 130, 150 and 200%; windows 960x640 and 1400x950.",
+    "In every render: no truncated button labels, Close is visible and clickable, the window title bar is on screen, and the confirmation body text is legible against its panel (measure contrast in both themes) and fully visible, with no clipped last line.",
+    "At 100% in both windows, the panel looks identical to before apart from the full button labels and the dialog panel color, with no scrollbar shown.",
+    "Keyboard: Tab order reaches every action and Close; follow_focus scrolls focused controls into view at 200%; Esc closes the confirmation first, then the panel; focus returns as before.",
+    "Functional: save, export (tab switch, select_all, focus), import replace with OK and Cancel, open, and delete all behave as before; imported code does not auto-run.",
+    "Switch theme or scale while the panel or dialog is open or after it was built: the dialog panel follows the palette through remember/adapt.",
+    "Get Astra actual before/after captures with hashes, then a separate Opus final review. This patch is not an approved or runtime-passing change."
+  ],
+  "risks": [
+    "AcceptDialog with dialog_autowrap may compute height before the label width settles, which could clip the last line. If the render shows this, set the height from the label's wrapped minimum after one frame. Do not drop the autowrap.",
+    "If hypothesis B is the real cause, the explicit theme assignment covers it. If text contrast is still low after the panel override, inspect the internal label's resolved font_color rather than overriding colors globally.",
+    "get_tree().root.get_visible_rect() assumes the project's stretch mode reports logical UI size. Verify the clamp under the packaged Windows build's content scale.",
+    "The window is still unresizable with min_size 640x450, so a window smaller than about 704x610 (at 200%) can exceed the screen. That is outside the stated targets.",
+    "HFlowContainer separations are fixed overrides at 8, matching the existing HBox constants. They are not scaled, which matches current HBox behavior.",
+    "Wider unclipped buttons may wrap the rows onto two lines at 200% for ko and ja. This is intended but changes vertical rhythm and needs design review in the render."
+  ]
+}

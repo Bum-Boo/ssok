@@ -1,3 +1,42 @@
+# Robot camera loop and Projects — reviewed local draft r6
+
+Issue32, feat/32-robot-camera-loop; base HEAD28609ea. Only app-code change is ProjectPanel,
+tested working-copy SHA8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038.
+CI browser_layout.gd is the second input change (excluded from PCK). Other424inputs/camera10/goal
+are unchanged. [Source, commands, raw SHA, failures and limits](docs/evidence/agent_camera_2026-10-10/completion/package-goal-ui-r6/README.md).
+
+Before UI edits, immutable r2/f31 PE/PCK default Title→actual paste/import→goal Enter(no dispatch)→
+native Run with AI→existing external foreground operator/ChatGPT login/requested Astra performed
+one3tick action/two640×480PNG/finalreobserve/scopedStop/native+CLIexit0:12/0,50.310s.
+Developer operator/login are absent from ZIP; backend model, full raw-goal still, billing cap and
+broad mission success are not attested. Old frozen AI image9/9/independent physical0/9 stays separate.
+
+Opus5-5 authored layout/palette and corrected actual dark contrast; independent final Opus PASS.
+Current7import/load/storage/authoring/keyboard/prefs/localization commands PASS; nativeGL80cases/
+1181checks/0/128captures/live palette roundtrip, minimum measured contrast14.5095. Astra32actual
+matrix images and4actual OS focus images PASS. Current-source Saved-flow OS12/0 light100%,13/0
+compactdark200%: Save/selection/fully visible Open/Delete/Close/Escape/normalexit0; scroll197px.
+Earlier9e OS6/0 is dated history, not the current25checks. Source button signals are not OS input.
+
+Web/Linux dirtydraft export/startup/resources pass, same-Web authoring9/0/settings14/0 pass.
+Original missing templates, matrix/checker, reverse-Tab/Home and Web modal/coordinate failures remain.
+The CI fixture now uses actual request_open and restores requested rect after measured dummy
+200px/stale-minimum behavior; final782,504 is actual Web OK center in Astra's final3images PASS.
+Native Windows OK order differs; its title-restore failure and both headless retries are preserved.
+Transfer TextEdit Tab edits text; its keyboard focus escape and nested-wheel behavior remain limited.
+
+Storage/replace/delete/control schemas/flows were compared and preserved; context execution-flow
+review hash updated. No new strings/catalogs/colors/type scale/physics/goal/provider changes.
+Raw current source and normalized UTF8-LF identity are retained for cross-host Git EOL differences.
+These dirtydraft ZIPs predate final docs/excluded tool correction and are not a new clean release.
+
+Next: Fable current functional review/actual feature fetch-rebase; Codex records/readback;
+human review/merge. New clean release/Windows installer for this UI, strict physical0/9, nativeMac,
+Arch originals/officialtaskCLI rev16 release and exact version/scope publication approval remain.
+Generated task is not hand-edited. No push/merge/publication. All previous records below are dated.
+
+## Frozen r2/r5 records — prior app source and dated verification
+
 # Robot camera loop — reviewed local draft r2
 
 Actual immutable Windows packaged camera follow-up r5:11/0/normal exit0, same f31 PE/PCK. Default Title→visible import confirmation→Lab AI native Enable/Forward/Stop and TCP PNG/8ticks/reobserve/late rejection. [All attempts and20 actual Astra images](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). No app/style/physics change or provider call. This does not verify packaged Run with AI/operator; that is the next functional gate. Projects button truncation/confirmation contrast observed, Opus review/fix pending. Original strictphysical0/9/Mac/Arch taskCLI/humanmerge/exact release approval unchanged.

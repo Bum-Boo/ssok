@@ -1,0 +1,81 @@
+extends SceneTree
+
+## Source-only control geometry and ordinary project fixture; never the package gate.
+var points: Dictionary = {}
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
+	root.size = Vector2i(1400, 950)
+	root.gui_embed_subwindows = true
+	SsokLocale.select_locale("en", false)
+	var router: Node = load("res://scenes/app.tscn").instantiate()
+	root.add_child(router)
+	await _settle()
+	_point("title_projects", _button(router.current, "Open my project"))
+	router.start_workshop({"mode": "lab", "open_projects": true})
+	for index: int in 30:
+		await process_frame
+	var app: Node3D = router.current
+	assert(app is Node3D)
+	app.projects.size = Vector2i(760, 520)
+	await _settle()
+	_rect("project_transfer_tab", app.projects.tabs.get_tab_bar(), app.projects.tabs.get_tab_bar().get_tab_rect(1))
+	app.projects.tabs.current_tab = 1
+	await _settle()
+	_point("transfer_text", app.projects.transfer_edit)
+	_point("project_import", app.projects.import_button)
+	app.projects._confirmation.dialog_text = "Replace the current assembly and code? Save a snapshot first if you want to keep them."
+	app.projects._confirmation.popup_centered()
+	await _settle()
+	_point("project_confirm", app.projects._confirmation.get_ok_button())
+	app.projects._confirmation.hide()
+	app.projects.close_panel()
+	var graph: ConnectionGraph = RobotCarPreset.build(0.8)
+	var source: String = "# Package camera verification fixture. No automatic code.\n"
+	app._load_preset(graph, source, "Package camera verification fixture")
+	var record: Dictionary = ProjectStore.document("Package camera verification", graph, source)
+	assert(not record.is_empty())
+	FileAccess.open("res://build/ai-loop-evidence/completion/package-goal-ui-r6/project.json", FileAccess.WRITE).store_string(ProjectStore.serialize(record))
+	var bar: TabBar = app.program_tabs.get_tab_bar()
+	await _settle()
+	var right: float = bar.get_theme_icon("increment").get_width()
+	_rect("tabs_right", bar, Rect2(Vector2(bar.size.x - right, 0), Vector2(right, bar.size.y)))
+	bar.ensure_tab_visible(5)
+	app.program_tabs.current_tab = 5
+	await _settle()
+	assert(bar.get_tab_idx_at_point(bar.get_tab_rect(5).get_center()) == 5)
+	_rect("ai_tab", bar, bar.get_tab_rect(5))
+	_point("agent_enable", app.agent_panel._enable_button)
+	_point("agent_forward", app.agent_panel._forward_button)
+	_point("agent_stop", app.agent_panel._stop_button)
+	_point("goal_field", app.agent_panel._goal_field)
+	_point("goal_run", app.agent_panel._run_button)
+	FileAccess.open("res://build/ai-loop-evidence/completion/package-goal-ui-r6/layout.json", FileAccess.WRITE).store_string(JSON.stringify({"viewport": [1400, 950], "points": points}, "  "))
+	router.free()
+	quit()
+
+func _settle() -> void:
+	for index: int in 5:
+		await process_frame
+
+func _button(parent: Node, text: String) -> Button:
+	for child: Node in parent.get_children():
+		if child is Button and child.text == text:
+			return child
+		var found: Button = _button(child, text)
+		if found != null:
+			return found
+	return null
+
+func _point(name: String, control: Control) -> void:
+	assert(control != null)
+	_rect(name, control, Rect2(Vector2.ZERO, control.size))
+
+func _rect(name: String, control: Control, rectangle: Rect2) -> void:
+	var center: Vector2 = control.get_global_transform_with_canvas() * rectangle.get_center()
+	if control.get_window() != root:
+		center += Vector2(control.get_window().position)
+	assert(Rect2(Vector2.ZERO, root.size).has_point(center))
+	points[name] = [center.x, center.y]

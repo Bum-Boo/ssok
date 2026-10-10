@@ -94,10 +94,26 @@ func _run() -> void:
 		return
 	_rect("saved_first", main.projects.library, main.projects.library.get_item_rect(0))
 	_point("open", main.projects.open_button)
-	main.projects._confirmation.dialog_text = "Replace the current assembly and code? Save a snapshot first if you want to keep them."
-	main.projects._confirmation.popup_centered()
+	# Use the same bounded confirmation sizing as an actual saved-project Open.
+	main.projects.library.select(0)
+	main.projects._refresh_actions()
+	main.projects.request_open()
+	var confirmation: ConfirmationDialog = main.projects._confirmation
+	var confirmation_size: Vector2i = root.size - 2 * confirmation.position
 	await _settle()
-	_point("project_confirm", main.projects._confirmation.get_ok_button())
+	# The headless backend reports 200px despite the requested width. Reflow first,
+	# then center at that width before restoring its requested rect, as above.
+	confirmation.size = confirmation_size
+	await _settle()
+	confirmation.popup_centered(Vector2i(confirmation_size.x, 0))
+	confirmation_size = root.size - 2 * confirmation.position
+	await _settle()
+	# Prevent the dummy backend's stale wrapped-content minimum from expanding it.
+	confirmation.wrap_controls = false
+	confirmation.min_size = Vector2i.ZERO
+	confirmation.size = confirmation_size
+	await _settle()
+	_point("project_confirm", confirmation.get_ok_button())
 	main.projects._confirmation.hide()
 	main.projects.tabs.current_tab = 1
 	await _settle()

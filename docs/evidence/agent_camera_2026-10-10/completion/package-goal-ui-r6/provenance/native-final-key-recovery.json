@@ -1,0 +1,20 @@
+{
+  "original_failure": "Reverse Tab stays in transfer TextEdit, whose editing semantics consume Tab. It is not a passing keyboard traversal. Original checks, driver, trail and output retained.",
+  "recovery": "Fresh Saved-view fixture calls actual request_open (same replacement confirmation) without entering the tab-editing transfer TextEdit; actual OS cancellation, Save and hidden Saved actions still tested. No app/input/layout change. Transfer TextEdit keyboard escape remains a limitation.",
+  "before_execution": true,
+  "source_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "files": [
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\native-final-keys-recovered.gd",
+      "sha256": "1033c6734cd657f5d554caab958972c3a72394ed2b1646d571abbc54a104e7c6"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-projects-r6-final-keys-recovered.ps1",
+      "sha256": "1a858419ac69855b91a5b0b47559222e42559f4d42d8d613c2b727789f73d393"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\native_ui.ps1",
+      "sha256": "91802e81b4698f1be9e0618f08defd523645390faa7e2686ee710bb75caca0b6"
+    }
+  ]
+}

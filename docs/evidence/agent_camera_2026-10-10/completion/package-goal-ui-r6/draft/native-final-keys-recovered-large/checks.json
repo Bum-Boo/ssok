@@ -1,0 +1,22 @@
+﻿[
+    {
+        "passed":  true,
+        "name":  "Actual OS Escape cancels nested confirmation before Projects"
+    },
+    {
+        "passed":  true,
+        "name":  "Actual OS cancellation returns to visible project name in Saved flow"
+    },
+    {
+        "passed":  true,
+        "name":  "Actual OS Tab exposes and focuses Save"
+    },
+    {
+        "passed":  true,
+        "name":  "Actual OS Enter saves another snapshot without running code"
+    },
+    {
+        "passed":  false,
+        "name":  "Actual OS Home selects a saved snapshot"
+    }
+]
