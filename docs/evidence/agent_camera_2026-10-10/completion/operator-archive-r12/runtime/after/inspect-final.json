@@ -1,0 +1,76 @@
+{
+  "actual_native_run_to_external_operator_and_requested_astra": true,
+  "goal": "Observe the camera, move forward only3 ticks once, observe again, then stop.",
+  "actions": 1,
+  "ticks": 3,
+  "observations": 2,
+  "verified_camera_metadata": [
+    {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 1957,
+      "control_generation": 1,
+      "draw_frame": 1940,
+      "episode_id": "07c90fdaf2a990c0ea9e4432",
+      "frame_id": 2,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 1957,
+      "revision": 4,
+      "robot_instance_id": "1270823785757",
+      "settle_confirmed_tick": 1957,
+      "sha256": "2be25aa8ad10f2b8d35152ddd76e3d64e66400d2e6214ab950dbc9c0c229c3cc",
+      "width": 640
+    },
+    {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 2459,
+      "control_generation": 1,
+      "draw_frame": 2441,
+      "episode_id": "07c90fdaf2a990c0ea9e4432",
+      "frame_id": 3,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 2459,
+      "revision": 4,
+      "robot_instance_id": "1270823785757",
+      "settle_confirmed_tick": 2459,
+      "sha256": "06291fb44ecb759807b5d68feb91ccfd84771187d3d6b3c7e72fb247ed96912f",
+      "width": 640
+    }
+  ],
+  "state": {
+    "bridge_listening": true,
+    "can_step": false,
+    "control_generation": 2,
+    "enabled": false,
+    "episode_id": "07c90fdaf2a990c0ea9e4432",
+    "frame_id": 3,
+    "revision": 4,
+    "robot_supported": true,
+    "state": "stopped"
+  },
+  "actor_result": {
+    "status": "cli_exited",
+    "cli_exit": 0,
+    "stop_confirmed": true,
+    "owner_revocation_confirmed": true,
+    "stop_scope": "context_replaced",
+    "final_desktop_state": "stopped",
+    "observations": 2,
+    "completed_actions": 1,
+    "final_reobserved": true,
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "usage": {
+      "input_tokens": 86485,
+      "cached_input_tokens": 75008,
+      "output_tokens": 371
+    },
+    "goal_success": "not certified; inspect camera/action evidence"
+  },
+  "provider_backend_identity_attested": false,
+  "account_login_packaged": false,
+  "operator_archive_git_independent": true
+}

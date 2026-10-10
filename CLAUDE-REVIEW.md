@@ -1,3 +1,27 @@
+# ssok — Git-independent foreground operator r12
+
+Issue32, feat/32-robot-camera-loop. Operator clean e645d220 / 0.1.0-operator-r12,
+immutable Godot fa868ca / 0.3.1-projects-r7, exact app PE/PCK unchanged.
+[Before/after18PNG, actual12/0, source/ZIP identity and limits](docs/evidence/agent_camera_2026-10-10/completion/operator-archive-r12/README.md).
+Actual Git-free before runner fails before model; expected-native12/0 is not AI success.
+Extracted12-entry archive/packagedPS launcher in Korean+spaces path works withoutGit,
+actualRun→one3tick action/2PNG/reobserve/scopedStop→CLI/native exit0,52.909s.
+425/426 original inputs unchanged; only run_goal source metadata changes. Actor prompt,
+Codex-command/cancellation AST and other5modules unchanged; no Godot/UI/physics/goal edit.
+New identity validates7module bytes before model; archive dirty-source refusal and
+determinism verified. Python63/0/no SDKskip, docs10/0, archive4/0; Astra actually10
+after-stills (goalpartial/traceoffscroll limits). Raw before/provider-mock failure retained.
+Python/MCP/Codex/login/app remain external. No service, paidfallback, retries, credentials,
+Gitcheckout/evaluator shipment; module hashes check record consistency, not a signature.
+Tool8/9/300 limits are not billing/requestcap or backendmodel certification.
+No app import/fullnative/Web/installer rerun; datedr7 gates and existingOpus review retained.
+Historical AIimage9/9physical0/9 unchanged. Globalgoal incomplete; no merge/push/publication.
+Next Codex: physical/image precision/account onboarding/navigation; Macnative/Archraw/
+formalCLI16release remain. Fable reviews/rebases final docs; humanmerges/exactscopepublishes.
+Canonical record/recovery: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/operator-archive-r12/.
+
+## Frozen r11 milestone — rejected paired holding candidates
+
 # ssok — paired holding diagnostics r11
 
 Issue32, runtime input3070d2f; initial diagnostic-evidence commit67482b0.
