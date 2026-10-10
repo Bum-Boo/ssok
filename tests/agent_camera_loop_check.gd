@@ -4,6 +4,8 @@ var app: Node3D
 var checks: int = 0
 var failures: int = 0
 var loop: AgentCameraLoop
+var _preferences_existed: bool = false
+var _preferences_bytes: PackedByteArray
 
 
 func _initialize() -> void:
@@ -11,6 +13,9 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	_preferences_existed = FileAccess.file_exists(InterfacePreferences.PATH)
+	if _preferences_existed:
+		_preferences_bytes = FileAccess.get_file_as_bytes(InterfacePreferences.PATH)
 	root.size = Vector2i(1600, 1000)
 	app = load("res://scenes/main.tscn").instantiate() as Node3D
 	root.add_child(app)
@@ -179,5 +184,21 @@ func _check(value: bool, label: String) -> void:
 
 
 func _finish() -> void:
+	_check(_restore_preferences(), "Camera fixture preserves the original preferences file")
 	print("agent_camera_loop_check: %d checks, %d failures" % [checks, failures])
 	quit(1 if failures else 0)
+
+
+func _restore_preferences() -> bool:
+	# Keep both the original bytes and the absence of a file across separate suite processes.
+	if _preferences_existed:
+		var file: FileAccess = FileAccess.open(InterfacePreferences.PATH, FileAccess.WRITE)
+		if file == null:
+			return false
+		file.store_buffer(_preferences_bytes)
+		file.close()
+		return FileAccess.get_file_as_bytes(InterfacePreferences.PATH) == _preferences_bytes
+	if FileAccess.file_exists(InterfacePreferences.PATH):
+		if DirAccess.remove_absolute(ProjectSettings.globalize_path(InterfacePreferences.PATH)) != OK:
+			return false
+	return not FileAccess.file_exists(InterfacePreferences.PATH)

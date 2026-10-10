@@ -9,6 +9,8 @@ import json
 import os
 from pathlib import Path
 import secrets
+import socket
+import time
 from urllib.parse import urlsplit
 
 from .service import LabError, MAX_BODY, MotionService, strict_json
@@ -67,6 +69,24 @@ def make_server(service, token, port=8765, origins=()):
                 return False
             return True
 
+        def _reject_size(self, size):
+            self._reply(413, {"error": "Request must be 1..65536 bytes"})
+            self.wfile.flush()
+            # Closing with unread incoming bytes can reset TCP before Windows
+            # receives the response. Send FIN first, then discard a bounded tail.
+            deadline = time.monotonic() + 1
+            remaining = min(max(size, 0), MAX_BODY * 2)
+            try:
+                self.connection.shutdown(socket.SHUT_WR)
+                while remaining and time.monotonic() < deadline:
+                    self.connection.settimeout(max(0.001, deadline - time.monotonic()))
+                    chunk = self.rfile.read1(min(8192, remaining))
+                    if not chunk:
+                        break
+                    remaining -= len(chunk)
+            except OSError:
+                pass  # A rejected/disconnected client never starts a job.
+
         def do_OPTIONS(self):
             if not self._host() or not self._origin():
                 self._reply(403, {"error": "Origin denied"})
@@ -99,7 +119,7 @@ def make_server(service, token, port=8765, origins=()):
                     raise LabError("Exactly one Content-Length is required")
                 size = int(self.headers.get("Content-Length", "0"))
                 if not 0 < size <= MAX_BODY:
-                    self._reply(413, {"error": "Request must be 1..65536 bytes"})
+                    self._reject_size(size)
                     return
                 self.connection.settimeout(5)
                 body = self.rfile.read(size)

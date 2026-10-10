@@ -76,8 +76,14 @@ function UiCapture([string]$Path) {
 function VerifyNativeUi([string]$App,[string]$Work,[string]$Layout) {
     $script:UiLayout=Get-Content $Layout -Raw | ConvertFrom-Json
     $clipboard=[Windows.Forms.Clipboard]::GetDataObject()
+    $originalAppData=$env:APPDATA
+    $originalLocalData=$env:LOCALAPPDATA
+    $env:APPDATA=Join-Path $Work 'appdata'
+    $env:LOCALAPPDATA=Join-Path $Work 'localappdata'
+    $progress=Join-Path $env:APPDATA 'Godot\app_userdata\ssok\progress.json'
     $script:UiProcess=$null
     try {
+        if (Test-Path -LiteralPath $progress) { throw 'Native gate requires fresh isolated progress' }
         $script:UiProcess=Start-Process -FilePath $App -WorkingDirectory (Split-Path $App) -ArgumentList @('--rendering-driver','opengl3','--audio-driver','Dummy','--language','en','--single-window','--resolution','1400x950','--position','0,0','--max-fps','60') -PassThru -RedirectStandardOutput (Join-Path $Work 'native.stdout') -RedirectStandardError (Join-Path $Work 'native.stderr')
         for ($i=0; $i -lt 100; $i++) {
             $script:UiProcess.Refresh()
@@ -86,33 +92,38 @@ function VerifyNativeUi([string]$App,[string]$Work,[string]$Layout) {
             Start-Sleep -Milliseconds 100
         }
         Start-Sleep -Seconds 3
+        UiCapture (Join-Path $Work 'title.png')
+        UiClick 'game_title_play'
+        UiCapture (Join-Path $Work 'map.png')
         $ids=@('raise-flag','finish-line','wall-brake')
         for ($index=0; $index -lt 3; $index++) {
-            UiClick 'stop'
-            UiClick 'stages_tab'
-            UiScroll 3600
-            if ($index) {
-                UiClick 'stage_picker'
-                for ($down=0; $down -le $index; $down++) { [Windows.Forms.SendKeys]::SendWait('{DOWN}'); Start-Sleep -Milliseconds 100 }
-                [Windows.Forms.SendKeys]::SendWait('{ENTER}')
-                Start-Sleep -Milliseconds 700
+            $id=$ids[$index]
+            UiClick "game_stage_$id"
+            Start-Sleep -Milliseconds 1000
+            UiClick "game_start_$id"
+            UiClick "game_code_tab_$id"
+            UiClick "game_code_editor_$id"
+            [Windows.Forms.Clipboard]::SetText($script:UiLayout.native_solutions.$id)
+            [Windows.Forms.SendKeys]::SendWait('^a')
+            [Windows.Forms.SendKeys]::SendWait('^v')
+            Start-Sleep -Milliseconds 700
+            UiClick "game_run_$id"
+            $cleared=$false
+            for ($tick=0; $tick -lt 300; $tick++) {
+                if (Test-Path -LiteralPath $progress) {
+                    $record=Get-Content -LiteralPath $progress -Raw -Encoding utf8 | ConvertFrom-Json
+                    if ($record.format -eq 'ssok-progress' -and $record.cleared.$id -eq $true) { $cleared=$true;break }
+                }
+                Start-Sleep -Milliseconds 100
             }
-            UiClick 'stage_load'
-            if ($index) { UiClick 'stage_confirm' }
-            UiClick 'stage_answer'
-            UiClick 'run_code'
-            Start-Sleep -Seconds 12
-            UiClick 'stages_tab'
-            UiCapture (Join-Path $Work "stage-$($ids[$index]).png")
-            UiScroll -3600
-            [Windows.Forms.Clipboard]::SetText('ssok-verification-pending')
-            UiClick 'stage_export'
-            [Windows.Forms.SendKeys]::SendWait('^c')
-            Start-Sleep -Milliseconds 500
-            $text=[Windows.Forms.Clipboard]::GetText()
-            $stage=$text | ConvertFrom-Json
-            Check ($stage.format -eq 'ssok-stage' -and $stage.id -eq $ids[$index] -and $stage.author_solution.source.Length -gt 0) "Native UI clears and exports verified $($ids[$index]) solution"
-            [IO.File]::WriteAllText((Join-Path $Work "stage-$($ids[$index]).json"),$text)
+            Check $cleared "Native title/map/code input clears $id from actual stage evaluation"
+            Start-Sleep -Milliseconds 700
+            UiCapture (Join-Path $Work "stage-$id.png")
+            Copy-Item -LiteralPath $progress -Destination (Join-Path $Work "stage-$id.json")
+            # Success focuses Next (first two) or Retry (last); Tab reaches Stage list.
+            UiFocus
+            [Windows.Forms.SendKeys]::SendWait($(if ($index -lt 2) { '{TAB}{TAB}{ENTER}' } else { '{TAB}{ENTER}' }))
+            Start-Sleep -Milliseconds 1000
         }
         $script:UiProcess.CloseMainWindow() | Out-Null
         Check ($script:UiProcess.WaitForExit(10000)) 'Native app closes normally after interaction'
@@ -121,5 +132,7 @@ function VerifyNativeUi([string]$App,[string]$Work,[string]$Layout) {
     } finally {
         if ($script:UiProcess -and -not $script:UiProcess.HasExited) { $script:UiProcess.Kill(); $script:UiProcess.WaitForExit() }
         if ($clipboard) { [Windows.Forms.Clipboard]::SetDataObject($clipboard,$true) } else { [Windows.Forms.Clipboard]::Clear() }
+        $env:APPDATA=$originalAppData
+        $env:LOCALAPPDATA=$originalLocalData
     }
 }

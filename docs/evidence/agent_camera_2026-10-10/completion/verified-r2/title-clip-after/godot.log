@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 591.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+SCRIPT ERROR: Compile Error: Identifier not found: Preferences
+   at: GDScript::reload (res://src/ui/settings_panel.gd:89)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/screens/title_screen.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://build/ai-loop-evidence/completion/title-clip-after/capture.gd:0)
+ERROR: Failed to load script "res://build/ai-loop-evidence/completion/title-clip-after/capture.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: TitleScreen.build (res://src/screens/title_screen.gd:52)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/screens/title_screen.gd:52)
+       [1] _ready (res://src/screens/menu_screen.gd:42)
+       [2] _run (res://build/ai-loop-evidence/completion/title-clip-after/capture.gd:38)
+SCRIPT ERROR: Invalid access to property or key 'visible' on a base object of type 'Nil'.
+   at: _run (res://build/ai-loop-evidence/completion/title-clip-after/capture.gd:54)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://build/ai-loop-evidence/completion/title-clip-after/capture.gd:54)
+       [1] _key (res://build/ai-loop-evidence/completion/title-clip-after/capture.gd:24)
+       [2] _frames (res://build/ai-loop-evidence/completion/title-clip-after/capture.gd:14)

@@ -19,12 +19,15 @@
 
 ## 진행 작업과 근거
 
-2026-10-11 후속 작업 진행중: AI 판단 대기 중 ready 차체의 실제 밀림(15.3mm/10초)을 재현하고,
-기존 배선 모터의 제한 PI holding과 강화한 촬영 정지 조건으로1.2mm/10초·회귀6/0을 확인했어요.
-DriveMotor/토크/독립 성공 기준·고정 목표·패널은 유지했어요. Fable5-1 기능 소스 리뷰 pass.
-첫 PI low pilot은 물리0/3·이미지1/3이라 목표 달성으로 표시하지 않아요. medium 시험과 full
-rendered CI/4exports/browser/Windows package·실제 통합은 진행중이에요.
-[현재 후속 기록](evidence/agent_camera_2026-10-10/completion/README.md). 아래 안정화는 이전 소스 이력이에요.
+2026-10-11 Windows 안정화 로컬 초안: 카메라 대기 밀림15.3→1.2mm/10초·고정 이미지 목표9/9를 확인했어요.
+독립 물리 판정은0/9(14cm 기준 유지)로 별도 미달성이에요. blank/frozen 대조와 실제 앱 Run→operator→AI
+재관측/Stop 근거를 보존했어요. 설정 검사 오염·Windows HTTP413 reset·Stage 탭 검사 좌표를 수정한 뒤
+현재 native full81/0(입력426hash변경0), 실제 POSIX3/0. 첫 전체81/5와 browser4/5 실패도 보존해요.
+Astra가 실제 타이틀 Settings 글자 잘림을 확인해 Opus가 기존 속성2개로 수정했고, 네 언어·양 테마·확대/compact
+80설정·16실제 화면/키보드 검사와 독립 Opus 최종 소스 리뷰를 통과했어요. 사용자 문구/번역/패널은 그대로예요.
+이전 Fable actual fetch/rebase는3e75cea/up-to-date, 최신 소스의 Fable 통합과 clean4exports/최종Web5종/nativeinstaller
+검증은 다음이에요. 첫4export dirty/source_changed 경고와 native installer 집계 실패를 보존하며 통합/공개하지 않았어요.
+[현재 검증·미완료·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/README.md). 아래는 이전 소스 이력이에요.
 
 2026-10-10 `feat/32-robot-camera-loop`의 **로컬 초안**: graph 차량의640×480 카메라,
 유한 행동·실측 정지·재관측, 외부 CLI/MCP와 Claude 작성 패널, 목표 Run→명시적으로 켠

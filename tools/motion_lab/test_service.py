@@ -1,7 +1,9 @@
 """Run with python3 -m unittest tools.motion_lab.test_service; no paid requests."""
 
 import copy
+from contextlib import closing
 import io
+import http.client
 import json
 from pathlib import Path
 import threading
@@ -269,6 +271,17 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(self.request("/unknown")[0], 404)
         self.assertEqual(self.request("/v1/search", {}, headers={"Content-Type": "text/plain"})[0], 415)
         self.assertEqual(self.request("/v1/search", {"goal": "x" * 70000})[0], 413)
+
+    def test_oversized_headers_rejected_without_waiting_for_body(self):
+        with closing(http.client.HTTPConnection('127.0.0.1', self.server.server_address[1], timeout=1)) as client:
+            client.putrequest('POST', '/v1/search')
+            client.putheader('Authorization', 'Bearer ' + self.token)
+            client.putheader('Content-Type', 'application/json')
+            client.putheader('Content-Length', '1000000000')
+            client.endheaders()
+            response = client.getresponse()
+            self.assertEqual(response.status, 413)
+            self.assertIn('65536', json.loads(response.read())['error'])
 
 
 if __name__ == "__main__":

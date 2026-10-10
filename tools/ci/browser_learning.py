@@ -47,6 +47,12 @@ def main() -> None:
             page.on("pageerror", lambda error: console.append({"type": "error", "text": str(error)}))
 
             def click(name):
+                if name in {"stages_tab", "code_tab"}:
+                    direction = "tabs_scroll_right" if name == "stages_tab" else "tabs_scroll_left"
+                    for _ in range(layout["program_tab_count"]):
+                        page.mouse.click(*layout["points"][direction], delay=50)
+                        page.wait_for_timeout(100)
+                    name += "_scrolled"
                 page.mouse.click(*layout["points"][name], delay=100)
                 page.wait_for_timeout(700)
 

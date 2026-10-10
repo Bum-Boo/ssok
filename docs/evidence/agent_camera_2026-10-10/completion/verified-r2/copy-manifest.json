@@ -1,0 +1,2903 @@
+{
+  "scope": "Bounded public test/camera evidence only; raw private CLI events, credentials/config and isolated user data excluded; historical failures retained",
+  "files": [
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\plan.json",
+      "output": "clarified-hold-medium-blank\\plan.json",
+      "bytes": 2723,
+      "sha256": "11cc1c137f242da1f810f46ff30cd3a0a97343ccc9029cb65b876ea5ab06f717"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\results.json",
+      "output": "clarified-hold-medium-blank\\results.json",
+      "bytes": 9429,
+      "sha256": "7d9a42050fdbba4d13cc9fbb6a4539455b80c46782bab26dbc1164a791613b6a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\summary.json",
+      "output": "clarified-hold-medium-blank\\summary.json",
+      "bytes": 69,
+      "sha256": "901d3af6c4e847e2211f14ee77cb437972d789359c21bad20c95b178510793d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\evaluation.json",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\evaluation.json",
+      "bytes": 1826,
+      "sha256": "48f5802e348da5aad3778544e872cd583fcee79ad642ec6e421ea38faf2620e5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\godot.log",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\runner.log",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\runner.log",
+      "bytes": 1374,
+      "sha256": "023bf7345851926f66575a009d2a0f4aeda41ff28c8a016ef597ab3687f36151"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\trial.json",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\trial.json",
+      "bytes": 2919,
+      "sha256": "7db251518b71a715d8e01be871fbd4d07d0af4cd4fe72cdd10335f3046891447"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\delivered-1.png",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\delivered-1.png",
+      "bytes": 1944,
+      "sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\events.jsonl",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\events.jsonl",
+      "bytes": 1071,
+      "sha256": "139b3f9f0fac492833b5cfc48dc652401eb13ddaace791f062084b421713cef8"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\observation-1.json",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "0ec7d8a4f1bf086057dc961ea6139a0d7c97a0a00f83874a16b06ac89a85c6b4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\observation-1.png",
+      "output": "clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\observation-1.png",
+      "bytes": 37212,
+      "sha256": "3bcf82ac4140b0da8f89b37a5afa45ab8e88d12cf58503270db842cbe097b64e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\evaluation.json",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\evaluation.json",
+      "bytes": 1826,
+      "sha256": "dd6759910e41e09edcca2c23f60094fe66f678033d78580f6b6857e40f73e2c6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\godot.log",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\runner.log",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\runner.log",
+      "bytes": 1374,
+      "sha256": "3427dc41b6ae8b4747e2fca9828c8f160348f68000d620e4f2f16092652ad2ff"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\trial.json",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\trial.json",
+      "bytes": 2918,
+      "sha256": "f3547d44d87a1e868146e15cb3baac9731c2b66e4d25a7c496ba272e4166a454"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\delivered-1.png",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\delivered-1.png",
+      "bytes": 1944,
+      "sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\events.jsonl",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\events.jsonl",
+      "bytes": 1071,
+      "sha256": "352710eb02d157c263cf0513ed4a3e5431feff81bc477b298ee7d8376cca5794"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\observation-1.json",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "0780575a109a80dc9d34796b744c01e0df44984cd15b1c0288c3aeed81e959ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\observation-1.png",
+      "output": "clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\observation-1.png",
+      "bytes": 62665,
+      "sha256": "5332c56a1e9b47f4f45a8226d08392b782b471a80d17f60daaa28356d2eb0bce"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\evaluation.json",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\evaluation.json",
+      "bytes": 1832,
+      "sha256": "b0d0316fae03376341cecc69ff38fe3019d455c03e3226b8041db1c52539d464"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\godot.log",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\runner.log",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\runner.log",
+      "bytes": 1374,
+      "sha256": "0e28d22e20df6546442fe03aac5b824e01b870543aa0a03276bf48cf740fbeb8"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\trial.json",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\trial.json",
+      "bytes": 2924,
+      "sha256": "f31051dcdeef59661639204ddbcfbce68b1b9b8981efe63a4415712e5080a335"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\delivered-1.png",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\delivered-1.png",
+      "bytes": 1944,
+      "sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\events.jsonl",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\events.jsonl",
+      "bytes": 1071,
+      "sha256": "99c1158690396347c04593dadff5978c8f49a9798e99f2bedaf38a95175e8390"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\observation-1.json",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "7fc0556c144c153d116134e614384239b649cd569a531139e1b83c8ee2f80209"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\observation-1.png",
+      "output": "clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\observation-1.png",
+      "bytes": 75601,
+      "sha256": "a558fcdb021104518566d96d216f52267a23dfbd0d0e7686931a94b7ddf35312"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\plan.json",
+      "output": "clarified-hold-medium-frozen\\plan.json",
+      "bytes": 2724,
+      "sha256": "a1664e49c319a105dce6b0a54d4b59448acf9a2dc02dae7099677f1d3c46fe83"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\results.json",
+      "output": "clarified-hold-medium-frozen\\results.json",
+      "bytes": 9414,
+      "sha256": "cc1e34defa628b72b41be98ceed714683c0805fb246022625dc9f49f26ec5fd7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\summary.json",
+      "output": "clarified-hold-medium-frozen\\summary.json",
+      "bytes": 69,
+      "sha256": "901d3af6c4e847e2211f14ee77cb437972d789359c21bad20c95b178510793d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\evaluation.json",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\evaluation.json",
+      "bytes": 1825,
+      "sha256": "01c7bad9f238255045e7a3c990ae89d2618c94dc4d5c55a08cc5b5914ab135fe"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\godot.log",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\runner.log",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\runner.log",
+      "bytes": 1374,
+      "sha256": "ea75f81eff2c1b9981710c6b76fcc5d7da27c4c24372270606ce2507d82a23be"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\trial.json",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\trial.json",
+      "bytes": 2916,
+      "sha256": "4db78e056e7b50f37003d7ac85a94f124a38e3ab2df4eed01a548ed5ba3e069b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\delivered-1.png",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\delivered-1.png",
+      "bytes": 37446,
+      "sha256": "e1dad258f4f854cfe8fcbfea27909e4361bb8fefafe853992c0dbc7a188a8678"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\delivered-2.png",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\delivered-2.png",
+      "bytes": 37446,
+      "sha256": "e1dad258f4f854cfe8fcbfea27909e4361bb8fefafe853992c0dbc7a188a8678"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\events.jsonl",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\events.jsonl",
+      "bytes": 2654,
+      "sha256": "2db83a18db788804e764324325f01f02466a9664f449e9f24efcf25c167cd545"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-1.json",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "0794024617c02888450bab14b9005976e553369e09386b7b63df40f3fe751577"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-1.png",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-1.png",
+      "bytes": 37446,
+      "sha256": "e1dad258f4f854cfe8fcbfea27909e4361bb8fefafe853992c0dbc7a188a8678"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-2.json",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-2.json",
+      "bytes": 480,
+      "sha256": "b1f32310c1652db0735864e30b16e1a69cacda7f9741160418b858a66335d7b5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-2.png",
+      "output": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-2.png",
+      "bytes": 25719,
+      "sha256": "2a09610b382772a36c49989135648643f3c5a21aaf9477e32d22aa0dd27cb9b5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\evaluation.json",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\evaluation.json",
+      "bytes": 1824,
+      "sha256": "0c0f11a9c741fdb51351e0932d46f8b72808b909e671d6eec6e22d3a75b2bfd0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\godot.log",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\runner.log",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\runner.log",
+      "bytes": 1374,
+      "sha256": "3de30a7e4a01bb26f6b16c57acfcb635c2e8d5e8b31c4c365825cad451b532a1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\trial.json",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\trial.json",
+      "bytes": 2914,
+      "sha256": "d4725866110a88b3c4f770a7e3f038fc0c4ecc85cfc141d610e50ba4495b4671"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\delivered-1.png",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\delivered-1.png",
+      "bytes": 62411,
+      "sha256": "4ef67b37c15bfbec0646a89ba3a88f308c5d2c61393f8adda74b7b09e4cb63e6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\delivered-2.png",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\delivered-2.png",
+      "bytes": 62411,
+      "sha256": "4ef67b37c15bfbec0646a89ba3a88f308c5d2c61393f8adda74b7b09e4cb63e6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\events.jsonl",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\events.jsonl",
+      "bytes": 2648,
+      "sha256": "fe4f9efe41a4760c1775f8405b9b15f46d19cb07c97a42c0a637c57efaf2582b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-1.json",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "5692c9d80cdfd4c28edaa0fe915d74ba6333223d83bdfe18e79d7cdbe61835e4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-1.png",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-1.png",
+      "bytes": 62411,
+      "sha256": "4ef67b37c15bfbec0646a89ba3a88f308c5d2c61393f8adda74b7b09e4cb63e6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-2.json",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-2.json",
+      "bytes": 480,
+      "sha256": "793aab81777b152b60679cafff1104f8b904abc67a2e12f1f46e41fa4ed82cf2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-2.png",
+      "output": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-2.png",
+      "bytes": 49755,
+      "sha256": "66424c0fba6121e1eb6ebfde5337c885400d51d1f57669ab024af047379dc635"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\evaluation.json",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\evaluation.json",
+      "bytes": 1826,
+      "sha256": "6a563ab0bc6ddae27e92a2f05531444961d43e06be392e4058048294696c6ff7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\godot.log",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\runner.log",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\runner.log",
+      "bytes": 1374,
+      "sha256": "efa61aa71b71ffcbabb7fb6585f56a5fee41c021bafeb833a77ca778effe9105"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\trial.json",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\trial.json",
+      "bytes": 2916,
+      "sha256": "2331863136983f17c6dd3614af0698c7bcc6dd2521aeca95db429ea5c553876e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\delivered-1.png",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\delivered-1.png",
+      "bytes": 75658,
+      "sha256": "b7a0d76655d88ae1f3fc41d7403b7cc8a8a8f0f3ed4ac0d5b77f17b8f9089df9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\delivered-2.png",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\delivered-2.png",
+      "bytes": 75658,
+      "sha256": "b7a0d76655d88ae1f3fc41d7403b7cc8a8a8f0f3ed4ac0d5b77f17b8f9089df9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\events.jsonl",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\events.jsonl",
+      "bytes": 2627,
+      "sha256": "3bc7a20a1975db0d50d4be99a2be7ecd32a5e0f8ac512ef6a79134c15e06be34"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-1.json",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "cdae56a29bd11aee5398a3805b449c92b4342d519522fba821192243312419e1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-1.png",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-1.png",
+      "bytes": 75658,
+      "sha256": "b7a0d76655d88ae1f3fc41d7403b7cc8a8a8f0f3ed4ac0d5b77f17b8f9089df9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-2.json",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-2.json",
+      "bytes": 480,
+      "sha256": "3f06d780dd2a33d82f671d4ed926138d8bce38edb984b566b9e49e68dc91941c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-2.png",
+      "output": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-2.png",
+      "bytes": 66273,
+      "sha256": "6c2ba77b7119799afab5a3028d9bea0ad489b0d33e593ce3e82b0c2664cae31e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\dispatch.json",
+      "output": "operator-final-3e75cea\\dispatch.json",
+      "bytes": 455,
+      "sha256": "52fd20d29b86200bc4177515390506091295224bb2943a5bd583af4791ea3f62"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\evaluation.json",
+      "output": "operator-final-3e75cea\\evaluation.json",
+      "bytes": 1823,
+      "sha256": "8aaaa5438b0851906fbde2c81ede187c11d705e2a1b29a5fd31f2023fca65530"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\godot.log",
+      "output": "operator-final-3e75cea\\godot.log",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\operator.log",
+      "output": "operator-final-3e75cea\\operator.log",
+      "bytes": 1479,
+      "sha256": "0c53bf5370598efaacfd2dd957fd4fab7a1150bd02b8c131b1c4bf00c5be5602"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\ui-click.json",
+      "output": "operator-final-3e75cea\\ui-click.json",
+      "bytes": 91,
+      "sha256": "08467926037b93d22c90172e64be1cadab0d6a3d29a5a6444984de302e329a87"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\actor\\camera\\events.jsonl",
+      "output": "operator-final-3e75cea\\actor\\camera\\events.jsonl",
+      "bytes": 2091,
+      "sha256": "af5178ba104bae91149ffc05eaf08869336d1e1ba2b59fda4f604fe13a6da9d0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\actor\\camera\\observation-1.json",
+      "output": "operator-final-3e75cea\\actor\\camera\\observation-1.json",
+      "bytes": 476,
+      "sha256": "e01c03d875601ec2df1c041b89adc3cc1a5542c14e79a2c1a69773bedeabfc76"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\actor\\camera\\observation-1.png",
+      "output": "operator-final-3e75cea\\actor\\camera\\observation-1.png",
+      "bytes": 61971,
+      "sha256": "bdbb96a92557083e7babcf0beb84030e20df050d24093d84f13112362c068e17"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\actor\\camera\\observation-2.json",
+      "output": "operator-final-3e75cea\\actor\\camera\\observation-2.json",
+      "bytes": 480,
+      "sha256": "6ac8ed3a43abbd1b5f743e1dcdfb7985319a6d27a3bc61e4af20360447613f6f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\operator-final-3e75cea\\actor\\camera\\observation-2.png",
+      "output": "operator-final-3e75cea\\actor\\camera\\observation-2.png",
+      "bytes": 61606,
+      "sha256": "23589816f75518b077f9e993b29cd3700f70db3b7e21a61c314be9f9d1de19fe"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\agent_camera_loop_check-rendered.log",
+      "output": "full-native-8100cb3\\agent_camera_loop_check-rendered.log",
+      "bytes": 283,
+      "sha256": "73661c7c8d8b257e5b73b9f3248b7795aa89ea48cd4744334f8c9244905b82e9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\agent_camera_loop_check.log",
+      "output": "full-native-8100cb3\\agent_camera_loop_check.log",
+      "bytes": 122,
+      "sha256": "6963e8d71a28494aff3749cc1e23c6702fbc245abb82822022c29c7bbcbd8c46"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\agent_camera_rest_check.log",
+      "output": "full-native-8100cb3\\agent_camera_rest_check.log",
+      "bytes": 290,
+      "sha256": "2206a0d838d2e271f933c9ed1a1124c3b5e6b73a423ba04539e6967765992822"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\agent_goal_ui_check-rendered.log",
+      "output": "full-native-8100cb3\\agent_goal_ui_check-rendered.log",
+      "bytes": 19022,
+      "sha256": "9ff180667258537316da6bf373275d34a5ec43ff4bdfc372fac005a5edb67b63"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\agent_goal_ui_check.log",
+      "output": "full-native-8100cb3\\agent_goal_ui_check.log",
+      "bytes": 115,
+      "sha256": "806d65548b9fda4fcdcbf845888dfda95ab1bd027710d120b6f4c7f72a9370c2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\app_controller_check.log",
+      "output": "full-native-8100cb3\\app_controller_check.log",
+      "bytes": 120,
+      "sha256": "61cdd7c674c0d07c3ade6af391e8211224af6ebb48211f0a30ec5cb28b1d6d04"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\assembly_snap_check.log",
+      "output": "full-native-8100cb3\\assembly_snap_check.log",
+      "bytes": 359,
+      "sha256": "05ea7f8084ea4b2990b58737279d2793e2039d024cb05b1bf60ed67437713ae5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\authoring_ui_check.log",
+      "output": "full-native-8100cb3\\authoring_ui_check.log",
+      "bytes": 2402,
+      "sha256": "af7fc9833b82d6cd0bd67787ab338316dc6653a6e8fcdf6d4f7e74f6a2a622a1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\biped_app_check.log",
+      "output": "full-native-8100cb3\\biped_app_check.log",
+      "bytes": 634,
+      "sha256": "ef846a0d1873459995b61419c721d8101240ee5d9ea56edf67e036257e2712c1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\biped_board_clearance_check.log",
+      "output": "full-native-8100cb3\\biped_board_clearance_check.log",
+      "bytes": 314,
+      "sha256": "5d21aa1912d413ed9204c2e6b78756ca57c0cdd4a0da921ad87763a7a6467837"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\biped_motion_check.log",
+      "output": "full-native-8100cb3\\biped_motion_check.log",
+      "bytes": 983,
+      "sha256": "40e24369859a2484ca0c67a5b14deb4d48af536adf0e917f5b7b364480660269"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\blender_camera_check.log",
+      "output": "full-native-8100cb3\\blender_camera_check.log",
+      "bytes": 103,
+      "sha256": "30b0128aeda968fc4795d006205a8a0096a4a50e6aff281c555a60a12d3c70e7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\blender_edit_check.log",
+      "output": "full-native-8100cb3\\blender_edit_check.log",
+      "bytes": 118,
+      "sha256": "65d191f9a1a4ee380221eab336404ba018a46b964be48646f6072bf16c5f0fdd"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\block_program_check.log",
+      "output": "full-native-8100cb3\\block_program_check.log",
+      "bytes": 119,
+      "sha256": "eeaedb17ccc38d78df1a590a15885488785dab62364d8650204169892f34b3e4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\bridge_stop_owner_check.log",
+      "output": "full-native-8100cb3\\bridge_stop_owner_check.log",
+      "bytes": 220,
+      "sha256": "8c4bdbc13135d4c860d5a7bb5cd74e1c64e625fd8074907a18d4478e61835a08"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\browser_evidence_check.log",
+      "output": "full-native-8100cb3\\browser_evidence_check.log",
+      "bytes": 627,
+      "sha256": "10215a64debcb64bd4ec73c8a1aefe8483e81c3f824b02f1176b81d5c746148b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\construction_kit_check.log",
+      "output": "full-native-8100cb3\\construction_kit_check.log",
+      "bytes": 253,
+      "sha256": "8b9c9708b6cb4c2c3e4c94efcf83baadb1ddacbdb2f3a37c8b9733f51679f305"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\construction_kit_motion_check.log",
+      "output": "full-native-8100cb3\\construction_kit_motion_check.log",
+      "bytes": 3627,
+      "sha256": "39c4d015976056add7ef5d4d2c26353edaed1bacdf490f88f364633c1e7b8447"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\construction_kit_store_check.log",
+      "output": "full-native-8100cb3\\construction_kit_store_check.log",
+      "bytes": 241,
+      "sha256": "512485a66f02550548185aa35dd11960b0aafb375aaf3d670bd5d99fd5afc8f0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\construction_kit_ui_check.log",
+      "output": "full-native-8100cb3\\construction_kit_ui_check.log",
+      "bytes": 126,
+      "sha256": "3eeb8ef9a65e7c6f790e43ca83f28188f1a400594b389e7dd261a4e95b6be441"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\control_flow_check.log",
+      "output": "full-native-8100cb3\\control_flow_check.log",
+      "bytes": 1082,
+      "sha256": "2911806951c2b1b597d8b6e83ef912879a0379a03967c5c1b5ce9b198c443375"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\core_authoring_check.log",
+      "output": "full-native-8100cb3\\core_authoring_check.log",
+      "bytes": 120,
+      "sha256": "bae0fdeabf267dd809c4e1d3e97e52db6307611a6737c6ef697301ecc5ee9851"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\flag_mission_check.log",
+      "output": "full-native-8100cb3\\flag_mission_check.log",
+      "bytes": 324,
+      "sha256": "14f22fab311d6fc65b6c725ad8f04390f85e416786e282ddcc7c9a8a29be24d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\game_flow_check.log",
+      "output": "full-native-8100cb3\\game_flow_check.log",
+      "bytes": 5475,
+      "sha256": "b0ab02ffd40ed799a4ec0517722eab7511b507e29675496e0b503d3a6bb77755"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_contract_check.log",
+      "output": "full-native-8100cb3\\humanoid_contract_check.log",
+      "bytes": 123,
+      "sha256": "54eb1d82f05a0b9211f7c4f6fc610804f535b783a329af17b2d01bec8cec2a41"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-backward.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-backward.log",
+      "bytes": 237,
+      "sha256": "0954aeb07ebda858780144ff8ff8b3630863f3bcda73d1f07b5aa9ade6371aec"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-pick.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-pick.log",
+      "bytes": 231,
+      "sha256": "1aa2a8875cad265d360b0ea3ea86e5616f2b8e7539fe93d3f0cba5c8ddc9cb3e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-run-reverse-links.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-run-reverse-links.log",
+      "bytes": 230,
+      "sha256": "e5e9602810e44ab66785075611dc490248b69ec92887bd556d94d2bd28b89442"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-run-settle-frames=181.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-run-settle-frames=181.log",
+      "bytes": 229,
+      "sha256": "aa3bc50bd29f74e58f2099ed5c126a073a8e194a49dfc441e9c87ab9e878a96a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-run.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-run.log",
+      "bytes": 230,
+      "sha256": "beefdf02ae9cdc56f2109bff946cde7127239418c9ff0f33530f6a7ce7ebc46e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-walk-reverse-links.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-walk-reverse-links.log",
+      "bytes": 228,
+      "sha256": "0baf129df92e0f68ccc97d5d4842e92e8e672ed8d90a3ac7a083e4d17139c2bb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_motion_check-walk.log",
+      "output": "full-native-8100cb3\\humanoid_motion_check-walk.log",
+      "bytes": 231,
+      "sha256": "43ba2eeb24bca59ea9ac838b85438ffe81e8272c8a0d3d66069e25e26efb384a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_ui_check-modular.log",
+      "output": "full-native-8100cb3\\humanoid_ui_check-modular.log",
+      "bytes": 315,
+      "sha256": "714d64e70f2b88c77ab750116837f99f72c2d5aef4b901c2910e82ca4743b85e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\humanoid_ui_check.log",
+      "output": "full-native-8100cb3\\humanoid_ui_check.log",
+      "bytes": 315,
+      "sha256": "b0dfced7c1c9f76b9d19c70bfe81d4eb23d30d0de5ad78bfa6a3f0d2d23e2414"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\import.log",
+      "output": "full-native-8100cb3\\import.log",
+      "bytes": 1033,
+      "sha256": "b728de0c23f24d9aa31bc7608b177d7ca13857d7c3aca862a08506d00675123b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\interface_preferences_check.log",
+      "output": "full-native-8100cb3\\interface_preferences_check.log",
+      "bytes": 127,
+      "sha256": "978a9eed0a9d2993d9768df38e1ef5def876f00137bb9948d4c334785b26d26f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\junit.xml",
+      "output": "full-native-8100cb3\\junit.xml",
+      "bytes": 30257,
+      "sha256": "b6cb8c530a088332d436000c877ebdfa145dfcb783834d97f2cd05c42b5c6292"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\keyboard_navigation_check.log",
+      "output": "full-native-8100cb3\\keyboard_navigation_check.log",
+      "bytes": 125,
+      "sha256": "1bd352103d597bd4ecdd326746818377ebb03efc23166800ad1e441c5f620c1d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\learned_app_check.log",
+      "output": "full-native-8100cb3\\learned_app_check.log",
+      "bytes": 230,
+      "sha256": "ecf193a5a3e9512af5ec03e0e0b9d8c568d563df8aa0b2fe738705a37ca7cdaa"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\learned_policy_check.log",
+      "output": "full-native-8100cb3\\learned_policy_check.log",
+      "bytes": 116,
+      "sha256": "8933ed301659e897fdbd5cb78d41c374208b57c670a4ec75c92e872f37aadc52"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\learned_tracking_check.log",
+      "output": "full-native-8100cb3\\learned_tracking_check.log",
+      "bytes": 122,
+      "sha256": "d448e6e1ac59c421c1335704a496263883872fbb41bb5f727d8bf160f4de61c1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\learner_language_check.log",
+      "output": "full-native-8100cb3\\learner_language_check.log",
+      "bytes": 122,
+      "sha256": "1d067c5e97dc4b96db468116b309bc6a80ef05b93530e7be186e71ec86ef9ca4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\localization_check.log",
+      "output": "full-native-8100cb3\\localization_check.log",
+      "bytes": 123,
+      "sha256": "535be527a47199e44385e35018148a07964ab8ce02d6169bb252174b1487957d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\manual_control_check.log",
+      "output": "full-native-8100cb3\\manual_control_check.log",
+      "bytes": 3112,
+      "sha256": "1ef9fe1fae62a213a387005f5fc0f6b4ca3ff08daef7e4cb80ef0022317d53ce"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\material_assets_check.log",
+      "output": "full-native-8100cb3\\material_assets_check.log",
+      "bytes": 16112,
+      "sha256": "a7933b8f34dd42f67b748b2974f0a6d3354005ba7322cd9c1da3ae4bbf29f914"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\mesh_assets_check.log",
+      "output": "full-native-8100cb3\\mesh_assets_check.log",
+      "bytes": 7392,
+      "sha256": "457fb8b319a02cb6f187714d4fd9698a7ef3ae5cb5828a744cd8839d421432e5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\modular_humanoid_check-pick-reverse-links.log",
+      "output": "full-native-8100cb3\\modular_humanoid_check-pick-reverse-links.log",
+      "bytes": 174,
+      "sha256": "68a0f1be06b159ffea05d3b19f968769ea022750f02f0fbd7738b09de7b93525"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\modular_humanoid_check-pick.log",
+      "output": "full-native-8100cb3\\modular_humanoid_check-pick.log",
+      "bytes": 174,
+      "sha256": "deedb854e2f8198cdc407f1d31dd5e48cccc30c33d198583cdbaace2ba98c5bb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\modular_humanoid_check-walk.log",
+      "output": "full-native-8100cb3\\modular_humanoid_check-walk.log",
+      "bytes": 173,
+      "sha256": "8ad19f3f10a282fa69bf89aba184d8afb015faa7c8f63377be3b2eb8e8743842"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\modular_pickup_parallel_check.log",
+      "output": "full-native-8100cb3\\modular_pickup_parallel_check.log",
+      "bytes": 2157,
+      "sha256": "03120f724d54b6de05eb75c0a2e911b5f30f94db5b654715999b362317e7688c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\motion_lab_check.log",
+      "output": "full-native-8100cb3\\motion_lab_check.log",
+      "bytes": 695,
+      "sha256": "78efea0c718bb83001f8e72a7d5b764897388e2d8ec80debfc89064cd58823ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\motion_lab_ui_check.log",
+      "output": "full-native-8100cb3\\motion_lab_ui_check.log",
+      "bytes": 3397,
+      "sha256": "719fa94761053f7010434a73470305d944be4c69cea17d11976091ccbf613349"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\pickup_bridge_ui_check.log",
+      "output": "full-native-8100cb3\\pickup_bridge_ui_check.log",
+      "bytes": 123,
+      "sha256": "f8ced0e7d5b82c7f54f63fe28a43d2604ab650156015693d2e23a002c6ebb6df"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\pickup_lab_ui_check.log",
+      "output": "full-native-8100cb3\\pickup_lab_ui_check.log",
+      "bytes": 119,
+      "sha256": "76c95adc33a2d42b9b642aab6c86fed147f86168643f32a8145e19cb683a06a6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\pickup_store_check.log",
+      "output": "full-native-8100cb3\\pickup_store_check.log",
+      "bytes": 155,
+      "sha256": "5c5dc8dba5045fd85a62c0709f6a82b4bf54d20cf4e64703d3eeff07ecb4c315"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\pickup_trial_check.log",
+      "output": "full-native-8100cb3\\pickup_trial_check.log",
+      "bytes": 1328,
+      "sha256": "2971c94ad8fde174c6f109f39bc85803289b5c9949615bea5f65d449a79b67d2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\project_store_check.log",
+      "output": "full-native-8100cb3\\project_store_check.log",
+      "bytes": 119,
+      "sha256": "28320c8cbde293881269406817852a69c8d35f8fec3d95d6d318d4bf3ad9ddde"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\relative_code_check.log",
+      "output": "full-native-8100cb3\\relative_code_check.log",
+      "bytes": 119,
+      "sha256": "6f6a593571ac967b497541012af1f550016655da5a159ab1ba6d5355b049b636"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\results.json",
+      "output": "full-native-8100cb3\\results.json",
+      "bytes": 53353,
+      "sha256": "b9e153aa164fb36cb51ab01628caba2929180e44fb728772224003cbd8d39abd"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\robot_car_check.log",
+      "output": "full-native-8100cb3\\robot_car_check.log",
+      "bytes": 608,
+      "sha256": "88e578d82c3d19cb11482c4a7b5c50f174a640a2a7a584b8313c79d50c8848c4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\run_mode_check.log",
+      "output": "full-native-8100cb3\\run_mode_check.log",
+      "bytes": 429,
+      "sha256": "fc30bb711d492aef2b0b311caee63eaadfb4cea88a003d2c58bd0e2c17e124e7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\scene-load.log",
+      "output": "full-native-8100cb3\\scene-load.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\servo_torque_budget_check.log",
+      "output": "full-native-8100cb3\\servo_torque_budget_check.log",
+      "bytes": 2260,
+      "sha256": "6322f5266efe9bb272bdcd355fc45c3a81c96f84f9634a8c634e1be5fee6917d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\sonar_stage_check.log",
+      "output": "full-native-8100cb3\\sonar_stage_check.log",
+      "bytes": 3516,
+      "sha256": "2e3da16f62089edf3ab3f5de1d83357452d70d8ff9012f0a517ca6dfba7bf1a3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\stage_authoring_check.log",
+      "output": "full-native-8100cb3\\stage_authoring_check.log",
+      "bytes": 1312,
+      "sha256": "128cbf72fcbfda757f4b639567cad7286669b3494aaed625376fe1d9a8eaa8d6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\stage_contract_check.log",
+      "output": "full-native-8100cb3\\stage_contract_check.log",
+      "bytes": 120,
+      "sha256": "c0cb84dfac17003e800c274a214b95ed5f05a3a0609729e8dbb2273195f24de0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\stage_ui_check.log",
+      "output": "full-native-8100cb3\\stage_ui_check.log",
+      "bytes": 114,
+      "sha256": "c1829a3615e1965d2a78e8c660b960d3918661ad25c034ecb38cf4bc1279b5c7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\SUMMARY.md",
+      "output": "full-native-8100cb3\\SUMMARY.md",
+      "bytes": 3777,
+      "sha256": "c21a3492ae6fa203c32bc9d66f94bdf46b60078294b66214b4b94b6c6f109a9a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-camera_experiment_check.py.log",
+      "output": "full-native-8100cb3\\tests-camera_experiment_check.py.log",
+      "bytes": 761,
+      "sha256": "aec723051935bfaf790fe3a281bfad264b9e16000012c162a69433b9f7e03f1c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-desktop_client_check.py.log",
+      "output": "full-native-8100cb3\\tests-desktop_client_check.py.log",
+      "bytes": 5144,
+      "sha256": "6f2ff2a80bba33244feb26f93ff83480ba0523c521f00cef4f4b46992964b91a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-desktop_session_check.py.log",
+      "output": "full-native-8100cb3\\tests-desktop_session_check.py.log",
+      "bytes": 4205,
+      "sha256": "e62e93eae50098cf49a805c5f9b106361c4e434548464f8b9c2e4075a6a798cc"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-motion_mcp_check.py.log",
+      "output": "full-native-8100cb3\\tests-motion_mcp_check.py.log",
+      "bytes": 2653,
+      "sha256": "0d1d68142fa2545b1ca4d2127e1c7d6819d9fe289b024fc571b430d5619bf82f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-test_ci_verify.py.log",
+      "output": "full-native-8100cb3\\tests-test_ci_verify.py.log",
+      "bytes": 618,
+      "sha256": "03dee4c54bf69879ea5eb499e274c55623debd65bc94105185fa1ace185a3ff6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-test_desktop_package.py.log",
+      "output": "full-native-8100cb3\\tests-test_desktop_package.py.log",
+      "bytes": 1302,
+      "sha256": "b5b77740e499db86da0348af9245461f1c4b58debfc2492c817ed32b7734b508"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-test_pickup_bridge.py.log",
+      "output": "full-native-8100cb3\\tests-test_pickup_bridge.py.log",
+      "bytes": 3097,
+      "sha256": "07dacf8f8bd50544c78c4795479c217866eac62c4d31bbc6d5a99fb43c71d81e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tests-test_release_documents.py.log",
+      "output": "full-native-8100cb3\\tests-test_release_documents.py.log",
+      "bytes": 279,
+      "sha256": "dcfec03a3094c4aab3f685669b04e24d5b08f899932f9305a7eab5c220e7f1a6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tools-docs-test_maintain.py.log",
+      "output": "full-native-8100cb3\\tools-docs-test_maintain.py.log",
+      "bytes": 1720,
+      "sha256": "ae3ca567e43ba3139da5c73254322236e654c6e4213724eac0d22fe21ca408d5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tools-motion_lab-test_races.py.log",
+      "output": "full-native-8100cb3\\tools-motion_lab-test_races.py.log",
+      "bytes": 1515,
+      "sha256": "c7b49ea84c87b979a0c0e2862e1b32a2b668361c11564b2f63aef40c6543f28b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tools-motion_lab-test_service.py.log",
+      "output": "full-native-8100cb3\\tools-motion_lab-test_service.py.log",
+      "bytes": 5236,
+      "sha256": "119d27acf9a0b1b0562d99b6fa2824501236e16e880af152f3e0fc238ec228d5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tools-rl_lab-test_rl_lab.py.log",
+      "output": "full-native-8100cb3\\tools-rl_lab-test_rl_lab.py.log",
+      "bytes": 1507,
+      "sha256": "bd69f71e1e97d713978c32f19453147cd46822f6ae047858dbddc30e547441cc"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\tutorial_ui_check.log",
+      "output": "full-native-8100cb3\\tutorial_ui_check.log",
+      "bytes": 12178,
+      "sha256": "18cab8f1e2d3f55686ff6d0e3d0e5e2c5befd39c07c40920800f9a1a1078c7be"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\viewport_framing_check.log",
+      "output": "full-native-8100cb3\\viewport_framing_check.log",
+      "bytes": 250350,
+      "sha256": "69bd5084d27d9253ebfd6b70fbf0eaca6251662db8a53f443c283aa18c11ce37"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\workshop_ui_check.log",
+      "output": "full-native-8100cb3\\workshop_ui_check.log",
+      "bytes": 118,
+      "sha256": "4695278df283d0048544844cc0b75f611b545da03bf00b871da64879aa1f72ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-8100cb3\\yaw_biped_check.log",
+      "output": "full-native-8100cb3\\yaw_biped_check.log",
+      "bytes": 98,
+      "sha256": "7ef98abe502e96c56a312e19a254031fac4985e70b847efdc8248df7cd497df9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\agent_camera_loop_check-rendered.log",
+      "output": "full-native-fixture-fixed\\agent_camera_loop_check-rendered.log",
+      "bytes": 283,
+      "sha256": "1db56f80dc90e53f0176a7b755fdfa210f1d163d7ee4eb01d00510dac0381464"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\agent_camera_loop_check.log",
+      "output": "full-native-fixture-fixed\\agent_camera_loop_check.log",
+      "bytes": 122,
+      "sha256": "fc47ff1bf4d1b03ca2bf34c5a6890d616e014b9e242e68f0841b74b88b497868"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\agent_camera_rest_check.log",
+      "output": "full-native-fixture-fixed\\agent_camera_rest_check.log",
+      "bytes": 290,
+      "sha256": "2206a0d838d2e271f933c9ed1a1124c3b5e6b73a423ba04539e6967765992822"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\agent_goal_ui_check-rendered.log",
+      "output": "full-native-fixture-fixed\\agent_goal_ui_check-rendered.log",
+      "bytes": 19022,
+      "sha256": "08201f6db4cb59f721d2bcae1923c298c011cc59844300aebadeb6254c537152"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\agent_goal_ui_check.log",
+      "output": "full-native-fixture-fixed\\agent_goal_ui_check.log",
+      "bytes": 115,
+      "sha256": "37fb024a0b1e87466429711e4ccc0958fa4a2590195f60b057f7656cf170da78"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\app_controller_check.log",
+      "output": "full-native-fixture-fixed\\app_controller_check.log",
+      "bytes": 120,
+      "sha256": "61cdd7c674c0d07c3ade6af391e8211224af6ebb48211f0a30ec5cb28b1d6d04"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\assembly_snap_check.log",
+      "output": "full-native-fixture-fixed\\assembly_snap_check.log",
+      "bytes": 359,
+      "sha256": "05ea7f8084ea4b2990b58737279d2793e2039d024cb05b1bf60ed67437713ae5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\authoring_ui_check.log",
+      "output": "full-native-fixture-fixed\\authoring_ui_check.log",
+      "bytes": 118,
+      "sha256": "5fab3bfff4b96efb5f7916b3d4c55e5adc434b5910b12dd0537976c2810b4061"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\biped_app_check.log",
+      "output": "full-native-fixture-fixed\\biped_app_check.log",
+      "bytes": 634,
+      "sha256": "ef846a0d1873459995b61419c721d8101240ee5d9ea56edf67e036257e2712c1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\biped_board_clearance_check.log",
+      "output": "full-native-fixture-fixed\\biped_board_clearance_check.log",
+      "bytes": 314,
+      "sha256": "5d21aa1912d413ed9204c2e6b78756ca57c0cdd4a0da921ad87763a7a6467837"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\biped_motion_check.log",
+      "output": "full-native-fixture-fixed\\biped_motion_check.log",
+      "bytes": 983,
+      "sha256": "40e24369859a2484ca0c67a5b14deb4d48af536adf0e917f5b7b364480660269"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\blender_camera_check.log",
+      "output": "full-native-fixture-fixed\\blender_camera_check.log",
+      "bytes": 103,
+      "sha256": "30b0128aeda968fc4795d006205a8a0096a4a50e6aff281c555a60a12d3c70e7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\blender_edit_check.log",
+      "output": "full-native-fixture-fixed\\blender_edit_check.log",
+      "bytes": 118,
+      "sha256": "65d191f9a1a4ee380221eab336404ba018a46b964be48646f6072bf16c5f0fdd"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\block_program_check.log",
+      "output": "full-native-fixture-fixed\\block_program_check.log",
+      "bytes": 119,
+      "sha256": "eeaedb17ccc38d78df1a590a15885488785dab62364d8650204169892f34b3e4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\bridge_stop_owner_check.log",
+      "output": "full-native-fixture-fixed\\bridge_stop_owner_check.log",
+      "bytes": 220,
+      "sha256": "8c4bdbc13135d4c860d5a7bb5cd74e1c64e625fd8074907a18d4478e61835a08"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\browser_evidence_check.log",
+      "output": "full-native-fixture-fixed\\browser_evidence_check.log",
+      "bytes": 627,
+      "sha256": "10215a64debcb64bd4ec73c8a1aefe8483e81c3f824b02f1176b81d5c746148b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\construction_kit_check.log",
+      "output": "full-native-fixture-fixed\\construction_kit_check.log",
+      "bytes": 253,
+      "sha256": "8b9c9708b6cb4c2c3e4c94efcf83baadb1ddacbdb2f3a37c8b9733f51679f305"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\construction_kit_motion_check.log",
+      "output": "full-native-fixture-fixed\\construction_kit_motion_check.log",
+      "bytes": 3627,
+      "sha256": "39c4d015976056add7ef5d4d2c26353edaed1bacdf490f88f364633c1e7b8447"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\construction_kit_store_check.log",
+      "output": "full-native-fixture-fixed\\construction_kit_store_check.log",
+      "bytes": 241,
+      "sha256": "512485a66f02550548185aa35dd11960b0aafb375aaf3d670bd5d99fd5afc8f0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\construction_kit_ui_check.log",
+      "output": "full-native-fixture-fixed\\construction_kit_ui_check.log",
+      "bytes": 126,
+      "sha256": "3eeb8ef9a65e7c6f790e43ca83f28188f1a400594b389e7dd261a4e95b6be441"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\control_flow_check.log",
+      "output": "full-native-fixture-fixed\\control_flow_check.log",
+      "bytes": 1082,
+      "sha256": "2911806951c2b1b597d8b6e83ef912879a0379a03967c5c1b5ce9b198c443375"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\core_authoring_check.log",
+      "output": "full-native-fixture-fixed\\core_authoring_check.log",
+      "bytes": 120,
+      "sha256": "bae0fdeabf267dd809c4e1d3e97e52db6307611a6737c6ef697301ecc5ee9851"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\flag_mission_check.log",
+      "output": "full-native-fixture-fixed\\flag_mission_check.log",
+      "bytes": 324,
+      "sha256": "14f22fab311d6fc65b6c725ad8f04390f85e416786e282ddcc7c9a8a29be24d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\game_flow_check.log",
+      "output": "full-native-fixture-fixed\\game_flow_check.log",
+      "bytes": 5475,
+      "sha256": "b0ab02ffd40ed799a4ec0517722eab7511b507e29675496e0b503d3a6bb77755"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_contract_check.log",
+      "output": "full-native-fixture-fixed\\humanoid_contract_check.log",
+      "bytes": 123,
+      "sha256": "54eb1d82f05a0b9211f7c4f6fc610804f535b783a329af17b2d01bec8cec2a41"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-backward.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-backward.log",
+      "bytes": 237,
+      "sha256": "0954aeb07ebda858780144ff8ff8b3630863f3bcda73d1f07b5aa9ade6371aec"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-pick.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-pick.log",
+      "bytes": 231,
+      "sha256": "1aa2a8875cad265d360b0ea3ea86e5616f2b8e7539fe93d3f0cba5c8ddc9cb3e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-run-reverse-links.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-run-reverse-links.log",
+      "bytes": 230,
+      "sha256": "e5e9602810e44ab66785075611dc490248b69ec92887bd556d94d2bd28b89442"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-run-settle-frames=181.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-run-settle-frames=181.log",
+      "bytes": 229,
+      "sha256": "aa3bc50bd29f74e58f2099ed5c126a073a8e194a49dfc441e9c87ab9e878a96a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-run.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-run.log",
+      "bytes": 230,
+      "sha256": "beefdf02ae9cdc56f2109bff946cde7127239418c9ff0f33530f6a7ce7ebc46e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-walk-reverse-links.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-walk-reverse-links.log",
+      "bytes": 228,
+      "sha256": "0baf129df92e0f68ccc97d5d4842e92e8e672ed8d90a3ac7a083e4d17139c2bb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_motion_check-walk.log",
+      "output": "full-native-fixture-fixed\\humanoid_motion_check-walk.log",
+      "bytes": 231,
+      "sha256": "43ba2eeb24bca59ea9ac838b85438ffe81e8272c8a0d3d66069e25e26efb384a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_ui_check-modular.log",
+      "output": "full-native-fixture-fixed\\humanoid_ui_check-modular.log",
+      "bytes": 315,
+      "sha256": "714d64e70f2b88c77ab750116837f99f72c2d5aef4b901c2910e82ca4743b85e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\humanoid_ui_check.log",
+      "output": "full-native-fixture-fixed\\humanoid_ui_check.log",
+      "bytes": 315,
+      "sha256": "b0dfced7c1c9f76b9d19c70bfe81d4eb23d30d0de5ad78bfa6a3f0d2d23e2414"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\import.log",
+      "output": "full-native-fixture-fixed\\import.log",
+      "bytes": 1315,
+      "sha256": "97d3a98b638bde96129f72c0aa2c73756b531bcc790e7a75a73508fdf8f980e1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\interface_preferences_check.log",
+      "output": "full-native-fixture-fixed\\interface_preferences_check.log",
+      "bytes": 127,
+      "sha256": "978a9eed0a9d2993d9768df38e1ef5def876f00137bb9948d4c334785b26d26f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\junit.xml",
+      "output": "full-native-fixture-fixed\\junit.xml",
+      "bytes": 4639,
+      "sha256": "b04f921a5fe0a3981e7da5dcea2b0e092efea14ab3dcde5dfa430950ba76a763"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\keyboard_navigation_check.log",
+      "output": "full-native-fixture-fixed\\keyboard_navigation_check.log",
+      "bytes": 125,
+      "sha256": "1bd352103d597bd4ecdd326746818377ebb03efc23166800ad1e441c5f620c1d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\learned_app_check.log",
+      "output": "full-native-fixture-fixed\\learned_app_check.log",
+      "bytes": 230,
+      "sha256": "ecf193a5a3e9512af5ec03e0e0b9d8c568d563df8aa0b2fe738705a37ca7cdaa"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\learned_policy_check.log",
+      "output": "full-native-fixture-fixed\\learned_policy_check.log",
+      "bytes": 116,
+      "sha256": "8933ed301659e897fdbd5cb78d41c374208b57c670a4ec75c92e872f37aadc52"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\learned_tracking_check.log",
+      "output": "full-native-fixture-fixed\\learned_tracking_check.log",
+      "bytes": 122,
+      "sha256": "d448e6e1ac59c421c1335704a496263883872fbb41bb5f727d8bf160f4de61c1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\learner_language_check.log",
+      "output": "full-native-fixture-fixed\\learner_language_check.log",
+      "bytes": 122,
+      "sha256": "1d067c5e97dc4b96db468116b309bc6a80ef05b93530e7be186e71ec86ef9ca4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\localization_check.log",
+      "output": "full-native-fixture-fixed\\localization_check.log",
+      "bytes": 123,
+      "sha256": "535be527a47199e44385e35018148a07964ab8ce02d6169bb252174b1487957d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\manual_control_check.log",
+      "output": "full-native-fixture-fixed\\manual_control_check.log",
+      "bytes": 3112,
+      "sha256": "1ef9fe1fae62a213a387005f5fc0f6b4ca3ff08daef7e4cb80ef0022317d53ce"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\material_assets_check.log",
+      "output": "full-native-fixture-fixed\\material_assets_check.log",
+      "bytes": 16112,
+      "sha256": "a7933b8f34dd42f67b748b2974f0a6d3354005ba7322cd9c1da3ae4bbf29f914"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\mesh_assets_check.log",
+      "output": "full-native-fixture-fixed\\mesh_assets_check.log",
+      "bytes": 7392,
+      "sha256": "457fb8b319a02cb6f187714d4fd9698a7ef3ae5cb5828a744cd8839d421432e5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\modular_humanoid_check-pick-reverse-links.log",
+      "output": "full-native-fixture-fixed\\modular_humanoid_check-pick-reverse-links.log",
+      "bytes": 174,
+      "sha256": "68a0f1be06b159ffea05d3b19f968769ea022750f02f0fbd7738b09de7b93525"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\modular_humanoid_check-pick.log",
+      "output": "full-native-fixture-fixed\\modular_humanoid_check-pick.log",
+      "bytes": 174,
+      "sha256": "deedb854e2f8198cdc407f1d31dd5e48cccc30c33d198583cdbaace2ba98c5bb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\modular_humanoid_check-walk.log",
+      "output": "full-native-fixture-fixed\\modular_humanoid_check-walk.log",
+      "bytes": 173,
+      "sha256": "8ad19f3f10a282fa69bf89aba184d8afb015faa7c8f63377be3b2eb8e8743842"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\modular_pickup_parallel_check.log",
+      "output": "full-native-fixture-fixed\\modular_pickup_parallel_check.log",
+      "bytes": 2157,
+      "sha256": "03120f724d54b6de05eb75c0a2e911b5f30f94db5b654715999b362317e7688c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\motion_lab_check.log",
+      "output": "full-native-fixture-fixed\\motion_lab_check.log",
+      "bytes": 695,
+      "sha256": "78efea0c718bb83001f8e72a7d5b764897388e2d8ec80debfc89064cd58823ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\motion_lab_ui_check.log",
+      "output": "full-native-fixture-fixed\\motion_lab_ui_check.log",
+      "bytes": 3397,
+      "sha256": "719fa94761053f7010434a73470305d944be4c69cea17d11976091ccbf613349"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\pickup_bridge_ui_check.log",
+      "output": "full-native-fixture-fixed\\pickup_bridge_ui_check.log",
+      "bytes": 123,
+      "sha256": "f8ced0e7d5b82c7f54f63fe28a43d2604ab650156015693d2e23a002c6ebb6df"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\pickup_lab_ui_check.log",
+      "output": "full-native-fixture-fixed\\pickup_lab_ui_check.log",
+      "bytes": 119,
+      "sha256": "76c95adc33a2d42b9b642aab6c86fed147f86168643f32a8145e19cb683a06a6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\pickup_store_check.log",
+      "output": "full-native-fixture-fixed\\pickup_store_check.log",
+      "bytes": 155,
+      "sha256": "5c5dc8dba5045fd85a62c0709f6a82b4bf54d20cf4e64703d3eeff07ecb4c315"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\pickup_trial_check.log",
+      "output": "full-native-fixture-fixed\\pickup_trial_check.log",
+      "bytes": 1328,
+      "sha256": "2971c94ad8fde174c6f109f39bc85803289b5c9949615bea5f65d449a79b67d2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\project_store_check.log",
+      "output": "full-native-fixture-fixed\\project_store_check.log",
+      "bytes": 119,
+      "sha256": "28320c8cbde293881269406817852a69c8d35f8fec3d95d6d318d4bf3ad9ddde"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\relative_code_check.log",
+      "output": "full-native-fixture-fixed\\relative_code_check.log",
+      "bytes": 119,
+      "sha256": "6f6a593571ac967b497541012af1f550016655da5a159ab1ba6d5355b049b636"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\results.json",
+      "output": "full-native-fixture-fixed\\results.json",
+      "bytes": 52874,
+      "sha256": "e1472686723e14e3202687da82cae05b0785afb9acbb752edf17feedb699257b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\robot_car_check.log",
+      "output": "full-native-fixture-fixed\\robot_car_check.log",
+      "bytes": 608,
+      "sha256": "88e578d82c3d19cb11482c4a7b5c50f174a640a2a7a584b8313c79d50c8848c4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\run_mode_check.log",
+      "output": "full-native-fixture-fixed\\run_mode_check.log",
+      "bytes": 429,
+      "sha256": "fc30bb711d492aef2b0b311caee63eaadfb4cea88a003d2c58bd0e2c17e124e7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\scene-load.log",
+      "output": "full-native-fixture-fixed\\scene-load.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\servo_torque_budget_check.log",
+      "output": "full-native-fixture-fixed\\servo_torque_budget_check.log",
+      "bytes": 2260,
+      "sha256": "6322f5266efe9bb272bdcd355fc45c3a81c96f84f9634a8c634e1be5fee6917d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\sonar_stage_check.log",
+      "output": "full-native-fixture-fixed\\sonar_stage_check.log",
+      "bytes": 3516,
+      "sha256": "2e3da16f62089edf3ab3f5de1d83357452d70d8ff9012f0a517ca6dfba7bf1a3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\stage_authoring_check.log",
+      "output": "full-native-fixture-fixed\\stage_authoring_check.log",
+      "bytes": 1312,
+      "sha256": "128cbf72fcbfda757f4b639567cad7286669b3494aaed625376fe1d9a8eaa8d6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\stage_contract_check.log",
+      "output": "full-native-fixture-fixed\\stage_contract_check.log",
+      "bytes": 120,
+      "sha256": "c0cb84dfac17003e800c274a214b95ed5f05a3a0609729e8dbb2273195f24de0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\stage_ui_check.log",
+      "output": "full-native-fixture-fixed\\stage_ui_check.log",
+      "bytes": 114,
+      "sha256": "c1829a3615e1965d2a78e8c660b960d3918661ad25c034ecb38cf4bc1279b5c7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\SUMMARY.md",
+      "output": "full-native-fixture-fixed\\SUMMARY.md",
+      "bytes": 3776,
+      "sha256": "c3be01a91dd88947ae44a89b3f6d0877e63c97d8098dd682faff2831d9c0c6db"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-camera_experiment_check.py.log",
+      "output": "full-native-fixture-fixed\\tests-camera_experiment_check.py.log",
+      "bytes": 761,
+      "sha256": "5fcb7eae1497f0c7d49f47d2987ffa6a9003c18d6f73de9073da648d4fcf1345"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-desktop_client_check.py.log",
+      "output": "full-native-fixture-fixed\\tests-desktop_client_check.py.log",
+      "bytes": 5144,
+      "sha256": "c9cf6515472774af981a62611e5b9931dfb6a497f7575d1f36aeca7eb8639846"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-desktop_session_check.py.log",
+      "output": "full-native-fixture-fixed\\tests-desktop_session_check.py.log",
+      "bytes": 4205,
+      "sha256": "9f7c086eb77fc7d30e9fa9b1e7cf31e66a5818e62498baf89be2c98dbff7035c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-motion_mcp_check.py.log",
+      "output": "full-native-fixture-fixed\\tests-motion_mcp_check.py.log",
+      "bytes": 1922,
+      "sha256": "f3d106e37368ea3298a58cae625167904f06d33c1d9eaa093ed94637562634b9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-test_ci_verify.py.log",
+      "output": "full-native-fixture-fixed\\tests-test_ci_verify.py.log",
+      "bytes": 618,
+      "sha256": "f7dfaf26403157584c8b806efe05b9efd2a2ee07ff79d2e9ba013c9a4012e9ea"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-test_desktop_package.py.log",
+      "output": "full-native-fixture-fixed\\tests-test_desktop_package.py.log",
+      "bytes": 648,
+      "sha256": "22c0b2363e6466845f5dba9fad6f7d46dec881907a310f9e8c3425b1ac8e9ef0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-test_pickup_bridge.py.log",
+      "output": "full-native-fixture-fixed\\tests-test_pickup_bridge.py.log",
+      "bytes": 3097,
+      "sha256": "f1f152787d257d6d4b154f4b799349eac8e3885f76e3845d792b6725e1cfd323"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tests-test_release_documents.py.log",
+      "output": "full-native-fixture-fixed\\tests-test_release_documents.py.log",
+      "bytes": 279,
+      "sha256": "67663203769efb6fd9d13b807c24e97803ba3bd61da337fb05a5c83f01658982"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tools-docs-test_maintain.py.log",
+      "output": "full-native-fixture-fixed\\tools-docs-test_maintain.py.log",
+      "bytes": 1720,
+      "sha256": "f0573a65049dff629df06e30531d4da7d57a95ca3a06df0acf6ebc57a403209a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tools-motion_lab-test_races.py.log",
+      "output": "full-native-fixture-fixed\\tools-motion_lab-test_races.py.log",
+      "bytes": 1515,
+      "sha256": "167509aae403e6a846f1267759675a18063ff2315bda9cf6e913ace9c7e1212b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tools-motion_lab-test_service.py.log",
+      "output": "full-native-fixture-fixed\\tools-motion_lab-test_service.py.log",
+      "bytes": 2227,
+      "sha256": "03b3184f68236efe72b26a3f15d0e3f2ebf9e3da36bffc4c943041ff64f99b09"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tools-rl_lab-test_rl_lab.py.log",
+      "output": "full-native-fixture-fixed\\tools-rl_lab-test_rl_lab.py.log",
+      "bytes": 1507,
+      "sha256": "5245fb8daef3c276d7cd5825b6885e50b2c6b81a8dc8b9855f680211b86f940d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\tutorial_ui_check.log",
+      "output": "full-native-fixture-fixed\\tutorial_ui_check.log",
+      "bytes": 118,
+      "sha256": "edb1924ba8f9ffe9116e29e5bc67f0879b9007aa65a5ae5a03ecc1badae18665"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\viewport_framing_check.log",
+      "output": "full-native-fixture-fixed\\viewport_framing_check.log",
+      "bytes": 125,
+      "sha256": "30543708daddd2e68f65780def56b006d700e942814052415d5f11a5df50a54a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\workshop_ui_check.log",
+      "output": "full-native-fixture-fixed\\workshop_ui_check.log",
+      "bytes": 118,
+      "sha256": "4695278df283d0048544844cc0b75f611b545da03bf00b871da64879aa1f72ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-fixture-fixed\\yaw_biped_check.log",
+      "output": "full-native-fixture-fixed\\yaw_biped_check.log",
+      "bytes": 98,
+      "sha256": "7ef98abe502e96c56a312e19a254031fac4985e70b847efdc8248df7cd497df9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-before-chain\\agent_goal_ui_check-rendered.log",
+      "output": "prefs-before-chain\\agent_goal_ui_check-rendered.log",
+      "bytes": 19335,
+      "sha256": "942f61bfc2f3972a9b8963f7b9e050e17ff6c1d1088c624f9383ac33dbaede0a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-before-chain\\authoring_ui_check.log",
+      "output": "prefs-before-chain\\authoring_ui_check.log",
+      "bytes": 2402,
+      "sha256": "af7fc9833b82d6cd0bd67787ab338316dc6653a6e8fcdf6d4f7e74f6a2a622a1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-before-chain\\receipt.json",
+      "output": "prefs-before-chain\\receipt.json",
+      "bytes": 2020,
+      "sha256": "57cffc7062caf7486eb25f6ff0f94c083af5d5122749b7af48abd1dd2dd4bf33"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-chain\\agent_camera_loop_check-rendered.log",
+      "output": "prefs-after-chain\\agent_camera_loop_check-rendered.log",
+      "bytes": 283,
+      "sha256": "1db56f80dc90e53f0176a7b755fdfa210f1d163d7ee4eb01d00510dac0381464"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-chain\\agent_goal_ui_check-rendered.log",
+      "output": "prefs-after-chain\\agent_goal_ui_check-rendered.log",
+      "bytes": 19022,
+      "sha256": "08201f6db4cb59f721d2bcae1923c298c011cc59844300aebadeb6254c537152"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-chain\\authoring_ui_check.log",
+      "output": "prefs-after-chain\\authoring_ui_check.log",
+      "bytes": 118,
+      "sha256": "5fab3bfff4b96efb5f7916b3d4c55e5adc434b5910b12dd0537976c2810b4061"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-chain\\receipt.json",
+      "output": "prefs-after-chain\\receipt.json",
+      "bytes": 4147,
+      "sha256": "66c6de782a9da0be4a0d1423732d1a1b2450443d3ac40fe0bb16f03847f88776"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-chain\\tutorial_ui_check.log",
+      "output": "prefs-after-chain\\tutorial_ui_check.log",
+      "bytes": 118,
+      "sha256": "edb1924ba8f9ffe9116e29e5bc67f0879b9007aa65a5ae5a03ecc1badae18665"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-chain\\viewport_framing_check.log",
+      "output": "prefs-after-chain\\viewport_framing_check.log",
+      "bytes": 125,
+      "sha256": "30543708daddd2e68f65780def56b006d700e942814052415d5f11a5df50a54a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-existing\\agent_camera_loop_check.log",
+      "output": "prefs-after-existing\\agent_camera_loop_check.log",
+      "bytes": 122,
+      "sha256": "fc47ff1bf4d1b03ca2bf34c5a6890d616e014b9e242e68f0841b74b88b497868"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-existing\\agent_goal_ui_check-rendered.log",
+      "output": "prefs-after-existing\\agent_goal_ui_check-rendered.log",
+      "bytes": 19022,
+      "sha256": "08201f6db4cb59f721d2bcae1923c298c011cc59844300aebadeb6254c537152"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-existing\\authoring_ui_check.log",
+      "output": "prefs-after-existing\\authoring_ui_check.log",
+      "bytes": 118,
+      "sha256": "5fab3bfff4b96efb5f7916b3d4c55e5adc434b5910b12dd0537976c2810b4061"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\prefs-after-existing\\receipt.json",
+      "output": "prefs-after-existing\\receipt.json",
+      "bytes": 3077,
+      "sha256": "a28d80f43b44126aeeaa43f5a5b9cf85b681722c8c853e6da04087137e5f33b1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\http-repeat-before\\receipt.json",
+      "output": "http-repeat-before\\receipt.json",
+      "bytes": 57,
+      "sha256": "43c5ef91d1605766dcd0960e47203b8d7e3d1ac907ba5d6ee99f504922b92549"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\http-repeat-before\\repeat.log",
+      "output": "http-repeat-before\\repeat.log",
+      "bytes": 59292,
+      "sha256": "ed6237bc62a31a3edb81437828bcd47de25fd08920c24e2b2dbd9041c730dd52"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\http-repeat-after\\receipt.json",
+      "output": "http-repeat-after\\receipt.json",
+      "bytes": 56,
+      "sha256": "2de75064a1e9f9d5ecdc07880c0fec42e81ca5adbee63ac022d57141d492ea82"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\http-repeat-after\\repeat.log",
+      "output": "http-repeat-after\\repeat.log",
+      "bytes": 11906,
+      "sha256": "81adb6d7f8f0e4529544f7f658107c0d88759cc5312578c574897210b8916834"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\checks.json",
+      "output": "native-installer-preliminary\\checks.json",
+      "bytes": 1458,
+      "sha256": "b99bc14cb54be437ccf33145c2842f7fe3fd3a57a8823eee59b8471c3c5db91f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\cleanup-uninstall.stderr",
+      "output": "native-installer-preliminary\\cleanup-uninstall.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\cleanup-uninstall.stdout",
+      "output": "native-installer-preliminary\\cleanup-uninstall.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\install.stderr",
+      "output": "native-installer-preliminary\\install.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\install.stdout",
+      "output": "native-installer-preliminary\\install.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\installer.log",
+      "output": "native-installer-preliminary\\installer.log",
+      "bytes": 442,
+      "sha256": "3bc5f3e41798fd48c32c24bfb2ed30de99734725c02d53556a6a953af88e8207"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\native.stderr",
+      "output": "native-installer-preliminary\\native.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\native.stdout",
+      "output": "native-installer-preliminary\\native.stdout",
+      "bytes": 172,
+      "sha256": "86d17161bb7ea9e1dfae7764306b8eaafb933bc6311fdf780e0b11590eed473a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\receipt.json",
+      "output": "native-installer-preliminary\\receipt.json",
+      "bytes": 775,
+      "sha256": "c31375de58d78b6d5906469abd46aef55c01ec4f354bd6c057686c2bda51c396"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-finish-line.json",
+      "output": "native-installer-preliminary\\stage-finish-line.json",
+      "bytes": 115,
+      "sha256": "0dae2499677bfe372511a95f91eb7f3bc411bbf96eae91097ceb33bcefd6d436"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-finish-line.png",
+      "output": "native-installer-preliminary\\stage-finish-line.png",
+      "bytes": 101497,
+      "sha256": "ca8d520139ce59e6b43dda414dda9a942b54f97d0d996186fba2e066a49ed8b3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-map.png",
+      "output": "native-installer-preliminary\\stage-map.png",
+      "bytes": 64290,
+      "sha256": "eef8b5e195750ffa4a7f6c9a263919eccf0dcdd78f878274b71db32f2688f9ec"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-raise-flag.json",
+      "output": "native-installer-preliminary\\stage-raise-flag.json",
+      "bytes": 90,
+      "sha256": "b3e5b15b581105a3200177855c8d406fcc5040775997cbb0b0b91f8a71a5fab5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-raise-flag.png",
+      "output": "native-installer-preliminary\\stage-raise-flag.png",
+      "bytes": 115627,
+      "sha256": "80a6e3989e1af13707c7e31f7216746ffc299e13a028ac35fc119ea41657da02"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-wall-brake.json",
+      "output": "native-installer-preliminary\\stage-wall-brake.json",
+      "bytes": 139,
+      "sha256": "fe7566398b0a939809e57f2ddbea9207ba17e58f53179a2036ff591c62b6ce5a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\stage-wall-brake.png",
+      "output": "native-installer-preliminary\\stage-wall-brake.png",
+      "bytes": 102320,
+      "sha256": "38e855a371af59cff8a37bdb78f4dc6a86650e4439586b255b74f98a4331fd67"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\title.png",
+      "output": "native-installer-preliminary\\title.png",
+      "bytes": 42799,
+      "sha256": "64f74275472ccc3d80ddcd07ab618320679ad592b794ae3e3e644fce5347d62c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\version.stderr",
+      "output": "native-installer-preliminary\\version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\native-installer-preliminary\\version.stdout",
+      "output": "native-installer-preliminary\\version.stdout",
+      "bytes": 33,
+      "sha256": "bf8803022b574250bb04dea65053a46b7c58570725316c1f7fe2aa6735706498"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring.log",
+      "output": "browser-gates-3e75cea\\authoring.log",
+      "bytes": 1788,
+      "sha256": "15effcfd67cd0c9cf4d2b5c732e468977de8404fc8ba136b0a1659ab5eb04790"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning.log",
+      "output": "browser-gates-3e75cea\\learning.log",
+      "bytes": 2494,
+      "sha256": "6a3a98ac9b5c2021a93221523298700b4633bf28e4ee025ea664431161492405"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\physics.log",
+      "output": "browser-gates-3e75cea\\physics.log",
+      "bytes": 596,
+      "sha256": "650471d122bc185c57aede16b8b4b9c2f73160e73015fd281ef95bb9e7437e43"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\receipt.json",
+      "output": "browser-gates-3e75cea\\receipt.json",
+      "bytes": 5206,
+      "sha256": "fe9580774d26ff74c040d9147ed249f258065e33fa54c60cd0ddb6571f4f9a25"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings.log",
+      "output": "browser-gates-3e75cea\\settings.log",
+      "bytes": 1104,
+      "sha256": "03dec38f670161f88a92a0e5f00d07e9823f18171fc9b0ff8f5c21aac68df71c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke.log",
+      "output": "browser-gates-3e75cea\\smoke.log",
+      "bytes": 203,
+      "sha256": "c90891a12b6d80cf62da84dea268fe62f9552454a50644a736f5d3439c406109"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\01-saved.png",
+      "output": "browser-gates-3e75cea\\authoring\\01-saved.png",
+      "bytes": 187086,
+      "sha256": "7f3e7b4033681207a3a01887e2814ce89e180401526a4e83da976bb01cbbc394"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\02-replace-confirmation.png",
+      "output": "browser-gates-3e75cea\\authoring\\02-replace-confirmation.png",
+      "bytes": 179462,
+      "sha256": "57a1321904b22d4e3c25498d2ce311a8066913f97fa452d445b9a435aa0a0dc4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\03-reopened.png",
+      "output": "browser-gates-3e75cea\\authoring\\03-reopened.png",
+      "bytes": 193958,
+      "sha256": "9a05b293139dd40a42dfab95f674ac5bc4251209c1dc81ac49db96bc26b7f0af"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\04-exported.png",
+      "output": "browser-gates-3e75cea\\authoring\\04-exported.png",
+      "bytes": 190290,
+      "sha256": "cc142a5a22c4e6c9a49d40b53920e639d2aa6f9ed1e2ab0cd9e48e674994f7ac"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\05-import-confirmation.png",
+      "output": "browser-gates-3e75cea\\authoring\\05-import-confirmation.png",
+      "bytes": 196109,
+      "sha256": "86b8e7274bdae964b7cab66f2c6f30e4f8f31613194c4e8af79b471f5e03bee7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\06-invalid-import-rejected.png",
+      "output": "browser-gates-3e75cea\\authoring\\06-invalid-import-rejected.png",
+      "bytes": 190874,
+      "sha256": "337b2406d76e612f79b508628dbb30456f708e0fc162b914eaa4d4fea21a913e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\07-blocks.png",
+      "output": "browser-gates-3e75cea\\authoring\\07-blocks.png",
+      "bytes": 193566,
+      "sha256": "bbca18f970cdd77cf7a94c5f4c024b74f027d8365ec4c8dec85e495dada2f96f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\08-blocks-bottom.png",
+      "output": "browser-gates-3e75cea\\authoring\\08-blocks-bottom.png",
+      "bytes": 195671,
+      "sha256": "a4eea7a9d891d11d729c7fadb007f78681d7935f476790f84817bf10ad353aa2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\08a-wait-operation.png",
+      "output": "browser-gates-3e75cea\\authoring\\08a-wait-operation.png",
+      "bytes": 202954,
+      "sha256": "121cf9efb12c5bbc39c61cde46cb75ff060f9e59574c1c292396dd0b557c4f8e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\09-blocks-applied.png",
+      "output": "browser-gates-3e75cea\\authoring\\09-blocks-applied.png",
+      "bytes": 192560,
+      "sha256": "a00d29966d8894168131f277467ac50451badfa42294d6879c17eb9985ba85ef"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\10-wiring-before.png",
+      "output": "browser-gates-3e75cea\\authoring\\10-wiring-before.png",
+      "bytes": 215072,
+      "sha256": "6d73f31a987a8b49b32453a7ae175e723dfc857b21703cf9c92be205f38b061d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\11-wiring-after.png",
+      "output": "browser-gates-3e75cea\\authoring\\11-wiring-after.png",
+      "bytes": 213192,
+      "sha256": "a68dbe13576e2b3961166ea72e17ab3ee6c6892eae94bda28396abd877830311"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\12-compact-workshop.png",
+      "output": "browser-gates-3e75cea\\authoring\\12-compact-workshop.png",
+      "bytes": 114866,
+      "sha256": "519eeeb2fe9f83efdbaea36ef83b80b37777a2866105798c6104bf25d13afd49"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-block-edit.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-block-edit.json",
+      "bytes": 5887,
+      "sha256": "a7f2b93ec15e55b949d87a522b52abb1a60c3334bf856150fc460f31fa4d0890"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-invalid-import.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-invalid-import.json",
+      "bytes": 5875,
+      "sha256": "23de5074cebffeff42a00377ae5cf305e80704193395f4e49abf6f08b895e4ba"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-pending-block-run.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-pending-block-run.json",
+      "bytes": 5887,
+      "sha256": "4d6dabc38bfba5a7f57bc277fb4ae9cc89c7ea6798d868c3ca1645b1c8dec8f2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-rewire.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-rewire.json",
+      "bytes": 5888,
+      "sha256": "1bc17de35bb156ca862d1073974223586f73d67787b6eab7878c6b86544465da"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-valid-import.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-valid-import.json",
+      "bytes": 5875,
+      "sha256": "9ed24a68e74b50dee2cd179c7076bffaa93f470e1594dfb7bb5c9edb249e5503"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-wire-redo.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-wire-redo.json",
+      "bytes": 5888,
+      "sha256": "712222db8f9b83cf6a358fd85654b6bf398d6d860277839a616db08b96b4cfb0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\after-wire-undo.json",
+      "output": "browser-gates-3e75cea\\authoring\\after-wire-undo.json",
+      "bytes": 5769,
+      "sha256": "2d7fe1e85a8097e0bd2bcc564eff3deaaadcc6f83cdc58de50b97167c4278376"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\browser-layout.json",
+      "output": "browser-gates-3e75cea\\authoring\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\completed-checks.json",
+      "output": "browser-gates-3e75cea\\authoring\\completed-checks.json",
+      "bytes": 759,
+      "sha256": "b6373ba3e15a7b0f0cc42ba3687ac7d12cf409df4a41e538a3e51ff14eb93181"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\console.json",
+      "output": "browser-gates-3e75cea\\authoring\\console.json",
+      "bytes": 1098,
+      "sha256": "f3b5f0e455dfc90d4867887ad7d45236ce1e9d6bdb3df8358086c128b53d92ab"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\persisted-documents.json",
+      "output": "browser-gates-3e75cea\\authoring\\persisted-documents.json",
+      "bytes": 6253,
+      "sha256": "e05272f5eff978bb9ca9069f46db07ad5fedc9a69da156a12f829a4b79d83f5e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\reopened.json",
+      "output": "browser-gates-3e75cea\\authoring\\reopened.json",
+      "bytes": 5872,
+      "sha256": "6e206799c6987e9267fb3cd76416d2ea19e1f9481b32cadb3f4db2948416c4af"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\authoring\\result.json",
+      "output": "browser-gates-3e75cea\\authoring\\result.json",
+      "bytes": 945,
+      "sha256": "49061784e865b2020543f93393b8ac1fe0f9e6c724118e99b6acc1afc1c7a0da"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning\\browser-layout.json",
+      "output": "browser-gates-3e75cea\\learning\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning\\console.json",
+      "output": "browser-gates-3e75cea\\learning\\console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning\\failure.png",
+      "output": "browser-gates-3e75cea\\learning\\failure.png",
+      "bytes": 185143,
+      "sha256": "756dab1252addb08eaca63576e93996a90d94aec571fae9299725247073ad5f8"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning\\flag-before.png",
+      "output": "browser-gates-3e75cea\\learning\\flag-before.png",
+      "bytes": 188449,
+      "sha256": "c8ef741117795a3c70363801648f5cf85cd206f74501d9a741965379854b5ca8"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning\\flag-success.png",
+      "output": "browser-gates-3e75cea\\learning\\flag-success.png",
+      "bytes": 173382,
+      "sha256": "80e2042b6cb901c14f7976685f9a7da347b09a11beb196f87b28dca6e7137cf0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\learning\\result.json",
+      "output": "browser-gates-3e75cea\\learning\\result.json",
+      "bytes": 6514,
+      "sha256": "d42b6a422271181902100236ed8b1c9820bf2d6234af45414d51f63c6e26fef4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\physics\\browser-layout.json",
+      "output": "browser-gates-3e75cea\\physics\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\physics\\console.json",
+      "output": "browser-gates-3e75cea\\physics\\console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\physics\\learned-after-stop.png",
+      "output": "browser-gates-3e75cea\\physics\\learned-after-stop.png",
+      "bytes": 197038,
+      "sha256": "602fc5e52d2cce0398a2f5b51d9bc15a6a67ae0f786f95416b3af599cb7cd59d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\physics\\result.json",
+      "output": "browser-gates-3e75cea\\physics\\result.json",
+      "bytes": 3665,
+      "sha256": "e37d9f6542e1b6cd6729f91dee3bd9ec2a629a69a0c26e2ec0f95d5d29f0c498"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings\\00-appearance-menu.png",
+      "output": "browser-gates-3e75cea\\settings\\00-appearance-menu.png",
+      "bytes": 172864,
+      "sha256": "9013877b3240e24d53ad220cafbd20f49e353e2bca931675eb81dc55fba891b7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings\\03-text-200-settings.png",
+      "output": "browser-gates-3e75cea\\settings\\03-text-200-settings.png",
+      "bytes": 156825,
+      "sha256": "a45771d1b3acee78db68d44a7ef2267df350748e8585f44a020a8e0d3eb17761"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings\\05-reloaded.png",
+      "output": "browser-gates-3e75cea\\settings\\05-reloaded.png",
+      "bytes": 166172,
+      "sha256": "a583a74f1bd5bc1d7b4366f6ada30880fd3a51d6157c86359664341da37b1217"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings\\browser-layout.json",
+      "output": "browser-gates-3e75cea\\settings\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings\\console.json",
+      "output": "browser-gates-3e75cea\\settings\\console.json",
+      "bytes": 793,
+      "sha256": "63f79c746e0517ac2e48dd701836b4aec7c0d759d20776dd8a13adaca161c2a3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\settings\\result.json",
+      "output": "browser-gates-3e75cea\\settings\\result.json",
+      "bytes": 3559,
+      "sha256": "db506d8eb355060288f964b876c93aea1f7177839dc17e3480ab9283d89e716f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke\\01-workshop.png",
+      "output": "browser-gates-3e75cea\\smoke\\01-workshop.png",
+      "bytes": 166820,
+      "sha256": "cd48741067077be9151001c7ac7e8268ea3535622997bf2b9b0998a2ddb4b46b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke\\02-servo-arm.png",
+      "output": "browser-gates-3e75cea\\smoke\\02-servo-arm.png",
+      "bytes": 184961,
+      "sha256": "f0590c3e1a361564101efaede0ce352f9327c17264aeaa54ec9653bcc881ee52"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke\\03-flag-result.png",
+      "output": "browser-gates-3e75cea\\smoke\\03-flag-result.png",
+      "bytes": 182705,
+      "sha256": "dfaee0946bdb89b4ea7393e305755fa11e01dd42977dcf7eb9b7964c4a47b7b5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke\\browser-layout.json",
+      "output": "browser-gates-3e75cea\\smoke\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke\\console.json",
+      "output": "browser-gates-3e75cea\\smoke\\console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-gates-3e75cea\\smoke\\result.json",
+      "output": "browser-gates-3e75cea\\smoke\\result.json",
+      "bytes": 330,
+      "sha256": "9c44d90c3023259ccd17cfeba6186ae4fd134e4f7486512c926b437e4c86ebd3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning.log",
+      "output": "browser-learning-source-fixed\\learning.log",
+      "bytes": 1374,
+      "sha256": "d1b617691cd8e6200b7edcb66ad842e5c914f84f1a626734ff47485e296c1e69"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\receipt.json",
+      "output": "browser-learning-source-fixed\\receipt.json",
+      "bytes": 2603,
+      "sha256": "fd23c9871febf9732d91d81abb3b800e4515cfd14d926732c48f9e663c8a75ce"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\browser-layout.json",
+      "output": "browser-learning-source-fixed\\learning\\browser-layout.json",
+      "bytes": 4220,
+      "sha256": "e9e567d71ec1d18b970cd8d71d3e61aa6dabdcb3391565c0947d0142bbbfeec2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\console.json",
+      "output": "browser-learning-source-fixed\\learning\\console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\finish-before.png",
+      "output": "browser-learning-source-fixed\\learning\\finish-before.png",
+      "bytes": 231380,
+      "sha256": "cb783b100aded2612a3b12984c2679e7b6e106dde1a6af88a1779483e666227e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\finish-success.png",
+      "output": "browser-learning-source-fixed\\learning\\finish-success.png",
+      "bytes": 164767,
+      "sha256": "2de18b54e0187c999f7ba697aebfc1ce7015f2d0f5174f6a25d67f402e4e1676"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\flag-before.png",
+      "output": "browser-learning-source-fixed\\learning\\flag-before.png",
+      "bytes": 188449,
+      "sha256": "c8ef741117795a3c70363801648f5cf85cd206f74501d9a741965379854b5ca8"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\flag-success.png",
+      "output": "browser-learning-source-fixed\\learning\\flag-success.png",
+      "bytes": 172676,
+      "sha256": "ac3c139a92787cdebdc0d3d17e9c1527c0271c65d0e4f9e0f2c53dd63b3659d2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\loop-stopped.png",
+      "output": "browser-learning-source-fixed\\learning\\loop-stopped.png",
+      "bytes": 181728,
+      "sha256": "846834926eaebc47910fab787a8fd8eded300fb8426fdf1f1d154323a3f42848"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\result.json",
+      "output": "browser-learning-source-fixed\\learning\\result.json",
+      "bytes": 21032,
+      "sha256": "99afe478f2aae01e3c068ab59176fef10380682e04fd388c5ae846b0dbed174a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\sonar-before.png",
+      "output": "browser-learning-source-fixed\\learning\\sonar-before.png",
+      "bytes": 208983,
+      "sha256": "2e7c0e78ea5d61161fbf103f3dd1d5e43d10f5d126f18bd1536e2dbbdaabe2cc"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\sonar-success.png",
+      "output": "browser-learning-source-fixed\\learning\\sonar-success.png",
+      "bytes": 203798,
+      "sha256": "91a23c01edc8dbfe8089e3a53218a5cea519a04272c2e58caec0de77f9d82a40"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-learning-source-fixed\\learning\\verified-challenge.json",
+      "output": "browser-learning-source-fixed\\learning\\verified-challenge.json",
+      "bytes": 12530,
+      "sha256": "6702d42a30f5d057ca68ab79197e9eb6927ae9de8b174cc6eca5a060d5eeb45d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after\\capture.gd",
+      "output": "title-clip-after\\capture.gd",
+      "bytes": 3537,
+      "sha256": "776afa508b4155ac8cbb75d23066467ceecd90b559739cb070e777907c7926f4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after\\godot.log",
+      "output": "title-clip-after\\godot.log",
+      "bytes": 1679,
+      "sha256": "d8f4ef8ad0bfdf263e38840657ff12cae76c9490992d18030ac9436c767a0701"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after\\runner-receipt.json",
+      "output": "title-clip-after\\runner-receipt.json",
+      "bytes": 762,
+      "sha256": "37d4fe150e7b2b04d6630c22117755dc99f6983df4b062134940c6ce008c08a2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\astra-inspection.json",
+      "output": "title-clip-after-r2\\astra-inspection.json",
+      "bytes": 7014,
+      "sha256": "471c2fa81c60765d4fd05896bc755ba1f5aabbca6112778a0212f59714ce39eb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\capture.gd",
+      "output": "title-clip-after-r2\\capture.gd",
+      "bytes": 3602,
+      "sha256": "f0710e940903e2b2df5107a8f2dbc6ea8db363940c323b63758ba319872dc267"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\en-dark-100-1400.png",
+      "output": "title-clip-after-r2\\en-dark-100-1400.png",
+      "bytes": 51301,
+      "sha256": "59b20f9c861b90353d56980fd93e1d203fbb1b80426c4c5a05e2186c7aab4435"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\en-dark-200-1152.png",
+      "output": "title-clip-after-r2\\en-dark-200-1152.png",
+      "bytes": 58996,
+      "sha256": "37af534fcedfccfd9e16f914ef37323cd1f011c3c4076e17a2401292accd7739"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\en-light-100-1400.png",
+      "output": "title-clip-after-r2\\en-light-100-1400.png",
+      "bytes": 51684,
+      "sha256": "49bd0696177965f0476dee864ba9d70806615a515a6ac26020648915b0a6fbfe"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\en-light-200-1152.png",
+      "output": "title-clip-after-r2\\en-light-200-1152.png",
+      "bytes": 59255,
+      "sha256": "f4d6b4cdb958f2e10f6b709be75966a6c63bd1d8993fe299c4f0e922547d2f44"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\geometry.json",
+      "output": "title-clip-after-r2\\geometry.json",
+      "bytes": 29888,
+      "sha256": "8f995b66862f294d29856363a6b72d0cfed5c33265b1582bd02b3d79aaed9216"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\godot.log",
+      "output": "title-clip-after-r2\\godot.log",
+      "bytes": 200,
+      "sha256": "53bc49a91cfb921fe73e0f8ff902919f5efb6e8bca3c12c11ee2fc4eab20e39f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ja-dark-100-1400.png",
+      "output": "title-clip-after-r2\\ja-dark-100-1400.png",
+      "bytes": 66313,
+      "sha256": "623c307d67e308ce6ca2325cfa3d557f0a939d4e02b2cec56db3abf94e4497ad"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ja-dark-200-1152.png",
+      "output": "title-clip-after-r2\\ja-dark-200-1152.png",
+      "bytes": 76405,
+      "sha256": "7b845beeb48a2e3f0c297bb187bb40136036bd1803e1b4f8ce130a43c67effb0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ja-light-100-1400.png",
+      "output": "title-clip-after-r2\\ja-light-100-1400.png",
+      "bytes": 67069,
+      "sha256": "c7fb9b3f111175d21502f596fe5d0ecd05da7f45970dadc8447762182be19b1f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ja-light-200-1152.png",
+      "output": "title-clip-after-r2\\ja-light-200-1152.png",
+      "bytes": 76491,
+      "sha256": "e4d6ea6c045272a8e08622db564cf372435d534eb8d5baa229fd0af4b7a5e15a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ko-dark-100-1400.png",
+      "output": "title-clip-after-r2\\ko-dark-100-1400.png",
+      "bytes": 51336,
+      "sha256": "3a688a7b8f7029ccdbe2dc868a54a43ef6da1bc2e97a83fd1333edc3fb2b04be"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ko-dark-200-1152.png",
+      "output": "title-clip-after-r2\\ko-dark-200-1152.png",
+      "bytes": 53920,
+      "sha256": "faec1bf91e0530afb5e724311dc923aabf07cb85a0d5a83514274b92d8edb279"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ko-light-100-1400.png",
+      "output": "title-clip-after-r2\\ko-light-100-1400.png",
+      "bytes": 51853,
+      "sha256": "180274c775266eaf31972af074b5e7956a343b1aa39b96f74496831c72acb8a7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\ko-light-200-1152.png",
+      "output": "title-clip-after-r2\\ko-light-200-1152.png",
+      "bytes": 53944,
+      "sha256": "83c84df94253c852c19b35ce486adf86a5fd411ceaac959bdc2c4f0aa44780a2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\runner-receipt.json",
+      "output": "title-clip-after-r2\\runner-receipt.json",
+      "bytes": 760,
+      "sha256": "4ccbb4a8ab3d2de8e065550c9ba058d7c80abab56acf0b78595a89beeb91992f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\zh_CN-dark-100-1400.png",
+      "output": "title-clip-after-r2\\zh_CN-dark-100-1400.png",
+      "bytes": 57401,
+      "sha256": "a47ae70bf0acc98a6981bb13d942e8c61c553ad1b2df7df1ce09c6041c6bfe55"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\zh_CN-dark-200-1152.png",
+      "output": "title-clip-after-r2\\zh_CN-dark-200-1152.png",
+      "bytes": 69909,
+      "sha256": "8c79a609cf25e181bd56044ed949b277be07be95c03119e80c45c7b45aabb6d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\zh_CN-light-100-1400.png",
+      "output": "title-clip-after-r2\\zh_CN-light-100-1400.png",
+      "bytes": 57984,
+      "sha256": "32a18b74b4e3304aee41ede7d16d61df0b53d05a22ad2bd90c1371cd7e0f654c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\title-clip-after-r2\\zh_CN-light-200-1152.png",
+      "output": "title-clip-after-r2\\zh_CN-light-200-1152.png",
+      "bytes": 69911,
+      "sha256": "75a4f479151ef9f5ef9ee9604c1708e38c5b1831cdcb8ac33e0dca066b4f7cf3"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\fable-integration\\dispatch.json",
+      "output": "fable-integration\\dispatch.json",
+      "bytes": 1078,
+      "sha256": "e662b328f72973926377789af76363c0be0e5ed59df5249cd45296184ad59662"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\fable-integration\\result.json",
+      "output": "fable-integration\\result.json",
+      "bytes": 6229,
+      "sha256": "9cc50e2bcedb548df60b21298c7081e5478d8ec7533a6b7631f3f2d70ae264b2"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\fable-integration\\coordinator-proof.json",
+      "output": "fable-integration\\coordinator-proof.json",
+      "bytes": 574,
+      "sha256": "45fcf96d1f2833b67db9767ba54858f6648bf6dce00812f205179b6a03003784"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\opus-title-clip-author\\dispatch.json",
+      "output": "opus-title-clip-author\\dispatch.json",
+      "bytes": 704,
+      "sha256": "5680a3a41553fee779b8308e79d50d50a5cd4c01800ca0051e30cd93ec3e5e60"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\opus-title-clip-author\\result.json",
+      "output": "opus-title-clip-author\\result.json",
+      "bytes": 4912,
+      "sha256": "8ae592ff118673ef10f288633884c3444da9ed08c6db7d879ba3bae70096e3b0"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\opus-title-clip-independent-review\\dispatch.json",
+      "output": "opus-title-clip-independent-review\\dispatch.json",
+      "bytes": 905,
+      "sha256": "5f8d7100150a69e5b4f9e1c8e6ccce34b497d84b3a23d9d4fb4fa036b0e3c8c9"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\opus-title-clip-independent-review\\result.json",
+      "output": "opus-title-clip-independent-review\\result.json",
+      "bytes": 7858,
+      "sha256": "33a63f239d67a3a3549fc226606f63be47441bddac9d4b4d3e3187bb9df18510"
+    },
+    {
+      "source": "build\\camera-release-draft-3e75cea\\release.json",
+      "output": "first-export-dirty\\release.json",
+      "bytes": 1322,
+      "sha256": "e8020026920a1d86e1c012e42af6f8a200efcd147b1f2a9280106bbe11f5ea69"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\agent_camera_loop_check-rendered.log",
+      "output": "full-native-final-r2\\agent_camera_loop_check-rendered.log",
+      "bytes": 283,
+      "sha256": "1db56f80dc90e53f0176a7b755fdfa210f1d163d7ee4eb01d00510dac0381464"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\agent_camera_loop_check.log",
+      "output": "full-native-final-r2\\agent_camera_loop_check.log",
+      "bytes": 122,
+      "sha256": "fc47ff1bf4d1b03ca2bf34c5a6890d616e014b9e242e68f0841b74b88b497868"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\agent_camera_rest_check.log",
+      "output": "full-native-final-r2\\agent_camera_rest_check.log",
+      "bytes": 290,
+      "sha256": "2206a0d838d2e271f933c9ed1a1124c3b5e6b73a423ba04539e6967765992822"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\agent_goal_ui_check-rendered.log",
+      "output": "full-native-final-r2\\agent_goal_ui_check-rendered.log",
+      "bytes": 19022,
+      "sha256": "08201f6db4cb59f721d2bcae1923c298c011cc59844300aebadeb6254c537152"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\agent_goal_ui_check.log",
+      "output": "full-native-final-r2\\agent_goal_ui_check.log",
+      "bytes": 115,
+      "sha256": "37fb024a0b1e87466429711e4ccc0958fa4a2590195f60b057f7656cf170da78"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\app_controller_check.log",
+      "output": "full-native-final-r2\\app_controller_check.log",
+      "bytes": 120,
+      "sha256": "61cdd7c674c0d07c3ade6af391e8211224af6ebb48211f0a30ec5cb28b1d6d04"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\assembly_snap_check.log",
+      "output": "full-native-final-r2\\assembly_snap_check.log",
+      "bytes": 359,
+      "sha256": "05ea7f8084ea4b2990b58737279d2793e2039d024cb05b1bf60ed67437713ae5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\authoring_ui_check.log",
+      "output": "full-native-final-r2\\authoring_ui_check.log",
+      "bytes": 118,
+      "sha256": "5fab3bfff4b96efb5f7916b3d4c55e5adc434b5910b12dd0537976c2810b4061"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\biped_app_check.log",
+      "output": "full-native-final-r2\\biped_app_check.log",
+      "bytes": 634,
+      "sha256": "ef846a0d1873459995b61419c721d8101240ee5d9ea56edf67e036257e2712c1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\biped_board_clearance_check.log",
+      "output": "full-native-final-r2\\biped_board_clearance_check.log",
+      "bytes": 314,
+      "sha256": "5d21aa1912d413ed9204c2e6b78756ca57c0cdd4a0da921ad87763a7a6467837"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\biped_motion_check.log",
+      "output": "full-native-final-r2\\biped_motion_check.log",
+      "bytes": 983,
+      "sha256": "40e24369859a2484ca0c67a5b14deb4d48af536adf0e917f5b7b364480660269"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\blender_camera_check.log",
+      "output": "full-native-final-r2\\blender_camera_check.log",
+      "bytes": 103,
+      "sha256": "30b0128aeda968fc4795d006205a8a0096a4a50e6aff281c555a60a12d3c70e7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\blender_edit_check.log",
+      "output": "full-native-final-r2\\blender_edit_check.log",
+      "bytes": 118,
+      "sha256": "65d191f9a1a4ee380221eab336404ba018a46b964be48646f6072bf16c5f0fdd"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\block_program_check.log",
+      "output": "full-native-final-r2\\block_program_check.log",
+      "bytes": 119,
+      "sha256": "eeaedb17ccc38d78df1a590a15885488785dab62364d8650204169892f34b3e4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\bridge_stop_owner_check.log",
+      "output": "full-native-final-r2\\bridge_stop_owner_check.log",
+      "bytes": 220,
+      "sha256": "8c4bdbc13135d4c860d5a7bb5cd74e1c64e625fd8074907a18d4478e61835a08"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\browser_evidence_check.log",
+      "output": "full-native-final-r2\\browser_evidence_check.log",
+      "bytes": 627,
+      "sha256": "10215a64debcb64bd4ec73c8a1aefe8483e81c3f824b02f1176b81d5c746148b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\construction_kit_check.log",
+      "output": "full-native-final-r2\\construction_kit_check.log",
+      "bytes": 253,
+      "sha256": "8b9c9708b6cb4c2c3e4c94efcf83baadb1ddacbdb2f3a37c8b9733f51679f305"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\construction_kit_motion_check.log",
+      "output": "full-native-final-r2\\construction_kit_motion_check.log",
+      "bytes": 3627,
+      "sha256": "39c4d015976056add7ef5d4d2c26353edaed1bacdf490f88f364633c1e7b8447"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\construction_kit_store_check.log",
+      "output": "full-native-final-r2\\construction_kit_store_check.log",
+      "bytes": 241,
+      "sha256": "512485a66f02550548185aa35dd11960b0aafb375aaf3d670bd5d99fd5afc8f0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\construction_kit_ui_check.log",
+      "output": "full-native-final-r2\\construction_kit_ui_check.log",
+      "bytes": 126,
+      "sha256": "3eeb8ef9a65e7c6f790e43ca83f28188f1a400594b389e7dd261a4e95b6be441"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\control_flow_check.log",
+      "output": "full-native-final-r2\\control_flow_check.log",
+      "bytes": 1082,
+      "sha256": "2911806951c2b1b597d8b6e83ef912879a0379a03967c5c1b5ce9b198c443375"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\core_authoring_check.log",
+      "output": "full-native-final-r2\\core_authoring_check.log",
+      "bytes": 120,
+      "sha256": "bae0fdeabf267dd809c4e1d3e97e52db6307611a6737c6ef697301ecc5ee9851"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\flag_mission_check.log",
+      "output": "full-native-final-r2\\flag_mission_check.log",
+      "bytes": 324,
+      "sha256": "14f22fab311d6fc65b6c725ad8f04390f85e416786e282ddcc7c9a8a29be24d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\game_flow_check.log",
+      "output": "full-native-final-r2\\game_flow_check.log",
+      "bytes": 5475,
+      "sha256": "b0ab02ffd40ed799a4ec0517722eab7511b507e29675496e0b503d3a6bb77755"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_contract_check.log",
+      "output": "full-native-final-r2\\humanoid_contract_check.log",
+      "bytes": 123,
+      "sha256": "54eb1d82f05a0b9211f7c4f6fc610804f535b783a329af17b2d01bec8cec2a41"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-backward.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-backward.log",
+      "bytes": 237,
+      "sha256": "0954aeb07ebda858780144ff8ff8b3630863f3bcda73d1f07b5aa9ade6371aec"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-pick.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-pick.log",
+      "bytes": 231,
+      "sha256": "1aa2a8875cad265d360b0ea3ea86e5616f2b8e7539fe93d3f0cba5c8ddc9cb3e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-run-reverse-links.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-run-reverse-links.log",
+      "bytes": 230,
+      "sha256": "e5e9602810e44ab66785075611dc490248b69ec92887bd556d94d2bd28b89442"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-run-settle-frames=181.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-run-settle-frames=181.log",
+      "bytes": 229,
+      "sha256": "aa3bc50bd29f74e58f2099ed5c126a073a8e194a49dfc441e9c87ab9e878a96a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-run.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-run.log",
+      "bytes": 230,
+      "sha256": "beefdf02ae9cdc56f2109bff946cde7127239418c9ff0f33530f6a7ce7ebc46e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-walk-reverse-links.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-walk-reverse-links.log",
+      "bytes": 228,
+      "sha256": "0baf129df92e0f68ccc97d5d4842e92e8e672ed8d90a3ac7a083e4d17139c2bb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_motion_check-walk.log",
+      "output": "full-native-final-r2\\humanoid_motion_check-walk.log",
+      "bytes": 231,
+      "sha256": "43ba2eeb24bca59ea9ac838b85438ffe81e8272c8a0d3d66069e25e26efb384a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_ui_check-modular.log",
+      "output": "full-native-final-r2\\humanoid_ui_check-modular.log",
+      "bytes": 315,
+      "sha256": "714d64e70f2b88c77ab750116837f99f72c2d5aef4b901c2910e82ca4743b85e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\humanoid_ui_check.log",
+      "output": "full-native-final-r2\\humanoid_ui_check.log",
+      "bytes": 315,
+      "sha256": "b0dfced7c1c9f76b9d19c70bfe81d4eb23d30d0de5ad78bfa6a3f0d2d23e2414"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\import.log",
+      "output": "full-native-final-r2\\import.log",
+      "bytes": 1326,
+      "sha256": "28ba166e1237a56c71a3d485259da41904e42b7c7253f757ee84579b4761f653"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\interface_preferences_check.log",
+      "output": "full-native-final-r2\\interface_preferences_check.log",
+      "bytes": 127,
+      "sha256": "978a9eed0a9d2993d9768df38e1ef5def876f00137bb9948d4c334785b26d26f"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\junit.xml",
+      "output": "full-native-final-r2\\junit.xml",
+      "bytes": 4638,
+      "sha256": "bba83d5da615249a0b99fac9c9c34105c72026cc8d3b61c5f0d9270b4c7e3b44"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\keyboard_navigation_check.log",
+      "output": "full-native-final-r2\\keyboard_navigation_check.log",
+      "bytes": 125,
+      "sha256": "1bd352103d597bd4ecdd326746818377ebb03efc23166800ad1e441c5f620c1d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\learned_app_check.log",
+      "output": "full-native-final-r2\\learned_app_check.log",
+      "bytes": 230,
+      "sha256": "ecf193a5a3e9512af5ec03e0e0b9d8c568d563df8aa0b2fe738705a37ca7cdaa"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\learned_policy_check.log",
+      "output": "full-native-final-r2\\learned_policy_check.log",
+      "bytes": 116,
+      "sha256": "8933ed301659e897fdbd5cb78d41c374208b57c670a4ec75c92e872f37aadc52"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\learned_tracking_check.log",
+      "output": "full-native-final-r2\\learned_tracking_check.log",
+      "bytes": 122,
+      "sha256": "d448e6e1ac59c421c1335704a496263883872fbb41bb5f727d8bf160f4de61c1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\learner_language_check.log",
+      "output": "full-native-final-r2\\learner_language_check.log",
+      "bytes": 122,
+      "sha256": "1d067c5e97dc4b96db468116b309bc6a80ef05b93530e7be186e71ec86ef9ca4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\localization_check.log",
+      "output": "full-native-final-r2\\localization_check.log",
+      "bytes": 123,
+      "sha256": "535be527a47199e44385e35018148a07964ab8ce02d6169bb252174b1487957d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\manual_control_check.log",
+      "output": "full-native-final-r2\\manual_control_check.log",
+      "bytes": 3112,
+      "sha256": "1ef9fe1fae62a213a387005f5fc0f6b4ca3ff08daef7e4cb80ef0022317d53ce"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\material_assets_check.log",
+      "output": "full-native-final-r2\\material_assets_check.log",
+      "bytes": 16112,
+      "sha256": "a7933b8f34dd42f67b748b2974f0a6d3354005ba7322cd9c1da3ae4bbf29f914"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\mesh_assets_check.log",
+      "output": "full-native-final-r2\\mesh_assets_check.log",
+      "bytes": 7392,
+      "sha256": "457fb8b319a02cb6f187714d4fd9698a7ef3ae5cb5828a744cd8839d421432e5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\modular_humanoid_check-pick-reverse-links.log",
+      "output": "full-native-final-r2\\modular_humanoid_check-pick-reverse-links.log",
+      "bytes": 174,
+      "sha256": "68a0f1be06b159ffea05d3b19f968769ea022750f02f0fbd7738b09de7b93525"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\modular_humanoid_check-pick.log",
+      "output": "full-native-final-r2\\modular_humanoid_check-pick.log",
+      "bytes": 174,
+      "sha256": "deedb854e2f8198cdc407f1d31dd5e48cccc30c33d198583cdbaace2ba98c5bb"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\modular_humanoid_check-walk.log",
+      "output": "full-native-final-r2\\modular_humanoid_check-walk.log",
+      "bytes": 173,
+      "sha256": "8ad19f3f10a282fa69bf89aba184d8afb015faa7c8f63377be3b2eb8e8743842"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\modular_pickup_parallel_check.log",
+      "output": "full-native-final-r2\\modular_pickup_parallel_check.log",
+      "bytes": 2157,
+      "sha256": "03120f724d54b6de05eb75c0a2e911b5f30f94db5b654715999b362317e7688c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\motion_lab_check.log",
+      "output": "full-native-final-r2\\motion_lab_check.log",
+      "bytes": 695,
+      "sha256": "78efea0c718bb83001f8e72a7d5b764897388e2d8ec80debfc89064cd58823ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\motion_lab_ui_check.log",
+      "output": "full-native-final-r2\\motion_lab_ui_check.log",
+      "bytes": 3397,
+      "sha256": "719fa94761053f7010434a73470305d944be4c69cea17d11976091ccbf613349"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\pickup_bridge_ui_check.log",
+      "output": "full-native-final-r2\\pickup_bridge_ui_check.log",
+      "bytes": 123,
+      "sha256": "f8ced0e7d5b82c7f54f63fe28a43d2604ab650156015693d2e23a002c6ebb6df"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\pickup_lab_ui_check.log",
+      "output": "full-native-final-r2\\pickup_lab_ui_check.log",
+      "bytes": 119,
+      "sha256": "76c95adc33a2d42b9b642aab6c86fed147f86168643f32a8145e19cb683a06a6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\pickup_store_check.log",
+      "output": "full-native-final-r2\\pickup_store_check.log",
+      "bytes": 155,
+      "sha256": "5c5dc8dba5045fd85a62c0709f6a82b4bf54d20cf4e64703d3eeff07ecb4c315"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\pickup_trial_check.log",
+      "output": "full-native-final-r2\\pickup_trial_check.log",
+      "bytes": 1328,
+      "sha256": "2971c94ad8fde174c6f109f39bc85803289b5c9949615bea5f65d449a79b67d2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\project_store_check.log",
+      "output": "full-native-final-r2\\project_store_check.log",
+      "bytes": 119,
+      "sha256": "28320c8cbde293881269406817852a69c8d35f8fec3d95d6d318d4bf3ad9ddde"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\relative_code_check.log",
+      "output": "full-native-final-r2\\relative_code_check.log",
+      "bytes": 119,
+      "sha256": "6f6a593571ac967b497541012af1f550016655da5a159ab1ba6d5355b049b636"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\results.json",
+      "output": "full-native-final-r2\\results.json",
+      "bytes": 53356,
+      "sha256": "e23a8f9c9ccb704932618fb544016a649bef8a0a872e5217472ab548cc1a3af0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\robot_car_check.log",
+      "output": "full-native-final-r2\\robot_car_check.log",
+      "bytes": 608,
+      "sha256": "88e578d82c3d19cb11482c4a7b5c50f174a640a2a7a584b8313c79d50c8848c4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\run_mode_check.log",
+      "output": "full-native-final-r2\\run_mode_check.log",
+      "bytes": 429,
+      "sha256": "fc30bb711d492aef2b0b311caee63eaadfb4cea88a003d2c58bd0e2c17e124e7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\scene-load.log",
+      "output": "full-native-final-r2\\scene-load.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\servo_torque_budget_check.log",
+      "output": "full-native-final-r2\\servo_torque_budget_check.log",
+      "bytes": 2260,
+      "sha256": "6322f5266efe9bb272bdcd355fc45c3a81c96f84f9634a8c634e1be5fee6917d"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\sonar_stage_check.log",
+      "output": "full-native-final-r2\\sonar_stage_check.log",
+      "bytes": 3516,
+      "sha256": "2e3da16f62089edf3ab3f5de1d83357452d70d8ff9012f0a517ca6dfba7bf1a3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\source-after.json",
+      "output": "full-native-final-r2\\source-after.json",
+      "bytes": 46090,
+      "sha256": "634f50ffe4de9ec521d0496b95dfeec26f998046a36c6e65675a813ef6d14f64"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\source-before.json",
+      "output": "full-native-final-r2\\source-before.json",
+      "bytes": 46508,
+      "sha256": "0c7bb244c2d49f11e2d1b4c229aa984baad12dafd54c539e1f06068a642b0c59"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\stage_authoring_check.log",
+      "output": "full-native-final-r2\\stage_authoring_check.log",
+      "bytes": 1312,
+      "sha256": "128cbf72fcbfda757f4b639567cad7286669b3494aaed625376fe1d9a8eaa8d6"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\stage_contract_check.log",
+      "output": "full-native-final-r2\\stage_contract_check.log",
+      "bytes": 120,
+      "sha256": "c0cb84dfac17003e800c274a214b95ed5f05a3a0609729e8dbb2273195f24de0"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\stage_ui_check.log",
+      "output": "full-native-final-r2\\stage_ui_check.log",
+      "bytes": 114,
+      "sha256": "c1829a3615e1965d2a78e8c660b960d3918661ad25c034ecb38cf4bc1279b5c7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\SUMMARY.md",
+      "output": "full-native-final-r2\\SUMMARY.md",
+      "bytes": 3776,
+      "sha256": "1b8698dae3bc233d0c271f7e16c6acddaf7584dacd827ca5d52a5a0194910fd2"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-camera_experiment_check.py.log",
+      "output": "full-native-final-r2\\tests-camera_experiment_check.py.log",
+      "bytes": 761,
+      "sha256": "f880597cf6db931b48470e5988693fd83047d619d3a5f61d33e6140f5d1ac5e9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-desktop_client_check.py.log",
+      "output": "full-native-final-r2\\tests-desktop_client_check.py.log",
+      "bytes": 5144,
+      "sha256": "c3394915649a5f6f57a8f964d2ef7c7a741dbfdb961baa02247d78a5d73a99e9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-desktop_session_check.py.log",
+      "output": "full-native-final-r2\\tests-desktop_session_check.py.log",
+      "bytes": 4205,
+      "sha256": "9f7c086eb77fc7d30e9fa9b1e7cf31e66a5818e62498baf89be2c98dbff7035c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-motion_mcp_check.py.log",
+      "output": "full-native-final-r2\\tests-motion_mcp_check.py.log",
+      "bytes": 1922,
+      "sha256": "4335fb9abebceab43534b54f6f5badfe91bf83971e9a8506e7c8849e84659faf"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-test_ci_verify.py.log",
+      "output": "full-native-final-r2\\tests-test_ci_verify.py.log",
+      "bytes": 618,
+      "sha256": "188accf8195c0b0526e0d7c5acc54821b37095365a337b059990671c76a8d889"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-test_desktop_package.py.log",
+      "output": "full-native-final-r2\\tests-test_desktop_package.py.log",
+      "bytes": 648,
+      "sha256": "e5f0508fa549314c2ebc63e08f3dd5802822993272c7e23415591807a9040621"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-test_pickup_bridge.py.log",
+      "output": "full-native-final-r2\\tests-test_pickup_bridge.py.log",
+      "bytes": 3097,
+      "sha256": "0e355454993194046cecde559cf8ab914b77b4c3e0c0f703d2bff722b16f29b5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tests-test_release_documents.py.log",
+      "output": "full-native-final-r2\\tests-test_release_documents.py.log",
+      "bytes": 279,
+      "sha256": "4b6ceb7b8d090068f98c9e5e0ff2d74c9dae8a87d67bcee5da59ea927c9ed50a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tools-docs-test_maintain.py.log",
+      "output": "full-native-final-r2\\tools-docs-test_maintain.py.log",
+      "bytes": 1720,
+      "sha256": "14b7113afd90ebe74488fbc489283331440d5ba648aab857bc0c774e04e39105"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tools-motion_lab-test_races.py.log",
+      "output": "full-native-final-r2\\tools-motion_lab-test_races.py.log",
+      "bytes": 1515,
+      "sha256": "d3886819d64006e9b53ad183946a02c45bbdeef25a3e81ced9a5250e0cc41f04"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tools-motion_lab-test_service.py.log",
+      "output": "full-native-final-r2\\tools-motion_lab-test_service.py.log",
+      "bytes": 2227,
+      "sha256": "cc7bf1fd7118a5a5817fe2ef04cb7e00e8a65296509cf541899c3930b4eb16a4"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tools-rl_lab-test_rl_lab.py.log",
+      "output": "full-native-final-r2\\tools-rl_lab-test_rl_lab.py.log",
+      "bytes": 1507,
+      "sha256": "83d4bc7103b0d6062205c20fd402852e237ed0b8862bdccd9671f68362072c1b"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\tutorial_ui_check.log",
+      "output": "full-native-final-r2\\tutorial_ui_check.log",
+      "bytes": 118,
+      "sha256": "edb1924ba8f9ffe9116e29e5bc67f0879b9007aa65a5ae5a03ecc1badae18665"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\viewport_framing_check.log",
+      "output": "full-native-final-r2\\viewport_framing_check.log",
+      "bytes": 125,
+      "sha256": "30543708daddd2e68f65780def56b006d700e942814052415d5f11a5df50a54a"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\workshop_ui_check.log",
+      "output": "full-native-final-r2\\workshop_ui_check.log",
+      "bytes": 118,
+      "sha256": "4695278df283d0048544844cc0b75f611b545da03bf00b871da64879aa1f72ee"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\full-native-final-r2\\yaw_biped_check.log",
+      "output": "full-native-final-r2\\yaw_biped_check.log",
+      "bytes": 98,
+      "sha256": "7ef98abe502e96c56a312e19a254031fac4985e70b847efdc8248df7cd497df9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\posix-package-final\\receipt.json",
+      "output": "posix-package-final\\receipt.json",
+      "bytes": 388,
+      "sha256": "031adf93014b6121c897e354bc03eb636312583519abb4fdd619b6ad4b8f3c68"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\posix-package-final\\unittest.log",
+      "output": "posix-package-final\\unittest.log",
+      "bytes": 561,
+      "sha256": "80de075f7d3b8a8360f11e0a5bf34e4bb0a5de1425407fda39481008def31ee5"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-keyboard-before-fix\\learning.log",
+      "output": "browser-keyboard-before-fix\\learning.log",
+      "bytes": 2254,
+      "sha256": "34ee29359639d30c031dd0d91ef34b4aa0a5354f6ba0bbfae4734ac94a921441"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-keyboard-before-fix\\receipt.json",
+      "output": "browser-keyboard-before-fix\\receipt.json",
+      "bytes": 2411,
+      "sha256": "c7219dca8abf51f0d26285212417a496c64e10a76437329a06cfeb26979b93bc"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-keyboard-before-fix\\learning\\browser-layout.json",
+      "output": "browser-keyboard-before-fix\\learning\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-keyboard-before-fix\\learning\\console.json",
+      "output": "browser-keyboard-before-fix\\learning\\console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-keyboard-before-fix\\learning\\failure.png",
+      "output": "browser-keyboard-before-fix\\learning\\failure.png",
+      "bytes": 160554,
+      "sha256": "e7739e81b89a1fbf62cc1cbf82509ea1bcd3c7e58148c9d8166f37cec1fe2775"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-keyboard-before-fix\\learning\\result.json",
+      "output": "browser-keyboard-before-fix\\learning\\result.json",
+      "bytes": 973,
+      "sha256": "f0cd06a6de7f9b639a4d3c29bcad3f5b9249ca31060976db4a4887a413422f72"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning.log",
+      "output": "browser-scroll-before-fix\\learning.log",
+      "bytes": 1374,
+      "sha256": "d1b617691cd8e6200b7edcb66ad842e5c914f84f1a626734ff47485e296c1e69"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\receipt.json",
+      "output": "browser-scroll-before-fix\\receipt.json",
+      "bytes": 2406,
+      "sha256": "1e1a850989ee81f0c6531822cc6f894db163e53233305d66c6b9842807cd95f9"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\browser-layout.json",
+      "output": "browser-scroll-before-fix\\learning\\browser-layout.json",
+      "bytes": 2450,
+      "sha256": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\console.json",
+      "output": "browser-scroll-before-fix\\learning\\console.json",
+      "bytes": 398,
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\finish-before.png",
+      "output": "browser-scroll-before-fix\\learning\\finish-before.png",
+      "bytes": 231380,
+      "sha256": "cb783b100aded2612a3b12984c2679e7b6e106dde1a6af88a1779483e666227e"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\finish-success.png",
+      "output": "browser-scroll-before-fix\\learning\\finish-success.png",
+      "bytes": 164767,
+      "sha256": "2de18b54e0187c999f7ba697aebfc1ce7015f2d0f5174f6a25d67f402e4e1676"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\flag-before.png",
+      "output": "browser-scroll-before-fix\\learning\\flag-before.png",
+      "bytes": 188449,
+      "sha256": "c8ef741117795a3c70363801648f5cf85cd206f74501d9a741965379854b5ca8"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\flag-success.png",
+      "output": "browser-scroll-before-fix\\learning\\flag-success.png",
+      "bytes": 172618,
+      "sha256": "d04321f949ac64097d7aea0446a09f44ced7e7fe5fd7850974c396e8c42b52d7"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\loop-stopped.png",
+      "output": "browser-scroll-before-fix\\learning\\loop-stopped.png",
+      "bytes": 181712,
+      "sha256": "b5baaffb55d3c4ae9a495793ce458eab8f1db04a7fbe149dd64c82b7e17e67af"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\result.json",
+      "output": "browser-scroll-before-fix\\learning\\result.json",
+      "bytes": 21029,
+      "sha256": "d759ec8814f985037d01d6034028cc231bf93335dad0e20e539814d46f412770"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\sonar-before.png",
+      "output": "browser-scroll-before-fix\\learning\\sonar-before.png",
+      "bytes": 208983,
+      "sha256": "2e7c0e78ea5d61161fbf103f3dd1d5e43d10f5d126f18bd1536e2dbbdaabe2cc"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\sonar-success.png",
+      "output": "browser-scroll-before-fix\\learning\\sonar-success.png",
+      "bytes": 203802,
+      "sha256": "8c9974dc887a74ebb82d2d5753c4cc49a3c7d7da07348504c0b83f44716ef6d1"
+    },
+    {
+      "source": "build\\ai-loop-evidence\\completion\\browser-scroll-before-fix\\learning\\verified-challenge.json",
+      "output": "browser-scroll-before-fix\\learning\\verified-challenge.json",
+      "bytes": 12530,
+      "sha256": "bac86ea0f7ffea06fd3ba51cb2449880393aaf471631163db396ad6f130b4cd3"
+    }
+  ]
+}

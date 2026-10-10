@@ -183,7 +183,8 @@ Private project code is not sent to the shared lab Mac.
 The native Windows verifier is developer tooling. Run `tools/ci/windows/verify_installer.ps1`
 from a PowerShell STA session with `-Installer`, `-Work` (a new path) and `-Layout` pointing to
 that exact build's `export-logs/browser-layout.json`. It refuses an existing ssok install,
-uses native Windows mouse/keyboard input to clear and export all three Stage solutions,
+uses native Windows mouse/keyboard input from the default title and stage map to enter
+reference programs and clear all three stages, checking fresh isolated progress records,
 captures only the foreground task app and restores the clipboard, and tests per-user installation, shortcuts, registration,
 uninstallation and preservation of an extra synthetic user file.
 

@@ -2,6 +2,7 @@ extends SceneTree
 
 ## Derive canvas test anchors from the same controls and fonts as the exported client.
 var _points: Dictionary = {}
+var _native_solutions: Dictionary = {}
 
 
 func _initialize() -> void:
@@ -36,6 +37,17 @@ func _run() -> void:
 	_rect("wiring_tab", tab_bar, tab_bar.get_tab_rect(3))
 	_rect("code_tab", tab_bar, tab_bar.get_tab_rect(0))
 	_rect("stages_tab", tab_bar, tab_bar.get_tab_rect(4))
+	var right_width: float = tab_bar.get_theme_icon("increment").get_width()
+	var left_width: float = tab_bar.get_theme_icon("decrement").get_width()
+	_rect("tabs_scroll_right", tab_bar, Rect2(Vector2(tab_bar.size.x - right_width, 0), Vector2(right_width, tab_bar.size.y)))
+	_rect("tabs_scroll_left", tab_bar, Rect2(Vector2(tab_bar.size.x - right_width - left_width, 0), Vector2(left_width, tab_bar.size.y)))
+	# A scrolled-out tab's cached rect can alias a different visible tab.
+	# Browser/native gates first scroll through real arrow buttons to these endpoints.
+	tab_bar.ensure_tab_visible(tab_bar.tab_count - 1)
+	await _settle()
+	var stage_tab_rect: Rect2 = tab_bar.get_tab_rect(4)
+	assert(tab_bar.get_tab_idx_at_point(stage_tab_rect.get_center()) == 4)
+	_rect("stages_tab_scrolled", tab_bar, stage_tab_rect)
 	main.program_tabs.current_tab = 4
 	await _settle()
 	_point("stage_picker", main.stages._picker)
@@ -51,6 +63,11 @@ func _run() -> void:
 	main._replace_dialog.hide()
 	main.program_tabs.current_tab = 0
 	await _settle()
+	tab_bar.ensure_tab_visible(0)
+	await _settle()
+	var code_tab_rect: Rect2 = tab_bar.get_tab_rect(0)
+	assert(tab_bar.get_tab_idx_at_point(code_tab_rect.get_center()) == 0)
+	_rect("code_tab_scrolled", tab_bar, code_tab_rect)
 	_point("code_editor", main.code_edit)
 	main.program_tabs.current_tab = 3
 	await _settle()
@@ -125,11 +142,51 @@ func _run() -> void:
 	_point("settings_volume", main.settings.volume_slider)
 	_point("settings_close", main.settings.close_button)
 	main.settings.close_panel()
-	var output: FileAccess = FileAccess.open(args[0], FileAccess.WRITE)
-	output.store_string(JSON.stringify({"viewport": [root.size.x, root.size.y], "points": _points, "block_wait_index": wait_operation}, "  ") + "\n")
+	var program_tab_count: int = tab_bar.tab_count
 	main.free()
+	await _settle()
+	await _native_routes()
+	var output: FileAccess = FileAccess.open(args[0], FileAccess.WRITE)
+	output.store_string(JSON.stringify({"viewport": [root.size.x, root.size.y], "points": _points, "block_wait_index": wait_operation, "program_tab_count": program_tab_count, "native_solutions": _native_solutions}, "  ") + "\n")
 	print("Browser layout: %d control anchors" % _points.size())
 	quit()
+
+
+func _native_routes() -> void:
+	# Packaged release templates open the router and forbid scene path overrides.
+	# Capture the real title/map/briefing/editor controls for the native input gate.
+	StageProgress.path = "user://native-layout-progress.json"
+	var router: Node = load("res://scenes/app.tscn").instantiate()
+	root.add_child(router)
+	await _settle()
+	_point("game_title_play", router.current.play_button)
+	router.show_stages()
+	await _settle()
+	for level: Dictionary in StageLevels.all():
+		_point("game_stage_" + level.id, router.current.play_buttons[level.id])
+	for level: Dictionary in StageLevels.all():
+		router.start_stage(level.id)
+		for frame: int in 30:
+			await process_frame
+			if router.current is Node3D:
+				break
+		assert(router.current is Node3D, "Native layout stage did not load")
+		var workshop: Node3D = router.current
+		await _settle()
+		_point("game_start_" + level.id, workshop.stage_hud.start_button)
+		workshop.stage_hud.start_button.pressed.emit()
+		workshop.program_tabs.current_tab = 0
+		await _settle()
+		var bar: TabBar = workshop.program_tabs.get_tab_bar()
+		var code_rect: Rect2 = bar.get_tab_rect(0)
+		assert(bar.get_tab_idx_at_point(code_rect.get_center()) == 0)
+		_rect("game_code_tab_" + level.id, bar, code_rect)
+		_point("game_code_editor_" + level.id, workshop.code_edit)
+		_point("game_run_" + level.id, workshop.run_button)
+		_native_solutions[level.id] = "arm = Servo(pin0)\narm.write(90)\nsleep(3000)\n" if level.id == "raise-flag" else (RobotCarPreset.ANSWER_CODE if level.id == "finish-line" else RobotCarPreset.BRAKE_CODE)
+		router.show_stages()
+		await _settle()
+	router.free()
 
 
 func _settle() -> void:

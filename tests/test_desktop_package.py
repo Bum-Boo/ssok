@@ -1,6 +1,7 @@
 """Distribution checks for portable app permissions and uninstaller boundaries."""
 
 from pathlib import Path
+import os
 import tempfile
 import unittest
 import zipfile
@@ -10,6 +11,7 @@ from tools.ci.desktop_package import build_installer, extract_macos, package_zip
 
 
 class DesktopPackageTest(unittest.TestCase):
+    @unittest.skipIf(os.name == 'nt', 'POSIX executable-mode roundtrip requires a POSIX filesystem')
     def test_macos_executable_permission_survives_zip_roundtrip(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

@@ -1,4 +1,11 @@
-# Camera precision and completion work — active local draft
+# Camera precision and stabilization — reviewed local draft
+
+Latest checkpoint: [verified r2 and preserved failures](verified-r2/README.md).
+Windows full81/0 on the current Title draft, four-language actual captures/Astra and independent Opus review pass.
+Frozen camera image9/9 remains separate from physical0/9. Blind controls and actual operator are retained.
+Latest Fable integration and final clean4exports/5browser/nativeinstaller are next; no merge/publication.
+
+The following sections are dated history, with their original pending/failure statements preserved.
 
 Checkpoint 2026-10-11T00:14:29+09:00; issue32, existing task robot-camera-loop-20261010/session ssok-stabilize-20261010-1.
 Original branch feat/32-robot-camera-loop/base4eb059f. This is ongoing work, not full goal/release completion.

@@ -1,0 +1,17 @@
+test_macos_executable_permission_survives_zip_roundtrip (tests.test_desktop_package.DesktopPackageTest.test_macos_executable_permission_survives_zip_roundtrip) ... FAIL
+test_macos_extraction_cannot_escape_destination (tests.test_desktop_package.DesktopPackageTest.test_macos_extraction_cannot_escape_destination) ... ok
+test_uninstaller_only_removes_packaged_files (tests.test_desktop_package.DesktopPackageTest.test_uninstaller_only_removes_packaged_files) ... ok
+
+======================================================================
+FAIL: test_macos_executable_permission_survives_zip_roundtrip (tests.test_desktop_package.DesktopPackageTest.test_macos_executable_permission_survives_zip_roundtrip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tests\test_desktop_package.py", line 23, in test_macos_executable_permission_survives_zip_roundtrip
+    self.assertTrue((root / 'unpacked/ssok.app/Contents/MacOS/ssok').stat().st_mode & 0o111)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 is not true
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.016s
+
+FAILED (failures=1)

@@ -2,6 +2,8 @@ extends SceneTree
 
 var failures: int = 0
 var checks: int = 0
+var _preferences_existed: bool = false
+var _preferences_bytes: PackedByteArray
 
 
 func _initialize() -> void:
@@ -16,6 +18,9 @@ func _check(condition: bool, label: String) -> void:
 
 
 func _run() -> void:
+	_preferences_existed = FileAccess.file_exists(InterfacePreferences.PATH)
+	if _preferences_existed:
+		_preferences_bytes = FileAccess.get_file_as_bytes(InterfacePreferences.PATH)
 	root.size = Vector2i(1600, 1000)
 	var app: Node3D = load("res://scenes/main.tscn").instantiate()
 	root.add_child(app)
@@ -89,7 +94,23 @@ func _run() -> void:
 					_check(panel._run_button.has_focus() and not panel._stop_button.disabled, "Scrolled keyboard Run and pinned Stop stay available")
 					panel._run_button.release_focus()
 
-	print("Agent goal UI checks: %d / failures: %d" % [checks, failures])
 	app.queue_free()
 	await process_frame
+	_check(_restore_preferences(), "Screenshot fixture preserves the original preferences file")
+	print("Agent goal UI checks: %d / failures: %d" % [checks, failures])
 	quit(1 if failures > 0 else 0)
+
+
+func _restore_preferences() -> bool:
+	# The full suite shares user data; screenshot scale/theme must not leak into later checks.
+	if _preferences_existed:
+		var file: FileAccess = FileAccess.open(InterfacePreferences.PATH, FileAccess.WRITE)
+		if file == null:
+			return false
+		file.store_buffer(_preferences_bytes)
+		file.close()
+		return FileAccess.get_file_as_bytes(InterfacePreferences.PATH) == _preferences_bytes
+	if FileAccess.file_exists(InterfacePreferences.PATH):
+		if DirAccess.remove_absolute(ProjectSettings.globalize_path(InterfacePreferences.PATH)) != OK:
+			return false
+	return not FileAccess.file_exists(InterfacePreferences.PATH)

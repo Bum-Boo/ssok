@@ -46,6 +46,8 @@ func build() -> void:
 	footer.add_child(language_picker)
 	var settings_button: Button = SsokTheme.button("Settings", "cog")
 	settings_button.name = "SettingsButton"
+	settings_button.clip_text = false
+	settings_button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 	footer.add_child(settings_button)
 	settings = SettingsPanel.new()
 	settings.theme = theme

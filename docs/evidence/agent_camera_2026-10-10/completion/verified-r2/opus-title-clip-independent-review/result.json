@@ -1,0 +1,59 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "result": "```json\n{\n  \"verdict\": \"pass_for_bounded_title_settings_clipping_fix\",\n  \"blockers\": [],\n  \"exact_reviewed_source_sha256\": {\n    \"src/screens/title_screen.gd\": \"5f81349019953ebb8d96075ad6f056bef1e5e56ed74633efffaba761dda8c8c1\",\n    \"src/screens/menu_screen.gd\": \"9352f1d618014849f64a5aabe2ecf3acf617c16ce3c6102e7d01e5c4b6f54209\",\n    \"note\": \"These are the coordinator-supplied hashes for the text I was given. I computed no hashes myself. I reviewed the supplied file text as the content at those hashes.\"\n  },\n  \"findings\": [\n    {\n      \"id\": \"F1-mechanism-correct\",\n      \"severity\": \"none\",\n      \"reason\": \"In Godot 4.x, a Button's minimum width includes its full text width only when clip_text is false and text_overrun_behavior is OVERRUN_NO_TRIMMING. Under any other setting, the minimum width ignores the text, and an HBoxContainer can shrink the button until the label is cut off. The observed 'Setti' symptom matches this. Setting both properties on settings_button (title_screen.gd, after SsokTheme.button) restores a text-sized minimum width. This targets the root cause directly and does not hard-code a width.\"\n    },\n    {\n      \"id\": \"F2-reuses-existing-idiom\",\n      \"severity\": \"none\",\n      \"reason\": \"The two property assignments are identical to MenuScreen.header's BackButton in menu_screen.gd, in the same order and with no comment, matching the surrounding style. No new colors, font sizes, theme variations, containers, hints, tooltips or scaffolding are added. Footer separation (10), alignment, picker construction and focus wiring (panel_closed -> settings_button.grab_focus, play_button deferred focus) are unchanged.\"\n    },\n    {\n      \"id\": \"F3-localization-neutral\",\n      \"severity\": \"none\",\n      \"reason\": \"The 'Settings' msgid and the 'cog' icon are unchanged. auto_translate stays at its default, so the label still follows TranslationServer. Godot recomputes the minimum size when a translation changes, so switching languages at runtime should resize the button without extra code. No catalog changes are required, consistent with AGENTS.md and LOCALIZATION.md, which still ask for a per-language clipping check. The coordinator's 4-locale captures cover that check.\"\n    },\n    {\n      \"id\": \"F4-preferences-contract-preserved\",\n      \"severity\": \"none\",\n      \"reason\": \"Nothing in the change touches InterfacePreferences, theme rebuilding, learner work or input ownership. The ADR 0026 boundaries (focus return to the settings entry on close, in-place theme updates) are unaffected. The SettingsPanel construction and signal connections are unchanged.\"\n    },\n    {\n      \"id\": \"F5-overflow-tradeoff-acknowledged\",\n      \"severity\": \"advisory_non_blocking\",\n      \"reason\": \"NO_TRIMMING removes the shrink path, so the footer's minimum width is now picker + separation + full Settings label. The footer HBox does not wrap and MenuScreen disables horizontal scrolling. At widths or scales where that sum exceeds the content column (floor 320px), the footer would widen the content instead of truncating. This is the same tradeoff the existing Back button already accepts. The reported 1400x950 and 1152x648 geometry across 5 scales shows it within the 32px margin, so it is not a blocker for the tested sizes.\"\n    },\n    {\n      \"id\": \"F6-incidental-out-of-scope\",\n      \"severity\": \"informational\",\n      \"reason\": \"At 200%, the upper content scrolls and Japanese 'Open my project' is ellipsized. Both come from the pre-existing MenuScreen scroll and menu (min 380) layout, not from the footer change. Fixing them is correctly left out of this scope and should be tracked separately if wanted.\"\n    },\n    {\n      \"id\": \"F7-evidence-consistent-with-source\",\n      \"severity\": \"none\",\n      \"reason\": \"The supplied Astra receipts name source_sha256 5f81349… (matching the reviewed title_screen.gd) and 16 after-captures covering 4 locales x 2 themes x {100% @1400x950, 200% @1152x648}. The coordinator reports 80 geometry cases with 0 failures and 16 keyboard captures. As far as I can judge from source, the evidence is consistent with the change and with the ADR 0026 / INTERFACE_PREFERENCES requirement for four languages, both themes, focus, and enlarged/compact windows.\"\n    }\n  ],\n  \"limitations\": [\n    \"I did not see any image, run the app, run Godot or compute any hash. All runtime geometry, keyboard behavior and visual observations are coordinator and Astra receipts, accepted as reported.\",\n    \"I received only the current source, not a diff against the original title SHA 3117d87b…. My conclusion that the patch is exactly the two Settings-button properties rests on the coordinator's statement and on the parity with Back.\",\n    \"Coverage is limited to the tested sizes (1400x950, 1152x648) and text scales. No claim is made for 320px, mobile, Web export, other window sizes, screen readers, or the 115/130/150% visual captures beyond the reported geometry.\",\n    \"The receipts do not show results for the AGENTS.md-required import/scene-load checks (`--import --quit`, `--quit`) or for `tests/localization_check.gd` on this source.\",\n    \"The worktree contains other modified files (CLAUDE-REVIEW.md, tests/*, tools/ci/*, tools/motion_lab/*) that I did not review. This verdict covers only the title footer change; the camera panel keeps its earlier separate review.\",\n    \"Per the coordinator's note, a passing invocation is not the same as a passing review. This verdict covers design and code adequacy within scope and is not publication approval.\"\n  ],\n  \"next_action\": \"Keep this as a local draft commit with the Agent trailer. Before any PR or publication: (1) get explicit user approval for the exact version and scope; (2) separate the title_screen.gd change from the unrelated dirty files, or account for each of them; (3) run and record `godot --headless --path . --import --quit`, `godot --headless --path . --quit` and `tests/localization_check.gd` on SHA 5f81349…; (4) in the handoff or PR, record the before/after evidence, the tested-size limits, 'no localization catalog changes', and the out-of-scope 200% scroll and Japanese ellipsis items as follow-ups.\"\n}\n```",
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 2,
+      "outputTokens": 3175,
+      "cacheReadInputTokens": 1454,
+      "cacheCreationInputTokens": 17902,
+      "webSearchRequests": 0,
+      "costUSD": 0.2070148,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 927,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 17902,
+    "cache_read_input_tokens": 1454,
+    "output_tokens": 3175,
+    "output_tokens_details": {
+      "thinking_tokens": 927
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17902,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 3175,
+        "cache_read_input_tokens": 1454,
+        "cache_creation_input_tokens": 17902,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 17902
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "permission_denials": [],
+  "total_cost_usd": 0.2070148,
+  "exit_code": 0
+}

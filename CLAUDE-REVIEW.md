@@ -1,12 +1,12 @@
 # Robot camera loop — local design review
 
-Latest active version is the precision/CI completion draft:
-[current checkpoint](docs/evidence/agent_camera_2026-10-10/completion/README.md).
-Holding/verifier source review by actual Fable5-1 passes; first precision pilot fails physical0/3,
-image1/3. New medium-effort trial/full checks/packages and actual Fable integration remain pending.
-The Windows stabilization section below is dated history, not the latest changed-source validation.
-Older sections are dated source history, not current validation of changed files.
-Panel SHA `f8afbc47a236e33d7f0f919bfc2b0693e80628af7c863b91450db57c11d54da5` is unchanged.
+Latest local draft: [stabilization r2 checks](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/README.md).
+Current Windows full81/0 (source426hashes unchanged); frozen camera image9/9 and independent physical0/9;
+blank/frozen negative controls and real app Run retained. Title Settings clipping fix SHA5f813490…a8c8c1:
+Claude Opus5-5 authored, native Astra16after PNGs and independent Opus final source review PASS/no blockers.
+Catalogs/strings unchanged; camera panel f8afbc47…54da5 unchanged with its prior separate Opus review.
+Latest functional Fable review/actual feature rebase and final clean4exports/5browser/nativeinstaller are next.
+No main merge, push/publication or exact-version user publication approval. Earlier sections are dated history.
 
 ## Current Windows stabilization handoff — 2026-10-10
 
@@ -141,3 +141,15 @@ FLOWS/API/CONTROLS and context routes were reviewed. The graph, VM, Stage and co
 retain their existing meanings; only the described external agent path and priority read lane changed.
 New Python symbols use source routes because the current symbol checker handles GDScript declarations.
 This follow-up has no localization changes; developer CLI text does not enter the exported UI.
+
+
+<!-- title-settings-clip-review-20261011 -->
+## Title Settings clipping: bounded local draft for independent Opus review
+
+User outcome: full Settings label in the existing title footer. Claude Opus5-5 authored two property overrides in src/screens/title_screen.gd, reusing MenuScreen Back behavior. Source SHA256 5f81349019953ebb8d96075ad6f056bef1e5e56ed74633efffaba761dda8c8c1. Existing tokens, widgets, strings and translations unchanged. The agent-camera panel remains f8afbc47?54da5 and is outside this title review.
+
+Entry: this checkout with pinned native Godot4.7.2; before source/actual 1400?950 PNG in .agents/backups/ssok-completion-20261010/title-clip-before. Actual after PNGs and source/command receipts in build/ai-loop-evidence/completion/title-clip-after-r2. 80 measured cases: en/ko/zh_CN/ja ? light/dark ?100/115/130/150/200% ?1400?950/1152?648. Footer within32px margins; in16 captured cases actual GUI Tab/Enter/Esc traversal opens/closes Settings and restores focus. Native Astra actually viewed before plus all16 after PNGs: bounded fix PASS; full translated labels/cog/picker/focus outline. At200% upper menu scrolls outside viewport and Japanese project action is ellipsized; existing other-menu behavior is outside this fix. No 320px/mobile/all-sizes guarantee.
+
+Applicable guides: AGENTS, docs/POLICIES.md, docs/INTERFACE_PREFERENCES.md, docs/LOCALIZATION.md, ADR0026, global visual-changes and agent-routing. First developer capture fixture failed from early static TitleScreen dependency before Preferences autoload; raw failure retained in title-clip-after, fixed by dynamic runtime scene loading in fresh-r2; production source did not change again. A PowerShell ASCII stdin plan-record attempt failed before writing; UTF8 recovery preserves exact filenames.
+
+Next: independent Claude Opus design-source review of this exact SHA plus Astra findings, then final clean packages/full/browser/native checks. Independent actual claude-opus-5-5 review passed/no blockers; result at verified-r2/opus-title-clip-independent-review/result.json. Local draft only; human merge and exact-version/scope publication approval remain outstanding.
