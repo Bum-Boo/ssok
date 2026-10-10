@@ -18,6 +18,15 @@ and older dated pending statements are preserved below. Current restoration inst
 `C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
 Final docs-only localization impact: no UI strings/catalog changes, graphs/VM/physics diagrams unchanged.
 
+## Developer-only physical/image boundary diagnosis r3
+
+[Evidence and next owner](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/physical-compatibility-r3/README.md):
+26px/14.0431cm reproduces combined failure;13tick variant22px/13.7652cm passes only physical.
+Repeated idle images22↔24px correlate with sub-mm pose/gap changes. No isolated causal proof,
+controller repair, changed target/physics/model hint or new AI trial. Source426/study10/goal unchanged.
+Evidence/docs-only commit goes to latest Fable for actual rebase, then human review/merge.
+Prior r2 source-specific runtime receipts remain valid; no new app verification or publication.
+
 ## Historical Windows stabilization handoff — 2026-10-10
 
 Owner: issue32/task `ssok/robot-camera-loop-20261010`, Codex session `ssok-stabilize-20261010-1`.

@@ -1,0 +1,266 @@
+{
+  "actual_model": "gpt-6-astra",
+  "role": "native visual inspector",
+  "record_basis": "First two actual images viewed and measured in previous turn; next five actual images viewed and measured in this turn. No image modifications.",
+  "method": "Original-resolution visual viewing plus independent read-only RGB pixel measurement. Fixed fixture floor classification: R>=175, R-G>=6, R-B>=18; bottom-connected run across x312..328.",
+  "coordinate_origin": "top-left",
+  "goal_floor_px_inclusive": [
+    24,
+    38
+  ],
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-recovered/replay-near-30-10-12/post-3.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 457,
+      "center_column_boundary_range": [
+        457,
+        457
+      ],
+      "floor_strip_px": 23,
+      "uncertainty_px": 1,
+      "image_goal": "nominal fail",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          454,
+          459
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-recovered/replay-near-30-10-12/final-idle.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 454,
+      "center_column_boundary_range": [
+        454,
+        454
+      ],
+      "floor_strip_px": 26,
+      "uncertainty_px": 1,
+      "image_goal": "pass",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          452,
+          456
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-jitter/post-4.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 458,
+      "center_column_boundary_range": [
+        458,
+        458
+      ],
+      "floor_strip_px": 22,
+      "uncertainty_px": 1,
+      "image_goal": "nominal fail",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          457,
+          459
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-jitter/idle-1.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 456,
+      "center_column_boundary_range": [
+        456,
+        456
+      ],
+      "floor_strip_px": 24,
+      "uncertainty_px": 1,
+      "image_goal": "nominal pass at lower edge",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          456,
+          457
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-jitter/idle-2.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 458,
+      "center_column_boundary_range": [
+        458,
+        458
+      ],
+      "floor_strip_px": 22,
+      "uncertainty_px": 1,
+      "image_goal": "nominal fail",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          457,
+          458
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-jitter/idle-3.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 456,
+      "center_column_boundary_range": [
+        456,
+        456
+      ],
+      "floor_strip_px": 24,
+      "uncertainty_px": 1,
+      "image_goal": "nominal pass at lower edge",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          455,
+          456
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/physical-compatibility-r3-jitter/idle-4.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "view_method": "view_image original resolution",
+      "center_x": 320,
+      "center_column_range": [
+        312,
+        328
+      ],
+      "boundary_y": 458,
+      "center_column_boundary_range": [
+        458,
+        458
+      ],
+      "floor_strip_px": 22,
+      "uncertainty_px": 1,
+      "image_goal": "nominal fail",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          456,
+          460
+        ],
+        "observation": "Continuous wall base, slightly descending toward screen right; center unobscured, side structures obscure outer margins."
+      }
+    }
+  ],
+  "observed_wall_line_variation": {
+    "previous_pair_floor_px": [
+      23,
+      26
+    ],
+    "jitter_sequence_floor_px": [
+      22,
+      24,
+      22,
+      24,
+      22
+    ],
+    "jitter_sequence_boundary_y": [
+      458,
+      456,
+      458,
+      456,
+      458
+    ],
+    "observation": "The five new captures show a 2-pixel nominal change in central floor height between adjacent listed frames; edge slope also varies slightly. No cause assigned."
+  },
+  "read_failures": [],
+  "scope_limits": [
+    "Developer-only image evidence; do not feed evaluator metrics to a live actor.",
+    "Boundary blending gives approximately +/-1 pixel uncertainty; 24-pixel frames are nominal passes at the lower edge, not uncertainty-robust passes.",
+    "No physical distance, sensor reading, contact, physics success, incompatibility or impossibility inference.",
+    "No causal diagnosis, new design decision, source modification or delegation.",
+    "Color threshold is fixture-specific and not certified for changed materials, lighting, scale or center occlusion."
+  ]
+}

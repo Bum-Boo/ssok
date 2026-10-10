@@ -42,6 +42,13 @@ then default Title/map/three stages, preferences/focus and normal close/logs. No
 Records/selected recovery: `C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
 No user-facing strings/catalog changes were needed in this final documentation pass.
 
+## Subsequent developer-only boundary diagnosis r3
+
+[Actual probes and handoff](physical-compatibility-r3/README.md) reproduce26px/14.0431cm combined
+failure; one extra tick passes distance but yields22px. Repeated observations show22↔24px with
+sub-mm capture gap changes. No causal/global incompatibility claim, source or criterion changes.
+AI image9/9·physical0/9 and immutable r2 package receipts remain unchanged.
+
 ## Historical checkpoint before final clean build — 2026-10-11T02:01:20+09:00
 
 # Stabilization verification r2 — local draft
