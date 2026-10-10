@@ -1,6 +1,7 @@
 # 현재 방향과 문서 기준
 
-갱신: 2026-09-30, Codex. 사용자 지시로 설치형 PR40과 설정 PR41을 병합하고 clean 앱 소스 `af1973b`의 v0.2.0을 공개했어요. [웹 실행](https://bum-boo.github.io/ssok/) · [최종 다운로드](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [배포 기록](evidence/public_release_2026-09-30/README.md). 저장소도 공개예요. native71/0·Windows17/0·같은 파일의 Web5종 최종통과·공개 작성9/설정14와 실제 다운로드 해시를 확인했어요. 첫 실패와 재실행 범위는 배포 기록에서 구분해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.
+로컬 후속 갱신: 2026-10-10, Codex. 최신 카메라 안정화 초안은 아래 진행 작업에 있어요.
+통합·배포의 다음 수치는 2026-09-30 이력이에요. 사용자 지시로 설치형 PR40과 설정 PR41을 병합하고 clean 앱 소스 `af1973b`의 v0.2.0을 공개했어요. [웹 실행](https://bum-boo.github.io/ssok/) · [당시 다운로드](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [배포 기록](evidence/public_release_2026-09-30/README.md). 저장소도 공개예요. native71/0·Windows17/0·같은 파일의 Web5종 최종통과·공개 작성9/설정14와 실제 다운로드 해시를 확인했어요. 첫 실패와 재실행 범위는 배포 기록에서 구분해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.
 
 ## 제품 결정과 구현 상태
 
@@ -16,7 +17,36 @@
 | 보행 연구 | 이족·Kit 추가 실험 보류, 기존 결과는 전시용 | 기존 구현·결과 보존. 범용 지속 보행 보장 없음 |
 | 출시 | 먼저 시각·게임성·초심자 흐름 보완 | 사용자 명시 요청으로 v0.2.0 공개 완료. 검증본 gh-pages/Release 게시·익명 URL/실제 흐름 확인. 일반 main push는 앱 배포 아님 |
 
-## 남은 작업과 근거
+## 진행 작업과 근거
+
+2026-10-11 후속 작업 진행중: AI 판단 대기 중 ready 차체의 실제 밀림(15.3mm/10초)을 재현하고,
+기존 배선 모터의 제한 PI holding과 강화한 촬영 정지 조건으로1.2mm/10초·회귀6/0을 확인했어요.
+DriveMotor/토크/독립 성공 기준·고정 목표·패널은 유지했어요. Fable5-1 기능 소스 리뷰 pass.
+첫 PI low pilot은 물리0/3·이미지1/3이라 목표 달성으로 표시하지 않아요. medium 시험과 full
+rendered CI/4exports/browser/Windows package·실제 통합은 진행중이에요.
+[현재 후속 기록](evidence/agent_camera_2026-10-10/completion/README.md). 아래 안정화는 이전 소스 이력이에요.
+
+2026-10-10 `feat/32-robot-camera-loop`의 **로컬 초안**: graph 차량의640×480 카메라,
+유한 행동·실측 정지·재관측, 외부 CLI/MCP와 Claude 작성 패널, 목표 Run→명시적으로 켠
+foreground operator→기존 ChatGPT login AI 도구 실행을 구현했어요. 앱 자체 제공자 로그인은 없어요.
+최신 후속은 monitor-first TCP 경합과 이전 actor의 종료 Stop이 새 실행을 끊던 오류를 수정했어요.
+Windows Godot4.7.2/GL에서 Python56/0(SDK skip0), 렌더 카메라29/0, 목표 UI66/0,
+문맥 Stop13/0, 통신4경로/Stop22ms, import/load와 기존 control/manual 검사를 통과했어요.
+실제 앱 Run 시험도1행동/2PNG·재관측/Stop·CLIexit0을 확인했어요.
+
+실험은 버전별로 구분해요. 초기 통신 수정 Arch: 구체화9/9 물리 기준 통과, 원래 목표0/3;
+최신 문맥 Stop Windows: 구체화3/3 물리 기준 통과지만 Astra 실제 이미지 목표 검수는 **1/3**예요.
+이전 원래0/9·frozen0/3·blank0/3과 구체화2/3 결과를 보존했어요. 범용 주행 신뢰성은 미확보예요.
+Claude Fable5-1의 최신 기능 소스 리뷰 pass; 변경 없는 패널 SHA f8afbc47…54da5에는
+기존 Opus 최종 디자인 리뷰를 유지해요. CLI는 backend identity/빈 입력 문맥/과금 상한을 증명하지 않아요.
+[안정화·소스·실패·검증](evidence/agent_camera_2026-10-10/stabilization/README.md) ·
+[목표 UI 이력](evidence/agent_camera_2026-10-10/goal_ui/README.md) ·
+[이전 반복 실험](evidence/agent_camera_2026-10-10/repeated/README.md).
+
+Arch 전원이 꺼져 최신 원자료 일부 회수와 기존 task revision16의 CLI release는 미완료예요.
+Windows 개발·검증 근거와 다음 절차는 [Claude 인계](../CLAUDE-REVIEW.md)에 있어요.
+다음은 Fable 실제 통합, human merge, full release/package 검사와 해당 버전/범위 공개 승인,
+이미지 목표 정밀도예요. 현재 main 통합·공개 배포·카탈로그 카메라·범용 로봇/학습은 미완료예요.
 
 - [출시 전 화면·부품·커스텀 점검](PRELAUNCH_UX_AUDIT_2026-09-30.md)은 실제 `90b9930` 화면 5장과 부품 목록을 포함해요. 신규 시각안·꾸미기·챕터 진행은 제안이에요.
 - 설정 PR41과 설치형 PR40은 사용자 지시로 병합했어요. 같은 최종 소스의 네 대상 빌드와 실제 검증은 배포 기록을 확인해요.

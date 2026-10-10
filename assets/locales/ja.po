@@ -2123,3 +2123,197 @@ msgstr "目標に届く前にプログラムが終わりました。変えても
 
 msgid "Reset robot"
 msgstr "最初に戻す"
+
+
+msgid "AI"
+msgstr "AI"
+
+msgid "Stop the robot now."
+msgstr "ロボットを今すぐ止めます。"
+
+msgid "Status"
+msgstr "状態"
+
+msgid "Enable"
+msgstr "有効化"
+
+msgid "Mount the virtual camera on the current robot."
+msgstr "今のロボットに仮想カメラを取り付けます。"
+
+msgid "Capture"
+msgstr "撮影"
+
+msgid "Capture one camera frame."
+msgstr "カメラ画像を1枚撮影します。"
+
+msgid "Forward"
+msgstr "前進"
+
+msgid "Drive forward 20 ticks, then stop."
+msgstr "20ティック前進して止まります。"
+
+msgid "Camera"
+msgstr "カメラ"
+
+msgid "Virtual sensor fixture on the robot, not a catalog part."
+msgstr "ロボットに付けた仮想センサーです。部品カタログの部品ではありません。"
+
+msgid "Image SHA-256"
+msgstr "画像 SHA-256"
+
+msgid "Agent summary"
+msgstr "エージェントの要約"
+
+msgid "Written by the agent, not an observed result."
+msgstr "エージェントが書いた文章で、観測した結果ではありません。"
+
+msgid "Last tool call"
+msgstr "最後のツール呼び出し"
+
+msgid "Recent events, newest first"
+msgstr "最近のイベント（新しい順）"
+
+msgid "Off"
+msgstr "オフ"
+
+msgid "Settling"
+msgstr "安定待ち"
+
+msgid "Ready"
+msgstr "準備完了"
+
+msgid "Driving"
+msgstr "走行中"
+
+msgid "Capturing"
+msgstr "撮影中"
+
+msgid "Stopped"
+msgstr "停止済み"
+
+msgid "Fault"
+msgstr "異常"
+
+msgid "Unknown state: %s"
+msgstr "不明な状態: %s"
+
+msgid "Desktop only. The AI camera is not available on Web."
+msgstr "デスクトップ版のみです。Web では AI カメラを使えません。"
+
+msgid "Fault. Enable again to retry."
+msgstr "異常が起きました。有効化し直すと再試行できます。"
+
+msgid "Fault: %s. Enable again to retry."
+msgstr "異常: %s。有効化し直すと再試行できます。"
+
+msgid "Needs a robot with two wired DC wheels."
+msgstr "配線済みの DC ホイールが2つあるロボットが必要です。"
+
+msgid "Enable to mount the virtual camera on the current robot."
+msgstr "有効化すると今のロボットに仮想カメラを取り付けます。"
+
+msgid "Settling. Wait for the robot to rest."
+msgstr "安定待ちです。ロボットが静止するまで待ちます。"
+
+msgid "Capturing a frame."
+msgstr "画像を撮影中です。"
+
+msgid "Driving forward. Stop is always available."
+msgstr "前進中です。停止はいつでも押せます。"
+
+msgid "Ready. Forward drives %d ticks, then stops."
+msgstr "準備完了です。前進は %d ティック進んで止まります。"
+
+msgid "Capture a frame before moving."
+msgstr "動かす前に画像を撮影してください。"
+
+msgid "Stopped. Capture a frame or Enable again."
+msgstr "停止しました。撮影するか、もう一度有効化します。"
+
+msgid "External agent bridge: listening on this computer."
+msgstr "外部エージェントブリッジ: このコンピューターで待機中です。"
+
+msgid "External agent bridge: off. The camera works without it."
+msgstr "外部エージェントブリッジ: オフ。カメラはブリッジなしでも使えます。"
+
+msgid "No frame yet. Capture to see the robot camera."
+msgstr "まだ画像がありません。撮影するとロボットのカメラが見えます。"
+
+msgid "Frame %s could not be decoded."
+msgstr "フレーム %s を読み込めませんでした。"
+
+msgid "Captured frame %s at tick %s"
+msgstr "フレーム %s（%s ティック目に撮影）"
+
+msgid "Frame bytes do not match the reported hash."
+msgstr "画像データが報告されたハッシュと一致しません。"
+
+msgid "No agent decision yet."
+msgstr "エージェントの判断はまだありません。"
+
+msgid "No tool call yet."
+msgstr "ツール呼び出しはまだありません。"
+
+msgid "No events yet."
+msgstr "イベントはまだありません。"
+
+
+msgid "Reported receipt from %s: no image"
+msgstr "%s からの受信報告: 画像なし"
+
+msgid "Reported receipt from %s: image %s matches the frame shown. This does not prove it was sent or read."
+msgstr "%s からの受信報告: 画像 %s は表示中のフレームと一致します。送信や読み取りを証明するものではありません。"
+
+msgid "Reported receipt from %s: image %s does not match the frame shown"
+msgstr "%s からの受信報告: 画像 %s は表示中のフレームと一致しません"
+
+msgid "No summary was reported."
+msgstr "要約は報告されていません。"
+
+msgid "Goal"
+msgstr "目標"
+
+msgid "Run with AI"
+msgstr "AIで実行"
+
+msgid "Send this goal to the connected AI operator."
+msgstr "この目標を接続中のAIオペレーターに送信します。"
+
+msgid "Per run: up to %d actions, %d camera frames and %d seconds. Usage counts toward that ChatGPT account; the CLI sets no fixed cost or request cap."
+msgstr "1回の実行につき最大%d回の動作、%d枚のカメラ画像、%d秒までです。使用量はそのChatGPTアカウントに計上され、CLIには固定の費用やリクエスト上限はありません。"
+
+msgid "Goal sent. Waiting for the operator."
+msgstr "目標を送信しました。オペレーターを待っています。"
+
+msgid "Running the goal. Stop is always available."
+msgstr "目標を実行中です。停止はいつでも使えます。"
+
+msgid "AI operator: connected."
+msgstr "AIオペレーター：接続中"
+
+msgid "AI operator: not connected."
+msgstr "AIオペレーター：未接続"
+
+msgid "Goal run ended. Check the camera frame for the result."
+msgstr "目標の実行が終わりました。結果はカメラ画像で確認してください。"
+
+msgid "Goal run stopped."
+msgstr "目標の実行を停止しました。"
+
+msgid "Goal run reached its limit and stopped."
+msgstr "目標の実行が上限に達して停止しました。"
+
+msgid "Goal run failed. Check the recent events."
+msgstr "目標の実行に失敗しました。最近のイベントを確認してください。"
+
+msgid "Operator disconnected during the run."
+msgstr "実行中にオペレーターとの接続が切れました。"
+
+msgid "Run with AI sends this goal to the connected operator, which requests %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short visual summaries and tool results."
+msgstr "「AIで実行」はこの目標を接続済みのオペレーターに送り、オペレーターは既存の Codex ChatGPT ログインで OpenAI に %s を要求します。送信内容：目標、カメラ PNG、公開フレーム情報、簡潔な視覚要約、ツール結果。"
+
+msgid "Run with AI asks the connected operator to request %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short summaries and tool results."
+msgstr "AIで実行すると、接続中のオペレーターが既存の Codex ChatGPT ログインで OpenAI に %s をリクエストします。送信内容: 目標、カメラ PNG、公開フレーム情報、短い要約、ツール結果。"
+
+msgid "Per run: up to %d actions, %d images and %d seconds. Usage counts toward that ChatGPT account, with no fixed cost or model-request cap."
+msgstr "1回の実行: 最大 %d 回の操作、%d 枚の画像、%d 秒。使用量はその ChatGPT アカウントに計上され、固定費用やモデルリクエストの上限はありません。"

@@ -21,7 +21,16 @@
     "docs/evidence/prelaunch_ux_2026-09-30/README.md",
     "docs/evidence/merge_2026-09-30/README.md",
     "docs/evidence/settings_implementation_2026-09-30/README.md",
-    "docs/evidence/public_release_2026-09-30/README.md"
+    "docs/evidence/public_release_2026-09-30/README.md",
+    "docs/APP_CONTROL_API.md",
+    "docs/CONTROLS.md",
+    "CLAUDE-REVIEW.md",
+    "docs/evidence/agent_camera_2026-10-10/README.md",
+    "docs/evidence/agent_camera_2026-10-10/direct/README.md",
+    "docs/evidence/agent_camera_2026-10-10/repeated/README.md",
+    "docs/evidence/agent_camera_2026-10-10/goal_ui/README.md",
+    "docs/evidence/agent_camera_2026-10-10/stabilization/README.md",
+    "docs/evidence/agent_camera_2026-10-10/completion/README.md"
   ],
   "routes": {
     "assembly": {
@@ -143,20 +152,43 @@
     "ai": {
       "docs": [
         "docs/POLICIES.md",
-        "docs/MOTION_LAB.md"
+        "docs/MOTION_LAB.md",
+        "docs/APP_CONTROL_API.md",
+        "docs/FLOWS.md"
       ],
       "sources": [
         "src/runtime/motion_lab_client.gd",
-        "tools/motion_lab/service.py"
+        "tools/motion_lab/service.py",
+        "src/runtime/agent_camera_loop.gd",
+        "src/runtime/agent_desktop_bridge.gd",
+        "src/ui/agent_trace_panel.gd",
+        "tools/app_control/desktop_mcp.py",
+        "tools/app_control/desktop_session.py",
+        "tools/app_control/run_goal.py",
+        "src/runtime/agent_goal_inbox.gd",
+        "tools/app_control/run_operator.py",
+        "tools/app_control/repeat_camera_trials.py",
+        "tools/app_control/refine_camera_goal.py",
+        "tools/app_control/desktop_client.py",
+        "tools/app_control/verify_bridge_race.py",
+        "tools/app_control/stabilize_camera_trials.py",
+        "tests/bridge_stop_owner_check.gd"
       ],
       "adrs": [
         "0008",
-        "0010"
+        "0010",
+        "0007",
+        "0023",
+        "0029"
       ],
       "watch": [
         "src/runtime/motion_lab_client.gd",
         "tools/motion_lab/*",
-        "tools/app_control/*"
+        "tools/app_control/*",
+        "src/runtime/agent_*.gd",
+        "src/ui/agent_trace_panel.gd",
+        "tests/desktop_session_check.py",
+        "tests/desktop_client_check.py"
       ]
     },
     "delivery": {
@@ -300,6 +332,42 @@
         "open_panel",
         "close_panel"
       ]
+    },
+    "src/runtime/agent_camera_loop.gd": {
+      "class": "AgentCameraLoop",
+      "methods": [
+        "begin",
+        "describe",
+        "observe",
+        "drive_step",
+        "cancel",
+        "receipt"
+      ]
+    },
+    "src/runtime/agent_desktop_bridge.gd": {
+      "class": "AgentDesktopBridge",
+      "methods": [
+        "start",
+        "is_listening"
+      ]
+    },
+    "src/ui/agent_trace_panel.gd": {
+      "class": "AgentTracePanel",
+      "methods": [
+        "set_state",
+        "set_frame",
+        "append_event",
+        "set_goal_status"
+      ]
+    },
+    "src/runtime/agent_goal_inbox.gd": {
+      "class": "AgentGoalInbox",
+      "methods": [
+        "submit",
+        "poll",
+        "leave",
+        "cancel"
+      ]
     }
   },
   "contracts": {
@@ -318,14 +386,17 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "01dbf97a76c19461705e59aad426d615c2bed4922dd473cd1d536b4012ecf339",
+        "scenes/main.gd": "d8bd6f0018fae5c6f8c0328179511505a136f02e880f964c1ef2a2483bdf9dad",
         "src/runtime/mini_runtime.gd": "d79aeb048b47717cd6557f46735bbdf07b9c2357080109938a9cea841c48992a",
         "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54",
         "src/ui/block_program_panel.gd": "5f0e1d1236220dd89de8742b677dc7331a9015fbdbd46886cf3e173b7d8e1e22",
         "src/ui/project_panel.gd": "a38fa22ef45307735515477e5ac0048d0e251538f174973da945d36fe91c4c03",
         "src/profiles/learner_program.gd": "31bd49263fa8f6a07b83f5c251ec87cb9d5eb24b9cc80968b3d06a946ae3447d",
         "src/runtime/stage_evaluator.gd": "8818c87ca309a05469211f64f0c2ae2e49b0fb99da74a3a68f6ec1ee2de01eed",
-        "src/ui/stage_panel.gd": "b97352cfd3cfcbb494ef4c6c00e0612fe6541155f9b55537405044090363f0da"
+        "src/ui/stage_panel.gd": "b97352cfd3cfcbb494ef4c6c00e0612fe6541155f9b55537405044090363f0da",
+        "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
+        "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
+        "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c"
       }
     },
     "flag-flow": {

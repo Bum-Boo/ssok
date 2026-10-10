@@ -21,11 +21,14 @@
 | 물리, 모터 | [아키텍처](ARCHITECTURE.md), [실행 흐름](FLOWS.md) | `src/runtime/run_mode.gd`, `src/runtime/servo_drive.gd` | 0003, 0020; 로봇별 ADR 추가 |
 | 첫 경험, 과제, UI | [제품 정책](POLICIES.md), [실행 흐름의 화면 흐름](FLOWS.md), [깃발 임무](FLAG_MISSION.md), [번역](LOCALIZATION.md), [설정 계약](INTERFACE_PREFERENCES.md) | `scenes/app.gd`, `src/screens/`, `src/core/stage_levels.gd`, `src/ui/stage_hud.gd`, `scenes/main.gd` | 0007, 0022, 0023, 0025, 0028 |
 | 설정, 테마, 언어 전환 | [설정 계약](INTERFACE_PREFERENCES.md), [번역](LOCALIZATION.md) | `src/ui/interface_preferences.gd`, `src/ui/settings_panel.gd`, `src/ui/ssok_theme.gd` | 0007, 0016, 0026 |
-| AI, 외부 도구 | [제품 정책](POLICIES.md), [MOTION_LAB](MOTION_LAB.md) | `src/runtime/motion_lab_client.gd`, `tools/motion_lab/service.py` | 0008, 0010 |
+| AI, 외부 도구 | [제품 정책](POLICIES.md), [APP_CONTROL_API](APP_CONTROL_API.md), [MOTION_LAB](MOTION_LAB.md) | `src/runtime/agent_camera_loop.gd`, `tools/app_control/run_goal.py`, `desktop_mcp.py`; 기존 `tools/motion_lab/service.py` | 0007, 0008, 0010, 0023, 0029(초안) |
 | 빌드, 배포 | [BUILD](BUILD.md), [RELEASE_PLAN](RELEASE_PLAN.md) | `tools/ci/verify.py`, `tools/ci/build.py`, `.github/workflows/ci.yml` | 0001, 0013, 0017 |
 | 문서, 다이어그램 | [갱신 규칙](MAINTENANCE.md) | `docs/context.json`, `tools/docs/maintain.py` | 0000, 0024 |
 
 [파일 구조와 클래스 위치](generated/CODE_MAP.md) · [ADR 색인](adr/INDEX.md)에서 실제 경로와 결정 상태를 찾아요. 표는 읽기 안내이며 담당자를 고정 배정하지 않아요. 관련 ADR이 다른 ADR을 확장하거나 일부 대체하면 연결된 결정도 읽어요.
+
+카메라 루프의 최신 경합 수정·별도 반복 실험은 [안정화 기록](evidence/agent_camera_2026-10-10/stabilization/README.md)과
+[Claude 통합 인계](../CLAUDE-REVIEW.md)에 있어요. 제어권 정리는 새 실행을 끊지 않도록 문맥에 묶어요.
 
 ## 새 세션과 압축 후 재개
 

@@ -1,0 +1,28 @@
+{
+  "monitor_reply": {
+    "data": {
+      "bridge_listening": true,
+      "can_step": true,
+      "control_generation": 1,
+      "enabled": true,
+      "episode_id": "d84e2d4719c87d33f699d0a3",
+      "frame_id": 2,
+      "revision": 3,
+      "robot_supported": true,
+      "state": "ready"
+    },
+    "id": "monitor-race"
+  },
+  "actor_error": null,
+  "receipt_matched": true,
+  "checks": [
+    "receipt_after_monitor",
+    "finite_action_after_monitor",
+    "fresh_observe_after_monitor",
+    "priority_stop_revokes_queued_actor"
+  ],
+  "priority_stop_seconds": 0.021877799998037517,
+  "queued_actor_after_stop": [
+    "stale_dispatch"
+  ]
+}

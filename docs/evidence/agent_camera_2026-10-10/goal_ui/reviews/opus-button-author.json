@@ -1,0 +1,77 @@
+{
+  "exit_code": 0,
+  "is_error": false,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 2,
+      "outputTokens": 1489,
+      "cacheReadInputTokens": 1454,
+      "cacheCreationInputTokens": 16152,
+      "webSearchRequests": 0,
+      "costUSD": 0.15929480000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 436,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 16152,
+    "cache_read_input_tokens": 1454,
+    "output_tokens": 1489,
+    "output_tokens_details": {
+      "thinking_tokens": 436
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16152,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1489,
+        "cache_read_input_tokens": 1454,
+        "cache_creation_input_tokens": 16152,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 16152
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 0.15929480000000001,
+  "requested_model": "opus",
+  "scope": "read-only source/design review; no runtime rerun by Claude",
+  "findings": {
+    "file": "src/ui/agent_trace_panel.gd",
+    "base_sha256": "4350a9408fe95484d43cf30547e420114652774a8939001cadd249fb3a1f483a",
+    "summary": "Manual action buttons now report their full translated label width as their minimum size, so the HFlowContainer reflows them onto more rows instead of trimming.",
+    "root_cause": "In Godot 4, Button::get_minimum_size counts the full text width only when clip_text is false AND text_overrun_behavior is OVERRUN_NO_TRIMMING. SsokTheme.button sets OVERRUN_TRIM_ELLIPSIS. With that setting, clearing clip_text alone still gives a minimum size close to the ellipsis width. The HFlowContainer then sees narrow children, keeps all three on one row, and each label is trimmed to Enabl…/Captu…/Forw….",
+    "patch": "--- a/src/ui/agent_trace_panel.gd\n+++ b/src/ui/agent_trace_panel.gd\n@@ -393,9 +393,10 @@ func _dynamic_label(variation: StringName = &\"\") -> Label:\n func _action_button(text: String, tip: String, row: Container) -> Button:\n \tvar control: Button = SsokTheme.button(text)\n \tcontrol.tooltip_text = tip\n-\t# Full labels set the minimum width so the flow row wraps rather than truncating.\n+\t# Full labels set the minimum width only with clipping and trimming both off, so the flow row wraps rather than truncating.\n \tcontrol.clip_text = false\n+\tcontrol.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING\n \tcontrol.size_flags_horizontal = Control.SIZE_EXPAND_FILL\n \trow.add_child(control)\n \treturn control\n",
+    "preserved": [
+      "Theme, colors, type variations and font sizes are unchanged (still built through SsokTheme.button)",
+      "Goal field, disclosure, limits and Run order and full width are unchanged",
+      "Stop stays pinned in top_row outside the scroll area",
+      "4:3 _fit_preview, raw goal text and the signals/disabled logic are unchanged",
+      "No new copy added"
+    ],
+    "notes": [
+      "Hunk line numbers are approximate. Context lines match _action_button exactly.",
+      "Remaining risk: a single translated label wider than the panel at 200% now sets a minimum width larger than the scroll content. With horizontal scroll disabled, that label would push past the edge instead of wrapping inside the button. The current captures show three short labels, so this should not occur, but the coordinator's render should confirm it.",
+      "_run_button has the same latent clip_text/overrun combination. It is not changed here because Run already renders full width per R2. Apply the same line there if a longer translation trims it.",
+      "Not visually verified. The coordinator should render and Astra should inspect English 200% and the CJK locales."
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "goal": "Approach the wall visible in the robot camera, then stop with a visible small gap before touching it. Make meaningful forward progress. Use only images and short forward steps, reobserve after each step, and stop when the image indicates you are near enough or uncertain. Do not infer hidden metric distances.",
+  "layouts_wall_x_m": [
+    0.35,
+    0.5,
+    0.6
+  ],
+  "success_criteria": {
+    "minimum_travel": 0.03,
+    "minimum_gap": 0.04,
+    "maximum_gap": 0.14
+  },
+  "rest": {
+    "chassis_linear_m_s": 0.015,
+    "chassis_angular_rad_s": 0.1,
+    "wheel_angular_rad_s": 0.5,
+    "consecutive_ticks": 12
+  },
+  "conditions": {
+    "live": 3,
+    "frozen": 1,
+    "blank": 1
+  },
+  "live_provider_authorized": true,
+  "limits": {
+    "maximum_cli_launches": 15,
+    "actions_per_session": 8,
+    "images_per_session": 9,
+    "seconds_per_session": 300
+  },
+  "provider": "OpenAI / requested gpt-6-astra / existing Codex ChatGPT login",
+  "billing_limit": "No monetary/model-request cap exposed; action/image/time limits only",
+  "sent_data": [
+    "same goal",
+    "delivered PNGs",
+    "public frame context and tool results",
+    "public summaries"
+  ],
+  "excluded_data": [
+    "layout distance",
+    "physical evaluator",
+    "graph",
+    "learner source",
+    "credentials"
+  ],
+  "method_limits": [
+    "small convenience fixture; three positions, no turns",
+    "controls1/run/layout vs live3",
+    "independent physical observer uses same physics runtime",
+    "requested backend identity unattested",
+    "no automatic paid retry or post-hoc threshold change"
+  ],
+  "source_sha256": {
+    "tools/app_control/camera_evaluator.gd": "f68d8f2031c9b5a10a67917743b763c2f0f5e1fde9843a27ec08ae0ace4a3b33",
+    "tools/app_control/camera_trial.py": "bdc34e41fe98834407942a96d070fd6eb1c39f0e1c292efb8b63de403a65f07c",
+    "tools/app_control/repeat_camera_trials.py": "aa642c1c6417f8b44c4b7cf5e3432db9ca62f91d7216c16abf87ca0772f140c2",
+    "tools/app_control/experiment_session.py": "44b4bad1be6d9a01b03f462156ab8fb7da38da714d748b950a1a3a1ec8245b1c",
+    "tools/app_control/run_goal.py": "e7062cd47f3c33f10e557d1a19e429b70c870c9feca9369ba283bd75cf2c1ecb",
+    "tools/app_control/desktop_session.py": "352301fbdd5e9921605b89ff5c5e881ce9865c6738d354ff78b1ef77e364f8cf",
+    "tools/app_control/desktop_mcp.py": "f2f31bd90dbb9fc9944df2eb33d75c0c737b28723a172a4d2bcf47b798be06be",
+    "tools/app_control/run_desktop.gd": "1d16831c56b751fc7a1277b0570081713ad235bc325eb45278033016fa2dec69"
+  },
+  "calibration_evidence": {
+    "path": "/home/bumboo/Projects/ssok-ai-loop/build/ai-loop-evidence/repeat/calibration-suite-r2",
+    "plan_sha256": "ce42507d41044cd6acc7aa3a55dfacfddaf7e0ced949b8a283eb0bbea951ce3d",
+    "results_sha256": "e56ca70c7b4259e7d1918d192c7b431ebc264ec26630361026b448048387ebdc"
+  }
+}

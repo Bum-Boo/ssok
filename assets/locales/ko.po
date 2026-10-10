@@ -2124,3 +2124,197 @@ msgstr "목표에 닿기 전에 프로그램이 끝났어요. 고친 다음 다�
 
 msgid "Reset robot"
 msgstr "처음 자리로"
+
+
+msgid "AI"
+msgstr "AI"
+
+msgid "Stop the robot now."
+msgstr "로봇을 지금 멈춰요."
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Enable"
+msgstr "켜기"
+
+msgid "Mount the virtual camera on the current robot."
+msgstr "현재 로봇에 가상 카메라를 달아요."
+
+msgid "Capture"
+msgstr "촬영"
+
+msgid "Capture one camera frame."
+msgstr "카메라 화면을 한 장 찍어요."
+
+msgid "Forward"
+msgstr "앞으로"
+
+msgid "Drive forward 20 ticks, then stop."
+msgstr "20틱 동안 앞으로 간 뒤 멈춰요."
+
+msgid "Camera"
+msgstr "카메라"
+
+msgid "Virtual sensor fixture on the robot, not a catalog part."
+msgstr "로봇에 단 가상 센서예요. 부품 목록의 부품이 아니에요."
+
+msgid "Image SHA-256"
+msgstr "이미지 SHA-256"
+
+msgid "Agent summary"
+msgstr "에이전트 요약"
+
+msgid "Written by the agent, not an observed result."
+msgstr "에이전트가 쓴 글이에요. 관측한 결과가 아니에요."
+
+msgid "Last tool call"
+msgstr "마지막 도구 호출"
+
+msgid "Recent events, newest first"
+msgstr "최근 이벤트 (최신 순)"
+
+msgid "Off"
+msgstr "꺼짐"
+
+msgid "Settling"
+msgstr "안정화 중"
+
+msgid "Ready"
+msgstr "준비됨"
+
+msgid "Driving"
+msgstr "주행 중"
+
+msgid "Capturing"
+msgstr "촬영 중"
+
+msgid "Stopped"
+msgstr "정지됨"
+
+msgid "Fault"
+msgstr "오류"
+
+msgid "Unknown state: %s"
+msgstr "알 수 없는 상태: %s"
+
+msgid "Desktop only. The AI camera is not available on Web."
+msgstr "데스크톱 전용이에요. 웹에서는 AI 카메라를 쓸 수 없어요."
+
+msgid "Fault. Enable again to retry."
+msgstr "오류가 났어요. 다시 켜서 재시도해요."
+
+msgid "Fault: %s. Enable again to retry."
+msgstr "오류: %s. 다시 켜서 재시도해요."
+
+msgid "Needs a robot with two wired DC wheels."
+msgstr "배선된 DC 바퀴 2개가 있는 로봇이 필요해요."
+
+msgid "Enable to mount the virtual camera on the current robot."
+msgstr "켜기를 누르면 현재 로봇에 가상 카메라를 달아요."
+
+msgid "Settling. Wait for the robot to rest."
+msgstr "안정화 중이에요. 로봇이 멈출 때까지 기다려요."
+
+msgid "Capturing a frame."
+msgstr "화면을 찍는 중이에요."
+
+msgid "Driving forward. Stop is always available."
+msgstr "앞으로 가는 중이에요. 정지는 언제든 누를 수 있어요."
+
+msgid "Ready. Forward drives %d ticks, then stops."
+msgstr "준비됐어요. 앞으로는 %d틱 동안 간 뒤 멈춰요."
+
+msgid "Capture a frame before moving."
+msgstr "움직이기 전에 화면을 먼저 찍어요."
+
+msgid "Stopped. Capture a frame or Enable again."
+msgstr "멈췄어요. 화면을 찍거나 다시 켜요."
+
+msgid "External agent bridge: listening on this computer."
+msgstr "외부 에이전트 브리지: 이 컴퓨터에서 대기 중이에요."
+
+msgid "External agent bridge: off. The camera works without it."
+msgstr "외부 에이전트 브리지: 꺼짐. 카메라는 브리지 없이도 작동해요."
+
+msgid "No frame yet. Capture to see the robot camera."
+msgstr "아직 화면이 없어요. 촬영하면 로봇 카메라가 보여요."
+
+msgid "Frame %s could not be decoded."
+msgstr "%s번 화면을 읽지 못했어요."
+
+msgid "Captured frame %s at tick %s"
+msgstr "화면 %s · %s틱에 촬영"
+
+msgid "Frame bytes do not match the reported hash."
+msgstr "화면 데이터가 보고된 해시와 달라요."
+
+msgid "No agent decision yet."
+msgstr "아직 에이전트 결정이 없어요."
+
+msgid "No tool call yet."
+msgstr "아직 도구 호출이 없어요."
+
+msgid "No events yet."
+msgstr "아직 이벤트가 없어요."
+
+
+msgid "Reported receipt from %s: no image"
+msgstr "%s 수신 보고: 이미지 없음"
+
+msgid "Reported receipt from %s: image %s matches the frame shown. This does not prove it was sent or read."
+msgstr "%s 수신 보고: 이미지 %s, 표시된 프레임과 일치. 전송되었거나 읽혔음을 증명하지는 않습니다."
+
+msgid "Reported receipt from %s: image %s does not match the frame shown"
+msgstr "%s 수신 보고: 이미지 %s, 표시된 프레임과 불일치"
+
+msgid "No summary was reported."
+msgstr "보고된 요약이 없습니다."
+
+msgid "Goal"
+msgstr "목표"
+
+msgid "Run with AI"
+msgstr "AI로 실행"
+
+msgid "Send this goal to the connected AI operator."
+msgstr "이 목표를 연결된 AI 오퍼레이터에 보내요."
+
+msgid "Per run: up to %d actions, %d camera frames and %d seconds. Usage counts toward that ChatGPT account; the CLI sets no fixed cost or request cap."
+msgstr "실행 한 번에 행동 최대 %d개, 카메라 화면 %d장, %d초까지예요. 사용량은 해당 ChatGPT 계정에 반영되며 CLI에는 고정된 비용이나 요청 한도가 없어요."
+
+msgid "Goal sent. Waiting for the operator."
+msgstr "목표를 보냈어요. 오퍼레이터를 기다리는 중이에요."
+
+msgid "Running the goal. Stop is always available."
+msgstr "목표를 실행 중이에요. 정지는 언제든 쓸 수 있어요."
+
+msgid "AI operator: connected."
+msgstr "AI 오퍼레이터: 연결됨"
+
+msgid "AI operator: not connected."
+msgstr "AI 오퍼레이터: 연결 안 됨"
+
+msgid "Goal run ended. Check the camera frame for the result."
+msgstr "목표 실행이 끝났어요. 결과는 카메라 화면으로 확인해요."
+
+msgid "Goal run stopped."
+msgstr "목표 실행을 멈췄어요."
+
+msgid "Goal run reached its limit and stopped."
+msgstr "목표 실행이 한도에 도달해 멈췄어요."
+
+msgid "Goal run failed. Check the recent events."
+msgstr "목표 실행이 실패했어요. 최근 이벤트를 확인해요."
+
+msgid "Operator disconnected during the run."
+msgstr "실행 중 오퍼레이터 연결이 끊겼어요."
+
+msgid "Run with AI sends this goal to the connected operator, which requests %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short visual summaries and tool results."
+msgstr "AI로 실행은 이 목표를 연결된 오퍼레이터에 보내고, 오퍼레이터는 기존 Codex ChatGPT 로그인으로 OpenAI에 %s 모델을 요청합니다. 보내는 데이터: 목표, 카메라 PNG, 공개 프레임 정보, 간단한 시각 요약, 도구 결과."
+
+msgid "Run with AI asks the connected operator to request %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short summaries and tool results."
+msgstr "AI로 실행하면 연결된 운영자가 기존 Codex ChatGPT 로그인으로 OpenAI에 %s을(를) 요청합니다. 전송: 목표, 카메라 PNG, 공개 프레임 정보, 짧은 요약, 도구 결과."
+
+msgid "Per run: up to %d actions, %d images and %d seconds. Usage counts toward that ChatGPT account, with no fixed cost or model-request cap."
+msgstr "실행당 최대 동작 %d회, 이미지 %d장, %d초. 사용량은 해당 ChatGPT 계정에 포함되며 고정 비용이나 모델 요청 한도는 없습니다."

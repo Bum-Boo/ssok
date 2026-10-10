@@ -2123,3 +2123,197 @@ msgstr "程序在达成目标前就结束了。修改后再试一次。"
 
 msgid "Reset robot"
 msgstr "机器人复位"
+
+
+msgid "AI"
+msgstr "AI"
+
+msgid "Stop the robot now."
+msgstr "立即停止机器人。"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Mount the virtual camera on the current robot."
+msgstr "在当前机器人上安装虚拟摄像头。"
+
+msgid "Capture"
+msgstr "拍摄"
+
+msgid "Capture one camera frame."
+msgstr "拍摄一帧摄像头画面。"
+
+msgid "Forward"
+msgstr "前进"
+
+msgid "Drive forward 20 ticks, then stop."
+msgstr "前进 20 个物理步后停止。"
+
+msgid "Camera"
+msgstr "摄像头"
+
+msgid "Virtual sensor fixture on the robot, not a catalog part."
+msgstr "这是装在机器人上的虚拟传感器，不是目录中的零件。"
+
+msgid "Image SHA-256"
+msgstr "图像 SHA-256"
+
+msgid "Agent summary"
+msgstr "智能体摘要"
+
+msgid "Written by the agent, not an observed result."
+msgstr "由智能体撰写，不是观测到的结果。"
+
+msgid "Last tool call"
+msgstr "最近一次工具调用"
+
+msgid "Recent events, newest first"
+msgstr "最近事件（最新在前）"
+
+msgid "Off"
+msgstr "关闭"
+
+msgid "Settling"
+msgstr "稳定中"
+
+msgid "Ready"
+msgstr "就绪"
+
+msgid "Driving"
+msgstr "行驶中"
+
+msgid "Capturing"
+msgstr "拍摄中"
+
+msgid "Stopped"
+msgstr "已停止"
+
+msgid "Fault"
+msgstr "故障"
+
+msgid "Unknown state: %s"
+msgstr "未知状态：%s"
+
+msgid "Desktop only. The AI camera is not available on Web."
+msgstr "仅限桌面版。网页版无法使用 AI 摄像头。"
+
+msgid "Fault. Enable again to retry."
+msgstr "发生故障。重新启用即可重试。"
+
+msgid "Fault: %s. Enable again to retry."
+msgstr "故障：%s。重新启用即可重试。"
+
+msgid "Needs a robot with two wired DC wheels."
+msgstr "需要一台连好线的双 DC 轮机器人。"
+
+msgid "Enable to mount the virtual camera on the current robot."
+msgstr "点击启用，在当前机器人上安装虚拟摄像头。"
+
+msgid "Settling. Wait for the robot to rest."
+msgstr "稳定中，请等待机器人静止。"
+
+msgid "Capturing a frame."
+msgstr "正在拍摄画面。"
+
+msgid "Driving forward. Stop is always available."
+msgstr "正在前进。随时可以停止。"
+
+msgid "Ready. Forward drives %d ticks, then stops."
+msgstr "已就绪。前进 %d 个物理步后停止。"
+
+msgid "Capture a frame before moving."
+msgstr "移动前请先拍摄画面。"
+
+msgid "Stopped. Capture a frame or Enable again."
+msgstr "已停止。可以拍摄画面或重新启用。"
+
+msgid "External agent bridge: listening on this computer."
+msgstr "外部智能体桥接：正在本机监听。"
+
+msgid "External agent bridge: off. The camera works without it."
+msgstr "外部智能体桥接：关闭。摄像头无需桥接也能使用。"
+
+msgid "No frame yet. Capture to see the robot camera."
+msgstr "还没有画面。拍摄后可查看机器人摄像头。"
+
+msgid "Frame %s could not be decoded."
+msgstr "无法解码第 %s 帧。"
+
+msgid "Captured frame %s at tick %s"
+msgstr "第 %s 帧，拍摄于第 %s 物理步"
+
+msgid "Frame bytes do not match the reported hash."
+msgstr "画面数据与报告的哈希不一致。"
+
+msgid "No agent decision yet."
+msgstr "智能体还没有做出决定。"
+
+msgid "No tool call yet."
+msgstr "还没有工具调用。"
+
+msgid "No events yet."
+msgstr "还没有事件。"
+
+
+msgid "Reported receipt from %s: no image"
+msgstr "%s 报告的回执：无图像"
+
+msgid "Reported receipt from %s: image %s matches the frame shown. This does not prove it was sent or read."
+msgstr "%s 报告的回执：图像 %s 与显示的帧一致。这不能证明已发送或已被读取。"
+
+msgid "Reported receipt from %s: image %s does not match the frame shown"
+msgstr "%s 报告的回执：图像 %s 与显示的帧不一致"
+
+msgid "No summary was reported."
+msgstr "没有报告的摘要。"
+
+msgid "Goal"
+msgstr "目标"
+
+msgid "Run with AI"
+msgstr "用 AI 运行"
+
+msgid "Send this goal to the connected AI operator."
+msgstr "将此目标发送给已连接的 AI 操作端。"
+
+msgid "Per run: up to %d actions, %d camera frames and %d seconds. Usage counts toward that ChatGPT account; the CLI sets no fixed cost or request cap."
+msgstr "每次运行最多 %d 个动作、%d 张摄像头画面和 %d 秒。用量计入该 ChatGPT 账户；CLI 没有固定的费用或请求上限。"
+
+msgid "Goal sent. Waiting for the operator."
+msgstr "目标已发送，正在等待操作端。"
+
+msgid "Running the goal. Stop is always available."
+msgstr "正在执行目标。随时可以停止。"
+
+msgid "AI operator: connected."
+msgstr "AI 操作端：已连接"
+
+msgid "AI operator: not connected."
+msgstr "AI 操作端：未连接"
+
+msgid "Goal run ended. Check the camera frame for the result."
+msgstr "目标运行已结束。请通过摄像头画面确认结果。"
+
+msgid "Goal run stopped."
+msgstr "目标运行已停止。"
+
+msgid "Goal run reached its limit and stopped."
+msgstr "目标运行已达到上限并停止。"
+
+msgid "Goal run failed. Check the recent events."
+msgstr "目标运行失败。请查看最近事件。"
+
+msgid "Operator disconnected during the run."
+msgstr "运行期间操作端已断开。"
+
+msgid "Run with AI sends this goal to the connected operator, which requests %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short visual summaries and tool results."
+msgstr "“用 AI 运行”会将此目标发送给已连接的操作程序，它使用现有的 Codex ChatGPT 登录向 OpenAI 请求 %s 模型。发送内容：目标、相机 PNG、公开的帧信息、简短的视觉摘要和工具结果。"
+
+msgid "Run with AI asks the connected operator to request %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short summaries and tool results."
+msgstr "用 AI 运行会让已连接的操作程序使用其现有的 Codex ChatGPT 登录向 OpenAI 请求 %s。发送内容：目标、摄像头 PNG、公开帧信息、简短摘要和工具结果。"
+
+msgid "Per run: up to %d actions, %d images and %d seconds. Usage counts toward that ChatGPT account, with no fixed cost or model-request cap."
+msgstr "每次运行：最多 %d 个动作、%d 张图像、%d 秒。用量计入该 ChatGPT 账户，没有固定费用或模型请求上限。"

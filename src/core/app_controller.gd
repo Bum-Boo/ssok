@@ -95,6 +95,11 @@ func _part_number(value: Variant) -> bool:
 	return MotionSnapshot._is_integer(value) and value >= 0 and value < app.assembly.graph.parts.size()
 
 
+func current_revision() -> int:
+	_refresh_revision()
+	return revision
+
+
 func _refresh_revision() -> void:
 	var fingerprint: String = JSON.stringify([MotionSnapshot.encode(app.assembly.graph), app.code_edit.text, app.mode_button.button_pressed], "", true, true).sha256_text()
 	if fingerprint != _last_fingerprint:

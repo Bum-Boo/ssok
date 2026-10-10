@@ -16,9 +16,9 @@ ssok/
     blocks/  (1 GDScript files)
     core/  (11 GDScript files)
     profiles/  (1 GDScript files)
-    runtime/  (19 GDScript files)
+    runtime/  (22 GDScript files)
     screens/  (5 GDScript files)
-    ui/  (17 GDScript files)
+    ui/  (18 GDScript files)
   presets/
   assets/
     blender/
@@ -96,6 +96,9 @@ ssok/
 | [src/core/stage_levels.gd](../../src/core/stage_levels.gd) | StageLevels |
 | [src/core/stage_progress.gd](../../src/core/stage_progress.gd) | StageProgress |
 | [src/profiles/learner_program.gd](../../src/profiles/learner_program.gd) | LearnerProgram |
+| [src/runtime/agent_camera_loop.gd](../../src/runtime/agent_camera_loop.gd) | AgentCameraLoop |
+| [src/runtime/agent_desktop_bridge.gd](../../src/runtime/agent_desktop_bridge.gd) | AgentDesktopBridge |
+| [src/runtime/agent_goal_inbox.gd](../../src/runtime/agent_goal_inbox.gd) | AgentGoalInbox |
 | [src/runtime/bundled_biped_motion.gd](../../src/runtime/bundled_biped_motion.gd) | BundledBipedMotion |
 | [src/runtime/drive_motor.gd](../../src/runtime/drive_motor.gd) | DriveMotor |
 | [src/runtime/kit_humanoid_motion.gd](../../src/runtime/kit_humanoid_motion.gd) | KitHumanoidMotion |
@@ -120,6 +123,7 @@ ssok/
 | [src/screens/menu_screen.gd](../../src/screens/menu_screen.gd) | MenuScreen |
 | [src/screens/stage_select_screen.gd](../../src/screens/stage_select_screen.gd) | StageSelectScreen |
 | [src/screens/title_screen.gd](../../src/screens/title_screen.gd) | TitleScreen |
+| [src/ui/agent_trace_panel.gd](../../src/ui/agent_trace_panel.gd) | AgentTracePanel |
 | [src/ui/blender_camera.gd](../../src/ui/blender_camera.gd) | BlenderCamera |
 | [src/ui/block_program_panel.gd](../../src/ui/block_program_panel.gd) | BlockProgramPanel |
 | [src/ui/browser_evidence.gd](../../src/ui/browser_evidence.gd) | BrowserEvidence |

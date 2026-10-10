@@ -1,0 +1,380 @@
+[
+  {
+    "en": "AI",
+    "ko": "AI",
+    "zh_CN": "AI",
+    "ja": "AI"
+  },
+  {
+    "en": "Stop",
+    "ko": "정지",
+    "zh_CN": "停止",
+    "ja": "停止"
+  },
+  {
+    "en": "Stop the robot now.",
+    "ko": "로봇을 지금 멈춰요.",
+    "zh_CN": "立即停止机器人。",
+    "ja": "ロボットを今すぐ止めます。"
+  },
+  {
+    "en": "Status",
+    "ko": "상태",
+    "zh_CN": "状态",
+    "ja": "状態"
+  },
+  {
+    "en": "Enable",
+    "ko": "켜기",
+    "zh_CN": "启用",
+    "ja": "有効化"
+  },
+  {
+    "en": "Mount the virtual camera on the current robot.",
+    "ko": "현재 로봇에 가상 카메라를 달아요.",
+    "zh_CN": "在当前机器人上安装虚拟摄像头。",
+    "ja": "今のロボットに仮想カメラを取り付けます。"
+  },
+  {
+    "en": "Capture",
+    "ko": "촬영",
+    "zh_CN": "拍摄",
+    "ja": "撮影"
+  },
+  {
+    "en": "Capture one camera frame.",
+    "ko": "카메라 화면을 한 장 찍어요.",
+    "zh_CN": "拍摄一帧摄像头画面。",
+    "ja": "カメラ画像を1枚撮影します。"
+  },
+  {
+    "en": "Forward",
+    "ko": "앞으로",
+    "zh_CN": "前进",
+    "ja": "前進"
+  },
+  {
+    "en": "Drive forward 20 ticks, then stop.",
+    "ko": "20틱 동안 앞으로 간 뒤 멈춰요.",
+    "zh_CN": "前进 20 个物理步后停止。",
+    "ja": "20ティック前進して止まります。"
+  },
+  {
+    "en": "Camera",
+    "ko": "카메라",
+    "zh_CN": "摄像头",
+    "ja": "カメラ"
+  },
+  {
+    "en": "Virtual sensor fixture on the robot, not a catalog part.",
+    "ko": "로봇에 단 가상 센서예요. 부품 목록의 부품이 아니에요.",
+    "zh_CN": "这是装在机器人上的虚拟传感器，不是目录中的零件。",
+    "ja": "ロボットに付けた仮想センサーです。部品カタログの部品ではありません。"
+  },
+  {
+    "en": "Image SHA-256",
+    "ko": "이미지 SHA-256",
+    "zh_CN": "图像 SHA-256",
+    "ja": "画像 SHA-256"
+  },
+  {
+    "en": "Agent summary",
+    "ko": "에이전트 요약",
+    "zh_CN": "智能体摘要",
+    "ja": "エージェントの要約"
+  },
+  {
+    "en": "Written by the agent, not an observed result.",
+    "ko": "에이전트가 쓴 글이에요. 관측한 결과가 아니에요.",
+    "zh_CN": "由智能体撰写，不是观测到的结果。",
+    "ja": "エージェントが書いた文章で、観測した結果ではありません。"
+  },
+  {
+    "en": "Last tool call",
+    "ko": "마지막 도구 호출",
+    "zh_CN": "最近一次工具调用",
+    "ja": "最後のツール呼び出し"
+  },
+  {
+    "en": "Recent events, newest first",
+    "ko": "최근 이벤트 (최신 순)",
+    "zh_CN": "最近事件（最新在前）",
+    "ja": "最近のイベント（新しい順）"
+  },
+  {
+    "en": "Off",
+    "ko": "꺼짐",
+    "zh_CN": "关闭",
+    "ja": "オフ"
+  },
+  {
+    "en": "Settling",
+    "ko": "안정화 중",
+    "zh_CN": "稳定中",
+    "ja": "安定待ち"
+  },
+  {
+    "en": "Ready",
+    "ko": "준비됨",
+    "zh_CN": "就绪",
+    "ja": "準備完了"
+  },
+  {
+    "en": "Driving",
+    "ko": "주행 중",
+    "zh_CN": "行驶中",
+    "ja": "走行中"
+  },
+  {
+    "en": "Capturing",
+    "ko": "촬영 중",
+    "zh_CN": "拍摄中",
+    "ja": "撮影中"
+  },
+  {
+    "en": "Stopped",
+    "ko": "정지됨",
+    "zh_CN": "已停止",
+    "ja": "停止済み"
+  },
+  {
+    "en": "Fault",
+    "ko": "오류",
+    "zh_CN": "故障",
+    "ja": "異常"
+  },
+  {
+    "en": "Unknown state: %s",
+    "ko": "알 수 없는 상태: %s",
+    "zh_CN": "未知状态：%s",
+    "ja": "不明な状態: %s"
+  },
+  {
+    "en": "Desktop only. The AI camera is not available on Web.",
+    "ko": "데스크톱 전용이에요. 웹에서는 AI 카메라를 쓸 수 없어요.",
+    "zh_CN": "仅限桌面版。网页版无法使用 AI 摄像头。",
+    "ja": "デスクトップ版のみです。Web では AI カメラを使えません。"
+  },
+  {
+    "en": "Fault. Enable again to retry.",
+    "ko": "오류가 났어요. 다시 켜서 재시도해요.",
+    "zh_CN": "发生故障。重新启用即可重试。",
+    "ja": "異常が起きました。有効化し直すと再試行できます。"
+  },
+  {
+    "en": "Fault: %s. Enable again to retry.",
+    "ko": "오류: %s. 다시 켜서 재시도해요.",
+    "zh_CN": "故障：%s。重新启用即可重试。",
+    "ja": "異常: %s。有効化し直すと再試行できます。"
+  },
+  {
+    "en": "Needs a robot with two wired DC wheels.",
+    "ko": "배선된 DC 바퀴 2개가 있는 로봇이 필요해요.",
+    "zh_CN": "需要一台连好线的双 DC 轮机器人。",
+    "ja": "配線済みの DC ホイールが2つあるロボットが必要です。"
+  },
+  {
+    "en": "Enable to mount the virtual camera on the current robot.",
+    "ko": "켜기를 누르면 현재 로봇에 가상 카메라를 달아요.",
+    "zh_CN": "点击启用，在当前机器人上安装虚拟摄像头。",
+    "ja": "有効化すると今のロボットに仮想カメラを取り付けます。"
+  },
+  {
+    "en": "Settling. Wait for the robot to rest.",
+    "ko": "안정화 중이에요. 로봇이 멈출 때까지 기다려요.",
+    "zh_CN": "稳定中，请等待机器人静止。",
+    "ja": "安定待ちです。ロボットが静止するまで待ちます。"
+  },
+  {
+    "en": "Capturing a frame.",
+    "ko": "화면을 찍는 중이에요.",
+    "zh_CN": "正在拍摄画面。",
+    "ja": "画像を撮影中です。"
+  },
+  {
+    "en": "Driving forward. Stop is always available.",
+    "ko": "앞으로 가는 중이에요. 정지는 언제든 누를 수 있어요.",
+    "zh_CN": "正在前进。随时可以停止。",
+    "ja": "前進中です。停止はいつでも押せます。"
+  },
+  {
+    "en": "Ready. Forward drives %d ticks, then stops.",
+    "ko": "준비됐어요. 앞으로는 %d틱 동안 간 뒤 멈춰요.",
+    "zh_CN": "已就绪。前进 %d 个物理步后停止。",
+    "ja": "準備完了です。前進は %d ティック進んで止まります。"
+  },
+  {
+    "en": "Capture a frame before moving.",
+    "ko": "움직이기 전에 화면을 먼저 찍어요.",
+    "zh_CN": "移动前请先拍摄画面。",
+    "ja": "動かす前に画像を撮影してください。"
+  },
+  {
+    "en": "Stopped. Capture a frame or Enable again.",
+    "ko": "멈췄어요. 화면을 찍거나 다시 켜요.",
+    "zh_CN": "已停止。可以拍摄画面或重新启用。",
+    "ja": "停止しました。撮影するか、もう一度有効化します。"
+  },
+  {
+    "en": "External agent bridge: listening on this computer.",
+    "ko": "외부 에이전트 브리지: 이 컴퓨터에서 대기 중이에요.",
+    "zh_CN": "外部智能体桥接：正在本机监听。",
+    "ja": "外部エージェントブリッジ: このコンピューターで待機中です。"
+  },
+  {
+    "en": "External agent bridge: off. The camera works without it.",
+    "ko": "외부 에이전트 브리지: 꺼짐. 카메라는 브리지 없이도 작동해요.",
+    "zh_CN": "外部智能体桥接：关闭。摄像头无需桥接也能使用。",
+    "ja": "外部エージェントブリッジ: オフ。カメラはブリッジなしでも使えます。"
+  },
+  {
+    "en": "No frame yet. Capture to see the robot camera.",
+    "ko": "아직 화면이 없어요. 촬영하면 로봇 카메라가 보여요.",
+    "zh_CN": "还没有画面。拍摄后可查看机器人摄像头。",
+    "ja": "まだ画像がありません。撮影するとロボットのカメラが見えます。"
+  },
+  {
+    "en": "Frame %s could not be decoded.",
+    "ko": "%s번 화면을 읽지 못했어요.",
+    "zh_CN": "无法解码第 %s 帧。",
+    "ja": "フレーム %s を読み込めませんでした。"
+  },
+  {
+    "en": "Captured frame %s at tick %s",
+    "ko": "화면 %s · %s틱에 촬영",
+    "zh_CN": "第 %s 帧，拍摄于第 %s 物理步",
+    "ja": "フレーム %s（%s ティック目に撮影）"
+  },
+  {
+    "en": "Frame bytes do not match the reported hash.",
+    "ko": "화면 데이터가 보고된 해시와 달라요.",
+    "zh_CN": "画面数据与报告的哈希不一致。",
+    "ja": "画像データが報告されたハッシュと一致しません。"
+  },
+  {
+    "en": "No agent decision yet.",
+    "ko": "아직 에이전트 결정이 없어요.",
+    "zh_CN": "智能体还没有做出决定。",
+    "ja": "エージェントの判断はまだありません。"
+  },
+  {
+    "en": "No tool call yet.",
+    "ko": "아직 도구 호출이 없어요.",
+    "zh_CN": "还没有工具调用。",
+    "ja": "ツール呼び出しはまだありません。"
+  },
+  {
+    "en": "No events yet.",
+    "ko": "아직 이벤트가 없어요.",
+    "zh_CN": "还没有事件。",
+    "ja": "イベントはまだありません。"
+  },
+  {
+    "en": "Reported receipt from %s: no image",
+    "ko": "%s 수신 보고: 이미지 없음",
+    "zh_CN": "%s 报告的回执：无图像",
+    "ja": "%s からの受信報告: 画像なし"
+  },
+  {
+    "en": "Reported receipt from %s: image %s matches the frame shown. This does not prove it was sent or read.",
+    "ko": "%s 수신 보고: 이미지 %s, 표시된 프레임과 일치. 전송되었거나 읽혔음을 증명하지는 않습니다.",
+    "zh_CN": "%s 报告的回执：图像 %s 与显示的帧一致。这不能证明已发送或已被读取。",
+    "ja": "%s からの受信報告: 画像 %s は表示中のフレームと一致します。送信や読み取りを証明するものではありません。"
+  },
+  {
+    "en": "Reported receipt from %s: image %s does not match the frame shown",
+    "ko": "%s 수신 보고: 이미지 %s, 표시된 프레임과 불일치",
+    "zh_CN": "%s 报告的回执：图像 %s 与显示的帧不一致",
+    "ja": "%s からの受信報告: 画像 %s は表示中のフレームと一致しません"
+  },
+  {
+    "en": "No summary was reported.",
+    "ko": "보고된 요약이 없습니다.",
+    "zh_CN": "没有报告的摘要。",
+    "ja": "要約は報告されていません。"
+  },
+  {
+    "en": "Goal",
+    "ko": "목표",
+    "zh_CN": "目标",
+    "ja": "目標"
+  },
+  {
+    "en": "Run with AI",
+    "ko": "AI로 실행",
+    "zh_CN": "用 AI 运行",
+    "ja": "AIで実行"
+  },
+  {
+    "en": "Send this goal to the connected AI operator.",
+    "ko": "이 목표를 연결된 AI 오퍼레이터에 보내요.",
+    "zh_CN": "将此目标发送给已连接的 AI 操作端。",
+    "ja": "この目標を接続中のAIオペレーターに送信します。"
+  },
+  {
+    "en": "Goal sent. Waiting for the operator.",
+    "ko": "목표를 보냈어요. 오퍼레이터를 기다리는 중이에요.",
+    "zh_CN": "目标已发送，正在等待操作端。",
+    "ja": "目標を送信しました。オペレーターを待っています。"
+  },
+  {
+    "en": "Running the goal. Stop is always available.",
+    "ko": "목표를 실행 중이에요. 정지는 언제든 쓸 수 있어요.",
+    "zh_CN": "正在执行目标。随时可以停止。",
+    "ja": "目標を実行中です。停止はいつでも使えます。"
+  },
+  {
+    "en": "AI operator: connected.",
+    "ko": "AI 오퍼레이터: 연결됨",
+    "zh_CN": "AI 操作端：已连接",
+    "ja": "AIオペレーター：接続中"
+  },
+  {
+    "en": "AI operator: not connected.",
+    "ko": "AI 오퍼레이터: 연결 안 됨",
+    "zh_CN": "AI 操作端：未连接",
+    "ja": "AIオペレーター：未接続"
+  },
+  {
+    "en": "Goal run ended. Check the camera frame for the result.",
+    "ko": "목표 실행이 끝났어요. 결과는 카메라 화면으로 확인해요.",
+    "zh_CN": "目标运行已结束。请通过摄像头画面确认结果。",
+    "ja": "目標の実行が終わりました。結果はカメラ画像で確認してください。"
+  },
+  {
+    "en": "Goal run stopped.",
+    "ko": "목표 실행을 멈췄어요.",
+    "zh_CN": "目标运行已停止。",
+    "ja": "目標の実行を停止しました。"
+  },
+  {
+    "en": "Goal run reached its limit and stopped.",
+    "ko": "목표 실행이 한도에 도달해 멈췄어요.",
+    "zh_CN": "目标运行已达到上限并停止。",
+    "ja": "目標の実行が上限に達して停止しました。"
+  },
+  {
+    "en": "Goal run failed. Check the recent events.",
+    "ko": "목표 실행이 실패했어요. 최근 이벤트를 확인해요.",
+    "zh_CN": "目标运行失败。请查看最近事件。",
+    "ja": "目標の実行に失敗しました。最近のイベントを確認してください。"
+  },
+  {
+    "en": "Operator disconnected during the run.",
+    "ko": "실행 중 오퍼레이터 연결이 끊겼어요.",
+    "zh_CN": "运行期间操作端已断开。",
+    "ja": "実行中にオペレーターとの接続が切れました。"
+  },
+  {
+    "en": "Run with AI asks the connected operator to request %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short summaries and tool results.",
+    "ko": "AI로 실행하면 연결된 운영자가 기존 Codex ChatGPT 로그인으로 OpenAI에 %s을(를) 요청합니다. 전송: 목표, 카메라 PNG, 공개 프레임 정보, 짧은 요약, 도구 결과.",
+    "zh_CN": "用 AI 运行会让已连接的操作程序使用其现有的 Codex ChatGPT 登录向 OpenAI 请求 %s。发送内容：目标、摄像头 PNG、公开帧信息、简短摘要和工具结果。",
+    "ja": "AIで実行すると、接続中のオペレーターが既存の Codex ChatGPT ログインで OpenAI に %s をリクエストします。送信内容: 目標、カメラ PNG、公開フレーム情報、短い要約、ツール結果。"
+  },
+  {
+    "en": "Per run: up to %d actions, %d images and %d seconds. Usage counts toward that ChatGPT account, with no fixed cost or model-request cap.",
+    "ko": "실행당 최대 동작 %d회, 이미지 %d장, %d초. 사용량은 해당 ChatGPT 계정에 포함되며 고정 비용이나 모델 요청 한도는 없습니다.",
+    "zh_CN": "每次运行：最多 %d 个动作、%d 张图像、%d 秒。用量计入该 ChatGPT 账户，没有固定费用或模型请求上限。",
+    "ja": "1回の実行: 最大 %d 回の操作、%d 枚の画像、%d 秒。使用量はその ChatGPT アカウントに計上され、固定費用やモデルリクエストの上限はありません。"
+  }
+]

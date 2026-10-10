@@ -36,8 +36,10 @@ jobs:
           key: godot-4.7.2-linux-editor-cadd3204
       - run: python tools/ci/install_godot.py
       - run: python -m pip install -r tools/ci/requirements-lock.txt
+      - name: Provide software-rendered desktop for actual camera checks
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri
       - name: Run all checks, including mock HTTP and MCP transport
-        run: python tools/ci/verify.py --godot "$PWD/build/toolchain/godot"
+        run: xvfb-run -a -s "-screen 0 1600x1000x24" python tools/ci/verify.py --godot "$PWD/build/toolchain/godot"
       - name: Preserve every result and failure
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

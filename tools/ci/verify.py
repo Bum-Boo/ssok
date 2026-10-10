@@ -31,7 +31,10 @@ class Check:
 
 
 def checks(godot: str, python: str) -> list[Check]:
-    base = [godot, "--headless", "--path", str(PROJECT), "--language", "en", "--fixed-fps", "60"]
+    # Rendering is required, but these acceptance checks do not test hardware audio.
+    base = [godot, "--headless", "--audio-driver", "Dummy", "--path", str(PROJECT),
+            "--language", "en", "--fixed-fps", "60"]
+    rendered = [value for value in base if value != "--headless"]
     result = [Check("import", [godot, "--headless", "--path", str(PROJECT), "--editor", "--import", "--quit"], 300),
               Check("scene-load", base + ["--quit-after", "5"], 60)]
     variants = {
@@ -42,10 +45,16 @@ def checks(godot: str, python: str) -> list[Check]:
         "humanoid_ui_check": [[], ["--modular"]],
     }
     for path in sorted((PROJECT / "tests").glob("*_check.gd")):
+        if path.stem in {"bridge_stop_owner_check", "agent_camera_rest_check"}:
+            result.append(Check(path.stem, rendered + ["--script", str(path), "--", "--ssok-agent-bridge"]))
+            continue
         for arguments in variants.get(path.stem, [[]]):
             suffix = "-" + "-".join(a.removeprefix("--") for a in arguments) if arguments else ""
             command = base + ["--script", str(path)] + (["--", *arguments] if arguments else [])
             result.append(Check(path.stem + suffix, command))
+        if path.stem in {"agent_camera_loop_check", "agent_goal_ui_check"}:
+            result.append(Check(path.stem + "-rendered", rendered + ["--script", str(path), "--",
+                                                                 "--ssok-agent-bridge", "--screenshots"]))
     python_files = set((PROJECT / "tests").glob("test_*.py"))
     python_files.update((PROJECT / "tests").glob("*_check.py"))
     python_files.update((PROJECT / "tools").rglob("test_*.py"))
@@ -53,7 +62,7 @@ def checks(godot: str, python: str) -> list[Check]:
         if any(part in {"runs", "__pycache__", ".venv", "node_modules"} for part in path.parts):
             continue
         relative = path.relative_to(PROJECT)
-        result.append(Check(str(relative).replace("/", "-"), [python, "-m", "unittest", str(relative), "-v"]))
+        result.append(Check(relative.as_posix().replace("/", "-"), [python, "-m", "unittest", str(relative), "-v"]))
     return result
 
 
@@ -69,11 +78,19 @@ def run(check: Check, output: Path, environment: dict[str, str]) -> dict:
             code = process.wait(timeout=check.timeout)
         except subprocess.TimeoutExpired:
             timed_out = True
-            os.killpg(process.pid, signal.SIGTERM)
+            if os.name == 'nt':
+                # Kill only this owned tree; retain the failure and reap the child.
+                subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            else:
+                os.killpg(process.pid, signal.SIGTERM)
             try:
                 process.wait(timeout=5)
             except subprocess.TimeoutExpired:
-                os.killpg(process.pid, signal.SIGKILL)
+                if os.name == 'nt':
+                    process.kill()
+                else:
+                    os.killpg(process.pid, signal.SIGKILL)
                 process.wait()
             code = 124
             log.write(f"\nTIMEOUT after {check.timeout} seconds\n")
@@ -136,6 +153,9 @@ def main() -> int:
             os.environ.pop(key, None)
         for key in ("XDG_DATA_HOME", "XDG_CONFIG_HOME", "XDG_CACHE_HOME"):
             os.environ[key] = str(Path(temporary) / key.lower())
+        if os.name == 'nt':
+            os.environ['APPDATA'] = str(Path(temporary) / 'appdata')
+            os.environ['LOCALAPPDATA'] = str(Path(temporary) / 'localappdata')
         os.environ["GODOT"] = args.godot
         os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
         from tools.motion_lab.server import make_server
@@ -145,7 +165,8 @@ def main() -> int:
         server = make_server(service, token, port=0)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
-        environment = dict(os.environ, SSOK_UI_TEST_URL=f"http://127.0.0.1:{server.server_address[1]}", SSOK_UI_TEST_TOKEN=token)
+        environment = dict(os.environ, SSOK_UI_TEST_URL=f"http://127.0.0.1:{server.server_address[1]}",
+                           SSOK_UI_TEST_TOKEN=token, SSOK_AGENT_TOKEN=secrets.token_urlsafe(32))
         results = []
         try:
             for check in selected:

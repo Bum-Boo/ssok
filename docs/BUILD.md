@@ -62,6 +62,12 @@ HTTP bridge remains alive for the Godot transport tests. Actual OpenAI calls are
 
 Godot user data/config/cache are redirected to a temporary directory. Personal saved projects,
 language settings and learning scenarios are not modified.
+Windows also redirects `APPDATA` and `LOCALAPPDATA`; timeout cleanup reaps the owned child tree.
+The camera and goal checks run both their headless rejection path and actual rendered path.
+The camera-rest and scoped-Stop bridge regressions require rendering. The full suite never
+replaces those with headless smoke checks: on a Linux host without a display, run
+`xvfb-run -a -s "-screen 0 1600x1000x24" python tools/ci/verify.py --godot /absolute/godot`.
+CI installs Xvfb/Mesa and runs the same full inventory. Tokens are ephemeral fixture credentials.
 The checks share that temporary root; a test that changes a persisted language or preference
 must restore the original bytes (or remove a newly created file) before returning.
 Each check has a timeout; a failure does not skip later checks. `results.json`, `junit.xml`, `SUMMARY.md` and individual logs retain

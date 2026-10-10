@@ -90,6 +90,88 @@ var exit_button: Button
 var _level: StageLevel
 var _exit_dialog: ConfirmationDialog
 var _starter_section: Array[Control] = []
+var app_controller: AppController
+var agent_loop: AgentCameraLoop
+var agent_panel: AgentTracePanel
+var agent_bridge: AgentDesktopBridge
+var agent_goal_inbox: AgentGoalInbox
+
+
+func _build_agent_tools() -> void:
+	app_controller = AppController.new()
+	app_controller.app = self
+	agent_loop = AgentCameraLoop.new()
+	agent_loop.app = self
+	agent_loop.controller = app_controller
+	add_child(agent_loop)
+	agent_panel = AgentTracePanel.new()
+	agent_panel.name = "AI"
+	program_tabs.add_child(agent_panel)
+	agent_panel.enable_requested.connect(_enable_agent)
+	agent_panel.observe_requested.connect(func() -> void: _show_agent_result("observe", agent_loop.observe()))
+	agent_panel.step_requested.connect(func(ticks: int) -> void:
+		_show_agent_result("drive_step", agent_loop.drive_step({"episode_id": agent_loop.episode_id, "frame_id": agent_loop.frame_id, "revision": agent_loop.metadata.get("revision", -1), "control_generation": agent_loop.control_generation, "ticks": ticks, "action": "forward"})))
+	agent_panel.stop_requested.connect(_on_stop_pressed)
+	agent_loop.state_changed.connect(_agent_panel_state)
+	agent_loop.frame_ready.connect(func(bytes: PackedByteArray, meta: Dictionary) -> void:
+		var panel_meta: Dictionary = meta.duplicate()
+		panel_meta.tick = meta.physics_tick
+		agent_panel.set_frame(bytes, panel_meta))
+	agent_loop.event_recorded.connect(agent_panel.append_event)
+	assembly.graph_changed.connect(func() -> void: _agent_panel_state(agent_loop.describe()))
+	_agent_panel_state(agent_loop.describe())
+	agent_bridge = AgentDesktopBridge.new()
+	agent_bridge.loop = agent_loop
+	agent_goal_inbox = AgentGoalInbox.new()
+	agent_goal_inbox.loop = agent_loop
+	add_child(agent_goal_inbox)
+	agent_goal_inbox.status_changed.connect(agent_panel.set_goal_status)
+	agent_panel.goal_requested.connect(_on_agent_goal_requested)
+	agent_bridge.goal_inbox = agent_goal_inbox
+	add_child(agent_bridge)
+	if "--ssok-agent-bridge" in OS.get_cmdline_user_args():
+		var error: Error = agent_bridge.start()
+		if error != OK:
+			push_error("Agent desktop bridge unavailable: %d" % error)
+	_agent_panel_state(agent_loop.describe())
+
+
+func _agent_panel_state(snapshot: Dictionary) -> void:
+	var panel_state: Dictionary = snapshot.duplicate()
+	if not snapshot.get("can_step", false):
+		panel_state.frame_id = -1
+	agent_panel.set_state(panel_state)
+
+
+func _enable_agent() -> void:
+	runtime.stop()
+	control_source.select(CONTROL_CODE)
+	_apply_control_source()
+	if not mode_button.button_pressed:
+		mode_button.button_pressed = true
+	_show_agent_result("enable", agent_loop.begin())
+
+
+func _on_agent_goal_requested(goal: String) -> void:
+	if not agent_goal_inbox.connected() or agent_goal_inbox.busy() or (agent_loop.enabled and agent_loop.state not in ["ready", "stopped", "fault"]):
+		agent_panel.set_goal_status(agent_goal_inbox.connected(), agent_goal_inbox.busy(), "Goal run failed. Check the recent events.")
+		return
+	_enable_agent()
+	var result: Dictionary = agent_goal_inbox.submit(goal)
+	_show_agent_result("goal", result)
+	if result.has("error"):
+		agent_loop.cancel("invalid_goal")
+		agent_panel.set_goal_status(agent_goal_inbox.connected(), false, "Goal run failed. Check the recent events.")
+
+
+func _show_agent_result(tool: String, result: Dictionary) -> void:
+	if result.has("error"):
+		agent_panel.append_event({"tool": tool, "args": {}, "result": result})
+
+
+func _cancel_agent(reason: String) -> void:
+	if agent_loop != null and agent_loop.enabled:
+		agent_loop.cancel(reason)
 
 
 func _ready() -> void:
@@ -152,6 +234,7 @@ func _ready() -> void:
 
 	SsokTheme.configure(Preferences.dark_appearance(), Preferences.values.text_scale, Preferences.values.code_scale)
 	_build_ui()
+	_build_agent_tools()
 	add_child(preload("res://src/ui/web_clipboard.gd").new())
 	add_child(preload("res://src/ui/browser_evidence.gd").new())
 	_build_palette()
@@ -1004,6 +1087,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _on_mode_toggled(run: bool) -> void:
+	_cancel_agent("mode_changed")
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
@@ -1079,6 +1163,7 @@ func _on_control_source_selected(_index: int) -> void:
 
 
 func _apply_control_source() -> void:
+	_cancel_agent("control_changed")
 	runtime.stop()
 	var manual: bool = mode_button.button_pressed and control_source.selected == CONTROL_MANUAL and not motion_lab.visible and not tutorial.visible and not pickup_lab.visible
 	motion_program.set_enabled(manual and motion_program.is_supported())
@@ -1095,6 +1180,7 @@ func _apply_control_source() -> void:
 
 
 func _on_stop_pressed() -> void:
+	_cancel_agent("local_stop")
 	flag_mission.on_stop_pressed()
 	runtime.stop()
 	manual_controller.set_enabled(false)
@@ -1106,6 +1192,7 @@ func _on_stop_pressed() -> void:
 
 
 func _open_motion_lab() -> void:
+	_cancel_agent("experiment_opened")
 	if motion_program is BundledBipedMotion:
 		_set_status(BundledBipedMotion.HELP)
 		return
@@ -1133,6 +1220,7 @@ func _close_motion_lab() -> void:
 
 
 func _open_tutorial() -> void:
+	_cancel_agent("tutorial_opened")
 	if settings.visible or motion_lab.visible or _delete_dialog.visible or tutorial.visible or pickup_lab.visible or projects.visible:
 		return
 	runtime.stop()
@@ -1192,6 +1280,7 @@ func _apply_preferences() -> void:
 
 
 func _open_settings() -> void:
+	_cancel_agent("settings_opened")
 	if settings.visible or tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
 		return
 	_settings_manual_enabled = manual_controller.is_enabled()
@@ -1210,6 +1299,7 @@ func _close_settings() -> void:
 
 
 func _open_projects() -> void:
+	_cancel_agent("projects_opened")
 	if settings.visible or tutorial.visible or _delete_dialog.visible or motion_lab.visible or pickup_lab.visible or projects.visible:
 		return
 	runtime.stop()
@@ -1578,7 +1668,7 @@ func _enter_stage(level: Dictionary) -> void:
 func _enter_lab() -> void:
 	motion_lab_button.visible = false
 	stages.set_lab_only(true)
-	_set_tabs(["Blocks", "Code", "Wiring", "Controls", "Stages"])
+	_set_tabs(["Blocks", "Code", "Wiring", "Controls", "Stages", "AI"])
 	_set_status("Free building: add parts from the library, wire them, then program your robot.")
 	if session.get("open_projects", false):
 		_open_projects.call_deferred()
@@ -1592,6 +1682,7 @@ func _enter_example(index: int) -> void:
 
 
 func _request_exit() -> void:
+	_cancel_agent("exit_requested")
 	if projects.visible or settings.visible or tutorial.visible or motion_lab.visible or pickup_lab.visible:
 		return
 	runtime.stop()

@@ -1,0 +1,74 @@
+{
+  "inspector": "/root/windows_camera_inspection",
+  "explicit_model": "gpt-6-astra",
+  "inspection": "Actual five PNGs viewed at original resolution; inspector computed and matched hashes. Coordinator stores returned observations.",
+  "images": [
+    {
+      "path": "windows-clarified-live/layout1-run1/actor/camera/observation-3.png",
+      "sha256": "5ed3509c337bb5761995fc3bf0ea782dd4ef97306c384fb9cc8d0d691f6b09a6",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_y_approx": 447,
+      "floor_strip_pixels_approx": 33,
+      "uncertainty_pixels": 2,
+      "visual_target_24_to_38": "within"
+    },
+    {
+      "path": "windows-clarified-live/layout2-run1/actor/camera/observation-5.png",
+      "sha256": "419d0605e48799a16fefbf51b1964a8f8cfa1e4644a96c7124bdbf8d188d3a5b",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_y_approx": 461,
+      "floor_strip_pixels_approx": 19,
+      "uncertainty_pixels": 2,
+      "visual_target_24_to_38": "below"
+    },
+    {
+      "path": "windows-clarified-live/layout3-run1/actor/camera/observation-6.png",
+      "sha256": "85b2f2a285d6ba39a38dd697fe29e687a62a8503cc2837fcf82b66766d74ac91",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_y_approx": 460,
+      "floor_strip_pixels_approx": 20,
+      "uncertainty_pixels": 2,
+      "visual_target_24_to_38": "below"
+    },
+    {
+      "path": "windows-operator-current/actor/camera/observation-1.png",
+      "sha256": "3e28314aafbabf8546f84c9a4961c2d9c0d9371db2701dcfd490600a9aa8dcbf",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_y_approx": 319,
+      "floor_strip_pixels_approx": 161,
+      "uncertainty_pixels": 2,
+      "visual_target_24_to_38": "not_assessed"
+    },
+    {
+      "path": "windows-operator-current/actor/camera/observation-2.png",
+      "sha256": "47364926dda837b53ff256ac96286173e675765431f75ea1d5a7890ef3f58a4f",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_y_approx": 322,
+      "floor_strip_pixels_approx": 158,
+      "uncertainty_pixels": 2,
+      "visual_target_24_to_38": "not_assessed"
+    }
+  ],
+  "findings": "Layout1 within visual target, layouts2/3 below it. Small boundary slope; center unobstructed. Blue-gray robot geometry in both lower corners reaches about y275 and bottom outside60px. Operator before/after wall top111->102, base319->322, rightedge618->627, slightly larger projection and narrower floor strip.",
+  "limits": "Visual target only1/3 on latest Windows finals despite3/3 separate broad physical criteria. No metric clearance/contact/rest certification from images, and no all9-Arch visual inspection claim."
+}

@@ -24,6 +24,7 @@ from tools.ci.stage_identity import write_identity
 
 # Files reached from the bundled documentation, kept outside the application pack.
 DOCUMENTATION_REFERENCES = (
+    "CLAUDE-REVIEW.md",
     "assets/kenney/SOURCE.json",
     "CONTRIBUTING.md",
     "presets/biped.gd",
@@ -59,6 +60,9 @@ DOCUMENTATION_REFERENCES = (
     "src/screens/stage_select_screen.gd",
     "src/screens/title_screen.gd",
     "src/runtime/bundled_biped_motion.gd",
+    "src/runtime/agent_camera_loop.gd",
+    "src/runtime/agent_desktop_bridge.gd",
+    "src/runtime/agent_goal_inbox.gd",
     "src/runtime/drive_motor.gd",
     "src/runtime/kit_humanoid_motion.gd",
     "src/runtime/learned_biped_motion.gd",
@@ -78,6 +82,7 @@ DOCUMENTATION_REFERENCES = (
     "src/runtime/stage_evaluator.gd",
     "src/runtime/wiring.gd",
     "src/ui/blender_camera.gd",
+    "src/ui/agent_trace_panel.gd",
     "src/ui/block_program_panel.gd",
     "src/ui/browser_evidence.gd",
     "src/ui/flag_mission.gd",

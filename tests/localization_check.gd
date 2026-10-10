@@ -29,6 +29,7 @@ func _run() -> void:
 	panel.best = {"policy": MotionPolicy.defaults(), "metrics": metric}
 	panel.best_fingerprint = fingerprint
 	panel._job = {"state": "completed", "history": [{"metrics": metric}]}
+	panel._show_history(panel._job.history)
 	panel._show_best()
 	panel._status("%s | evaluations: %d | API calls: %s | tokens: %s%s", ["COMPLETED", 1, "0", "0", ""], [0])
 	var translated_arguments: Array[int] = [0]
@@ -44,6 +45,7 @@ func _run() -> void:
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/learning_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/settings_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/game_flow_messages.json")))
+	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/agent_camera_messages.json")))
 	_check(keys.size() >= 189, "complete translation inventory")
 	for locale: String in SsokLocale.LOCALES:
 		_check(SsokLocale.select_locale(locale, false) == OK, "switch " + locale)
