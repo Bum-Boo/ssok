@@ -1,5 +1,8 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r9: 원래30/10/12·같은계측 stock/K16 모터제동2회. 거리14.1063→13.8506cm로 물리 통과지만 마지막영상23→21px로 여전히실패, 각속도 감소 불명확·앱 적용0. 모터callback30/10/12 일치, 계측기 초기영상 집계/후처리 오류 복구·실패보존. [원본16PNG/Astra6·한계·다음](evidence/agent_camera_2026-10-10/completion/angular-feedback-r9/README.md). 기존AI영상9/9·물리0/9/미공개 유지. 아래는 이전 진단/패키지 이력.
+
+
 2026-10-11 r8: 동일426소스/동결목표로 combined 실패2회 재현, 직접 replay도4px흔들림. 엄격 각속도/P24는 정지시간 초과, P4도combined실패라 앱 적용0. 실제 motor callback30/10/12/1은 명령과 일치. 마지막 구간13틱의 deterministic3회는 물리3/3·영상0/3·AI아님. [원본91PNG/14진단·한계·다음](evidence/agent_camera_2026-10-10/completion/control-feedback-r8/README.md). 기존 AI영상9/9·물리0/9/미공개 유지. 아래 r7은 패키지 검증 이력.
 
 

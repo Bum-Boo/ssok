@@ -1,3 +1,42 @@
+# ssok — rejected motor-only angular feedback r9
+
+Issue32, feat/32-robot-camera-loop; input HEAD f86fadd, production426/camera10/frozen goal
+unchanged. App/package fa868ca/0.3.1-projects-r7 stays immutable. No app repair/UI/string/
+physics/provider/goal/threshold change; no model-navigation call/merge/publication.
+[Actual2 probes,16PNG,6Astra views](docs/evidence/agent_camera_2026-10-10/completion/angular-feedback-r9/README.md).
+
+Original30/10/12 stock and per-instance K0→16 housing-axis angular-velocity holding term
+with identical observers: final five pixels23/25/27/23/23 vs22/24/21/22/21, span4vs3px,
+Stop gap14.106308cm physicalFAIL vs13.850644cm physicalPASS; final images23vs21 fail.
+Both combinedfail. Last five housing-axis rates about.0040–.0044rad/s remain in both;
+single-run one-pixel-span reduction is not a causal proof or stable repair. P8/I16/25%cap,
+motorphysics/torque/forward25%/12stableticks240timeout remain unchanged. No hidden
+distance/contact/targetpose input or body-transform/velocity assignment. Candidate NOT applied.
+
+Exact delegated motor callbacks30/10/12 per motor match. Assigned camera-inferred pitch
+versus later frame_ready chassis pitch agrees to≤9.4e-10rad for these final five; no general
+timing exclusion. Seven post-initial SHA/tick bound observer callbacks per native run;
+initial precedes observer attachment, all8PNGs retained. Original stock nativeexit0 but
+wrapper incorrectly8-versus7callback assertion→exit1. First postprocessing recovery missed
+local case variable→exit1. Both original sources retained; postprocessing-only correction,
+no native rerun or original PNG/result/log/receipt rewrite. K16 uses corrected SHA binding.
+
+Astra six actual stills only; visual estimates separate from classifier, no physics/causality/
+continuous jitter/backend attestation. Same production input426/camera10/frozen goal SHA.
+Docs maintain/10unit/ZIP1 current; import/fullnative/Web/installer not rerun. Existing Opus
+unchanged UI review and r7 gates remain source-specific history. Localization unchanged.
+FLOWS/API/ADR0029/CONTROLS/data/storage contracts reviewed, no semantic or diagram change.
+
+Fable integration owner: contradiction review, actual fetch/rebase once, human merge.
+Next Codex: current r7 Run-with-AI/operator actual end-to-end and separately evidence-backed
+control/calibration decision. Uncontrolled gain sweeps do not establish a fix. Historical
+AI image9/9 vs physical0/9 and r8 deterministic13ticks physical3/3 vs image0/3 remain distinct.
+Mac native/Arch originals/taskCLI16 formal handoff/humanmerge/exact-version publication
+approval pending; global objective incomplete. GeneratedHandoff remains untouched.
+Records/recovery: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/angular-feedback-r9/.
+
+## Frozen r8 milestone — dated diagnosis and handoff
+
 # ssok — unchanged-source control diagnosis r8
 
 Issue32, feat/32-robot-camera-loop; diagnosis source dd9c814, unchanged426 current
