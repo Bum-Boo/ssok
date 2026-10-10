@@ -1,0 +1,57 @@
+{
+  "state_before_reobserve": {
+    "bridge_listening": true,
+    "can_step": false,
+    "control_generation": 1,
+    "enabled": true,
+    "episode_id": "8d2354ceb7c8145777266839",
+    "frame_id": 2,
+    "revision": 3,
+    "robot_supported": true,
+    "state": "ready"
+  },
+  "poll_states": [
+    {
+      "bridge_listening": true,
+      "can_step": false,
+      "control_generation": 1,
+      "enabled": true,
+      "episode_id": "8d2354ceb7c8145777266839",
+      "frame_id": 2,
+      "revision": 3,
+      "robot_supported": true,
+      "state": "settling"
+    },
+    {
+      "bridge_listening": true,
+      "can_step": false,
+      "control_generation": 1,
+      "enabled": true,
+      "episode_id": "8d2354ceb7c8145777266839",
+      "frame_id": 2,
+      "revision": 3,
+      "robot_supported": true,
+      "state": "ready"
+    }
+  ],
+  "metadata": {
+    "camera_id": "virtual-front-camera",
+    "capture_requested_tick": 1384,
+    "control_generation": 1,
+    "draw_frame": 1366,
+    "episode_id": "8d2354ceb7c8145777266839",
+    "frame_id": 3,
+    "height": 480,
+    "interpolation_enabled": false,
+    "part_id": 0,
+    "physics_tick": 1384,
+    "revision": 3,
+    "robot_instance_id": "1269750043915",
+    "settle_confirmed_tick": 1384,
+    "sha256": "47b2b0a3888fef3931502c92921da98b7645d93cc9163e6f12f4b7a6142ab8e5",
+    "width": 640
+  },
+  "native_forward_consumed_frame": true,
+  "configured_native_forward_ticks": 20,
+  "actual_png_changed": true
+}

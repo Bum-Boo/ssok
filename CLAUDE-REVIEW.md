@@ -1,5 +1,8 @@
 # Robot camera loop — reviewed local draft r2
 
+Actual immutable Windows packaged camera follow-up r5:11/0/normal exit0, same f31 PE/PCK. Default Title→visible import confirmation→Lab AI native Enable/Forward/Stop and TCP PNG/8ticks/reobserve/late rejection. [All attempts and20 actual Astra images](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). No app/style/physics change or provider call. This does not verify packaged Run with AI/operator; that is the next functional gate. Projects button truncation/confirmation contrast observed, Opus review/fix pending. Original strictphysical0/9/Mac/Arch taskCLI/humanmerge/exact release approval unchanged.
+
+
 Final runtime record: [stabilization r2](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/README.md).
 App/packages f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4, version0.3.1-camera-r2; later final docs commit
 changes no app/test/tool input. Windows full81/0, same clean Web5/5, exact installed Windows17/0,

@@ -1,5 +1,8 @@
 # Stabilization r2 — reviewed local draft
 
+Subsequent actual packaged Windows camera gate r5:11/0, normal native exit0; default Title→UI project import→Lab AI native Enable/Forward/Stop plus authenticated PNG/8ticks/reobserve/late-request rejection. [Failures, raw evidence,20 actual Astra images and limits](package-camera-r5/README.md). Same appf31/r2 bytes; no provider call. Packaged AI goal/operator, incidental Projects contrast/truncation design review and existing physical/Mac/Arch/merge/approval remain open.
+
+
 Final runtime checkpoint 2026-10-11T02:45:08+09:00. App/package source **f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4**;
 version **0.3.1-camera-r2**, feature `feat/32-robot-camera-loop`, existing issue32/task/session.
 This follow-up changes documentation/evidence only. No main merge, push or publication.
