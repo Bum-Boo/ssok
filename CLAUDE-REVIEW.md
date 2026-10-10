@@ -18,6 +18,15 @@ and older dated pending statements are preserved below. Current restoration inst
 `C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
 Final docs-only localization impact: no UI strings/catalog changes, graphs/VM/physics diagrams unchanged.
 
+## Observation continuity hypothesis r4 — documentation only
+
+[Actual fixtures and rejected candidate](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/observation-continuity-r4/README.md):
+stock and per-instance no-pulse keep3px variation, both final combined predicates fail.
+Astra4actual PNGs:25±1 then22±1 in both. No production/controller/goal change or new AI trial.
+Exact frame_ready/PNG-SHA physics pairing corrects initial later-coroutine samples; original
+derivation retained. Source426/study10/goal unchanged; no new app tests/export/publication.
+Latest Fable owns actual docs-only rebase, then human review/merge; existing Mac/Arch/approval gaps remain.
+
 ## Developer-only physical/image boundary diagnosis r3
 
 [Evidence and next owner](docs/evidence/agent_camera_2026-10-10/completion/verified-r2/physical-compatibility-r3/README.md):

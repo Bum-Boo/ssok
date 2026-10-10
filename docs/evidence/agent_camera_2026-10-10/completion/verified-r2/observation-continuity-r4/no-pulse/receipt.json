@@ -1,0 +1,20 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/observation-continuity-r4/probe.gd",
+    "--",
+    "--case",
+    "no-pulse",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-continuity-r4\\no-pulse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "seconds": 19.734,
+  "source426_unchanged": true
+}

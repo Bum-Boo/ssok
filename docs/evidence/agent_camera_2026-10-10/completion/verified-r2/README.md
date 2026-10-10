@@ -42,6 +42,12 @@ then default Title/map/three stages, preferences/focus and normal close/logs. No
 Records/selected recovery: `C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
 No user-facing strings/catalog changes were needed in this final documentation pass.
 
+## Subsequent observation continuity hypothesis r4
+
+[Actual one-variable fixtures](observation-continuity-r4/README.md) retain3px variation in both
+stock and no-pulse cases and both fail the final joint predicate. The prototype is not applied.
+Application426 inputs, goal, frozen AI9/9image/0/9physical and r2 packages remain unchanged.
+
 ## Subsequent developer-only boundary diagnosis r3
 
 [Actual probes and handoff](physical-compatibility-r3/README.md) reproduce26px/14.0431cm combined

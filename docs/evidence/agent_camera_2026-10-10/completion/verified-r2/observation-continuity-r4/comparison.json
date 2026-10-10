@@ -1,0 +1,259 @@
+{
+  "checkpoint": "2026-10-11T03:41:44+09:00",
+  "source_head": "2f7bd2365fe539a8a594302ff7f333f4d4b46ab1",
+  "immutable_application_package_source": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+  "source426_unchanged": true,
+  "camera10_unchanged": true,
+  "goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "cases": {
+    "stock": {
+      "case": "stock",
+      "floor_pixels": [
+        24,
+        23,
+        24,
+        25,
+        22
+      ],
+      "pixel_span": 3,
+      "capture_gap_range_mm": 0.7190555334090076,
+      "final_gap_m": 0.140207678079605,
+      "final_image_target": false,
+      "full_physical": false,
+      "combined": false,
+      "request_before_after_duty": [
+        [
+          "initial",
+          [
+            -0.0030480466055645,
+            -0.0019789606096189
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "post-1",
+          [
+            -0.00300980710859099,
+            -0.00458823280408977
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "post-2",
+          [
+            -0.00470456934627146,
+            -0.00300807026525339
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "post-3",
+          [
+            -0.00472806573659181,
+            -0.00292135049402713
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "post-4",
+          [
+            -0.00384086091785381,
+            -0.00213836479062835
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "idle-1",
+          [
+            -0.00355899029690772,
+            -0.00236329742854771
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "idle-2",
+          [
+            -0.00396096013952047,
+            -0.0020886520758116
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "idle-3",
+          [
+            -0.0042090793143337,
+            -0.00188362404028885
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          "idle-4",
+          [
+            -0.00666743020542587,
+            -0.00477703066340958
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "source426_unchanged": true,
+      "scope": "Developer-only hypothesis comparison, no production repair or AI success claim."
+    },
+    "no-pulse": {
+      "case": "no-pulse",
+      "floor_pixels": [
+        22,
+        22,
+        23,
+        25,
+        22
+      ],
+      "pixel_span": 3,
+      "capture_gap_range_mm": 0.6898343563080112,
+      "final_gap_m": 0.139988124370575,
+      "final_image_target": false,
+      "full_physical": true,
+      "combined": false,
+      "request_before_after_duty": [
+        [
+          "initial",
+          [
+            -0.0030480466055645,
+            -0.0019789606096189
+          ],
+          [
+            -0.0030480466055645,
+            -0.0019789606096189
+          ]
+        ],
+        [
+          "post-1",
+          [
+            -0.00300989916548131,
+            -0.00458822998031972
+          ],
+          [
+            -0.00300989916548131,
+            -0.00458822998031972
+          ]
+        ],
+        [
+          "post-2",
+          [
+            -0.00477970798313618,
+            -0.00266390790510923
+          ],
+          [
+            -0.00477970798313618,
+            -0.00266390790510923
+          ]
+        ],
+        [
+          "post-3",
+          [
+            -0.00268083721647661,
+            -0.00467294288286939
+          ],
+          [
+            -0.00268083721647661,
+            -0.00467294288286939
+          ]
+        ],
+        [
+          "post-4",
+          [
+            -0.00251625705262025,
+            -0.00430666117866834
+          ],
+          [
+            -0.00251625705262025,
+            -0.00430666117866834
+          ]
+        ],
+        [
+          "idle-1",
+          [
+            -0.00186134759585063,
+            -0.00425033637384574
+          ],
+          [
+            -0.00186134759585063,
+            -0.00425033637384574
+          ]
+        ],
+        [
+          "idle-2",
+          [
+            -0.00196357923343748,
+            -0.00400263934861869
+          ],
+          [
+            -0.00196357923343748,
+            -0.00400263934861869
+          ]
+        ],
+        [
+          "idle-3",
+          [
+            -0.0018764869499452,
+            -0.00418132665598144
+          ],
+          [
+            -0.0018764869499452,
+            -0.00418132665598144
+          ]
+        ],
+        [
+          "idle-4",
+          [
+            -0.00388107217203408,
+            0.00116469142403609
+          ],
+          [
+            -0.00388107217203408,
+            0.00116469142403609
+          ]
+        ]
+      ],
+      "source426_unchanged": true,
+      "scope": "Developer-only hypothesis comparison, no production repair or AI success claim."
+    }
+  },
+  "provider_calls": 0,
+  "new_model_trials": 0,
+  "decision": "Do not apply no-pulse prototype: both cases retain3px variation and fail the combined final image/physical predicate. Not sufficient evidence of a production defect or an effective repair.",
+  "limits": [
+    "One baseline and one per-instance variant, not a reproduction-rate or universal causal study.",
+    "Zero request-time duty is observed; not proof of a zero-force motor physics step.",
+    "Pose/gap/target thresholds, PI gains and DriveMotor are unchanged; no body/velocity overrides or hidden actor metric.",
+    "Capture physics uses actual evaluator frame_ready samples matched by PNG SHA and physics tick. Raw result capture_physics was sampled later after coroutine returned; retain as post_return_physics rather than conflate epochs.",
+    "The frozen AI3x3 image9/9 physical0/9 and r2 packages remain unchanged.",
+    "No main merge/push/publication; exact r2 release approval, Mac native and Arch raw/task CLI recovery remain open."
+  ]
+}

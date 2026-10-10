@@ -19,6 +19,9 @@
 
 ## 진행 작업과 근거
 
+2026-10-11 관측 제동 전환 r4: stock/생략 prototype 둘 다3px변동·combined실패. 앱 적용 근거부족, 소스변경0.
+[단일변수 실험·한계·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/observation-continuity-r4/README.md).
+
 2026-10-11 물리/영상 경계 진단 r3:30/10/12 여백26px·거리14.0431cm 실패를 반복했고,
 1틱 추가는22px·13.7652cm로 영상 미달. 재관측22↔24px/0.655mm 변동을 확인했어요.
 조건의 좁은 경계와 자세 변화는 관측했지만 불가능성·원인·물리 개선을 확정하지 않았어요.
