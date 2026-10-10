@@ -18,6 +18,7 @@ import time
 
 from .desktop_client import DesktopClient, DesktopError, assert_context, CONTEXT_KEYS
 from .desktop_session import validate_goal_context
+from .source_identity import source_head
 
 
 def toml_string(value: str) -> str:
@@ -144,7 +145,7 @@ def main(argv: list[str] | None = None) -> int:
                     "sent_data": ["goal", "robot camera PNG", "public frame context", "concise visual summaries", "tool results"],
                     "limits": {"cli_launches": 1, "steps": args.max_steps, "observations": args.max_observations,
                                "seconds": args.seconds}, "model_request_count": "not exposed by CLI; action/image limits are not a billing cap",
-                    "source_head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()}
+                    "source_head": source_head(root)}
         (output / "dispatch.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         print(json.dumps(manifest), flush=True)
         with tempfile.TemporaryDirectory(prefix="ssok-camera-actor-") as folder:

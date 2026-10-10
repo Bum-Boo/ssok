@@ -218,6 +218,17 @@ Debian NSIS 3.08 tools into the isolated output directory without administrator 
 PCK is audited for development-only resources. Windows runtime verification runs separately
 on native Windows; Mac validation status is recorded separately rather than inferred.
 
+## Optional foreground AI operator
+
+The operator is a separate developer ZIP, with its own version and source identity;
+the Godot application, Python, Codex CLI and existing ChatGPT login remain external.
+From a clean checkout run `python -m tools.ci.operator_package --out build/ssok-operator.zip`.
+The explicit allowlist contains seven camera/operator modules, a Windows foreground
+launcher, pinned MCP requirements, license, instructions and module identity hashes.
+It includes no checkout, credentials, environments, evaluator or private session files.
+See [operator setup and limits](../tools/app_control/OPERATOR.md). No Git installation
+is needed in the extracted archive. This local draft is not a public release.
+
 ## GitHub Actions and release
 
 `.github/workflows/ci.yml` verifies pull requests and pushes. A successful full check is required

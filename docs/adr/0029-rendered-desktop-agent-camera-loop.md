@@ -43,6 +43,13 @@ The model receives only observe/decide/stop, never inbox/operator methods. Discl
 8actions/9images/300seconds are tool/time bounds, not a model-request/billing cap. Web and unconnected
 operators disable Run. Account onboarding, packaging and background integration remain separate.
 
+The packaging follow-up provides a separate allowlisted foreground operator ZIP.
+Git-independent archives record their clean source commit and verify seven module hashes
+before model launch; altered or missing identity fails through the existing scoped Stop.
+Hashes check consistency with the included record, not publisher authenticity. Python,
+MCP installation, Codex CLI and existing account login stay external. Godot resources,
+actor inputs, action limits, ownership and provider behavior remain unchanged.
+
 The stabilization follow-up corrects an actual accept-order race: a read-only monitor could occupy
 the primary peer and make a legitimate actor receive `priority_tool_required`. At most one complete
 authenticated small actor envelope now waits separately (4096bytes,5seconds), frees the priority lane,
