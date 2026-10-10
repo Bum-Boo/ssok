@@ -1,3 +1,25 @@
+# ssok — rejected body-attitude holding diagnostic r13
+
+Issue32, feat/32-robot-camera-loop; runtime input008f7ea, immutablefa868ca/0.3.1-projects-r7.
+[Two actual native probes,16PNG/Astra4, original error and limits](docs/evidence/agent_camera_2026-10-10/completion/attitude-hold-r13/README.md).
+Original23px/14.106308cm and coefficient16 candidate24px/14.079912cm both combinedFAIL.
+Last5 pixel span4px for both; signed body-rate reduction not established. Candidate
+rejected/unapplied. Both actual motors powered30/10/12;7SHA/tick callback pairs/run.
+All426 current original inputs, camera/physical bounds and old study9image/0physical unchanged.
+First omitted-default prototype compile failure/90s owned-process timeout preserved;
+matching default/check-only/load-null guard recovered without feedback-law/source edits.
+4actual Astra stills estimate22/23±2px for both variants; preserve classifier24vs23±2.
+12–20px separate calibration proposal is not adopted/run; original goal remains authoritative.
+Docs10/maintain only; app gates and Opus design review are datedr7 history, not rerun.
+No source/UI/localization/provider edits, model calls in probes, merge/push/publication.
+Next Codex: versioned camera calibration if selected, otherwise original-target control;
+account onboarding/navigation/Macnative/Archraw/formalCLI16release remain.
+Fable reviews/rebases final clean branch; humanmerges/approves exactversionscopepublication.
+Canonical record/recovery: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/attitude-hold-r13/.
+Global goal incomplete.
+
+## Frozen r12 milestone — portable foreground operator
+
 # ssok — Git-independent foreground operator r12
 
 Issue32, feat/32-robot-camera-loop. Operator clean e645d220 / 0.1.0-operator-r12,
