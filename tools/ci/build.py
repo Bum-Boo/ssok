@@ -110,6 +110,7 @@ DOCUMENTATION_REFERENCES = (
     "presets/biped_motion.gd",
     "tests/biped_motion_check.gd",
     "tools/motion_lab/MCP.md",
+    "tools/app_control/OPERATOR.md",
     "tools/motion_lab/PICKUP.md",
     "tools/rl_lab/reference/biped_mujoco_ars.json",
 )

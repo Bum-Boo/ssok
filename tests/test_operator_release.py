@@ -16,7 +16,7 @@ from tools.app_control.desktop_client import DesktopError
 
 MODULES = (
     "desktop_client.py", "desktop_session.py", "desktop_mcp.py", "run_goal.py",
-    "run_operator.py", "experiment_session.py", "source_identity.py",
+    "run_operator.py", "experiment_session.py", "source_identity.py", "doctor.py",
 )
 SOURCE_HEAD = "1e565b2c8bfd87a8aed162abb24b1e97209efc40"
 
@@ -96,6 +96,18 @@ class OperatorReleaseTest(unittest.TestCase):
             self.assertEqual(root.parent, Path(tempfile.gettempdir()).resolve())
             self.package(root)
             with (root / "tools/app_control/desktop_mcp.py").open("ab") as stream:
+                stream.write(b"# Changed since packaging.\n")
+            code, output, provider, client = self.invoke(root)
+            self.assertEqual(code, 1)
+            provider.assert_not_called()
+            self.assertTrue(json.loads((output / "result.json").read_text())["stop_confirmed"])
+            self.assertEqual(len(client.stops), 1)
+
+    def test_changed_packaged_doctor_stops_before_provider_launch(self):
+        with tempfile.TemporaryDirectory(prefix="ssok-operator-release-") as folder:
+            root = Path(folder).resolve()
+            self.package(root)
+            with (root / "tools/app_control/doctor.py").open("ab") as stream:
                 stream.write(b"# Changed since packaging.\n")
             code, output, provider, client = self.invoke(root)
             self.assertEqual(code, 1)

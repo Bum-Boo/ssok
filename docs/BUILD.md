@@ -223,8 +223,10 @@ on native Windows; Mac validation status is recorded separately rather than infe
 The operator is a separate developer ZIP, with its own version and source identity;
 the Godot application, Python, Codex CLI and existing ChatGPT login remain external.
 From a clean checkout run `python -m tools.ci.operator_package --out build/ssok-operator.zip`.
-The explicit allowlist contains seven camera/operator modules, a Windows foreground
-launcher, pinned MCP requirements, license, instructions and module identity hashes.
+The explicit allowlist contains eight camera/operator modules, Windows local-setup
+and foreground-launch commands, pinned MCP requirements, license, instructions and
+module identity hashes. The launcher checks preparation before polling the app;
+explicit setup installs into the archive's own `.operator-venv`, with no global install.
 It includes no checkout, credentials, environments, evaluator or private session files.
 See [operator setup and limits](../tools/app_control/OPERATOR.md). No Git installation
 is needed in the extracted archive. This local draft is not a public release.

@@ -9,9 +9,10 @@ import zipfile
 from tools.app_control.source_identity import MODULE_PATHS, source_head
 
 
-VERSION = "0.1.0-operator-r12"
+VERSION = "0.2.0-operator-r14"
 EXTRAS = {
     "tools/app_control/start-operator.ps1": "tools/app_control/start-operator.ps1",
+    "tools/app_control/setup-operator.ps1": "tools/app_control/setup-operator.ps1",
     "README.md": "tools/app_control/OPERATOR.md",
     "requirements.txt": "tools/motion_lab/requirements-mcp.txt",
     "LICENSE": "LICENSE",

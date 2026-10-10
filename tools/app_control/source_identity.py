@@ -10,7 +10,7 @@ from .desktop_client import DesktopError
 
 MODULE_PATHS = tuple("tools/app_control/" + name for name in (
     "desktop_client.py", "desktop_session.py", "desktop_mcp.py", "run_goal.py",
-    "run_operator.py", "experiment_session.py", "source_identity.py",
+    "run_operator.py", "experiment_session.py", "source_identity.py", "doctor.py",
 ))
 
 
