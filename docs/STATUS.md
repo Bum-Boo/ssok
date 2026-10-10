@@ -1,5 +1,8 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r7: Opus검토 UI의 clean 소스fa868ca/0.3.1-projects-r7로4플랫폼·6해시 확인. Native 최초81/2는 UTF8 한정2/0 복구해79+2개 해결; 같은 Web5/5·설치 단독17/0·실제 패키지 Projects6/0/재내보내기 일치·Astra17화면 확인. 첫 클립보드 오류/설치10/1·실패 진단은 보존, 원인 미확정. [현재 버전·원본 결과·인계](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md). 물리0/9·Mac실기기·Arch정식인계·humanmerge/공개승인 미완료. 아래는 이전 소스/검증 이력.
+
+
 2026-10-11 r6: 실제 r2 배포본 Run with AI→외부 operator→3틱1행동/2PNG/재관측·Stop12/0. Projects는 Opus 작성/수정·독립PASS, Astra32+4실제화면, native80경우1181/0·실제키25/0·Web작성9/0/설정14/0·Linux 초안 통과. 앱 변경은 ProjectPanel, CI좌표fixture도 복구; r2와 다른 미배포 로컬 초안. [결과·실패·인계](evidence/agent_camera_2026-10-10/completion/package-goal-ui-r6/README.md). 물리0/9·새clean배포본·Mac·Arch정식인계·humanmerge/공개승인은 남음.
 
 

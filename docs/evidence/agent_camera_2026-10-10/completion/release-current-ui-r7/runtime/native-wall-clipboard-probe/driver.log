@@ -1,0 +1,8 @@
+Missing layout anchor: game_stage_
+At C:\Users\Hojun\Projects\ssok-ai-loop\build\ai-loop-evidence\completion\release-current-ui-r7\native-wall-clipboard-p
+robe\native_ui_readback.ps1:45 char:20
++     if (-not $a) { throw "Missing layout anchor: $Name" }
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Missing layout anchor: game_stage_:String) [], RuntimeException
+    + FullyQualifiedErrorId : Missing layout anchor: game_stage_
+ 

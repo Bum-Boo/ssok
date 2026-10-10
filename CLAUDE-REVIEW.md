@@ -1,3 +1,55 @@
+# ssok — current clean release candidate r7
+
+Issue32, feat/32-robot-camera-loop, immutable package app source
+fa868ca07cdd9d2b8edb27cbab89cd00263c851f, version0.3.1-projects-r7. Four clean exports,
+six actual artifact hashes; later documentation/evidence follow-up is separate from those
+package bytes and their documentation snapshot. Local package directory:
+`build/projects-release-clean-r7/`. No publication or main merge.
+[Current exact source, commands, receipts, failures and limits](docs/evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md).
+
+Original native81/2: two child Python suites decoded UTF8 as cp949; inherited per-process
+PYTHONUTF8=1 recovered only2/0. Final81 resolved means79 original passes+2 recovered passes,
+not a fresh full81/0 invocation. App/tests/thresholds unchanged. Same exported Web5/5 and
+original Linux CI layout within its300s bound pass. Optional short initialization probes
+timed out; they do not prove a source application hang.
+
+First installed Windows10/1: wall stage failed and actual Godot clipboard access error;
+concurrent Web clipboard job is observed correlation, not proved cause. Wall-only code
+readback/actual clear2assertions passed, but its reduced single-stage loop then failed:
+whole diagnostic exit1 retained. Serial unchanged canonical installer17/0/48.980s:
+all three stages, installed PE/PCK equal to export, user-file preservation and uninstall.
+Current actual portable Projects6/0/18.967s, cancel/reimport/reexport graph/source/format/
+version equality. Astra17actual PNGs: no material clipping/overlap; minor inherited tab
+underscore and scroll-row truncation retained. Original failed runs are not relabeled.
+Final cleanup reads actual Bum-Boo/ssok and uninstall keys, shortcut, owned PIDs and8127.
+
+App426 inputs unchanged across r7. Compared with old f31 input set, only ProjectPanel and
+the excluded CI layout fixture differ; all other424/camera10/frozen goal unchanged.
+ProjectPanel877886…e038 retains actual Opus5-5 authored/revised and independent PASS r6 review;
+r6 native80cases/1181checks/OS25checks are dated proof for that exact source, not new r7 runs.
+No new strings/catalogs/design/physics/provider/controller changes in this follow-up.
+BUILD now documents inherited UTF8 and restoration for Windows child-suite execution.
+FLOWS/DATA_MODEL/AUTHORING remain reviewed in r6: no schema/control/flow change now.
+
+The actual r6 Run with AI/external operator12/0 predates UI edits and uses r2/f31 bytes;
+no r7 end-to-end provider invocation is claimed. Deterministic r7 gates use mock/no live
+provider. The operator/login are external developer tooling, not account onboarding or
+packaged background integration; backend identity/monetary/request cap remain unproven.
+Frozen nominal image9/9 versus strict14cm physical0/9 remains; successful wall stage5–10cm
+is different. Native Mac and native Linux GUI untested; Linux startup/resources and Mac
+cross-export/archive checks are narrower actual results.
+
+Next owner: installed latest Claude Fable reviews this documentation for contradictory
+claims and actually fetches/rebases the clean feature once, then the human reviews/merges.
+Codex records canonical Wiki/state/Now, verified delta bundle and readback without editing
+generated taskrev16. Powered-off Arch raw/formal taskCLI release, strictphysical0/9,
+general navigation/catalog camera/account onboarding and exact reviewed version/scope
+publication approval remain. Standing visual policy requires that approval before publishing.
+Recovery: `C:/Users/Hojun/.agents/backups/ssok-completion-20261010/RECOVERY.md`.
+All records below are frozen dated history, including earlier pending statements.
+
+## Frozen r6 records — prior milestone and dated verification
+
 # Robot camera loop and Projects — reviewed local draft r6
 
 Issue32, feat/32-robot-camera-loop; base HEAD28609ea. Only app-code change is ProjectPanel,

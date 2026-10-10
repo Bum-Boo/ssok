@@ -1,0 +1,7 @@
+FAIL: Native title/map/code input clears wall-brake from actual stage evaluation
+At C:\Users\Hojun\Projects\ssok-ai-loop\tools\ci\windows\verify_installer.ps1:15 char:24
++     if (-not $Value) { throw "FAIL: $Name" }
++                        ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (FAIL: Native ti...tage evaluation:String) [], RuntimeException
+    + FullyQualifiedErrorId : FAIL: Native title/map/code input clears wall-brake from actual stage evaluation
+ 

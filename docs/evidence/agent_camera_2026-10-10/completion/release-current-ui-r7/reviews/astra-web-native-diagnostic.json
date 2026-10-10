@@ -1,0 +1,19 @@
+{
+  "requested_model": "gpt-6-astra",
+  "identity_basis": "Explicit native role selection /root/r7_web_visual; no independent backend introspection.",
+  "source_commit_coordinator_supplied": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "version": "0.3.1-projects-r7",
+  "viewed": [
+    {"path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/authoring/03-reopened.png", "dimensions": [1400, 950], "observations": "Readable workshop, robot, block fields, Run code; footer says Project opened. Code runs only when you press Run code."},
+    {"path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/authoring/04-exported.png", "dimensions": [1400, 950], "observations": "Visible Projects title, storage guidance, snapshot/export controls, JSON, Copy JSON/Import project; external-copy footer readable."},
+    {"path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/authoring/05-import-confirmation.png", "dimensions": [1400, 950], "observations": "Replacement warning, snapshot recommendation and Cancel/OK readable."},
+    {"path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/authoring/12-compact-workshop.png", "dimensions": [1152, 577], "observations": "Toolbar, library, mission, Wiring, Run code and footer fit without material overlap. Preview small; Load an example replaces expanded list."},
+    {"path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/native-wall-clipboard-probe/code-entered-wall-brake.png", "dimensions": [1400, 950], "observations": "Readable Stage3 and code: motors pin0/pin12, sonar pin1/pin2, distance_cm()>10 loop, forward25, sleep20, stop(). Road/robot/wall/stopping bands visible."},
+    {"path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/native-wall-clipboard-probe/before-result-wall-brake.png", "dimensions": [1400, 950], "observations": "Stage cleared! and retry/stage-list controls readable; HUD7.2cm versus5.0–10.0cm. This is the wall stage, separate from frozen AI14cm criterion."}
+  ],
+  "minor_issues": ["Expanded starter names ellipsized and scrollable rows partially visible at boundaries.", "Import _ export tab has awkward underscore separator.", "Code-editor keyboard tooltip overlaps blank scene/editor area, without hiding program."],
+  "material_issues": [],
+  "verdict": "No material clipping/overlap in these six actual original-resolution stills.",
+  "limits": ["Stills do not prove input, clipboard equality, physics, downloads, numeric contrast or full run success.", "Diagnostic passed code-readback and actual wall-clear assertions then its single-stage fixture incorrectly iterated to a nonexistent second stage; full diagnostic exit1 retained.", "Earlier clipboard and wall failures remain; Opus review/runtime gates supplied by coordinator, not repeated by inspector."],
+  "recording": "Coordinator faithful structured summary of returned native inspector result; observations preserved, not the full worker transcript."
+}

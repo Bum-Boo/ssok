@@ -70,6 +70,23 @@ replaces those with headless smoke checks: on a Linux host without a display, ru
 CI installs Xvfb/Mesa and runs the same full inventory. Tokens are ephemeral fixture credentials.
 The checks share that temporary root; a test that changes a persisted language or preference
 must restore the original bytes (or remove a newly created file) before returning.
+On Windows with a legacy default code page, use inherited UTF8 for Python child suites.
+The parent interpreter's `-X utf8` does not propagate to a separately launched interpreter.
+Set `PYTHONUTF8` only for this invocation and restore its prior value:
+
+```powershell
+$ssokPreviousPythonUtf8 = $env:PYTHONUTF8
+try {
+    $env:PYTHONUTF8 = '1'
+    & '.\build\venv-native\Scripts\python.exe' tools/ci/verify.py --godot '.\build\toolchain-windows\Godot_v4.7.2-stable_win64.exe' --output build/verification-native
+} finally {
+    $env:PYTHONUTF8 = $ssokPreviousPythonUtf8
+}
+```
+
+The [r7 observed recovery](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md)
+retains the initial81/2 and focused2/0 separately; this process setting does not change the app.
+
 Each check has a timeout; a failure does not skip later checks. `results.json`, `junit.xml`, `SUMMARY.md` and individual logs retain
 every result. Any failed check returns a failing exit status. The running and new-kit acceptance
 checks are included; known limitations are not silently marked as expected passes.
