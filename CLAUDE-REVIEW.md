@@ -1,3 +1,44 @@
+# ssok — unchanged-source control diagnosis r8
+
+Issue32, feat/32-robot-camera-loop; diagnosis source dd9c814, unchanged426 current
+app/test/tool inputs and unchanged camera10/frozen goal. Package remains immutable
+fa868ca/0.3.1-projects-r7, with the dated r7 gates below. No app repair, UI/string,
+physics, provider, goal or threshold change; no model-navigation call/merge/publication.
+[Actual14 diagnostic runs,91PNGs,12Astra views and limits](docs/evidence/agent_camera_2026-10-10/completion/control-feedback-r8/README.md).
+
+Original TCP30/10/12 combined failure reproduced2/2: image25px/physical14.0000701cm fail,
+then image23px fail/physical13.9928192cm pass. Reduced30/22 does not preserve boundary
+(1px/12.6101cm). Callback SHA/tick physics pairing does not independently establish
+camera-request pose equals later callback pose. Stop moves closer in both original runs;
+its release alone is not sufficient cause of excess gap. Direct frame-counted stock
+still varies4px/.9587mm. Strict angular admission0.003 faults initially240ticks, P24 faults
+after first drive; P4 completes but4px variation/physicalfail. None applied.
+
+Post-controller duty appearedN-1, but exact unchanged DriveMotor callback sees30/10/12/1
+powered calls per motor. This is a sampler-seam correction, not a controller off-by-one.
+Motor fields preserved; read-only wrapper delegates production super. Three fresh identical
+30/10/13 deterministic replays each13.800904cm and final18px: physical3/3/image0/3/combined0/3,
+not AI performance or a global impossibility proof. Astra12actual views; partition13idle4
+visual16±1 vs fixedclassifier18 discrepancy retained, both below24. Historical AI nominal
+image9/9/strict14cm physical0/9 unchanged. No candidate was promoted into production.
+
+FLOWS/API/ADR0029/CONTROLS and storage/data diagrams reviewed: their actual contracts are
+unchanged. This is docs/evidence-only; docs maintain/10unit/ZIP1 checks are current,
+full app/import/Web/installer gates are not rerun. Existing r7/r6 checks remain dated.
+No localization or design changes; unchanged Projects source retains existing Opus review.
+
+Next Codex: isolate residual chassis pitch using a bounded motor-only angular-damping
+prototype and original combined-red seam; keep torque/duty/camera/physics/evaluator/goal
+and actor inputs unchanged. Apply only with causal evidence/regression. Separately versioned
+image-goal calibration is merely a proposal; frozen study must not be silently replaced.
+Fable is the integration owner: review claim consistency, actually fetch/rebase clean feature
+once, human merges. Powered-off Arch originals/taskCLIrev16, nativeMac, currentr7AIendtoend,
+general navigation/account/operator packaging, humanmerge and exact-version publication
+approval remain. GeneratedHandoff untouched; global objective incomplete.
+Recovery/records: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/control-feedback-r8/.
+
+## Frozen r7 milestone — dated package validation and handoff
+
 # ssok — current clean release candidate r7
 
 Issue32, feat/32-robot-camera-loop, immutable package app source

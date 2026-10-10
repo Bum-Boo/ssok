@@ -1,0 +1,131 @@
+{
+	"failure": "Actual bounded motor action",
+	"failure_state": {
+		"enabled": false,
+		"settle_elapsed": 240,
+		"stable_ticks": 0,
+		"state": "fault"
+	},
+	"frames": [
+		{
+			"capture_physics": {
+				"angular_speed": 0.00421200599521399,
+				"gap_x": 0.254763402044773,
+				"linear_speed": 0.000490222941152751,
+				"linear_velocity": [
+					0.000337498437147588,
+					0.000200840542674996,
+					-0.000293387769488618
+				],
+				"motors": [
+					{
+						"duty": 0.000093068901701675,
+						"speed": -0.00562600931152701
+					},
+					{
+						"duty": -0.00550787946171719,
+						"speed": 0.0158307887613773
+					}
+				],
+				"position": [
+					0.000380590267013758,
+					0.0667509436607361,
+					0.0000340651313308626
+				],
+				"rotation": [
+					-0.000602010870352387,
+					-0.000190573540749028,
+					-0.010809195227921
+				],
+				"wheel_speed": 0.0146733531728387,
+				"x": 0.000380590267013758
+			},
+			"label": "initial",
+			"metadata": {
+				"camera_id": "virtual-front-camera",
+				"capture_requested_tick": 84,
+				"control_generation": 1,
+				"draw_frame": 70,
+				"episode_id": "18ad80c98a8db298a735408a",
+				"frame_id": 2,
+				"height": 480,
+				"interpolation_enabled": false,
+				"part_id": 0,
+				"physics_tick": 84,
+				"revision": 3,
+				"robot_instance_id": "1365380175221",
+				"settle_confirmed_tick": 84,
+				"sha256": "d74c6d56051cfa753fa86791900a946298a9d53cac6d5d937d47d85ba98ef5c8",
+				"width": 640
+			},
+			"png_sha256": "d74c6d56051cfa753fa86791900a946298a9d53cac6d5d937d47d85ba98ef5c8",
+			"request_after_physics": {
+				"angular_speed": 0.00519087957218289,
+				"gap_x": 0.254940584301949,
+				"linear_speed": 0.000239003100432456,
+				"linear_velocity": [
+					0.000103445789136458,
+					0.000196334556676447,
+					-0.0000887366259121336
+				],
+				"motors": [
+					{
+						"duty": 0.0,
+						"speed": -0.0323631167411804
+					},
+					{
+						"duty": 0.0,
+						"speed": 0.03797946870327
+					}
+				],
+				"position": [
+					0.000292979733785614,
+					0.0666830167174339,
+					0.0000660613150103018
+				],
+				"rotation": [
+					-0.000574187317397445,
+					0.0000608726695645601,
+					-0.00955598428845406
+				],
+				"wheel_speed": 0.0133034903556108,
+				"x": 0.000292979733785614
+			},
+			"request_before_physics": {
+				"angular_speed": 0.00519087957218289,
+				"gap_x": 0.254940584301949,
+				"linear_speed": 0.000239003100432456,
+				"linear_velocity": [
+					0.000103445789136458,
+					0.000196334556676447,
+					-0.0000887366259121336
+				],
+				"motors": [
+					{
+						"duty": 0.00690501190157374,
+						"speed": -0.0323631167411804
+					},
+					{
+						"duty": -0.0105223660334911,
+						"speed": 0.03797946870327
+					}
+				],
+				"position": [
+					0.000292979733785614,
+					0.0666830167174339,
+					0.0000660613150103018
+				],
+				"rotation": [
+					-0.000574187317397445,
+					0.0000608726695645601,
+					-0.00955598428845406
+				],
+				"wheel_speed": 0.0133034903556108,
+				"x": 0.000292979733785614
+			}
+		}
+	],
+	"scope": "DEBUG-r8 rejected or failed bounded developer probe; not an applied repair.",
+	"stop_confirmed": true,
+	"variant": "damping-p24"
+}

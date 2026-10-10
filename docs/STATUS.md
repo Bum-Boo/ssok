@@ -1,5 +1,8 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r8: 동일426소스/동결목표로 combined 실패2회 재현, 직접 replay도4px흔들림. 엄격 각속도/P24는 정지시간 초과, P4도combined실패라 앱 적용0. 실제 motor callback30/10/12/1은 명령과 일치. 마지막 구간13틱의 deterministic3회는 물리3/3·영상0/3·AI아님. [원본91PNG/14진단·한계·다음](evidence/agent_camera_2026-10-10/completion/control-feedback-r8/README.md). 기존 AI영상9/9·물리0/9/미공개 유지. 아래 r7은 패키지 검증 이력.
+
+
 2026-10-11 r7: Opus검토 UI의 clean 소스fa868ca/0.3.1-projects-r7로4플랫폼·6해시 확인. Native 최초81/2는 UTF8 한정2/0 복구해79+2개 해결; 같은 Web5/5·설치 단독17/0·실제 패키지 Projects6/0/재내보내기 일치·Astra17화면 확인. 첫 클립보드 오류/설치10/1·실패 진단은 보존, 원인 미확정. [현재 버전·원본 결과·인계](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md). 물리0/9·Mac실기기·Arch정식인계·humanmerge/공개승인 미완료. 아래는 이전 소스/검증 이력.
 
 
