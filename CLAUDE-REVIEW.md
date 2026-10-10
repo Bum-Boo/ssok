@@ -1,3 +1,40 @@
+# ssok — current reviewed package actual AI flow r10
+
+Issue32, feat/32-robot-camera-loop; input HEAD1c3da58, immutablefa868ca/0.3.1-projects-r7
+PE7aee4f…9254fb/PCKcada9f…e8535. Production426/camera10/frozen goal unchanged. No app/UI/
+localization/physics/provider/goal/threshold change, merge or publication.
+[Actual current-package flow,10PNG/Astra10 and limits](docs/evidence/agent_camera_2026-10-10/completion/current-package-goal-r10/README.md).
+
+Default Title→Projects paste/import/OK→goalEnter(no dispatch)→existing external foreground
+operator/ChatGPTlogin→actualRun→requestedAstra once forward3ticks/two distinct640×480PNG/
+finalreobserve/scopedStop→normalnative+CLIexit0,12/0/54.463s. Current described app stopped/
+disabled separately observed from actor owner revocation(context_replaced). Bridge8127gone,
+engineERROR0 and clipboard/processenv restored. One CLI launch; automaticretry/fallback0.
+Alreadyverified r7 source-only geometry/ordinaryproject used as coordinates, gate drives
+actual default cleanpackage. Process-localPYTHONUTF8=1 inherited per datedr7encoding recovery.
+
+One smoke wall0.8fixture, not frozenwall.35/24..38px/4..14cm precision study or navigation
+reliability. HistoricalAIimage9/9physical0/9 and r8/r9 deterministic rejected candidates remain
+separate, unchanged. Operator/login are outside ZIP; no packaged onboarding. RequestedAstra
+not independentbackendattestation,8actions9images300s notmodelrequest/billingcap.
+No evaluator distance/graph/source/privateWiki/auth input added to declared camera actor.
+Private raw CLI transcript not public. Astra actually10stills (8UI/2sensor), no material
+control/warning overlap; goalfieldtail only/actiontrace outside visible scroll. Exact3ticks/
+actions/runtime success rely on actual authenticated coordinator checks, not screenshots.
+
+Docsmaintain/10unit/ZIP1 current; appimport/fullnative/Web/installer not rerun, r7 history
+retained. No newvisual/style/stringchanges; existingOpusreview remains. FLOWS/API/ADR0029/
+CONTROLS/data/storage contracts unchanged. Source426 and exactPE/PCK before/after equal.
+Fable owns contradiction review and actual featurefetch/rebase once; humanmerges.
+
+Next Codex: evidence-backed simultaneous physical/image precision or separately versioned
+calibration decision; account/operator packaging and generalnavigation remain. NativeMac,
+Arch originals/formaltaskCLI16release, humanmerge/exactversionpublicationapproval pending.
+Globalobjective incomplete; generatedHandoff/donefalse/aliases untouched. Records/recovery:
+C:/Users/Hojun/.agents/backups/ssok-completion-20261010/current-package-goal-r10/.
+
+## Frozen r9 milestone — dated angular feedback diagnosis
+
 # ssok — rejected motor-only angular feedback r9
 
 Issue32, feat/32-robot-camera-loop; input HEAD f86fadd, production426/camera10/frozen goal

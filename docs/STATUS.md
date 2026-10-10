@@ -1,5 +1,8 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r10: 현재 fa868ca/0.3.1-projects-r7 실제WindowsPE/PCK defaultUI의 Run→외부operator/기존login/요청Astra→3틱1행동/2실제PNG·재관측/Stop·정상종료12/0·54.463s. Astra10실제영상, goal필드꼬리/trace스크롤 한계 보존. [같은버전·원본·한계](evidence/agent_camera_2026-10-10/completion/current-package-goal-r10/README.md). 앱수정0/단일smoke·범용성/벽정밀도 증명아님. 물리0/9·Mac/Arch·humanmerge/공개승인 남음. 아래는 이전실험/패키지 이력.
+
+
 2026-10-11 r9: 원래30/10/12·같은계측 stock/K16 모터제동2회. 거리14.1063→13.8506cm로 물리 통과지만 마지막영상23→21px로 여전히실패, 각속도 감소 불명확·앱 적용0. 모터callback30/10/12 일치, 계측기 초기영상 집계/후처리 오류 복구·실패보존. [원본16PNG/Astra6·한계·다음](evidence/agent_camera_2026-10-10/completion/angular-feedback-r9/README.md). 기존AI영상9/9·물리0/9/미공개 유지. 아래는 이전 진단/패키지 이력.
 
 
