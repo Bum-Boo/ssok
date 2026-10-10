@@ -1,6 +1,7 @@
 # ssok — paired holding diagnostics r11
 
-Issue32, input3070d2f, feat/32-robot-camera-loop. Immutable app/package
+Issue32, runtime input3070d2f; initial diagnostic-evidence commit67482b0.
+feat/32-robot-camera-loop; later review wording correction leaves runtime/source unchanged. Immutable app/package
 fa868ca/0.3.1-projects-r7, source426/camera10/frozen raw goal unchanged.
 [Four actual native diagnostics,32PNG/Astra8 and limits](docs/evidence/agent_camera_2026-10-10/completion/world-wheel-hold-r11/README.md).
 Stock→world-wheel changes only PI speed reference. K16reference→joint-integral retains
@@ -18,6 +19,11 @@ preserving frozen benchmark. Operator packaging/Macnative/Arch originals/formal 
 release/humanmerge/exactversionpublication remain. Fable reviews/rebases; human merges.
 Canonical records/backup/receipts: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/world-wheel-hold-r11/.
 Global goal incomplete. No merge/push/publication/service/schedule/paidfallback.
+
+Review recovery: entry251>250 corrected to250; preserve originalCRLF/fixtureEOF
+with command-local allowances. First Fable added unallowlisted--branch, denied before
+execution; fetch/rebase0. See r11 review-recovery.json. Retry exact original seven Git
+commands, no new flags or permission expansion; actual final review is a separate receipt.
 
 ## Frozen r10 milestone — dated current package AI flow
 

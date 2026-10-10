@@ -37,7 +37,8 @@ single runs cannot establish reliability. All candidates are **rejected and not 
 There are eight real640×480 PNGs per run,32 retained; seven post-initial frame_ready
 samples per run are bound by exact SHA/tick. Initial PNG precedes observer attachment.
 Camera pose assignment and later callback samples remain distinct timing claims.
-Astra actually views eight stills (post3/idle4 for each case), with findings in
+Astra actually viewed exactly two stills per case, `post-3.png` and `idle-4.png`,
+eight images total, with findings in
 [its receipt](provenance/astra-inspection.json). Visual estimates and classifier results
 remain separate. Stills do not prove continuous jitter, physics, causality or backend identity.
 
@@ -53,3 +54,12 @@ Mac native, Arch originals/formal task release and human merge/versioned publica
 Fable performs bounded docs/integration review; human merges. No merge/push/publication.
 Canonical records/recovery: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/world-wheel-hold-r11/.
 Global objective remains incomplete.
+
+Documentation recovery: first entry-context251>250 check failed, then one newly added
+blank line and its helper caller were corrected; maintain/10unit/ZIP1 passed. Ordinary
+authored-doc diff passed. Exact original CRLF and three fixture EOF blank lines are retained
+with command-local whitespace allowances; no global Git configuration or raw runtime bytes
+changed. The first Fable Bash call added unallowlisted `--branch` and was denied before
+execution; no fetch/rebase occurred. [Recovery record](review-recovery.json).
+Runtime input HEAD remains3070d2f; initial diagnostic-evidence commit67482b0; this
+document correction is later and does not alter runtime inputs or original92 copies.
