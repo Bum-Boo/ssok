@@ -1,0 +1,46 @@
+extends SceneTree
+
+## Operator-selected rendered desktop demonstration; not an autonomous scene mutation tool.
+var app: Node3D
+
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+func _run() -> void:
+	if DisplayServer.get_name() == "headless" or OS.has_feature("web"):
+		push_error("Rendered desktop required")
+		quit(1)
+		return
+	root.size = Vector2i(1600, 1000)
+	app = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(app)
+	await process_frame
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	var wall_x: float = 0.8
+	var index: int = args.find("--wall-x")
+	if index >= 0 and index + 1 < args.size() and args[index + 1].is_valid_float():
+		wall_x = clampf(args[index + 1].to_float(), 0.25, 1.2)
+	app._load_preset(RobotCarPreset.build(wall_x), RobotCarPreset.BRAKE_CODE, "")
+	app.control_source.select(app.CONTROL_CODE)
+	app.mode_button.button_pressed = true
+	app.program_tabs.current_tab = app.agent_panel.get_index()
+	app.agent_loop.begin()
+	if args.has("--evaluate-camera"):
+		var evaluator: Node = load("res://tools/app_control/camera_evaluator.gd").new()
+		evaluator.app = app
+		root.add_child(evaluator)
+	var goal_index: int = args.find("--test-app-goal")
+	if goal_index >= 0 and goal_index + 1 < args.size():
+		var goal: String = args[goal_index + 1]
+		var clicked: Array[bool] = [false]
+		app.agent_goal_inbox.status_changed.connect(func(connected: bool, busy: bool, _status: String) -> void:
+			if connected and not busy and not clicked[0]:
+				clicked[0] = true
+				app.agent_panel._goal_field.text = goal
+				app.agent_panel._refresh_state()
+				app.agent_panel._run_button.pressed.emit()
+				var evidence: FileAccess = FileAccess.open("user://operator-ui-click.json", FileAccess.WRITE)
+				if evidence != null:
+					evidence.store_string(JSON.stringify({"test_simulated_button_click": true, "queued": app.agent_goal_inbox.busy(), "goal_preserved": app.agent_panel._goal_field.text == goal}) + "\n"))

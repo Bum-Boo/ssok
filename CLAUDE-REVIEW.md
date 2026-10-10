@@ -1,3 +1,26 @@
+# ssok — paired holding diagnostics r11
+
+Issue32, input3070d2f, feat/32-robot-camera-loop. Immutable app/package
+fa868ca/0.3.1-projects-r7, source426/camera10/frozen raw goal unchanged.
+[Four actual native diagnostics,32PNG/Astra8 and limits](docs/evidence/agent_camera_2026-10-10/completion/world-wheel-hold-r11/README.md).
+Stock→world-wheel changes only PI speed reference. K16reference→joint-integral retains
+P term/gains and changes only integral error. Each has actual powered30/10/12 per motor,
+8PNGs/7post-initial SHA/tick callback samples, bounded native/wrapper exit0 and actualStop.
+All four simultaneous image/physical targets fail. No clear chassis-rate reduction; one
+pixel span differences do not prove a fix. Both candidates rejected; production applied0.
+No goal/threshold/pose/velocity/physics/DriveMotor/provider/actor/UI/localization change.
+Historical AIimage9/9physical0/9 unchanged; developer probes do not update AI success rate.
+Docs maintain/10unit/ZIP1 accompany this evidence; app import/fullnative/Web/installer
+not rerun, dated r7 gates retained. Opus design review unchanged; no new design work.
+Next Codex: measured camera/physical boundary and falsifiable observation-only remedy,
+before further controller candidates. Versioned calibration needs a product decision,
+preserving frozen benchmark. Operator packaging/Macnative/Arch originals/formal CLI16
+release/humanmerge/exactversionpublication remain. Fable reviews/rebases; human merges.
+Canonical records/backup/receipts: C:/Users/Hojun/.agents/backups/ssok-completion-20261010/world-wheel-hold-r11/.
+Global goal incomplete. No merge/push/publication/service/schedule/paidfallback.
+
+## Frozen r10 milestone — dated current package AI flow
+
 # ssok — current reviewed package actual AI flow r10
 
 Issue32, feat/32-robot-camera-loop; input HEAD1c3da58, immutablefa868ca/0.3.1-projects-r7

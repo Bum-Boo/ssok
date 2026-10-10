@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r11: 같은30/10/12 actualstock/world-wheel·K16reference/joint-integral 네진단 모두동시목표FAIL. 거리13.8458~14.1212cm/마지막영상20~25px, 차체각속도감소불명확; 두후보 앱미적용. [32PNG·Astra8·원본·한계](evidence/agent_camera_2026-10-10/completion/world-wheel-hold-r11/README.md). 앱/goal/평가기준 불변, 기존AI영상9/9·물리0/9·미공개 유지. 아래는 이전이력.
+
 2026-10-11 r10: 현재 fa868ca/0.3.1-projects-r7 실제WindowsPE/PCK defaultUI의 Run→외부operator/기존login/요청Astra→3틱1행동/2실제PNG·재관측/Stop·정상종료12/0·54.463s. Astra10실제영상, goal필드꼬리/trace스크롤 한계 보존. [같은버전·원본·한계](evidence/agent_camera_2026-10-10/completion/current-package-goal-r10/README.md). 앱수정0/단일smoke·범용성/벽정밀도 증명아님. 물리0/9·Mac/Arch·humanmerge/공개승인 남음. 아래는 이전실험/패키지 이력.
 
 
