@@ -1,3 +1,22 @@
+# ssok — rejected bounded attitude gains r15
+
+Issue32, feat/32-robot-camera-loop, runtime93d10e4; immutablefa868ca/0.3.1-projects-r7.
+[3native probes/24PNG/Astra6, exact results and limits](docs/evidence/agent_camera_2026-10-10/completion/attitude-gain-r15/README.md).
+Same30/10/12: stock23px/14.106308cm, K32 26px/14.112754cm, K64 23px/14.111730cm.
+AlljointFAIL; spans4/3/4px, no monotonic/signedbodyrate repair. Candidates unapplied.
+Negative16 preplanned condition unmet, not prepared/run. Both actual motors30/10/12,
+8PNG/7SHA-tick callbacks per case, nativeexit0/Stop; jointtarget CLIexit1 meansFAIL.
+Source426+operator7/r14ZIP/currentapp/frozengoal unchanged; no AI trial or source/UI edit.
+Astra6actual estimates22/23,22/25,23/22±2px; classifier final23/26/23 kept separately.
+Docs10/maintain only. App gates/Opus/r14SDKsmoke are dated history, not rerun.
+OriginalAIimage9/9physical0/9, calibration proposal unadopted/unrun. No push/merge/publication.
+Next Codex original-target mechanism, freshsignup/navigation/Mac/Archraw/formalCLI16;
+Fable finalfunctionalreview/rebase, humanmerge/exactversion-scopepublication.
+Record/recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/attitude-gain-r15/.
+Global goal incomplete.
+
+## Frozen r14 milestone — local operator preparation
+
 # ssok — local operator preparation r14
 
 Issue32, feat/32-robot-camera-loop. Operator f2342f8 / 0.2.0-operator-r14,

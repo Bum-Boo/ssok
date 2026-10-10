@@ -1,5 +1,6 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r15: 자세계수32·64도 원래영상/물리 동시FAIL·미적용. Stock23px/14.1063cm,32는26px/14.1128cm,64는23px/14.1117cm; span4/3/4px. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-gain-r15/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
 2026-10-11 r14: operator 전용환경/준비점검·자동Python 선택 후 실제Run→3틱1행동/2PNG·재관측/Stop12/0. Python66/0·guard7/0·Astra10; 원래MCP/notice실패 보존. [10PNG·원본·한계](evidence/agent_camera_2026-10-10/completion/operator-setup-r14/README.md). 앱fa868ca/goal 불변. 새계정·정밀도0/9·Mac/Arch/통합·공개 남음.
 2026-10-11 r13: 동일30/10/12 stock23px/14.1063cm·자세보정24px/14.0799cm 둘 다동시FAIL·4px변동/앱미적용. 원래compile/90s timeout과복구 보존. [16PNG·Astra4·원본·제안](evidence/agent_camera_2026-10-10/completion/attitude-hold-r13/README.md). Source426/동결goal/기준 불변, 별도12–20px안 미채택·미실행. 물리0/9·Mac/Arch/통합·공개 미완료.
 2026-10-11 r12: 별도operator ZIP/Git-free 한글·공백 경로에서 실제Run→3틱1행동/2PNG·재관측·Stop/정상종료12/0·52.909s. 원래Git실패/Stop 보존, Python63/0·archive4/0·Astra10. [원본18PNG·버전·한계](evidence/agent_camera_2026-10-10/completion/operator-archive-r12/README.md). 앱fa868ca 불변/도구별도version; Python/MCP/Codex/login 외부. 물리0/9·Mac/Arch·humanmerge/공개 미완료.
@@ -15,7 +16,6 @@
 2026-10-11 r7: Opus검토 UI의 clean 소스fa868ca/0.3.1-projects-r7로4플랫폼·6해시 확인. Native 최초81/2는 UTF8 한정2/0 복구해79+2개 해결; 같은 Web5/5·설치 단독17/0·실제 패키지 Projects6/0/재내보내기 일치·Astra17화면 확인. 첫 클립보드 오류/설치10/1·실패 진단은 보존, 원인 미확정. [현재 버전·원본 결과·인계](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md). 물리0/9·Mac실기기·Arch정식인계·humanmerge/공개승인 미완료. 아래는 이전 소스/검증 이력.
 
 2026-10-11 r6: 실제 r2 배포본 Run with AI→외부 operator→3틱1행동/2PNG/재관측·Stop12/0. Projects는 Opus 작성/수정·독립PASS, Astra32+4실제화면, native80경우1181/0·실제키25/0·Web작성9/0/설정14/0·Linux 초안 통과. 앱 변경은 ProjectPanel, CI좌표fixture도 복구; r2와 다른 미배포 로컬 초안. [결과·실패·인계](evidence/agent_camera_2026-10-10/completion/package-goal-ui-r6/README.md). 물리0/9·새clean배포본·Mac·Arch정식인계·humanmerge/공개승인은 남음.
-
 
 2026-10-11 실제 Windows 배포본 카메라 r5: 기본 Title→프로젝트 가져오기→Lab AI Enable/Forward/Stop, 인증 관측·8틱행동·재관측·늦은요청 거부11/0·정상exit0. 앱/패키지 변경0, provider호출0. 실패3회·도구복구/Astra20영상과 한계는 [r5 근거](evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). 실제 패키지 Run with AI/operator·Projects 문구/대비 Opus 검토·물리0/9/Mac/Arch/통합·공개 승인은 남음.
 
