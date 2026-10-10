@@ -1,3 +1,27 @@
+# ssok — local operator preparation r14
+
+Issue32, feat/32-robot-camera-loop. Operator f2342f8 / 0.2.0-operator-r14,
+immutable app fa868ca / 0.3.1-projects-r7.
+[Actual setup/native/guards,10PNG and limits](docs/evidence/agent_camera_2026-10-10/completion/operator-setup-r14/README.md).
+Default Python missingMCP reproduced before app/model. Explicit archive-local setup
+→CheckOnly exit0→automatic localPython3.13.3/MCP2.2.0→intentional nativeRun:
+one3tick/twoPNG/reobserve/scopedStop/normalexit12/0,56.765s.
+GlobalPython still noMCP; setup/doctor sign-in/model/app0. Fresh-account sign-in unverified.
+Python66/0/SDK, docs10/0, archiveguards7/0, Astra10actual stills. Initial40/1failure/
+onePOSIXskip and actual oldnotice link failure preserved; allowlisting OPERATOR.md fixed it.
+425/426 original entries unchanged; build.py noticeallowlist only. New doctor/setup,
+identity8modules/launcher/package/test/docs changed separately.14entry ZIP deterministic.
+Godot/actorprompt/Codexcommand/frozen goal unchanged. Native harness process-local
+PYTHONUTF8=1; existing ignoredfeatures.skills stderr preserved. No backendidentity,
+quota/billing/reliability certification. Goalpartial/traceoffscroll visual limits retained.
+OriginalAIimage9/9physical0/9; original precision, freshsignup/navigation/Macnative/
+Archraw/formalCLI16release/humanmerge/exactscopepublication remain. No push/merge/publication.
+Fable reviews/rebases final branch; human merges. Canonical record/recovery:
+C:/Users/Hojun/.agents/backups/ssok-completion-20261010/operator-setup-r14/.
+Global goal incomplete.
+
+## Frozen r13 milestone — rejected attitude holding
+
 # ssok — rejected body-attitude holding diagnostic r13
 
 Issue32, feat/32-robot-camera-loop; runtime input008f7ea, immutablefa868ca/0.3.1-projects-r7.

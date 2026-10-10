@@ -1,5 +1,6 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r14: operator 전용환경/준비점검·자동Python 선택 후 실제Run→3틱1행동/2PNG·재관측/Stop12/0. Python66/0·guard7/0·Astra10; 원래MCP/notice실패 보존. [10PNG·원본·한계](evidence/agent_camera_2026-10-10/completion/operator-setup-r14/README.md). 앱fa868ca/goal 불변. 새계정·정밀도0/9·Mac/Arch/통합·공개 남음.
 2026-10-11 r13: 동일30/10/12 stock23px/14.1063cm·자세보정24px/14.0799cm 둘 다동시FAIL·4px변동/앱미적용. 원래compile/90s timeout과복구 보존. [16PNG·Astra4·원본·제안](evidence/agent_camera_2026-10-10/completion/attitude-hold-r13/README.md). Source426/동결goal/기준 불변, 별도12–20px안 미채택·미실행. 물리0/9·Mac/Arch/통합·공개 미완료.
 2026-10-11 r12: 별도operator ZIP/Git-free 한글·공백 경로에서 실제Run→3틱1행동/2PNG·재관측·Stop/정상종료12/0·52.909s. 원래Git실패/Stop 보존, Python63/0·archive4/0·Astra10. [원본18PNG·버전·한계](evidence/agent_camera_2026-10-10/completion/operator-archive-r12/README.md). 앱fa868ca 불변/도구별도version; Python/MCP/Codex/login 외부. 물리0/9·Mac/Arch·humanmerge/공개 미완료.
 
@@ -12,7 +13,6 @@
 2026-10-11 r8: 동일426소스/동결목표로 combined 실패2회 재현, 직접 replay도4px흔들림. 엄격 각속도/P24는 정지시간 초과, P4도combined실패라 앱 적용0. 실제 motor callback30/10/12/1은 명령과 일치. 마지막 구간13틱의 deterministic3회는 물리3/3·영상0/3·AI아님. [원본91PNG/14진단·한계·다음](evidence/agent_camera_2026-10-10/completion/control-feedback-r8/README.md). 기존 AI영상9/9·물리0/9/미공개 유지. 아래 r7은 패키지 검증 이력.
 
 2026-10-11 r7: Opus검토 UI의 clean 소스fa868ca/0.3.1-projects-r7로4플랫폼·6해시 확인. Native 최초81/2는 UTF8 한정2/0 복구해79+2개 해결; 같은 Web5/5·설치 단독17/0·실제 패키지 Projects6/0/재내보내기 일치·Astra17화면 확인. 첫 클립보드 오류/설치10/1·실패 진단은 보존, 원인 미확정. [현재 버전·원본 결과·인계](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md). 물리0/9·Mac실기기·Arch정식인계·humanmerge/공개승인 미완료. 아래는 이전 소스/검증 이력.
-
 
 2026-10-11 r6: 실제 r2 배포본 Run with AI→외부 operator→3틱1행동/2PNG/재관측·Stop12/0. Projects는 Opus 작성/수정·독립PASS, Astra32+4실제화면, native80경우1181/0·실제키25/0·Web작성9/0/설정14/0·Linux 초안 통과. 앱 변경은 ProjectPanel, CI좌표fixture도 복구; r2와 다른 미배포 로컬 초안. [결과·실패·인계](evidence/agent_camera_2026-10-10/completion/package-goal-ui-r6/README.md). 물리0/9·새clean배포본·Mac·Arch정식인계·humanmerge/공개승인은 남음.
 
