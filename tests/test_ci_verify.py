@@ -34,7 +34,8 @@ class VerifyProcessResultTest(unittest.TestCase):
     def test_lifecycle_modes_are_independent_rendered_checks(self):
         inventory = {check.name: check.command for check in checks('godot', 'python')}
         modes = ('normal_stop', 'drive_stop', 'teardown', 'mode_off', 'app_free',
-                 'rebuild', 'new_episode')
+                 'rebuild', 'new_episode', 'driving_stop', 'driving_rebuild',
+                 'driving_app_free', 'driving_new_episode')
         for mode in modes:
             name = 'camera_evaluator_lifecycle_check-' + mode
             with self.subTest(mode=mode):

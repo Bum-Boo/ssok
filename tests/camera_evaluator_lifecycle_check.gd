@@ -1,6 +1,6 @@
 extends SceneTree
 
-## Rendered observer regression: revoked scenes cannot certify stale physical metrics.
+## Rendered observer regression: ready or driving context changes cannot certify stale metrics.
 var app: Node3D
 var evaluator: Node
 var events: Array[Dictionary] = []
@@ -8,6 +8,7 @@ var checks: int = 0
 var failures: int = 0
 var mode: String = "normal_stop"
 var phase: String = "initialize"
+var action_mode: String = "normal_stop"
 var started_msec: int = Time.get_ticks_msec()
 
 
@@ -58,6 +59,9 @@ func _run() -> void:
 	var index: int = args.find("--lifecycle-mode")
 	if index >= 0 and index + 1 < args.size():
 		mode = args[index + 1]
+	var driving_modes: Dictionary = {"driving_stop": "normal_stop", "driving_rebuild": "rebuild",
+		"driving_app_free": "app_free", "driving_new_episode": "new_episode"}
+	action_mode = driving_modes.get(mode, mode)
 	if DisplayServer.get_name() == "headless":
 		print("Rendered lifecycle regression required")
 		quit(2)
@@ -112,8 +116,21 @@ func _run() -> void:
 			if failures > 0:
 				_finish()
 				return
+	if mode.begins_with("driving_"):
+		var meta: Dictionary = app.agent_loop.metadata
+		var response: Dictionary = app.agent_loop.drive_step({"episode_id": meta.episode_id,
+			"frame_id": meta.frame_id, "revision": meta.revision,
+			"control_generation": meta.control_generation, "action": "forward", "ticks": 25})
+		_check(response.get("pending") == true, "real pending drive accepted before context action")
+		for tick: int in 5:
+			await physics_frame
+		_check(app.agent_loop.enabled and app.agent_loop.state == "driving", "context action happens during real active drive")
+		_progress("drive_pending")
+		if failures > 0:
+			_finish()
+			return
 	_progress("before_context_action")
-	match mode:
+	match action_mode:
 		"normal_stop", "drive_stop":
 			app._on_stop_pressed()
 		"teardown":
@@ -129,6 +146,16 @@ func _run() -> void:
 		_:
 			_check(false, "known mode")
 	_progress("context_action_done")
+	var first_result: String = ""
+	var first_calibration: String = ""
+	if action_mode not in ["normal_stop", "drive_stop"]:
+		for tick: int in 2:
+			await physics_frame
+		_check(evaluator.finished and FileAccess.file_exists("user://camera-evaluation.json"), "invalid context finishes observer promptly")
+		if FileAccess.file_exists("user://camera-evaluation.json"):
+			first_result = FileAccess.get_file_as_string("user://camera-evaluation.json")
+		if FileAccess.file_exists("user://camera-calibration.jsonl"):
+			first_calibration = FileAccess.get_file_as_string("user://camera-calibration.jsonl")
 	var settle_deadline: int = Time.get_ticks_msec() + 20000
 	for tick: int in 165:
 		await physics_frame
@@ -140,7 +167,7 @@ func _run() -> void:
 	if FileAccess.file_exists("user://camera-evaluation.json"):
 		evaluation = JSON.parse_string(FileAccess.get_file_as_string("user://camera-evaluation.json"))
 	_check(not evaluation.is_empty(), "explicit final evaluator result exists")
-	if mode in ["normal_stop", "drive_stop"]:
+	if action_mode in ["normal_stop", "drive_stop"]:
 		_check(evaluation.get("valid") == true and evaluation.get("stopped_state") == "stopped",
 			"local Stop retains valid physical measurement")
 		_check(evaluation.get("final", {}).has("gap_x"), "Stop retains measured gap")
@@ -157,16 +184,25 @@ func _run() -> void:
 		var reasons: Dictionary = {"teardown": ["physics_removed"], "mode_off": ["physics_removed"],
 			"app_free": ["app_removed"], "rebuild": ["body_removed", "body_context_changed"],
 			"new_episode": ["episode_changed"]}
-		_check(evaluation.get("invalid_reason") in reasons.get(mode, []), "reason identifies the intended context change")
+		_check(evaluation.get("invalid_reason") in reasons.get(action_mode, []), "reason identifies the intended context change")
 		_check(not evaluation.get("final", {}).has("gap_x"), "invalid result contains no stale final gap")
-	if is_instance_valid(app) and mode in ["teardown", "mode_off", "rebuild"]:
+	if is_instance_valid(app) and action_mode in ["teardown", "mode_off", "rebuild"]:
 		_check(not app.agent_loop.enabled and app.agent_loop.control_generation > old_generation,
 			"real loop revokes old generation")
-	if is_instance_valid(app) and mode == "rebuild":
+	if is_instance_valid(app) and action_mode == "rebuild":
 		_check(app.run_mode.bodies[0].get_instance_id() != old_body, "same graph rebuild replaces body context")
-	if is_instance_valid(app) and mode == "new_episode":
+	if is_instance_valid(app) and action_mode == "new_episode":
 		_check(app.agent_loop.enabled and app.agent_loop.episode_id != old_episode,
 			"observer leaves replacement owner enabled")
+	if action_mode not in ["normal_stop", "drive_stop"]:
+		_check(not first_result.is_empty() and FileAccess.get_file_as_string("user://camera-evaluation.json") == first_result,
+			"invalid result bytes remain unchanged across later physics frames")
+		var calibration: String = ""
+		if FileAccess.file_exists("user://camera-calibration.jsonl"):
+			calibration = FileAccess.get_file_as_string("user://camera-calibration.jsonl")
+		_check(calibration == first_calibration, "invalid observer appends no later calibration or replacement-frame samples")
+	if mode == "driving_stop":
+		_check(int(evaluation.get("rest_ticks", 0)) >= 12, "pending local Stop reaches measured physical rest")
 	_write_result(evaluation)
 	_finish()
 

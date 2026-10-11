@@ -114,3 +114,7 @@ pilot and final are distinct studies. Blind controls/full release verification r
 
 <!-- observer-lifecycle-r32 -->
 2026-10-11 Arch observer-only lifecycle draft: registered7renderedmodes,10current checks pass/zero engine errors and independent ClaudeFable5-1 pass. Local source differs from the unchanged app packages; original AIcase9 trigger and physical goal reliability remain unresolved. [Source conditions and recovered historical artifacts](lifecycle-arch-r32/README.md).
+
+
+<!-- active-drive-lifecycle-r34 -->
+2026-10-11 Arch lifecycle regression now covers11rendered modes including4active-drive transitions and immutable invalid-result/calibration bytes. Current14registered checks PASS with zero engine errors; independent ClaudeFable functional review PASS. The observer/app/packages and original goal remain unchanged from f47c37e. [Exact runtime conditions and limits](lifecycle-driving-arch-r34/README.md).
