@@ -1,3 +1,19 @@
+# ssok — bounded body attitude integral r20
+
+Issue32, sourcec1923a8, immutablefa868ca/0.3.1-projects-r7.
+[1new native/5PNG/Astra4/raw28](docs/evidence/agent_camera_2026-10-10/completion/body-integral-r20/README.md).
+Reused r19initial23px/13.898540cm; added bodyI16 candidate21px/13.746293cm.
+BothphysicalPASS/imageFAIL/jointFAIL. Candidateunapplied, conditional2repeatsunrun.
+Firstreference unchanged; bodyI only finite graph motor duty, forward/cancel clear.
+Actualmotor30/10/12, scopedobserve/Stop, audit integral nonzero/forward resets.
+Fixture132readback/native evaluator30+rest12or120; no metric controlinput/AI calls.
+Source426+7/ZIP/app/goal unchanged; UI/style/localization/provider untouched.
+Originalprecision/freshaccount/nav/Mac/Archraw/task16CLI/humanmerge/publication remain.
+Recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/body-integral-r20/.
+Globalgoal incomplete; no push/merge/publication.
+
+## Frozen r19 milestone — first native observation reference
+
 # ssok — first native observation reference r19
 
 Issue32/feat32, runtime58ba8f5, immutablefa868ca/0.3.1-projects-r7.

@@ -1,22 +1,9 @@
 # 현재 방향과 문서 기준
 
-2026-10-11 r19: 초기native관측reference 고정도23px/13.8985cm(기준22px/13.9617cm) 모두jointFAIL·미적용. [10PNG/Astra4·quaternion/Stop근거](evidence/agent_camera_2026-10-10/completion/initial-reference-r19/README.md). Source/goal불변·정밀도/계정/Mac/Arch/통합공개 남음.
-2026-10-11 r18: 실제bridge관측/scopedStop3회, K32 26px/14.0598cm·후보22px/14.0055cm·단일관측22px/13.9617cm 모두동시FAIL·미적용. [17PNG·Astra6·시작실패2/복구](evidence/agent_camera_2026-10-10/completion/observation-stop-r18/README.md). 평가30~120틱/읽기132틱. Source/goal불변. 정밀도·계정/Mac/Arch/통합·공개남음.
-2026-10-11 r17: 자세기준시점3정책+고정rate16 조합 모두동시FAIL·미적용. Brake26px/14.0711cm, 조합23px/13.9225cm. [32PNG·Astra8·원본](evidence/agent_camera_2026-10-10/completion/attitude-latch-r17/README.md). Source426+7/ZIP/app/goal불변. 다음camera-only 관측/실제Stop. 정밀도·계정/Mac/Arch/통합·공개남음.
-2026-10-11 r16: 자세32+회전16은24px/14.0128cm로 거리0.128mm미달; 고정18추가는22px/13.9864cm로 영상미달. 모두동시FAIL/미적용. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-rate-r16/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
-2026-10-11 r15: 자세계수32·64도 원래영상/물리 동시FAIL·미적용. Stock23px/14.1063cm,32는26px/14.1128cm,64는23px/14.1117cm; span4/3/4px. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-gain-r15/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
-2026-10-11 r14: operator 전용환경/준비점검·자동Python 선택 후 실제Run→3틱1행동/2PNG·재관측/Stop12/0. Python66/0·guard7/0·Astra10; 원래MCP/notice실패 보존. [10PNG·원본·한계](evidence/agent_camera_2026-10-10/completion/operator-setup-r14/README.md). 앱fa868ca/goal 불변. 새계정·정밀도0/9·Mac/Arch/통합·공개 남음.
-2026-10-11 r13: 동일30/10/12 stock23px/14.1063cm·자세보정24px/14.0799cm 둘 다동시FAIL·4px변동/앱미적용. 원래compile/90s timeout과복구 보존. [16PNG·Astra4·원본·제안](evidence/agent_camera_2026-10-10/completion/attitude-hold-r13/README.md). Source426/동결goal/기준 불변, 별도12–20px안 미채택·미실행. 물리0/9·Mac/Arch/통합·공개 미완료.
-2026-10-11 r12: 별도operator ZIP/Git-free 한글·공백 경로에서 실제Run→3틱1행동/2PNG·재관측·Stop/정상종료12/0·52.909s. 원래Git실패/Stop 보존, Python63/0·archive4/0·Astra10. [원본18PNG·버전·한계](evidence/agent_camera_2026-10-10/completion/operator-archive-r12/README.md). 앱fa868ca 불변/도구별도version; Python/MCP/Codex/login 외부. 물리0/9·Mac/Arch·humanmerge/공개 미완료.
-2026-10-11 r11: 같은30/10/12 actualstock/world-wheel·K16reference/joint-integral 네진단 모두동시목표FAIL. 거리13.8458~14.1212cm/마지막영상20~25px, 차체각속도감소불명확; 두후보 앱미적용. [32PNG·Astra8·원본·한계](evidence/agent_camera_2026-10-10/completion/world-wheel-hold-r11/README.md). 앱/goal/평가기준 불변, 기존AI영상9/9·물리0/9·미공개 유지. 아래는 이전이력.
-2026-10-11 r10: 현재 fa868ca/0.3.1-projects-r7 실제WindowsPE/PCK defaultUI의 Run→외부operator/기존login/요청Astra→3틱1행동/2실제PNG·재관측/Stop·정상종료12/0·54.463s. Astra10실제영상, goal필드꼬리/trace스크롤 한계 보존. [같은버전·원본·한계](evidence/agent_camera_2026-10-10/completion/current-package-goal-r10/README.md). 앱수정0/단일smoke·범용성/벽정밀도 증명아님. 물리0/9·Mac/Arch·humanmerge/공개승인 남음. 아래는 이전실험/패키지 이력.
-2026-10-11 r9: 원래30/10/12·같은계측 stock/K16 모터제동2회. 거리14.1063→13.8506cm로 물리 통과지만 마지막영상23→21px로 여전히실패, 각속도 감소 불명확·앱 적용0. 모터callback30/10/12 일치, 계측기 초기영상 집계/후처리 오류 복구·실패보존. [원본16PNG/Astra6·한계·다음](evidence/agent_camera_2026-10-10/completion/angular-feedback-r9/README.md). 기존AI영상9/9·물리0/9/미공개 유지. 아래는 이전 진단/패키지 이력.
+2026-10-11 r20: 누적자세오차 보정도21px/13.7463cm jointFAIL·미적용. [5PNG/Astra4·Stop·원본](evidence/agent_camera_2026-10-10/completion/body-integral-r20/README.md). Source/goal불변·정밀도/계정/Mac/Arch/통합공개 남음.
+2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 
-2026-10-11 r8: 동일426소스/동결목표로 combined 실패2회 재현, 직접 replay도4px흔들림. 엄격 각속도/P24는 정지시간 초과, P4도combined실패라 앱 적용0. 실제 motor callback30/10/12/1은 명령과 일치. 마지막 구간13틱의 deterministic3회는 물리3/3·영상0/3·AI아님. [원본91PNG/14진단·한계·다음](evidence/agent_camera_2026-10-10/completion/control-feedback-r8/README.md). 기존 AI영상9/9·물리0/9/미공개 유지. 아래 r7은 패키지 검증 이력.
 
-2026-10-11 r7: Opus검토 UI의 clean 소스fa868ca/0.3.1-projects-r7로4플랫폼·6해시 확인. Native 최초81/2는 UTF8 한정2/0 복구해79+2개 해결; 같은 Web5/5·설치 단독17/0·실제 패키지 Projects6/0/재내보내기 일치·Astra17화면 확인. 첫 클립보드 오류/설치10/1·실패 진단은 보존, 원인 미확정. [현재 버전·원본 결과·인계](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md). 물리0/9·Mac실기기·Arch정식인계·humanmerge/공개승인 미완료. 아래는 이전 소스/검증 이력.
-
-2026-10-11 r6: 실제 r2 배포본 Run with AI→외부 operator→3틱1행동/2PNG/재관측·Stop12/0. Projects는 Opus 작성/수정·독립PASS, Astra32+4실제화면, native80경우1181/0·실제키25/0·Web작성9/0/설정14/0·Linux 초안 통과. 앱 변경은 ProjectPanel, CI좌표fixture도 복구; r2와 다른 미배포 로컬 초안. [결과·실패·인계](evidence/agent_camera_2026-10-10/completion/package-goal-ui-r6/README.md). 물리0/9·새clean배포본·Mac·Arch정식인계·humanmerge/공개승인은 남음.
 
 2026-10-11 실제 Windows 배포본 카메라 r5: 기본 Title→프로젝트 가져오기→Lab AI Enable/Forward/Stop, 인증 관측·8틱행동·재관측·늦은요청 거부11/0·정상exit0. 앱/패키지 변경0, provider호출0. 실패3회·도구복구/Astra20영상과 한계는 [r5 근거](evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). 실제 패키지 Run with AI/operator·Projects 문구/대비 Opus 검토·물리0/9/Mac/Arch/통합·공개 승인은 남음.
 

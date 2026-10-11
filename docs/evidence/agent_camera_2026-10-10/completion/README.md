@@ -1,6 +1,23 @@
 # Camera precision and stabilization — reviewed local draft
 
-Latest checkpoint: [verified r2 and preserved failures](verified-r2/README.md).
+Current checkpoint, 2026-10-11: [r20 body integral diagnostic](body-integral-r20/README.md),
+source c1923a8, one new native developer probe:21px/13.746293cm, imageFAIL/
+physicalPASS/jointFAIL. Candidate unapplied; conditional repeats and AI trials unrun.
+Latest app remains clean fa868ca/0.3.1-projects-r7. [r7 package verification](release-current-ui-r7/README.md)
+records actual native79+2, Web5/5, installer17/0, Projects6/0 and independent design review.
+[r14 foreground operator](operator-setup-r14/README.md) records isolated setup,
+preparation check and actual packaged Run→action→reobserve→Stop12/0.
+Historical3layouts×3AI image9/9 and physical0/9 remain unchanged. Native developer
+holding/reference/actual Stop candidates r15–r20 have not repaired the joint target;
+their original failures are retained in their linked folders and Git history.
+See [r18 observation and evaluator timing](observation-stop-r18/README.md) and
+[r19 initial reference](initial-reference-r19/README.md). No target relaxation or release.
+Original precision, general navigation, fresh-account authentication, native Mac,
+powered-off Arch raw/task16 formal CLI, human merge and exact-version publication remain open.
+
+## Dated r2 checkpoint
+
+[Verified r2 and preserved failures](verified-r2/README.md).
 Windows full81/0 on the current Title draft, four-language actual captures/Astra and independent Opus review pass.
 Frozen camera image9/9 remains separate from physical0/9. Blind controls and actual operator are retained.
 Latest actual Fable functional review/rebase PASS; clean4exports, same Web5/5 and Windows installer17/0 pass.
