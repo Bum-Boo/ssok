@@ -1,3 +1,23 @@
+# ssok — rejected reference-timing policies r17
+
+Issue32/feat32, runtime89889ec; immutable appfa868ca/0.3.1-projects-r7.
+[4native probes/32PNG/Astra8 and original criteria](docs/evidence/agent_camera_2026-10-10/completion/attitude-latch-r17/README.md).
+Current26px/14.113560cm, prior23px/14.118288cm, brake26px/14.071068cm;
+adaptive brake+fixedrate16:23px/13.922507cm physicalPASS/imageFAIL. AlljointFAIL/unapplied.
+Three original reference-timing inputs/results preserved; extra combination preregistered.
+Targeted latch audit verifies binding events; it includes actual independent physical fields.
+All motors30/10/12,8PNG/7SHA-tick/run, nativeexit0 and targetcheckexit1.
+Source426+operator7/ZIP/app/goal/actor/bounds unchanged; no gainsearch/targetrelaxation.
+Intermediate24px images lack immediate Stop; do not infer intermediate jointPASS.
+NextCodex camera-only observed-image/scoped-Stop endpoint; no evaluator control input.
+Docs maintain/10tests only; appgates/Opus/r14SDK datedhistory notrerun.
+AI9image/0physical unchanged; calibrationunadopted/unrun. Freshaccount/navigation,
+Macnative/Archraw/formalCLI16, Fablefunctionalreview/rebase/humanmerge/publicapproval remain.
+Recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/attitude-latch-r17/.
+Global goal incomplete. No push/merge/publication.
+
+## Frozen r16 milestone — rejected attitude and rate combinations
+
 # ssok — rejected attitude plus rate combinations r16
 
 Issue32, feat/32-robot-camera-loop, runtime5c8c417; immutablefa868ca/0.3.1-projects-r7.

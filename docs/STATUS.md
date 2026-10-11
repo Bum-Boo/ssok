@@ -1,11 +1,11 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r17: 자세기준시점3정책+고정rate16 조합 모두동시FAIL·미적용. Brake26px/14.0711cm, 조합23px/13.9225cm. [32PNG·Astra8·원본](evidence/agent_camera_2026-10-10/completion/attitude-latch-r17/README.md). Source426+7/ZIP/app/goal불변. 다음camera-only 관측/실제Stop. 정밀도·계정/Mac/Arch/통합·공개남음.
 2026-10-11 r16: 자세32+회전16은24px/14.0128cm로 거리0.128mm미달; 고정18추가는22px/13.9864cm로 영상미달. 모두동시FAIL/미적용. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-rate-r16/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
 2026-10-11 r15: 자세계수32·64도 원래영상/물리 동시FAIL·미적용. Stock23px/14.1063cm,32는26px/14.1128cm,64는23px/14.1117cm; span4/3/4px. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-gain-r15/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
 2026-10-11 r14: operator 전용환경/준비점검·자동Python 선택 후 실제Run→3틱1행동/2PNG·재관측/Stop12/0. Python66/0·guard7/0·Astra10; 원래MCP/notice실패 보존. [10PNG·원본·한계](evidence/agent_camera_2026-10-10/completion/operator-setup-r14/README.md). 앱fa868ca/goal 불변. 새계정·정밀도0/9·Mac/Arch/통합·공개 남음.
 2026-10-11 r13: 동일30/10/12 stock23px/14.1063cm·자세보정24px/14.0799cm 둘 다동시FAIL·4px변동/앱미적용. 원래compile/90s timeout과복구 보존. [16PNG·Astra4·원본·제안](evidence/agent_camera_2026-10-10/completion/attitude-hold-r13/README.md). Source426/동결goal/기준 불변, 별도12–20px안 미채택·미실행. 물리0/9·Mac/Arch/통합·공개 미완료.
 2026-10-11 r12: 별도operator ZIP/Git-free 한글·공백 경로에서 실제Run→3틱1행동/2PNG·재관측·Stop/정상종료12/0·52.909s. 원래Git실패/Stop 보존, Python63/0·archive4/0·Astra10. [원본18PNG·버전·한계](evidence/agent_camera_2026-10-10/completion/operator-archive-r12/README.md). 앱fa868ca 불변/도구별도version; Python/MCP/Codex/login 외부. 물리0/9·Mac/Arch·humanmerge/공개 미완료.
-
 2026-10-11 r11: 같은30/10/12 actualstock/world-wheel·K16reference/joint-integral 네진단 모두동시목표FAIL. 거리13.8458~14.1212cm/마지막영상20~25px, 차체각속도감소불명확; 두후보 앱미적용. [32PNG·Astra8·원본·한계](evidence/agent_camera_2026-10-10/completion/world-wheel-hold-r11/README.md). 앱/goal/평가기준 불변, 기존AI영상9/9·물리0/9·미공개 유지. 아래는 이전이력.
 
 2026-10-11 r10: 현재 fa868ca/0.3.1-projects-r7 실제WindowsPE/PCK defaultUI의 Run→외부operator/기존login/요청Astra→3틱1행동/2실제PNG·재관측/Stop·정상종료12/0·54.463s. Astra10실제영상, goal필드꼬리/trace스크롤 한계 보존. [같은버전·원본·한계](evidence/agent_camera_2026-10-10/completion/current-package-goal-r10/README.md). 앱수정0/단일smoke·범용성/벽정밀도 증명아님. 물리0/9·Mac/Arch·humanmerge/공개승인 남음. 아래는 이전실험/패키지 이력.
