@@ -195,7 +195,7 @@ candidate may require the operating system's explicit Open Anyway flow. See Appl
 No certificate, developer subscription or credentials are provisioned by this build.
 The exported Mac app must receive its own real-device interaction check before claiming
 verified macOS behavior; Linux structure/signature checks do not establish that result.
-Private project code is not sent to the shared lab Mac.
+The owner authorized shared `ai-macmini` on2026-10-11 for allowlisted ssok game/test/app bytes only. Never transfer the private vault, task/handoff state, backups, credentials, cookies or actor transcripts. Preserve original app/package bytes; source/editor and exported-executable verification remain distinct.
 
 The native Windows verifier is developer tooling. Run `tools/ci/windows/verify_installer.ps1`
 from a PowerShell STA session with `-Installer`, `-Work` (a new path) and `-Layout` pointing to
