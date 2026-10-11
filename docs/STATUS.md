@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-10-11 r18: 실제bridge관측/scopedStop3회, K32 26px/14.0598cm·후보22px/14.0055cm·단일관측22px/13.9617cm 모두동시FAIL·미적용. [17PNG·Astra6·시작실패2/복구](evidence/agent_camera_2026-10-10/completion/observation-stop-r18/README.md). Source/goal불변. 정밀도·계정/Mac/Arch/통합·공개남음.
+2026-10-11 r18: 실제bridge관측/scopedStop3회, K32 26px/14.0598cm·후보22px/14.0055cm·단일관측22px/13.9617cm 모두동시FAIL·미적용. [17PNG·Astra6·시작실패2/복구](evidence/agent_camera_2026-10-10/completion/observation-stop-r18/README.md). 평가30~120틱/읽기132틱. Source/goal불변. 정밀도·계정/Mac/Arch/통합·공개남음.
 2026-10-11 r17: 자세기준시점3정책+고정rate16 조합 모두동시FAIL·미적용. Brake26px/14.0711cm, 조합23px/13.9225cm. [32PNG·Astra8·원본](evidence/agent_camera_2026-10-10/completion/attitude-latch-r17/README.md). Source426+7/ZIP/app/goal불변. 다음camera-only 관측/실제Stop. 정밀도·계정/Mac/Arch/통합·공개남음.
 2026-10-11 r16: 자세32+회전16은24px/14.0128cm로 거리0.128mm미달; 고정18추가는22px/13.9864cm로 영상미달. 모두동시FAIL/미적용. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-rate-r16/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
 2026-10-11 r15: 자세계수32·64도 원래영상/물리 동시FAIL·미적용. Stock23px/14.1063cm,32는26px/14.1128cm,64는23px/14.1117cm; span4/3/4px. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-gain-r15/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.

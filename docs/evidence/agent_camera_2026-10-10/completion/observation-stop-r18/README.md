@@ -12,8 +12,10 @@ do not imply new PE/PCK app or provider verification.
 | Same candidate, one bridge idle1 observation | 22px | 13.961731cm | FAIL | PASS | FAIL |
 
 All three actually receive the existing authenticated DesktopClient observation
-and **matched_context** owner-revoking Stop, then132physicsframes before independent
-evaluation. The exact observation metadata/SHA is bound to each Stop receipt.
+and **matched_context** owner-revoking Stop. The fixture waits132physicsframes
+before reading the independent result. The evaluator itself finalizes earlier,
+once stopped_ticks>=30 and rest_ticks>=12, or at120stoppedticks, and then freezes
+that snapshot. The exact observation metadata/SHA is bound to each Stop receipt.
 The double-observe candidate's internal idle1 had24px, but the following actual
 bridge image had22px. After that failure, before execution, a fresh single-observe
 fixture was preregistered: replace the internal idle1 capture and extra observe
@@ -63,3 +65,9 @@ physical0/9 unchanged; separate12–20px proposal unadopted/unrun. NextCodex act
 original-target control/observation stability, not threshold or frame selection.
 Fresh-account/navigation/nativeMac/Archraw/formal task16CLI/Fableintegration/
 humanmerge/exactversion-scopepublication remain. Wholegoal incomplete/unpublished.
+
+[Coordinator timing clarification](coordinator-evaluation-timing.json) corrects the
+raw endpoint JSON flag claiming all physical fields were computed after native
+exit: native physics fields are computed during execution, external extraction
+and PNG classification after exit. Original raw receipts/numbers remain intact.
+The same annotation audits14 existing capture poses; no new runtime/image claim.

@@ -5,7 +5,8 @@ Issue32/feat32, runtimed947208, immutablefa868ca/0.3.1-projects-r7.
 K32 doubleobserve26px/14.059767cm; existingcandidate double22px/14.005505cm;
 singlebridgeobserve22px/13.961731cm physicalPASS/imageFAIL. AlljointFAIL/unapplied.
 Actualmatched_contextStop bound to exact DesktopClient image metadata3receipts;
-132postStopframes/30,10,12 actualmotors. Fixedcheckpoint, no model/metric controlinput.
+132postStopframes before readback; independent evaluator finalizes at30..120stoppedticks.
+Actualmotors30,10,12. Fixedcheckpoint, no model/metric controlinput.
 Singleobserver comparison preregistered, originaldoubleinputs/results preserved.
 Native40/80s startupfailed noPNG; samecallbackcheckonly0; filelogs workaround3normalexit,
 causeunconfirmed/beforecopies preserved. No production426+7/ZIP/app/goal changes.
