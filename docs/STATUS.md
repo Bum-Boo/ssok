@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-10-11 r23: 영상9개 기하 재생0.968px 이내;24px 대부분14cm초과·자세 의존. 기준/제어 결정 대기. [진단·한계](evidence/agent_camera_2026-10-10/completion/projection-r23/README.md). 원래 정밀도/계정/Mac·Arch/통합공개 미완료.
+2026-10-11 r24: 원본 작업 CLI를 Windows/WSL에 복구했습니다. 기존 검사 20개와 DrvFS 인계, Windows 저장소 경로 전달 검사 5개를 통과했습니다. 작업 16→18 공식 체크포인트를 기록했습니다. [검증·한계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md). 최종 release 영수증은 별도입니다. 정밀도·계정·Mac·Arch 원자료·통합 공개는 미완료입니다.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 
 
@@ -61,7 +61,7 @@ Claude Fable5-1의 최신 기능 소스 리뷰 pass; 변경 없는 패널 SHA f8
 [목표 UI 이력](evidence/agent_camera_2026-10-10/goal_ui/README.md) ·
 [이전 반복 실험](evidence/agent_camera_2026-10-10/repeated/README.md).
 
-Arch 전원이 꺼져 최신 원자료 일부 회수와 기존 task revision16의 CLI release는 미완료예요.
+Arch 최신 원자료 일부 회수는 미완료예요. 기존 task는 Windows/WSL 원본 CLI로 재개·checkpoint했으며 최종 release는 현재 인계 영수증으로 확인해요.
 Windows 개발·검증 근거와 다음 절차는 [Claude 인계](../CLAUDE-REVIEW.md)에 있어요.
 다음은 최종 인계 commit의 Fable rebase, human merge와 해당 버전/범위 공개 승인,
 이미지 목표 정밀도예요. 현재 main 통합·공개 배포·카탈로그 카메라·범용 로봇/학습은 미완료예요.

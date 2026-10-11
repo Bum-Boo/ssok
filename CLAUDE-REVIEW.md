@@ -1,3 +1,14 @@
+# ssok — original task CLI recovery r24
+
+[Original source/20 tests/DrvFS lifecycle/Windows+WSL](docs/evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md).
+Original tool recovered from configured backup; byte-identical stdlib source, local entry wrappers/guide/skill/dependencies.
+Canonicaltask official resume17/checkpoint18, originalevents1..16 unchanged; finalrelease after exact Fable review.
+Actual Windows checkout is explicit in checkpoint; storedcwd remains originalArch origin. No manualtask/schema/livehooks/config/modelservice changes.
+Source433/app/ZIP/goal/controller/UI unchanged. Fable functionalreview/integration owner; humanmerge.
+Originalprecision/calibrationchoice/account/nativeMac/latestArchraw/humanmerge/publication remain.
+
+## Frozen r23 milestone
+
 # ssok — archived camera projection diagnosis r23
 
 [9 poses/independent arithmetic/no runtime changes](docs/evidence/agent_camera_2026-10-10/completion/projection-r23/README.md).

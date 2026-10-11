@@ -1,12 +1,13 @@
 # Camera precision and stabilization — reviewed local draft
 
-Current checkpoint,2026-10-11: [r23 projection diagnosis](projection-r23/README.md), sourceafbc899.
-9 archived camera poses agree with image boundaries within0.968px; most original24px targets exceed camera-time14cm.
-Orientation matters; two tiny overlaps prevent a general impossibility conclusion. Original target/controller unchanged.
-[Actual stock AI r21](adaptive-ai-r21/README.md):31px/14.5838cm jointFAIL; [r22 candidate](brake-integral-r22/README.md):22px/13.9092cm jointFAIL/unapplied.
-App fa868ca/0.3.1-projects-r7 and [r14 operator](operator-setup-r14/README.md) unchanged;
-[r7 actual release verification](release-current-ui-r7/README.md) and original3layouts×3AI image9/9 physical0/9 remain dated evidence.
-Calibration12–20 proposal unadopted/unrun; freshaccount/nativeMac/Archraw/task16CLI/humanmerge/publication open.
+Current checkpoint,2026-10-11: [r24 task CLI recovery](task-tool-r24/README.md), sourceb58b954.
+Original tool/stdlib source restored;20 tests/DrvFS cloned lifecycle/Windows+WSL entry verified.
+Canonicaltask officially resumed/checkpointed16→18; finalrelease separately recorded after exact review.
+[r23 geometry diagnosis](projection-r23/README.md):9 archivedposes within0.968px; original image/distance criteria unchanged.
+[Actual r21 AI](adaptive-ai-r21/README.md)31px/14.5838cm jointFAIL; [r22 candidate](brake-integral-r22/README.md)22px/13.9092cm jointFAIL/unapplied.
+Appfa868ca/[r7 verification](release-current-ui-r7/README.md) and [r14 operator](operator-setup-r14/README.md) unchanged/dated verification.
+Historical3layouts×3AI image9/9 physical0/9 unchanged;12–20 calibration proposal unadopted/unrun.
+Originalprecision/userchoice/freshaccount/nativeMac/latestArchraw/humanmerge/publication open.
 
 ## Dated r2 checkpoint
 
