@@ -6,7 +6,7 @@
   "files": {
     "THIRD_PARTY_NOTICES.md": "3fde7695a6edd51c3547350cba9534c07d17f4c6886113cbee104b358ae337ea",
     "index.pck": "3674ee9e2168c9a54a33fad43b8e11c85261f81865a75243cd2153c320d4d0a7",
-    "index.html": "3f099756070acf98b980dffe8cfb052e674cc7ca7816c2538765ab7a312c1147",
+    "index.html": "35257c0eb8363ed3d3bce616b00a8cdae11932bba3d31b1f6af985b2a6e193d4",
     "README.md": "add61384448fe53453a15a09f0e7d67428cb68f8ce40254aaab9980d04388b58",
     "index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
     "LICENSE": "a5a1fc9506be3ec6b20c8f2b63f83d1fa4dc64805947554c8cb5bde5c4469f63",
@@ -6082,6 +6082,11 @@
     "tools/motion_lab/PICKUP.md": "3c7f00fe8c051fc458e73174cd712682004ab30ab095ba82e10060916555f4d0",
     "tools/docs/render_diagrams.py": "db107d2e9a3ac5377a80d21b5745e9f3d9323bb5f5fcf276090579fb4fb96ee0",
     "tools/godot/make_levels.gd": "d2f079c2b9f1351254c9abffb62c084363a6178c222803b9b197e7d67f7cd6bc",
-    "tools/rl_lab/reference/biped_mujoco_ars.json": "3d068f0afb01deafae740f943996ed9c379e9f089c928f1e03e7cfe4141f35c6"
-  }
+    "tools/rl_lab/reference/biped_mujoco_ars.json": "3d068f0afb01deafae740f943996ed9c379e9f089c928f1e03e7cfe4141f35c6",
+    "og.jpg": "0328a2cd24cb5af1f4b9fdf488bb92006c259fe00e5f0db90947b46cecc51de0"
+  },
+  "post_export_edits": [
+    "index.html: added Open Graph and Twitter link preview tags after the exported head_include",
+    "og.jpg: added link preview image (1280x640)"
+  ]
 }
