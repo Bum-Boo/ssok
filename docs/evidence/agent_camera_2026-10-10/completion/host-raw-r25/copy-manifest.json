@@ -1,0 +1,30 @@
+{
+  "files": [
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\host-raw-r25\\summary.json",
+      "output": "summary.json",
+      "sha256": "884fa55c5043b5683828c29eb4c847d5561347ca342781290cef17b96b3d7066"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\host-raw-r25\\mac-readonly-probe.json",
+      "output": "mac-readonly-probe.json",
+      "sha256": "cd13c0bb28baeb07c860d03fabd3f8c93e2b03fc456803672be3e22bd58c8321"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\host-raw-r25\\arch-readonly-probe.json",
+      "output": "arch-readonly-probe.json",
+      "sha256": "7472ed4e71c8f9899a4243d4831ee66d2486d4aa6416c50e2450833b95134233"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\host-raw-r25\\source-identity.json",
+      "output": "source-identity.json",
+      "sha256": "4991878672b2641cc5bab336143444a2482f5ebda5d625d249c6a1771e7de8ec"
+    }
+  ],
+  "excluded": [
+    "raw backup snapshot/listing/config",
+    "credentials/vault/task state",
+    "unrelated user data",
+    "Mac app/source transfer"
+  ]
+}

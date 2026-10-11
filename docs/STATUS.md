@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-10-11 r24: 원본 작업 CLI를 Windows/WSL에 복구했습니다. 기존 검사 20개와 DrvFS 인계, Windows 저장소 경로 전달 검사 5개를 통과했습니다. 작업 16→18 공식 체크포인트를 기록했습니다. [검증·한계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md). 최종 release 영수증은 별도입니다. 정밀도·계정·Mac·Arch 원자료·통합 공개는 미완료입니다.
+2026-10-11 r25: Mac SSH 연결을 확인했지만 공용 기기에는 비공개 코드를 보내지 않습니다. 최신 백업에 Arch 최종 원자료5폴더가 없고 현재 소스와도 다릅니다. [실측·회수 경로](evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md). [r24 공식 작업 인계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md)는 완료했습니다. 정밀도·계정·개인 Mac·Arch 원자료·통합 공개는 미완료입니다.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 
 

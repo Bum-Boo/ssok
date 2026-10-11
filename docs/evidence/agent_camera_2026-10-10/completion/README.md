@@ -1,6 +1,9 @@
 # Camera precision and stabilization — reviewed local draft
 
-Current checkpoint,2026-10-11: [r24 task CLI recovery](task-tool-r24/README.md), sourceb58b954.
+Current checkpoint,2026-10-11: [r25 host access/Arch raw recovery](host-raw-r25/README.md), source66188b3.
+MacSSH ready/sharedlab restriction; latest57snapshot metadata, final5folders absent in12c49368.
+Owned-Mac exactartifact handoff ready, nativeMac app unrun; Arch connection timeout beforeauth.
+[r24 task CLI recovery](task-tool-r24/README.md): official release19 verified in coordinator/native receipt.
 Original tool/stdlib source restored;20 tests/DrvFS cloned lifecycle/Windows+WSL entry verified.
 Canonicaltask officially resumed/checkpointed16→18; finalrelease separately recorded after exact review.
 [r23 geometry diagnosis](projection-r23/README.md):9 archivedposes within0.968px; original image/distance criteria unchanged.

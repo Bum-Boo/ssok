@@ -1,3 +1,14 @@
+# ssok — native host access and original raw recovery r25
+
+[Actual Mac/Arch probes, latest backup identity, owned-Mac handoff](docs/evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md).
+Mac SSHDarwin/0 but sharedlab private-source boundary retained; actualapp Mac unrun.
+Latestconfiguredbackup57metadata/12c49368: final5folders absent; bridgef81f differs from current18d even normalized.
+ArchSSH timeout beforeauth; no powerstate proof/remotejob restart/raw substituted.
+Windowscanonicaltask officialr24release19 preserved; r25resume20 and finalrelease recorded after exactreview.
+Source433/appfa/r14ZIP/frozengoal unchanged. Precision/calibrationdecision/account/ownedMac/Archraw/humanmerge/publication remain.
+
+## Frozen r24 checkpoint
+
 # ssok — original task CLI recovery r24
 
 [Original source/20 tests/DrvFS lifecycle/Windows+WSL](docs/evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md).
