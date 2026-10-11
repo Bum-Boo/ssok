@@ -1,5 +1,6 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r16: 자세32+회전16은24px/14.0128cm로 거리0.128mm미달; 고정18추가는22px/13.9864cm로 영상미달. 모두동시FAIL/미적용. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-rate-r16/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
 2026-10-11 r15: 자세계수32·64도 원래영상/물리 동시FAIL·미적용. Stock23px/14.1063cm,32는26px/14.1128cm,64는23px/14.1117cm; span4/3/4px. [24PNG·Astra6·원본](evidence/agent_camera_2026-10-10/completion/attitude-gain-r15/README.md). Source426+operator7/ZIP/app/goal 불변. 정밀도0/9·계정/Mac/Arch/통합·공개 남음.
 2026-10-11 r14: operator 전용환경/준비점검·자동Python 선택 후 실제Run→3틱1행동/2PNG·재관측/Stop12/0. Python66/0·guard7/0·Astra10; 원래MCP/notice실패 보존. [10PNG·원본·한계](evidence/agent_camera_2026-10-10/completion/operator-setup-r14/README.md). 앱fa868ca/goal 불변. 새계정·정밀도0/9·Mac/Arch/통합·공개 남음.
 2026-10-11 r13: 동일30/10/12 stock23px/14.1063cm·자세보정24px/14.0799cm 둘 다동시FAIL·4px변동/앱미적용. 원래compile/90s timeout과복구 보존. [16PNG·Astra4·원본·제안](evidence/agent_camera_2026-10-10/completion/attitude-hold-r13/README.md). Source426/동결goal/기준 불변, 별도12–20px안 미채택·미실행. 물리0/9·Mac/Arch/통합·공개 미완료.
@@ -18,7 +19,6 @@
 2026-10-11 r6: 실제 r2 배포본 Run with AI→외부 operator→3틱1행동/2PNG/재관측·Stop12/0. Projects는 Opus 작성/수정·독립PASS, Astra32+4실제화면, native80경우1181/0·실제키25/0·Web작성9/0/설정14/0·Linux 초안 통과. 앱 변경은 ProjectPanel, CI좌표fixture도 복구; r2와 다른 미배포 로컬 초안. [결과·실패·인계](evidence/agent_camera_2026-10-10/completion/package-goal-ui-r6/README.md). 물리0/9·새clean배포본·Mac·Arch정식인계·humanmerge/공개승인은 남음.
 
 2026-10-11 실제 Windows 배포본 카메라 r5: 기본 Title→프로젝트 가져오기→Lab AI Enable/Forward/Stop, 인증 관측·8틱행동·재관측·늦은요청 거부11/0·정상exit0. 앱/패키지 변경0, provider호출0. 실패3회·도구복구/Astra20영상과 한계는 [r5 근거](evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). 실제 패키지 Run with AI/operator·Projects 문구/대비 Opus 검토·물리0/9/Mac/Arch/통합·공개 승인은 남음.
-
 
 로컬 후속 갱신: 2026-10-10, Codex. 최신 카메라 안정화 초안은 아래 진행 작업에 있어요.
 통합·배포의 다음 수치는 2026-09-30 이력이에요. 사용자 지시로 설치형 PR40과 설정 PR41을 병합하고 clean 앱 소스 `af1973b`의 v0.2.0을 공개했어요. [웹 실행](https://bum-boo.github.io/ssok/) · [당시 다운로드](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [배포 기록](evidence/public_release_2026-09-30/README.md). 저장소도 공개예요. native71/0·Windows17/0·같은 파일의 Web5종 최종통과·공개 작성9/설정14와 실제 다운로드 해시를 확인했어요. 첫 실패와 재실행 범위는 배포 기록에서 구분해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.

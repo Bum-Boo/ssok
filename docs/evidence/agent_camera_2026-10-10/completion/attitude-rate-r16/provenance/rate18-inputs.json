@@ -1,0 +1,25 @@
+{
+  "attitude": 32,
+  "housing_rate": 18,
+  "old_coefficient": 16,
+  "only_control_coefficient_changed": true,
+  "original_probes_preserved": true,
+  "fixture_sha256": {
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r16-rate18-run.py": "68997d72dae270ead9549447f31282e9ff884e108358c67e0aed8f1f4ac1ed08",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-rate-r16\\variant18\\attitude-combined.gd": "f7b64d5da7c35f8ba006616da0fc6b130c91cbbe680b63ba01da805053113802",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-rate-r16\\variant18\\callback_probe.gd": "6b0bf5d1e7fdd8d5a593f66d59f8a246057117e78d6827034650fc90137e99d3",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-rate-r16\\variant18\\callback_sampler.gd": "eb9534b5570120d92b1efd161a0867fda99152f6a56a5bb0b682b35e8692137b",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-rate-r16\\variant18\\motor_callback.gd": "e141b47559dc46aad67ddd37a9717c792d37985e927717f20a328f26e9ee860c"
+  },
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/attitude-rate-r16/variant18/attitude-combined.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "production_changed": false
+}

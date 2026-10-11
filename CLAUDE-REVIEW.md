@@ -1,3 +1,22 @@
+# ssok — rejected attitude plus rate combinations r16
+
+Issue32, feat/32-robot-camera-loop, runtime5c8c417; immutablefa868ca/0.3.1-projects-r7.
+[3native probes/24PNG/Astra6, original bounds and limits](docs/evidence/agent_camera_2026-10-10/completion/attitude-rate-r16/README.md).
+Attitude32:26px/14.113560cm; +rate16:24px/14.012836cm; +rate18:22px/13.986363cm.
+AlljointFAIL/unapplied.16 missesphysicalby0.128mm;18 passesphysical/failsimage.
+Fresh fixed18 comparison preregistered after actualnear-fail; originalfixtures preserved.
+Both motors30/10/12,8PNG/7SHA-tick samples/run, nativeexit0/Stop and jointcheckexit1.
+Source426+operator7/ZIP/app/goal/actor/finitebounds unchanged. No furthergainsearch.
+Astra6actual estimates25/23/21±2 final vsclassifier26/24/22 kept separate.
+Docs10/maintain only. Appgates/Opus/r14SDK are datedhistory, not rerun.
+OriginalAIimage9/9physical0/9, calibrationunadopted/unrun; no push/merge/publication.
+NextCodex original-target mechanism/freshsignup/navigation/Mac/Archraw/formalCLI16;
+Fablefinalfunctionalreview/rebase, humanmerge/exactversion-scopepublication.
+Record/recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/attitude-rate-r16/.
+Global goal incomplete.
+
+## Frozen r15 milestone — rejected bounded attitude gains
+
 # ssok — rejected bounded attitude gains r15
 
 Issue32, feat/32-robot-camera-loop, runtime93d10e4; immutablefa868ca/0.3.1-projects-r7.
