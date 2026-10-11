@@ -74,3 +74,6 @@ Explicit unscoped Stop and the local button retain global emergency interruption
 owner revocation from the current desktop being physically stopped.
 
 This draft covers a rendered car camera/control slice, not universal robot navigation, catalog camera serialization, community, RL training or Isaac Lab. Provider calls remain external and require their own disclosed model/billing/data/request bounds. Actual image-guided model trials and blind controls must be reported separately from deterministic transport and physics checks. Claude authors and independently reviews design code after Astra's actual screenshot inspection. Publishing requires approval of the reviewed version/scope; the integration owner remains Claude Fable and merge belongs to the human.
+
+
+The r40 developer-tool follow-up retains bounded sanitized public terminal CLI diagnostics from top-level error and turn.failed, without assistant/reasoning payloads or raw stderr. It drains an already-exited process after context polling so receipt generation survives that race. No actor, provider, retry, control or optical contract changes. Historical r37 terminal cause is not recoverable; [verification and redaction limits](../evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md) remain explicit.

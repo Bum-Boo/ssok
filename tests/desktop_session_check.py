@@ -10,6 +10,8 @@ import importlib.util
 import json
 import os
 import secrets
+import io
+from contextlib import redirect_stdout, redirect_stderr
 from types import SimpleNamespace
 from unittest.mock import patch
 
@@ -231,6 +233,67 @@ class GoalChecks(unittest.TestCase):
 
 
 class RunnerCleanupChecks(unittest.TestCase):
+    def test_exit_during_context_poll_still_drains_diagnostics_and_writes_receipt(self):
+        client = FixtureClient()
+        states = iter([client.metadata | {"state": "ready"}, client.metadata | {"state": "stopped"}])
+        client.describe = lambda: next(states)
+        replies = iter([run_goal.subprocess.TimeoutExpired("fixture", .5),
+                        (b'{"type":"turn.failed","error":{"message":"stream ended"}}', b"discarded")])
+        def communicate(**kwargs):
+            reply = next(replies)
+            if isinstance(reply, Exception):
+                raise reply
+            return reply
+        process = SimpleNamespace(returncode=1, poll=lambda: 1, communicate=communicate)
+        with tempfile.TemporaryDirectory() as folder, \
+                patch.dict(os.environ, {"SSOK_AGENT_TOKEN": "fixture-token"}), \
+                patch.object(run_goal, "DesktopClient", return_value=client), \
+                patch.object(run_goal, "source_head", return_value="fixture-source"), \
+                patch.object(run_goal.signal, "signal"), \
+                patch.object(run_goal.subprocess, "run", return_value=SimpleNamespace(returncode=0, stdout=b"Logged in using ChatGPT", stderr=b"")), \
+                patch.object(run_goal.subprocess, "Popen", return_value=process), \
+                redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+            evidence = Path(folder) / "evidence"
+            self.assertEqual(run_goal.main(["--goal", "Stop.", "--out", str(evidence), "--codex", "fixture"]), 1)
+            result = json.loads((evidence / "result.json").read_text())
+            self.assertEqual(result["status"], "operator_or_app_stopped")
+            self.assertTrue(result["stop_confirmed"])
+            self.assertEqual(json.loads((evidence / "cli-events.json").read_text())[0]["diagnostic"], "stream ended")
+        self.assertEqual(client.calls, ["stop"])
+
+    def test_cli_failure_keeps_terminal_diagnostics_and_scoped_stop_without_retry(self):
+        client = FixtureClient()
+        goal = "Observe then stop."
+        token = "fixture-secret-token"
+        events = [{"type": "error", "message": "Transport disconnected " + token},
+                  {"type": "turn.failed", "error": {"message": "Request failed " + goal}}]
+        process = SimpleNamespace(returncode=1, poll=lambda: 1,
+                                  communicate=lambda **kwargs: (b"broken\n[]\nnull\n" + b"\n".join(json.dumps(x).encode() for x in events),
+                                                                 b"private stderr must never persist"))
+        with tempfile.TemporaryDirectory() as folder, \
+                patch.dict(os.environ, {"SSOK_AGENT_TOKEN": token}), \
+                patch.object(run_goal, "DesktopClient", return_value=client), \
+                patch.object(run_goal, "source_head", return_value="fixture-source"), \
+                patch.object(run_goal.signal, "signal"), \
+                patch.object(run_goal.subprocess, "run", return_value=SimpleNamespace(returncode=0, stdout=b"Logged in using ChatGPT", stderr=b"")), \
+                patch.object(run_goal.subprocess, "Popen", return_value=process) as launch, \
+                redirect_stdout(io.StringIO()) as output, redirect_stderr(io.StringIO()) as errors:
+            evidence = Path(folder) / "evidence"
+            self.assertEqual(run_goal.main(["--goal", goal, "--out", str(evidence), "--codex", "fixture"]), 1)
+            launch.assert_called_once()
+            result = json.loads((evidence / "result.json").read_text())
+            self.assertEqual((result["status"], result["cli_exit"]), ("cli_failed", 1))
+            self.assertTrue(result["stop_confirmed"] and result["owner_revocation_confirmed"])
+            self.assertFalse(result["final_reobserved"])
+            rows = json.loads((evidence / "cli-events.json").read_text())
+            self.assertIn("Transport disconnected", rows[0]["diagnostic"])
+            self.assertIn("Request failed", rows[1]["diagnostic"])
+            recorded = output.getvalue() + errors.getvalue() + (evidence / "cli-events.json").read_text()
+            for private in (token, goal, "private stderr"):
+                self.assertNotIn(private, recorded)
+        self.assertTrue(client.stopped)
+        self.assertEqual(client.calls, ["stop"])
+
     def test_stale_preflight_scopes_cleanup_without_stopping_replacement_or_launching_cli(self):
         owner = {key: observation_fixture().metadata[key] for key in CONTEXT_KEYS}
         current = owner | {"episode_id": "replacement-episode", "control_generation": owner["control_generation"] + 1,
@@ -261,6 +324,50 @@ class RunnerCleanupChecks(unittest.TestCase):
                                             "--codex", "fixture"]), 1)
             client.return_value.stop.assert_not_called()
             client.return_value.describe.assert_not_called()
+
+
+class PublicCliDiagnosticChecks(unittest.TestCase):
+    def collect(self, events):
+        raw = b"\n".join(json.dumps(x).encode() for x in events)
+        return run_goal.public_cli_events(raw, token="fixture-token", goal="private goal")
+
+    def test_top_level_nested_and_legacy_errors_remain_distinct(self):
+        rows, _ = self.collect([{"type": "error", "message": "connection lost"},
+                               {"type": "turn.failed", "error": {"message": "quota exceeded"}},
+                               {"type": "item.completed", "item": {"type": "error", "text": "tool unavailable"}}])
+        self.assertEqual([x["diagnostic"] for x in rows], ["connection lost", "quota exceeded", "tool unavailable"])
+
+    def test_error_redaction_precedes_truncation_and_discards_private_payloads(self):
+        private = ["fixture-token", "private goal", "sk-secretkey", "secretBearer", "secretValue",
+                   "0199a213-81c0-7800-8aa1-bbab2a035a53", "private-user", "imageBytes", "Z" * 90]
+        message = "failed " + " ".join([private[0], private[1], private[2], "Bearer " + private[3],
+                                        "api_key=" + private[4], private[5], "/home/private-user/cache",
+                                        "data:image/png;base64,imageBytes", private[8]]) + " safe" * 200
+        rows, _ = self.collect([{"type": "error", "message": message},
+                               {"type": "item.completed", "item": {"type": "reasoning", "text": "private reasoning", "id": "private-id"}},
+                               {"type": "item.completed", "item": {"type": "agent_message", "text": "private response"}}])
+        serialized = json.dumps(rows)
+        for value in private + ["private reasoning", "private response", "private-id"]:
+            self.assertNotIn(value, serialized)
+        self.assertLessEqual(len(rows[0]["diagnostic"]), 400)
+        self.assertIn("failed", rows[0]["diagnostic"])
+
+    def test_malformed_and_unknown_shapes_do_not_throw_or_capture_payloads(self):
+        raw = b'broken\n\xff\n' + b"\n".join(json.dumps(x).encode() for x in
+              [None, [], 1, {"type": [], "item": []}, {"type": "turn.failed", "error": ["private"]},
+               {"type": "error", "message": {"private": "content"}}, {"type": "error", "message": ""}])
+        rows, usage = run_goal.public_cli_events(raw, token="", goal="")
+        self.assertEqual(len(rows), 4)
+        self.assertEqual([r["diagnostic"] for r in rows[1:]], ["unspecified CLI diagnostic"] * 3)
+        self.assertNotIn("private", json.dumps(rows))
+        self.assertEqual(usage, {})
+
+    def test_only_allowlisted_metadata_and_integer_usage_survive(self):
+        rows, usage = self.collect([{"type": "item.completed", "item": {"type": "mcp_tool_call", "server": "ssok", "tool": "observe", "arguments": "private"}},
+                                   {"type": "turn.completed", "usage": {"input_tokens": 4, "cached_input_tokens": True, "output_tokens": 2, "private": "data"}}])
+        self.assertEqual(rows[0]["tool"], "observe")
+        self.assertEqual(usage, {"input_tokens": 4, "output_tokens": 2})
+        self.assertNotIn("private", json.dumps(rows))
 
 
 if __name__ == "__main__":

@@ -39,6 +39,59 @@ def read_events(path: Path) -> list[dict]:
     return result
 
 
+def public_cli_events(stdout: bytes, *, token: str, goal: str) -> tuple[list[dict], dict]:
+    """Keep terminal diagnostics, never message/reasoning payloads or raw stderr."""
+    public_events: list[dict] = []
+    usage: dict = {}
+    event_types = {"thread.started", "turn.started", "turn.completed", "turn.failed", "error",
+                   "item.started", "item.updated", "item.completed"}
+    item_types = {"agent_message", "reasoning", "command_execution", "file_change", "mcp_tool_call",
+                  "web_search", "todo_list", "error"}
+    for line in stdout.splitlines():
+        try:
+            event = json.loads(line)
+        except (ValueError, UnicodeDecodeError):
+            continue
+        if not isinstance(event, dict):
+            continue
+        item = event.get("item")
+        item = item if isinstance(item, dict) else {}
+        kind = event.get("type")
+        kind = kind if isinstance(kind, str) and kind in event_types else None
+        item_kind = item.get("type")
+        row = {"type": kind,
+               "item_type": item_kind if isinstance(item_kind, str) and item_kind in item_types else None,
+               "server": "ssok" if item.get("server") == "ssok" else None,
+               "tool": item.get("tool") if item.get("tool") in ("observe", "decide", "stop") else None}
+        diagnostic = None
+        if kind == "error":
+            diagnostic = event.get("message")
+        elif kind == "turn.failed":
+            error = event.get("error")
+            diagnostic = error.get("message") if isinstance(error, dict) else None
+        elif item_kind == "error":
+            diagnostic = item.get("message", item.get("text"))
+        if kind in ("error", "turn.failed") or item_kind == "error":
+            message = diagnostic if isinstance(diagnostic, str) else "unspecified CLI diagnostic"
+            # Remove secrets and task echoes before truncating; otherwise their prefix can survive.
+            for private in (token, goal):
+                if private:
+                    message = message.replace(private, "[redacted]")
+            message = re.sub(r"(?i)\bBearer\s+\S+|\bsk-[A-Za-z0-9_-]+", "[redacted]", message)
+            message = re.sub(r"(?i)\b(?:token|api[_-]?key|authorization)\s*[:=]\s*\S+", "[redacted]", message)
+            message = re.sub(r"[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}", "[id]", message)
+            message = re.sub(r"(?i)https?://\S+|data:[^\s]+", "[redacted]", message)
+            message = re.sub(r"(?i)(?:[A-Z]:[\\/]|/)[^\s\"']+", "[path]", message)
+            message = re.sub(r"[A-Za-z0-9+/=_-]{64,}", "[data]", message)
+            message = " ".join(message.split())
+            row["diagnostic"] = message[:400] or "unspecified CLI diagnostic"
+        public_events.append(row)
+        if isinstance(event.get("usage"), dict):
+            usage = {k: v for k, v in event["usage"].items()
+                     if k in ("input_tokens", "cached_input_tokens", "output_tokens") and type(v) is int}
+    return public_events, usage
+
+
 def codex_command(executable: str, root: Path, working: Path, output: Path,
                   python: str, *, port: int, max_steps: int, max_observations: int,
                   seconds: int, experiment_image: str | None = None,
@@ -217,28 +270,14 @@ def main(argv: list[str] | None = None) -> int:
                         break
             if process.poll() is None:
                 end_process(process)
-                stdout, _stderr = process.communicate(timeout=5)
-                exit_code = process.returncode
-            # Keep only event types/tool names and token usage. Drop text, reasoning, IDs and encoded images.
-            public_events = []
-            for line in stdout.splitlines():
-                try:
-                    event = json.loads(line)
-                except ValueError:
-                    continue
-                item = event.get("item", {})
-                public_events.append({"type": event.get("type"), "item_type": item.get("type"),
-                                      "server": item.get("server"), "tool": item.get("tool")})
-                if item.get("type") == "error":
-                    # Error diagnostics are public CLI feedback, never assistant/reasoning text.
-                    message = str(item.get("message", item.get("text", "unspecified CLI diagnostic")))
-                    if token:
-                        message = message.replace(token, "[redacted]")
-                    message = re.sub(r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}", "[id]", message)
-                    public_events[-1]["diagnostic"] = message[:400]
-                    print("CLI diagnostic: " + message[:400], file=sys.stderr)
-                if isinstance(event.get("usage"), dict):
-                    usage = {k: v for k, v in event["usage"].items() if k in ("input_tokens", "cached_input_tokens", "output_tokens") and type(v) is int}
+            # A context change can coincide with CLI exit after a communicate timeout.
+            # Drain even an already-exited process so the terminal receipt is always available.
+            stdout, _stderr = process.communicate(timeout=5)
+            exit_code = process.returncode
+            public_events, usage = public_cli_events(stdout, token=token, goal=args.goal)
+            for event in public_events:
+                if "diagnostic" in event:
+                    print("CLI diagnostic: " + event["diagnostic"], file=sys.stderr)
             (output / "cli-events.json").write_text(json.dumps(public_events, indent=2) + "\n", encoding="utf-8")
     except (DesktopError, OSError, subprocess.SubprocessError) as exc:
         # Raw CLI/provider output is intentionally not reflected into a log or the model.

@@ -3,6 +3,9 @@
 2026-10-11 최종 로컬 검증: Title v4 독립Opus PASS·Astra 실제 패키지37PNG 검수, clean Linux/Web/Mac 빌드와 실제 실행 통과. Web16화면+설정14, native Linux4/Mac4언어, 같은MacPCK20검사 PASS/오류0. 별도 r40 CLI진단81검사·operator준비5PASS. r37정밀도 후보 NOT_ADOPTED; physical0/9·새계정·human merge·정확버전 공개 승인 미완료. [현재 결과·실패·다음 담당](evidence/agent_camera_2026-10-10/completion/title-mac-r39/FINAL.md).
 
 
+2026-10-11 r40 로컬 진단 수집: CLI 최상위error/turn.failed와 종료 경합 때의 영수증 유실을 수정. 실제Python71회귀+문서10/realpipes PASS, 독립Fable PASS. 과거r37원인은 복구불가·provider재시도0·앱/목표불변. [검증·한계](evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md).
+
+
 2026-10-11 r39 로컬 Title 보완: compact1152×648 로고·언어·설정이 모두 보이는 Opus작성 초안. Arch/Mac 기본32화면·확대28사례·Arch동적30검사 PASS/오류0, Astra26PNG/동일v4 bytes·독립Opus PASS. 원본r7패키지는 그대로, 신규빌드/통합/공개는 후속. [전후·실패·한계](evidence/agent_camera_2026-10-10/completion/title-mac-r39/README.md).
 
 

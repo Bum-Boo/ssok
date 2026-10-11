@@ -9,7 +9,7 @@ import zipfile
 from tools.app_control.source_identity import MODULE_PATHS, source_head
 
 
-VERSION = "0.2.0-operator-r14"
+VERSION = "0.2.0-operator-r40"
 EXTRAS = {
     "tools/app_control/start-operator.ps1": "tools/app_control/start-operator.ps1",
     "tools/app_control/setup-operator.ps1": "tools/app_control/setup-operator.ps1",

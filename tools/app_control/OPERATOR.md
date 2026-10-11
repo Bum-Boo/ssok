@@ -65,3 +65,8 @@ context, concise visual summaries and actual tool results. Requested model:
 Public evidence is written only to your new output directory. Wall-distance
 precision, arbitrary-robot navigation and a fresh-account browser sign-in remain
 unverified. Preparation does not claim those capabilities.
+
+
+## Terminal diagnostic evidence
+
+The r40 collector keeps up to400characters of sanitized top-level CLI `error` and `turn.failed` messages (plus legacy item errors) in `cli-events.json` and prints the same sanitized text. Assistant/reasoning payloads, IDs, image data and raw CLI stderr are dropped. Recognized errors without a string message use an unspecified-diagnostic marker. Exact token/whole-goal, credential-like strings, UUIDs, URLs and paths are redacted before truncation; partial/reformatted echoes are not guaranteed to be removed and event-row count is not capped. Raw stderr-only errors remain unavailable. Scoped cleanup and failure exit status are unchanged. A process that exits during context polling is still drained so the terminal receipt can be written. [Verification and retained failure limits](../../docs/evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md).
