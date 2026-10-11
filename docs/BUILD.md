@@ -272,6 +272,12 @@ when changing the board block catalog: the authoring check uses its semantic Wai
 This branch deployment is explicit; ordinary main pushes do not publish new application bytes. Match deployed payload hashes to the frozen build and exercise the anonymous URL after Pages completes. When attaching verified assets directly, inspect and cancel only that release's duplicate `release` event run before it tries to attach a separate rebuild. Keep the source verification run and all previous artifacts. [Publication evidence](evidence/public_release_2026-09-30/README.md) records the actual public URL, source, hashes, interactions and failed attempts. This change adds no application text or language-pack keys.
 
 
+## Numeric release version preflight
+
+The build --version flag names archives and installers; it does not align application/config/version, Windows PE file/product version, macOS bundle version or operator VERSION. Align those source fields before freezing a numerical release, then audit actual exported PCK settings, PE metadata, Info.plist and operator-source.json. Preserve earlier outputs separately if a version correction requires rebuilding.
+
+The owner requested immediate publication on 2026-10-12 after the host-offline interruption. v0.3.1 has full native96/0, four clean exports, public loading/run/Stop and Title verification plus anonymous bytes/download checks. Local authoring timed out after four completed checks; detailed local/public authoring, physics, learning and settings release gates remain incomplete. This dated expedited publication does not mark those gates passed or change ordinary verification requirements.
+
 ## Owner-authorized latest publication on 2026-10-11
 
 The owner approved publishing the reviewed latest version. [Release0.3.1](evidence/public_release_2026-10-11/README.md) freezes the isolated release branch containing the Title and sanitized CLI diagnostic updates. Existing gh-pages branch-root and direct GitHub Release delivery remain. Main integration is a separate human step; a published source tag identifies the exact application commit. Full native and exact browser gates precede publication. No new Windows native window is launched; Mac source/PCK/editor/native-Title evidence remains explicitly separated. Download metadata, original rights and prior artifacts are preserved.

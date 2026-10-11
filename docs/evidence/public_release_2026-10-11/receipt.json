@@ -1,0 +1,253 @@
+{
+  "version": "0.3.1",
+  "application_source_commit": "b3570c650bd0fa285af94fd9136708b1df41bdc8",
+  "source_tag": "v0.3.1",
+  "web_url": "https://bum-boo.github.io/ssok/",
+  "release_url": "https://github.com/Bum-Boo/ssok/releases/tag/v0.3.1",
+  "published": true,
+  "whole_goal_complete": false,
+  "native_full": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "checks": 96,
+    "failures": 0
+  },
+  "local_web": {
+    "smoke": {
+      "passed": true,
+      "checks": 0
+    },
+    "authoring": {
+      "passed": false,
+      "checks": 4
+    },
+    "physics": {
+      "passed": false,
+      "checks": 0
+    },
+    "learning": {
+      "passed": false,
+      "checks": 0
+    },
+    "settings": {
+      "passed": false,
+      "checks": 0
+    }
+  },
+  "public_web": {
+    "smoke": {
+      "passed": true,
+      "checks": 0
+    }
+  },
+  "plain_public_title": {
+    "cases": 16,
+    "passes": 16,
+    "errors": 0
+  },
+  "linux_native_titles": {
+    "locales": 4,
+    "errors": 0
+  },
+  "mac_native_titles": {
+    "locales": 4,
+    "errors": 0,
+    "versions": {
+      "CFBundleVersion": "0.3.1",
+      "CFBundleShortVersionString": "0.3.1"
+    },
+    "codesign_exit": 0
+  },
+  "mac_same_PCK_editor": {
+    "checks": 20,
+    "failures": 0,
+    "compiled_native_all_routes": false
+  },
+  "operator": {
+    "allowlisted_files": 14,
+    "module_hashes": {
+      "tools/app_control/desktop_client.py": "3dfda807fba4683c742eb07604852d01b19018271abea7a8c0894a1d37e10678",
+      "tools/app_control/desktop_session.py": "ceebbb9eb2e064c476b51e2dbe5dce6660bd9501142076dd1ada998a0a2c511d",
+      "tools/app_control/desktop_mcp.py": "1c9afbc636ff99ec550b36139e7347a15b7992e555f01b08c5780e10a15d043c",
+      "tools/app_control/run_goal.py": "4987b77a81b5842b827a7d2e67ffb45296a5d387cd642955ccaae5c54363d2d4",
+      "tools/app_control/run_operator.py": "98cce95cc68bc907f6308afb929ac0469ee424392605a051b5ebadfc00031262",
+      "tools/app_control/experiment_session.py": "8cbff8c2fb9cbe664cb2d1d71f1058faa13f36c698da36980b9a1b245ab36286",
+      "tools/app_control/source_identity.py": "2f02c12e5aa8588b0ae175572f4caf939a5c893df97fcbb00f63372ec55b8188",
+      "tools/app_control/doctor.py": "5e9bf39ed6cca71de66adb594976ef042c452a30377e3173713da548aa77481d"
+    },
+    "doctor_checks": 5,
+    "ready": true,
+    "version": "0.3.1-operator"
+  },
+  "sources_sha256": {
+    "src/screens/title_screen.gd": "0241a8b96b67661775a984dd85606499378ed8020b4829a1ac8978b6849d3d18",
+    "src/screens/menu_screen.gd": "9352f1d618014849f64a5aabe2ecf3acf617c16ce3c6102e7d01e5c4b6f54209",
+    "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
+    "tools/app_control/run_goal.py": "4987b77a81b5842b827a7d2e67ffb45296a5d387cd642955ccaae5c54363d2d4",
+    "project.godot": "151c8bcc0d2c25195c5a503eb34659812e22c2c3de3a7e093daca721b1ed75a2",
+    "export_presets.cfg": "168edb441f47cc958386782c01f6af139e12d5e5703fcfb9099c9614e5b7387d"
+  },
+  "same_pack_hashes": {
+    "web/index.pck": "3674ee9e2168c9a54a33fad43b8e11c85261f81865a75243cd2153c320d4d0a7",
+    "windows/ssok.pck": "3674ee9e2168c9a54a33fad43b8e11c85261f81865a75243cd2153c320d4d0a7",
+    "linux/ssok.pck": "3674ee9e2168c9a54a33fad43b8e11c85261f81865a75243cd2153c320d4d0a7",
+    "macos/ssok.app/Contents/Resources/ssok.pck": "3674ee9e2168c9a54a33fad43b8e11c85261f81865a75243cd2153c320d4d0a7"
+  },
+  "release_assets_downloaded": [
+    {
+      "file": "release.json",
+      "sha256": "ddbf22207c08a683c3b81a377863273136f7d0b0ca1eb4b4c3b1eb8c3bf6beba",
+      "bytes": 1392
+    },
+    {
+      "file": "SHA256SUMS",
+      "sha256": "1cf9fcb356b5303f31fbb01e608e4317aec40ef0e980b85119a0f11525d96365",
+      "bytes": 670
+    },
+    {
+      "file": "ssok-0.3.1-linux-x86_64.zip",
+      "sha256": "73d4e9a80938cffcccf0394124876625e1f08a37f5e0a649657a1753bbcaf027",
+      "bytes": 271237436
+    },
+    {
+      "file": "ssok-0.3.1-macos-universal.zip",
+      "sha256": "7b2272ba2227c5c82d319150d9df65dce54396bab664375affd9caa0bb3187bc",
+      "bytes": 303519989
+    },
+    {
+      "file": "ssok-0.3.1-operator.zip",
+      "sha256": "3b6e5ee714781226a74b1286db289a23add52debeeee107931fc2864255ba799",
+      "bytes": 29772
+    },
+    {
+      "file": "ssok-0.3.1-web.zip",
+      "sha256": "1db6bd926c67c3212b2addadd956eac2d454266e316f3e70a7d63fc649f51677",
+      "bytes": 253030113
+    },
+    {
+      "file": "ssok-0.3.1-windows-x86_64-installer.zip",
+      "sha256": "5b58d84e5e1dc888ce89719ef87c2f09d635e63d169f23f55b82af177b1ba3b9",
+      "bytes": 242367190
+    },
+    {
+      "file": "ssok-0.3.1-windows-x86_64-setup.exe",
+      "sha256": "d7f2cfa3f0acf8f33d1bd286eee5e38ff03cbe18f1483efd49621b54d05eb229",
+      "bytes": 242631218
+    },
+    {
+      "file": "ssok-0.3.1-windows-x86_64.zip",
+      "sha256": "1184fed66780cc8a0d1bd967a30194b11547d41fae2a83917b0c541997b4fbe9",
+      "bytes": 280864630
+    }
+  ],
+  "anonymous_web_core_hashes": [
+    {
+      "file": "index.html",
+      "sha256": "3f099756070acf98b980dffe8cfb052e674cc7ca7816c2538765ab7a312c1147",
+      "bytes": 5615
+    },
+    {
+      "file": "index.js",
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "bytes": 279815
+    },
+    {
+      "file": "index.wasm",
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+      "bytes": 39514754
+    },
+    {
+      "file": "index.pck",
+      "sha256": "3674ee9e2168c9a54a33fad43b8e11c85261f81865a75243cd2153c320d4d0a7",
+      "bytes": 29303524
+    },
+    {
+      "file": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "source_audit": {
+    "new_blobs": 3454,
+    "text_blobs": 2502,
+    "findings": 0,
+    "limit": "High-confidence key/path scan of new reachable history; not a universal secret detector."
+  },
+  "fable": {
+    "models": [
+      "claude-fable-5-1"
+    ],
+    "actual_fetch_rebase": true,
+    "head_unchanged": true
+  },
+  "astra_reviews": {
+    "astra-export-review.json": {
+      "sha256": "702e04765877794b011c13981c9c19f2856d10b9517d8d7b9541dc46578028ce",
+      "verdict": "PASS",
+      "images": 27
+    },
+    "astra-public-review.json": {
+      "sha256": "8b4ece18d4c0859b1bba791b5991dd05bd6e91ae5fb1d4ac386fc6b03cad8fc0",
+      "verdict": "PASS",
+      "images": 19
+    }
+  },
+  "previous_pages_commit": "ae501c516c343e986a4a25586610e5ab451cab36",
+  "published_pages_commit": "2a1c1a157ace52db719a8ad9c1762e326633c188",
+  "prior_artifacts_preserved": true,
+  "remaining": [
+    "Local authoring timeout after4 checks; detailed local/public authoring/physics/learning/settings release gates incomplete under expedited owner publication",
+    "Original camera-guided physical precision0/9; rejected r37 optical candidate excluded",
+    "Fresh-account onboarding untested",
+    "Full compiled-native Mac routes untested",
+    "No new Windows native interaction in this release session",
+    "Human main merge separate; public source tag/branch contain the release"
+  ],
+  "signing": {
+    "windows": "unsigned",
+    "macos": "ad-hoc, no Developer ID/notarization"
+  },
+  "provider_retries": 0,
+  "first_pre_version_export_preserved_not_published": true,
+  "github_ci": [
+    {
+      "conclusion": "cancelled",
+      "databaseId": 38156789481,
+      "event": "release",
+      "status": "completed",
+      "url": "https://github.com/Bum-Boo/ssok/actions/runs/38156789481",
+      "workflowName": "Verify and build ssok"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 38156164681,
+      "event": "push",
+      "status": "completed",
+      "url": "https://github.com/Bum-Boo/ssok/actions/runs/38156164681",
+      "workflowName": "Verify and build ssok"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 38156164627,
+      "event": "push",
+      "status": "completed",
+      "url": "https://github.com/Bum-Boo/ssok/actions/runs/38156164627",
+      "workflowName": "Check contributor documentation"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 38156163520,
+      "event": "push",
+      "status": "completed",
+      "url": "https://github.com/Bum-Boo/ssok/actions/runs/38156163520",
+      "workflowName": "Check contributor documentation"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 38156163509,
+      "event": "push",
+      "status": "completed",
+      "url": "https://github.com/Bum-Boo/ssok/actions/runs/38156163509",
+      "workflowName": "Verify and build ssok"
+    }
+  ]
+}
