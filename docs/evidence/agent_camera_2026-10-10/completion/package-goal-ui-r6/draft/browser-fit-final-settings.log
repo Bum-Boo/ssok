@@ -1,0 +1,21 @@
+PASS fresh browser follows light system appearance
+Select settings_appearance item 2
+PASS explicit dark ignores light system appearance
+Select settings_appearance item 0
+PASS system appearance updates while settings are open
+Select settings_language item 0
+Select settings_code item 4
+PASS code 200 percent does not enlarge interface text
+Select settings_appearance item 2
+Select settings_text item 4
+PASS Korean 200 percent program panel stays inside browser viewport
+PASS source_hash preserved through live settings
+PASS graph_hash preserved through live settings
+PASS draft_hash preserved through live settings
+PASS run_mode preserved through live settings
+PASS code_running preserved through live settings
+PASS interface 200 percent leaves code at its independent 200 percent
+PASS all five preferences persist through real browser reload
+PASS persisted theme and both font sizes apply on new app startup
+PASS browser console and page have no errors
+Browser settings: 14 checks passed; evidence /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-fit-final-settings

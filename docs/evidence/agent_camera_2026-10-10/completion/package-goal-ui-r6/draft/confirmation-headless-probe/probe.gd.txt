@@ -1,0 +1,31 @@
+extends SceneTree
+func _initialize() -> void:
+	_run.call_deferred()
+func _run() -> void:
+	root.size = Vector2i(1400, 950)
+	root.gui_embed_subwindows = true
+	var main: Node3D = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	for i: int in 8: await process_frame
+	main._on_answer_pressed()
+	main._open_projects()
+	var panel_size: Vector2i = root.size - 2 * main.projects.position
+	for i: int in 4: await process_frame
+	main.projects.size = panel_size
+	main.projects.save_current()
+	main.projects.library.select(0)
+	main.projects._refresh_actions()
+	main.projects.request_open()
+	var dialog: ConfirmationDialog = main.projects._confirmation
+	var request: Vector2i = root.size - 2 * dialog.position
+	for i: int in 4: await process_frame
+	var before: Dictionary = _state(dialog)
+	dialog.size = request
+	for i: int in 4: await process_frame
+	var result: Dictionary = {"requested": [request.x, request.y], "before": before, "after": _state(dialog)}
+	var f: FileAccess = FileAccess.open("res://build/ai-loop-evidence/completion/package-goal-ui-r6/confirmation-headless-probe/result.json", FileAccess.WRITE)
+	f.store_string(JSON.stringify(result));f.close()
+	main.free();quit()
+func _state(dialog: ConfirmationDialog) -> Dictionary:
+	var center: Vector2 = Vector2(dialog.position) + dialog.get_ok_button().get_global_rect().get_center()
+	return {"position": [dialog.position.x, dialog.position.y], "size": [dialog.size.x, dialog.size.y], "ok": [center.x, center.y]}

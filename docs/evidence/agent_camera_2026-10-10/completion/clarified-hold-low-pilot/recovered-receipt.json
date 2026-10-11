@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "trial": "layout1-run1",
+      "physical_success": false,
+      "gap": 0.15110832452774,
+      "final_image": "layout1-run1/actor/camera/observation-7.png",
+      "pixel_measurement": {
+        "boundary_y": 442,
+        "floor_pixels": 38,
+        "column_range": [
+          442,
+          442
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "trial": "layout2-run1",
+      "physical_success": false,
+      "gap": 0.149547666311264,
+      "final_image": "layout2-run1/actor/camera/observation-8.png",
+      "pixel_measurement": {
+        "boundary_y": 435,
+        "floor_pixels": 45,
+        "column_range": [
+          434,
+          435
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "trial": "layout3-run1",
+      "physical_success": false,
+      "gap": 0.154638141393662,
+      "final_image": "layout3-run1/actor/camera/observation-9.png",
+      "pixel_measurement": {
+        "boundary_y": 435,
+        "floor_pixels": 45,
+        "column_range": [
+          435,
+          435
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    }
+  ],
+  "physical_successes": 0,
+  "image_successes": 1,
+  "runner_exit": 1,
+  "failure": "summary-only UTF8 JSONL was decoded as cp949; original 3 trials preserved; no rerun replacement",
+  "recovery": "stabilize_camera_trials.py now explicitly decodes UTF8; this receipt is a separate offline readback"
+}

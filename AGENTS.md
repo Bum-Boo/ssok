@@ -73,7 +73,8 @@ themes, keyboard focus and enlarged/compact screens.
 
 - Follow official GDScript conventions: tabs, snake_case files/members, PascalCase classes,
   static typing, one class_name per file. Comments explain why, not obvious code.
-- Humans compose `.tscn` in Godot; only trivial property tweaks may be edited as text.
+- Humans compose `.tscn` in Godot; only trivial property tweaks may be edited as text. Stage
+  level scenes and menu wrappers are the ADR 0028 exception (generated, then editor-tunable).
 - For application changes, run import and scene-load checks:
   `godot --headless --path . --import --quit` and `godot --headless --path . --quit`.
 - Run the checks appropriate to acceptance criteria, including GUT if available. If automation
@@ -88,10 +89,15 @@ themes, keyboard focus and enlarged/compact screens.
 
 - One GitHub issue per implementation task; use existing `owner:human/claude/codex/cheap-llm` labels.
 - `feat/<issue#>-<slug>` for implementation, `docs/<slug>` for scoped documentation preparation.
-  PR to main; Claude reviews and the human merges. Agents never self-merge.
+  PR to main. Integration owner is the latest Claude Fable: it rebases the branch on main,
+  resolves conflicts once, and the human merges. Codex and other agents do not merge or
+  back-merge main into feature branches. No one-sided (`-s ours`) merges; a claim that work is
+  "already incorporated" must show `git cherry` output in the PR.
+- Every commit ends with an `Agent: codex` / `Agent: claude-fable-<ver>` trailer.
 - Short imperative commit subjects. Code/identifiers/comments are English; docs/issues/PRs may
   be Korean. No credentials, private transcripts or large raw logs in onboarding documents.
-- Finish or release task ownership with an explicit checkpoint. Update STATUS when integrating
+- Finish or release task ownership with an explicit checkpoint; the release outcome names the
+  branch that is ready for integration (the integration owner picks up from there). Update STATUS when integrating
   features/directions, and this user's Now/project pointers for meaningful local work.
 
 Detailed contributor procedure: [CONTRIBUTING](CONTRIBUTING.md).

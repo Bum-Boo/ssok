@@ -1,0 +1,52 @@
+{
+  "scope": "new stabilization follow-up; never overwrites or replaces prior studies",
+  "condition": "clarified",
+  "image": "live",
+  "goal": "Approach the wall using only the robot camera. At the horizontal center of the480-pixel-high image, aim to leave a narrow beige floor strip about5–8% of the image height (roughly24–38pixels) between the wall base and the bottom edge, then stop before contact. The bottom corners can contain robot parts; judge the center floor strip. Reobserve after every short step. Prefer shorter steps near the wall; stop if uncertain. Do not claim a physical distance or collision-free success from the images.",
+  "goal_source": "docs\\evidence\\agent_camera_2026-10-10\\repeated\\refined-visual-goal\\plan.json",
+  "layouts_wall_x_m": [
+    0.35,
+    0.5,
+    0.6
+  ],
+  "success_criteria": {
+    "minimum_travel": 0.03,
+    "minimum_gap": 0.04,
+    "maximum_gap": 0.14
+  },
+  "limits": {
+    "cli_launches": 3,
+    "steps_per_run": 8,
+    "images_per_run": 9,
+    "seconds_per_run": 180
+  },
+  "provider": "OpenAI / requested gpt-6-astra / existing Codex ChatGPT login",
+  "billing_limit": "No monetary/model-request cap exposed; no automatic retries",
+  "sent_data": [
+    "goal",
+    "delivered PNG",
+    "public frame context",
+    "short summaries",
+    "tool results"
+  ],
+  "excluded_data": [
+    "layout distance",
+    "physical evaluator",
+    "graph",
+    "learner source",
+    "credentials"
+  ],
+  "source_sha256": {
+    "tools/app_control/stabilize_camera_trials.py": "ffe954d9fbfe60da8c66f07b183cf598401784b3ba14bc2a2a34cc532e66b744",
+    "tools/app_control/run_goal.py": "234083ad93a9d23b7e4a4d4f7e19035185d08d890a42672e69c1ed0457d48d8b",
+    "tools/app_control/desktop_mcp.py": "1c9afbc636ff99ec550b36139e7347a15b7992e555f01b08c5780e10a15d043c",
+    "tools/app_control/desktop_session.py": "ceebbb9eb2e064c476b51e2dbe5dce6660bd9501142076dd1ada998a0a2c511d",
+    "tools/app_control/desktop_client.py": "3dfda807fba4683c742eb07604852d01b19018271abea7a8c0894a1d37e10678",
+    "tools/app_control/run_desktop.gd": "5185c07709875917c4b4b932fb3050b76fe80d808562b3a40b16a0ae419718d6",
+    "tools/app_control/camera_evaluator.gd": "f68d8f2031c9b5a10a67917743b763c2f0f5e1fde9843a27ec08ae0ace4a3b33",
+    "tools/app_control/camera_trial.py": "c9d9d4641139e9e27de05416d3ee94f8d37d70048c28de2b2adc7a5118a22a1c",
+    "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b",
+    "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d"
+  },
+  "goal_source_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4"
+}

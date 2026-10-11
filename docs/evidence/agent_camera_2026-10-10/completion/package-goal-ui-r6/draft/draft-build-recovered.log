@@ -1,0 +1,26 @@
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot --headless --path /mnt/c/Users/Hojun/Projects/ssok-ai-loop --editor --import --quit
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot --headless --path /mnt/c/Users/Hojun/Projects/ssok-ai-loop --language en --script res://tools/ci/browser_layout.gd -- /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/export-logs/browser-layout.json
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot --headless --path /mnt/c/Users/Hojun/Projects/ssok-ai-loop --export-release Web /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/web/index.html
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot --headless --path /tmp/ssok-pack-audit-9ivz_sgv --script /mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/check_export.gd -- /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/web/index.pck /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/export-logs/web-resources.json
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot --headless --path /mnt/c/Users/Hojun/Projects/ssok-ai-loop --export-release Linux /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/linux/ssok.x86_64
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/linux/ssok.x86_64 --headless --quit-after 5
+Running /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot --headless --path /tmp/ssok-pack-audit-bxsmdl9a --script /mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/check_export.gd -- /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/linux/ssok.pck /mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-local-draft-r6-recovered/export-logs/linux-resources.json
+{
+  "version": "0.3.1-projects-draft-r6",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "commit": "28609ea4c4e9e2ccd7eb93e269439001d8f1708e",
+  "dirty_worktree": true,
+  "source_changed_during_build": false,
+  "artifacts": [
+    {
+      "file": "ssok-0.3.1-projects-draft-r6-web.zip",
+      "sha256": "9f2482cf8d68253cd5d3f330b08f4b9d4b3d3ca7aa6250b657a5d1611df48745",
+      "bytes": 179760739
+    },
+    {
+      "file": "ssok-0.3.1-projects-draft-r6-linux-x86_64.zip",
+      "sha256": "41eebcae14b8f52f094b053e1b41e02165482a94aebc8ff8f16848515cbfbbce",
+      "bytes": 197968061
+    }
+  ]
+}

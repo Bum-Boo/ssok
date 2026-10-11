@@ -1,0 +1,9 @@
+{
+  "hypothesis_rank": 3,
+  "reason": "Actual motor callback confirms exact1tick power, ruling out off-by-one. A separate final forward1 has settle/capture/reset overhead and small effect. Compare one extra powered tick inside final partition12->13 at unchanged3partitions and controller to quantify physical/image boundary. Three fresh repeats bound sensitivity; no adaptive metric steering, goal/camera/physics/gain/evaluator changes or liveAI. Frozen original target still evaluates nominal24..38 exactly.",
+  "files": {
+    "partition13_probe.gd": "737f4ed405ab218e4e1d006ba96671ec73e1bef17fd453c76ecb87f1756a1754",
+    "ssok-control-r8-calibration.py": "45a3b6f7f58f580d62b20026f9208aa55229814511fb3ccde68807de51209548"
+  },
+  "production_applied": false
+}

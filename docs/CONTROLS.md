@@ -17,6 +17,24 @@ Tab/Shift+Tab으로 버튼·입력란을 탐색하고 Enter/Space로 버튼을 �
 확대·축소는 그대로 사용할 수 있고, 걷는 동안의 수직 흔들림은 따라가지 않는다. 편집 모드로
 돌아가면 추적한 이동량을 되돌려 원래 조립 위치가 다시 보인다.
 
+## 로컬 초안: 로봇 카메라 AI 탭
+
+외부 터미널에서 목표를 주고 직접 반복 실행하는 `tools/app_control/run_goal.py`도 있어요.
+AI 카메라를 먼저 켜고 같은 환경에서 실행해요. 기본은 행동4회/영상5장/240초이고,
+앱의 정지 버튼이 제어권을 먼저 해제해요. 제공자·전송·과금 한계와 명령은
+[직접 실행 계약](APP_CONTROL_API.md#direct-camera-goal-runner--local-draft)에 있어요.
+
+Lab 또는 기존 전체 작업실의 `AI` 탭에서 그래프에 실제로 배선한 두 바퀴 차를 대상으로
+`Enable` → `Capture` → 짧은 `Forward`를 시험할 수 있다. 전진은 20 물리 틱 뒤 브레이크를 걸고
+실제 정지까지 확인한다. 같은 프레임으로 두 번 움직이지 않으며 다음 행동에는 새 Capture가 필요하다.
+정지 버튼은 기록을 스크롤해도 고정되어 있고 코드 실행·모드 변경·창 열기도 AI 제어권을 해제한다.
+코드를 실행하면 코드 제어로 넘어가므로 AI 탭 아래의 코드 실행 버튼은 그대로 사용할 수 있다.
+
+패널은 로봇에 붙인 가상 카메라 PNG, 프레임/해시, 외부 에이전트가 제공한 짧은 요약과 실제 도구
+결과를 보여준다. 요약과 전송 보고는 관측 결과나 임무 성공 인증이 아니다. 외부 연결은 별도 실행
+옵션과 환경 토큰이 있어야 열리고 앱이 AI 제공자를 직접 호출하지 않는다. Stage/예제 모드와 Web은
+이 데스크톱 제어 실험을 제공하지 않는다. 실행법과 제한은 [APP_CONTROL_API](APP_CONTROL_API.md) 참고.
+
 ## 튜토리얼
 
 상단 언어 선택 옆 **책 아이콘**을 누르면 11단계 안내를 볼 수 있다.
@@ -173,6 +191,17 @@ godot --headless --path . -s tests/material_assets_check.gd
 
 실제 앱 화면 확인: `godot --path . -s tests/controls_screenshot.gd` →
 `user://control_previews/{edit,run,run_released}.png`.
+
+## Local draft AI goal control
+
+An explicitly started foreground `tools.app_control.run_operator` enables one AI-tab Run click.
+Goal Enter never starts it. Read the provider/data/usage/limits before Run; Stop remains pinned while
+the panel scrolls. Run reserves camera controls, and Stop/mode/source/graph changes discard its goal.
+Desktop two-wheel car only; Web and disconnected operators cannot dispatch. See [the control contract](APP_CONTROL_API.md).
+Monitor-first connection order cannot grant or remove an action capability: one small request may
+wait briefly for ordinary validation, while Stop keeps its priority lane and revokes queued frames.
+Actor/runner cleanup Stops only its bound episode/revision/generation. Stale cleanup leaves a
+replacement run untouched; the local Stop button and explicit emergency Stop remain global.
 
 ## Interface preferences
 

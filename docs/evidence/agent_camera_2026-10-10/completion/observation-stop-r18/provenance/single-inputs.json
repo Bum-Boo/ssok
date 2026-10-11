@@ -1,0 +1,25 @@
+{
+  "change": "Exactly one bridge observation at idle1 checkpoint, removing developer duplicate capture",
+  "control_law_changed": false,
+  "original_inputs_results_preserved": true,
+  "fixture_sha256": {
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r18-single-run.py": "bc34349f5ab47a61decbb300d351fa3e6edfead327302f2d54a4fb8cbb7c6242",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\single-observe\\attitude-combined.gd": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\single-observe\\attitude-k32.gd": "da22cd2057f198927431a7212e32bb369229f80adf41dd258b57b6071ca2e9b7",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\single-observe\\callback_probe.gd": "765956fcbdde9b9099d1a8dbea559c4629cbd5c09d52d01d47b82e1e62a00407",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\single-observe\\callback_sampler.gd": "71c4a2e119d63e191457e0951a643b92e8a70a3966120eaadd6ad0605d045902",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\single-observe\\motor_callback.gd": "a678d2445ee3302d436c745dfd844bb55336c1733ab74960916215ca729ec667"
+  },
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/observation-stop-r18/single-observe/callback_probe.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "production_applied": false,
+  "model_calls": 0
+}

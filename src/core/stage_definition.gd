@@ -74,7 +74,7 @@ static func runtime_context(run_mode: RunMode = null, graph: ConnectionGraph = n
 	if resource_identity.is_empty():
 		var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/stage_runtime_identity.json")) if FileAccess.file_exists("res://assets/stage_runtime_identity.json") else {}
 		resource_identity = manifest if manifest is Dictionary else {}
-		for directory: String in ["res://src/core/", "res://src/runtime/", "res://src/profiles/", "res://assets/parts/", "res://assets/meshes/"]:
+		for directory: String in ["res://src/core/", "res://src/runtime/", "res://src/profiles/", "res://assets/parts/", "res://assets/meshes/", "res://stages/"]:
 			_hash_resources(directory, resource_identity)
 	var sensors: Array[Dictionary] = []
 	var models: Array[Dictionary] = []
@@ -118,7 +118,7 @@ static func _model_value(value: Variant) -> Variant:
 
 static func _hash_resources(directory: String, hashes: Dictionary) -> void:
 	for name: String in DirAccess.get_files_at(directory):
-		if name.ends_with(".gd") or name.ends_with(".tres") or name.ends_with(".res"):
+		if name.ends_with(".gd") or name.ends_with(".tres") or name.ends_with(".res") or name.ends_with(".tscn"):
 			var path: String = directory.path_join(name)
 			if FileAccess.file_exists(path):
 				hashes[path] = FileAccess.get_sha256(path)

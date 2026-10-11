@@ -1,0 +1,18 @@
+test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... ERROR
+
+======================================================================
+ERROR: test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tests\test_release_documents.py", line 31, in test_documentation_links_survive_packaging_and_extraction
+    for match in re.finditer(r"\]\((<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)", document.read_text()):
+                                                                      ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\build\toolchain-windows\python\cpython-3.14.7-windows-x86_64-none\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'cp949' codec can't decode byte 0xe2 in position 33: illegal multibyte sequence
+
+----------------------------------------------------------------------
+Ran 1 test in 13.997s
+
+FAILED (errors=1)

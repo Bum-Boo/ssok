@@ -89,6 +89,8 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 
 `ssok-stage` v2는 `id`, `title`, `scene`, `author_solution`, `rules`, `constraints`를 가져요. `scene`과 `author_solution`은 각각 프로젝트 v1 문서예요. v1 Stage도 읽으며 v2로 생성해요. 규칙은 metric, part_id, min/max, hold_seconds와 target_index를 포함해요. `target_index = -1`은 일치하는 종류가 정확히 하나일 때만 허용해요. 직접 선택한 인덱스는 로딩 시 그래프 인스턴스 토큰에 묶이며 삭제·대체하면 재선택이 필요해요. 이 토큰은 저장하는 영구 객체 ID가 아니에요.
 
+기본 스테이지는 `StageLevels` 항목이 레벨 씬 경로와 `StageCatalog` 정의를 묶어요. 레벨 씬의 바닥·소품·목표 표시는 그래프가 아니며 충돌하는 과제 물체(`stage_wall`)만 그래프 부품이에요. 레벨 씬(`res://stages/`)도 실행 문맥의 자원 해시에 들어가요. 스테이지 성공 기록은 `user://progress.json`(`ssok-progress` v1, `cleared` 사전)에 따로 저장하며 프로젝트·설정과 섞지 않아요. 가져온 과제 파일에는 레벨 참조가 없어서 기본 바닥에서 열려요.
+
 판정은 `StageEvaluator`가 실제 물리를 관측해요. 성공 증거는 과제 전체, 그래프/소스, 엔진·런타임·모델, 보드 API/시간 단위, 물리 설정, 센서 조건의 fingerprint에 묶여요. 파일에 신뢰할 인증서를 담지 않으며 가져온 과제는 다시 성공해야 해요. [Stage 계약](STAGE_CONTRACTS.md)과 [ADR 0025](adr/0025-stage-targets-proofs-and-outcomes.md)를 따라요.
 
 보드 profile은 현재 그래프에서 파생하며 저장 문서에 별도 중복 필드를 넣지 않아요. 미적용 블록은 독립 초안으로 보존하고 과제 출제·내보내기에서 적용을 요구해요. 외관 색·데칼과 클라우드 진행 기록은 이 스키마에 없어요.

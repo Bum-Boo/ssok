@@ -1,0 +1,37 @@
+extends SceneTree
+const OUT: String = "res://build/ai-loop-evidence/completion/package-goal-ui-r6/native-keys"
+var main: Node3D
+var last_state: String = ""
+var wait: float = 0.0
+func _initialize() -> void:
+	_start.call_deferred()
+func _start() -> void:
+	DirAccess.make_dir_recursive_absolute(OUT)
+	root.size = Vector2i(1400, 950)
+	root.gui_embed_subwindows = true
+	main = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	for i: int in 10:
+		await process_frame
+	main._on_answer_pressed()
+	main._open_projects()
+	main.projects.export_current()
+	main.projects.request_import()
+func _process(delta: float) -> bool:
+	if main == null or not is_instance_valid(main.projects):
+		return false
+	wait += delta
+	if wait < 0.12:
+		return false
+	wait = 0.0
+	var panel: ProjectPanel = main.projects
+	var focus: Control = panel.gui_get_focus_owner()
+	var name_point: Vector2 = Vector2(panel.position) + panel.title_edit.get_global_rect().get_center()
+	var state: Dictionary = {"viewport": [root.size.x, root.size.y], "points": {"project_name": [name_point.x, name_point.y]}, "panel_visible": panel.visible, "dialog_visible": panel._confirmation.visible, "save_has_focus": focus == panel.save_button, "focus_class": focus.get_class() if focus != null else "none", "saved_count": ProjectStore.list_projects().size(), "runtime_running": main.runtime.is_running(), "navigation": main.navigation.navigation_enabled}
+	var serialized: String = JSON.stringify(state)
+	if serialized != last_state:
+		var file: FileAccess = FileAccess.open(OUT + "/state.json", FileAccess.WRITE)
+		file.store_string(serialized)
+		file.close()
+		last_state = serialized
+	return false

@@ -1,0 +1,86 @@
+{
+  "phase": "prefs-after-existing",
+  "results": [
+    {
+      "name": "agent_goal_ui_check-rendered",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 16.681,
+      "timeout": false,
+      "engine_error": false,
+      "log": "agent_goal_ui_check-rendered.log",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tests\\agent_goal_ui_check.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--screenshots"
+      ],
+      "preferences_exists": true,
+      "preferences_sha256": "3ec7f1ec80009218669518e9de40774f743a6ddcb2d97785de2e5ba34785743b",
+      "preferences_text": "; preserve unknown fixture metadata\n[interface]\ntext_scale=1.0\nappearance=\"dark\"\n\n[fixture]\nuntouched=\"original bytes\"\n"
+    },
+    {
+      "name": "agent_camera_loop_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.915,
+      "timeout": false,
+      "engine_error": false,
+      "log": "agent_camera_loop_check.log",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tests\\agent_camera_loop_check.gd"
+      ],
+      "preferences_exists": true,
+      "preferences_sha256": "3ec7f1ec80009218669518e9de40774f743a6ddcb2d97785de2e5ba34785743b",
+      "preferences_text": "; preserve unknown fixture metadata\n[interface]\ntext_scale=1.0\nappearance=\"dark\"\n\n[fixture]\nuntouched=\"original bytes\"\n"
+    },
+    {
+      "name": "authoring_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.473,
+      "timeout": false,
+      "engine_error": false,
+      "log": "authoring_ui_check.log",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tests\\authoring_ui_check.gd"
+      ],
+      "preferences_exists": true,
+      "preferences_sha256": "3ec7f1ec80009218669518e9de40774f743a6ddcb2d97785de2e5ba34785743b",
+      "preferences_text": "; preserve unknown fixture metadata\n[interface]\ntext_scale=1.0\nappearance=\"dark\"\n\n[fixture]\nuntouched=\"original bytes\"\n"
+    }
+  ],
+  "failures": 0
+}

@@ -1,0 +1,17 @@
+{
+  "ready": false,
+  "checks": [
+    {
+      "id": "python",
+      "passed": true,
+      "detail": "Python3.11 or newer is required.",
+      "remedy": ""
+    },
+    {
+      "id": "source",
+      "passed": false,
+      "detail": "Operator identity is missing or files changed.",
+      "remedy": "Extract a fresh complete operator archive, or use the actual checkout root."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "verdict": "pass",
+  "reviewer": "claude-opus-5-5, independent final design-code review; no tools, file writes, delegation or publication",
+  "source_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038 (coordinator-supplied; I could not hash it myself. Review covers the src/ui/project_panel.gd text and owned-base diff in the brief.)",
+  "design_scope_reviewed": [
+    "Full action labels: _full_label disables clip and trimming on Save, Export, Open, Delete, Copy, Import and Close. HFlowContainer rows with 8px separation wrap instead of compressing. Astra saw full labels in 4 locales × 2 themes at 960x640/200% and 1400x950/100%.",
+    "Footer and Close reachability: the body is in a vertical-only ScrollContainer with follow_focus, and the footer HBox sits outside the scroll inside the layout VBox. Astra saw Close and the footer in all 32 frames, including the two-line Japanese footer, with no overlap.",
+    "Window sizing: 760x520 scaled by ui_scale, clamped to the root visible rect minus 32px and two scaled title heights. At 960x640/200% this gives 928x480, above min_size 640x450. At 1400x950 it fits.",
+    "Confirmations: dialog_autowrap with a fixed width of font_size(420), clamped to the available width, so height grows from content. Astra saw full import and delete warnings plus OK/Cancel in all 16 confirmation frames.",
+    "Palette: the dialog panel StyleBoxFlat uses only the existing SsokTheme.BG. It is synced on NOTIFICATION_THEME_CHANGED and immediately before each popup. This fixes the observed 1.117 dark-theme contrast. The live visible-dialog light/dark roundtrip and Astra's 16 dark/light confirmation frames agree. If remember/adapt also records this override, the result is the same role, so it is harmless.",
+    "Preservation: no new colors, fonts, type scale or strings. Content margin 12 and separation 8 are spacing only. Graph/code/import/delete confirmation semantics are unchanged: _request_replace, request_delete and _confirm_action keep their logic and only route through _popup_confirmation. Escape-to-close is unchanged while a confirmation is visible.",
+    "Code idiom: tabs, static typing, why-comments, and helper naming consistent with the file."
+  ],
+  "blocking_findings": [],
+  "nonblocking_limits": [
+    "Compact 960x640/200% Saved view: the library, Open and Delete lie below the initial scroll viewport. Stills cannot certify they are reachable. The OS Escape/Tab/Enter 6/0 run used the earlier layout 9e3330de, which has the same layout and input paths, and has no final 200% OS focus or scroll claim. Mark it unrun, not passed.",
+    "Mouse-wheel scrolling over the nested ItemList or TextEdit scrolls the inner control first. At compact 200% the outer scroll then depends on the scrollbar, the gutters or keyboard follow_focus. This was not verified by OS input.",
+    "Window size is computed only at open_panel, and the window is unresizable. A root-window resize while Projects is open will not reflow it. This was not tested.",
+    "No coverage below 960x640 or above 200%. An unwrappable single label wider than the row would overflow, because labels never trim and horizontal scroll is disabled. No such case was observed in the matrix.",
+    "Pre-existing and not in the diff: error status uses modulate Color(\"ff9292\") instead of a SsokTheme.ERROR role. In the light theme this tints dark text rather than showing the palette error color. Error distinctness in the light theme is not certified here.",
+    "`_confirmation.theme = theme` copies the Window's theme at _ready, which is likely null. If an owner later assigns a theme to the panel, the dialog will not follow automatically. Inheritance through the parent Window currently covers this.",
+    "The title-height reserve, 2 × font_size(36) + 16, is a heuristic tied to the embedded-window title font. It held at the tested sizes only.",
+    "Web/Linux draft build and gate for this source are pending. Native Mac is unrun. Exact numeric contrast was coordinator-measured (min 14.5095), not independently computed by Astra or by me.",
+    "The immutable r2 provider/camera smoke (12/0) predates this UI change and is not evidence for it. Backend model, physical goal, package runtime and publication are out of scope and uncertified.",
+    "The harness failures from the first and corrected matrix runs (1249/536, 1169/160) are correctly kept as harness or checker errors, not app passes. The dark-contrast app bug was real and is fixed in this source."
+  ],
+  "exact_required_fixes": []
+}

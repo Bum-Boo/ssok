@@ -1,0 +1,18 @@
+{
+  "url": "https://bum-boo.github.io/ssok/",
+  "passed": true,
+  "checks": [
+    "Real user:// project persisted to browser IndexedDB",
+    "Reload, open confirmation and exported JSON preserve graph and learner code",
+    "Actual clipboard paste, import confirmation and re-export preserve the shared project",
+    "Malformed/incompatible project import leaves the current project unchanged",
+    "Actual block addition, numeric editing and Apply preserve prior source and update exported code",
+    "Run code applies pending blocks without requiring a separate Apply action",
+    "Wiring controls move the selected motor signal to pin 10 while preserving every part transform",
+    "Actual keyboard Undo/Redo restores electrical edits in the exported graph",
+    "Rendered Blocks/Wiring tabs and compact 1152\u00d7577 workshop captured for review"
+  ],
+  "stage": "12-compact-workshop",
+  "errors": [],
+  "browser": "153.0.8010.12"
+}

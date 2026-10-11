@@ -1,0 +1,26 @@
+{
+  "cwd": "/home/bumboo/Projects/ssok-cli-diagnostics-r40",
+  "module": "/home/bumboo/Projects/ssok-cli-diagnostics-r40/tools/app_control/run_goal.py",
+  "source_sha256": "4987b77a81b5842b827a7d2e67ffb45296a5d387cd642955ccaae5c54363d2d4",
+  "python": "3.14.7 (main, Aug 10 2026, 07:46:56) [GCC 16.1.1 20260728]",
+  "actual_child_exit": 1,
+  "timeout_then_already_exited_drain": true,
+  "second_communicate_identical": true,
+  "diagnostics": [
+    {
+      "type": "error",
+      "item_type": null,
+      "server": null,
+      "tool": null,
+      "diagnostic": "transport [redacted]"
+    },
+    {
+      "type": "turn.failed",
+      "item_type": null,
+      "server": null,
+      "tool": null,
+      "diagnostic": "terminal disconnect"
+    }
+  ],
+  "no_model_calls": true
+}

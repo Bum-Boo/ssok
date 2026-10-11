@@ -1,0 +1,49 @@
+{
+  "provenance": "Coordinator observed actual exec stdout before remote power-off; raw final3 PNG/journals/evaluations remain on the powered-off Arch host and have NOT been collected to Windows. This record is not a replacement for those files.",
+  "host": "Arch /home/bumboo/Projects/ssok-ai-loop",
+  "source_bridge_sha256": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
+  "rendered_monitor_race": {
+    "checks": 4,
+    "priority_stop_seconds": 0.028827011003158987,
+    "queued_actor": "stale_dispatch"
+  },
+  "owner_stop_regression": {
+    "before_checks": 13,
+    "before_failures": 7,
+    "after_checks": 13,
+    "after_failures": 0
+  },
+  "python": {
+    "tests": 56,
+    "failures": 0,
+    "sdk_skips": 0
+  },
+  "latest_clarified_trials_stdout_only": [
+    {
+      "layout": 1,
+      "actions": 2,
+      "travel": 0.129918083781376,
+      "gap": 0.123715564608574,
+      "contact": false,
+      "score_success": true
+    },
+    {
+      "layout": 2,
+      "actions": 4,
+      "travel": 0.284985736245289,
+      "gap": 0.118232935667038,
+      "contact": false,
+      "score_success": true
+    },
+    {
+      "layout": 3,
+      "actions": 4,
+      "travel": 0.37511594616808,
+      "gap": 0.128476619720459,
+      "contact": false,
+      "score_success": true
+    }
+  ],
+  "remote_operator_check": "Started immediately before user interruption/power-off. Completion not observed; do not treat as pass or automatically rerun its output directory.",
+  "recovery": "After freiren is powered on, read build/ai-loop-evidence/stabilization/{owner-stop-before,owner-stop-after,race-current,clarified-current-live,operator-current}; verify immutable suite summaries/source hashes and collect only public results, not user-data/config."
+}

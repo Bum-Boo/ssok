@@ -1,0 +1,154 @@
+extends SceneTree
+
+const OUT: String = "res://build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-corrected"
+var checks: Array[Dictionary] = []
+var cases: Array[Dictionary] = []
+var main: Node3D
+var prefs: InterfacePreferences
+var source_before: String
+var graph_before: String
+var saved_id: String
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
+	DirAccess.make_dir_recursive_absolute(OUT)
+	root.gui_embed_subwindows = true
+	root.position = Vector2i.ZERO
+	prefs = root.get_node("Preferences") as InterfacePreferences
+	main = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	await _settle()
+	main._on_answer_pressed()
+	await _settle()
+	source_before = main.code_edit.text
+	graph_before = MotionSnapshot.fingerprint(MotionSnapshot.encode(main.assembly.graph))
+	var saved: Dictionary = ProjectStore.save(main._project_document())
+	saved_id = saved.get("id", "")
+	_check(not saved_id.is_empty(), "fixture snapshot saved")
+	for locale: String in ["en", "ko", "zh_CN", "ja"]:
+		SsokLocale.select_locale(locale, false)
+		for appearance: String in ["light", "dark"]:
+			prefs.set_preference("appearance", appearance, "user://matrix.cfg")
+			for viewport: Vector2i in [Vector2i(1400, 950), Vector2i(960, 640)]:
+				root.size = viewport
+				for scale: float in [1.0, 1.15, 1.3, 1.5, 2.0]:
+					prefs.set_preference("text_scale", scale, "user://matrix.cfg")
+					await _settle()
+					var tag: String = "%s-%s-%dx%d-%d" % [locale, appearance, viewport.x, viewport.y, roundi(scale * 100)]
+					main._open_projects()
+					var panel: ProjectPanel = main.projects
+					panel.tabs.current_tab = 0
+					panel.library.select(0)
+					panel._refresh_actions()
+					await _settle()
+					_check(panel.position.x >= 0 and panel.position.y >= SsokTheme.font_size(36) and panel.position.x + panel.size.x <= viewport.x and panel.position.y + panel.size.y <= viewport.y, tag + " window and embedded title fit")
+					_check(_button(panel, "Close").get_global_rect().end.y <= panel.size.y and _button(panel, "Close").get_global_rect().position.y >= 0, tag + " footer Close fits")
+					_check(_button_labels_fit(panel), tag + " saved button labels fit")
+					await _capture(tag + "-saved", scale)
+					panel.export_current()
+					await _settle()
+					_check(ProjectStore.parse(panel.transfer_edit.text).source == source_before, tag + " export preserves source")
+					_check(_button_labels_fit(panel), tag + " transfer button labels fit")
+					await _capture(tag + "-transfer", scale)
+					panel.request_import()
+					await _settle()
+					var dialog: ConfirmationDialog = panel._confirmation
+					var label: Label = dialog.get_label()
+					var contrast: float = _contrast(label.get_theme_color("font_color"), dialog.get_theme_stylebox("panel").bg_color)
+					_check(contrast >= 4.5, tag + " import confirmation contrast")
+					_check(dialog.position.x >= 0 and dialog.position.y >= 0 and dialog.position.x + dialog.size.x <= root.size.x and dialog.position.y + dialog.size.y <= root.size.y, tag + " import confirmation fits root viewport")
+					_check(label.size.y >= label.get_minimum_size().y, tag + " confirmation body height fits")
+					await _capture(tag + "-import-confirm", scale)
+					dialog.get_cancel_button().pressed.emit()
+					await _settle()
+					_check(not dialog.visible and panel.visible, tag + " Cancel button dismisses confirmation first")
+					panel.tabs.current_tab = 0
+					panel.library.select(0)
+					panel.request_delete()
+					await _settle()
+					_check(_contrast(label.get_theme_color("font_color"), dialog.get_theme_stylebox("panel").bg_color) >= 4.5, tag + " delete confirmation contrast")
+					await _capture(tag + "-delete-confirm", scale)
+					dialog.get_cancel_button().pressed.emit()
+					await _settle()
+					_check(ProjectStore.list_projects().size() == 1, tag + " Cancel retains saved snapshot")
+					_button(panel, "Close").pressed.emit()
+					await _settle()
+					_check(not panel.visible and main.navigation.navigation_enabled, tag + " Close restores navigation")
+					_check(main.code_edit.text == source_before and MotionSnapshot.fingerprint(MotionSnapshot.encode(main.assembly.graph)) == graph_before and not main.runtime.is_running(), tag + " graph and code preserved without execution")
+					cases.append({"tag": tag, "locale": locale, "appearance": appearance, "viewport": [viewport.x, viewport.y], "scale": scale, "panel_position": [panel.position.x, panel.position.y], "panel_size": [panel.size.x, panel.size.y], "confirmation_contrast": contrast, "dialog_position": [dialog.position.x, dialog.position.y], "dialog_size": [dialog.size.x, dialog.size.y], "dialog_panel_color": dialog.get_theme_stylebox("panel").bg_color.to_html(), "dialog_text_color": label.get_theme_color("font_color").to_html()})
+					_write_results()
+					print("projects matrix " + tag)
+	ProjectStore.remove(saved_id)
+	main.free()
+	var failures: int = checks.filter(func(item: Dictionary) -> bool: return not item.passed).size()
+	_write_results()
+	print("projects_matrix: %d checks, %d failures; %d cases" % [checks.size(), failures, cases.size()])
+	quit(1 if failures else 0)
+
+func _settle() -> void:
+	for i: int in 8:
+		await process_frame
+
+func _capture(tag: String, scale: float) -> void:
+	if scale != 1.0 and scale != 2.0:
+		return
+	await RenderingServer.frame_post_draw
+	var image: Image = root.get_texture().get_image()
+	_check(image.save_png(OUT + "/" + tag + ".png") == OK, "capture " + tag)
+
+func _key(window: Window, code: Key) -> void:
+	var event := InputEventKey.new()
+	event.keycode = code
+	event.physical_keycode = code
+	event.pressed = true
+	window.push_input(event, true)
+	await process_frame
+	event.pressed = false
+	window.push_input(event, true)
+	await _settle()
+
+func _button(node: Node, text: String) -> Button:
+	if node is Button and node.text == text:
+		return node as Button
+	for child: Node in node.get_children():
+		var found: Button = _button(child, text)
+		if found != null:
+			return found
+	return null
+
+func _button_labels_fit(node: Node) -> bool:
+	var fit: bool = true
+	if node is Button and node.is_visible_in_tree() and node.text in ["Save a snapshot", "Export project", "Open selected", "Delete snapshot", "Copy JSON", "Import project", "Close"]:
+		var button: Button = node as Button
+		var text_width: float = button.get_theme_font("font").get_string_size(button.tr(button.text), HORIZONTAL_ALIGNMENT_LEFT, -1, button.get_theme_font_size("font_size")).x
+		var required: float = text_width + button.get_theme_stylebox("normal").get_minimum_size().x
+		if button.icon != null:
+			required += button.icon.get_width() + button.get_theme_constant("h_separation")
+		fit = button.size.x >= required - 1.0
+		if not fit:
+			print("LABEL FIT DETAIL %s %.2f < %.2f" % [button.text, button.size.x, required])
+	for child: Node in node.get_children():
+		if child is Window:
+			continue
+		fit = _button_labels_fit(child) and fit
+	return fit
+
+func _contrast(a: Color, b: Color) -> float:
+	var aa: float = _luminance(a)
+	var bb: float = _luminance(b)
+	return (maxf(aa, bb) + 0.05) / (minf(aa, bb) + 0.05)
+
+func _luminance(color: Color) -> float:
+	var linear: Color = color.srgb_to_linear()
+	return 0.2126 * linear.r + 0.7152 * linear.g + 0.0722 * linear.b
+
+func _check(value: bool, name: String) -> void:
+	checks.append({"name": name, "passed": value})
+	if not value:
+		push_warning("FAIL " + name)
+
+func _write_results() -> void:
+	var file: FileAccess = FileAccess.open(OUT + "/results.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify({"cases": cases, "checks": checks}, "\t"))

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/control-feedback-r8/callback_probe.gd",
+    "--",
+    "--case",
+    "motor-callback-trace",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\control-feedback-r8\\motor-callback-trace"
+  ],
+  "exit_code": 0,
+  "seconds": 19.841420500015374,
+  "timed_out": false,
+  "source426_unchanged": true,
+  "production_applied": false
+}

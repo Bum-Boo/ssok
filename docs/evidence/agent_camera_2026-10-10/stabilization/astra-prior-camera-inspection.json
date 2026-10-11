@@ -1,0 +1,19 @@
+{
+  "scope": "Read-only actual image inspection of five prior trial PNGs for stabilization",
+  "requested_model": "gpt-6-astra",
+  "route": "native existing repeat_visual worker; images viewed through view_image",
+  "dimensions": [640, 480],
+  "measurement": "Approximate visual center x320; y measured from top; uncertainty about2pixels",
+  "observations": [
+    {"path": "repeated/live-suite/live-layout1-run1/actor/camera/observation-4.png", "sha256": "4f1d5041d771be9d5ed232c0c9c97351dae581712cf3e16d86012c029565236c", "wall_base_y": 429, "floor_strip_pixels": 51},
+    {"path": "repeated/live-suite/live-layout3-run2/actor/camera/observation-6.png", "sha256": "5ef2472643c69061820ddb71b97053cebbe6ce002d7603c3be75178f15f07a44", "wall_base_y": 407, "floor_strip_pixels": 73},
+    {"path": "repeated/refined-visual-goal/layout2/actor/camera/observation-4.png", "sha256": "09e1d0aa4e23c338aa8ee9df625d5cfe585c6069c1c3ce4080b9f28421c4c5d7", "wall_base_y": 459, "floor_strip_pixels": 21},
+    {"path": "repeated/refined-visual-goal/layout3/actor/camera/observation-5.png", "sha256": "4e4546e9b50912786b26814c40268bda7b33ab40bd84f3a5129ff71e5f810f4e", "wall_base_y": 465, "floor_strip_pixels": 15},
+    {"path": "repeated/refined-visual-goal/layout1/actor/camera/observation-1.png", "sha256": "53180bfebe65291043db2b5da71f879ce7c8051c886e818860cef9e235465676", "wall_base_y": 366, "floor_strip_pixels": 114}
+  ],
+  "findings": [
+    "Robot corners do not obscure the center wall/floor boundary in these five images.",
+    "Refined final strips are visually thinner than the requested24–38pixels; wall tilt makes column selection matter.",
+    "These images cannot certify physical distance, absence of contact, or rest stability."
+  ]
+}

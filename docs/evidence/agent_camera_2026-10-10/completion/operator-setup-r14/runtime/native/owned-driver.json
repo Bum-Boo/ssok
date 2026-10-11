@@ -1,0 +1,24 @@
+{
+  "pid": 76216,
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-operator-r14-native.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\native",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\native\\layout.json",
+    "-Python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-Fixture",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\native\\project.json",
+    "-OperatorRoot",
+    "C:\\Users\\Hojun\\Projects\\ssok operator r14\\\uc2e4\ud589 \uc900\ube44"
+  ]
+}

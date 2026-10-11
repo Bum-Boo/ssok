@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "60",
+    "--language",
+    "en",
+    "--script",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\title-live-language-r2\\check.gd",
+    "--",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\title-live-language-r2\\result.json"
+  ]
+}

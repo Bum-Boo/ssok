@@ -62,8 +62,31 @@ HTTP bridge remains alive for the Godot transport tests. Actual OpenAI calls are
 
 Godot user data/config/cache are redirected to a temporary directory. Personal saved projects,
 language settings and learning scenarios are not modified.
+Windows also redirects `APPDATA` and `LOCALAPPDATA`; timeout cleanup reaps the owned child tree.
+The camera and goal checks run both their headless rejection path and actual rendered path.
+The camera-rest and scoped-Stop bridge regressions require rendering. The full suite never
+replaces those with headless smoke checks: on a Linux host without a display, run
+`xvfb-run -a -s "-screen 0 1600x1000x24" python tools/ci/verify.py --godot /absolute/godot`.
+CI installs Xvfb/Mesa and runs the same full inventory. Tokens are ephemeral fixture credentials.
 The checks share that temporary root; a test that changes a persisted language or preference
 must restore the original bytes (or remove a newly created file) before returning.
+On Windows with a legacy default code page, use inherited UTF8 for Python child suites.
+The parent interpreter's `-X utf8` does not propagate to a separately launched interpreter.
+Set `PYTHONUTF8` only for this invocation and restore its prior value:
+
+```powershell
+$ssokPreviousPythonUtf8 = $env:PYTHONUTF8
+try {
+    $env:PYTHONUTF8 = '1'
+    & '.\build\venv-native\Scripts\python.exe' tools/ci/verify.py --godot '.\build\toolchain-windows\Godot_v4.7.2-stable_win64.exe' --output build/verification-native
+} finally {
+    $env:PYTHONUTF8 = $ssokPreviousPythonUtf8
+}
+```
+
+The [r7 observed recovery](evidence/agent_camera_2026-10-10/completion/release-current-ui-r7/README.md)
+retains the initial81/2 and focused2/0 separately; this process setting does not change the app.
+
 Each check has a timeout; a failure does not skip later checks. `results.json`, `junit.xml`, `SUMMARY.md` and individual logs retain
 every result. Any failed check returns a failing exit status. The running and new-kit acceptance
 checks are included; known limitations are not silently marked as expected passes.
@@ -172,12 +195,13 @@ candidate may require the operating system's explicit Open Anyway flow. See Appl
 No certificate, developer subscription or credentials are provisioned by this build.
 The exported Mac app must receive its own real-device interaction check before claiming
 verified macOS behavior; Linux structure/signature checks do not establish that result.
-Private project code is not sent to the shared lab Mac.
+The owner authorized shared `ai-macmini` on2026-10-11 for allowlisted ssok game/test/app bytes only. Never transfer the private vault, task/handoff state, backups, credentials, cookies or actor transcripts. Preserve original app/package bytes; source/editor and exported-executable verification remain distinct.
 
 The native Windows verifier is developer tooling. Run `tools/ci/windows/verify_installer.ps1`
 from a PowerShell STA session with `-Installer`, `-Work` (a new path) and `-Layout` pointing to
 that exact build's `export-logs/browser-layout.json`. It refuses an existing ssok install,
-uses native Windows mouse/keyboard input to clear and export all three Stage solutions,
+uses native Windows mouse/keyboard input from the default title and stage map to enter
+reference programs and clear all three stages, checking fresh isolated progress records,
 captures only the foreground task app and restores the clipboard, and tests per-user installation, shortcuts, registration,
 uninstallation and preservation of an extra synthetic user file.
 
@@ -194,13 +218,26 @@ Debian NSIS 3.08 tools into the isolated output directory without administrator 
 PCK is audited for development-only resources. Windows runtime verification runs separately
 on native Windows; Mac validation status is recorded separately rather than inferred.
 
+## Optional foreground AI operator
+
+The operator is a separate developer ZIP, with its own version and source identity;
+the Godot application, Python, Codex CLI and existing ChatGPT login remain external.
+From a clean checkout run `python -m tools.ci.operator_package --out build/ssok-operator.zip`.
+The explicit allowlist contains eight camera/operator modules, Windows local-setup
+and foreground-launch commands, pinned MCP requirements, license, instructions and
+module identity hashes. The launcher checks preparation before polling the app;
+explicit setup installs into the archive's own `.operator-venv`, with no global install.
+It includes no checkout, credentials, environments, evaluator or private session files.
+See [operator setup and limits](../tools/app_control/OPERATOR.md). No Git installation
+is needed in the extracted archive. This local draft is not a public release.
+
 ## GitHub Actions and release
 
 `.github/workflows/ci.yml` verifies pull requests and pushes. A successful full check is required
 before exporting the targets. The workflow retains verification logs even on failure, and uses
 official GitHub Actions pinned by commit SHA. Python dependencies are pinned in the lock file.
 
-Set repository **Settings → Pages → Source → GitHub Actions** once. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision,
+The current v0.2.0 site uses `gh-pages` branch-root delivery (see below). For an intentional migration to workflow delivery, set **Settings → Pages → Source → GitHub Actions** and verify the new payload/anonymous URL. Pushes (including `main`) verify and build without publishing. To publish a reviewed revision through that workflow,
 run the workflow manually on that revision with `deploy` checked.
 The `github-pages` environment reports the resulting URL. Publishing a GitHub Release triggers
 the same validation/build and attaches platform ZIPs (including the ZIP containing Windows setup), hashes and metadata
@@ -230,6 +267,11 @@ when changing the board block catalog: the authoring check uses its semantic Wai
 
 ## Owner-authorized publication on 2026-09-30
 
-[ADR0027](adr/0027-current-workshop-public-release.md) uses a frozen v0.2.0 source and all four exports. GitHub artifact quota currently blocks the Actions upload jobs, so the verified Web payload is committed to the dedicated `gh-pages` branch with `.nojekyll` and Pages serves its root. Final archives, Windows setup, `release.json` and `SHA256SUMS` are attached directly to the versioned GitHub Release. No old artifacts are deleted and billing is unchanged.
+[ADR0027](adr/0027-current-workshop-public-release.md) uses frozen v0.2.0 source `af1973b` and all four exports. Private preparation hit GitHub artifact quota; public native/browser result uploads subsequently succeeded. The selected delivery still commits the exact verified Web payload to `gh-pages` with `.nojekyll`, and Pages serves its root. Final archives, Windows setup, `release.json` and `SHA256SUMS` are attached directly to the versioned GitHub Release. No old artifacts are deleted and billing is unchanged.
 
-This branch deployment is explicit; ordinary main pushes do not publish new application bytes. Match the deployed payload hashes to the frozen build and exercise the anonymous URL after Pages completes. The existing workflow remains available when artifact storage permits it. [Publication evidence](evidence/public_release_2026-09-30/README.md) records the actual status, including any failed attempts. This change adds no application text or language-pack keys.
+This branch deployment is explicit; ordinary main pushes do not publish new application bytes. Match deployed payload hashes to the frozen build and exercise the anonymous URL after Pages completes. When attaching verified assets directly, inspect and cancel only that release's duplicate `release` event run before it tries to attach a separate rebuild. Keep the source verification run and all previous artifacts. [Publication evidence](evidence/public_release_2026-09-30/README.md) records the actual public URL, source, hashes, interactions and failed attempts. This change adds no application text or language-pack keys.
+
+
+## Owner-authorized latest publication on 2026-10-11
+
+The owner approved publishing the reviewed latest version. [Release0.3.1](evidence/public_release_2026-10-11/README.md) freezes the isolated release branch containing the Title and sanitized CLI diagnostic updates. Existing gh-pages branch-root and direct GitHub Release delivery remain. Main integration is a separate human step; a published source tag identifies the exact application commit. Full native and exact browser gates precede publication. No new Windows native window is launched; Mac source/PCK/editor/native-Title evidence remains explicitly separated. Download metadata, original rights and prior artifacts are preserved.

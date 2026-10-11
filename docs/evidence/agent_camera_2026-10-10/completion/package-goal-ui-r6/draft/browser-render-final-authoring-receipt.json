@@ -1,0 +1,20 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py",
+    "--directory",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-browser-layout-render-r6/web",
+    "--output",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-render-final-authoring"
+  ],
+  "exit_code": 1,
+  "seconds": 26.5970692000119,
+  "passed": false,
+  "same_web_app_bytes": true,
+  "changed_layout_only": true,
+  "checks": 1
+}

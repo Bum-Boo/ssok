@@ -1,0 +1,830 @@
+{
+  "runs": [
+    {
+      "label": "title",
+      "command": [
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/venv-browser-r39/bin/python",
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/title-browser-r39.py"
+      ],
+      "cwd": "/home/bumboo/Projects/ssok-title-mac-r39",
+      "exit": 0,
+      "tail": "{\"cases\": 16, \"passes\": 16, \"capture_count\": 19, \"payload_unchanged\": true}\n"
+    },
+    {
+      "label": "settings",
+      "command": [
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/venv-browser-r39/bin/python",
+        "tools/ci/browser_settings.py",
+        "--directory",
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/title-r39-v4-clean-v2/web",
+        "--output",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-settings-v4"
+      ],
+      "cwd": "/home/bumboo/Projects/ssok-title-mac-r39",
+      "exit": 0,
+      "tail": "PASS fresh browser follows light system appearance\nSelect settings_appearance item 2\nPASS explicit dark ignores light system appearance\nSelect settings_appearance item 0\nPASS system appearance updates while settings are open\nSelect settings_language item 0\nSelect settings_code item 4\nPASS code 200 percent does not enlarge interface text\nSelect settings_appearance item 2\nSelect settings_text item 4\nPASS Korean 200 percent program panel stays inside browser viewport\nPASS source_hash preserved through live settings\nPASS graph_hash preserved through live settings\nPASS draft_hash preserved through live settings\nPASS run_mode preserved through live settings\nPASS code_running preserved through live settings\nPASS interface 200 percent leaves code at its independent 200 percent\nPASS all five preferences persist through real browser reload\nPASS persisted theme and both font sizes apply on new app startup\nPASS browser console and page have no errors\nBrowser settings: 14 checks passed; evidence /home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-settings-v4\n"
+    }
+  ],
+  "title": {
+    "rows": [
+      {
+        "locale_requested": "en",
+        "browser_locale": "en-US",
+        "theme": "light",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/0-title.png",
+            "sha256": "970f02eadab4f679b60875777ceb9efa821aee7a164ffa1f707ee435bc936c58"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "en-US",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "en",
+        "browser_locale": "en-US",
+        "theme": "light",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/1-title.png",
+            "sha256": "aee42f8f5719425db6114acc11fcc89bff2d699d4cb0781dd88a778519a3117d"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "en-US",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "en",
+        "browser_locale": "en-US",
+        "theme": "dark",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/2-title.png",
+            "sha256": "1b1b3c298d9f7fae736923f0e533b14f67019b7ca6a7d5f5453b94980e3d60a3"
+          },
+          {
+            "label": "settings",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/2-settings.png",
+            "sha256": "c0dc4ec5ab243ec4f81eabacb98a99eb88ca616ed3835c716fd9bab7c06f2166"
+          },
+          {
+            "label": "settings-closed",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/2-settings-closed.png",
+            "sha256": "bbb48c671e64bed0e535d2dc9f4dcba86440e0c7e4d3ae0c1d0689eb0141a5f7"
+          },
+          {
+            "label": "stages",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/2-stages.png",
+            "sha256": "0d082118680ec0b1af0931599e4a04c446c53e18148079b15ab12e65a6633686"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "en-US",
+        "actions": "Actual canvas Tab5/Enter Settings, Escape, ShiftTab5/Enter stage list; visual route verdict pending Astra.",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "en",
+        "browser_locale": "en-US",
+        "theme": "dark",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/3-title.png",
+            "sha256": "41f0087c7fbafb322b14df1fe99a4253fe55aa3fb08d1e799f77e007086d9573"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "en-US",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ko",
+        "browser_locale": "ko-KR",
+        "theme": "light",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/4-title.png",
+            "sha256": "3bab6fe9a5a75ff55cdc0a4ec8b9238aeffd005d9f0f11df55981b1f624e098d"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "ko-KR",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ko",
+        "browser_locale": "ko-KR",
+        "theme": "light",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/5-title.png",
+            "sha256": "0ff57b7389fb9635f1c2d4623dab737236898a3cfcab8771e31324335c8289de"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "ko-KR",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ko",
+        "browser_locale": "ko-KR",
+        "theme": "dark",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/6-title.png",
+            "sha256": "be77fd73f00b2f6de767aa5c453f8aa1740a31c2415efd12986d83b6bfde0537"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "ko-KR",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ko",
+        "browser_locale": "ko-KR",
+        "theme": "dark",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/7-title.png",
+            "sha256": "70d549a9430fefb1a85681a361c085d53cb8887bf13a58580096bf3cbac4cd81"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "ko-KR",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "zh_CN",
+        "browser_locale": "zh-CN",
+        "theme": "light",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/8-title.png",
+            "sha256": "398e427e3d0808771157313bc30728e6d58b43975dcacb3f56e54ffdffbc603b"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "zh-CN",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "zh_CN",
+        "browser_locale": "zh-CN",
+        "theme": "light",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/9-title.png",
+            "sha256": "e96093fb115708535b3a17d5fe5046425473f4630ef150f02cffb95046bd3ac4"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "zh-CN",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "zh_CN",
+        "browser_locale": "zh-CN",
+        "theme": "dark",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/10-title.png",
+            "sha256": "a029b499749c51a3ef74591078740513664e6f4339793abaa0b1443a8cbe55f7"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "zh-CN",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "zh_CN",
+        "browser_locale": "zh-CN",
+        "theme": "dark",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/11-title.png",
+            "sha256": "cebb923f0043c15b0bdf8b24bb75f5a24f7d155b4759a2084a58eda3b62dbcf4"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "zh-CN",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ja",
+        "browser_locale": "ja-JP",
+        "theme": "light",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/12-title.png",
+            "sha256": "42b189fdfcf714aac368006ae2fb5978df7999081cee5e1eceda1767fe2ef19c"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "ja-JP",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ja",
+        "browser_locale": "ja-JP",
+        "theme": "light",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/13-title.png",
+            "sha256": "c48487594f18cb25549693e9b2672e345581bd9c9889e655d3d8e85d1c61e0fd"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "ja-JP",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ja",
+        "browser_locale": "ja-JP",
+        "theme": "dark",
+        "size": [
+          1152,
+          648
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/14-title.png",
+            "sha256": "62fbad4fb7a149c8d64bdb2d403f3b260a69211fbc2b0365f673840ce78b6bc5"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 648
+        },
+        "navigator_language": "ja-JP",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      },
+      {
+        "locale_requested": "ja",
+        "browser_locale": "ja-JP",
+        "theme": "dark",
+        "size": [
+          1400,
+          950
+        ],
+        "browser": "153.0.8010.12",
+        "captures": [
+          {
+            "label": "title",
+            "path": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/browser-title-v4/15-title.png",
+            "sha256": "50e45b5262b29f47c0a3f97f9343f5001abe246738ce93c01181d79792c76000"
+          }
+        ],
+        "passed": true,
+        "canvas_box": {
+          "x": 0,
+          "y": 0,
+          "width": 1400,
+          "height": 950
+        },
+        "navigator_language": "ja-JP",
+        "errors": [],
+        "console": [
+          {
+            "type": "log",
+            "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+          },
+          {
+            "type": "log",
+            "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+          },
+          {
+            "type": "log",
+            "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+          }
+        ]
+      }
+    ],
+    "payload_sha256": {
+      "index.pck": "3de310f8ebd917b9345c4f80d662cfb8a00e3605f8fa8099ad1704dfafdda3b0",
+      "index.html": "3f099756070acf98b980dffe8cfb052e674cc7ca7816c2538765ab7a312c1147",
+      "index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+      "index.icon.png": "d88050ff76a991b8e660bf45025673066072b1b44c1ae654df384953539f7ef3",
+      "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "index.png": "62858d1babe52b264efa3651c01f7ca1ad9796503bc2cb15f46864cd72ef505d",
+      "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "index.apple-touch-icon.png": "f32e02cf2bf20e001b6abffad467e88e04e2f87caca74be6e9814446f380a544"
+    },
+    "plain_title_url": true,
+    "no_workshop_query": true,
+    "published": false
+  },
+  "settings": {
+    "passed": true,
+    "url": "http://127.0.0.1:43937/?ssok_verify=1",
+    "checks": [
+      {
+        "label": "fresh browser follows light system appearance",
+        "passed": true
+      },
+      {
+        "label": "explicit dark ignores light system appearance",
+        "passed": true
+      },
+      {
+        "label": "system appearance updates while settings are open",
+        "passed": true
+      },
+      {
+        "label": "code 200 percent does not enlarge interface text",
+        "passed": true
+      },
+      {
+        "label": "Korean 200 percent program panel stays inside browser viewport",
+        "passed": true
+      },
+      {
+        "label": "source_hash preserved through live settings",
+        "passed": true
+      },
+      {
+        "label": "graph_hash preserved through live settings",
+        "passed": true
+      },
+      {
+        "label": "draft_hash preserved through live settings",
+        "passed": true
+      },
+      {
+        "label": "run_mode preserved through live settings",
+        "passed": true
+      },
+      {
+        "label": "code_running preserved through live settings",
+        "passed": true
+      },
+      {
+        "label": "interface 200 percent leaves code at its independent 200 percent",
+        "passed": true
+      },
+      {
+        "label": "all five preferences persist through real browser reload",
+        "passed": true
+      },
+      {
+        "label": "persisted theme and both font sizes apply on new app startup",
+        "passed": true
+      },
+      {
+        "label": "browser console and page have no errors",
+        "passed": true
+      }
+    ],
+    "errors": [],
+    "scope": "Real canvas input, system appearance, explicit override, independent text sizes, mute/volume, draft hashes, persisted reload",
+    "browser": "153.0.8010.12",
+    "before": {
+      "code_font_size": 15,
+      "code_running": false,
+      "dark": false,
+      "draft_hash": "8339807512083796ba802ddd9bfafb82c74ef3452e7855744063970a28ffd02b",
+      "graph_hash": "0cc792602cf4ef6876f2c637207b710829fa8bc6e4121a352262f5f78c13cd00",
+      "locale": "en",
+      "program_panel_right": 1388,
+      "run_mode": false,
+      "settings_open": false,
+      "source_hash": "3c2d4ef51c9c1d7a19683c1fdc4cf8f38c18735fac17cb8298dc781f191b657a",
+      "ui_font_size": 14,
+      "values": {
+        "appearance": "system",
+        "code_scale": 1,
+        "muted": false,
+        "text_scale": 1,
+        "volume": 60
+      },
+      "viewport_width": 1400
+    },
+    "after": {
+      "code_font_size": 30,
+      "code_running": false,
+      "dark": true,
+      "draft_hash": "8339807512083796ba802ddd9bfafb82c74ef3452e7855744063970a28ffd02b",
+      "graph_hash": "0cc792602cf4ef6876f2c637207b710829fa8bc6e4121a352262f5f78c13cd00",
+      "locale": "ko",
+      "program_panel_right": 1388,
+      "run_mode": false,
+      "settings_open": false,
+      "source_hash": "3c2d4ef51c9c1d7a19683c1fdc4cf8f38c18735fac17cb8298dc781f191b657a",
+      "ui_font_size": 28,
+      "values": {
+        "appearance": "dark",
+        "code_scale": 2,
+        "muted": true,
+        "text_scale": 2,
+        "volume": 25
+      },
+      "viewport_width": 1400
+    },
+    "restored": {
+      "code_font_size": 30,
+      "code_running": false,
+      "dark": true,
+      "draft_hash": "2a0ff2f19a2828d08c7d671d6c9fa155a308de9bb2c036d74d26d238fffb2913",
+      "graph_hash": "",
+      "locale": "ko",
+      "program_panel_right": 1388,
+      "run_mode": false,
+      "settings_open": false,
+      "source_hash": "cc4cf3bd7de51fdb0cf3481254e5267eb575b296ae52096a45b4e3bd481c591b",
+      "ui_font_size": 28,
+      "values": {
+        "appearance": "dark",
+        "code_scale": 2,
+        "muted": true,
+        "text_scale": 2,
+        "volume": 25
+      },
+      "viewport_width": 1400
+    }
+  }
+}

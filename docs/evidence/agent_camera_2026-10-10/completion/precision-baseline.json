@@ -1,0 +1,87 @@
+{
+  "independent_inspector": "gpt-6-astra",
+  "observed_input_dimensions": [
+    640,
+    480
+  ],
+  "pixel_measurement": [
+    {
+      "path": "docs/evidence/agent_camera_2026-10-10/stabilization/windows-clarified-live/layout1-run1/actor/camera/observation-3.png",
+      "sha256": "5ed3509c337bb5761995fc3bf0ea782dd4ef97306c384fb9cc8d0d691f6b09a6",
+      "pixels": {
+        "boundary_y": 447,
+        "floor_pixels": 33,
+        "column_range": [
+          447,
+          447
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "path": "docs/evidence/agent_camera_2026-10-10/stabilization/windows-clarified-live/layout2-run1/actor/camera/observation-4.png",
+      "sha256": "b4d074d0141ec4590e8b992b14ded4352dbb0956b0d88430315bbb042ea44b37",
+      "pixels": {
+        "boundary_y": 427,
+        "floor_pixels": 53,
+        "column_range": [
+          427,
+          427
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "path": "docs/evidence/agent_camera_2026-10-10/stabilization/windows-clarified-live/layout2-run1/actor/camera/observation-5.png",
+      "sha256": "419d0605e48799a16fefbf51b1964a8f8cfa1e4644a96c7124bdbf8d188d3a5b",
+      "pixels": {
+        "boundary_y": 461,
+        "floor_pixels": 19,
+        "column_range": [
+          461,
+          461
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "path": "docs/evidence/agent_camera_2026-10-10/stabilization/windows-clarified-live/layout3-run1/actor/camera/observation-5.png",
+      "sha256": "75f6510d713820692b2670a6e45bc5f6ae4f9e88b3daebebf7e4af975253553f",
+      "pixels": {
+        "boundary_y": 437,
+        "floor_pixels": 43,
+        "column_range": [
+          437,
+          438
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "path": "docs/evidence/agent_camera_2026-10-10/stabilization/windows-clarified-live/layout3-run1/actor/camera/observation-6.png",
+      "sha256": "85b2f2a285d6ba39a38dd697fe29e687a62a8503cc2837fcf82b66766d74ac91",
+      "pixels": {
+        "boundary_y": 460,
+        "floor_pixels": 20,
+        "column_range": [
+          459,
+          460
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    }
+  ],
+  "final_goal_successes": 1,
+  "final_trials": 3,
+  "interpretation": "Penultimate43px estimate supported; active1tick and idle motion must be separated. No physical-distance or contact inference from PNG."
+}

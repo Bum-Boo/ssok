@@ -8,7 +8,7 @@ robot under gravity. Save a project, share it, and take it apart to understand h
 
 English · 한국어 · 简体中文 · 日本語
 
-[Open the browser workshop](https://bum-boo.github.io/ssok/) · [Download v0.2.0](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [Developer start](docs/START_HERE.md)
+[Open the browser workshop](https://bum-boo.github.io/ssok/) · [Download v0.3.1](https://github.com/Bum-Boo/ssok/releases/tag/v0.3.1) · [Developer start](docs/START_HERE.md)
 
 ![Actual ssok workshop: independently assembled humanoid, parts catalog and servo program](docs/media/workshop.png)
 
@@ -20,8 +20,8 @@ English · 한국어 · 简体中文 · 日本語
 Desktop packages include the engine. Windows offers a setup installer or portable ZIP;
 macOS offers an Intel/Apple Silicon `ssok.app` ZIP; Linux offers an executable/PCK ZIP.
 See [installation and platform validation](docs/BUILD.md). Developer ID notarization and
-publisher signing are not configured. macOS has not yet been exercised on a physical Mac.
-See the [publication record](docs/evidence/public_release_2026-09-30/README.md) for the exact source, hashes and checks.
+publisher signing are not configured. macOS source and native exported Title have been exercised on a physical Mac. Exact-PCK editor checks cover additional flows; full compiled-executable interaction remains unverified.
+See the [current publication record](docs/evidence/public_release_2026-10-11/README.md) for the exact source, checks and known camera-navigation limits. The [previous release](docs/evidence/public_release_2026-09-30/README.md) retains its original evidence.
 
 For development, with **Godot 4.7.2** installed:
 
@@ -142,8 +142,9 @@ These results concern one simulated robot, ±0.004 m/s initial velocity noise, 0
 delays and declared restart intervals. They do not guarantee every restart or arbitrary assemblies.
 MuJoCo's independently trained policy still fails Godot transfer; its evidence is retained.
 [Methods and complete outcomes](docs/evidence/heading_feedback_2026-09-22/README.md) distinguish
-training, component selection, frozen evaluation and browser checks. Clean integrated verification,
-public release, continuous manual control and kit locomotion remain unfinished.
+training, component selection, frozen evaluation and browser checks. The v0.2.0 learning workshop
+is publicly delivered with integrated verification; continuous manual control and sustained kit
+locomotion remain research limitations. [Current delivery evidence](docs/evidence/public_release_2026-09-30/README.md).
 
 ## Development
 

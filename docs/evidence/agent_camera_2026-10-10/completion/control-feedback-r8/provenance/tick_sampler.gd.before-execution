@@ -1,0 +1,32 @@
+extends Node
+## DEBUG-r8: read-only actual post-motor physics callback sampler.
+var app: Node3D
+var rows: Array[Dictionary] = []
+var commands: Array[Dictionary] = []
+var active: bool = false
+
+func _ready() -> void:
+	process_physics_priority = 100
+	app.agent_loop.event_recorded.connect(_event)
+
+func _event(event: Dictionary) -> void:
+	if event.get("tool") == "drive_step" and event.get("result") == "accepted":
+		commands.append({"requested_tick": Engine.get_physics_frames(), "action": event.args.action,
+			"ticks": event.args.ticks, "motors": _motors()})
+		active = true
+
+func _motors() -> Array[Dictionary]:
+	var values: Array[Dictionary] = []
+	for motor: DriveMotor in app.agent_loop._channels:
+		values.append({"duty": motor.duty, "torque_nm": motor.applied_torque_nm,
+			"speed_rad_s": motor.measured_rad_s, "priority": motor.process_physics_priority})
+	return values
+
+func _physics_process(_delta: float) -> void:
+	if not active:
+		return
+	rows.append({"command_index": commands.size() - 1, "tick": Engine.get_physics_frames(),
+		"state": app.agent_loop.state, "remaining": app.agent_loop._remaining,
+		"agent_priority": app.agent_loop.process_physics_priority, "motors": _motors()})
+	if app.agent_loop.state != "driving":
+		active = false

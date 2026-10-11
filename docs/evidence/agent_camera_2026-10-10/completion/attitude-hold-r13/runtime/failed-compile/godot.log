@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 591.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+SCRIPT ERROR: Parse Error: The function signature doesn't match the parent. Parent signature is "cancel(String = <default>) -> void".
+   at: GDScript::reload (res://build/ai-loop-evidence/completion/attitude-hold-r13/attitude_loop.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://build/ai-loop-evidence/completion/attitude-hold-r13/callback_probe.gd:85)
+ERROR: Failed to load script "res://build/ai-loop-evidence/completion/attitude-hold-r13/attitude_loop.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://build/ai-loop-evidence/completion/attitude-hold-r13/callback_probe.gd:85)
+SCRIPT ERROR: Invalid assignment of property or key 'app' with value of type 'Node3D (main.gd)' on a base object of type 'Node'.
+   at: _run (res://build/ai-loop-evidence/completion/attitude-hold-r13/callback_probe.gd:86)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://build/ai-loop-evidence/completion/attitude-hold-r13/callback_probe.gd:86)

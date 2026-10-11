@@ -1,0 +1,170 @@
+{
+  "source_head": "841bf63f436fa2ae7072d44888eae3099e55dc58",
+  "actor_policy_changed": true,
+  "original_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "frames": [
+    {
+      "index": 1,
+      "sha256": "12081051c517d2f973b3387e6b45113f442947ce59df2f448edeb95c23c28675",
+      "pixels": {
+        "boundary_y": 362,
+        "floor_pixels": 118,
+        "column_range": [
+          362,
+          362
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 572
+    },
+    {
+      "index": 2,
+      "sha256": "7afa0c4542a4cd0bfc9182541353fc721030dd8e174253236517acadf0cb7e30",
+      "pixels": {
+        "boundary_y": 414,
+        "floor_pixels": 66,
+        "column_range": [
+          414,
+          414
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 1366
+    },
+    {
+      "index": 3,
+      "sha256": "548063b737a9facc52b8ce08ea6d20430d9b9fabd9f63a4e42b0781dc8c7a366",
+      "pixels": {
+        "boundary_y": 424,
+        "floor_pixels": 56,
+        "column_range": [
+          424,
+          424
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 2061
+    },
+    {
+      "index": 4,
+      "sha256": "a4defa358b486b846b947025b6fb95c94133b4ede2eb088eb0406134d61950e0",
+      "pixels": {
+        "boundary_y": 442,
+        "floor_pixels": 38,
+        "column_range": [
+          442,
+          443
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 2775
+    },
+    {
+      "index": 5,
+      "sha256": "d19056257b27875ca6393ce7772616fd23c6ad1917751390b1c12ebeb1ba7f8c",
+      "pixels": {
+        "boundary_y": 444,
+        "floor_pixels": 36,
+        "column_range": [
+          444,
+          444
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 3412
+    },
+    {
+      "index": 6,
+      "sha256": "49edd261c38ba2215a318d7ed10f380e693fdd204fe079959c5a05eb5d5e1024",
+      "pixels": {
+        "boundary_y": 444,
+        "floor_pixels": 36,
+        "column_range": [
+          444,
+          444
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 3971
+    },
+    {
+      "index": 7,
+      "sha256": "c4a70ad1bd5b22c371d1084487c32b96a29e3c5759472f56939c6a6a3cf10fa3",
+      "pixels": {
+        "boundary_y": 442,
+        "floor_pixels": 38,
+        "column_range": [
+          442,
+          442
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physics_tick": 4548
+    }
+  ],
+  "decisions": [
+    {
+      "step": 1,
+      "ticks": 30,
+      "action": "forward",
+      "summary": "At center x=320, wall base y≈362 in 640×480 PNG; beige span 480−362≈118 px (24.6%), well above 24–38 px. Taking bounded approach step."
+    },
+    {
+      "step": 2,
+      "ticks": 8,
+      "action": "forward",
+      "summary": "Center wall base (320,414); span 480−414≈66 px (13.8%). Previous settled span fell ≈52 px after 30 ticks. Still above 24–38 px; reducing step to 8 ticks."
+    },
+    {
+      "step": 3,
+      "ticks": 10,
+      "action": "forward",
+      "summary": "Center wall base (320,424); span 480−424≈56 px (11.7%). Last 8-tick settled change ≈10 px; span remains above 24–38 px. Taking 10 ticks then reobserving."
+    },
+    {
+      "step": 4,
+      "ticks": 1,
+      "action": "forward",
+      "summary": "Center wall base (320,443); span 480−443≈37 px (7.7%), within 24–38 px. Last settled change ≈19 px after 10 ticks. One tick likely preserves interval; reobserve."
+    },
+    {
+      "step": 5,
+      "ticks": 1,
+      "action": "forward",
+      "summary": "Center wall base (320,444); span 480−444≈36 px (7.5%). Last one-tick settled change ≈1 px; another single tick likely remains within 24–38 px."
+    },
+    {
+      "step": 6,
+      "ticks": 1,
+      "action": "forward",
+      "summary": "Center wall base (320,445); span 480−445≈35 px (7.3%). Last settled change about 1 px; one more tick likely stays inside 24–38 px."
+    }
+  ],
+  "actual_actor_stop": {
+    "reason": "actor_stop",
+    "confirmed": true,
+    "state": "stopped",
+    "stop_scope": "matched_context"
+  },
+  "runner_cleanup_stop_scope": "context_replaced",
+  "preferred_lower_end_reached": false,
+  "physical_scored_only_after_native_exit": true,
+  "new_ai_trials": 1,
+  "extra_trials_after_failure": 0,
+  "production_applied": false,
+  "causal_improvement_or_impossibility_proven": false
+}

@@ -1,0 +1,51 @@
+Workshop ready
+Click starter
+Click projects
+Paste 19 characters into project_name
+Clipboard contains 19 characters
+Click project_name
+SSOK_TEST_PASTE 19
+Paste dispatched to project_name
+Click save
+01-saved
+Workshop ready
+Click projects
+Click saved_first
+Click open
+02-replace-confirmation
+Click project_confirm
+03-reopened
+Click projects
+Click export
+Traceback (most recent call last):
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 172, in main
+    reopened = export_document("reopened")
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 130, in export_document
+    with page.expect_download(timeout=30000) as pending:
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 85, in __exit__
+    self._event.value
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 59, in value
+    raise exception
+playwright._impl._errors.TimeoutError: Timeout 30000ms exceeded while waiting for event "download"
+=========================== logs ===========================
+waiting for event "download"
+============================================================
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 301, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 172, in main
+    reopened = export_document("reopened")
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 130, in export_document
+    with page.expect_download(timeout=30000) as pending:
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 85, in __exit__
+    self._event.value
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 59, in value
+    raise exception
+playwright._impl._errors.TimeoutError: Timeout 30000ms exceeded while waiting for event "download"
+=========================== logs ===========================
+waiting for event "download"
+============================================================

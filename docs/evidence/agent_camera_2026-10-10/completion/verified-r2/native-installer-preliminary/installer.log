@@ -1,0 +1,7 @@
+FAIL: Native Windows graphics capture all three stages
+At C:\Users\Hojun\Projects\ssok-ai-loop\tools\ci\windows\verify_installer.ps1:15 char:24
++     if (-not $Value) { throw "FAIL: $Name" }
++                        ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (FAIL: Native Wi...ll three stages:String) [], RuntimeException
+    + FullyQualifiedErrorId : FAIL: Native Windows graphics capture all three stages
+ 

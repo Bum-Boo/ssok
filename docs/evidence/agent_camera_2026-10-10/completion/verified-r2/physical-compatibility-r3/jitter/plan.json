@@ -1,0 +1,25 @@
+{
+  "scope": "Developer-only same motor/observation path, fixed near wall, four actions30/10/12/1 followed by four additional idle observations. No model calls/target or physics changes. Capture-time gap comes only from independent observer file; never bridge/model input.",
+  "tape": [
+    30,
+    10,
+    12,
+    1
+  ],
+  "wall_x": 0.35,
+  "total_images": 9,
+  "idle_interval_s": 0.5,
+  "source10_sha256": {
+    "tools/app_control/stabilize_camera_trials.py": "eb08d7f53d90e189a5a9bd9cb3bdd778d64e4ebc54437dbce2201e47cb5df80e",
+    "tools/app_control/run_goal.py": "5138294974740ade7e0c8c2179541c5f794fc875c31e709c1878135dd28b02d0",
+    "tools/app_control/desktop_mcp.py": "1c9afbc636ff99ec550b36139e7347a15b7992e555f01b08c5780e10a15d043c",
+    "tools/app_control/desktop_session.py": "ceebbb9eb2e064c476b51e2dbe5dce6660bd9501142076dd1ada998a0a2c511d",
+    "tools/app_control/desktop_client.py": "3dfda807fba4683c742eb07604852d01b19018271abea7a8c0894a1d37e10678",
+    "tools/app_control/run_desktop.gd": "5185c07709875917c4b4b932fb3050b76fe80d808562b3a40b16a0ae419718d6",
+    "tools/app_control/camera_evaluator.gd": "617c25e9aade64cb37bf2108f55e100da3169009984970a31112b0b4ecda6eaf",
+    "tools/app_control/camera_trial.py": "6612d0c57f920d2865fccd7fa78d99fd36ae2f8b72fc6a618ee7d167633b8018",
+    "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
+    "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d"
+  },
+  "goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4"
+}

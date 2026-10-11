@@ -1,0 +1,419 @@
+{
+	"camera_fov": 60.0,
+	"floor_y_m": 0.0500000007450581,
+	"graph_chassis_offset_identity": true,
+	"keep_aspect": 1,
+	"rows": [
+		{
+			"camera_basis": [
+				[
+					0.00289716757833958,
+					-0.00260333553887904,
+					0.999992430210114
+				],
+				[
+					0.0114534199237823,
+					0.99993109703064,
+					0.00256999325938523
+				],
+				[
+					-0.999930262565613,
+					0.0114458883181214,
+					0.00292678503319621
+				]
+			],
+			"camera_position": [
+				0.0764799490571022,
+				0.130937412381172,
+				-0.00120578787755221
+			],
+			"camera_to_robot_front_x_m": 0.00922181867063021,
+			"case": "r21-stock",
+			"classified_floor_pixels": 117.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -426.23583984375,
+				"0.14": 20.6517944335938
+			},
+			"label": "observation-1",
+			"level_body_at_same_origin_floor_pixels": 111.324249267578,
+			"observed_gap_m": 0.254298232495785,
+			"pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+			"predicted_floor_pixels": 117.514373779297,
+			"prediction_error_pixels": 0.514373779296875,
+			"sha256": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+			"target_gap_m": {
+				"12": 0.134419241810512,
+				"20": 0.139564996459174,
+				"24": 0.142277719895509,
+				"31": 0.147269283499247,
+				"38": 0.152598801568738
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					-0.00191023631487042,
+					-0.0019283255096525,
+					0.999996304512024
+				],
+				[
+					0.0158351827412844,
+					0.999872744083405,
+					0.0019583364482969
+				],
+				[
+					-0.999872803688049,
+					0.0158388651907444,
+					-0.0018794578500092
+				]
+			],
+			"camera_position": [
+				0.153557792305946,
+				0.130829125642776,
+				-0.00139034551102668
+			],
+			"camera_to_robot_front_x_m": 0.00922098420560405,
+			"case": "r21-stock",
+			"classified_floor_pixels": 67.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -418.908813476563,
+				"0.14": 23.2756958007813
+			},
+			"label": "observation-2",
+			"level_body_at_same_origin_floor_pixels": 58.1109619140625,
+			"observed_gap_m": 0.177221223711967,
+			"pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+			"predicted_floor_pixels": 67.5529479980469,
+			"prediction_error_pixels": 0.552947998046875,
+			"sha256": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+			"target_gap_m": {
+				"12": 0.132766704317077,
+				"20": 0.137825074512269,
+				"24": 0.140490586887082,
+				"31": 0.145393253138744,
+				"38": 0.150624977980789
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					-0.00303185964003205,
+					0.00106360507197678,
+					0.999994874000549
+				],
+				[
+					0.0132596837356687,
+					0.999911606311798,
+					-0.00102331477683038
+				],
+				[
+					-0.999907493591309,
+					0.0132565116509795,
+					-0.00304569443687797
+				]
+			],
+			"camera_position": [
+				0.174217402935028,
+				0.130884274840355,
+				-0.00121219223365188
+			],
+			"camera_to_robot_front_x_m": 0.00923366509377932,
+			"case": "r21-stock",
+			"classified_floor_pixels": 43.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -422.971862792969,
+				"0.14": 21.7762451171875
+			},
+			"label": "observation-3",
+			"level_body_at_same_origin_floor_pixels": 35.7324523925781,
+			"observed_gap_m": 0.15654893219471,
+			"pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+			"predicted_floor_pixels": 43.9666137695313,
+			"prediction_error_pixels": 0.96661376953125,
+			"sha256": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+			"target_gap_m": {
+				"12": 0.133707152491171,
+				"20": 0.138816052042718,
+				"24": 0.141508875775436,
+				"31": 0.146462946539546,
+				"38": 0.151751247667766
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					0.000598698214162141,
+					0.00172869232483208,
+					0.999998331069946
+				],
+				[
+					0.0140180895105004,
+					0.999900221824646,
+					-0.00173691532108933
+				],
+				[
+					-0.999901592731476,
+					0.0140191065147519,
+					0.00057440553791821
+				]
+			],
+			"camera_position": [
+				0.176923617720604,
+				0.130868017673492,
+				-0.00172626145649701
+			],
+			"camera_to_robot_front_x_m": 0.00918265841901345,
+			"case": "r21-stock",
+			"classified_floor_pixels": 41.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -422.397521972656,
+				"0.14": 22.1484375
+			},
+			"label": "observation-4",
+			"level_body_at_same_origin_floor_pixels": 32.3165588378906,
+			"observed_gap_m": 0.1538937240839,
+			"pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+			"predicted_floor_pixels": 41.0738220214844,
+			"prediction_error_pixels": 0.073822021484375,
+			"sha256": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+			"target_gap_m": {
+				"12": 0.133476586874558,
+				"20": 0.138570509150745,
+				"24": 0.141255233676355,
+				"31": 0.146194071137266,
+				"38": 0.151465581495756
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					0.00835124496370554,
+					0.00123051088303328,
+					0.999964356422424
+				],
+				[
+					0.0125769702717662,
+					0.999920010566711,
+					-0.00133549352176487
+				],
+				[
+					-0.999886035919189,
+					0.0125876748934388,
+					0.00833510141819716
+				]
+			],
+			"camera_position": [
+				0.183446139097214,
+				0.130898356437683,
+				-0.00359070487320423
+			],
+			"camera_to_robot_front_x_m": 0.00934974513947964,
+			"case": "r21-stock",
+			"classified_floor_pixels": 31.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -422.509948730469,
+				"0.14": 21.562255859375
+			},
+			"label": "observation-5",
+			"level_body_at_same_origin_floor_pixels": 23.7899475097656,
+			"observed_gap_m": 0.147204115986824,
+			"pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+			"predicted_floor_pixels": 31.7883605957031,
+			"prediction_error_pixels": 0.788360595703125,
+			"sha256": "ce5647750e09841f04391e2ca1ec7d8c6f238ad9e8e7b381491eaf6600098076",
+			"target_gap_m": {
+				"12": 0.133836142592596,
+				"20": 0.138958084179061,
+				"24": 0.141657946949892,
+				"31": 0.14662535046764,
+				"38": 0.151928275427615
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					-0.0070226788520813,
+					0.000914455449674279,
+					0.999974966049194
+				],
+				[
+					0.0168360527604818,
+					0.9998579621315,
+					-0.000796111300587654
+				],
+				[
+					-0.999833643436432,
+					0.0168300401419401,
+					-0.00703707663342357
+				]
+			],
+			"camera_position": [
+				0.1541967689991,
+				0.130808025598526,
+				0.00164643384050578
+			],
+			"camera_to_robot_front_x_m": 0.00934068523347367,
+			"case": "r22-integral",
+			"classified_floor_pixels": 67.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -415.712463378906,
+				"0.14": 24.0392761230469
+			},
+			"label": "post-1",
+			"level_body_at_same_origin_floor_pixels": 57.4289245605469,
+			"observed_gap_m": 0.176462545990944,
+			"pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+			"predicted_floor_pixels": 67.4751586914063,
+			"prediction_error_pixels": 0.47515869140625,
+			"sha256": "94a5d5778149d25307419d7b9056ba0d07c91bcd7c07d359bd7301b3a2ad0fc4",
+			"target_gap_m": {
+				"12": 0.13227898192689,
+				"20": 0.137318017742043,
+				"24": 0.139973109386371,
+				"31": 0.144856144154507,
+				"38": 0.150066276630953
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					-0.00765687460079789,
+					-0.00249994010664523,
+					0.999967575073242
+				],
+				[
+					0.0128214741125703,
+					0.999914467334747,
+					0.00259798299521208
+				],
+				[
+					-0.99988853931427,
+					0.0128409508615732,
+					-0.0076241665519774
+				]
+			],
+			"camera_position": [
+				0.169664144515991,
+				0.130908846855164,
+				0.0023690084926784
+			],
+			"camera_to_robot_front_x_m": 0.00933539532125019,
+			"case": "r22-integral",
+			"classified_floor_pixels": 49.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -422.414428710938,
+				"0.14": 21.6457214355469
+			},
+			"label": "post-2",
+			"level_body_at_same_origin_floor_pixels": 41.1471252441406,
+			"observed_gap_m": 0.161000460386276,
+			"pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+			"predicted_floor_pixels": 49.0572814941406,
+			"prediction_error_pixels": 0.057281494140625,
+			"sha256": "e87d9d73a8f74db4432e0e4d71fef7ca5074dff5574bc061d02541577438dc7b",
+			"target_gap_m": {
+				"12": 0.133786222978121,
+				"20": 0.138904207965875,
+				"24": 0.141601928304411,
+				"31": 0.146565221953665,
+				"38": 0.151863624086516
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					0.00707952445372939,
+					0.00233691837638617,
+					0.999972224235535
+				],
+				[
+					0.0170196145772934,
+					0.999852180480957,
+					-0.00245713209733367
+				],
+				[
+					-0.99983012676239,
+					0.0170365367084742,
+					0.00703870411962271
+				]
+			],
+			"camera_position": [
+				0.191434293985367,
+				0.130818486213684,
+				0.00100479798857123
+			],
+			"camera_to_robot_front_x_m": 0.00934283100068559,
+			"case": "r22-integral",
+			"classified_floor_pixels": 22.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -415.467102050781,
+				"0.14": 24.1233520507813
+			},
+			"label": "post-3",
+			"level_body_at_same_origin_floor_pixels": 11.9435729980469,
+			"observed_gap_m": 0.139222875237465,
+			"pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+			"predicted_floor_pixels": 22.9677734375,
+			"prediction_error_pixels": 0.9677734375,
+			"sha256": "b62d5350d0d3a90d59ea251f99fa4b32cd2e20d3d3e26be0b9369f902c18e861",
+			"target_gap_m": {
+				"12": 0.13222933991699,
+				"20": 0.137265340581644,
+				"24": 0.13991875620203,
+				"31": 0.144798666764093,
+				"38": 0.150005297924057
+			}
+		},
+		{
+			"camera_basis": [
+				[
+					0.00866515096276999,
+					0.000995401060208678,
+					0.999961972236633
+				],
+				[
+					0.0135623691603541,
+					0.999907433986664,
+					-0.00111287133768201
+				],
+				[
+					-0.999870479106903,
+					0.0135714961215854,
+					0.00865084864199162
+				]
+			],
+			"camera_position": [
+				0.190551102161407,
+				0.130877733230591,
+				0.00108665018342435
+			],
+			"camera_to_robot_front_x_m": 0.00936159156262892,
+			"case": "r22-integral",
+			"classified_floor_pixels": 22.0,
+			"fixed_gap_floor_pixels": {
+				"0.04": -420.740112304688,
+				"0.14": 22.1585998535156
+			},
+			"label": "bridge-observed",
+			"level_body_at_same_origin_floor_pixels": 13.5118408203125,
+			"observed_gap_m": 0.140087306499481,
+			"pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+			"predicted_floor_pixels": 22.2882385253906,
+			"prediction_error_pixels": 0.288238525390625,
+			"sha256": "483a4f55cde12374e8937e6412655e86c441d8bb609be9dbed602cf6457f3968",
+			"target_gap_m": {
+				"12": 0.133458931544347,
+				"20": 0.138561459453322,
+				"24": 0.141250839078912,
+				"31": 0.146198451966077,
+				"38": 0.151479649210237
+			}
+		}
+	],
+	"scope": "Headless numerical replay of archived poses; no new images, physical trajectories or AI trials.",
+	"viewport": [
+		640,
+		480
+	],
+	"wall_front_x_m": 0.340000000223517
+}

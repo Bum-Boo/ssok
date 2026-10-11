@@ -1,0 +1,87 @@
+{
+  "exit_code": 0,
+  "is_error": false,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 2,
+      "outputTokens": 1924,
+      "cacheReadInputTokens": 1454,
+      "cacheCreationInputTokens": 12831,
+      "webSearchRequests": 0,
+      "costUSD": 0.14142680000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 442,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 12831,
+    "cache_read_input_tokens": 1454,
+    "output_tokens": 1924,
+    "output_tokens_details": {
+      "thinking_tokens": 442
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 12831,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1924,
+        "cache_read_input_tokens": 1454,
+        "cache_creation_input_tokens": 12831,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 12831
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 0.14142680000000002,
+  "dispatch": {
+    "requested_model": "opus",
+    "scope": "independent final local design source review with actual Astra observations",
+    "panel_sha256": "f8afbc47a236e33d7f0f919bfc2b0693e80628af7c863b91450db57c11d54da5",
+    "timeout_seconds": 180
+  },
+  "findings": {
+    "verdict": "pass",
+    "reviewer": "claude-opus-5-5",
+    "scope": "Final read-only design-code review of the local ssok draft AgentTracePanel (panel SHA f8afbc47…5da5) and the settings guide. Based on the supplied source text and the visual observations Astra reported. I did not inspect any images, rerun anything, use tools, or make edits.",
+    "blocking_findings": [],
+    "requirement_trace": {
+      "existing_theme_type_colors": "Satisfied in source. Uses SsokTheme.button, the SectionLabel variation and the shared LineEdit stylebox. No new palette, fonts or decorative containers. There is no eyebrow, hero, tag chip, decorative card or meta copy.",
+      "stop_pinned": "Satisfied in source. Stop sits in top_row outside the ScrollContainer and has no disable path. Astra observed it pinned in compact, wide and R5 large captures.",
+      "raw_goal_preserved": "Satisfied in source. The goal field sets AUTO_TRANSLATE_MODE_DISABLED and has no strip/transform on emit; goal_requested emits _goal_field.text verbatim. strip_edges is used only for the blank check.",
+      "enter_never_dispatches": "Satisfied in source. text_submitted is never connected, and the only emit path is _on_run_pressed.",
+      "run_one_click": "Satisfied in source. _on_run_pressed guards on disabled, sets _goal_pending before emit and refreshes so Run disables. Only set_goal_status clears pending. Coordinator actual-button run reported 1 action and 2 PNGs.",
+      "disclosure_before_run": "Satisfied in source. In the content order, disclosure and limits labels precede _run_button. The text covers the provider (OpenAI), the model (%s = GOAL_MODEL), the existing Codex ChatGPT login, and what is sent: goal, camera PNGs, public frame context, short summaries and tool results. It also states 8 actions, 9 images, 300 seconds, account usage, no fixed cost and no model-request cap. Astra observed this order in wide captures and in R5 English large.",
+      "provider_text_isolation": "Satisfied in source. Statuses are allow-listed against GOAL_STATUSES localization keys. Events are filtered by EVENT_KEYS, and there is no reasoning field.",
+      "manual_actions_blocked_during_goal": "Satisfied in source. goal_active disables Enable, Capture and Forward; Stop remains available.",
+      "layout_4lang_2theme_sizes": "Satisfied according to the reported evidence. The coordinator reported actual UI 66/0, including keyboard Run inside the viewport for all 24 initial captures. R5 resolved the missing English large Run captures without changing the panel source; that gap was attributed to a fixture double-ensure with follow_focus."
+    },
+    "nonblocking_limits": [
+      "There is still an evidence gap for CJK at 200%. Astra did not independently view the full middle disclosure segment. The source order and the surrounding captures are consistent, but coverage should not be claimed beyond what was viewed.",
+      "Astra viewed only 2 R5 images, not the full 48. In those images the first line of the data disclosure sat partly above the scroll boundary. This is normal scroll clipping, and the rest of the text plus the limits-then-Run order were observed.",
+      "GOAL_MODEL is a hard-coded display constant ('gpt-6-astra'). The disclosure is accurate only if the operator actually requests that model. This panel's source cannot show that; it relies on the separate Fable functional pass.",
+      "The goal field stays editable while a run is pending or busy. Edits cannot dispatch and the sent text is captured at emit time, so this is acceptable. It is noted for UX clarity only.",
+      "The goal LineEdit has no placeholder or accessible name beyond the 'Goal' section label. This is not required by the stated rules, and screen-reader behavior is unverified, consistent with the guide's own disclaimer.",
+      "The settings guide does not document the AI tab. That is not in the stated requirements; this is noted only.",
+      "This review does not attest to goal success, runtime behavior or any functional property beyond the source reading. It also does not authorize main integration or publication."
+    ]
+  }
+}

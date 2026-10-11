@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\app_control\calibrate_camera_motion.py", line 114, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\app_control\calibrate_camera_motion.py", line 108, in main
+    result = replay(args.godot, args.out, args.wall_x, args.ticks, args.idle)
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\app_control\calibrate_camera_motion.py", line 57, in replay
+    meta = capture('initial')
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\app_control\calibrate_camera_motion.py", line 54, in capture
+    'metadata': frame.metadata, 'pixels': measure_floor(path)})
+                                          ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\app_control\camera_pixels.py", line 11, in measure_floor
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
