@@ -110,3 +110,7 @@ The24px result is at the lower edge with?1px uncertainty; do not claim every res
 margin. Independent physical criteria0/9 (14.13?15.00cm vs maximum14cm) remain failures.
 No hidden physical hint or criterion change was made. See clarified-hold-medium-final/ receipts;
 pilot and final are distinct studies. Blind controls/full release verification remain pending.
+
+
+<!-- observer-lifecycle-r32 -->
+2026-10-11 Arch observer-only lifecycle draft: registered7renderedmodes,10current checks pass/zero engine errors and independent ClaudeFable5-1 pass. Local source differs from the unchanged app packages; original AIcase9 trigger and physical goal reliability remain unresolved. [Source conditions and recovered historical artifacts](lifecycle-arch-r32/README.md).

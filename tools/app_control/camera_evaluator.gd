@@ -16,10 +16,19 @@ var invalid: bool = false
 var _last_state: String = ""
 var _last_frame: int = -1
 var _last_record_tick: int = 0
+var _bodies: Array[RigidBody3D] = []
+var _episode_id: String = ""
+var _revision: int = -1
 
 
 func _ready() -> void:
 	process_physics_priority = 100
+	if not is_instance_valid(app) or not app.run_mode.is_built():
+		_write_invalid("physics_unavailable")
+		return
+	_bodies.assign(app.run_mode.bodies)
+	_episode_id = app.agent_loop.episode_id
+	_revision = app.app_controller.current_revision()
 	for index: int in app.run_mode.bodies.size():
 		var body: RigidBody3D = app.run_mode.bodies[index]
 		if app.assembly.graph.parts[index].part_def.resource_path.get_file().get_basename() == "stage_wall":
@@ -31,7 +40,7 @@ func _ready() -> void:
 		body.contact_monitor = true
 		body.body_entered.connect(_on_body_entered)
 	if wall == null or robot.is_empty():
-		invalid = true
+		_write_invalid("unsupported_fixture")
 	else:
 		app.agent_loop.frame_ready.connect(_record_frame)
 
@@ -41,7 +50,16 @@ func _record_frame(_png: PackedByteArray, meta: Dictionary) -> void:
 
 
 func _record_sample(reason: String, meta: Dictionary = {}) -> void:
+	if finished:
+		return
+	var error: String = _context_error()
+	if not error.is_empty():
+		_write_invalid(error)
+		return
 	var sample: Dictionary = _snapshot()
+	if invalid:
+		_write_invalid("unsupported_collision_shape")
+		return
 	sample.merge({"reason": reason, "physics_tick": Engine.get_physics_frames(),
 		"state": app.agent_loop.state, "frame_id": app.agent_loop.frame_id,
 		"capture_metadata": meta})
@@ -103,7 +121,11 @@ func _snapshot() -> Dictionary:
 
 
 func _physics_process(_delta: float) -> void:
-	if finished or invalid:
+	if finished:
+		return
+	var error: String = _context_error()
+	if not error.is_empty():
+		_write_invalid(error)
 		return
 	if not started:
 		if app.agent_loop.state != "ready":
@@ -111,6 +133,9 @@ func _physics_process(_delta: float) -> void:
 		initial = _snapshot()
 		started = true
 	var current: Dictionary = _snapshot()
+	if invalid:
+		_write_invalid("unsupported_collision_shape")
+		return
 	if _last_state != app.agent_loop.state or _last_frame != app.agent_loop.frame_id or (app.agent_loop.state == "ready" and Engine.get_physics_frames() - _last_record_tick >= 60):
 		_record_sample("state_or_idle")
 		_last_state = app.agent_loop.state
@@ -130,3 +155,38 @@ func _physics_process(_delta: float) -> void:
 			var file: FileAccess = FileAccess.open("user://camera-evaluation.json", FileAccess.WRITE)
 			if file != null:
 				file.store_string(JSON.stringify(result, "\t") + "\n")
+
+
+## Bind measurement to the original scene, not merely the same graph indices.
+## Local Stop changes generation but keeps this physical scene measurable.
+func _context_error() -> String:
+	if not is_instance_valid(app) or not app.is_inside_tree():
+		return "app_removed"
+	if not is_instance_valid(app.run_mode) or not app.run_mode.is_built():
+		return "physics_removed"
+	if app.run_mode.bodies.size() != _bodies.size():
+		return "body_context_changed"
+	for index: int in _bodies.size():
+		if not is_instance_valid(_bodies[index]) or not _bodies[index].is_inside_tree():
+			return "body_removed"
+		if not is_instance_valid(app.run_mode.bodies[index]) or app.run_mode.bodies[index] != _bodies[index]:
+			return "body_context_changed"
+	if not is_instance_valid(app.agent_loop) or app.agent_loop.episode_id != _episode_id:
+		return "episode_changed"
+	if app.app_controller.current_revision() != _revision:
+		return "scene_revision_changed"
+	return ""
+
+
+func _write_invalid(reason: String) -> void:
+	if finished:
+		return
+	invalid = true
+	finished = true
+	# No stale or fabricated final metric is available for an invalidated scene.
+	var result: Dictionary = {"schema": 1, "valid": false, "invalid_reason": reason,
+		"initial": initial, "final": {}, "samples": samples, "episode_id": _episode_id,
+		"physics_tick": Engine.get_physics_frames()}
+	var file: FileAccess = FileAccess.open("user://camera-evaluation.json", FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(result, "\t") + "\n")

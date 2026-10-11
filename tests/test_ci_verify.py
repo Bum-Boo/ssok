@@ -31,6 +31,22 @@ class VerifyProcessResultTest(unittest.TestCase):
             self.assertIn('--ssok-agent-bridge', inventory[name])
         self.assertIn('--headless', inventory['agent_camera_loop_check'])
 
+    def test_lifecycle_modes_are_independent_rendered_checks(self):
+        inventory = {check.name: check.command for check in checks('godot', 'python')}
+        modes = ('normal_stop', 'drive_stop', 'teardown', 'mode_off', 'app_free',
+                 'rebuild', 'new_episode')
+        for mode in modes:
+            name = 'camera_evaluator_lifecycle_check-' + mode
+            with self.subTest(mode=mode):
+                self.assertIn(name, inventory)
+                command = inventory[name]
+                self.assertNotIn('--headless', command)
+                self.assertNotIn('--ssok-agent-bridge', command)
+                self.assertEqual(command[-3:], ['--', '--lifecycle-mode', mode])
+                self.assertTrue(any(value.endswith('camera_evaluator_lifecycle_check.gd')
+                                    for value in command))
+        self.assertNotIn('camera_evaluator_lifecycle_check', inventory)
+
     def test_process_exit_and_engine_diagnostics_both_control_success(self):
         cases = [
             ("ERROR: negative Rect2", 0, False, True),

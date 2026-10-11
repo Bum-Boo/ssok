@@ -45,6 +45,12 @@ def checks(godot: str, python: str) -> list[Check]:
         "humanoid_ui_check": [[], ["--modular"]],
     }
     for path in sorted((PROJECT / "tests").glob("*_check.gd")):
+        if path.stem == "camera_evaluator_lifecycle_check":
+            for mode in ("normal_stop", "drive_stop", "teardown", "mode_off",
+                         "app_free", "rebuild", "new_episode"):
+                result.append(Check(path.stem + "-" + mode,
+                                    rendered + ["--script", str(path), "--", "--lifecycle-mode", mode]))
+            continue
         if path.stem in {"bridge_stop_owner_check", "agent_camera_rest_check"}:
             result.append(Check(path.stem, rendered + ["--script", str(path), "--", "--ssok-agent-bridge"]))
             continue
