@@ -8,14 +8,18 @@ robot under gravity. Save a project, share it, and take it apart to understand h
 
 English · 한국어 · 简体中文 · 日本語
 
-[Open the browser workshop](https://bum-boo.github.io/ssok/) · [Download v0.2.0](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [Developer start](docs/START_HERE.md)
+[Open the browser workshop](https://bum-boo.github.io/ssok/) · [Download v0.3.1](https://github.com/Bum-Boo/ssok/releases/tag/v0.3.1) · [Developer start](docs/START_HERE.md)
 
-![Actual ssok workshop: independently assembled humanoid, parts catalog and servo program](docs/media/workshop.png)
+![Recorded ssok workshop: the learned biped walks forward while W is held](docs/media/learned-walk-preview.gif)
+
+<sub>Recorded in the app, not animated. Details in [LEARNED_WALK.md](docs/media/LEARNED_WALK.md).</sub>
 
 > The first playable path is the servo-arm flag mission, followed by three measured learning stages.
 > Learned locomotion and construction-kit experiments remain research exhibits with recorded limitations.
 
 ## Try the workshop
+
+![Actual ssok workshop: independently assembled humanoid, parts catalog and servo program](docs/media/workshop.png)
 
 Desktop packages include the engine. Windows offers a setup installer or portable ZIP;
 macOS offers an Intel/Apple Silicon `ssok.app` ZIP; Linux offers an executable/PCK ZIP.
