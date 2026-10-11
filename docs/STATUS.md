@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-11 r26: 영상 하단 정지 선호를 실제AI 1회 시험했으나38px/14.9168cm jointFAIL입니다. 앱 미적용, 기준 불변. [결과·한계](evidence/agent_camera_2026-10-10/completion/lower-end-policy-r26/README.md).
+
 2026-10-11 r25: Mac SSH 연결을 확인했지만 공용 기기에는 비공개 코드를 보내지 않습니다. 최신 백업에 Arch 최종 원자료5폴더가 없고 현재 소스와도 다릅니다. [실측·회수 경로](evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md). [r24 공식 작업 인계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md)는 완료했습니다. 정밀도·계정·개인 Mac·Arch 원자료·통합 공개는 미완료입니다.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 

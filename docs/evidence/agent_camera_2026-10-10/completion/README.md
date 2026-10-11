@@ -1,5 +1,8 @@
 # Camera precision and stabilization — reviewed local draft
 
+Current r26: [lower-end actor stop preference](lower-end-policy-r26/README.md), source841bf63. One actualAI trial38px/14.9168cm jointFAIL; candidate unadopted, original criteria unchanged.
+
+
 Current checkpoint,2026-10-11: [r25 host access/Arch raw recovery](host-raw-r25/README.md), source66188b3.
 MacSSH ready/sharedlab restriction; latest57snapshot metadata, final5folders absent in12c49368.
 Owned-Mac exactartifact handoff ready, nativeMac app unrun; Arch connection timeout beforeauth.

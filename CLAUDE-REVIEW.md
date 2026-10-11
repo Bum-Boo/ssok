@@ -1,5 +1,8 @@
 # ssok — native host access and original raw recovery r25
 
+[r26 actual lower-end actor preference](docs/evidence/agent_camera_2026-10-10/completion/lower-end-policy-r26/README.md):6actions/7images,38px/14.9168cm jointFAIL. External actor policy only; original goal/app/operator433 unchanged. Candidate not adopted. Exact Fable review and officialtask release follow evidence commit; no merge/publication.
+
+
 [Actual Mac/Arch probes, latest backup identity, owned-Mac handoff](docs/evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md).
 Mac SSHDarwin/0 but sharedlab private-source boundary retained; actualapp Mac unrun.
 Latestconfiguredbackup57metadata/12c49368: final5folders absent; bridgef81f differs from current18d even normalized.
