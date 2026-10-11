@@ -1,3 +1,22 @@
+# ssok — first native observation reference r19
+
+Issue32/feat32, runtime58ba8f5, immutablefa868ca/0.3.1-projects-r7.
+[2native/10PNG/Astra4/raw48](docs/evidence/agent_camera_2026-10-10/completion/initial-reference-r19/README.md).
+Existingbrake32/rate16 baseline22px/13.961731cm, initial-only23px/13.898540cm;
+bothphysicalPASS/imageFAIL/jointFAIL, candidateunapplied/conditional2repeatsunrun.
+Referencepolicyonly; numericfirstnativeframe1anchor retains5observations/3forwards;
+internalbeginPNG unarchived/metadata retained. Hold_brake/cancel law bytes identical.
+Actualbothmotors30/10/12,5PNG/4postinitialpairs each; scopedobserve/Stop receipts2.
+Fixture132readback/evaluator30+rest12or120final; metrics never actor/controlinput.
+Source426+7/ZIP/app/goal unchanged, UI/style/localization/provider untouched.
+Docs10/maintain; app/Opus/SDK datedhistory, AI9image/0physical unchanged.
+NextCodex finite control/observation mechanism, originalprecision/freshaccount/nav/
+Mac/Archraw/task16CLI/Fablefunctional-rebase/humanmerge/versionpublication remain.
+Recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/initial-reference-r19/.
+Globalgoal incomplete; no push/merge/publication.
+
+## Frozen r18 milestone — actual observation and scoped Stop
+
 # ssok — actual observed-frame/context Stop diagnostic r18
 
 Issue32/feat32, runtimed947208, immutablefa868ca/0.3.1-projects-r7.
