@@ -118,3 +118,7 @@ pilot and final are distinct studies. Blind controls/full release verification r
 
 <!-- active-drive-lifecycle-r34 -->
 2026-10-11 Arch lifecycle regression now covers11rendered modes including4active-drive transitions and immutable invalid-result/calibration bytes. Current14registered checks PASS with zero engine errors; independent ClaudeFable functional review PASS. The observer/app/packages and original goal remain unchanged from f47c37e. [Exact runtime conditions and limits](lifecycle-driving-arch-r34/README.md).
+
+
+<!-- active-drive-lifecycle-r35 -->
+2026-10-11 Arch lifecycle regression now covers13rendered modes including6active-drive transitions and immutable invalid-result/calibration bytes. Current16registered checks PASS with zero engine errors; independent ClaudeFable functional review PASS. The observer/app/packages and original goal remain unchanged from f47c37e. [Exact runtime conditions and limits](lifecycle-driving-arch-r35/README.md).

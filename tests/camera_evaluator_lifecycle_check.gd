@@ -60,7 +60,8 @@ func _run() -> void:
 	if index >= 0 and index + 1 < args.size():
 		mode = args[index + 1]
 	var driving_modes: Dictionary = {"driving_stop": "normal_stop", "driving_rebuild": "rebuild",
-		"driving_app_free": "app_free", "driving_new_episode": "new_episode"}
+		"driving_app_free": "app_free", "driving_new_episode": "new_episode",
+		"driving_teardown": "teardown", "driving_mode_off": "mode_off"}
 	action_mode = driving_modes.get(mode, mode)
 	if DisplayServer.get_name() == "headless":
 		print("Rendered lifecycle regression required")
@@ -124,7 +125,8 @@ func _run() -> void:
 		_check(response.get("pending") == true, "real pending drive accepted before context action")
 		for tick: int in 5:
 			await physics_frame
-		_check(app.agent_loop.enabled and app.agent_loop.state == "driving", "context action happens during real active drive")
+		_check(app.agent_loop.enabled and app.agent_loop.state == "driving" and not evaluator.finished,
+			"active drive and live observer precede the context action")
 		_progress("drive_pending")
 		if failures > 0:
 			_finish()
@@ -185,7 +187,7 @@ func _run() -> void:
 			"app_free": ["app_removed"], "rebuild": ["body_removed", "body_context_changed"],
 			"new_episode": ["episode_changed"]}
 		_check(evaluation.get("invalid_reason") in reasons.get(action_mode, []), "reason identifies the intended context change")
-		_check(not evaluation.get("final", {}).has("gap_x"), "invalid result contains no stale final gap")
+		_check(evaluation.get("final") is Dictionary and evaluation.final.is_empty(), "invalid result contains no final measurements")
 	if is_instance_valid(app) and action_mode in ["teardown", "mode_off", "rebuild"]:
 		_check(not app.agent_loop.enabled and app.agent_loop.control_generation > old_generation,
 			"real loop revokes old generation")
@@ -202,6 +204,7 @@ func _run() -> void:
 			calibration = FileAccess.get_file_as_string("user://camera-calibration.jsonl")
 		_check(calibration == first_calibration, "invalid observer appends no later calibration or replacement-frame samples")
 	if mode == "driving_stop":
+		_check(float(evaluation.get("travel_x", 0.0)) > 0.001, "pending Stop includes measured motor travel")
 		_check(int(evaluation.get("rest_ticks", 0)) >= 12, "pending local Stop reaches measured physical rest")
 	_write_result(evaluation)
 	_finish()

@@ -48,7 +48,8 @@ def checks(godot: str, python: str) -> list[Check]:
         if path.stem == "camera_evaluator_lifecycle_check":
             for mode in ("normal_stop", "drive_stop", "teardown", "mode_off",
                          "app_free", "rebuild", "new_episode", "driving_stop",
-                         "driving_rebuild", "driving_app_free", "driving_new_episode"):
+                         "driving_rebuild", "driving_app_free", "driving_new_episode",
+                         "driving_teardown", "driving_mode_off"):
                 result.append(Check(path.stem + "-" + mode,
                                     rendered + ["--script", str(path), "--", "--lifecycle-mode", mode]))
             continue

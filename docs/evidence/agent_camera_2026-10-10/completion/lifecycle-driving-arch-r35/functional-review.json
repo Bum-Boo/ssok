@@ -1,0 +1,55 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "findings": [
+    {
+      "severity": "info",
+      "area": "tests/camera_evaluator_lifecycle_check.gd",
+      "summary": "Driving branch correctly localizes pre-action failure: after a 25-tick forward drive_step and five physics frames it asserts enabled, state==\"driving\" and an unfinished evaluator before the context action, then early-exits on failure so a dead observer cannot be mistaken for a context-change result. The mapping of the six driving_* modes to the existing action_mode switch is complete and consistent with the CI registration."
+    },
+    {
+      "severity": "info",
+      "area": "tests/camera_evaluator_lifecycle_check.gd",
+      "summary": "Invalid-context assertions (valid==false, explicit reason from the per-mode allowlist, empty final dictionary, evaluation and calibration bytes unchanged after 165 later physics frames, replacement owner left enabled for new_episode) now apply uniformly to both ready-state and driving-state cases because they key on action_mode rather than mode. Runtime summary shows invalid writes at tick 41 for driving cases (samples 6) versus tick 36 for ready cases (samples 1), consistent with the five-frame drive window."
+    },
+    {
+      "severity": "low",
+      "area": "tests/camera_evaluator_lifecycle_check.gd driving_stop",
+      "summary": "The rest_ticks >= 12 assertion is only discriminating when the evaluator finishes through the stopped_ticks >= 120 fallback; on the stopped_ticks >= 30 path the evaluator's own finish condition already guarantees rest_ticks >= 12, so the runtime value of exactly 12 reflects the finish condition, not margin. This is acceptable as a regression guard but should not be read as evidence about settling speed."
+    },
+    {
+      "severity": "low",
+      "area": "tests/camera_evaluator_lifecycle_check.gd driving_stop",
+      "summary": "The travel_x > 0.001 control is correctly separate from the drive_stop 3cm assertion and is appropriately labeled as a measurement-presence control; runtime travel of about 1.8cm after a five-frame interrupted drive is plausible and is not a goal claim."
+    },
+    {
+      "severity": "info",
+      "area": "tools/ci/verify.py and tests/test_ci_verify.py",
+      "summary": "Registration diff adds driving_teardown and driving_mode_off to the existing per-mode rendered expansion; the Python test's mode tuple matches the thirteen registered names, still forbids --headless and --ssok-agent-bridge, and still rejects an unsuffixed camera_evaluator_lifecycle_check entry. No other verify.py behavior is changed by the supplied diff."
+    },
+    {
+      "severity": "info",
+      "area": "tools/app_control/camera_evaluator.gd",
+      "summary": "Observer source as supplied is unchanged in behavior from the guarded f47c37e design: _context_error ordering (app, physics, body count, body identity, episode, revision) matches the test's expected reasons, and _write_invalid/_record_sample both short-circuit on finished, which is what the byte-immutability assertions rely on. I did not diff against f47c37e; the unchanged claim rests on the supplied summary."
+    },
+    {
+      "severity": "low",
+      "area": "timing margins",
+      "summary": "The 165-frame post-action window covers the evaluator's 120-tick fallback with margin, and the 20-second settle deadline plus 25-second ready deadline sit under the unchanged 10-second operation and 60-second decision watchdogs only because of the two warm draws; a cold shader compile on a slower GPU could still trip ready_deadline. This is a tracked-runtime limitation already acknowledged, not a defect in the assertions."
+    }
+  ],
+  "remaining_limits": [
+    "Static review only: no commands rerun, no screenshots observed, no byte-level diff of camera_evaluator.gd against f47c37e performed; runtime summary is taken as supplied.",
+    "Coverage is test/CI only; observer, src, UI, camera, controller, physics, goal, package and Windows sources are asserted unchanged by the submitter, not verified here.",
+    "driving_stop travel over 1mm is a control, not progress on the original 3cm goal or the issue 32 AI case 9 trigger; evaluator rest thresholds (0.015 m/s, 0.1 rad/s, 0.5 rad/s wheel) remain looser than the ADR 0029 capture/ready thresholds and are unchanged.",
+    "Rendered runs used a private warm Mesa cache and isolated user dirs; results do not establish product cold-start behavior or lower-end hardware timing.",
+    "Generated documentation map changes were not reviewed and no claim is made about them.",
+    "Integration, rebase, merge and publication are not approved by this review; coordinator native checks and human merge remain required."
+  ],
+  "actual_invocations": 1,
+  "requested_model": "fable",
+  "resolved_model": [
+    "claude-fable-5-1"
+  ],
+  "input_hashes_unchanged": true
+}
