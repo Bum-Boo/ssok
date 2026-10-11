@@ -1,3 +1,17 @@
+# ssok — bounded body integral with combined reference r22
+
+[One native/5PNG/Astra4/raw28](docs/evidence/agent_camera_2026-10-10/completion/brake-integral-r22/README.md).
+Reusedr19combined22px/13.961731cm vs newcandidate22px/13.909189cm, both imageFAIL/physicalPASS/jointFAIL.
+FirstFAIL stops, candidateunapplied/conditionalrepeats/AI0. Combinedframe_ready+brake-entry timing unchanged,
+bodyI16 only finite motor duty; forward/cancelclear, 12latches/actualmotor30/10/12/scopedStop.
+Fixture132readback vs nativeevaluator30+rest12OR120; no physical/image controlinput.
+Source426+7/app/r14ZIP/goal/actor/provider/UI/localization unchanged. Docs/evidence only.
+Remaining originalprecision/nav/freshaccount/Mac/Archraw/task16CLI/humanmerge/publication.
+LatestFable functionalreview/rebase owner; humanmerge. Wholegoal incomplete.
+Recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/brake-integral-r22/.
+
+## Frozen r21 milestone
+
 # ssok — unchanged stock image-only AI r21
 
 [Actual native/actor0, four actions/five images](docs/evidence/agent_camera_2026-10-10/completion/adaptive-ai-r21/README.md).
