@@ -1,3 +1,24 @@
+# ssok — actual observed-frame/context Stop diagnostic r18
+
+Issue32/feat32, runtimed947208, immutablefa868ca/0.3.1-projects-r7.
+[3native/17PNG/Astra6·2startup failures·raw limits](docs/evidence/agent_camera_2026-10-10/completion/observation-stop-r18/README.md).
+K32 doubleobserve26px/14.059767cm; existingcandidate double22px/14.005505cm;
+singlebridgeobserve22px/13.961731cm physicalPASS/imageFAIL. AlljointFAIL/unapplied.
+Actualmatched_contextStop bound to exact DesktopClient image metadata3receipts;
+132postStopframes/30,10,12 actualmotors. Fixedcheckpoint, no model/metric controlinput.
+Singleobserver comparison preregistered, originaldoubleinputs/results preserved.
+Native40/80s startupfailed noPNG; samecallbackcheckonly0; filelogs workaround3normalexit,
+causeunconfirmed/beforecopies preserved. No production426+7/ZIP/app/goal changes.
+Nativeproject probe is not new immutablePE/PCK or provider verification.
+Docs maintain/10tests only; appgates/Opus/r14SDK datedhistory/notrerun.
+AI9image/0physical/calibrationunadopted retained; conditional2repeats notrun (FAIL).
+NextCodex original-target observation/control stability; freshsignup/navigation,
+Mac/Archraw/formalCLI16/Fablefunctionalreview-rebase/humanmerge/publicapproval remain.
+Recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/observation-stop-r18/.
+Global goal incomplete. No push/merge/publication.
+
+## Frozen r17 milestone — rejected reference timing policies
+
 # ssok — rejected reference-timing policies r17
 
 Issue32/feat32, runtime89889ec; immutable appfa868ca/0.3.1-projects-r7.
