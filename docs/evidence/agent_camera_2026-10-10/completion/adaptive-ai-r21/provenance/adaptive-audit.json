@@ -1,0 +1,569 @@
+{
+  "source_head": "0b16d984096e00d4835bfb3ba6d48ad1b311e226",
+  "new_ai_trials": 1,
+  "wall_x": 0.35,
+  "actor": {
+    "status": "cli_exited",
+    "cli_exit": 0,
+    "stop_confirmed": true,
+    "owner_revocation_confirmed": true,
+    "stop_scope": "context_replaced",
+    "final_desktop_state": "stopped",
+    "observations": 5,
+    "completed_actions": 4,
+    "final_reobserved": true,
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "usage": {
+      "input_tokens": 190459,
+      "cached_input_tokens": 170368,
+      "output_tokens": 958
+    },
+    "goal_success": "not certified; inspect camera/action evidence"
+  },
+  "receipt": {
+    "native_exit": 0,
+    "actor_exit": 0,
+    "seconds": 77.17534330004128,
+    "failure": null,
+    "source426_operator7_unchanged": true,
+    "caller_environment_restored": true,
+    "source_head": "0b16d984096e00d4835bfb3ba6d48ad1b311e226",
+    "production_applied": false,
+    "cli_launches": 1,
+    "automatic_retries": 0,
+    "backend_identity_attested": false
+  },
+  "summary": {
+    "head": "0b16d984096e00d4835bfb3ba6d48ad1b311e226",
+    "mode": "live",
+    "new_ai_trials": 1,
+    "wall_x": 0.35,
+    "actions": 4,
+    "observations": 5,
+    "latest_floor_pixels": 31,
+    "image_pass": true,
+    "final_gap_m": 0.145837739109993,
+    "physical": {
+      "success": false,
+      "checks": {
+        "valid_evaluation": true,
+        "forward_progress": true,
+        "gap_in_target": false,
+        "no_contact": true,
+        "rest_after_stop": true,
+        "action_reobservation_stop": true
+      }
+    },
+    "joint_pass": false,
+    "actor_status": "cli_exited",
+    "actor_exit": 0,
+    "native_exit": 0,
+    "actor_stop_confirmed": true,
+    "stop_scope": "context_replaced",
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "model_request_count_not_attested": true,
+    "production_applied": false,
+    "global_goal_complete": false
+  },
+  "decisions": [
+    {
+      "step": 1,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 711,
+        "control_generation": 1,
+        "draw_frame": 695,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 2,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 711,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 711,
+        "sha256": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+        "width": 640
+      },
+      "summary": "Center wall base ≈(320,363) in 640×480 PNG; beige span 480−363=117 px (24.4%), well above 24–38 px target. Corner robot parts excluded.",
+      "action": "forward",
+      "ticks": 30
+    },
+    {
+      "step": 2,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 1512,
+        "control_generation": 1,
+        "draw_frame": 1495,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 3,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 1512,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 1512,
+        "sha256": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+        "width": 640
+      },
+      "summary": "Center base ≈(320,413); span 480−413=67 px (14.0%). Previous settled step reduced span by 50 px; use shorter approach toward ~31 px, excluding corner parts.",
+      "action": "forward",
+      "ticks": 12
+    },
+    {
+      "step": 3,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2213,
+        "control_generation": 1,
+        "draw_frame": 2196,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 4,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2213,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 2213,
+        "sha256": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+        "width": 640
+      },
+      "summary": "Center base ≈(320,437) in 640×480 PNG; span 480−437=43 px (9.0%). Last settled step reduced span 24 px. Small 4-tick approach toward interval midpoint ~31 px.",
+      "action": "forward",
+      "ticks": 4
+    },
+    {
+      "step": 4,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2929,
+        "control_generation": 1,
+        "draw_frame": 2911,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 5,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2929,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 2929,
+        "sha256": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+        "width": 640
+      },
+      "summary": "Center base ≈(320,440); span 480−440=40 px (8.3%), just above 24–38 px target. Last settled 4-tick action changed span ~3 px; bounded 6-tick approach toward ~31 px.",
+      "action": "forward",
+      "ticks": 6
+    }
+  ],
+  "actual_actor_stop": {
+    "reason": "actor_stop",
+    "confirmed": true,
+    "state": "stopped",
+    "stop_scope": "matched_context"
+  },
+  "runner_finally_stop_scope": "context_replaced",
+  "camera_physics_pairs": [
+    {
+      "observation": 1,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 711,
+        "control_generation": 1,
+        "draw_frame": 695,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 2,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 711,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 711,
+        "sha256": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+        "width": 640
+      },
+      "native_camera_sample": {
+        "angular_speed": 0.00629068585112691,
+        "capture_metadata": {
+          "camera_id": "virtual-front-camera",
+          "capture_requested_tick": 711,
+          "control_generation": 1,
+          "draw_frame": 695,
+          "episode_id": "b30bdc8e4cbced6d7c8b0787",
+          "frame_id": 2,
+          "height": 480,
+          "interpolation_enabled": false,
+          "part_id": 0,
+          "physics_tick": 711,
+          "revision": 3,
+          "robot_instance_id": "1364910413175",
+          "settle_confirmed_tick": 711,
+          "sha256": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+          "width": 640
+        },
+        "frame_id": 2,
+        "gap_x": 0.254298232495785,
+        "linear_speed": 0.00049206503899768,
+        "linear_velocity": [
+          0.000452347099781036,
+          0.000193523461348377,
+          -7.6649466791423e-06
+        ],
+        "motors": [
+          {
+            "duty": -0.00328462902222722,
+            "speed": 0.0227305423468351
+          },
+          {
+            "duty": -0.00159586527602126,
+            "speed": -0.00253453711047769
+          }
+        ],
+        "physics_tick": 711,
+        "position": [
+          0.000740710587706417,
+          0.0668003335595131,
+          -0.0011533253127709
+        ],
+        "reason": "camera",
+        "rotation": [
+          0.00260333903133869,
+          0.00289722508750856,
+          -0.0114461751654744
+        ],
+        "state": "ready",
+        "wheel_speed": 0.0272515136748552,
+        "x": 0.000740710587706417
+      }
+    },
+    {
+      "observation": 2,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 1512,
+        "control_generation": 1,
+        "draw_frame": 1495,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 3,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 1512,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 1512,
+        "sha256": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+        "width": 640
+      },
+      "native_camera_sample": {
+        "angular_speed": 0.00490618124604225,
+        "capture_metadata": {
+          "camera_id": "virtual-front-camera",
+          "capture_requested_tick": 1512,
+          "control_generation": 1,
+          "draw_frame": 1495,
+          "episode_id": "b30bdc8e4cbced6d7c8b0787",
+          "frame_id": 3,
+          "height": 480,
+          "interpolation_enabled": false,
+          "part_id": 0,
+          "physics_tick": 1512,
+          "revision": 3,
+          "robot_instance_id": "1364910413175",
+          "settle_confirmed_tick": 1512,
+          "sha256": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+          "width": 640
+        },
+        "frame_id": 3,
+        "gap_x": 0.177221223711967,
+        "linear_speed": 0.00035282620228827,
+        "linear_velocity": [
+          0.00010962496889988,
+          0.000202078168513253,
+          0.000267643597908318
+        ],
+        "motors": [
+          {
+            "duty": -0.00240267174075904,
+            "speed": -0.0027278158813715
+          },
+          {
+            "duty": -0.00352533533036088,
+            "speed": 0.00762376235798001
+          }
+        ],
+        "physics_tick": 1512,
+        "position": [
+          0.0775380432605743,
+          0.0670253112912178,
+          -0.0016585934208706
+        ],
+        "reason": "camera",
+        "rotation": [
+          0.00192832737229764,
+          -0.00191019731573761,
+          -0.0158395562320948
+        ],
+        "state": "ready",
+        "wheel_speed": 0.0121854254975915,
+        "x": 0.0775380432605743
+      }
+    },
+    {
+      "observation": 3,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2213,
+        "control_generation": 1,
+        "draw_frame": 2196,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 4,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2213,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 2213,
+        "sha256": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+        "width": 640
+      },
+      "native_camera_sample": {
+        "angular_speed": 0.00436769193038344,
+        "capture_metadata": {
+          "camera_id": "virtual-front-camera",
+          "capture_requested_tick": 2213,
+          "control_generation": 1,
+          "draw_frame": 2196,
+          "episode_id": "b30bdc8e4cbced6d7c8b0787",
+          "frame_id": 4,
+          "height": 480,
+          "interpolation_enabled": false,
+          "part_id": 0,
+          "physics_tick": 2213,
+          "revision": 3,
+          "robot_instance_id": "1364910413175",
+          "settle_confirmed_tick": 2213,
+          "sha256": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+          "width": 640
+        },
+        "frame_id": 4,
+        "gap_x": 0.15654893219471,
+        "linear_speed": 0.000404850230552256,
+        "linear_velocity": [
+          0.000184305579750799,
+          0.000200913404114544,
+          0.000299280742183328
+        ],
+        "motors": [
+          {
+            "duty": -0.00166872169009002,
+            "speed": 0.00413930881768465
+          },
+          {
+            "duty": -0.00408107242224712,
+            "speed": 0.00466422084718943
+          }
+        ],
+        "physics_tick": 2213,
+        "position": [
+          0.09836246073246,
+          0.0668842568993568,
+          -0.00137410056777298
+        ],
+        "reason": "camera",
+        "rotation": [
+          -0.00106360472273082,
+          -0.00303182215429842,
+          -0.0132569083943963
+        ],
+        "state": "ready",
+        "wheel_speed": 0.00899484474211931,
+        "x": 0.09836246073246
+      }
+    },
+    {
+      "observation": 4,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2929,
+        "control_generation": 1,
+        "draw_frame": 2911,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 5,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2929,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 2929,
+        "sha256": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+        "width": 640
+      },
+      "native_camera_sample": {
+        "angular_speed": 0.00452710362151265,
+        "capture_metadata": {
+          "camera_id": "virtual-front-camera",
+          "capture_requested_tick": 2929,
+          "control_generation": 1,
+          "draw_frame": 2911,
+          "episode_id": "b30bdc8e4cbced6d7c8b0787",
+          "frame_id": 5,
+          "height": 480,
+          "interpolation_enabled": false,
+          "part_id": 0,
+          "physics_tick": 2929,
+          "revision": 3,
+          "robot_instance_id": "1364910413175",
+          "settle_confirmed_tick": 2929,
+          "sha256": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+          "width": 640
+        },
+        "frame_id": 5,
+        "gap_x": 0.1538937240839,
+        "linear_speed": 0.000392008310882375,
+        "linear_velocity": [
+          0.000177895228262059,
+          0.000199982343474403,
+          0.000286410329863429
+        ],
+        "motors": [
+          {
+            "duty": -0.00206082867466709,
+            "speed": 0.00200112583115697
+          },
+          {
+            "duty": -0.00369330037563729,
+            "speed": 0.00710363825783134
+          }
+        ],
+        "physics_tick": 2929,
+        "position": [
+          0.101019822061062,
+          0.0669259279966354,
+          -0.00157027831301093
+        ],
+        "reason": "camera",
+        "rotation": [
+          -0.00172869255766273,
+          0.000598742859438062,
+          -0.0140195861458778
+        ],
+        "state": "ready",
+        "wheel_speed": 0.011484295129776,
+        "x": 0.101019822061062
+      }
+    },
+    {
+      "observation": 5,
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 3772,
+        "control_generation": 1,
+        "draw_frame": 3752,
+        "episode_id": "b30bdc8e4cbced6d7c8b0787",
+        "frame_id": 6,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 3772,
+        "revision": 3,
+        "robot_instance_id": "1364910413175",
+        "settle_confirmed_tick": 3772,
+        "sha256": "ce5647750e09841f04391e2ca1ec7d8c6f238ad9e8e7b381491eaf6600098076",
+        "width": 640
+      },
+      "native_camera_sample": {
+        "angular_speed": 0.00457260012626648,
+        "capture_metadata": {
+          "camera_id": "virtual-front-camera",
+          "capture_requested_tick": 3772,
+          "control_generation": 1,
+          "draw_frame": 3752,
+          "episode_id": "b30bdc8e4cbced6d7c8b0787",
+          "frame_id": 6,
+          "height": 480,
+          "interpolation_enabled": false,
+          "part_id": 0,
+          "physics_tick": 3772,
+          "revision": 3,
+          "robot_instance_id": "1364910413175",
+          "settle_confirmed_tick": 3772,
+          "sha256": "ce5647750e09841f04391e2ca1ec7d8c6f238ad9e8e7b381491eaf6600098076",
+          "width": 640
+        },
+        "frame_id": 6,
+        "gap_x": 0.147204115986824,
+        "linear_speed": 0.000439791445387527,
+        "linear_velocity": [
+          0.000270010641543195,
+          0.000204821335501038,
+          0.000280283798929304
+        ],
+        "motors": [
+          {
+            "duty": -0.00193447905289942,
+            "speed": 0.00474470527842641
+          },
+          {
+            "duty": -0.00362906415616939,
+            "speed": 0.00974049512296915
+          }
+        ],
+        "physics_tick": 3772,
+        "position": [
+          0.107637174427509,
+          0.066847637295723,
+          -0.00287876185029745
+        ],
+        "reason": "camera",
+        "rotation": [
+          -0.00123051065020263,
+          0.00835139211267233,
+          -0.0125880166888237
+        ],
+        "state": "ready",
+        "wheel_speed": 0.0141666773706675,
+        "x": 0.107637174427509
+      }
+    }
+  ],
+  "last_camera_gap_m": 0.147204115986824,
+  "final_stopped_gap_m": 0.145837739109993,
+  "last_camera_to_final_gap_shift_mm": -1.3663768768309992,
+  "native_physical_fields_computed_during_execution": true,
+  "evaluator_final_condition": "(stopped_ticks>=30 and rest_ticks>=12) or stopped_ticks>=120",
+  "fixture_132_frames_are_readback_delay": true,
+  "external_classification_after_stop_native_exit": true,
+  "cli_configuration_warnings": [
+    "Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.\n  session-flags: `features.skills` is ignored.",
+    "Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.\n  session-flags: `features.skills` is ignored."
+  ],
+  "completed_mcp_tools": [
+    "observe",
+    "decide",
+    "observe",
+    "decide",
+    "observe",
+    "decide",
+    "observe",
+    "decide",
+    "observe",
+    "stop"
+  ],
+  "actor_backend_identity_attested": false,
+  "model_request_count_or_billing_cap_attested": false,
+  "first_failed_joint_trial_stops_protocol": true,
+  "remaining_eight_trials_run": false,
+  "new_controller": false,
+  "controller_production_applied": false,
+  "goal_changed": false,
+  "global_goal_complete": false
+}

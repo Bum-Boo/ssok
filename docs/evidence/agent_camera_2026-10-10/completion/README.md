@@ -1,19 +1,19 @@
 # Camera precision and stabilization — reviewed local draft
 
-Current checkpoint, 2026-10-11: [r20 body integral diagnostic](body-integral-r20/README.md),
-source c1923a8, one new native developer probe:21px/13.746293cm, imageFAIL/
-physicalPASS/jointFAIL. Candidate unapplied; conditional repeats and AI trials unrun.
-Latest app remains clean fa868ca/0.3.1-projects-r7. [r7 package verification](release-current-ui-r7/README.md)
-records actual native79+2, Web5/5, installer17/0, Projects6/0 and independent design review.
-[r14 foreground operator](operator-setup-r14/README.md) records isolated setup,
-preparation check and actual packaged Run→action→reobserve→Stop12/0.
-Historical3layouts×3AI image9/9 and physical0/9 remain unchanged. Native developer
-holding/reference/actual Stop candidates r15–r20 have not repaired the joint target;
-their original failures are retained in their linked folders and Git history.
-See [r18 observation and evaluator timing](observation-stop-r18/README.md) and
-[r19 initial reference](initial-reference-r19/README.md). No target relaxation or release.
-Original precision, general navigation, fresh-account authentication, native Mac,
-powered-off Arch raw/task16 formal CLI, human merge and exact-version publication remain open.
+Current checkpoint, 2026-10-11: [r21 unchanged stock adaptive AI](adaptive-ai-r21/README.md),
+source0b16d98, actual native/actor0; four actions/five images and scopedStop.
+31px imagePASS/14.583774cm physicalFAIL(gap only)/jointFAIL. First failure ends
+the protocol; remaining eight trials unrun, no controller adoption.
+Latest app remains cleanfa868ca/0.3.1-projects-r7. [r7 verification](release-current-ui-r7/README.md)
+records native79+2/Web5/5/installer17/0/Projects6/0 and design review.
+[r14 operator](operator-setup-r14/README.md) records isolated setup/preparation
+and actual packaged Run→action→reobserve→Stop12/0.
+Historical3layouts×3AI image9/9 physical0/9 is unchanged and separate from r21.
+Developer candidates r15–r20 remain unapplied; original evidence/Git retained.
+See [r18 evaluator timing](observation-stop-r18/README.md), [r19 reference](initial-reference-r19/README.md),
+and [r20 body integral](body-integral-r20/README.md). No target relaxation/release.
+Original precision/navigation/fresh-account/nativeMac/powered-offArch raw/task16CLI,
+human merge and exact-version publication remain open.
 
 ## Dated r2 checkpoint
 

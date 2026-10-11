@@ -1,3 +1,20 @@
+# ssok — unchanged stock image-only AI r21
+
+[Actual native/actor0, four actions/five images](docs/evidence/agent_camera_2026-10-10/completion/adaptive-ai-r21/README.md).
+31px imagePASS/14.583774cm physicalFAIL(gap only)/jointFAIL; remaining eight unrun.
+Actor matched_context Stop and runner context_replaced cleanup are separate.
+Original goal/source426+7/immutableapp/r14ZIP/actor/provider/UI unchanged.
+Five actual Astra views; classifier and native evaluator remain independent.
+Launcher preflight/reader dependency failures recovered without a second actor launch.
+Executed native helper and corrected offline reader preserved separately.
+Scope docs/evidence only; no controller adoption, localization or design changes.
+Functional review/integration owner latest Fable; human merge/publication approval.
+Remaining originalprecision/nav/freshaccount/Mac/Archraw/task16CLI/merge/publication.
+Recovery C:/Users/Hojun/.agents/backups/ssok-completion-20261010/adaptive-ai-r21/.
+Whole goal incomplete.
+
+## Frozen r20 milestone
+
 # ssok — bounded body attitude integral r20
 
 Issue32, sourcec1923a8, immutablefa868ca/0.3.1-projects-r7.

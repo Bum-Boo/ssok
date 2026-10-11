@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-10-11 r20: 누적자세오차 보정도21px/13.7463cm jointFAIL·미적용. [5PNG/Astra4·Stop·원본](evidence/agent_camera_2026-10-10/completion/body-integral-r20/README.md). Source/goal불변·정밀도/계정/Mac/Arch/통합공개 남음.
+2026-10-11 r21: 실제AI4행동/5관측/Stop 정상, 31px·14.5838cm jointFAIL(거리만 미달). [원본·Astra5·복구](evidence/agent_camera_2026-10-10/completion/adaptive-ai-r21/README.md). Source/goal불변·정밀도/계정/Mac/Arch/통합공개 남음.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 
 
