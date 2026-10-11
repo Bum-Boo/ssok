@@ -1,16 +1,12 @@
 # Camera precision and stabilization — reviewed local draft
 
-Current checkpoint,2026-10-11: [r22 combined-reference body integral](brake-integral-r22/README.md),
-source6b34699; native0/5PNG/scopedStop,22px imageFAIL/13.909189cm physicalPASS/jointFAIL.
-Candidate unapplied/conditional repeats and AI unrun. Separate [r21 stock adaptive AI](adaptive-ai-r21/README.md)
-actually completed fouractions/fiveimages/Stop,31px imagePASS/14.583774cm physicalFAIL(gap only).
-Latest app remains fa868ca/0.3.1-projects-r7; [r7 verification](release-current-ui-r7/README.md)
-records native79+2/Web5/5/installer17/0/Projects6/0/design review. [r14 operator](operator-setup-r14/README.md)
-records isolatedsetup/preparation and actual packagedRun→action→reobserve→Stop12/0.
-Historical3layouts×3AI image9/9 physical0/9 unchanged; no pooling with r21singleAI/r22non-AI.
-Developer candidates remain unapplied, original evidence/Git retained. See [r18 evaluator timing](observation-stop-r18/README.md)
-and [r20 initial-reference body integral](body-integral-r20/README.md). No target relaxation/release.
-Original precision/nav/freshaccount/nativeMac/poweredoffArch raw/task16CLI/humanmerge/publication remain open.
+Current checkpoint,2026-10-11: [r23 projection diagnosis](projection-r23/README.md), sourceafbc899.
+9 archived camera poses agree with image boundaries within0.968px; most original24px targets exceed camera-time14cm.
+Orientation matters; two tiny overlaps prevent a general impossibility conclusion. Original target/controller unchanged.
+[Actual stock AI r21](adaptive-ai-r21/README.md):31px/14.5838cm jointFAIL; [r22 candidate](brake-integral-r22/README.md):22px/13.9092cm jointFAIL/unapplied.
+App fa868ca/0.3.1-projects-r7 and [r14 operator](operator-setup-r14/README.md) unchanged;
+[r7 actual release verification](release-current-ui-r7/README.md) and original3layouts×3AI image9/9 physical0/9 remain dated evidence.
+Calibration12–20 proposal unadopted/unrun; freshaccount/nativeMac/Archraw/task16CLI/humanmerge/publication open.
 
 ## Dated r2 checkpoint
 

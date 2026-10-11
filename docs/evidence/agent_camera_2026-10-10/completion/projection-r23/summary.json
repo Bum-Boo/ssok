@@ -1,0 +1,37 @@
+{
+  "archived_poses": 9,
+  "assigned_camera_poses": 4,
+  "same_tick_source_inferred_camera_poses": 5,
+  "max_projection_vs_classifier_error_pixels": 0.9677734375,
+  "max_independent_arithmetic_error_pixels": 3.7005086284125355e-05,
+  "poses_where24px_camera_time_gap_exceeds14cm": 7,
+  "gap24_cm_range": [
+    13.991875620203,
+    14.2277719895509
+  ],
+  "gap31_cm_range": [
+    14.4798666764093,
+    14.7269283499247
+  ],
+  "gap38_cm_range": [
+    15.0005297924057,
+    15.2598801568738
+  ],
+  "level_body_counterfactual_difference_pixels_range": [
+    6.190124511719006,
+    11.0242004394531
+  ],
+  "r21_latest_gap31_cm": 14.662535046763999,
+  "r21_actual_camera_time_gap_cm": 14.7204115986824,
+  "r21_actual_stopped_gap_cm": 14.583773910999302,
+  "r21_latest14cm_predicted_floor_pixels": 21.562255859375,
+  "calibration_mismatch_at_observed_poses_supported": true,
+  "global_impossibility_proven": false,
+  "measurement_failure_found": false,
+  "counterfactual_is_physical_control_success": false,
+  "new_physical_or_rendered_or_ai_trials": 0,
+  "goal_changed": false,
+  "calibration12_20_adopted_or_run": false,
+  "product_adoption_requires_user_decision": true,
+  "whole_goal_complete": false
+}

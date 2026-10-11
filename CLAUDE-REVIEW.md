@@ -1,3 +1,13 @@
+# ssok — archived camera projection diagnosis r23
+
+[9 poses/independent arithmetic/no runtime changes](docs/evidence/agent_camera_2026-10-10/completion/projection-r23/README.md).
+Projection matches original PNG within0.968px;24px maps13.9919–14.2278cm,31px14.4799–14.7269cm at observed poses.
+Camera-time geometry is distinct from stopped physical success. No impossibility proof/calibration adoption/newAI.
+Source433/frozen goal/controller/UI unchanged. Fable review exact local docs; human merges.
+Next user calibration decision or bounded control work; Mac/Arch/account/publication remain open.
+
+## Frozen r22 milestone
+
 # ssok — bounded body integral with combined reference r22
 
 [One native/5PNG/Astra4/raw28](docs/evidence/agent_camera_2026-10-10/completion/brake-integral-r22/README.md).
