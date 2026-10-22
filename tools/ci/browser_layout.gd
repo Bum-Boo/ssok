@@ -217,8 +217,7 @@ func _native_routes() -> void:
 		var workshop: Node3D = router.current
 		_point("game_solution_" + level.id, workshop.stage_hud.find_child("SolutionMenu", true, false))
 		workshop.stage_hud.solution_requested.emit()
-		await _settle()
-		_point("game_confirm_" + level.id, workshop._stage_replace_dialog.get_ok_button())
+		await _confirmation_point("game_confirm_" + level.id, workshop._stage_replace_dialog)
 		workshop._stage_replace_dialog.confirmed.emit()
 		workshop._stage_replace_dialog.hide()
 		await _settle()
@@ -269,6 +268,9 @@ func _native_routes() -> void:
 	await _settle()
 	_point("lab_stage_export", _button(lab.stages, "Export verified challenge"))
 	lab._open_projects()
+	var projects_size: Vector2i = root.size - 2 * lab.projects.position
+	await _settle()
+	lab.projects.size = projects_size
 	await _settle()
 	_point("lab_project_name", lab.projects.title_edit)
 	_point("lab_save", lab.projects.save_button)
@@ -277,6 +279,23 @@ func _native_routes() -> void:
 	lab.projects.close_panel()
 	router.free()
 	await _settle()
+
+
+func _confirmation_point(name: String, dialog: ConfirmationDialog) -> void:
+	# As with the legacy project confirmation, reflow at the requested width before
+	# recovering the rect that the dummy headless window backend discards.
+	var requested_size: Vector2i = root.size - 2 * dialog.position
+	await _settle()
+	dialog.size = requested_size
+	await _settle()
+	dialog.popup_centered(Vector2i(requested_size.x, 0))
+	requested_size = root.size - 2 * dialog.position
+	await _settle()
+	dialog.wrap_controls = false
+	dialog.min_size = Vector2i.ZERO
+	dialog.size = requested_size
+	await _settle()
+	_point(name, dialog.get_ok_button())
 
 
 func _workshop_ready(router: Node, mode: String) -> bool:
