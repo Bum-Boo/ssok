@@ -141,7 +141,8 @@ func _ready() -> void:
 	_step_icon.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	_step_icon.modulate = SsokTheme.ACCENT
 	content.add_child(_step_icon)
-	heading = _label(content, 25)
+	heading = _label(content, 16)
+	heading.label_settings = SsokTheme.title_settings()
 	body_label = _label(content, 16)
 	var hint_card := PanelContainer.new()
 	content.add_child(hint_card)

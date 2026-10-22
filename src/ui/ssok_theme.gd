@@ -151,6 +151,7 @@ static func populate(theme: Theme) -> void:
 	var close_texture: ImageTexture = ImageTexture.create_from_image(close_image)
 	theme.set_icon(&"close", &"Window", close_texture)
 	theme.set_icon(&"close_pressed", &"Window", close_texture)
+	theme.set_font(&"title_font", &"Window", title_settings().font)
 	theme.set_font_size(&"title_font_size", &"Window", font_size(16))
 	theme.set_constant(&"title_height", &"Window", font_size(36))
 
@@ -258,8 +259,8 @@ static func button(text: String, icon_name: String = "") -> Button:
 
 static func title_settings() -> LabelSettings:
 	var settings := LabelSettings.new()
-	settings.font = SsokLocale.ui_font
-	settings.font_size = font_size(28)
+	settings.font = SsokLocale.ui_bold_font
+	settings.font_size = font_size(16)
 	settings.font_color = TEXT
 	return settings
 

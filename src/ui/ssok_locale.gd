@@ -7,6 +7,7 @@ const NAMES: Array[String] = ["한국어", "简体中文", "日本語", "English
 const SETTINGS_PATH: String = "user://language.cfg"
 static var bundled_font: FontFile
 static var ui_font: FontVariation
+static var ui_bold_font: FontVariation
 static var code_font: FontVariation
 
 
@@ -41,11 +42,15 @@ static func update_fonts() -> void:
 		bundled_font = load("res://assets/fonts/NotoSansCJK-Regular.ttc") as FontFile
 		ui_font = FontVariation.new()
 		ui_font.base_font = bundled_font
+		ui_bold_font = FontVariation.new()
+		ui_bold_font.base_font = bundled_font
+		ui_bold_font.variation_embolden = 0.8
 		code_font = FontVariation.new()
 		code_font.base_font = bundled_font
 	var locale: String = normalize(TranslationServer.get_locale())
 	var face: int = 1 if locale == "ko" else (2 if locale == "zh_CN" else 0)
 	ui_font.variation_face_index = face
+	ui_bold_font.variation_face_index = face
 	code_font.variation_face_index = face + 5
 
 

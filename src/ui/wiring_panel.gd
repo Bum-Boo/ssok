@@ -22,7 +22,7 @@ func _ready() -> void:
 	var caption := Label.new()
 	caption.text = "Connect a motor to a board pin"
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	caption.theme_type_variation = &"SectionLabel"
+	caption.label_settings = SsokTheme.title_settings()
 	content.add_child(caption)
 	var hint := Label.new()
 	hint.text = "Choose the motor signal and a compatible pin. Wiring keeps your parts in place."

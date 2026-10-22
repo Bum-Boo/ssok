@@ -42,6 +42,7 @@ func _ready() -> void:
 	scroll.add_child(content)
 	var heading := Label.new()
 	heading.text = "Stages and free building"
+	heading.label_settings = SsokTheme.title_settings()
 	content.add_child(heading)
 	_picker = OptionButton.new()
 	_catalog = StageCatalog.builtins()

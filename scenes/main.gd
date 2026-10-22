@@ -469,7 +469,7 @@ func _build_ui() -> void:
 	var caption := Label.new()
 	caption.text = "Python-style servo program"
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	caption.theme_type_variation = &"SectionLabel"
+	caption.label_settings = SsokTheme.title_settings()
 	code_box.add_child(caption)
 	code_edit = CodeEdit.new()
 	code_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
