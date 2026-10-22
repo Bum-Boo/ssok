@@ -40,6 +40,17 @@ func _run() -> void:
 		root.add_child(main)
 		await _settle()
 		_check_framing(main, level.id + " entry")
+		var display: StageGoalDisplay = main.goal_display
+		_check(display.label is Label and display.get_parent() == main._ui_root, "goal is on UI layer")
+		_check(main._camera_framing_rect().encloses(display.card.get_global_rect()), "screen label fits available area")
+		var anchor: Vector3 = display.anchor
+		for point: Vector3 in [Vector3(100, 0, 0), Vector3(-100, 0, 0), Vector3(0, 100, 0), Vector3(0, -100, 0), main.get_node("Camera3D").global_position + main.get_node("Camera3D").global_basis.z]:
+			display.anchor = point
+			await _settle()
+			_check(main._camera_framing_rect().encloses(display.card.get_global_rect()), "offscreen label stays on edge")
+			_check(main._camera_framing_rect().has_point(display.projected_anchor), "leader remains in available area")
+		display.anchor = anchor
+
 		main.stage_hud.program_requested.emit()
 		await _settle()
 		_check_framing(main, level.id + " panel")

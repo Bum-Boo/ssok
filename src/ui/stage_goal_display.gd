@@ -1,37 +1,88 @@
 class_name StageGoalDisplay
-extends Node3D
+extends Control
 
-## Decoration only. Every scored number comes from the existing evaluator's samples.
-var label: Label3D
+## Screen-space annotation only; scored values come from the existing evaluator.
+var label: Label
+var card: PanelContainer
+var anchor: Vector3
+var projected_anchor: Vector2
+var leader_end: Vector2
 var level: Dictionary = {}
 var rules: Array = []
 var samples: Array[Dictionary] = []
 var outcome: String = "idle"
+var camera: Camera3D
+var area_provider: Callable
+var _appearance: String = ""
 var _assembly_value: Variant = null
 
 
 func configure(stage_level: Dictionary, stage: Dictionary) -> void:
 	level = stage_level
 	rules = stage.get("rules", [])
-	label = Label3D.new()
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	card = PanelContainer.new()
+	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(card)
+	label = Label.new()
 	label.name = "ObservedGoal"
-	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	label.no_depth_test = true
-	label.font = SsokTheme.build().default_font
-	label.font_size = 40
-	label.outline_size = 10
-	label.modulate = Color("eafff7")
-	label.outline_modulate = Color("173e37")
-	label.pixel_size = 0.00045
-	add_child(label)
+	label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	card.add_child(label)
 	match String(level.get("id", "")):
 		"raise-flag":
-			label.position = Vector3(0.0165, float(rules[0].min) + 0.065, 0)
+			anchor = Vector3(0.0165, float(rules[0].min), 0.075)
 		"finish-line":
-			label.position = Vector3(float(rules[0].min), 0.19, 0)
+			anchor = Vector3(float(rules[0].min), 0.055, 0.14)
 		"wall-brake":
-			label.position = Vector3(0.715, 0.22, 0)
+			anchor = Vector3(0.715, 0.055, 0.14)
 	_refresh()
+
+
+func _process(_delta: float) -> void:
+	update_projection()
+
+
+func update_projection() -> void:
+	if camera == null or card == null:
+		return
+	var area: Rect2 = area_provider.call() if area_provider.is_valid() else get_viewport_rect()
+	area = area.grow(-8.0)
+	var appearance: String = str(SsokTheme.dark) + str(SsokTheme.ui_scale)
+	if appearance != _appearance:
+		_appearance = appearance
+		var style := StyleBoxFlat.new()
+		style.bg_color = Color(SsokTheme.BG, 0.9)
+		style.border_color = SsokTheme.BORDER
+		style.set_border_width_all(1)
+		style.set_corner_radius_all(8)
+		style.set_content_margin_all(8)
+		card.add_theme_stylebox_override("panel", style)
+		label.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
+		label.add_theme_color_override("font_color", SsokTheme.TEXT)
+	# Width and height stay in UI pixels, independent of camera distance.
+	card.custom_minimum_size.x = minf(380.0 * SsokTheme.ui_scale, area.size.x)
+	card.size = Vector2(card.custom_minimum_size.x, 0)
+	projected_anchor = camera.unproject_position(anchor)
+	if camera.is_position_behind(anchor):
+		projected_anchor = area.get_center() - (projected_anchor - area.get_center())
+		if projected_anchor.is_equal_approx(area.get_center()):
+			projected_anchor.y = area.position.y
+	projected_anchor = projected_anchor.clamp(area.position, area.end)
+	var desired: Vector2 = projected_anchor + Vector2(24, -card.size.y - 24)
+	# Place toward the freer side rather than across the world marker.
+	if desired.x + card.size.x > area.end.x:
+		desired.x = projected_anchor.x - card.size.x - 24
+	card.position = desired.clamp(area.position, (area.end - card.size).max(area.position))
+	leader_end = projected_anchor.clamp(card.position, card.position + card.size)
+	queue_redraw()
+
+
+func _draw() -> void:
+	if card != null:
+		draw_line(projected_anchor, leader_end, SsokTheme.ACCENT, 1.5, true)
 
 
 func show_samples(values: Array[Dictionary], status: String) -> void:
@@ -60,45 +111,21 @@ func show_assembly(graph: ConnectionGraph) -> void:
 func _refresh() -> void:
 	if label == null:
 		return
-	var lines: PackedStringArray = [tr(level.get("metric_label", ""))]
-	if samples.is_empty():
-		var primary: Dictionary = rules[0]
-		if primary.max >= 50.0:
-			lines.append(tr("Target: at least %.3f m") % float(primary.min))
-		else:
-			var scale: float = 0.01 if primary.metric == "sonar_distance" else 1.0
-			lines.append(tr("Target: %.3f–%.3f m") % [float(primary.min) * scale, float(primary.max) * scale])
-		if _assembly_value != null:
-			if primary.metric == "height":
-				lines.append(tr("Assembly height: %.3f m") % float(_assembly_value))
-			else:
-				lines.append(tr("Remaining: %.2f m") % maxf(0.0, float(primary.min) - float(_assembly_value)))
-		lines.append(tr("Run to measure the goal."))
-	else:
-		for index: int in mini(rules.size(), samples.size()):
-			var sample: Dictionary = samples[index]
-			var rule: Dictionary = rules[index]
-			if sample.get("value") == null:
-				lines.append(tr("Measurement unavailable"))
-				continue
-			var scale: float = 0.01 if rule.metric == "sonar_distance" else 1.0
-			var value: float = float(sample.value) * scale
-			var low: float = float(rule.min) * scale
-			var high: float = float(rule.max) * scale
-			var unit: String = "m" if rule.metric in ["height", "x", "sonar_distance"] else ("m/s" if rule.metric == "speed" else "")
-			var comparison: String = "%.3f %s ≥ %.3f %s" % [value, unit, low, unit] if rule.max >= 50.0 else "%.3f ≤ %.3f ≤ %.3f %s" % [low, value, high, unit]
-			lines.append(tr("%s: %s; hold %.1f / %.1f s") % [tr({"height": "Flag height", "x": "Distance driven", "sonar_distance": "Distance to wall", "speed": "Speed", "upright": "Upright", "wall_contact": "Wall contact"}.get(rule.metric, rule.metric)), comparison, float(sample.get("held_seconds", 0.0)), float(rule.hold_seconds)])
-			if index == 0 and rule.metric == "x":
-				lines.append(tr("Remaining: %.2f m") % maxf(0.0, low - value))
-	if outcome == "success":
-		lines.append(tr("Stage cleared!"))
-	elif outcome in ["not_met", "indeterminate"]:
-		lines.append(tr("Not yet"))
+	var lines: PackedStringArray = []
+	for index: int in rules.size():
+		var rule: Dictionary = rules[index]
+		var sample: Dictionary = samples[index] if index < samples.size() else {}
+		var value: Variant = sample.get("value", _assembly_value if index == 0 else null)
+		var scale: float = 0.01 if rule.metric == "sonar_distance" else 1.0
+		var unit: String = "m" if rule.metric in ["height", "x", "sonar_distance"] else ("m/s" if rule.metric == "speed" else "")
+		var metric: String = tr({"height": "Flag height", "x": "Distance driven", "sonar_distance": "Distance to wall", "speed": "Speed", "upright": "Upright", "wall_contact": "Wall contact"}.get(rule.metric, rule.metric))
+		var current: String = "%.3f %s" % [float(value) * scale, unit] if value != null else tr("Measurement unavailable")
+		var target: String = "≥ %.3f %s" % [float(rule.min) * scale, unit] if rule.max >= 50.0 else "%.3f–%.3f %s" % [float(rule.min) * scale, float(rule.max) * scale, unit]
+		lines.append(tr("%s: %s / Target: %s") % [metric, current, target])
+		lines.append(tr("Hold: %.1f / %.1f s") % [float(sample.get("held_seconds", 0.0)), float(rule.hold_seconds)])
 	label.text = "\n".join(lines)
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED:
-		if label != null:
-			label.font = SsokTheme.build().default_font
 		_refresh()

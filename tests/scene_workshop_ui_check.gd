@@ -60,7 +60,7 @@ func _run() -> void:
 		_check(not main.stage_hud.briefing.visible and not main.flag_mission.visible, level.id + " no central introduction")
 		_check(not main._ui_root.get_node("PartsLibrary").visible and not main._side_panel.visible, level.id + " ready stage opens directly on the unobstructed scene")
 		_check(main.stage_hud.chips.size() == 4 and main._guide_phase == 3, level.id + " actual ready state points to run")
-		_check(main.goal_display.label != null and not main.goal_display.label.text.is_empty(), level.id + " goal label exists in 3D")
+		_check(main.goal_display.label != null and not main.goal_display.label.text.is_empty(), level.id + " goal label exists in screen space")
 		main.stage_hud.program_requested.emit()
 		_check(main._side_panel.visible, "program overlay can open")
 		main.stage_hud.program_requested.emit()
