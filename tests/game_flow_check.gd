@@ -66,23 +66,25 @@ func _run() -> void:
 		await _finish()
 		return
 	_check(main.get_node_or_null("Floor") == null and main._level != null and main._level.name == "RaiseFlagLevel", "the stage level replaces the default floor")
-	_check(not main._ui_root.get_node("PartsLibrary").visible, "a prebuilt stage hides the parts library")
+	_check(main._ui_root.get_node("PartsLibrary").visible and main.assembly.graph.parts.is_empty(), "an empty stage opens the full parts library")
 	_check(not main.projects_button.visible and not main.motion_lab_button.visible and not main.mode_button.visible, "stage mode hides projects, AI lab and the physics toggle")
 	_check(not main.examples_menu.visible and main._starter_controls.all(func(c: Control) -> bool: return not c.visible), "stage mode hides example robots")
 	_check(not main.flag_mission.visible, "the old flag panel is replaced by the stage HUD")
-	_check(main.program_tabs.is_tab_hidden(4) and main.program_tabs.is_tab_hidden(1), "stage mode hides challenge authoring and manual control tabs")
+	_check(main.program_tabs.is_tab_hidden(4) and not main.program_tabs.is_tab_hidden(1), "stage mode keeps manual control and hides challenge authoring")
 	_check(main.program_tabs.get_current_tab_control().name == "Blocks", "the flag stage starts on blocks")
 	_check(main.stage_hud != null and not main.stage_hud.briefing.visible, "the scene opens without a central briefing")
-	_check(main.code_edit.text == StageLevels.FLAG_STARTER, "the starter program is loaded")
+	_check(main.code_edit.text.is_empty(), "the code editor starts empty")
 	await _shot("04_briefing")
 	await _frames(2)
 	_check(not main.stage_hud.briefing.visible, "the scene remains unobstructed")
-	_check(not main._ui_root.get_node("WorkspaceHeader").visible and not main._ui_root.get_node("WorkspaceFooter").visible and not main._ui_root.get_node("ViewportTools").visible, "stage focus layout hides the header, footer and edit tools")
+	_check(not main._ui_root.get_node("WorkspaceHeader").visible and not main._ui_root.get_node("WorkspaceFooter").visible and main._ui_root.get_node("ViewportTools").visible, "stage hides header and footer while retaining edit tools")
 	_check(main._side_panel.get_global_rect().position.y > main.stage_hud.goal_card.get_global_rect().end.y, "the program overlay starts below the task strip")
 	var camera_area: Rect2 = main._camera_framing_rect()
 	_check(camera_area.position.y >= main.stage_hud.goal_card.get_global_rect().end.y, "camera framing starts below the goal card")
 	await _shot("05_stage")
-	# The starter keeps the arm down: the attempt must end unmet, not wait for the time limit.
+	main._load_preset(StageLevels.starting_graph(main.session.level, StageCatalog.builtins()[0]), StageLevels.FLAG_STARTER, "")
+	await _frames(3)
+	# The deliberately incomplete learner program keeps the arm down: the attempt must end unmet, not wait for the time limit.
 	main.run_button.pressed.emit()
 	await _frames(2)
 	_check(main.run_button.text == "Reset robot", "while an attempt runs the run button resets the robot")
@@ -109,6 +111,7 @@ func _run() -> void:
 	if main != null:
 		await _frames(2)
 		await _shot("08_finish_line")
+		main._load_preset(ProjectStore.graph_from(StageCatalog.builtins()[1].author_solution), StageLevels.CAR_STARTER, "")
 		main._on_run_pressed()
 		await _wait_result(main, 15.0)
 		_check(not main.stages.evaluator.success, "the short starter drive does not reach the finish line")
@@ -130,6 +133,7 @@ func _run() -> void:
 		if main != null:
 			await _frames(2)
 			await _shot("09_wall_brake")
+			main._load_stage_solution()
 			main.code_edit.text = RobotCarPreset.BRAKE_CODE
 			main.blocks.reset_source(main.code_edit.text)
 			main._on_run_pressed()

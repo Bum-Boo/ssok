@@ -18,7 +18,7 @@ func _check(value: bool, label: String) -> void:
 func _run() -> void:
 	ServoArmPreset.build_microbit()
 	_check(Wiring.pin_map(ServoArmPreset.build()).has(9), "microbit starter does not mutate generic starter")
-	var stage: Dictionary = StageCatalog.builtins()[0]
+	var stage: Dictionary = StageDefinition.create("legacy-arm", "Legacy arm", ServoArmPreset.build_microbit(), StageCatalog.builtins()[0].author_solution.source, [StageDefinition.rule("height", "arm_link", 0.155, 100.0, 1.0)])
 	var graph: ConnectionGraph = ProjectStore.graph_from(stage.scene)
 	var duplicate: Dictionary = graph.parts[2].duplicate(true)
 	graph.parts.append(duplicate)

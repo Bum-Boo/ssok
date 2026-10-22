@@ -25,6 +25,9 @@ func _run() -> void:
 	var main: Node3D = load("res://scenes/main.tscn").instantiate()
 	main.session = {"mode": "stage", "level": StageLevels.all()[0]}
 	root.add_child(main)
+	if main.session.get("mode") == "stage":
+		var fixture: Dictionary = StageLevels.stage_definition(main.session.level)
+		main._load_preset(StageLevels.starting_graph(main.session.level, fixture), fixture.author_solution.source, "")
 	await _settle()
 	for locale: String in SsokLocale.LOCALES:
 		SsokLocale.select_locale(locale, false)

@@ -58,9 +58,11 @@ func _run() -> void:
 		root.add_child(main)
 		await _settle()
 		_check(not main.stage_hud.briefing.visible and not main.flag_mission.visible, level.id + " no central introduction")
-		_check(not main._ui_root.get_node("PartsLibrary").visible and not main._side_panel.visible, level.id + " ready stage opens directly on the unobstructed scene")
-		_check(main.stage_hud.chips.size() == 4 and main._guide_phase == 3, level.id + " actual ready state points to run")
+		_check(main._ui_root.get_node("PartsLibrary").visible and not main._side_panel.visible, level.id + " empty stage opens the parts tray")
+		_check(main.stage_hud.chips.size() == 4 and main._guide_phase == 0, level.id + " empty state points to assembly")
 		_check(main.goal_display.label != null and not main.goal_display.label.text.is_empty(), level.id + " goal label exists in screen space")
+		main._load_preset(StageLevels.starting_graph(level, StageLevels.stage_definition(level)), StageLevels.stage_definition(level).author_solution.source, "")
+		await _settle()
 		main.stage_hud.program_requested.emit()
 		_check(main._side_panel.visible, "program overlay can open")
 		main.stage_hud.program_requested.emit()
@@ -68,7 +70,7 @@ func _run() -> void:
 		main.code_edit.text = "invalid???"
 		await _settle()
 		_check(main._guide_phase == 2 and main._side_panel.visible, "invalid source reopens programming without graph edits")
-		main.code_edit.text = level.get("starter_code", "")
+		main.code_edit.text = StageLevels.stage_definition(level).author_solution.source
 		main.blocks.reset_source(main.code_edit.text)
 		await _settle()
 		main.program_tabs.current_tab = 2
