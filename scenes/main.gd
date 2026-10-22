@@ -1823,7 +1823,7 @@ func _setup_scene_ui() -> void:
 		(_ui_root.get_node(node_name) as Control).hide()
 	if stage_hud == null:
 		stage_hud = StageHud.new()
-		stage_hud.configure({"goal": "Free building: add parts from the library, wire them, then program your robot."}, false)
+		stage_hud.configure({"goal": "Build, wire and program your own robot."}, false)
 		_ui_root.add_child(stage_hud)
 		stage_hud.exit_pressed.connect(_request_exit)
 	stage_hud.goal_card.resized.connect(func() -> void: _position_scene_panels.call_deferred())

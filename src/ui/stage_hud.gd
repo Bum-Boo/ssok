@@ -32,6 +32,8 @@ var _rule: Dictionary = {}
 var chips: Array[Button] = []
 var chip_grid: GridContainer
 var help_action: Button
+var _tool_actions: Array[Button] = []
+var _current_phase: int = 0
 var run_action: Button
 
 
@@ -65,81 +67,82 @@ func _build_goal_card() -> void:
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 4)
 	goal_card.add_child(box)
-	var top := HFlowContainer.new()
+	var top := HBoxContainer.new()
 	top.add_theme_constant_override("separation", 8)
 	box.add_child(top)
-	var back: Button = SsokTheme.button("Stages" if level.has("stage_id") else "Menu", "arrow-left")
+	var back: Button = SsokTheme.button("", "arrow-left")
 	back.name = "ExitButton"
 	back.tooltip_text = "Back to the stage list"
-	back.custom_minimum_size.x = 36
 	back.pressed.connect(func() -> void: exit_pressed.emit())
 	top.add_child(back)
 	var number := Label.new()
-	number.add_theme_color_override("font_color", SsokTheme.ACCENT)
-	number.add_theme_font_size_override("font_size", SsokTheme.font_size(13))
 	number.text = "Now"
+	number.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
+	number.add_theme_color_override("font_color", SsokTheme.ACCENT)
 	top.add_child(number)
-	var title := Label.new()
-	title.text = level.get("title", "")
-	title.add_theme_font_size_override("font_size", SsokTheme.font_size(18))
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	top.add_child(title)
-	var hint_button: Button = SsokTheme.button("Hint", "sparkles")
+	var goal := Label.new()
+	goal.name = "GoalSentence"
+	goal.text = level.get("goal", "")
+	goal.tooltip_text = level.get("goal", "")
+	goal.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
+	goal.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	goal.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	top.add_child(goal)
+	var hint_button: Button = SsokTheme.button("", "sparkles")
 	hint_button.name = "HintButton"
-	hint_button.toggle_mode = true
-	hint_button.clip_text = false
-	hint_button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
-	hint_button.toggled.connect(func(show: bool) -> void: hint_label.visible = show)
+	hint_button.tooltip_text = level.get("hint", "")
 	top.add_child(hint_button)
 	for entry: Array in [["Parts library", "box", parts_requested], ["Robot program", "code-xml", program_requested], ["Help", "book-open", help_requested]]:
 		var action: Button = SsokTheme.button(entry[0], entry[1])
+		action.tooltip_text = entry[0]
+		action.set_meta("tool_label", entry[0])
 		action.pressed.connect(func() -> void: entry[2].emit())
 		if entry[0] == "Help":
 			help_action = action
+		_tool_actions.append(action)
 		top.add_child(action)
-	var goal := Label.new()
-	goal.text = level.get("goal", "")
-	goal.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(goal)
-	chip_grid = GridContainer.new()
-	chip_grid.columns = 4
-	chip_grid.add_theme_constant_override("h_separation", 12)
-	box.add_child(chip_grid)
-	for index: int in 4:
-		var column := VBoxContainer.new()
-		column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		chip_grid.add_child(column)
-		var chip: Button = SsokTheme.button(WorkshopGuide.NAMES[index])
-		chip.pressed.connect(func() -> void: phase_requested.emit(index))
-		column.add_child(chip)
-		chips.append(chip)
-		var detail := Label.new()
-		detail.text = WorkshopGuide.HINTS[index]
-		detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		detail.label_settings = SsokTheme.dim_settings()
-		column.add_child(detail)
 	run_action = MenuScreen.primary(SsokTheme.button("Run code", "play"))
 	run_action.pressed.connect(func() -> void: run_requested.emit())
 	top.add_child(run_action)
-	measure_label = Label.new()
-	measure_label.name = "Measurement"
-	measure_label.label_settings = SsokTheme.dim_settings()
-	measure_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	SsokLocale.bind(measure_label, "Press Run code to try it.")
-	box.add_child(measure_label)
+	var steps := HBoxContainer.new()
+	steps.add_theme_constant_override("separation", 12)
+	box.add_child(steps)
+	chip_grid = GridContainer.new()
+	chip_grid.columns = 4
+	chip_grid.add_theme_constant_override("h_separation", 6)
+	steps.add_child(chip_grid)
+	for index: int in 4:
+		var chip: Button = SsokTheme.button(WorkshopGuide.NAMES[index], ["box", "cpu", "code-xml", "play"][index])
+		chip.custom_minimum_size = Vector2(0, 28)
+		chip.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
+		chip.tooltip_text = WorkshopGuide.HINTS[index]
+		chip.pressed.connect(func() -> void: phase_requested.emit(index))
+		chip_grid.add_child(chip)
+		chips.append(chip)
+		for state: String in ["normal", "hover", "pressed", "focus"]:
+			var pill: StyleBoxFlat = chip.get_theme_stylebox(state).duplicate()
+			pill.content_margin_top = 3
+			pill.content_margin_bottom = 3
+			pill.set_corner_radius_all(14)
+			chip.add_theme_stylebox_override(state, pill)
+
 	hint_label = Label.new()
 	hint_label.name = "Hint"
-	hint_label.text = level.get("hint", "")
-	hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	hint_label.add_theme_color_override("font_color", SsokTheme.ACCENT)
-	hint_label.visible = false
-	box.add_child(hint_label)
+	hint_label.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
+	hint_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	hint_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	steps.add_child(hint_label)
 	problem_label = Label.new()
 	problem_label.name = "Problem"
-	problem_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	problem_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	problem_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	problem_label.add_theme_color_override("font_color", SsokTheme.ERROR)
 	problem_label.visible = false
-	box.add_child(problem_label)
+	steps.add_child(problem_label)
+	# Preserve the integration handle; observations belong beside the world anchor.
+	measure_label = Label.new()
+	measure_label.visible = false
+	add_child(measure_label)
 
 
 func _modal(node_name: String) -> Control:
@@ -201,8 +204,10 @@ func _build_result(box: VBoxContainer) -> void:
 ## Empty text hides the line. Only errors the learner can fix are shown here.
 func show_problem(text: String, arguments: Array = [], translated_arguments: Array[int] = []) -> void:
 	problem_label.visible = not text.is_empty()
+	hint_label.visible = not problem_label.visible
 	if problem_label.visible:
 		SsokLocale.bind(problem_label, text, arguments, translated_arguments)
+		problem_label.tooltip_text = problem_label.text
 
 
 func show_briefing() -> void:
@@ -210,9 +215,12 @@ func show_briefing() -> void:
 
 
 func show_workflow(state: Dictionary) -> void:
+	_current_phase = state.current
+	SsokLocale.bind(hint_label, WorkshopGuide.HINTS[_current_phase])
+	hint_label.tooltip_text = hint_label.text
 	for index: int in chips.size():
 		chips[index].auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		chips[index].text = ("✓ " if state.completed[index] else "") + ("→ " if index == state.current else "") + tr(WorkshopGuide.NAMES[index])
+		chips[index].text = tr(WorkshopGuide.NAMES[index]) + (" ✓" if state.completed[index] else " ·")
 		chips[index].add_theme_color_override("font_color", SsokTheme.ACCENT if index == state.current else SsokTheme.TEXT_DIM)
 
 
@@ -259,7 +267,8 @@ func show_measurement(value: Variant) -> void:
 
 
 func layout(area: Rect2) -> void:
-	chip_grid.columns = 2 if area.size.x < 1000.0 or SsokTheme.ui_scale >= 1.5 else 4
+	for action: Button in _tool_actions:
+		action.text = "" if area.size.x < 1300 or SsokTheme.ui_scale >= 1.5 else action.get_meta("tool_label")
 	goal_card.position = area.position
 	goal_card.size = Vector2(area.size.x, 0)
 	goal_card.reset_size()

@@ -40,6 +40,21 @@ func _run() -> void:
 		root.add_child(main)
 		await _settle()
 		_check_framing(main, level.id + " entry")
+		for locale: String in ["en", "ko", "ja", "zh_CN"]:
+			SsokLocale.select_locale(locale, false)
+			for dimensions: Vector2i in [Vector2i(1440, 900), Vector2i(1152, 648)]:
+				root.size = dimensions
+				await _settle()
+				var strip: Rect2 = main.stage_hud.goal_card.get_global_rect()
+				_check(strip.size.y <= 100, "two-row strip " + locale + str(dimensions) + " actual=" + str(strip.size))
+				for chip: Button in main.stage_hud.chips:
+					_check(chip.get_global_rect().position.y == main.stage_hud.chips[0].get_global_rect().position.y, "four chips share a row")
+				var goal: Label = main.stage_hud.find_child("GoalSentence", true, false)
+				_check(goal.get_theme_font("font").get_string_size(tr(level.goal), HORIZONTAL_ALIGNMENT_LEFT, -1, goal.get_theme_font_size("font_size")).x <= goal.size.x, "goal sentence fits without trimming " + locale)
+				var hint: Label = main.stage_hud.hint_label
+				_check(hint.get_theme_font("font").get_string_size(hint.text, HORIZONTAL_ALIGNMENT_LEFT, -1, hint.get_theme_font_size("font_size")).x <= hint.size.x, "current hint fits without trimming " + locale)
+		root.size = Vector2i(1440, 900)
+		await _settle()
 		var display: StageGoalDisplay = main.goal_display
 		_check(display.label is Label and display.get_parent() == main._ui_root, "goal is on UI layer")
 		_check(main._camera_framing_rect().encloses(display.card.get_global_rect()), "screen label fits available area")
