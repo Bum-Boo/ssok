@@ -12,6 +12,7 @@ var held: Array[float] = []
 var measurements: Array[Dictionary] = []
 var had_wall_contact: bool = false
 var _target_tokens: Dictionary = {}
+var environment_walls: Array[AABB] = []
 var _bound_graph: ConnectionGraph
 
 
@@ -65,6 +66,13 @@ func resolve_target(rule_index: int, graph: ConnectionGraph) -> Dictionary:
 	if graph == null or rule_index < 0 or rule_index >= stage.rules.size():
 		return {"error": "target_missing"}
 	var rule: Dictionary = stage.rules[rule_index]
+	if rule.metric == "max_height" and rule.part_id != "*" and int(rule.get("target_index", -1)) == -1:
+		for part: Dictionary in graph.parts:
+			if String(part.part_def.id) == rule.part_id:
+				return {"index": -1}
+		return {"error": "target_missing"}
+	if rule.part_id == "*":
+		return {"index": -1} if not _robot_indices(graph).is_empty() else {"error": "target_missing"}
 	var selected: int = int(rule.get("target_index", -1))
 	if selected >= 0:
 		if not _target_tokens.has(rule_index) or graph != _bound_graph:
@@ -120,7 +128,7 @@ func observe(run_mode: RunMode, graph: ConnectionGraph, delta: float) -> void:
 		if target.has("error"):
 			finish("indeterminate", target.error)
 			return
-		var sample: Dictionary = measurement(rule.metric, target.index, run_mode)
+		var sample: Dictionary = measurement(rule.metric, target.index, run_mode, rule.part_id)
 		if sample.has("error"):
 			finish("indeterminate", sample.error)
 			return
@@ -134,7 +142,9 @@ func observe(run_mode: RunMode, graph: ConnectionGraph, delta: float) -> void:
 		finish("success")
 
 
-func measurement(metric: String, part: int, run_mode: RunMode) -> Dictionary:
+func measurement(metric: String, part: int, run_mode: RunMode, selector: String = "*") -> Dictionary:
+	if part == -1:
+		return _whole_measurement(metric, run_mode, selector)
 	if part < 0 or part >= run_mode.bodies.size() or not is_instance_valid(run_mode.bodies[part]):
 		return {"error": "physics_unavailable"}
 	var body: RigidBody3D = run_mode.bodies[part]
@@ -170,3 +180,52 @@ func measurement(metric: String, part: int, run_mode: RunMode) -> Dictionary:
 func result() -> Dictionary:
 	return {"status": status, "reason": reason, "execution_id": execution_id, "success": success,
 		"expired": expired, "elapsed_seconds": elapsed, "measurements": measurements.duplicate(true), "wall_contact": had_wall_contact}
+
+
+## Environment graph props remain supported for imported v2 tasks. They never count as robot.
+static func _robot_indices(graph: ConnectionGraph) -> Array[int]:
+	var indices: Array[int] = []
+	for index: int in graph.parts.size():
+		if graph.parts[index].part_def.id != &"stage_wall":
+			indices.append(index)
+	return indices
+
+
+static func part_bounds(run_mode: RunMode, index: int) -> AABB:
+	var definition: PartDef = run_mode._graph.parts[index].part_def
+	return run_mode.part_global_transform(index) * definition.mesh.get_aabb()
+
+
+func _whole_measurement(metric: String, run_mode: RunMode, selector: String) -> Dictionary:
+	var indices: Array[int] = _robot_indices(run_mode._graph)
+	if selector != "*":
+		indices = indices.filter(func(index: int) -> bool: return String(run_mode._graph.parts[index].part_def.id) == selector)
+	if indices.is_empty():
+		return {"error": "target_missing"}
+	var walls: Array[AABB] = environment_walls.duplicate()
+	for index: int in run_mode._graph.parts.size():
+		if run_mode._graph.parts[index].part_def.id == &"stage_wall":
+			walls.append(part_bounds(run_mode, index))
+	var value: float = INF if metric in ["min_x", "wall_distance"] else -INF
+	for index: int in indices:
+		var body: RigidBody3D = run_mode.bodies[index]
+		var bounds: AABB = part_bounds(run_mode, index)
+		if not bounds.position.is_finite() or not bounds.size.is_finite() or not body.linear_velocity.is_finite():
+			return {"error": "nonfinite_physics"}
+		match metric:
+			"min_x": value = minf(value, bounds.position.x)
+			"max_height": value = maxf(value, bounds.end.y)
+			"robot_speed": value = maxf(value, body.linear_velocity.length())
+			"wall_distance":
+				for wall: AABB in walls:
+					var gap: Vector3 = (wall.position - bounds.end).max(bounds.position - wall.end).max(Vector3.ZERO)
+					value = minf(value, gap.length())
+			"wall_contact":
+				for contact: Node3D in body.get_colliding_bodies():
+					if contact.name.begins_with("stage_wall"):
+						had_wall_contact = true
+				value = 1.0 if had_wall_contact else 0.0
+			_: return {"error": "unknown_metric"}
+	if metric == "wall_distance" and walls.is_empty():
+		return {"error": "wall_missing"}
+	return {"value": value, "state": "valid"} if is_finite(value) else {"error": "nonfinite_physics"}

@@ -1,7 +1,7 @@
 class_name StageDefinition
 extends RefCounted
 
-const METRICS: Array[String] = ["height", "x", "sonar_distance", "speed", "upright", "wall_contact"]
+const METRICS: Array[String] = ["height", "x", "sonar_distance", "speed", "upright", "wall_contact", "min_x", "max_height", "robot_speed", "wall_distance"]
 const MAX_BYTES: int = 1048576
 
 
@@ -26,7 +26,13 @@ static func valid(value: Variant) -> bool:
 			keys.append("target_index")
 		if not rule is Dictionary or not MotionSnapshot._exact_keys(rule, keys):
 			return false
-		if rule.metric not in METRICS or not rule.part_id is String or not MotionSnapshot._catalog().has(rule.part_id):
+		if rule.metric not in METRICS or not rule.part_id is String or (rule.part_id != "*" and not MotionSnapshot._catalog().has(rule.part_id)):
+			return false
+		if rule.part_id == "*" and (value.version != 2 or rule.target_index != -1 or rule.metric not in ["min_x", "max_height", "robot_speed", "wall_distance", "wall_contact"]):
+			return false
+		if rule.metric in ["min_x", "max_height", "robot_speed", "wall_distance"] and (value.version != 2 or rule.target_index != -1):
+			return false
+		if rule.metric in ["min_x", "robot_speed", "wall_distance"] and rule.part_id != "*":
 			return false
 		if value.version == 2:
 			if not MotionSnapshot._is_integer(rule.target_index) or rule.target_index < -1:

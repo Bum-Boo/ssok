@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="1"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="Material"]
+albedo_color = Color(0.98, 0.41, 0.19, 1)
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="Flag"]
+material = SubResource("Material")
+size = Vector3(0.025, 0.02, 0.001)
+
+[sub_resource type="Resource" id="Mount"]
+script = ExtResource("2")
+id = &"mount"
+local_position = Vector3(-0.0125, -0.01, 0)
+local_normal = Vector3(0, -1, 0)
+tag = &"servo_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("1")
+id = &"flag"
+display_name = "Task flag"
+mesh = SubResource("Flag")
+ports = Array[ExtResource("2")]([SubResource("Mount")])
+mass_kg = 0.001

@@ -12,10 +12,18 @@ local_normal = Vector3(0, 0, -1)
 tag = &"arm_mount"
 accepts = Array[StringName]([&"servo_output"])
 
+[sub_resource type="Resource" id="Port_flag_mount"]
+script = ExtResource("2_lhc26")
+id = &"flag_mount"
+local_position = Vector3(0, 0.04, 0)
+local_normal = Vector3(0, 1, 0)
+tag = &"base_mount"
+accepts = Array[StringName]([&"servo_mount"])
+
 [resource]
 script = ExtResource("3_lqkd5")
 id = &"arm_link"
 display_name = "Arm Link"
 mesh = ExtResource("1_sbeuq")
-ports = Array[ExtResource("2_lhc26")]([SubResource("Port_mount_base")])
+ports = Array[ExtResource("2_lhc26")]([SubResource("Port_mount_base"), SubResource("Port_flag_mount")])
 mass_kg = 0.01
