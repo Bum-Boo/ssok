@@ -1,6 +1,7 @@
 extends SceneTree
 
 var checks: int = 0
+var _prefs: InterfacePreferences
 var failures: int = 0
 
 
@@ -33,6 +34,7 @@ func _check_framing(main: Node3D, context: String) -> void:
 
 
 func _run() -> void:
+	_prefs = root.get_node("Preferences")
 	root.size = Vector2i(1440, 900)
 	for level: Dictionary in StageLevels.all():
 		var main: Node3D = load("res://scenes/main.tscn").instantiate()
@@ -40,6 +42,19 @@ func _run() -> void:
 		root.add_child(main)
 		await _settle()
 		_check_framing(main, level.id + " entry")
+		var scene_env: Environment = main._workbench_environment
+		var sky: ProceduralSkyMaterial = scene_env.sky.sky_material
+		var ground: MeshInstance3D = main._level.get_node("Ground/WorkbenchMat")
+		var grid: MeshInstance3D = main._level.get_node("Ground/MatGrid")
+		_prefs.values.appearance = "dark"
+		_prefs.changed.emit()
+		_check(sky.sky_top_color.get_luminance() < 0.1 and sky.ground_bottom_color.get_luminance() < 0.1, "dark scene background switches immediately")
+		_check(ground.material_override.albedo_color.get_luminance() < 0.3 and grid.material_override.albedo_color.get_luminance() < 0.4, "dark mat and grid switch immediately")
+		_check(scene_env.fog_light_color.get_luminance() < 0.2, "dark fog color switches immediately")
+		_prefs.values.appearance = "light"
+		_prefs.changed.emit()
+		_check(sky.sky_top_color == Color(0.78, 0.88, 0.91) and ground.material_override.albedo_color == Color("c2d8cd"), "light background and mat retain original colors")
+
 		for locale: String in ["en", "ko", "ja", "zh_CN"]:
 			SsokLocale.select_locale(locale, false)
 			for dimensions: Vector2i in [Vector2i(1440, 900), Vector2i(1152, 648)]:

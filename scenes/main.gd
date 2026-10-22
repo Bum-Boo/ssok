@@ -86,6 +86,7 @@ var _replace_dialog: ConfirmationDialog
 ## Empty keeps the full legacy workshop that tests and older entry points use.
 var session: Dictionary = {}
 var stage_hud: StageHud
+var _workbench_environment: Environment
 var _auto_frame: bool = true
 var _framing_dirty: bool = true
 var _framing_area: Rect2
@@ -1327,6 +1328,7 @@ func _apply_preferences() -> void:
 		return
 	SsokTheme.remember(self)
 	SsokTheme.configure(dark, Preferences.values.text_scale, Preferences.values.code_scale)
+	_apply_scene_appearance()
 	_ui_root.theme.merge_with(SsokTheme.build())
 	SsokTheme.adapt(self)
 	_guide_dirty = true
@@ -1547,8 +1549,16 @@ func _notification(what: int) -> void:
 		_adapt_layout.call_deferred()
 
 
+func _apply_scene_appearance() -> void:
+	var dark: bool = Preferences.dark_appearance()
+	WorkbenchSurface.apply_theme(self, dark)
+	if _workbench_environment != null:
+		WorkbenchSurface.apply_environment(_workbench_environment, dark)
+
+
 func _dress_scene() -> void:
 	var env := Environment.new()
+	_workbench_environment = env
 	var sky_material := ProceduralSkyMaterial.new()
 	sky_material.sky_top_color = Color(0.78, 0.88, 0.91)
 	sky_material.sky_horizon_color = Color(0.84, 0.89, 0.95)
@@ -1570,6 +1580,7 @@ func _dress_scene() -> void:
 	floor_material.roughness = 0.9
 	floor_mesh.material_override = floor_material
 	WorkbenchSurface.decorate(floor_mesh)
+	_apply_scene_appearance()
 
 
 ## Batch the per-hole hints so a kit with hundreds of attachment points stays usable.
@@ -1679,6 +1690,7 @@ func _install_level(path: String) -> void:
 	add_child(_level)
 	var ground: MeshInstance3D = _level.get_node("Ground/Mesh")
 	WorkbenchSurface.decorate(ground)
+	_apply_scene_appearance()
 
 
 func _enter_stage(level: Dictionary) -> void:

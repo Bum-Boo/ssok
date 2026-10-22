@@ -35,3 +35,20 @@ static func decorate(ground: MeshInstance3D) -> void:
 	ink.albedo_color = Color("9ab9ac")
 	lines.material_override = ink
 	ground.get_parent().add_child(lines)
+
+
+static func apply_theme(root: Node, dark: bool) -> void:
+	for visual: MeshInstance3D in root.find_children("*", "MeshInstance3D", true, false):
+		if visual.name == "WorkbenchMat":
+			visual.material_override.albedo_color = Color("293e3b" if dark else "c2d8cd")
+		elif visual.name == "MatGrid":
+			visual.material_override.albedo_color = Color("48625c" if dark else "9ab9ac")
+
+
+static func apply_environment(env: Environment, dark: bool) -> void:
+	var sky: ProceduralSkyMaterial = env.sky.sky_material
+	sky.sky_top_color = Color("101923") if dark else Color(0.78, 0.88, 0.91)
+	sky.sky_horizon_color = Color("253341") if dark else Color(0.84, 0.89, 0.95)
+	sky.ground_horizon_color = sky.sky_horizon_color
+	sky.ground_bottom_color = Color("101818") if dark else Color(0.78, 0.84, 0.84)
+	env.fog_light_color = Color("253341") if dark else Color(0.84, 0.89, 0.95)

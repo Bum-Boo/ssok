@@ -1,6 +1,6 @@
 # 0026 — Local interface preferences without rebuilding learner work
 
-- Status: accepted; partially superseded by [0030](0030-scene-first-workshop-guidance.md)
+- Status: accepted; partially superseded by [0030](0030-scene-first-workshop-guidance.md) and [0031](0031-workshop-presentation-corrections.md)
 - Date: 2026-09-30
 - Implements: issue #38 and the owner's instruction to implement the settings/theme/locale audit recommendations.
 - Extends: 0007 (input ownership), 0016 (native/browser behavior), 0023 (bounded running VM). No engine, physics, graph or board decisions change.
@@ -8,6 +8,9 @@
 > The system-appearance default is superseded by [0030](0030-scene-first-workshop-guidance.md)
 > (2026-10-22): new preferences default to light. Storage, explicit system/light/dark choices,
 > draft/execution preservation and all other decisions remain accepted.
+
+> [0031](0031-workshop-presentation-corrections.md) (2026-10-22) supersedes only the exclusion
+> of decorative workbench materials from theme changes. Learner part materials and physics stay unchanged.
 
 ## Decision
 
