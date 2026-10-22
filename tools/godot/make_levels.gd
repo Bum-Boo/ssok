@@ -153,12 +153,15 @@ func _raise_flag() -> StageLevel:
 	return root
 
 
-func _road(root: StageLevel, to_x: float) -> void:
+func _road(root: StageLevel, to_x: float, sparse_cones: bool = false) -> void:
 	var props: Node = root.get_node("Props")
 	_paint(props, "Road", -0.35, to_x, 0.16, Color(0.24, 0.26, 0.29))
 	for x: float in range(-30, int(to_x * 100.0), 12):
 		_paint(props, "Lane%d" % x, x * 0.01, x * 0.01 + 0.05, 0.004, Color(0.95, 0.85, 0.4), 1)
 	for index: int in int((to_x + 0.3) / 0.15) + 1:
+		# Keep every other pair, including the pair nearest the finish threshold.
+		if sparse_cones and index % 2 == 0:
+			continue
 		var x: float = -0.3 + 0.15 * index
 		_cone(props, "ConeLeft%d" % index, Vector2(x, -0.2))
 		_cone(props, "ConeRight%d" % index, Vector2(x, 0.2))
@@ -167,7 +170,7 @@ func _road(root: StageLevel, to_x: float) -> void:
 
 func _finish_line() -> StageLevel:
 	var root: StageLevel = _level("FinishLineLevel", Color(0.42, 0.5, 0.4), AABB(Vector3(-0.15, FLOOR_TOP, -0.2), Vector3(0.8, 0.2, 0.4)), -35.0, 32.0)
-	_road(root, 0.9)
+	_road(root, 0.9, true)
 	var markers: Node = root.get_node("Markers")
 	# Checkered finish centered on the rule threshold x = 0.5 (chassis origin).
 	for column: int in 2:

@@ -491,11 +491,13 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_h8al7")
 
 [node name="ConeLeft0" type="MeshInstance3D" parent="Props" unique_id=1655613396]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.0675, -0.2)
 material_override = SubResource("StandardMaterial3D_xoqsb")
 mesh = SubResource("CylinderMesh_kd57r")
 
 [node name="ConeRight0" type="MeshInstance3D" parent="Props" unique_id=389249704]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.0675, 0.2)
 material_override = SubResource("StandardMaterial3D_t6x26")
 mesh = SubResource("CylinderMesh_mk7o1")
@@ -511,11 +513,13 @@ material_override = SubResource("StandardMaterial3D_1h22s")
 mesh = SubResource("CylinderMesh_7787r")
 
 [node name="ConeLeft2" type="MeshInstance3D" parent="Props" unique_id=779286676]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0675, -0.2)
 material_override = SubResource("StandardMaterial3D_xmacd")
 mesh = SubResource("CylinderMesh_6s4kj")
 
 [node name="ConeRight2" type="MeshInstance3D" parent="Props" unique_id=141934762]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0675, 0.2)
 material_override = SubResource("StandardMaterial3D_drd1j")
 mesh = SubResource("CylinderMesh_h5h3r")
@@ -531,11 +535,13 @@ material_override = SubResource("StandardMaterial3D_nlkwj")
 mesh = SubResource("CylinderMesh_k0wqf")
 
 [node name="ConeLeft4" type="MeshInstance3D" parent="Props" unique_id=1049839974]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.0675, -0.2)
 material_override = SubResource("StandardMaterial3D_508rk")
 mesh = SubResource("CylinderMesh_3hjh8")
 
 [node name="ConeRight4" type="MeshInstance3D" parent="Props" unique_id=1857362308]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.0675, 0.2)
 material_override = SubResource("StandardMaterial3D_t0nen")
 mesh = SubResource("CylinderMesh_4a0b8")
@@ -551,11 +557,13 @@ material_override = SubResource("StandardMaterial3D_6j1bl")
 mesh = SubResource("CylinderMesh_yks3k")
 
 [node name="ConeLeft6" type="MeshInstance3D" parent="Props" unique_id=1211669978]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.0675, -0.2)
 material_override = SubResource("StandardMaterial3D_62c5a")
 mesh = SubResource("CylinderMesh_d78dk")
 
 [node name="ConeRight6" type="MeshInstance3D" parent="Props" unique_id=2076949032]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.0675, 0.2)
 material_override = SubResource("StandardMaterial3D_qr035")
 mesh = SubResource("CylinderMesh_prx40")
@@ -571,11 +579,13 @@ material_override = SubResource("StandardMaterial3D_hms7s")
 mesh = SubResource("CylinderMesh_u5j62")
 
 [node name="ConeLeft8" type="MeshInstance3D" parent="Props" unique_id=608768716]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.0675, -0.2)
 material_override = SubResource("StandardMaterial3D_13l1f")
 mesh = SubResource("CylinderMesh_tslel")
 
 [node name="ConeRight8" type="MeshInstance3D" parent="Props" unique_id=433686149]
+visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.0675, 0.2)
 material_override = SubResource("StandardMaterial3D_fi0jm")
 mesh = SubResource("CylinderMesh_cgqu1")
