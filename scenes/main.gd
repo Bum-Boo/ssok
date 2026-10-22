@@ -1901,6 +1901,7 @@ func _refresh_guide() -> void:
 	var state: Dictionary = WorkshopGuide.snapshot(assembly.graph, source, runtime, mode_button.button_pressed)
 	stage_hud.show_workflow(state)
 	stage_hud.run_action.text = "Reset robot" if mode_button.button_pressed else "Run"
+	stage_hud.run_action.tooltip_text = stage_hud.run_action.text
 	if state.current != _guide_phase:
 		_guide_phase = state.current
 		_open_guide_phase(_guide_phase)

@@ -2,6 +2,8 @@ extends SceneTree
 
 var checks: int = 0
 var failures: int = 0
+var _default_strip_max: float = 0
+var _min_block_viewport: float = INF
 
 
 func _initialize() -> void:
@@ -49,6 +51,8 @@ func _run() -> void:
 					var context: String = mode + str(level.get("id", "")) + locale + str(scale)
 					var hud: StageHud = main.stage_hud
 					var strip: Rect2 = hud.goal_card.get_global_rect()
+					if scale == 1.0:
+						_default_strip_max = maxf(_default_strip_max, strip.size.y)
 					_check(Rect2(Vector2.ZERO, root.size).encloses(strip), context + " strip inside viewport " + str(strip))
 					_check(strip.size.y <= (96 if scale == 1.0 else 96 * scale), context + " bounded two rows " + str(strip))
 					for row: Container in [hud._top, hud.chip_grid]:
@@ -79,6 +83,7 @@ func _run() -> void:
 					main._toggle_overlay(main._side_panel)
 					main.program_tabs.current_tab = 2
 					await _settle()
+					_min_block_viewport = minf(_min_block_viewport, main.blocks.scroll.size.y)
 					_check(main.blocks.scroll.size.y >= 80, context + " block input viewport visible " + str(main.blocks.scroll.size))
 					main._side_panel.hide()
 					# Restore full labels after compacting and a dynamic language change.
@@ -88,5 +93,6 @@ func _run() -> void:
 					await _settle()
 			main.free()
 			await _settle()
+	print("compact geometry: default strip max=%.0f px; block input viewport min=%.0f px" % [_default_strip_max, _min_block_viewport])
 	print("workshop_compact_check: %d checks, %d failures" % [checks, failures])
 	quit(1 if failures else 0)

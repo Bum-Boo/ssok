@@ -52,6 +52,8 @@ func _run() -> void:
 	main.stage_hud.run_action.pressed.emit()
 	await _settle()
 	_check(main.mode_button.button_pressed and tr(main.stage_hud.run_action.text) == tr("Reset robot"), "running action becomes Reset robot")
+	_check(main.stage_hud.hint_label.text == tr("Challenge running. Watching the real robot."), "running guide observes instead of asking for the replaced Run action")
+	_check(tr(main.stage_hud.run_action.tooltip_text) == tr("Reset robot"), "running tooltip matches visible action")
 	main.stage_hud.run_action.pressed.emit()
 	await _settle()
 	_check(not main.mode_button.button_pressed and tr(main.stage_hud.run_action.text) == tr("Run"), "reset restores Run label")

@@ -237,12 +237,14 @@ func show_briefing() -> void:
 func show_workflow(state: Dictionary) -> void:
 	_current_phase = state.current
 	_completed = state.completed
-	SsokLocale.bind(hint_label, WorkshopGuide.HINTS[_current_phase])
+	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else WorkshopGuide.HINTS[_current_phase]
+	SsokLocale.bind(hint_label, instruction)
 	hint_label.tooltip_text = hint_label.text
 	for index: int in chips.size():
 		chips[index].auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		chips[index].text = ("" if _compact_chips else tr(WorkshopGuide.NAMES[index]) + " ") + ("✓" if state.completed[index] else "·")
-		chips[index].tooltip_text = tr(WorkshopGuide.NAMES[index]) + ": " + tr(WorkshopGuide.HINTS[index])
+		var chip_hint: String = instruction if index == _current_phase else WorkshopGuide.HINTS[index]
+		chips[index].tooltip_text = tr(WorkshopGuide.NAMES[index]) + ": " + tr(chip_hint)
 		chips[index].add_theme_color_override("font_color", SsokTheme.ACCENT if index == state.current else SsokTheme.TEXT_DIM)
 	if _layout_area.size.x > 0:
 		layout.call_deferred(_layout_area)
