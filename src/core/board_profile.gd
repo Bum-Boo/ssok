@@ -16,6 +16,8 @@ const GENERIC_API: Array[Dictionary] = [
 
 
 const LEARNING_API: Array[Dictionary] = [
+	{"id": "button", "label": "Connect contact button", "arguments": [{"name": "name", "type": "identifier", "default": "button"}, {"name": "pin", "type": "integer", "default": 1, "min": 0, "max": 255}]},
+	{"id": "button_pressed", "label": "Read button contact", "arguments": [{"name": "variable", "type": "identifier", "default": "pressed"}, {"name": "name", "type": "identifier", "default": "button"}]},
 	{"id": "line_sensor", "label": "Connect line sensor", "arguments": [{"name": "name", "type": "identifier", "default": "line"}, {"name": "pin", "type": "integer", "default": 1, "min": 0, "max": 255}]},
 	{"id": "line_value", "label": "Read reflected light", "arguments": [{"name": "variable", "type": "identifier", "default": "light"}, {"name": "name", "type": "identifier", "default": "line"}]},
 	{"id": "line_dark", "label": "Detect dark line", "arguments": [{"name": "variable", "type": "identifier", "default": "dark"}, {"name": "name", "type": "identifier", "default": "line"}]},

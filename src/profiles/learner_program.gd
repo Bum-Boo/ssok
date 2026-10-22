@@ -4,8 +4,8 @@ extends RefCounted
 const MAX_DEPTH: int = 32
 const MAX_EXPRESSION_TOKENS: int = 256
 const PRECEDENCE: Dictionary = {"or": 1, "and": 2, "==": 3, "!=": 3, "<": 3, "<=": 3, ">": 3, ">=": 3, "+": 4, "-": 4, "*": 5, "/": 5, "//": 5, "%": 5}
-const FUNCTIONS: Dictionary = {"Servo": [1, 1], "Motor": [1, 2], "Sonar": [2, 2], "LineSensor": [1, 1], "sleep": [1, 1], "running_time": [0, 0], "motor_on": [3, 3], "stop": [0, 0], "machine.time_pulse_us": [2, 3]}
-const METHODS: Dictionary = {"write": [1, 1], "write_relative": [1, 1], "motor_on": [2, 2], "forward": [1, 1], "backward": [1, 1], "stop": [0, 1], "distance_cm": [0, 0], "distance": [0, 0], "value": [0, 0], "is_dark": [0, 0]}
+const FUNCTIONS: Dictionary = {"Servo": [1, 1], "Motor": [1, 2], "Sonar": [2, 2], "LineSensor": [1, 1], "Button": [1, 1], "sleep": [1, 1], "running_time": [0, 0], "motor_on": [3, 3], "stop": [0, 0], "machine.time_pulse_us": [2, 3]}
+const METHODS: Dictionary = {"write": [1, 1], "write_relative": [1, 1], "motor_on": [2, 2], "forward": [1, 1], "backward": [1, 1], "stop": [0, 1], "distance_cm": [0, 0], "distance": [0, 0], "value": [0, 0], "is_dark": [0, 0], "is_pressed": [0, 0]}
 var error: Dictionary = {}
 var ast: Array[Dictionary] = []
 var bytecode: Array[Dictionary] = []
@@ -120,7 +120,7 @@ func _block(indent: int, depth: int) -> Array[Dictionary]:
 					_fail(row.line, 1, "Choose another variable name.")
 				_names[name] = true
 				nodes.append({"op": "assign", "name": name, "value": value, "line": row.line})
-				if value.get("kind") == "call" and value.name in ["Servo", "Motor", "Sonar", "LineSensor"]:
+				if value.get("kind") == "call" and value.name in ["Servo", "Motor", "Sonar", "LineSensor", "Button"]:
 					bindings.append({"name": name, "kind": value.name, "args": value.args, "line": row.line})
 			elif value.get("kind") == "call":
 				nodes.append({"op": "call", "value": value, "line": row.line})

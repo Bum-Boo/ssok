@@ -14,6 +14,7 @@ var motors: Dictionary = {}
 var sonars: Dictionary = {}
 var gears: Dictionary = {}
 var line_sensors: Dictionary = {}
+var buttons: Dictionary = {}
 var _part_visuals: Dictionary = {}
 var _graph: ConnectionGraph
 var _body_offsets: Array[Transform3D] = []
@@ -56,6 +57,12 @@ func build(graph: ConnectionGraph) -> void:
 	for i: int in graph.parts.size():
 		if graph.parts[i].part_def.gear_ratio > 0.0:
 			_make_gear(i)
+		if graph.parts[i].part_def.device_kind == "Button":
+			var button := ContactButton.new()
+			button.run_mode = self
+			button.part_index = i
+			add_child(button)
+			buttons[i] = button
 	for link: Dictionary in graph.links:
 		_make_joint(link)
 
@@ -70,6 +77,7 @@ func teardown() -> void:
 	sonars.clear()
 	gears.clear()
 	line_sensors.clear()
+	buttons.clear()
 	_part_visuals.clear()
 	_body_offsets.clear()
 	_graph = null
@@ -219,6 +227,7 @@ func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transfor
 		box.size = bounds.size.max(Vector3.ONE * 0.0001)
 		shape.shape = box
 		shape.transform = offset * Transform3D(Basis.IDENTITY, bounds.get_center())
+		shape.set_meta("button_surface", part if definition.device_kind == "Button" and bounds.get_center().z > 0.009 else -1)
 		body.add_child(shape)
 
 
@@ -321,6 +330,8 @@ func device(kind: String, args: Array) -> Variant:
 		return servo_on_pin(int(args[0]))
 	if kind == "Motor":
 		return motor_on_pins(int(args[0]), int(args[1])) if args.size() == 2 else motor_on_pin(int(args[0]))
+	if kind == "Button":
+		return buttons.get(single_signal_part(int(args[0]), "Button"))
 	if kind == "LineSensor":
 		return line_on_pin(int(args[0]))
 	if kind == "Sonar":

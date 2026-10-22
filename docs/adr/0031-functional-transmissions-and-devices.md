@@ -33,3 +33,10 @@ through the existing anchored_part_ids path. No runtime pins are hard-coded.
 The current UI category selector is a fixed list in scenes/main.gd. Catalog `categories.environment`
 and prefixed translated names describe workbench objects, but metadata cannot create a selector
 entry. That UI follow-up stays with the separate owner under the user's file boundary.
+
+Button observes solver contact indices on its own front plunger collision shape. A merged
+chassis's wheel/floor contacts cannot press it. `is_pressed()` reflects that contact; the runtime
+also exposes `held_seconds` for continuous-press observations, resetting on separation. It adds
+no motor or invented electrical pin. The single signal uses the existing digital_io port contract.
+The contact switch has a 50 ms release debounce for solver chatter. A sustained separation
+clears both state and held time; a one-tick contact omission does not simulate a release.

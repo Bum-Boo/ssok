@@ -17,3 +17,6 @@ Commands use `XDG_DATA_HOME=/tmp/ssok-b2-data`, `XDG_CONFIG_HOME=/tmp/ssok-b2-co
 - Line sensor: [actual readings and trajectory](line.txt), 13/0. Sensor code drives real
   differential wheel physics through a bend; 33/81 samples detected the line across the route.
   First attempts failed from inadequate steering, short run observation and paint/caster collision.
+- Contact button: [wall/hold/release output](button.txt), 11/0. A moving graph-derived car
+  stops on front-shape contact, holds for 2.0333 seconds, then releases on reverse. A 50 ms
+  release debounce filters solver chatter; first strict contact-duration tests failed before it.

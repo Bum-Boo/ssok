@@ -16,7 +16,7 @@ ssok/
     blocks/  (1 GDScript files)
     core/  (11 GDScript files)
     profiles/  (1 GDScript files)
-    runtime/  (24 GDScript files)
+    runtime/  (25 GDScript files)
     screens/  (5 GDScript files)
     ui/  (18 GDScript files)
   presets/
@@ -100,6 +100,7 @@ ssok/
 | [src/runtime/agent_desktop_bridge.gd](../../src/runtime/agent_desktop_bridge.gd) | AgentDesktopBridge |
 | [src/runtime/agent_goal_inbox.gd](../../src/runtime/agent_goal_inbox.gd) | AgentGoalInbox |
 | [src/runtime/bundled_biped_motion.gd](../../src/runtime/bundled_biped_motion.gd) | BundledBipedMotion |
+| [src/runtime/contact_button.gd](../../src/runtime/contact_button.gd) | ContactButton |
 | [src/runtime/drive_motor.gd](../../src/runtime/drive_motor.gd) | DriveMotor |
 | [src/runtime/gear_constraint.gd](../../src/runtime/gear_constraint.gd) | GearConstraint |
 | [src/runtime/kit_humanoid_motion.gd](../../src/runtime/kit_humanoid_motion.gd) | KitHumanoidMotion |
