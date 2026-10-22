@@ -16,7 +16,6 @@ var outcome: String = "idle"
 var camera: Camera3D
 var area_provider: Callable
 var _appearance: String = ""
-var _assembly_value: Variant = null
 var _summary: String = ""
 var _published_summary: String = ""
 var _published_detail: String = ""
@@ -107,21 +106,6 @@ func show_samples(values: Array[Dictionary], status: String) -> void:
 	_refresh()
 
 
-func show_assembly(graph: ConnectionGraph) -> void:
-	var value: Variant = null
-	if not rules.is_empty() and rules[0].metric in ["height", "x"]:
-		var matches: Array[Dictionary] = []
-		for part: Dictionary in graph.parts:
-			if String(part.part_def.id) == rules[0].part_id:
-				matches.append(part)
-		if matches.size() == 1:
-			var pose: Transform3D = matches[0].transform
-			value = (pose * Vector3(0, matches[0].part_def.mesh.get_aabb().end.y, 0)).y if rules[0].metric == "height" else pose.origin.x
-	if value != _assembly_value:
-		_assembly_value = value
-		_refresh()
-
-
 func _refresh() -> void:
 	if label == null:
 		return
@@ -129,16 +113,20 @@ func _refresh() -> void:
 	for index: int in rules.size():
 		var rule: Dictionary = rules[index]
 		var sample: Dictionary = samples[index] if index < samples.size() else {}
-		var value: Variant = sample.get("value", _assembly_value if index == 0 else null)
+		var value: Variant = sample.get("value", null)
 		var scale: float = 0.01 if rule.metric == "sonar_distance" else 1.0
 		var unit: String = "m" if rule.metric in ["height", "x", "sonar_distance"] else ("m/s" if rule.metric == "speed" else "")
 		var metric: String = tr({"height": "Flag height", "x": "Distance driven", "sonar_distance": "Distance to wall", "speed": "Speed", "upright": "Upright", "wall_contact": "Wall contact"}.get(rule.metric, rule.metric))
 		var current: String = "%.3f %s" % [float(value) * scale, unit] if value != null else tr("Measurement unavailable")
 		var target: String = "≥ %.3f %s" % [float(rule.min) * scale, unit] if rule.max >= 50.0 else "%.3f–%.3f %s" % [float(rule.min) * scale, float(rule.max) * scale, unit]
-		lines.append(tr("%s: %s / Target: %s") % [metric, current, target])
+		var observed: String = tr("%s: %s / Target: %s") % [metric, current, target]
 		if index == 0:
-			_summary = lines[-1]
-		lines.append(tr("Hold: %.1f / %.1f s") % [float(sample.get("held_seconds", 0.0)), float(rule.hold_seconds)])
+			_summary = observed
+		if sample.is_empty():
+			lines.append(tr("Target: %s (%s)") % [target, metric])
+		else:
+			lines.append(observed)
+			lines.append(tr("Hold: %.1f / %.1f s") % [float(sample.get("held_seconds", 0.0)), float(rule.hold_seconds)])
 	label.text = "\n".join(lines)
 
 

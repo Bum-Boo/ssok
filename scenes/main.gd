@@ -288,8 +288,6 @@ func _process(_delta: float) -> void:
 		var observed: Array[Dictionary] = []
 		if run_mode.is_built():
 			observed = stages.evaluator.measurements
-		else:
-			goal_display.show_assembly(assembly.graph)
 		goal_display.show_samples(observed, stages.evaluator.status if run_mode.is_built() else "idle")
 	if stage_hud != null and run_mode.is_built() and not stages.evaluator.measurements.is_empty():
 		stage_hud.show_measurement(stages.evaluator.measurements[0].value)
