@@ -39,6 +39,8 @@ func _space(main: Node3D, context: String) -> void:
 	else:
 		_check(hud.hint_label.visible and not hud.hint_label.text.is_empty(), context + " fallback remains visible")
 		_check(hud.hint_label.text == display._summary, context + " primary rule current / target summary")
+		var summary_width: float = hud.hint_label.get_theme_font("font").get_string_size(hud.hint_label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, hud.hint_label.get_theme_font_size("font_size")).x
+		_check(summary_width <= hud.hint_label.size.x + 1, context + " full fallback width " + str(summary_width) + " available=" + str(hud.hint_label.size.x))
 		_check(hud.hint_label.get_line_count() == 1, context + " one fallback line")
 		_check(hud.hint_label.tooltip_text == display.label.text, context + " all rule details in tooltip")
 		_check(hud.hint_label.size.x >= 100 and hud.goal_card.get_global_rect().encloses(hud.hint_label.get_global_rect()), context + " fallback inside strip with readable width")

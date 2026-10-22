@@ -32,6 +32,9 @@ func _space(main: Node3D, context: String) -> void:
 		_check(main.stage_hud._goal_summary.is_empty(), context + " no duplicate summary")
 	else:
 		_check(main.stage_hud.hint_label.visible and main.stage_hud.hint_label.text == display._summary, context + " observation-specific fallback")
+		var hint: Label = main.stage_hud.hint_label
+		var width: float = hint.get_theme_font("font").get_string_size(hint.text, HORIZONTAL_ALIGNMENT_LEFT, -1, hint.get_theme_font_size("font_size")).x
+		_check(width <= hint.size.x + 1, context + " full current/target summary visible")
 		_check(main.stage_hud.hint_label.get_line_count() == 1, context + " observed fallback remains one line")
 
 

@@ -121,7 +121,7 @@ func _refresh() -> void:
 		var target: String = "≥ %.3f %s" % [float(rule.min) * scale, unit] if rule.max >= 50.0 else "%.3f–%.3f %s" % [float(rule.min) * scale, float(rule.max) * scale, unit]
 		var observed: String = tr("%s: %s / Target: %s") % [metric, current, target]
 		if index == 0:
-			_summary = observed
+			_summary = tr("%s / Target: %s") % [current, target]
 		if sample.is_empty():
 			lines.append(tr("Target: %s (%s)") % [target, metric])
 		else:
