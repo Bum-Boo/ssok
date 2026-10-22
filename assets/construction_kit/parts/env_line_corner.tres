@@ -13,3 +13,4 @@ mass_kg = 0.01
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.02, -0.0005, -0.1, 0.04, 0.001, 0.112), AABB(-0.012000002, -0.0005, -0.02, 0.112, 0.001, 0.04)])
 surface_marker = true
+collision_points = PackedVector3Array()

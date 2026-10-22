@@ -22,3 +22,7 @@ Commands use `XDG_DATA_HOME=/tmp/ssok-b2-data`, `XDG_CONFIG_HOME=/tmp/ssok-b2-co
   release debounce filters solver chatter; first strict contact-duration tests failed before it.
 - LED: [material/state/Stop output](led.txt), 19/0. Emission parameters were inspected on the
   actual runtime material; rendered glow and clipping remain unverified in the headless environment.
+- Environment: [physical slopes and ball/cup output](environment.txt), 14/0. Maximum chassis
+  height: 10° 0.08335 m; 20° with 90 mm wheels 0.18736 m. A sideways cup receives and retains a
+  pushed ball (count 1). First fixtures failed at the steeper ramp and the cup's entrance lip;
+  a larger wheel and higher learner power were used, without changing common physics values.

@@ -15533,6 +15533,363 @@
         }
       ],
       "device_kind": "LED"
+    },
+    {
+      "id": "env_ramp_10",
+      "name": "Environment: ramp 10°",
+      "kind": "environment",
+      "material": "ChassisMetal",
+      "mass_kg": 0.4,
+      "size": [
+        0.24,
+        0.07053079228338599,
+        0.4
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/env_ramp_10.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "wedge",
+            "size": [
+              0.24,
+              0.07053079228338599,
+              0.4
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "material": "chassis_metal"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [],
+      "collision_boxes": [],
+      "collision_points": [
+        [
+          -0.12,
+          0,
+          -0.2
+        ],
+        [
+          0.12,
+          0,
+          -0.2
+        ],
+        [
+          -0.12,
+          0,
+          0.2
+        ],
+        [
+          0.12,
+          0,
+          0.2
+        ],
+        [
+          -0.12,
+          0.07053079228338599,
+          0.2
+        ],
+        [
+          0.12,
+          0.07053079228338599,
+          0.2
+        ]
+      ],
+      "environment_role": "ramp",
+      "anchored": true
+    },
+    {
+      "id": "env_ramp_20",
+      "name": "Environment: ramp 20°",
+      "kind": "environment",
+      "material": "ChassisMetal",
+      "mass_kg": 0.4,
+      "size": [
+        0.24,
+        0.14558809370648093,
+        0.4
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/env_ramp_20.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "wedge",
+            "size": [
+              0.24,
+              0.14558809370648093,
+              0.4
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "material": "chassis_metal"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [],
+      "collision_boxes": [],
+      "collision_points": [
+        [
+          -0.12,
+          0,
+          -0.2
+        ],
+        [
+          0.12,
+          0,
+          -0.2
+        ],
+        [
+          -0.12,
+          0,
+          0.2
+        ],
+        [
+          0.12,
+          0,
+          0.2
+        ],
+        [
+          -0.12,
+          0.14558809370648093,
+          0.2
+        ],
+        [
+          0.12,
+          0.14558809370648093,
+          0.2
+        ]
+      ],
+      "environment_role": "ramp",
+      "anchored": true
+    },
+    {
+      "id": "env_ball",
+      "name": "Environment: ball 40 mm",
+      "kind": "environment",
+      "material": "ChassisMetal",
+      "mass_kg": 0.025,
+      "size": [
+        0.04,
+        0.04,
+        0.04
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/env_ball.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "sphere",
+            "radius": 0.02,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "material": "detail_teal"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [],
+      "collision_boxes": [],
+      "sphere_radius": 0.02,
+      "environment_role": "object"
+    },
+    {
+      "id": "env_cup",
+      "name": "Environment: cup",
+      "kind": "environment",
+      "material": "ChassisMetal",
+      "mass_kg": 0.2,
+      "size": [
+        0.168,
+        0.164,
+        0.168
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/env_cup.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.168,
+              0.004,
+              0.168
+            ],
+            "position": [
+              0,
+              0.002,
+              0
+            ],
+            "material": "chassis_metal"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.16,
+              0.168
+            ],
+            "position": [
+              -0.082,
+              0.084,
+              0
+            ],
+            "material": "chassis_metal"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.16,
+              0.168
+            ],
+            "position": [
+              0.082,
+              0.084,
+              0
+            ],
+            "material": "chassis_metal"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.16,
+              0.16,
+              0.004
+            ],
+            "position": [
+              0,
+              0.084,
+              -0.082
+            ],
+            "material": "chassis_metal"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.16,
+              0.16,
+              0.004
+            ],
+            "position": [
+              0,
+              0.084,
+              0.082
+            ],
+            "material": "chassis_metal"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [],
+      "collision_boxes": [
+        {
+          "size": [
+            0.168,
+            0.004,
+            0.168
+          ],
+          "position": [
+            0,
+            0.002,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.16,
+            0.168
+          ],
+          "position": [
+            -0.082,
+            0.084,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.16,
+            0.168
+          ],
+          "position": [
+            0.082,
+            0.084,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.16,
+            0.16,
+            0.004
+          ],
+          "position": [
+            0,
+            0.084,
+            -0.082
+          ]
+        },
+        {
+          "size": [
+            0.16,
+            0.16,
+            0.004
+          ],
+          "position": [
+            0,
+            0.084,
+            0.082
+          ]
+        }
+      ],
+      "environment_role": "cup",
+      "cup_inner_bounds": {
+        "position": [
+          -0.08,
+          0.004,
+          -0.08
+        ],
+        "size": [
+          0.16,
+          0.16,
+          0.16
+        ]
+      },
+      "anchored": true
     }
   ],
   "categories": {

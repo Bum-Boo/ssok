@@ -46,3 +46,15 @@ change a per-instance copy of the emitter surface material; the shared part reso
 LEDs stay unchanged. MiniRuntime maps learner `set` to the bounded brightness method rather than
 Object.set. Stop, execution failure and global stop turn LEDs off through the existing stop path.
 GL Compatibility shows emissive material color/energy; this does not claim dynamic light or bloom.
+
+Environment ramps use convex wedges at 10°/20°, balls use sphere collisions, and cups use five
+separate walls/base boxes with an open mouth. Ramps/cups join anchored_part_ids; balls stay free.
+`RunMode.cup_object_count()` counts unique movable solver bodies wholly inside any cup's local
+interior, irrespective of object SKU and cup orientation. Sphere extents are analytic rather than
+rotated AABB corners. Other parts use conservative transformed mesh bounds; merged parts must
+all fit. The existing allowed solver penetration (1 mm in this project) is the containment tolerance.
+This is a runtime observation for later stage integration, not a new StageEvaluator metric.
+
+The 20° slope requires a suitable robot: the verified fixture uses 90 mm wheels; the stock
+65 mm-wheel chassis catches its nose there. A sideways cup exposes its mouth to a floor-level
+pushing robot. The upright cup has a rim and cannot accept a ball pushed through its walls.

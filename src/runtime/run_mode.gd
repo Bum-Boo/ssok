@@ -5,7 +5,7 @@ extends Node3D
 ## Every body and joint here is derived; teardown() must leave no trace.
 
 ## Parts that sit on the table and never move (frozen as static bodies).
-@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno", &"stage_wall", &"env_line_straight", &"env_line_corner"]
+@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno", &"stage_wall", &"env_line_straight", &"env_line_corner", &"env_ramp_10", &"env_ramp_20", &"env_cup"]
 
 var bodies: Array[RigidBody3D] = []
 ## graph part index -> ServoDrive, for every part that owns a rotating port in a link.
@@ -201,6 +201,22 @@ func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transfor
 	mesh.transform = offset
 	body.add_child(mesh)
 	_part_visuals[part] = mesh
+	if not definition.collision_points.is_empty():
+		var shape := CollisionShape3D.new()
+		var convex := ConvexPolygonShape3D.new()
+		convex.points = definition.collision_points
+		shape.shape = convex
+		shape.transform = offset
+		body.add_child(shape)
+		return
+	if definition.sphere_radius > 0.0:
+		var shape := CollisionShape3D.new()
+		var sphere := SphereShape3D.new()
+		sphere.radius = definition.sphere_radius
+		shape.shape = sphere
+		shape.transform = offset
+		body.add_child(shape)
+		return
 	if definition.caster_radius > 0.0:
 		var shape := CollisionShape3D.new()
 		var sphere := SphereShape3D.new()
@@ -583,3 +599,39 @@ func surface_brightness(hit: Dictionary) -> float:
 			var color: Color = material.albedo_color
 			brightness = 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b
 	return brightness
+
+
+## Environment-based observation: unique movable solver bodies wholly inside any cup.
+## Cup orientation is respected; no robot/ball SKU or stage target ID is required.
+func cup_object_count() -> int:
+	var inside: Array[RID] = []
+	if _graph == null:
+		return 0
+	for cup: int in bodies.size():
+		var definition: PartDef = _graph.parts[cup].part_def
+		if definition.environment_role != "cup":
+			continue
+		var to_cup: Transform3D = part_global_transform(cup).affine_inverse()
+		var candidates: Array[RID] = []
+		for part: int in bodies.size():
+			var body: RigidBody3D = bodies[part]
+			if body.freeze or body == bodies[cup] or body.get_rid() in inside or body.get_rid() in candidates:
+				continue
+			candidates.append(body.get_rid())
+			var fully_inside: bool = true
+			for member: int in bodies.size():
+				if bodies[member] != body:
+					continue
+				var bounds: AABB = _graph.parts[member].part_def.mesh.get_aabb()
+				var pose: Transform3D = to_cup * part_global_transform(member)
+				var radius: float = _graph.parts[member].part_def.sphere_radius
+				if radius > 0.0:
+					# A rotated sphere stays spherical; rotating its mesh AABB would inflate it.
+					bounds = AABB(pose.origin - Vector3.ONE * radius, Vector3.ONE * radius * 2)
+					pose = Transform3D.IDENTITY
+				for corner: int in 8:
+					if not definition.cup_inner_bounds.grow(float(ProjectSettings.get_setting("physics/3d/solver/contact_max_allowed_penetration", 0.001))).has_point(pose * bounds.get_endpoint(corner)):
+						fully_inside = false
+			if fully_inside:
+				inside.append(body.get_rid())
+	return inside.size()

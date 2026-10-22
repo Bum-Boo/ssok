@@ -40,3 +40,8 @@ extends Resource
 
 ## Paint is visible to reflectance rays without becoming a step under small casters.
 @export var surface_marker: bool = false
+
+@export var sphere_radius: float = 0.0
+@export var collision_points: PackedVector3Array = []
+@export var environment_role: String = ""
+@export var cup_inner_bounds: AABB = AABB()

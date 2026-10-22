@@ -37,3 +37,4 @@ ports = Array[ExtResource("2_biwaj")]([SubResource("Resource_7ca7g"), SubResourc
 mass_kg = 0.016
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.004, -0.004, -0.02, 0.008, 0.008, 0.04)])
+collision_points = PackedVector3Array()

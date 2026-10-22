@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/env_ramp_10.res" id="1_g2i3f"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_jt3eb"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_e5o83"]
+
+[resource]
+script = ExtResource("3_e5o83")
+id = &"env_ramp_10"
+display_name = "Environment: ramp 10°"
+mesh = ExtResource("1_g2i3f")
+mass_kg = 0.4
+merge_fixed_connections = true
+collision_points = PackedVector3Array(-0.12, 0, -0.2, 0.12, 0, -0.2, -0.12, 0, 0.2, 0.12, 0, 0.2, -0.12, 0.070530795, 0.2, 0.12, 0.070530795, 0.2)
+environment_role = "ramp"

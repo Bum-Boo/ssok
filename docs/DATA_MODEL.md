@@ -65,7 +65,7 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 | `PartDef` / `Port` | 카탈로그 부품, 질량, 메쉬, 포트와 관절 속성 | 프로젝트는 리소스 경로 대신 카탈로그 ID를 참조 |
 | `ConnectionGraph` | 배치된 `parts`와 `links` | 편집 조립의 정본. 물리 결과로 자동 덮어쓰지 않음 |
 | `AssemblyMode` | 그래프와 편집 노드, Undo/Redo 스냅샷 | 같은 조립을 편집하고 전기 연결은 위치 보존 |
-| `RunMode` | 파생 강체, 관절, 그래프 배선의 서보·DC 모터·초음파 매핑 | teardown으로 제거. 물리 노드는 저장하지 않음 |
+| `RunMode` | 파생 강체, 관절, 그래프 배선의 서보·DC 모터·초음파·라인 센서·버튼·LED 매핑 | teardown으로 제거. 물리 노드는 저장하지 않음 |
 | `BoardProfile` | ID, 명령/인자 API, 핀 상수와 sleep 단위 | 인터프리터를 포함하지 않음 |
 | `LearnerProgram` / `BlockProgramPanel` | 지원 코드의 명령 표현과 미적용 초안 | 학습자 source와 충돌하면 양쪽 보존 |
 | `ProjectStore` / `MotionSnapshot` | JSON 계약과 검증 | 불러오기에서 자동 코드 실행 금지 |
@@ -75,6 +75,14 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 양수 방향은 베어링 출력 포트의 법선을 따르는 연결 부품의 상대 회전이고 링크 기록 순서와 무관해요.
 한계는 카탈로그 정의이고 인스턴스별 편집/저장 값은 아직 없어요. 새 바퀴는 기존
 `wheel_radius/width`, 추는 `mass_kg`를 사용하며 프로젝트 JSON 형식은 그대로예요.
+
+B-2의 `gear_ratio`는 하우징과 두 회전자 사이의 수동 구속을 선언해요. 축 포트에 연결한
+고정 부품은 해당 회전자 몸체를 공유하고, 조립 그래프의 부품 ID·질량·배선은 유지해요.
+`device_kind`는 한 신호선 장치의 종류(LineSensor/Button/LED)를 구분하며 기존 ELEC 포트를
+사용해요. 잘못된 종류·중복 핀은 주소로 해석하지 않아요. `surface_marker`는 물리 장애물이
+아닌 바닥 표시, `sphere_radius/collision_points`는 구·볼록 충돌을 선언해요.
+`environment_role/cup_inner_bounds`는 컵 내부 관측의 기하 정보예요. 새 필드는 카탈로그
+리소스에만 있고 프로젝트 v1 JSON은 바꾸지 않아요. [ADR 0031](adr/0031-functional-transmissions-and-devices.md).
 
 ## 프로젝트 v1의 실제 모양
 

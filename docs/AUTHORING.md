@@ -84,3 +84,14 @@ overwrite it: read the updated source explicitly.
   undo/redo, saved snapshots, code preflight, pending-block execution and saveable workspace limits.
 
 Run these through the isolated [verification runner](BUILD.md); personal saved projects stay untouched.
+
+
+## B-2 기능 부품의 코드·블록
+
+micro:bit/Uno의 실제 그래프 신호선에 연결한 뒤 `line = LineSensor(pin1)`,
+`button = Button(pin2)`, `led = LED(pinN)`을 써요. `pinN`은 실제 배선 번호로 바꾸고
+한 핀을 여러 장치에 중복 배정하지 않아요. `line.value()`는 보드 공통 0~1023의 반사 밝기,
+`line.is_dark()`는 512 미만, `button.is_pressed()`는 전면 접촉이에요. `led.on()`,
+`led.off()`, `led.set(0.5)`의 밝기는 0~1이에요. 대응하는 연결·관측·출력 카드를 제공해요.
+기존 가상 서보 보드는 PWM 전용 포트를 유지하므로 이 예제에는 micro:bit/Uno를 권장해요.
+새 기어·환경 관측과 남은 집게 작업은 [B-2 검증](evidence/parts_pack_v1_2026-10-22/README.md)을 보세요.
