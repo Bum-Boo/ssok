@@ -68,8 +68,10 @@ func _run() -> void:
 				await _settle()
 				var strip: Rect2 = main.stage_hud.goal_card.get_global_rect()
 				_check(strip.size.y <= 100, "two-row strip " + locale + str(dimensions) + " actual=" + str(strip.size))
+				_check(main._camera_framing_rect().encloses(main.goal_display.card.get_global_rect()), "screen label fits " + locale + str(dimensions))
 				for chip: Button in main.stage_hud.chips:
 					_check(chip.get_global_rect().position.y == main.stage_hud.chips[0].get_global_rect().position.y, "four chips share a row")
+					_check(not chip.clip_text and chip.size.x >= chip.get_combined_minimum_size().x, "pill icon/name/check remain visible " + locale)
 				var goal: Label = main.stage_hud.find_child("GoalSentence", true, false)
 				_check(goal.get_theme_font("font").get_string_size(tr(level.goal), HORIZONTAL_ALIGNMENT_LEFT, -1, goal.get_theme_font_size("font_size")).x <= goal.size.x, "goal sentence fits without trimming " + locale)
 				var hint: Label = main.stage_hud.hint_label
@@ -80,18 +82,27 @@ func _run() -> void:
 		_check(display.label is Label and display.get_parent() == main._ui_root, "goal is on UI layer")
 		_check(main._camera_framing_rect().encloses(display.card.get_global_rect()), "screen label fits available area")
 		var anchor: Vector3 = display.anchor
-		for point: Vector3 in [Vector3(100, 0, 0), Vector3(-100, 0, 0), Vector3(0, 100, 0), Vector3(0, -100, 0), main.get_node("Camera3D").global_position + main.get_node("Camera3D").global_basis.z]:
+		for point: Vector3 in [Vector3(100, 0, 0), Vector3(-100, 0, 0), Vector3(0, 100, 0), Vector3(0, -100, 0), main.get_node("Camera3D").global_position + main.get_node("Camera3D").global_basis.z, main.get_node("Camera3D").global_position, main.get_node("Camera3D").global_position + main.get_node("Camera3D").global_basis.x]:
 			display.anchor = point
 			await _settle()
 			_check(main._camera_framing_rect().encloses(display.card.get_global_rect()), "offscreen label stays on edge")
 			_check(main._camera_framing_rect().has_point(display.projected_anchor), "leader remains in available area")
+			var safe: Rect2 = main._camera_framing_rect().grow(-8)
+			_check(is_equal_approx(display.projected_anchor.x, safe.position.x) or is_equal_approx(display.projected_anchor.x, safe.end.x) or is_equal_approx(display.projected_anchor.y, safe.position.y) or is_equal_approx(display.projected_anchor.y, safe.end.y), "offscreen anchor is pinned to an edge")
 		display.anchor = anchor
 
 		main.stage_hud.program_requested.emit()
 		await _settle()
 		_check_framing(main, level.id + " panel")
-		main.navigation._orbit(Vector2(20, 10))
-		main.navigation.user_navigated.emit()
+		var press := InputEventMouseButton.new()
+		press.button_index = MOUSE_BUTTON_MIDDLE
+		press.pressed = true
+		main.navigation._unhandled_input(press)
+		var motion := InputEventMouseMotion.new()
+		motion.relative = Vector2(20, 10)
+		main.navigation._unhandled_input(motion)
+		press.pressed = false
+		main.navigation._input(press)
 		var pose: Transform3D = main.get_node("Camera3D").global_transform
 		main.stage_hud.program_requested.emit()
 		await _settle()

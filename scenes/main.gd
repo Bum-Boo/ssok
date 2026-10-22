@@ -296,6 +296,8 @@ func _process(_delta: float) -> void:
 
 
 func _follow_running_robot() -> void:
+	if _scene_ui and not _auto_frame:
+		return
 	if not run_mode.is_built() or not motion_program.is_supported():
 		_follow_body = null
 		return

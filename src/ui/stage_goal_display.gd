@@ -31,13 +31,6 @@ func configure(stage_level: Dictionary, stage: Dictionary) -> void:
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	card.add_child(label)
-	match String(level.get("id", "")):
-		"raise-flag":
-			anchor = Vector3(0.0165, float(rules[0].min), 0.075)
-		"finish-line":
-			anchor = Vector3(float(rules[0].min), 0.055, 0.14)
-		"wall-brake":
-			anchor = Vector3(0.715, 0.055, 0.14)
 	_refresh()
 
 
@@ -66,15 +59,21 @@ func update_projection() -> void:
 	card.custom_minimum_size.x = minf(380.0 * SsokTheme.ui_scale, area.size.x)
 	card.size = Vector2(card.custom_minimum_size.x, 0)
 	projected_anchor = camera.unproject_position(anchor)
+	var offscreen: bool = camera.is_position_behind(anchor) or not area.has_point(projected_anchor)
 	if camera.is_position_behind(anchor):
-		projected_anchor = area.get_center() - (projected_anchor - area.get_center())
-		if projected_anchor.is_equal_approx(area.get_center()):
-			projected_anchor.y = area.position.y
+		var direction: Vector2 = area.get_center() - projected_anchor
+		if direction.is_zero_approx():
+			direction = Vector2.UP
+		var half: Vector2 = area.size * 0.5
+		var scale: float = minf(half.x / maxf(absf(direction.x), 0.001), half.y / maxf(absf(direction.y), 0.001))
+		projected_anchor = area.get_center() + direction * scale
 	projected_anchor = projected_anchor.clamp(area.position, area.end)
 	var desired: Vector2 = projected_anchor + Vector2(24, -card.size.y - 24)
 	# Place toward the freer side rather than across the world marker.
 	if desired.x + card.size.x > area.end.x:
 		desired.x = projected_anchor.x - card.size.x - 24
+	if offscreen:
+		desired = projected_anchor - card.size * 0.5
 	card.position = desired.clamp(area.position, (area.end - card.size).max(area.position))
 	leader_end = projected_anchor.clamp(card.position, card.position + card.size)
 	queue_redraw()

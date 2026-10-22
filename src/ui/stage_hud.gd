@@ -114,6 +114,8 @@ func _build_goal_card() -> void:
 	for index: int in 4:
 		var chip: Button = SsokTheme.button(WorkshopGuide.NAMES[index], ["box", "cpu", "code-xml", "play"][index])
 		chip.custom_minimum_size = Vector2(0, 28)
+		chip.clip_text = false
+		chip.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 		chip.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
 		chip.tooltip_text = WorkshopGuide.HINTS[index]
 		chip.pressed.connect(func() -> void: phase_requested.emit(index))
