@@ -307,7 +307,7 @@ func _call(name: String, args: Array) -> Variant:
 	if not is_instance_valid(hardware) or not hardware.is_built():
 		_error = tr("Run mode is not active")
 		return null
-	if name in ["Servo", "Motor", "Sonar", "LineSensor", "Button"]:
+	if name in ["Servo", "Motor", "Sonar", "LineSensor", "Button", "LED"]:
 		return hardware.device(name, args)
 	if name == "stop":
 		hardware.stop_motors()
@@ -328,6 +328,17 @@ func _call(name: String, args: Array) -> Variant:
 func _device_call(device_value: Variant, method: String, args: Array) -> Variant:
 	if not device_value is Object or not is_instance_valid(device_value):
 		_error = tr("This variable is not a connected device.")
+		return null
+	if method == "set":
+		if not device_value is LEDDevice:
+			_error = tr("This device does not support that command.")
+			return null
+		if not _numeric(args[0]):
+			return null
+		if args[0] < 0 or args[0] > 1:
+			_error = tr("Use LED brightness from 0 to 1.")
+			return null
+		device_value.set_brightness(float(args[0]))
 		return null
 	if not device_value.has_method(method):
 		_error = tr("This device does not support that command.")

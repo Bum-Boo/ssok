@@ -4,7 +4,7 @@ extends RefCounted
 ## Lossless for untouched lines; edited blocks emit the same bounded learner language.
 const MAX_LINES: int = 2048
 const IDENTIFIER: String = "^[A-Za-z_][A-Za-z0-9_]*$"
-const TEMPLATES: Dictionary = {"button": "{name} = Button({pin})", "button_pressed": "{variable} = {name}.is_pressed()", "line_sensor": "{name} = LineSensor({pin})", "line_value": "{variable} = {name}.value()", "line_dark": "{variable} = {name}.is_dark()", "servo": "{name} = Servo({pin})", "write": "{name}.write({angle})",
+const TEMPLATES: Dictionary = {"led": "{name} = LED({pin})", "led_on": "{name}.on()", "led_off": "{name}.off()", "led_set": "{name}.set({brightness})", "button": "{name} = Button({pin})", "button_pressed": "{variable} = {name}.is_pressed()", "line_sensor": "{name} = LineSensor({pin})", "line_value": "{variable} = {name}.value()", "line_dark": "{variable} = {name}.is_dark()", "servo": "{name} = Servo({pin})", "write": "{name}.write({angle})",
 	"write_relative": "{name}.write_relative({angle})", "sleep": "sleep({seconds})", "motor": "{name} = Motor({pin})", "motor_on": "{name}.motor_on(\"{direction}\", {speed})", "motor_stop": "{name}.stop(\"{mode}\")", "sonar": "{name} = Sonar({trigger}, {echo})", "distance": "{variable} = {name}.distance_cm()", "variable": "{name} = {expression}", "while": "while {expression}:", "if": "if {expression}:", "elif": "elif {expression}:", "else": "else:", "stop": "stop()", "for": "for {name} in range({expression}):", "break": "break", "motor_pair": "{name} = Motor({first}, {second})", "forward": "{name}.forward({speed})", "backward": "{name}.backward({speed})", "motor_brake": "{name}.stop()", "sensor_value": "{variable} = {name}.distance()"}
 
 
@@ -96,6 +96,15 @@ static func generate(instructions: Array, profile: BoardProfile) -> Dictionary:
 
 
 static func _learning_instruction(line: String, profile: BoardProfile) -> Dictionary:
+	var led: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*LED\(\s*(?:pin)?(\d+)\s*\)$").search(line)
+	if led:
+		return {"op": "led", "args": {"name": led.get_string(1), "pin": int(led.get_string(2))}}
+	var light: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\.(on|off)\(\)$").search(line)
+	if light:
+		return {"op": "led_" + light.get_string(2), "args": {"name": light.get_string(1)}}
+	var brightness: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\.set\(\s*(\d+(?:\.\d+)?)\s*\)$").search(line)
+	if brightness:
+		return {"op": "led_set", "args": {"name": brightness.get_string(1), "brightness": float(brightness.get_string(2))}}
 	var button: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*Button\(\s*(?:pin)?(\d+)\s*\)$").search(line)
 	if button:
 		return {"op": "button", "args": {"name": button.get_string(1), "pin": int(button.get_string(2))}}

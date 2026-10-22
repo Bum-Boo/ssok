@@ -15114,6 +15114,425 @@
         }
       ],
       "device_kind": "Button"
+    },
+    {
+      "id": "kit_led",
+      "name": "Signal LED",
+      "kind": "electronics",
+      "material": "ChassisMetal",
+      "mass_kg": 0.035,
+      "size": [
+        0.04,
+        0.02,
+        0.004
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/kit_led.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.016,
+              0.02,
+              0.012
+            ],
+            "position": [
+              0,
+              0.016,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.016,
+              0.016,
+              0.01
+            ],
+            "position": [
+              0,
+              0,
+              0.012
+            ],
+            "material": "orange"
+          }
+        ]
+      },
+      "holes": [
+        {
+          "id": "mount_0",
+          "position": [
+            -0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        },
+        {
+          "id": "mount_1",
+          "position": [
+            0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        }
+      ],
+      "ports": [
+        {
+          "id": "mount_0_front",
+          "position": [
+            -0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_0_back",
+          "position": [
+            -0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_1_front",
+          "position": [
+            0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "mount_1_back",
+          "position": [
+            0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "signal_pin",
+          "kind": "ELEC",
+          "position": [
+            0,
+            0.012,
+            -0.008
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "digital_io",
+          "accepts": [
+            "board_digital_pwm",
+            "board_digital"
+          ]
+        },
+        {
+          "id": "mount",
+          "position": [
+            0,
+            0,
+            -0.01
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "sensor_mount",
+          "accepts": [
+            "base_mount"
+          ]
+        }
+      ],
+      "collision_boxes": [
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.016,
+            0.02,
+            0.012
+          ],
+          "position": [
+            0,
+            0.016,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.016,
+            0.016,
+            0.01
+          ],
+          "position": [
+            0,
+            0,
+            0.012
+          ]
+        }
+      ],
+      "device_kind": "LED"
     }
   ],
   "categories": {

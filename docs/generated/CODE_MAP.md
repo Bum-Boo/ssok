@@ -16,7 +16,7 @@ ssok/
     blocks/  (1 GDScript files)
     core/  (11 GDScript files)
     profiles/  (1 GDScript files)
-    runtime/  (25 GDScript files)
+    runtime/  (26 GDScript files)
     screens/  (5 GDScript files)
     ui/  (18 GDScript files)
   presets/
@@ -105,6 +105,7 @@ ssok/
 | [src/runtime/gear_constraint.gd](../../src/runtime/gear_constraint.gd) | GearConstraint |
 | [src/runtime/kit_humanoid_motion.gd](../../src/runtime/kit_humanoid_motion.gd) | KitHumanoidMotion |
 | [src/runtime/learned_biped_motion.gd](../../src/runtime/learned_biped_motion.gd) | LearnedBipedMotion |
+| [src/runtime/led_device.gd](../../src/runtime/led_device.gd) | LEDDevice |
 | [src/runtime/line_sensor.gd](../../src/runtime/line_sensor.gd) | LineSensor |
 | [src/runtime/manual_controller.gd](../../src/runtime/manual_controller.gd) | ManualController |
 | [src/runtime/mini_runtime.gd](../../src/runtime/mini_runtime.gd) | MiniRuntime |

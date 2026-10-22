@@ -40,3 +40,9 @@ also exposes `held_seconds` for continuous-press observations, resetting on sepa
 no motor or invented electrical pin. The single signal uses the existing digital_io port contract.
 The contact switch has a 50 ms release debounce for solver chatter. A sustained separation
 clears both state and held time; a one-tick contact omission does not simulate a release.
+
+LED uses the existing single digital signal. `on()`, `off()` and normalized `set(0..1)`
+change a per-instance copy of the emitter surface material; the shared part resource and other
+LEDs stay unchanged. MiniRuntime maps learner `set` to the bounded brightness method rather than
+Object.set. Stop, execution failure and global stop turn LEDs off through the existing stop path.
+GL Compatibility shows emissive material color/energy; this does not claim dynamic light or bloom.

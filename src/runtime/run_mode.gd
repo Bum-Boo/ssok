@@ -15,6 +15,7 @@ var sonars: Dictionary = {}
 var gears: Dictionary = {}
 var line_sensors: Dictionary = {}
 var buttons: Dictionary = {}
+var leds: Dictionary = {}
 var _part_visuals: Dictionary = {}
 var _graph: ConnectionGraph
 var _body_offsets: Array[Transform3D] = []
@@ -63,6 +64,11 @@ func build(graph: ConnectionGraph) -> void:
 			button.part_index = i
 			add_child(button)
 			buttons[i] = button
+	for part: int in graph.parts.size():
+		if graph.parts[part].part_def.device_kind == "LED":
+			var led := LEDDevice.new()
+			led.configure(_part_visuals[part])
+			leds[part] = led
 	for link: Dictionary in graph.links:
 		_make_joint(link)
 
@@ -78,6 +84,7 @@ func teardown() -> void:
 	gears.clear()
 	line_sensors.clear()
 	buttons.clear()
+	leds.clear()
 	_part_visuals.clear()
 	_body_offsets.clear()
 	_graph = null
@@ -321,6 +328,8 @@ func sleep_scale() -> float:
 
 
 func stop_motors() -> void:
+	for led: LEDDevice in leds.values():
+		led.off()
 	for drive: DriveMotor in motors.values():
 		drive.stop()
 
@@ -330,6 +339,8 @@ func device(kind: String, args: Array) -> Variant:
 		return servo_on_pin(int(args[0]))
 	if kind == "Motor":
 		return motor_on_pins(int(args[0]), int(args[1])) if args.size() == 2 else motor_on_pin(int(args[0]))
+	if kind == "LED":
+		return leds.get(single_signal_part(int(args[0]), "LED"))
 	if kind == "Button":
 		return buttons.get(single_signal_part(int(args[0]), "Button"))
 	if kind == "LineSensor":

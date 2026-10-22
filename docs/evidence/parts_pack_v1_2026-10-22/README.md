@@ -20,3 +20,5 @@ Commands use `XDG_DATA_HOME=/tmp/ssok-b2-data`, `XDG_CONFIG_HOME=/tmp/ssok-b2-co
 - Contact button: [wall/hold/release output](button.txt), 11/0. A moving graph-derived car
   stops on front-shape contact, holds for 2.0333 seconds, then releases on reverse. A 50 ms
   release debounce filters solver chatter; first strict contact-duration tests failed before it.
+- LED: [material/state/Stop output](led.txt), 19/0. Emission parameters were inspected on the
+  actual runtime material; rendered glow and clipping remain unverified in the headless environment.
