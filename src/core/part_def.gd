@@ -31,3 +31,6 @@ extends Resource
 @export var caster_radius: float = 0.0
 ## Passive bearings constrain motion without creating an addressable servo.
 @export var passive_hinge: bool = false
+
+## Ideal external gear reduction; its two shafts are separate derived bodies.
+@export var gear_ratio: float = 0.0

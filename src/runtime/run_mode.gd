@@ -12,6 +12,7 @@ var bodies: Array[RigidBody3D] = []
 var servos: Dictionary = {}
 var motors: Dictionary = {}
 var sonars: Dictionary = {}
+var gears: Dictionary = {}
 var _graph: ConnectionGraph
 var _body_offsets: Array[Transform3D] = []
 
@@ -27,6 +28,8 @@ func build(graph: ConnectionGraph) -> void:
 		var b: PartDef = graph.parts[link.b_part].part_def
 		var pa: Port = _port(a, link.a_port)
 		var pb: Port = _port(b, link.b_port)
+		if _is_gear_shaft(a, pa.id) or _is_gear_shaft(b, pb.id):
+			continue
 		if not a.merge_fixed_connections or not b.merge_fixed_connections:
 			continue
 		if pa.kind != Port.Kind.MECH or pb.kind != Port.Kind.MECH or pa.rotates or pb.rotates:
@@ -48,6 +51,9 @@ func build(graph: ConnectionGraph) -> void:
 				members.append(j)
 		_make_cluster(members)
 		built_groups[groups[i]] = true
+	for i: int in graph.parts.size():
+		if graph.parts[i].part_def.gear_ratio > 0.0:
+			_make_gear(i)
 	for link: Dictionary in graph.links:
 		_make_joint(link)
 
@@ -60,6 +66,7 @@ func teardown() -> void:
 	servos.clear()
 	motors.clear()
 	sonars.clear()
+	gears.clear()
 	_body_offsets.clear()
 	_graph = null
 
@@ -215,8 +222,8 @@ func _make_joint(link: Dictionary) -> void:
 	var b_port := _port(b_def, link.b_port)
 	if a_port.kind != Port.Kind.MECH or b_port.kind != Port.Kind.MECH:
 		return
-	var body_a := bodies[link.a_part]
-	var body_b := bodies[link.b_part]
+	var body_a: RigidBody3D = _connection_body(link.a_part, link.a_port)
+	var body_b: RigidBody3D = _connection_body(link.b_part, link.b_port)
 	if body_a == body_b:
 		return
 	var a_transform: Transform3D = _graph.parts[link.a_part].transform
@@ -425,3 +432,81 @@ func sonar_for_part(part: int) -> SonarSensor:
 			elif mapping[pin].port == &"echo_pin":
 				echo = pin
 	return sonar_on_pins(trigger, echo) if trigger >= 0 and echo >= 0 else null
+
+
+static func _is_gear_shaft(definition: PartDef, port: StringName) -> bool:
+	return definition.gear_ratio > 0.0 and port in [&"input", &"output"]
+
+
+func _connection_body(part: int, port: StringName) -> RigidBody3D:
+	if gears.has(part) and _is_gear_shaft(_graph.parts[part].part_def, port):
+		return gears[part].input if port == &"input" else gears[part].output
+	return bodies[part]
+
+
+func _make_gear(part: int) -> void:
+	var definition: PartDef = _graph.parts[part].part_def
+	var drive := GearConstraint.new()
+	drive.housing = bodies[part]
+	drive.housing.mass -= 0.01
+	drive.ratio = definition.gear_ratio
+	# Motors run before the passive transmission; no commanded torque is added here.
+	drive.process_physics_priority = 1
+	add_child(drive)
+	gears[part] = drive
+	for port_id: StringName in [&"input", &"output"]:
+		var port: Port = _port(definition, port_id)
+		var shaft: RigidBody3D
+		# Merge each rigidly attached axle/load into the rotor, so its actual inertia
+		# participates in the gear impulse rather than lagging through a fixed joint.
+		for link: Dictionary in _graph.links:
+			for side: String in ["a", "b"]:
+				var other: String = "b" if side == "a" else "a"
+				if link[side + "_part"] == part and link[side + "_port"] == port_id:
+					var other_def: PartDef = _graph.parts[link[other + "_part"]].part_def
+					if not _port(other_def, link[other + "_port"]).rotates and other_def.gear_ratio == 0.0:
+						shaft = bodies[link[other + "_part"]]
+		var rotor_pose: Transform3D = _graph.parts[part].transform * Transform3D(Basis.IDENTITY, port.local_position)
+		if shaft == null:
+			shaft = RigidBody3D.new()
+			shaft.mass = 0.005
+			shaft.can_sleep = false
+			shaft.collision_layer = 3
+			add_child(shaft)
+			shaft.global_transform = rotor_pose
+		else:
+			shaft.mass += 0.005
+		var rotor_offset: Transform3D = shaft.global_transform.affine_inverse() * rotor_pose
+		var shape := CollisionShape3D.new()
+		var cylinder := CylinderShape3D.new()
+		cylinder.radius = 0.004
+		cylinder.height = 0.008
+		shape.shape = cylinder
+		shape.transform = rotor_offset * Transform3D(Basis(Vector3.RIGHT, PI / 2), Vector3.ZERO)
+		shaft.add_child(shape)
+		var visual := MeshInstance3D.new()
+		var mesh := CylinderMesh.new()
+		mesh.top_radius = 0.008 if port_id == &"input" else 0.008 * drive.ratio
+		mesh.bottom_radius = mesh.top_radius
+		mesh.height = 0.006
+		visual.mesh = mesh
+		visual.transform = shape.transform
+		visual.material_override = load("res://assets/materials/detail_teal.tres")
+		shaft.add_child(visual)
+		var marker := MeshInstance3D.new()
+		var bar := BoxMesh.new()
+		bar.size = Vector3(mesh.top_radius, 0.002, 0.002)
+		marker.mesh = bar
+		marker.transform = rotor_offset * Transform3D(Basis.IDENTITY, Vector3(mesh.top_radius / 2, 0, 0.004))
+		shaft.add_child(marker)
+		shaft.add_collision_exception_with(drive.housing)
+		var bearing := HingeJoint3D.new()
+		add_child(bearing)
+		bearing.global_transform = rotor_pose
+		bearing.node_a = drive.housing.get_path()
+		bearing.node_b = shaft.get_path()
+		if port_id == &"input":
+			drive.input = shaft
+		else:
+			drive.output = shaft
+	drive.input.add_collision_exception_with(drive.output)

@@ -54,6 +54,7 @@ static func write_definition(entry: Dictionary) -> Error:
 	definition.mesh = mesh
 	definition.mass_kg = entry.mass_kg
 	definition.merge_fixed_connections = true
+	definition.gear_ratio = entry.get("gear_ratio", 0.0)
 	definition.passive_hinge = entry.get("passive_hinge", false)
 	definition.actuator_min_deg = entry.get("min_deg", -90.0)
 	definition.actuator_max_deg = entry.get("max_deg", 90.0)

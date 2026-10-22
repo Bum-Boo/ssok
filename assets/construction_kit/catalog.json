@@ -5,7 +5,7 @@
     "pitch_m": 0.02,
     "hole_diameter_m": 0.004,
     "shaft_diameter_m": 0.008,
-    "coordinates": "Godot Y-up, metres; surface ports are hole midplane \u00b1 half thickness",
+    "coordinates": "Godot Y-up, metres; surface ports are hole midplane ± half thickness",
     "commercial_compatibility": false
   },
   "parts": [
@@ -2744,7 +2744,7 @@
     },
     {
       "id": "kit_plate_60_40",
-      "name": "Perforated plate 60 \u00d7 40 mm",
+      "name": "Perforated plate 60 × 40 mm",
       "kind": "plate",
       "material": "ChassisMetal",
       "mass_kg": 0.02592,
@@ -3089,7 +3089,7 @@
     },
     {
       "id": "kit_plate_60_60",
-      "name": "Perforated plate 60 \u00d7 60 mm",
+      "name": "Perforated plate 60 × 60 mm",
       "kind": "plate",
       "material": "ChassisMetal",
       "mass_kg": 0.03888,
@@ -3587,7 +3587,7 @@
     },
     {
       "id": "kit_plate_80_60",
-      "name": "Perforated plate 80 \u00d7 60 mm",
+      "name": "Perforated plate 80 × 60 mm",
       "kind": "plate",
       "material": "ChassisMetal",
       "mass_kg": 0.05184,
@@ -4238,7 +4238,7 @@
     },
     {
       "id": "kit_plate_120_80",
-      "name": "Perforated plate 120 \u00d7 80 mm",
+      "name": "Perforated plate 120 × 80 mm",
       "kind": "plate",
       "material": "ChassisMetal",
       "mass_kg": 0.10368,
@@ -5501,7 +5501,7 @@
     },
     {
       "id": "kit_plate_160_60",
-      "name": "Perforated plate 160 \u00d7 60 mm",
+      "name": "Perforated plate 160 × 60 mm",
       "kind": "plate",
       "material": "ChassisMetal",
       "mass_kg": 0.10368,
@@ -6764,7 +6764,7 @@
     },
     {
       "id": "kit_plate_220_120",
-      "name": "Perforated plate 220 \u00d7 120 mm",
+      "name": "Perforated plate 220 × 120 mm",
       "kind": "plate",
       "material": "ChassisMetal",
       "mass_kg": 0.28512,
@@ -8333,7 +8333,7 @@
     },
     {
       "id": "kit_angle_bracket",
-      "name": "Angle bracket 60 \u00d7 40 mm",
+      "name": "Angle bracket 60 × 40 mm",
       "kind": "bracket",
       "material": "BracketMetal",
       "mass_kg": 0.045,
@@ -10032,7 +10032,7 @@
     },
     {
       "id": "kit_bolt_4",
-      "name": "Mounting bolt 4 \u00d7 12 mm",
+      "name": "Mounting bolt 4 × 12 mm",
       "kind": "fastener",
       "material": "DetailSteel",
       "mass_kg": 0.004,
@@ -10198,7 +10198,7 @@
     },
     {
       "id": "kit_rubber_pad",
-      "name": "Grip pad 60 \u00d7 40 mm",
+      "name": "Grip pad 60 × 40 mm",
       "kind": "pad",
       "material": "Rubber",
       "mass_kg": 0.028,
@@ -13183,6 +13183,908 @@
             0.01,
             0.006,
             0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kit_gear_2",
+      "name": "Gear reducer 1:2",
+      "kind": "gear",
+      "material": "ChassisMetal",
+      "mass_kg": 0.05,
+      "size": [
+        0.04,
+        0.05,
+        0.02
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/kit_gear_2.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.016,
+              0.02,
+              0.012
+            ],
+            "position": [
+              0,
+              0.016,
+              0
+            ]
+          }
+        ]
+      },
+      "holes": [
+        {
+          "id": "mount_0",
+          "position": [
+            -0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        },
+        {
+          "id": "mount_1",
+          "position": [
+            0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        }
+      ],
+      "ports": [
+        {
+          "id": "mount_0_front",
+          "position": [
+            -0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_0_back",
+          "position": [
+            -0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_1_front",
+          "position": [
+            0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "mount_1_back",
+          "position": [
+            0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "input",
+          "position": [
+            -0.012,
+            0.03,
+            0.012
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_shaft_8",
+          "accepts": [
+            "kit_axle_8"
+          ]
+        },
+        {
+          "id": "output",
+          "position": [
+            0.012,
+            0.03,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_shaft_8",
+          "accepts": [
+            "kit_axle_8"
+          ]
+        }
+      ],
+      "collision_boxes": [
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.016,
+            0.02,
+            0.012
+          ],
+          "position": [
+            0,
+            0.016,
+            0
+          ]
+        }
+      ],
+      "gear_ratio": 2
+    },
+    {
+      "id": "kit_gear_3",
+      "name": "Gear reducer 1:3",
+      "kind": "gear",
+      "material": "ChassisMetal",
+      "mass_kg": 0.05,
+      "size": [
+        0.04,
+        0.05,
+        0.02
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/kit_gear_3.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.016,
+              0.02,
+              0.012
+            ],
+            "position": [
+              0,
+              0.016,
+              0
+            ]
+          }
+        ]
+      },
+      "holes": [
+        {
+          "id": "mount_0",
+          "position": [
+            -0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        },
+        {
+          "id": "mount_1",
+          "position": [
+            0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        }
+      ],
+      "ports": [
+        {
+          "id": "mount_0_front",
+          "position": [
+            -0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_0_back",
+          "position": [
+            -0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_1_front",
+          "position": [
+            0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "mount_1_back",
+          "position": [
+            0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "input",
+          "position": [
+            -0.012,
+            0.03,
+            0.012
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_shaft_8",
+          "accepts": [
+            "kit_axle_8"
+          ]
+        },
+        {
+          "id": "output",
+          "position": [
+            0.012,
+            0.03,
+            -0.012
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_shaft_8",
+          "accepts": [
+            "kit_axle_8"
+          ]
+        }
+      ],
+      "collision_boxes": [
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.016,
+            0.02,
+            0.012
+          ],
+          "position": [
+            0,
+            0.016,
+            0
+          ]
+        }
+      ],
+      "gear_ratio": 3
+    },
+    {
+      "id": "kit_axle_40",
+      "name": "Axle 8 × 40 mm",
+      "kind": "axle",
+      "material": "ChassisMetal",
+      "mass_kg": 0.016,
+      "size": [
+        0.008,
+        0.008,
+        0.04
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/kit_axle_40.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "cylinder",
+            "radius": 0.004,
+            "depth": 0.04,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "material": "chassis_metal"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.002,
+              0.002,
+              0.04
+            ],
+            "position": [
+              0.004,
+              0,
+              0
+            ],
+            "material": "detail_teal"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [
+        {
+          "id": "front",
+          "position": [
+            0,
+            0,
+            0.02
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_axle_8",
+          "accepts": [
+            "kit_axle_8",
+            "kit_shaft_8",
+            "motor_shaft"
+          ]
+        },
+        {
+          "id": "back",
+          "position": [
+            0,
+            0,
+            -0.02
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_axle_8",
+          "accepts": [
+            "kit_axle_8",
+            "kit_shaft_8",
+            "motor_shaft"
+          ]
+        },
+        {
+          "id": "motor_hub",
+          "position": [
+            0,
+            0,
+            -0.02
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "wheel_hub",
+          "accepts": [
+            "motor_shaft"
+          ]
+        }
+      ],
+      "collision_boxes": [
+        {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.008,
+            0.008,
+            0.04
           ]
         }
       ]
