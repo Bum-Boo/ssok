@@ -11,7 +11,7 @@ See [the integration record](evidence/merge_2026-09-30/README.md) for fresh veri
 
 The challenge author picker lists every instance with its part number. It no longer collapses
 multiple instances into one part-kind entry. Rules exported in schema v2 include `target_index`;
-`-1` keeps builtin stages open to any single matching part kind. Multiple matches block the attempt.
+`-1` keeps builtin stages open to any single matching part kind. Multiple matches block these legacy selectors. The aggregate extension below deliberately selects a set.
 A chosen indexed target is bound at goal loading; deleting it and inserting the same kind does not
 redirect scoring. Index layout changes require choosing the target again and recreating the challenge.
 Previous v1 documents remain readable; all numbers are normalized through JSON on creation.
@@ -48,3 +48,19 @@ actual counts, baseline failures and remaining integration work; no public deplo
 
 English, Korean, Simplified Chinese and Japanese messages change together. No AI service or paid
 call is used by this change. The scene graph, rendering engine and physical actuator model are unchanged.
+
+## Own-build aggregate extension (2026-10-22)
+
+Stage v2 additionally accepts part_id="*", target_index=-1 for min_x, max_height, robot_speed,
+wall_distance and wall_contact. min_x/max_height use conservative transformed mesh bounds;
+robot_speed is maximum body linear speed; wall_distance is shortest AABB surface separation in
+metres from any robot part to environment walls. Legacy stage_wall graph props are excluded from
+the robot set and remain usable as walls. max_height also supports a catalog-kind set (task flags).
+All new aggregates require v2/index -1. The original six metrics, indexed tokens, v1 parsing,
+fingerprint invalidation and terminal outcomes remain valid.
+
+Built-in stages start empty or restore a validated local workspace; answer loading is an explicit
+confirmed replacement. Flag success observes task flags rather than servo readiness. Finish success
+observes all parts rather than one upright chassis. Wall success observes environment geometry,
+stationary hold and persistent actual contact history rather than requiring a sonar sensor.
+See [ADR 0035](adr/0036-own-build-stages-and-aggregate-goals.md) and [work D](WORK_SUMMARY_D.md).

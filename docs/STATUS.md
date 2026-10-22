@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-22 작업 D 로컬 후보: B 병합·빈 작업대·전체 로봇/환경 판정·과제 깃발·확인 후 답지/초기화·스테이지별 보존. [검증·제한·인계](WORK_SUMMARY_D.md), [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md). 아래 미리 조립/도구 숨김 설명을 대체하며 통합·배포는 하지 않았어요.
+
 2026-10-22 작업 A-5 로컬 후보: 목표 문장 28px·회색 태그 14px·패널 제목 16px 굵게로 위계 교정. [현재 검사·GL 미검증·인계](WORK_SUMMARY_A5.md), [ADR 0034](adr/0034-correct-workshop-type-roles.md). A-4 공간/관측/콘 규칙과 [이력](WORK_SUMMARY_A4.md)은 유지해요.
 
 2026-10-22 작업 A-3 로컬 후보: 작은 창 두 줄/60% 편집 패널·Run 라벨·글꼴 위계·도로 그림자 수신 보완. [소스·현재 검사·GL 미검증·인계](WORK_SUMMARY_A3.md), [ADR 0032](adr/0032-compact-workshop-presentation.md).
@@ -74,10 +76,8 @@ Claude Fable5-1의 최신 기능 소스 리뷰 pass; 변경 없는 패널 SHA f8
 [목표 UI 이력](evidence/agent_camera_2026-10-10/goal_ui/README.md) ·
 [이전 반복 실험](evidence/agent_camera_2026-10-10/repeated/README.md).
 
-Arch 최신 원자료 일부 회수는 미완료예요. 기존 task는 Windows/WSL 원본 CLI로 재개·checkpoint했으며 최종 release는 현재 인계 영수증으로 확인해요.
-Windows 개발·검증 근거와 다음 절차는 [Claude 인계](../CLAUDE-REVIEW.md)에 있어요.
-다음은 최종 인계 commit의 Fable rebase, human merge와 해당 버전/범위 공개 승인,
-이미지 목표 정밀도예요. 현재 main 통합·공개 배포·카탈로그 카메라·범용 로봇/학습은 미완료예요.
+Arch 최신 원자료 일부 회수는 미완료예요. 기존 task는 Windows/WSL 원본 CLI로 재개·checkpoint했으며 최종 release는 현재 인계 영수증으로 확인해요. Windows 개발·검증 근거와 다음 절차는 [Claude 인계](../CLAUDE-REVIEW.md)에 있어요.
+다음은 최종 인계 commit의 Fable rebase, human merge와 해당 버전/범위 공개 승인, 이미지 목표 정밀도예요. 현재 main 통합·공개 배포·카탈로그 카메라·범용 로봇/학습은 미완료예요.
 
 - [출시 전 화면·부품·커스텀 점검](PRELAUNCH_UX_AUDIT_2026-09-30.md)은 실제 `90b9930` 화면 5장과 부품 목록을 포함해요. 신규 시각안·꾸미기·챕터 진행은 제안이에요.
 - 설정 PR41과 설치형 PR40은 사용자 지시로 병합했어요. 같은 최종 소스의 네 대상 빌드와 실제 검증은 배포 기록을 확인해요.

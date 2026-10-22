@@ -26,3 +26,10 @@ The exact imported asset hashes are in `assets/kenney/SOURCE.json`; source licen
 Run `godot --headless --path . --editor --import --quit`, then `godot --headless --path . --script tests/flag_mission_check.gd` and `godot --headless --path . --script tests/localization_check.gd`. The mission test covers the physical raise, retry, a nonwinning program, stop, and wire removal. `python3 tools/ci/build.py --godot godot --version flag-preview` checks both exports and bundled notices. `tools/godot/capture_flag_mission.gd` captures native start, ready, and success views to `build/flag_mission/` when a display is available.
 
 The next natural-language command slice remains a separate implementation: a visible command window, one reachable box, a bounded pickup/release controller, observed results, and a local stop. Bookshelf insertion and room travel still require new scene objects and controllers. Provider connection and any paid calls require a provider-specific cost and data notice before the first call; this mission performs no AI service calls.
+
+## 2026-10-22 스테이지와 독립 튜토리얼
+
+위 FlagMission 패널은 독립 튜토리얼에서 기존 경로를 유지해요.
+스테이지는 빈 작업대에서 실제 과제 깃발을 붙이고, 모든 깃발 중 최고 높이를 StageEvaluator가 관측해요.
+서보/팔/특정 핀을 판정 전제로 쓰지 않아요. [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md)와
+[작업 D](WORK_SUMMARY_D.md)가 새 스테이지 흐름·현재 검사·제한의 근거예요.

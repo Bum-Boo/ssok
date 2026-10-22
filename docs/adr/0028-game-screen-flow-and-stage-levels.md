@@ -11,6 +11,8 @@
 > superseded by [0030](0030-scene-first-workshop-guidance.md) (2026-10-22). Routing, levels,
 > graph authority, stage outcomes and standalone legacy entry points remain accepted.
 
+> [0036](0036-own-build-stages-and-aggregate-goals.md) supersedes only built-in stage preload, hidden assembly tools, graph-owned wall and clear-only progress storage. Routing, scene generation and other decisions remain accepted.
+
 ## Context
 
 The owner opened the app as a user and could not tell what to do. There was one scene

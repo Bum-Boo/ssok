@@ -69,3 +69,8 @@ A-4는 관측 전 목표 한 줄의 `Target: %s (%s)`와 요약의 `%s / Target:
 A-5는 글꼴 크기·굵기·색 역할만 고치며 원문·번역 키·PO·inventory는 바꾸지 않아요.
 공유 굵은 글꼴도 기존 CJK 파일과 지역별 face를 사용하며 언어 전환에 함께 갱신돼요.
 두 테마·네 언어·두 해상도·세 배율의 현재 검사와 실제 GL 미검증 범위는 [A-5 인계](WORK_SUMMARY_A5.md)에 있어요.
+
+D는 조립→배선→코드→실행 안내, 과제 깃발 이름, 답지/초기화 확인·답지 통과 배지·저장 실패 안내를
+tools/localization/own_build_messages.json과 세 PO에 함께 추가해요. localization_check에서
+inventory 전체를 명시적으로 검사해요. 네 언어·두 테마·확대/작은 창의 headless 기하 검사는
+실제 GL 글리프/클리핑 검수와 구분하며 [작업 D](WORK_SUMMARY_D.md)에 남겨요.

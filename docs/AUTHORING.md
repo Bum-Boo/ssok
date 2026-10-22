@@ -89,3 +89,16 @@ overwrite it: read the updated source explicitly.
   undo/redo, saved snapshots, code preflight, pending-block execution and saveable workspace limits.
 
 Run these through the isolated [verification runner](BUILD.md); personal saved projects stay untouched.
+
+## 2026-10-22 스테이지에서 내 로봇 만들기
+
+스테이지는 처음에 빈 작업대와 전체 부품으로 열려요. 조립→배선→블록/코드→실행 순서로 만들며,
+목표는 특정 섀시/센서가 아니라 로봇 전체와 환경을 관측해요. 깃발은 과제 부품을 붙여요.
+목표 스트립의 답지 메뉴는 확인 뒤 현재 조립과 코드를 교체하고 답지 사용 상태를 남겨요.
+처음부터 만들기도 확인 뒤 비워요. 기본 스테이지의 lower_arm 보정은 답지 로드에만 적용해요.
+
+Back/list/next는 스테이지별 마지막 편집 그래프·코드를 로컬 저장하고, 다시 열면 복원해요.
+저장 실패나 블록/코드 초안 충돌이면 나가지 않아요. 실행 중 나가기가 취소돼도 편집 모드로 돌아와
+옛 시도가 뒤늦게 성공하지 않아요. 프로젝트 라이브러리의 독립 스냅샷·가져오기 계약은 유지해요.
+이 저장은 나가기/답지/초기화 시점이며 창 강제 종료·브라우저 저장소 삭제의 복구를 보장하지 않아요.
+자세한 현재 결과는 [작업 D](WORK_SUMMARY_D.md), 저장 필드는 [데이터 모델](DATA_MODEL.md)이에요.

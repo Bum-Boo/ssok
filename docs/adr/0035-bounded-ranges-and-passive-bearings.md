@@ -1,4 +1,4 @@
-# 0030 — Bounded ranges and graph-derived passive bearings
+# 0035 — Bounded ranges and graph-derived passive bearings
 
 - Status: accepted
 - Date: 2026-10-22
@@ -31,3 +31,5 @@ its existing 20 mm mounting pitch and 4 mm/8 mm interfaces. Existing Blender-aut
 This increment exposes only tested hinge, wheel and weight definitions. Gears, grippers, new
 sensors, LED and environment parts remain unexposed until their own behavior is implemented and
 verified. Game-stage tool visibility is retained under the user's separate UI work boundary.
+
+Integration note (2026-10-22): work B originally allocated 0030 independently. Renumbered to 0035 when combined with A-5; the decision body and accepted scope are unchanged.

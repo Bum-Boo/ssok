@@ -127,7 +127,7 @@ API/유료 호출 0회, 비용 영향 없음.
 
 ## 통합 담당 인계
 
-[ADR 0030](adr/0030-bounded-ranges-and-passive-bearings.md)은 0002/0003/0004/0011/0023을
+[ADR 0035 (B의 원래 0030)](adr/0035-bounded-ranges-and-passive-bearings.md)은 0002/0003/0004/0011/0023을
 확장하며 기존 결정을 대체하지 않아요. DATA_MODEL/FLOWS의 관계 도식은 같은 graph 권한과
 같은 실행/Stop 경로를 쓰므로 유지했고, 새 필드/한계 설명과 source-review 해시만 갱신했어요.
 STATUS는 통합 상태 정본이므로 아직 미통합인 이 작업의 수치로 덮어쓰지 않았어요.

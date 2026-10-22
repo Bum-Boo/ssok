@@ -89,13 +89,15 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 
 현재 한도는 프로젝트 JSON 512 KiB, source 64 KiB, 제목 80자, 저장 파일 128개, 부품 256개, 링크 1024개, 각 좌표 절댓값 100m예요. 디스크 파일 ID는 24자리 소문자 hex이며 JSON 내부의 학습자 객체 ID가 아니에요. 정확한 한도와 거부 정책은 아래 소스를 따르고 변경 때 이 설명도 검토해요.
 
-`ProjectStore.save()`는 새 ID의 `.tmp` 파일을 쓴 뒤 rename해 독립 스냅샷을 만들어요. 기존 파일을 수정하는 자동 저장, 클라우드 병합과 미저장 작업 복구는 현재 계약에 없어요. Stage는 아래 별도 문서 형식으로 프로젝트 v1을 포함해요. 프로젝트 v1의 exact-key에 Stage 필드를 덧붙이지 않아요.
+`ProjectStore.save()`는 새 ID의 `.tmp` 파일을 쓴 뒤 rename해 독립 스냅샷을 만들어요. ProjectStore 자체는 기존 파일을 덮어쓰지 않아요. 스테이지별 작업 저장은 아래 StageProgress의 별도 계약이에요. 클라우드 병합은 없어요. Stage는 아래 별도 문서 형식으로 프로젝트 v1을 포함해요. 프로젝트 v1의 exact-key에 Stage 필드를 덧붙이지 않아요.
 
 ## Stage v2의 관계와 실행 증거
 
-`ssok-stage` v2는 `id`, `title`, `scene`, `author_solution`, `rules`, `constraints`를 가져요. `scene`과 `author_solution`은 각각 프로젝트 v1 문서예요. v1 Stage도 읽으며 v2로 생성해요. 규칙은 metric, part_id, min/max, hold_seconds와 target_index를 포함해요. `target_index = -1`은 일치하는 종류가 정확히 하나일 때만 허용해요. 직접 선택한 인덱스는 로딩 시 그래프 인스턴스 토큰에 묶이며 삭제·대체하면 재선택이 필요해요. 이 토큰은 저장하는 영구 객체 ID가 아니에요.
+`ssok-stage` v2는 `id`, `title`, `scene`, `author_solution`, `rules`, `constraints`를 가져요. `scene`과 `author_solution`은 각각 프로젝트 v1 문서예요. v1 Stage도 읽으며 v2로 생성해요. 규칙은 metric, part_id, min/max, hold_seconds와 target_index를 포함해요. `target_index = -1`은 기존 지표에서는 일치하는 종류가 정확히 하나일 때만 허용해요. v2 집합 지표는 [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md)에 따라 전체 또는 종류별 집합을 관측해요. 직접 선택한 인덱스는 로딩 시 그래프 인스턴스 토큰에 묶이며 삭제·대체하면 재선택이 필요해요. 이 토큰은 저장하는 영구 객체 ID가 아니에요.
 
-기본 스테이지는 `StageLevels` 항목이 레벨 씬 경로와 `StageCatalog` 정의를 묶어요. 레벨 씬의 바닥·소품·목표 표시는 그래프가 아니며 충돌하는 과제 물체(`stage_wall`)만 그래프 부품이에요. 레벨 씬(`res://stages/`)도 실행 문맥의 자원 해시에 들어가요. 스테이지 성공 기록은 `user://progress.json`(`ssok-progress` v1, `cleared` 사전)에 따로 저장하며 프로젝트·설정과 섞지 않아요. 가져온 과제 파일에는 레벨 참조가 없어서 기본 바닥에서 열려요.
+기본 스테이지는 StageLevels 항목이 레벨 씬 경로와 StageCatalog 정의를 묶어요. 새 진입은 빈 그래프/코드예요. 레벨 바닥·소품·목표와 물리 벽은 편집 그래프 밖에 있어요. 기존 답지의 그래프 벽은 Lab에서 유지하고 스테이지 로더에서는 중복을 제거해요. 레벨 자원과 실제 벽 경계도 실행 증거에 포함해요.
+
+StageProgress는 user://progress.json의 ssok-progress v2에 cleared, solutions, workspaces를 저장해요. v1 cleared를 유지하며 workspaces의 stage:<id> 값은 project(검증한 ProjectStore 문서)와 used_solution(bool)이에요. Back/list/next 전에 블록 초안을 반영하고 임시 파일→rename으로 저장해요. 실패나 코드/블록 충돌이면 화면을 떠나지 않아요. 복원은 편집 그래프/코드만 불러오고 실행하지 않아요. 실행 물리 자세·개인 선호·AI 인증은 저장하지 않아요. 스테이지별 마지막 조립 하나를 보존하며 이전 조립 이력/크래시 복구는 제공하지 않아요. 답지로 통과한 기록은 카드에 표시하고, 이후 독립 통과가 있으면 독립 기록을 유지해요.
 
 판정은 `StageEvaluator`가 실제 물리를 관측해요. 성공 증거는 과제 전체, 그래프/소스, 엔진·런타임·모델, 보드 API/시간 단위, 물리 설정, 센서 조건의 fingerprint에 묶여요. 파일에 신뢰할 인증서를 담지 않으며 가져온 과제는 다시 성공해야 해요. [Stage 계약](STAGE_CONTRACTS.md)과 [ADR 0025](adr/0025-stage-targets-proofs-and-outcomes.md)를 따라요.
 

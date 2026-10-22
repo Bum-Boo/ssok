@@ -4,6 +4,8 @@
 - Date: 2026-09-30
 - Extends: ADR 0002, 0003, 0004, 0023; does not change graph authority or physics
 
+> [0036](0036-own-build-stages-and-aggregate-goals.md) extends only v2 aggregate selector semantics for index -1. Existing unique-kind metrics, indexed token binding, proof identity and outcomes remain accepted.
+
 ## Context
 
 Catalog IDs identify part kinds, not individual instances. Choosing the first matching kind can
