@@ -601,12 +601,22 @@ func surface_brightness(hit: Dictionary) -> float:
 	return brightness
 
 
-## Environment-based observation: unique movable solver bodies wholly inside any cup.
+## Environment-based observation: unique free environment-object bodies inside any cup.
+## Mechanical attachment to a non-object part makes an object part of that assembly.
 ## Cup orientation is respected; no robot/ball SKU or stage target ID is required.
 func cup_object_count() -> int:
 	var inside: Array[RID] = []
 	if _graph == null:
 		return 0
+	# A role alone is insufficient when an object has been bolted to a robot.
+	# Use graph mechanical connectivity, including unmerged/jointed bodies.
+	var assembly_rids: Array[RID] = []
+	for part: int in bodies.size():
+		if _graph.parts[part].part_def.environment_role == "object":
+			continue
+		for rid: RID in robot_rids(part):
+			if rid not in assembly_rids:
+				assembly_rids.append(rid)
 	for cup: int in bodies.size():
 		var definition: PartDef = _graph.parts[cup].part_def
 		if definition.environment_role != "cup":
@@ -615,7 +625,7 @@ func cup_object_count() -> int:
 		var candidates: Array[RID] = []
 		for part: int in bodies.size():
 			var body: RigidBody3D = bodies[part]
-			if body.freeze or body == bodies[cup] or body.get_rid() in inside or body.get_rid() in candidates:
+			if _graph.parts[part].part_def.environment_role != "object" or body.freeze or body.get_rid() in assembly_rids or body.get_rid() in inside or body.get_rid() in candidates:
 				continue
 			candidates.append(body.get_rid())
 			var fully_inside: bool = true

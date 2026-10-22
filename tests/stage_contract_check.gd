@@ -136,7 +136,7 @@ func _run() -> void:
 	_check(judge.status == "running" and judge.measurements[0].value == 0, "outside ball cannot clear cup goal")
 	cup_run.bodies[1].position = Vector3(0, 0.03, 0)
 	judge.observe(cup_run, cup_graph, 0.1)
-	_check(judge.status == "running" and judge.measurements[0].value == cup_run.cup_object_count(), "contained count uses runtime observation and hold")
+	_check(judge.status == "running" and judge.measurements[0].value == 1 and cup_run.cup_object_count() == 1, "free environment-object count uses runtime observation and hold")
 	judge.observe(cup_run, cup_graph, 0.1)
 	_check(judge.success and judge.measurements[0].value == 1, "observed containment clears after required hold")
 	judge.start(cup_graph)

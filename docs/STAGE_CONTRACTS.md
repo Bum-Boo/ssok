@@ -66,6 +66,8 @@ stationary hold and persistent actual contact history rather than requiring a so
 See [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md) and [work D](WORK_SUMMARY_D.md).
 
 D-2 adds `cup_count` only for v2, `part_id="*"`, `target_index=-1`. It observes
-`RunMode.cup_object_count()`: unique movable bodies wholly inside any cup, independent of SKU
-and cup orientation. Zero is valid; unavailable/nonfinite physics cannot clear. Existing min/max
+`RunMode.cup_object_count()`: unique movable bodies with `environment_role="object"` wholly
+inside any cup, independent of SKU and cup orientation. Cups and robot/structural bodies are
+excluded, as are object bodies mechanically connected to any non-object part. A merged free
+object body counts once and all its members must fit. Zero is valid; unavailable/nonfinite physics cannot clear. Existing min/max
 and hold rules apply. No built-in stage is added.

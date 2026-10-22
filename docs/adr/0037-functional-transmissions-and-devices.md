@@ -1,6 +1,6 @@
 # 0037 — Graph-derived transmissions and functional devices
 
-- Status: accepted
+- Status: accepted; cup candidate eligibility partially superseded by [0038](0038-free-environment-cup-objects.md)
 - Date: 2026-10-22
 - Implements: the user's B-2 functional parts request.
 - Extends: 0035, 0002, 0003, 0004, 0011, 0020 and 0023. No accepted scope is superseded.
@@ -54,6 +54,8 @@ separate walls/base boxes with an open mouth. Ramps/cups join anchored_part_ids;
 interior, irrespective of object SKU and cup orientation. Sphere extents are analytic rather than
 rotated AABB corners. Other parts use conservative transformed mesh bounds; merged parts must
 all fit. The existing allowed solver penetration (1 mm in this project) is the containment tolerance.
+[0038](0038-free-environment-cup-objects.md) narrows only candidate eligibility to free
+environment objects; the geometric containment and merged-body rules above remain.
 D-2 registers this observation as Stage v2 cup_count with part_id="*" and target_index=-1,
 using the existing min/max/hold and outcome rules. No built-in stage is added.
 
