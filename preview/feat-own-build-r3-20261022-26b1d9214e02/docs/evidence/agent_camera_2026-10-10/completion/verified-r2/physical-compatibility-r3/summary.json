@@ -1,0 +1,921 @@
+{
+  "checkpoint": "2026-10-11T03:19:44+09:00",
+  "source_head": "12a92983a120d6dc49d266e421490e131377e488",
+  "immutable_app_package_source": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+  "source426_unchanged": true,
+  "source10_unchanged": true,
+  "goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "model_trials": 0,
+  "developer_replays": [
+    {
+      "label": "recovered",
+      "tape": [
+        30,
+        10,
+        12
+      ],
+      "image": true,
+      "physical": false,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": false,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.140430986881256,
+      "final_floor_pixels": 26,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim",
+      "runtime_seconds": 18.995,
+      "captures": [
+        {
+          "label": "initial",
+          "png_sha256": "a86e933fec6fd7556eb94f4f559fd08dabde4c520675277596273298df4ee310",
+          "floor_pixels": 116,
+          "gap_m": 0.254844076931477,
+          "rotation": [
+            -0.000473150721518323,
+            -0.00242283707484603,
+            -0.00868447590619326
+          ],
+          "position": [
+            0.000396856863517314,
+            0.0666344687342644,
+            -0.000120651842735242
+          ],
+          "linear_speed": 0.000457978661870584,
+          "angular_speed": 0.00487312488257885,
+          "wheel_speed": 0.018198424950242,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 57,
+            "control_generation": 1,
+            "draw_frame": 42,
+            "episode_id": "fbebb366bed79621ca39a849",
+            "frame_id": 2,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 57,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 57,
+            "sha256": "a86e933fec6fd7556eb94f4f559fd08dabde4c520675277596273298df4ee310",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-1",
+          "png_sha256": "580c3bbaf3c0acb5aac1e6a2050884ca488216f53b4e2c9acfd6f21834271446",
+          "floor_pixels": 68,
+          "gap_m": 0.177683770656586,
+          "rotation": [
+            -0.00074948591645807,
+            0.00187405245378613,
+            -0.0168886184692383
+          ],
+          "position": [
+            0.07700414955616,
+            0.0670826360583305,
+            0.000288722512777895
+          ],
+          "linear_speed": 0.000610757502727211,
+          "angular_speed": 0.0044911140576005,
+          "wheel_speed": 0.0140096060931683,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 240,
+            "control_generation": 1,
+            "draw_frame": 224,
+            "episode_id": "fbebb366bed79621ca39a849",
+            "frame_id": 3,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 240,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 240,
+            "sha256": "580c3bbaf3c0acb5aac1e6a2050884ca488216f53b4e2c9acfd6f21834271446",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-2",
+          "png_sha256": "8cd069f66bae37d70062e489e028db349a2e1926b7166d3bbfe49814f849c94c",
+          "floor_pixels": 51,
+          "gap_m": 0.162044405937195,
+          "rotation": [
+            0.00253812107257545,
+            0.000688605068717152,
+            -0.0146561246365309
+          ],
+          "position": [
+            0.0928231477737427,
+            0.066976509988308,
+            0.000137706854729913
+          ],
+          "linear_speed": 0.000555145787075162,
+          "angular_speed": 0.00415042648091912,
+          "wheel_speed": 0.0171240977942944,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 381,
+            "control_generation": 1,
+            "draw_frame": 364,
+            "episode_id": "fbebb366bed79621ca39a849",
+            "frame_id": 4,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 381,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 381,
+            "sha256": "8cd069f66bae37d70062e489e028db349a2e1926b7166d3bbfe49814f849c94c",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-3",
+          "png_sha256": "7d87b6e9683ebb8f3c71b3b90a5f23ec05050ae775cfe190e87f5612258fc670",
+          "floor_pixels": 23,
+          "gap_m": 0.140774607658386,
+          "rotation": [
+            -0.00205728784203529,
+            0.016597168520093,
+            -0.0144047765061259
+          ],
+          "position": [
+            0.113766469061375,
+            0.0669622495770454,
+            -2.5544642994646e-05
+          ],
+          "linear_speed": 0.000554695609025657,
+          "angular_speed": 0.00419742474332452,
+          "wheel_speed": 0.0172200258821249,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 531,
+            "control_generation": 1,
+            "draw_frame": 513,
+            "episode_id": "fbebb366bed79621ca39a849",
+            "frame_id": 5,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 531,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 531,
+            "sha256": "7d87b6e9683ebb8f3c71b3b90a5f23ec05050ae775cfe190e87f5612258fc670",
+            "width": 640
+          }
+        },
+        {
+          "label": "final-idle",
+          "png_sha256": "eebdee7daba4eb821d77d6883501bc5b26019eecf86b4c5e28e6bde3734e5916",
+          "floor_pixels": 26,
+          "gap_m": 0.140872374176979,
+          "rotation": [
+            -0.000536810606718063,
+            0.0173536483198404,
+            -0.0183770302683115
+          ],
+          "position": [
+            0.113378554582596,
+            0.0671636760234833,
+            0.000484619289636612
+          ],
+          "linear_speed": 0.000365920597687364,
+          "angular_speed": 0.00449166959151626,
+          "wheel_speed": 0.00549376290291548,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 678,
+            "control_generation": 1,
+            "draw_frame": 659,
+            "episode_id": "fbebb366bed79621ca39a849",
+            "frame_id": 6,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 678,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 678,
+            "sha256": "eebdee7daba4eb821d77d6883501bc5b26019eecf86b4c5e28e6bde3734e5916",
+            "width": 640
+          }
+        }
+      ]
+    },
+    {
+      "label": "repeat12",
+      "tape": [
+        30,
+        10,
+        12
+      ],
+      "image": true,
+      "physical": false,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": false,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.140857681632042,
+      "final_floor_pixels": 26,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim",
+      "runtime_seconds": 19.032,
+      "captures": [
+        {
+          "label": "initial",
+          "png_sha256": "e4a695a91e71163c3744391643bfe5840fbe24bf535bbe936ec08f567e23164a",
+          "floor_pixels": 116,
+          "gap_m": 0.254792861640453,
+          "rotation": [
+            -0.000533165992237628,
+            -0.0026045108679682,
+            -0.00904393196105957
+          ],
+          "position": [
+            0.000419105694163591,
+            0.0666541531682014,
+            -0.000144452904351056
+          ],
+          "linear_speed": 0.000438660033978522,
+          "angular_speed": 0.00483673810958862,
+          "wheel_speed": 0.0170386768877506,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 62,
+            "control_generation": 1,
+            "draw_frame": 46,
+            "episode_id": "5ec1e50c08069e97b624f3ff",
+            "frame_id": 2,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 62,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 62,
+            "sha256": "e4a695a91e71163c3744391643bfe5840fbe24bf535bbe936ec08f567e23164a",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-1",
+          "png_sha256": "95ca5ad39d66d1837a71e968b34c062afa79b2332e1e192a677aad05af5ecb31",
+          "floor_pixels": 68,
+          "gap_m": 0.177666336297989,
+          "rotation": [
+            -0.000704556878190488,
+            0.00176349002867937,
+            -0.0172230303287506
+          ],
+          "position": [
+            0.0770011097192764,
+            0.0671008750796318,
+            0.000296722922939807
+          ],
+          "linear_speed": 0.00060295284492895,
+          "angular_speed": 0.0044883294031024,
+          "wheel_speed": 0.0136489840224385,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 245,
+            "control_generation": 1,
+            "draw_frame": 228,
+            "episode_id": "5ec1e50c08069e97b624f3ff",
+            "frame_id": 3,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 245,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 245,
+            "sha256": "95ca5ad39d66d1837a71e968b34c062afa79b2332e1e192a677aad05af5ecb31",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-2",
+          "png_sha256": "48e284aeb4f193773b1e12676a354a26c7e4cd42dcfe7fe8ecbbf5f0ec7d04c8",
+          "floor_pixels": 51,
+          "gap_m": 0.16206930577755,
+          "rotation": [
+            0.00252890610136092,
+            -3.96258183172904e-05,
+            -0.0147797605022788
+          ],
+          "position": [
+            0.0928044468164444,
+            0.066983237862587,
+            0.000238272157730535
+          ],
+          "linear_speed": 0.000573337660171092,
+          "angular_speed": 0.00407200679183006,
+          "wheel_speed": 0.0164939817041159,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 385,
+            "control_generation": 1,
+            "draw_frame": 367,
+            "episode_id": "5ec1e50c08069e97b624f3ff",
+            "frame_id": 4,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 385,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 385,
+            "sha256": "48e284aeb4f193773b1e12676a354a26c7e4cd42dcfe7fe8ecbbf5f0ec7d04c8",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-3",
+          "png_sha256": "3cf241ba24af0bf89dc709a4b2583323d1323ff401a251ce9d2d9a1028eb7ce1",
+          "floor_pixels": 23,
+          "gap_m": 0.140790522098541,
+          "rotation": [
+            -0.00213497271761298,
+            0.0159891881048679,
+            -0.0146178780123591
+          ],
+          "position": [
+            0.113748751580715,
+            0.066973865032196,
+            7.14158377377316e-05
+          ],
+          "linear_speed": 0.000558054598513991,
+          "angular_speed": 0.00419399980455637,
+          "wheel_speed": 0.0172553267329931,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 536,
+            "control_generation": 1,
+            "draw_frame": 517,
+            "episode_id": "5ec1e50c08069e97b624f3ff",
+            "frame_id": 5,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 536,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 536,
+            "sha256": "3cf241ba24af0bf89dc709a4b2583323d1323ff401a251ce9d2d9a1028eb7ce1",
+            "width": 640
+          }
+        },
+        {
+          "label": "final-idle",
+          "png_sha256": "89f12818345ecbc4b9dddf0bf9b0f8e53ce02c2eb8e05a7d53573cd5ce87557e",
+          "floor_pixels": 26,
+          "gap_m": 0.140901073813438,
+          "rotation": [
+            -0.000112674402771518,
+            0.0167684853076935,
+            -0.0184657368808985
+          ],
+          "position": [
+            0.113355584442616,
+            0.0671685189008713,
+            0.000616881879977882
+          ],
+          "linear_speed": 0.000364742474630475,
+          "angular_speed": 0.00448788423091173,
+          "wheel_speed": 0.00520616210997105,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 684,
+            "control_generation": 1,
+            "draw_frame": 663,
+            "episode_id": "5ec1e50c08069e97b624f3ff",
+            "frame_id": 6,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 684,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 684,
+            "sha256": "89f12818345ecbc4b9dddf0bf9b0f8e53ce02c2eb8e05a7d53573cd5ce87557e",
+            "width": 640
+          }
+        }
+      ]
+    },
+    {
+      "label": "tick13",
+      "tape": [
+        30,
+        10,
+        13
+      ],
+      "image": false,
+      "physical": true,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": true,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.137652397155762,
+      "final_floor_pixels": 22,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim",
+      "runtime_seconds": 19.095,
+      "captures": [
+        {
+          "label": "initial",
+          "png_sha256": "8f9d7b8efa21e075b30206fad2839e8df0c14f8fb17332b7477c579f3c2be1ac",
+          "floor_pixels": 116,
+          "gap_m": 0.254854626953602,
+          "rotation": [
+            -0.000461217015981674,
+            -0.00238578533753753,
+            -0.00861261785030365
+          ],
+          "position": [
+            0.000392098794691265,
+            0.0666305273771286,
+            -0.000115916162030771
+          ],
+          "linear_speed": 0.000461913004983217,
+          "angular_speed": 0.00488143647089601,
+          "wheel_speed": 0.0184534341096878,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 56,
+            "control_generation": 1,
+            "draw_frame": 41,
+            "episode_id": "d7995244f3816b848d48b7d6",
+            "frame_id": 2,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 56,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 56,
+            "sha256": "8f9d7b8efa21e075b30206fad2839e8df0c14f8fb17332b7477c579f3c2be1ac",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-1",
+          "png_sha256": "932c0da3d27e3ba0947c0bcca76e91501f44bded5aec71d31cb3ab7db1eb491c",
+          "floor_pixels": 68,
+          "gap_m": 0.177697062492371,
+          "rotation": [
+            -0.000741512340027839,
+            0.00192942388821393,
+            -0.0167135111987591
+          ],
+          "position": [
+            0.0770016461610794,
+            0.0670730918645859,
+            0.000285235117189586
+          ],
+          "linear_speed": 0.000609388865996152,
+          "angular_speed": 0.00449276668950915,
+          "wheel_speed": 0.0139972381293774,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 238,
+            "control_generation": 1,
+            "draw_frame": 222,
+            "episode_id": "d7995244f3816b848d48b7d6",
+            "frame_id": 3,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 238,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 238,
+            "sha256": "932c0da3d27e3ba0947c0bcca76e91501f44bded5aec71d31cb3ab7db1eb491c",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-2",
+          "png_sha256": "8567239ec3cc7c6521ca9ec87873cf09532d2ef8a63bed9ae56b90a5365232df",
+          "floor_pixels": 51,
+          "gap_m": 0.162063479423523,
+          "rotation": [
+            0.00234897108748555,
+            0.000721909222193062,
+            -0.0146048674359918
+          ],
+          "position": [
+            0.0928068459033966,
+            0.0669737681746483,
+            0.000121930985187646
+          ],
+          "linear_speed": 0.000559724459890276,
+          "angular_speed": 0.00423349533230066,
+          "wheel_speed": 0.0182928573340178,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 378,
+            "control_generation": 1,
+            "draw_frame": 361,
+            "episode_id": "d7995244f3816b848d48b7d6",
+            "frame_id": 4,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 378,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 378,
+            "sha256": "8567239ec3cc7c6521ca9ec87873cf09532d2ef8a63bed9ae56b90a5365232df",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-3",
+          "png_sha256": "d4c4f7ba953c42c5c5cd0f6b805f2a59926d819b77f9015edcf239ec00e5d176",
+          "floor_pixels": 20,
+          "gap_m": 0.137750253081322,
+          "rotation": [
+            0.00238910061307251,
+            0.0147359175607562,
+            -0.0160665027797222
+          ],
+          "position": [
+            0.116711296141148,
+            0.0670535191893578,
+            -0.000571281299926341
+          ],
+          "linear_speed": 0.000570843752939254,
+          "angular_speed": 0.00414232676848769,
+          "wheel_speed": 0.0173784233629704,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 532,
+            "control_generation": 1,
+            "draw_frame": 514,
+            "episode_id": "d7995244f3816b848d48b7d6",
+            "frame_id": 5,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 532,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 532,
+            "sha256": "d4c4f7ba953c42c5c5cd0f6b805f2a59926d819b77f9015edcf239ec00e5d176",
+            "width": 640
+          }
+        },
+        {
+          "label": "final-idle",
+          "png_sha256": "7ea41c31cd4ad8ea41f162b7c16842de81c5933ce117dfb4a158e8a84a933b74",
+          "floor_pixels": 22,
+          "gap_m": 0.13792759180069,
+          "rotation": [
+            0.000155560279381461,
+            0.0127365766093135,
+            -0.0201349947601557
+          ],
+          "position": [
+            0.116300329566002,
+            0.0672595053911209,
+            -0.0011904618004337
+          ],
+          "linear_speed": 0.000366302934708074,
+          "angular_speed": 0.00444962410256267,
+          "wheel_speed": 0.00463262293487787,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 683,
+            "control_generation": 1,
+            "draw_frame": 663,
+            "episode_id": "d7995244f3816b848d48b7d6",
+            "frame_id": 6,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 683,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 683,
+            "sha256": "7ea41c31cd4ad8ea41f162b7c16842de81c5933ce117dfb4a158e8a84a933b74",
+            "width": 640
+          }
+        }
+      ]
+    },
+    {
+      "label": "segmented12-1",
+      "tape": [
+        30,
+        10,
+        12,
+        1
+      ],
+      "image": false,
+      "physical": true,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": true,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.139810919761658,
+      "final_floor_pixels": 23,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim",
+      "runtime_seconds": 20.196,
+      "captures": [
+        {
+          "label": "initial",
+          "png_sha256": "e4a695a91e71163c3744391643bfe5840fbe24bf535bbe936ec08f567e23164a",
+          "floor_pixels": 116,
+          "gap_m": 0.254792861640453,
+          "rotation": [
+            -0.000533165992237628,
+            -0.0026045108679682,
+            -0.00904393196105957
+          ],
+          "position": [
+            0.000419105694163591,
+            0.0666541531682014,
+            -0.000144452904351056
+          ],
+          "linear_speed": 0.000438660033978522,
+          "angular_speed": 0.00483673810958862,
+          "wheel_speed": 0.0170386768877506,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 62,
+            "control_generation": 1,
+            "draw_frame": 47,
+            "episode_id": "0c3f30a315f9585d49565d4f",
+            "frame_id": 2,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 62,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 62,
+            "sha256": "e4a695a91e71163c3744391643bfe5840fbe24bf535bbe936ec08f567e23164a",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-1",
+          "png_sha256": "0431cd3762bed9d801801d078f189b4140a28e9b32d1c4c248f91fd3bfc57b41",
+          "floor_pixels": 68,
+          "gap_m": 0.1776302754879,
+          "rotation": [
+            -0.000661647063679993,
+            0.00156073621474206,
+            -0.0174428727477789
+          ],
+          "position": [
+            0.0770266428589821,
+            0.0671128705143929,
+            0.00032214995007962
+          ],
+          "linear_speed": 0.000614188727922738,
+          "angular_speed": 0.00451659969985485,
+          "wheel_speed": 0.014334550127387,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 245,
+            "control_generation": 1,
+            "draw_frame": 229,
+            "episode_id": "0c3f30a315f9585d49565d4f",
+            "frame_id": 3,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 245,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 245,
+            "sha256": "0431cd3762bed9d801801d078f189b4140a28e9b32d1c4c248f91fd3bfc57b41",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-2",
+          "png_sha256": "e5178f45908b717ec44314dec3d43aa5d852cafd09cf8f770652371312967e40",
+          "floor_pixels": 51,
+          "gap_m": 0.162070199847221,
+          "rotation": [
+            0.00278122304007411,
+            0.000502320704981685,
+            -0.0145990792661905
+          ],
+          "position": [
+            0.0928054749965668,
+            0.0669733434915543,
+            0.000238005683058873
+          ],
+          "linear_speed": 0.000556226295884699,
+          "angular_speed": 0.00413267454132438,
+          "wheel_speed": 0.0169967673718929,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 386,
+            "control_generation": 1,
+            "draw_frame": 369,
+            "episode_id": "0c3f30a315f9585d49565d4f",
+            "frame_id": 4,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 386,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 386,
+            "sha256": "e5178f45908b717ec44314dec3d43aa5d852cafd09cf8f770652371312967e40",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-3",
+          "png_sha256": "fb38152d60677fc0a44b73575ccb9f61a57df0acf2e264468a840bbf00bda8c1",
+          "floor_pixels": 24,
+          "gap_m": 0.141112074255943,
+          "rotation": [
+            -0.00225205300375819,
+            0.0133937289938331,
+            -0.0144529594108462
+          ],
+          "position": [
+            0.113493382930756,
+            0.0669648200273514,
+            9.7944270237349e-05
+          ],
+          "linear_speed": 0.000560040061827749,
+          "angular_speed": 0.0041435225866735,
+          "wheel_speed": 0.0166103970259428,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 537,
+            "control_generation": 1,
+            "draw_frame": 519,
+            "episode_id": "0c3f30a315f9585d49565d4f",
+            "frame_id": 5,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 537,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 537,
+            "sha256": "fb38152d60677fc0a44b73575ccb9f61a57df0acf2e264468a840bbf00bda8c1",
+            "width": 640
+          }
+        },
+        {
+          "label": "post-4",
+          "png_sha256": "d2eed4a176797c5aba81c6771139db6cff84ab755b8dba77fbb5ceb602e8b6c0",
+          "floor_pixels": 24,
+          "gap_m": 0.140096724033356,
+          "rotation": [
+            -0.00227022124454379,
+            0.0148406615480781,
+            -0.0178354065865278
+          ],
+          "position": [
+            0.114246033132076,
+            0.0671494230628014,
+            0.000172751271747984
+          ],
+          "linear_speed": 0.000336747354594991,
+          "angular_speed": 0.00457855593413115,
+          "wheel_speed": 0.0127498768270016,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 586,
+            "control_generation": 1,
+            "draw_frame": 566,
+            "episode_id": "0c3f30a315f9585d49565d4f",
+            "frame_id": 6,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 586,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 586,
+            "sha256": "d2eed4a176797c5aba81c6771139db6cff84ab755b8dba77fbb5ceb602e8b6c0",
+            "width": 640
+          }
+        },
+        {
+          "label": "final-idle",
+          "png_sha256": "4835b78e7b74808d9e4c1254b154b931b3ed0844b9b28ad7d758e5ce594c3b93",
+          "floor_pixels": 23,
+          "gap_m": 0.140762478113174,
+          "rotation": [
+            0.00162831775378436,
+            0.0161177683621645,
+            -0.01392144523561
+          ],
+          "position": [
+            0.113817803561687,
+            0.0669204667210579,
+            0.00104883743915707
+          ],
+          "linear_speed": 0.000413094356190413,
+          "angular_speed": 0.0044931280426681,
+          "wheel_speed": 0.0090611232444644,
+          "capture_metadata": {
+            "camera_id": "virtual-front-camera",
+            "capture_requested_tick": 740,
+            "control_generation": 1,
+            "draw_frame": 718,
+            "episode_id": "0c3f30a315f9585d49565d4f",
+            "frame_id": 7,
+            "height": 480,
+            "interpolation_enabled": false,
+            "part_id": 0,
+            "physics_tick": 740,
+            "revision": 3,
+            "robot_instance_id": "1364088329573",
+            "settle_confirmed_tick": 740,
+            "sha256": "4835b78e7b74808d9e4c1254b154b931b3ed0844b9b28ad7d758e5ce594c3b93",
+            "width": 640
+          }
+        }
+      ]
+    }
+  ],
+  "jitter": {
+    "tape": [
+      30,
+      10,
+      12,
+      1
+    ],
+    "seconds": 22.738,
+    "final_gap_m": 0.140032753348351,
+    "pixels": [
+      22,
+      24,
+      22,
+      24,
+      22
+    ],
+    "capture_gaps_m": [
+      0.141305714845657,
+      0.140832915902138,
+      0.140992417931557,
+      0.140650734305382,
+      0.141170620918274
+    ],
+    "capture_gap_range_mm": 0.6549805402749909,
+    "both_at_frame": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "ranked_hypotheses": [
+    {
+      "rank": 1,
+      "hypothesis": "A narrow overlap of the unchanged image and physical predicates.",
+      "result": "Consistent with these bounded near-wall samples; not a proof of compatibility or impossibility for all trajectories."
+    },
+    {
+      "rank": 2,
+      "hypothesis": "Post-Stop forward drift causes the too-far failure.",
+      "result": "Weakened: recovered final gap .140430986881256m is closer than final camera gap .140872374176979m; Stop motion alone does not explain excessive distance."
+    },
+    {
+      "rank": 3,
+      "hypothesis": "Small chassis orientation changes affect the floor strip.",
+      "result": "Capture orientation and 2-3px strip changes coincide with sub-mm gap changes. Correlation measured; isolated causal test not performed."
+    }
+  ],
+  "limits": [
+    "No changed source, camera mount, body pose/velocity, torque, goal, evaluator threshold or model hidden distance input.",
+    "Four developer replays plus one repeated-observation fixture do not modify or pool the frozen AI3x3 result image9/9 physical0/9.",
+    "Global Python3.13.3/Pillow12.2.0 recovered an initial locked native venv lacking Pillow; no dependency installed.",
+    "Runtime scheduling/contact solver variation means identical tick tapes do not establish identical final position.",
+    "Unproven observe/brake pulse hypothesis is not implemented or claimed as a diagnosis.",
+    "No main merge, push or publication; Mac native, Arch recovery/task release and exact publication approval remain open."
+  ]
+}

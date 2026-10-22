@@ -1,0 +1,122 @@
+{
+  "source_head": "1f388f5f69ef1c0abf31c85c19e5e32ad44c5e78",
+  "title_sha256": "0241a8b96b67661775a984dd85606499378ed8020b4829a1ac8978b6849d3d18",
+  "rows": [
+    {
+      "saved_locale": "en",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/en/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/en/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.729,
+      "engine_errors": 0
+    },
+    {
+      "saved_locale": "ko",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/ko/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/ko/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.681,
+      "engine_errors": 0
+    },
+    {
+      "saved_locale": "zh_CN",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/zh_CN/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/zh_CN/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.676,
+      "engine_errors": 0
+    },
+    {
+      "saved_locale": "ja",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/ja/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/ja/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.675,
+      "engine_errors": 0
+    }
+  ],
+  "bundle_unchanged": true,
+  "initial_config_absent": true,
+  "removed_only_unchanged_owned_config": true,
+  "config_absent_after": true,
+  "provider_calls": 0,
+  "previous_language_argument_coverage": "FAILED: all four actual captures were Korean/light; preserved",
+  "images": [
+    {
+      "name": "native-locale-v2-en.png",
+      "sha256": "d0e06d711a6f54cd8ce42dd3cb2ec11e570a987f5dd4f950a38c092bfc3fa3f8",
+      "from": "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/en/title00000007.png"
+    },
+    {
+      "name": "native-locale-v2-ko.png",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "from": "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/ko/title00000007.png"
+    },
+    {
+      "name": "native-locale-v2-zh_CN.png",
+      "sha256": "13173a8c2b2e626fe8ff583a0eef2f70122f1674d221f3763291ae00bc1d424d",
+      "from": "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/zh_CN/title00000007.png"
+    },
+    {
+      "name": "native-locale-v2-ja.png",
+      "sha256": "570801b2c79a7581e3307dd56a315b1819181f945fc2e00c05939a2feb8af0c6",
+      "from": "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/native-locale-v2/ja/title00000007.png"
+    }
+  ]
+}

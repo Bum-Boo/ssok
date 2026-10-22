@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ENVIRONMENT seed=20261022 physics_ticks=60 (run with --fixed-fps 60)
+RAMP angle=10 max_chassis_y=0.08335 final=(0.706934, 0.06737, 0.040887)
+RAMP angle=20 max_chassis_y=0.18736 final=(0.87385, 0.054518, -0.210766)
+CUP DIRECT ball_inside=1 chassis_overlap=1 chassis_only=0
+CUP ball=(0.777006, 0.019454, -0.000282) chassis=(0.616098, 0.016839, -0.000245) object_count=1 peak=2
+FAIL car pushes a real ball into the open cup
+CUP SETTLED ball=(0.776976, 0.019436, -0.00091) chassis=(0.614429, 0.017214, -0.000691) object_count=2 peak=2
+FAIL ball remains contained after Stop
+FAIL jointed object attached to structure is not free
+parts_pack_environment_check: 21 checks, 3 failures

@@ -1,0 +1,11 @@
+{
+  "original_harness_sha256": "aac2cd290f1819d36582caf680928bd71d951a6dc2bf0ea5dedb43fb7df3da2a",
+  "correction_scope": [
+    "Only seven visible project action labels; ignore unrelated internal/hidden buttons",
+    "Window.position uses root viewport; not panel content size",
+    "Matrix cancels with actual Cancel button signal and closes using Close signal; synthetic nested Esc not passing evidence",
+    "Separate real OS key test passed Escape confirmation, Tab, Enter Save, Escape panel, normalClose6checks"
+  ],
+  "app_source_changed_by_harness": false,
+  "original_80cases_1249checks_536failures_retained": true
+}

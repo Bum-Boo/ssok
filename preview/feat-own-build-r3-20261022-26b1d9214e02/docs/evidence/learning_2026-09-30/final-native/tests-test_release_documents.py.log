@@ -1,0 +1,28 @@
+test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... FAIL
+
+======================================================================
+FAIL: test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/bumboo/Projects/ssok-issues-20260930/tests/test_release_documents.py", line 40, in test_documentation_links_survive_packaging_and_extraction
+    self.assertEqual([], missing, "archive contains broken documentation links")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['docs/TECHNICAL_NOTE_2026-09-30.md -> ../[350 chars].md']
+
+Second list contains 5 additional elements.
+First extra element 0:
+'docs/TECHNICAL_NOTE_2026-09-30.md -> ../assets/kenney/SOURCE.json'
+
+- []
++ ['docs/TECHNICAL_NOTE_2026-09-30.md -> ../assets/kenney/SOURCE.json',
++  'docs/PRODUCT_EXPERIENCE.md -> research/playful-ux-2026-09-30/README.md',
++  'docs/PRODUCT_EXPERIENCE.md -> '
++  'research/existing-robot-task-technologies-2026-09-30.md',
++  'docs/PRODUCT_EXPERIENCE.md -> research/reuse-shortlist-2026-09-30.md',
++  'docs/NATURAL_LANGUAGE_TASKS.md -> '
++  'research/existing-robot-task-technologies-2026-09-30.md'] : archive contains broken documentation links
+
+----------------------------------------------------------------------
+Ran 1 test in 3.508s
+
+FAILED (failures=1)

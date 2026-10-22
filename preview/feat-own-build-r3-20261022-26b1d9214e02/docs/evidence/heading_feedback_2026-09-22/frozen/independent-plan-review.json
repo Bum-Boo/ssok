@@ -1,0 +1,98 @@
+{
+  "source_commit": "389f817deacbf62dfb3ff73dfa132301e4be7329",
+  "source_files": 480,
+  "missing_or_mismatched": 0,
+  "frozen_candidate_sha256": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+  "plan_sha256": "00bde3d59ccbd015086916de84a41bed5dedee6e1c20b18bbd3d2e66c13604f0",
+  "retrieved_files_match_frozen": {
+    "plan.json": true,
+    "source-sha256.json": true,
+    "run.py": true
+  },
+  "cases": 256,
+  "distinct_conditions": 256,
+  "policies": 2,
+  "episodes": 512,
+  "new_seed_overlap_development": 0,
+  "generator_reconstructed_exactly": true,
+  "functional_weight_changes": [
+    [
+      2,
+      23
+    ],
+    [
+      3,
+      23
+    ]
+  ],
+  "seconds_to_frames_precision_cases": [
+    {
+      "seed": 990100044,
+      "field": "settle_seconds",
+      "nominal_frames": 247,
+      "effective_frames": 246
+    },
+    {
+      "seed": 990100046,
+      "field": "settle_seconds",
+      "nominal_frames": 247,
+      "effective_frames": 246
+    },
+    {
+      "seed": 990100062,
+      "field": "settle_seconds",
+      "nominal_frames": 246,
+      "effective_frames": 245
+    },
+    {
+      "seed": 990100066,
+      "field": "settle_seconds",
+      "nominal_frames": 123,
+      "effective_frames": 122
+    },
+    {
+      "seed": 990100113,
+      "field": "settle_seconds",
+      "nominal_frames": 247,
+      "effective_frames": 246
+    },
+    {
+      "seed": 990200040,
+      "field": "restart_pause_seconds",
+      "nominal_frames": 123,
+      "effective_frames": 122
+    },
+    {
+      "seed": 990200080,
+      "field": "restart_pause_seconds",
+      "nominal_frames": 246,
+      "effective_frames": 245
+    },
+    {
+      "seed": 990200100,
+      "field": "settle_seconds",
+      "nominal_frames": 247,
+      "effective_frames": 246
+    },
+    {
+      "seed": 990200117,
+      "field": "settle_seconds",
+      "nominal_frames": 247,
+      "effective_frames": 246
+    }
+  ],
+  "outcomes": [
+    {
+      "variant": "shipping_reference",
+      "episodes": 256,
+      "strict_passes": 251,
+      "falls": 5
+    },
+    {
+      "variant": "heading_selected",
+      "episodes": 256,
+      "strict_passes": 255,
+      "falls": 1
+    }
+  ]
+}

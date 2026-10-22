@@ -1,0 +1,6 @@
+extends "res://src/runtime/agent_camera_loop.gd"
+
+## DEBUG-r8: prototype only. Tighten chassis angular admission, never physical evaluator.
+## Same motors, PI gains, torque/duty, body/camera poses, rest count/timeout, ownership/Stop.
+func _at_rest() -> bool:
+	return super._at_rest() and app.run_mode.bodies[_part].angular_velocity.length() <= 0.003

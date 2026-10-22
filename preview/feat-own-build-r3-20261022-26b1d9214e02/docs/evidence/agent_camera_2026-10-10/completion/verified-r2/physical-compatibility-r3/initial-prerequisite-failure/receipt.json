@@ -1,0 +1,26 @@
+{
+  "exit_code": 1,
+  "seconds": 6.604,
+  "timed_out": false,
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "tools.app_control.calibrate_camera_motion",
+    "--godot",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--out",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\physical-compatibility-r3\\replay-near-30-10-12",
+    "--wall-x",
+    ".35",
+    "--ticks",
+    "30",
+    "10",
+    "12",
+    "--idle",
+    "0",
+    "--verify-goal"
+  ],
+  "source10_unchanged": true
+}

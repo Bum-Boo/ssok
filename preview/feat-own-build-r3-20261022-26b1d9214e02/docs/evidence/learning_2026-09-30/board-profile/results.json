@@ -1,0 +1,133 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 6,
+  "failures": 0,
+  "results": [
+    {
+      "name": "app_controller_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.687,
+      "timeout": false,
+      "engine_error": false,
+      "log": "app_controller_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/app_controller_check.gd"
+      ]
+    },
+    {
+      "name": "block_program_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.553,
+      "timeout": false,
+      "engine_error": false,
+      "log": "block_program_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/block_program_check.gd"
+      ]
+    },
+    {
+      "name": "core_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.128,
+      "timeout": false,
+      "engine_error": false,
+      "log": "core_authoring_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/core_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.698,
+      "timeout": false,
+      "engine_error": false,
+      "log": "localization_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "stage_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.831,
+      "timeout": false,
+      "engine_error": false,
+      "log": "stage_authoring_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/stage_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.386,
+      "timeout": false,
+      "engine_error": false,
+      "log": "workshop_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/workshop_ui_check.gd"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 5,
+  "failures": 0,
+  "results": [
+    {
+      "name": "learned_policy_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.776,
+      "timeout": false,
+      "log": "learned_policy_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/learned_policy_check.gd"
+      ]
+    },
+    {
+      "name": "learned_tracking_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.878,
+      "timeout": false,
+      "log": "learned_tracking_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/learned_tracking_check.gd"
+      ]
+    },
+    {
+      "name": "relative_code_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.77,
+      "timeout": false,
+      "log": "relative_code_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/relative_code_check.gd"
+      ]
+    },
+    {
+      "name": "run_mode_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.617,
+      "timeout": false,
+      "log": "run_mode_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/run_mode_check.gd"
+      ]
+    },
+    {
+      "name": "servo_torque_budget_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.465,
+      "timeout": false,
+      "log": "servo_torque_budget_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/servo_torque_budget_check.gd"
+      ]
+    }
+  ]
+}

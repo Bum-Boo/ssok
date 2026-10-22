@@ -1,0 +1,17 @@
+{
+  "case": "k64",
+  "coefficient": 64,
+  "prototype_sha256": "7f8cdcd33a9f36015d7ac00443cf5f541619571df3920c02b0fd30f43bf0ff39",
+  "template_sha256": "6d463ed7fe2f83e9c09a01fb526b6bd181258ac294be5f490fbcb843589918d0",
+  "only_feedback_coefficient_changed": true,
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/attitude-gain-r15/attitude-k64.gd",
+    "--check-only"
+  ],
+  "exit_code": 0
+}

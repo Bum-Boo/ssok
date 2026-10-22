@@ -1,0 +1,189 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 10,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.995,
+      "timeout": false,
+      "log": "import.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.465,
+      "timeout": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "biped_app_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.087,
+      "timeout": false,
+      "log": "biped_app_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/biped_app_check.gd"
+      ]
+    },
+    {
+      "name": "biped_motion_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.084,
+      "timeout": false,
+      "log": "biped_motion_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/biped_motion_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.828,
+      "timeout": false,
+      "log": "localization_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "motion_lab_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 10.547,
+      "timeout": false,
+      "log": "motion_lab_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/motion_lab_check.gd"
+      ]
+    },
+    {
+      "name": "motion_lab_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.491,
+      "timeout": false,
+      "log": "motion_lab_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-release",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-release/tests/motion_lab_ui_check.gd"
+      ]
+    },
+    {
+      "name": "tests-motion_mcp_check.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.303,
+      "timeout": false,
+      "log": "tests-motion_mcp_check.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/motion_mcp_check.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tools-motion_lab-test_races.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.318,
+      "timeout": false,
+      "log": "tools-motion_lab-test_races.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tools/motion_lab/test_races.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tools-motion_lab-test_service.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.371,
+      "timeout": false,
+      "log": "tools-motion_lab-test_service.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tools/motion_lab/test_service.py",
+        "-v"
+      ]
+    }
+  ]
+}

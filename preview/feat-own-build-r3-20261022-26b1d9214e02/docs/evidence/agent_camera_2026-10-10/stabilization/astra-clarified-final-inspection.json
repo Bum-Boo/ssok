@@ -1,0 +1,44 @@
+{
+  "inspector": "existing explicit Astra worker /root/repeat_visual",
+  "inspection": "actual three final run3 PNGs viewed; coordinator records returned findings",
+  "images": [
+    {
+      "path": "clarified-live/layout1-run3/actor/camera/observation-3.png",
+      "sha256": "6a028cd42a08421123c59b26f06518e3bc6d27f52e1c3308fbc768dc09fab47e",
+      "image_size": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_base_y_approx": 456,
+      "floor_strip_pixels_approx": 24,
+      "uncertainty_pixels": 2
+    },
+    {
+      "path": "clarified-live/layout2-run3/actor/camera/observation-5.png",
+      "sha256": "38500238d9b34521a99720bd998eeadd5b06ecfc468b1261e28c294d7d642e15",
+      "image_size": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_base_y_approx": 451,
+      "floor_strip_pixels_approx": 29,
+      "uncertainty_pixels": 2
+    },
+    {
+      "path": "clarified-live/layout3-run3/actor/camera/observation-5.png",
+      "sha256": "13e7af6d22570e86dd6f95899e3af95194d28c3d9a468f01da040ace58f28667",
+      "image_size": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_base_y_approx": 449,
+      "floor_strip_pixels_approx": 31,
+      "uncertainty_pixels": 2
+    }
+  ],
+  "observations": "Wall base slopes upward to the right somewhat, layout2 most tilted. Center strip unobscured; robot corners do not obstruct it. Layout1 is at24px lower boundary with ?2px uncertainty, so exact compliance cannot be certified.",
+  "limits": "Only3finals inspected, not all9. Camera images do not certify physical clearance/contact/rest. Physical evaluation remains independent."
+}

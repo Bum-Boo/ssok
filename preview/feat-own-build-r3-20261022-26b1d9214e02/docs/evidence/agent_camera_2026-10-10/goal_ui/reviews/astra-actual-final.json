@@ -1,0 +1,39 @@
+{
+  "requested_model": "gpt-6-astra",
+  "role": "native read-only actual visual inspection",
+  "panel_sha256": "f8afbc47a236e33d7f0f919bfc2b0693e80628af7c863b91450db57c11d54da5",
+  "r3": {
+    "viewed": "24initial4languages2themes3sizes and16compact/large scrolled;40actualPNG",
+    "findings": [
+      "English200% manual labels full, Enable/Capture first row Forward second",
+      "wide8show full goal provider/data/limits/Run order",
+      "compact8Run labels/focus full and Stop pinned",
+      "CJKlarge6Run labels/focus full, no observed glyph or horizontal overflow",
+      "themes preserved, normal vertical camera scroll clipping",
+      "Englishlarge2Run evidence missing; needed recapture",
+      "CJK200% middle disclosure segment not fully viewed between static captures"
+    ]
+  },
+  "r5": {
+    "viewed": [
+      "after-r5/en-dark-large-run.png",
+      "after-r5/en-light-large-run.png"
+    ],
+    "dimensions": [
+      1600,
+      1000
+    ],
+    "sha256": [
+      "88d123ef807180ca487244d93ae7cf112f28d7a869eb5eabf9d6e188135fe1af",
+      "b1c7af12750f7084cb9543aa3a1259af9ab0e09ad3c4be44fb87a57f173890c6"
+    ],
+    "findings": [
+      "RunwithAI label and focus fully inside scroll viewport",
+      "Stop remains pinned, no overlap",
+      "complete8actions9images300seconds/accountusage/no fixed cost/modelrequestcap above Run",
+      "data first line partly above scroll boundary; rest and limits->Run order observed",
+      "no button overflow or Run code overlap"
+    ],
+    "limits": "Only2R5images viewed, not48. No functional/goal-success attestation."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scope": "forward mapping parity; backward/turn integration owned by parent",
+  "engine": "Godot 4.7.2 native Linux",
+  "physics_hz": 60,
+  "policy_hz": 30,
+  "remote_job": "20260922-063639-ssok-forward-family-parity-8c944420",
+  "processes": 16,
+  "passed": 16,
+  "parameter_math_checks": 13200,
+  "parameter_math_failures": 0,
+  "default_command_vectors": 10800,
+  "default_max_command_error_deg": 0.0,
+  "paired_reported_physics_metrics_identical": true,
+  "paired_metrics_precision": "Godot log precision: displacement6 decimals; yaw/minimum_height/upright4 decimals",
+  "all_parameter_values_physical_success_claimed": false,
+  "strict_0_30m_learned_walking_success_claimed": false,
+  "files": {
+    "forward_family.gd": "3842410c8044d3392df7fe45aba8d7d4ea9121a30ee708117887b2dd4c358f4c",
+    "family_math_check.gd": "72c69add98611ed5bd6db78bc0802dd318a82ded427e5119b3490036e1f53690",
+    "ADR-proposal.md": "656da020d08b8311a80b441543b128103aa8153bfdb397ce3f56ec6b72bddbbc",
+    "provenance.json": "eaaa60dc744c47f8345ce8bd79bf19130824c4bef1e8bc0cb1abc134a528708c",
+    "physics/results.json": "28a5c4682cb74be2de798001aa368c42b5d095ecd4c8eca9800f8dbf1ad135e8",
+    "physics/math.log": "2880a6d6fed1a924ae74be8eb40ed276f942fd787e2fa290ae46cd61c806cfb3"
+  }
+}

@@ -1,0 +1,35 @@
+test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... FAIL
+
+======================================================================
+FAIL: test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tests\test_release_documents.py", line 40, in test_documentation_links_survive_packaging_and_extraction
+    self.assertEqual([], missing, "archive contains broken documentation links")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['docs\\START_HERE.md -> ../CLAUDE-REVIEW.[707 chars].md']
+
+Second list contains 10 additional elements.
+First extra element 0:
+'docs\\START_HERE.md -> ../CLAUDE-REVIEW.md'
+
+- []
++ ['docs\\START_HERE.md -> ../CLAUDE-REVIEW.md',
++  'docs\\STATUS.md -> ../CLAUDE-REVIEW.md',
++  'docs\\generated\\CODE_MAP.md -> ../../src/runtime/agent_camera_loop.gd',
++  'docs\\generated\\CODE_MAP.md -> ../../src/runtime/agent_desktop_bridge.gd',
++  'docs\\generated\\CODE_MAP.md -> ../../src/runtime/agent_goal_inbox.gd',
++  'docs\\generated\\CODE_MAP.md -> ../../src/ui/agent_trace_panel.gd',
++  'docs\\evidence\\agent_camera_2026-10-10\\README.md -> '
++  '../../../CLAUDE-REVIEW.md',
++  'docs\\evidence\\agent_camera_2026-10-10\\direct\\README.md -> '
++  '../../../../CLAUDE-REVIEW.md',
++  'docs\\evidence\\agent_camera_2026-10-10\\goal_ui\\README.md -> '
++  '../../../../CLAUDE-REVIEW.md',
++  'docs\\evidence\\agent_camera_2026-10-10\\stabilization\\README.md -> '
++  '../../../../CLAUDE-REVIEW.md'] : archive contains broken documentation links
+
+----------------------------------------------------------------------
+Ran 1 test in 12.235s
+
+FAILED (failures=1)

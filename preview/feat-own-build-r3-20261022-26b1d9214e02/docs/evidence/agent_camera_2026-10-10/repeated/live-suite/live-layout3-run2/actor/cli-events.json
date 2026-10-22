@@ -1,0 +1,190 @@
+[
+  {
+    "type": "thread.started",
+    "item_type": null,
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "item.completed",
+    "item_type": "error",
+    "server": null,
+    "tool": null,
+    "diagnostic": "Model metadata for `gpt-6-astra` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."
+  },
+  {
+    "type": "turn.started",
+    "item_type": null,
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "item.completed",
+    "item_type": "error",
+    "server": null,
+    "tool": null,
+    "diagnostic": "Skill descriptions were shortened to fit the skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest."
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "reasoning",
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "stop"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "stop"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "agent_message",
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "turn.completed",
+    "item_type": null,
+    "server": null,
+    "tool": null
+  }
+]

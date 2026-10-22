@@ -1,0 +1,251 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 12,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.539,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.325,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "keyboard_navigation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.574,
+      "timeout": false,
+      "engine_error": false,
+      "log": "keyboard_navigation_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/keyboard_navigation_check.gd"
+      ]
+    },
+    {
+      "name": "learner_language_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.566,
+      "timeout": false,
+      "engine_error": false,
+      "log": "learner_language_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/learner_language_check.gd"
+      ]
+    },
+    {
+      "name": "material_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.766,
+      "timeout": false,
+      "engine_error": false,
+      "log": "material_assets_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/material_assets_check.gd"
+      ]
+    },
+    {
+      "name": "mesh_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.967,
+      "timeout": false,
+      "engine_error": false,
+      "log": "mesh_assets_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/mesh_assets_check.gd"
+      ]
+    },
+    {
+      "name": "relative_code_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.767,
+      "timeout": false,
+      "engine_error": false,
+      "log": "relative_code_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/relative_code_check.gd"
+      ]
+    },
+    {
+      "name": "robot_car_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.167,
+      "timeout": false,
+      "engine_error": false,
+      "log": "robot_car_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/robot_car_check.gd"
+      ]
+    },
+    {
+      "name": "sonar_stage_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 20.715,
+      "timeout": false,
+      "engine_error": false,
+      "log": "sonar_stage_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/sonar_stage_check.gd"
+      ]
+    },
+    {
+      "name": "stage_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.326,
+      "timeout": false,
+      "engine_error": false,
+      "log": "stage_authoring_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/stage_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.828,
+      "timeout": false,
+      "engine_error": false,
+      "log": "workshop_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-issues-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-issues-20260930/tests/workshop_ui_check.gd"
+      ]
+    },
+    {
+      "name": "tests-test_release_documents.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.422,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-test_release_documents.py.log",
+      "command": [
+        "/tmp/ssok-verification-venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/test_release_documents.py",
+        "-v"
+      ]
+    }
+  ]
+}

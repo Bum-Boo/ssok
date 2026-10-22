@@ -1,0 +1,28 @@
+{
+  "job": "20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa",
+  "remote_status": "completed",
+  "exit_code": 0,
+  "resources_held": false,
+  "artifact_count": 39,
+  "artifact_mismatches": [],
+  "frozen_inputs_match": {
+    "run.py": true,
+    "plan.json": true,
+    "source-sha256.json": true,
+    "frozen_candidate.json": true
+  },
+  "committed_source_files": 486,
+  "source_commit": "389f817deacbf62dfb3ff73dfa132301e4be7329",
+  "committed_source_mismatches": [],
+  "changed_files": [
+    "assets/policies/yaw_biped_bounded_v2.json"
+  ],
+  "all_log_count": 29,
+  "engine_error_logs": [],
+  "original_app_cases": 12,
+  "checks_each": 737,
+  "application_failures": 0,
+  "camera": "PASS",
+  "viewport_checks": 62660,
+  "viewport_failures": 0
+}

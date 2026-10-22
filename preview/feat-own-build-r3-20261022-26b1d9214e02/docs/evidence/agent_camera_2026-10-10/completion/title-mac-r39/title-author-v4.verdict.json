@@ -1,0 +1,25 @@
+{
+  "verdict": "draft_ready",
+  "replacements": [
+    {
+      "file": "src/screens/title_screen.gd",
+      "before": "\tplay_button.focus_entered.connect(_on_next_frame.bind(_show_logo_with_play))\n\tplay_button.grab_focus.call_deferred()\n",
+      "after": "\tplay_button.focus_entered.connect(_on_next_frame.bind(_show_logo_with_play))\n\t_focus_play_on_start.call_deferred()\n"
+    },
+    {
+      "file": "src/screens/title_screen.gd",
+      "before": "## Short windows tighten the spacing, then shrink the logo (88..150) so the logo and footer fit\n",
+      "after": "## Startup focus for Play. A rebuild or immediate Enter can replace this Title before the deferred\n## call runs; a removed Title then leaves focus with whichever screen took its place.\nfunc _focus_play_on_start() -> void:\n\tif is_inside_tree() and play_button.is_visible_in_tree():\n\t\tplay_button.grab_focus()\n\n\n## Short windows tighten the spacing, then shrink the logo (88..150) so the logo and footer fit\n"
+    }
+  ],
+  "reason": "The three native errors come from `play_button.grab_focus.call_deferred()` running after the router has already done `remove_child(current)` (immediate Enter → `_replace`, and the synchronous Preferences 1.3→1.0 path → `_on_preferences_changed` → `show_title` twice). `remove_child` takes the Title out of the tree at once, but `queue_free` only frees it after the deferred-call flush. So the stale deferred `grab_focus` still runs on a live, out-of-tree Button and hits the `!is_inside_tree()` condition in `control.cpp`. The patch defers a Title method that checks `is_inside_tree()` and `play_button.is_visible_in_tree()` before grabbing focus. A replaced Title therefore does nothing and cannot take focus from the new screen. If the Title were already freed, the deferred Callable's object would be invalid and the message queue would drop it. The live Title keeps the same timing as before (one deferred grab_focus). That preserves `focus_entered` → `_on_next_frame(_show_logo_with_play)`, follow_focus scrolling, Tab/Enter, and the Settings return path (`panel_closed` → `settings_button.grab_focus`). `_fit_to_viewport`, `_show_logo_with_play`, `_on_next_frame`, the one-shot `process_frame` connections, and all v3 geometry constants are byte-unchanged. No Menu, router, theme, font, text, color, hierarchy or engine changes.",
+  "required_checks": [
+    "Rerun dynamic capture-0 (immediate Enter with a real key before the first frame; synchronous Preferences text_scale 1.3 then 1.0): 26 checks PASS and engine_errors == 0. Specifically, no 'Condition \"!is_inside_tree()\"' from grab_focus.",
+    "After immediate Enter, the focus owner belongs to the replacement screen (or is null for loading), never a removed Title node.",
+    "After the rapid Preferences rebuild, the surviving Title's Play has focus, and the logo top stays unclipped (scroll_vertical == 0) at 1152x648 and 1400x950.",
+    "Rebuild with Settings open (`settings_open` path): record which control holds focus after the deferred flush. This behavior is unchanged from the v3 source but should be noted, since Play can still grab focus deferred after `open_panel()` exactly as before.",
+    "Rerun the v3 native suites unchanged: 16 Arch and 16 Mac footer/keyboard cases (20 checks each), the 14 scaled cases, and en/ko/zh_CN/ja × light/dark at 1152x648 and 1400x950. Expect the same results and logo geometry (compact logo top ≈ y32, large ≈ y153 / ja ≈ y141).",
+    "Tab / Shift+Tab / Enter / Esc and Settings open/close return focus behave as in v3, including at text_scale 1.5 and 2.0 scroll reachability."
+  ],
+  "blockers": []
+}

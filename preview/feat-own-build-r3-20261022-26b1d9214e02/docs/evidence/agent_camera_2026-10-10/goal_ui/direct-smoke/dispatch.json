@@ -1,0 +1,19 @@
+{
+  "provider": "OpenAI",
+  "requested_model": "gpt-6-astra",
+  "auth": "existing Codex ChatGPT login",
+  "sent_data": [
+    "goal",
+    "camera PNGs",
+    "public frame context",
+    "short visual summaries",
+    "tool results"
+  ],
+  "limits": {
+    "cli_launches": 1,
+    "actions": 8,
+    "images": 9,
+    "seconds": 300
+  },
+  "scope": "test-simulated app Run click through real foreground operator; no navigation-success claim"
+}

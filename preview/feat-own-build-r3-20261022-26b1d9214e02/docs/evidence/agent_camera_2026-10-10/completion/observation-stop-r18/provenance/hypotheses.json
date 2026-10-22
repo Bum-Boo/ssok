@@ -1,0 +1,14 @@
+[
+  {
+    "rank": 1,
+    "prediction": "If the existing brake-entry32/rate16 candidate can meet the original target at its earlier observation endpoint, the fixed idle1 checkpoint followed by actual bridge observe/context-bound Stop should yield last image24..38 AND independent final physical4..14cm/travel/contact/rest/stopped."
+  },
+  {
+    "rank": 2,
+    "prediction": "If the extra actual bridge observation or latency changes the pose, the final image may already be below24 even when earlier developer idle1 had24; retain it as jointFAIL rather than choosing an earlier image."
+  },
+  {
+    "rank": 3,
+    "prediction": "If post-Stop release dominates, the final independent gap/rest may fail despite a passing actual bridge image; retain paired frame-to-Stop displacement and reject instead of using camera-time distance."
+  }
+]

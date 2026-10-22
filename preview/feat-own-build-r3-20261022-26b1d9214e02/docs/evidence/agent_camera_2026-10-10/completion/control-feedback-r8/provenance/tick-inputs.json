@@ -1,0 +1,10 @@
+{
+  "hypothesis_rank": 3,
+  "refinement": "Unexpected near-equivalence of forward1/brake1 motivates checking a command boundary off-by-one. Prediction: if AgentCameraLoop brakes before DriveMotor callback on the final tick, requested N produces N-1 actual25%-duty callbacks, including zero for1. Sampler priority100 only reads actual callbacks; no physics/controller changes.",
+  "files": {
+    "tick_sampler.gd": "309a22056dbc8eb04d1fd146b3f9aa2a983034f78c0f5580fdb944e60d61052a",
+    "tick_probe.gd": "9579ef81be9720388d47a7a21f8ba0d0bf1d3d7d3a6e1dd427ffe894ed039b41",
+    "ssok-control-r8-ticks.py": "4cb6039f4c4f0035667ddd9ab8332be4f71f7a022ab677f40d164d7b10ddf079"
+  },
+  "production_applied": false
+}

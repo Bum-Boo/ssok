@@ -1,0 +1,65 @@
+{
+  "runtime_input_head": "3070d2fe87d73944b2d5b18e190509b25de39003",
+  "initial_evidence_head": "67482b09ba1869d5b5c0ee3fcf2d54bd3db9ee6a",
+  "docs_gate_recovery": {
+    "failure": "Entry context251 lines, maximum250; docs gate failed before commit. No runtime failure.",
+    "fix": "Remove one newly added blank line and update our source caller. No user text or policy limit changed.",
+    "before_status_sha256": "4b029d9a3406c32c37ca0fd26d6fde209eec7905752c4a02f2b5b80f82636f82",
+    "caller_before_sha256": "9f86e55ba6fb5d80a6da808bcce7521cef389f48f34e998f993416a6d3db164a",
+    "caller_after_sha256": "ff84d5ac046dcb0064f314fd619f7669598bf8b8a452910ee731355bee75d6ac",
+    "original_failed_checks_preserved": true,
+    "native_rerun": false,
+    "after_status_sha256": "88b8f8b2f4880c2ae1ce08c38cd299655d043e2cdea7b735f7de26479d153807",
+    "metadata_label_corrected": true
+  },
+  "raw_staging_recovery": {
+    "default_check_exit": 2,
+    "command_local_cr_at_eol_no_blank_eof_exit": 0,
+    "reason": "Selected original Windows CRLF evidence and three original fixture EOF blank lines preserved by -text. Initial CR-only recovery still failed on those EOF lines; failed log/source retained. Authored docs have a separate ordinary diff check.",
+    "global_git_config_changed": false,
+    "original_runtime_bytes_changed": false,
+    "source_caller": "C:\\Users\\Hojun\\Projects\\ssok-control-r11-commit.py",
+    "native_rerun": false
+  },
+  "first_fable_verdict": {
+    "verdict": "blocked",
+    "blockers": [
+      "Bash denied on the first allowlisted command (git -C <repo> status --porcelain --branch); per stop-on-denial rule no fetch, rebase, or HEAD verification was executed",
+      "Clean checkout and HEAD 67482b0 could not be confirmed by actual execution"
+    ],
+    "actual_commands": [
+      {
+        "command": "git -C C:/Users/Hojun/Projects/ssok-ai-loop status --porcelain --branch",
+        "result": "denied by permission mode; not executed"
+      }
+    ],
+    "before_HEAD": "67482b09ba1869d5b5c0ee3fcf2d54bd3db9ee6a (from supplied context; not verified by execution)",
+    "after_HEAD": null,
+    "upstream_HEAD": null,
+    "rebase_completed": false,
+    "docs_review": {
+      "contradictions": [],
+      "ambiguities": [
+        "README 'eight stills (post3/idle4 for each case)' reads as 7 per case; should state two frames per case",
+        "input HEAD 3070d2f vs reviewed HEAD 67482b0 should be stated explicitly in handoff"
+      ],
+      "omissions": [
+        "Handoff/README do not record the initial 251>250 docs check failure, its correction, or the CRLF/fixture EOF whitespace allowances"
+      ],
+      "unsupported_claims": []
+    },
+    "remaining_limits": [
+      "Bounded docs/evidence review only; not goal completion. All simultaneous image/physical criteria still fail, no candidate applied",
+      "Elapsed times 19.15-20.88s, docs maintain/10 unit/ZIP1 results not verifiable from supplied text",
+      "No app import, full native, Web, installer rerun; r7 gates historical only",
+      "Human merge, publication, Mac native, Arch originals, operator packaging remain"
+    ],
+    "optional_advice_unexecuted": [
+      "Re-run with Bash permitted for allowlisted git so status, fetch origin main, rebase origin/main, and git cherry can be executed once each",
+      "Amend handoff to record the docs check failure/correction and clarify the Astra still count wording"
+    ]
+  },
+  "permissions_expanded": false,
+  "raw92_unchanged": true,
+  "runtime_rerun": false
+}

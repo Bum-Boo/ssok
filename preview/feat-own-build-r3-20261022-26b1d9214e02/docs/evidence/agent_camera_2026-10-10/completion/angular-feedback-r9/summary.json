@@ -1,0 +1,164 @@
+{
+  "checkpoint": "2026-10-11T06:55:22+09:00",
+  "source_head": "f86fadd184129f88ced525c6def2a0ca574cc0ae",
+  "immutable_package_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "package_version": "0.3.1-projects-r7",
+  "source426_unchanged": true,
+  "camera10_unchanged": true,
+  "frozen_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "diagnostic_runs": 2,
+  "model_navigation_calls": 0,
+  "cases": {
+    "stock": {
+      "case": "stock",
+      "floor_pixels": [
+        23,
+        25,
+        27,
+        23,
+        23
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.9587258100509921,
+      "angular_rates": [
+        0.00459566479548812,
+        0.00448583764955401,
+        0.00446007447317243,
+        0.00628370884805918,
+        0.00459109246730804
+      ],
+      "final_gap_m": 0.141063079237938,
+      "stop_delta_from_last_frame_mm": -0.9298175573349832,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.0043101659975946,
+          0.0043101659975946
+        ],
+        [
+          0.00431662425398827,
+          0.00431662425398827
+        ],
+        [
+          0.00434411223977804,
+          0.00434411223977804
+        ],
+        [
+          0.0040389709174633,
+          0.0040389709174633
+        ],
+        [
+          0.00435956893488765,
+          0.00435956893488765
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        -9.313225989016072e-10,
+        0.0
+      ],
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "angular-k16": {
+      "case": "angular-k16",
+      "floor_pixels": [
+        22,
+        24,
+        21,
+        22,
+        21
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.847980380058011,
+      "angular_rates": [
+        0.00468028895556927,
+        0.00453873816877604,
+        0.00410071387887001,
+        0.0040601952932775,
+        0.00442479271441698
+      ],
+      "final_gap_m": 0.138506442308426,
+      "stop_delta_from_last_frame_mm": -2.0178705453870185,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.00428723497316241,
+          0.00428723497316241
+        ],
+        [
+          0.00431867642328143,
+          0.00431867642328143
+        ],
+        [
+          0.00402131211012602,
+          0.00402131211012602
+        ],
+        [
+          0.00404167547821999,
+          0.00404167547821999
+        ],
+        [
+          0.0043309023603797,
+          0.0043309023603797
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "physical": true,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    }
+  },
+  "png_preserved": 16,
+  "astra_actual_png_views": 6,
+  "observer_frame_samples_per_run": 7,
+  "initial_before_observer_attach": true,
+  "recovery": "Original stock native8frames/exit0; wrapper8-versus7callback assertion failed. First readback recovery also missed local case variable. Original driver and failed recovery before-copy retained; postprocessing-only recovery uses exact SHA mapping for7post-initial callbacks, all8PNGs retained; no native rerun or original bytes changed.",
+  "repair_applied": false,
+  "causation_proved": false,
+  "global_impossibility_proved": false,
+  "historical_ai_image": "9/9 unchanged",
+  "historical_ai_physical": "0/9 unchanged",
+  "merged": false,
+  "published": false,
+  "global_goal_complete": false
+}

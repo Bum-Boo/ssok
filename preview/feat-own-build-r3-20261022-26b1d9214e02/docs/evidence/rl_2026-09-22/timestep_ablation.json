@@ -1,0 +1,586 @@
+{
+  "policy_sha256": "3d068f0afb01deafae740f943996ed9c379e9f089c928f1e03e7cfe4141f35c6",
+  "control_hz": 30,
+  "changed_parameter": "simulation_hz",
+  "results": [
+    {
+      "engine": "mujoco",
+      "simulation_hz": 60,
+      "task": {
+        "name": "walk_forward",
+        "language": "Walk forward along the body's +Z axis for 12 seconds without falling or veering off.",
+        "language_ko": "12\ucd08 \ub3d9\uc548 \ub118\uc5b4\uc9c0\uac70\ub098 \uc606\uc73c\ub85c \uc0c8\uc9c0 \uc54a\uace0 \ubab8 \uc55e\ucabd(+Z)\uc73c\ub85c \uac78\uc5b4\uac00\uae30",
+        "command_forward": 1.0,
+        "horizon_s": 12.0,
+        "success": {
+          "forward_m_min": 0.3,
+          "abs_yaw_deg_max": 30.0,
+          "abs_lateral_m_max": 0.1
+        },
+        "eval_seeds": [
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008
+        ]
+      },
+      "initial_joint_noise_rad": 0.02,
+      "robot_fingerprint": "40399c385aa55b50310f09d1e3314d7424687631b09479dfbf5626ddea83dab7",
+      "episodes": [
+        {
+          "seed": 2001,
+          "forward_m": 0.042975818892110995,
+          "lateral_m": 0.10526519499097493,
+          "yaw_deg": 152.37725420161692,
+          "fallen": true,
+          "min_upright": 0.35208541730687165,
+          "seconds": 1.1,
+          "success": false
+        },
+        {
+          "seed": 2002,
+          "forward_m": -0.10046919253086622,
+          "lateral_m": -0.11074857028399492,
+          "yaw_deg": 34.602830561137786,
+          "fallen": true,
+          "min_upright": 0.48553681451291164,
+          "seconds": 1.3,
+          "success": false
+        },
+        {
+          "seed": 2003,
+          "forward_m": 0.09340132596309832,
+          "lateral_m": -0.08277129057617479,
+          "yaw_deg": -45.93601473446649,
+          "fallen": true,
+          "min_upright": 0.49346710608544364,
+          "seconds": 0.6666666666666666,
+          "success": false
+        },
+        {
+          "seed": 2004,
+          "forward_m": -0.0053890470773767405,
+          "lateral_m": -0.01155351218059059,
+          "yaw_deg": 27.952530393483727,
+          "fallen": true,
+          "min_upright": 0.39143115650653076,
+          "seconds": 0.5666666666666667,
+          "success": false
+        },
+        {
+          "seed": 2005,
+          "forward_m": 0.08386001583577729,
+          "lateral_m": 0.08385860292029995,
+          "yaw_deg": 41.41952434635875,
+          "fallen": true,
+          "min_upright": 0.257213677693073,
+          "seconds": 0.4,
+          "success": false
+        },
+        {
+          "seed": 2006,
+          "forward_m": -0.10673897896167632,
+          "lateral_m": -0.12222624450538495,
+          "yaw_deg": 2.214911303959182,
+          "fallen": true,
+          "min_upright": 0.34495164253940347,
+          "seconds": 0.8,
+          "success": false
+        },
+        {
+          "seed": 2007,
+          "forward_m": 0.04812888114232202,
+          "lateral_m": -0.004685475970376274,
+          "yaw_deg": -12.983647719475481,
+          "fallen": true,
+          "min_upright": 0.4872001891279223,
+          "seconds": 0.43333333333333335,
+          "success": false
+        },
+        {
+          "seed": 2008,
+          "forward_m": 0.06692873968127083,
+          "lateral_m": -0.0464888284828425,
+          "yaw_deg": -24.89806374789257,
+          "fallen": true,
+          "min_upright": 0.3818746912758365,
+          "seconds": 0.9333333333333333,
+          "success": false
+        },
+        {
+          "seed": 2009,
+          "forward_m": 0.03306178989341195,
+          "lateral_m": -0.07334050493700349,
+          "yaw_deg": 82.44016992063275,
+          "fallen": true,
+          "min_upright": 0.4143264129742539,
+          "seconds": 0.5,
+          "success": false
+        },
+        {
+          "seed": 2010,
+          "forward_m": 0.07453034638203081,
+          "lateral_m": 0.042593154563036514,
+          "yaw_deg": 27.699616301505078,
+          "fallen": true,
+          "min_upright": 0.4707074356045589,
+          "seconds": 0.23333333333333334,
+          "success": false
+        },
+        {
+          "seed": 2011,
+          "forward_m": 0.023219875410763903,
+          "lateral_m": 0.059767323879924825,
+          "yaw_deg": 1.0939336538920466,
+          "fallen": true,
+          "min_upright": 0.3423451135683001,
+          "seconds": 0.2,
+          "success": false
+        },
+        {
+          "seed": 2012,
+          "forward_m": -0.011011576671015278,
+          "lateral_m": -0.15252712368750426,
+          "yaw_deg": -1.7251759649975817,
+          "fallen": true,
+          "min_upright": 0.32764280241251065,
+          "seconds": 2.3,
+          "success": false
+        },
+        {
+          "seed": 2013,
+          "forward_m": -0.09895105049848987,
+          "lateral_m": -0.09054354396820494,
+          "yaw_deg": -1.9401940515504184,
+          "fallen": true,
+          "min_upright": 0.442889122577947,
+          "seconds": 0.9,
+          "success": false
+        },
+        {
+          "seed": 2014,
+          "forward_m": -0.06404177354385936,
+          "lateral_m": -0.07680518886484157,
+          "yaw_deg": 39.06040581104105,
+          "fallen": true,
+          "min_upright": 0.2837222738645166,
+          "seconds": 0.5666666666666667,
+          "success": false
+        },
+        {
+          "seed": 2015,
+          "forward_m": 0.08922323860221125,
+          "lateral_m": -0.15202340828686833,
+          "yaw_deg": -40.07893281370255,
+          "fallen": true,
+          "min_upright": 0.44455182270660276,
+          "seconds": 1.1666666666666667,
+          "success": false
+        },
+        {
+          "seed": 2016,
+          "forward_m": -0.07984337705988678,
+          "lateral_m": -0.04891082868910483,
+          "yaw_deg": -4.6790654435740215,
+          "fallen": true,
+          "min_upright": 0.3115445992531341,
+          "seconds": 0.7333333333333333,
+          "success": false
+        }
+      ],
+      "success_rate": 0.0,
+      "fall_rate": 1.0,
+      "mean_forward_m": 0.005555314716239174
+    },
+    {
+      "engine": "mujoco",
+      "simulation_hz": 120,
+      "task": {
+        "name": "walk_forward",
+        "language": "Walk forward along the body's +Z axis for 12 seconds without falling or veering off.",
+        "language_ko": "12\ucd08 \ub3d9\uc548 \ub118\uc5b4\uc9c0\uac70\ub098 \uc606\uc73c\ub85c \uc0c8\uc9c0 \uc54a\uace0 \ubab8 \uc55e\ucabd(+Z)\uc73c\ub85c \uac78\uc5b4\uac00\uae30",
+        "command_forward": 1.0,
+        "horizon_s": 12.0,
+        "success": {
+          "forward_m_min": 0.3,
+          "abs_yaw_deg_max": 30.0,
+          "abs_lateral_m_max": 0.1
+        },
+        "eval_seeds": [
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008
+        ]
+      },
+      "initial_joint_noise_rad": 0.02,
+      "robot_fingerprint": "40399c385aa55b50310f09d1e3314d7424687631b09479dfbf5626ddea83dab7",
+      "episodes": [
+        {
+          "seed": 2001,
+          "forward_m": 0.45109136455729404,
+          "lateral_m": 0.15375265273010025,
+          "yaw_deg": 23.838322614933425,
+          "fallen": false,
+          "min_upright": 0.9825376201136172,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2002,
+          "forward_m": 0.16091844372601286,
+          "lateral_m": -0.03020543046659653,
+          "yaw_deg": 53.0472088465253,
+          "fallen": true,
+          "min_upright": 0.2955057199215212,
+          "seconds": 8.533333333333333,
+          "success": false
+        },
+        {
+          "seed": 2003,
+          "forward_m": 0.3892266295752639,
+          "lateral_m": 0.2015532297727184,
+          "yaw_deg": 47.24320761627978,
+          "fallen": false,
+          "min_upright": 0.9829183812894322,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2004,
+          "forward_m": 0.3476641961832325,
+          "lateral_m": 0.24833256345957216,
+          "yaw_deg": 67.80475650246899,
+          "fallen": false,
+          "min_upright": 0.9837941372027585,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2005,
+          "forward_m": 0.3197108682852614,
+          "lateral_m": 0.2189858605204438,
+          "yaw_deg": 55.539080384196254,
+          "fallen": false,
+          "min_upright": 0.9719935392038132,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2006,
+          "forward_m": 0.17344776422801594,
+          "lateral_m": 0.24008385789324668,
+          "yaw_deg": 109.80873717642262,
+          "fallen": false,
+          "min_upright": 0.9788027699097775,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2007,
+          "forward_m": 0.31254901878181157,
+          "lateral_m": 0.08262862838364404,
+          "yaw_deg": 13.443852753782123,
+          "fallen": true,
+          "min_upright": 0.27135344143853346,
+          "seconds": 6.633333333333334,
+          "success": false
+        },
+        {
+          "seed": 2008,
+          "forward_m": 0.1696674318696334,
+          "lateral_m": 0.03700172624280844,
+          "yaw_deg": 21.92729754024983,
+          "fallen": true,
+          "min_upright": 0.33274177536359806,
+          "seconds": 0.8,
+          "success": false
+        },
+        {
+          "seed": 2009,
+          "forward_m": 0.4098559714804108,
+          "lateral_m": -0.06358109214975396,
+          "yaw_deg": 51.895454897142834,
+          "fallen": false,
+          "min_upright": 0.9696534876738955,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2010,
+          "forward_m": 0.22791623172134515,
+          "lateral_m": 0.16224899828345446,
+          "yaw_deg": 45.95962515769796,
+          "fallen": true,
+          "min_upright": 0.3104251768681322,
+          "seconds": 6.133333333333334,
+          "success": false
+        },
+        {
+          "seed": 2011,
+          "forward_m": 0.4045598087065984,
+          "lateral_m": 0.23950167935913216,
+          "yaw_deg": 76.81563218408608,
+          "fallen": false,
+          "min_upright": 0.9767725302564236,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2012,
+          "forward_m": 0.1743206322823773,
+          "lateral_m": 0.24418027068369552,
+          "yaw_deg": 84.07954615291565,
+          "fallen": false,
+          "min_upright": 0.9915777357206439,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2013,
+          "forward_m": 0.3454692798763465,
+          "lateral_m": 0.028505426542236954,
+          "yaw_deg": 17.692098938667552,
+          "fallen": false,
+          "min_upright": 0.9809711924476561,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2014,
+          "forward_m": 0.31281343532354206,
+          "lateral_m": 0.07211835235766546,
+          "yaw_deg": 49.72323916786854,
+          "fallen": true,
+          "min_upright": 0.3793647246927043,
+          "seconds": 5.4,
+          "success": false
+        },
+        {
+          "seed": 2015,
+          "forward_m": 0.23970152029157019,
+          "lateral_m": 0.05120507928147263,
+          "yaw_deg": 29.38401023585571,
+          "fallen": true,
+          "min_upright": 0.4469699986206577,
+          "seconds": 4.1,
+          "success": false
+        },
+        {
+          "seed": 2016,
+          "forward_m": 0.18837081287884214,
+          "lateral_m": 0.06967497739985255,
+          "yaw_deg": 16.029315489031415,
+          "fallen": true,
+          "min_upright": 0.2683187882910637,
+          "seconds": 2.033333333333333,
+          "success": false
+        }
+      ],
+      "success_rate": 0.0625,
+      "fall_rate": 0.4375,
+      "mean_forward_m": 0.28920521311047237
+    },
+    {
+      "engine": "mujoco",
+      "simulation_hz": 240,
+      "task": {
+        "name": "walk_forward",
+        "language": "Walk forward along the body's +Z axis for 12 seconds without falling or veering off.",
+        "language_ko": "12\ucd08 \ub3d9\uc548 \ub118\uc5b4\uc9c0\uac70\ub098 \uc606\uc73c\ub85c \uc0c8\uc9c0 \uc54a\uace0 \ubab8 \uc55e\ucabd(+Z)\uc73c\ub85c \uac78\uc5b4\uac00\uae30",
+        "command_forward": 1.0,
+        "horizon_s": 12.0,
+        "success": {
+          "forward_m_min": 0.3,
+          "abs_yaw_deg_max": 30.0,
+          "abs_lateral_m_max": 0.1
+        },
+        "eval_seeds": [
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008
+        ]
+      },
+      "initial_joint_noise_rad": 0.02,
+      "robot_fingerprint": "40399c385aa55b50310f09d1e3314d7424687631b09479dfbf5626ddea83dab7",
+      "episodes": [
+        {
+          "seed": 2001,
+          "forward_m": 0.44057141222489277,
+          "lateral_m": 0.06221680642138205,
+          "yaw_deg": 14.283287809064888,
+          "fallen": false,
+          "min_upright": 0.9911644561664286,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2002,
+          "forward_m": 0.46133139506389254,
+          "lateral_m": -0.06239897102226723,
+          "yaw_deg": -16.557782669510544,
+          "fallen": false,
+          "min_upright": 0.9912072440559065,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2003,
+          "forward_m": 0.4324088783629525,
+          "lateral_m": -0.15646419487317675,
+          "yaw_deg": -15.664350832399197,
+          "fallen": false,
+          "min_upright": 0.9876365081637198,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2004,
+          "forward_m": 0.4373492873517702,
+          "lateral_m": 0.02651600413479951,
+          "yaw_deg": 12.643695712135392,
+          "fallen": false,
+          "min_upright": 0.9867313885095932,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2005,
+          "forward_m": 0.4071420532895086,
+          "lateral_m": 0.09886349478536037,
+          "yaw_deg": 3.214080580684065,
+          "fallen": false,
+          "min_upright": 0.9911241260941437,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2006,
+          "forward_m": 0.4490388275609236,
+          "lateral_m": 0.06429362097204454,
+          "yaw_deg": 13.14546022331267,
+          "fallen": false,
+          "min_upright": 0.992289699363372,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2007,
+          "forward_m": 0.45239168593936435,
+          "lateral_m": 0.06810285257109212,
+          "yaw_deg": 12.541985143528281,
+          "fallen": false,
+          "min_upright": 0.992684562084992,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2008,
+          "forward_m": 0.4383535154582988,
+          "lateral_m": -0.013130845180651716,
+          "yaw_deg": 13.568718589019019,
+          "fallen": false,
+          "min_upright": 0.9898284221932255,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2009,
+          "forward_m": 0.44824907675589637,
+          "lateral_m": 0.004264048458227871,
+          "yaw_deg": 26.58604741536255,
+          "fallen": false,
+          "min_upright": 0.9915356599939984,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2010,
+          "forward_m": 0.3698298696505607,
+          "lateral_m": -0.11923716389617355,
+          "yaw_deg": -5.146184396988141,
+          "fallen": false,
+          "min_upright": 0.992929211876238,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2011,
+          "forward_m": 0.43638117626386524,
+          "lateral_m": 0.05504851159168731,
+          "yaw_deg": 4.732651170690016,
+          "fallen": false,
+          "min_upright": 0.992166011802261,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2012,
+          "forward_m": 0.43069447184854004,
+          "lateral_m": -0.06653620932237381,
+          "yaw_deg": -4.226929093071241,
+          "fallen": false,
+          "min_upright": 0.989199548026832,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2013,
+          "forward_m": 0.45314038123262596,
+          "lateral_m": -0.002046672254007808,
+          "yaw_deg": -1.434874596823309,
+          "fallen": false,
+          "min_upright": 0.9899694607858907,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2014,
+          "forward_m": 0.44713681678422984,
+          "lateral_m": 0.04788250876716273,
+          "yaw_deg": 56.26147494834302,
+          "fallen": false,
+          "min_upright": 0.989417041251051,
+          "seconds": 12.0,
+          "success": false
+        },
+        {
+          "seed": 2015,
+          "forward_m": 0.4111847312974494,
+          "lateral_m": -0.05832171556220263,
+          "yaw_deg": -10.037530918558055,
+          "fallen": false,
+          "min_upright": 0.9922125498168725,
+          "seconds": 12.0,
+          "success": true
+        },
+        {
+          "seed": 2016,
+          "forward_m": 0.4191229217109418,
+          "lateral_m": -0.24343252326437567,
+          "yaw_deg": -30.3445467410873,
+          "fallen": false,
+          "min_upright": 0.989818339451531,
+          "seconds": 12.0,
+          "success": false
+        }
+      ],
+      "success_rate": 0.75,
+      "fall_rate": 0.0,
+      "mean_forward_m": 0.43339540629973206
+    }
+  ]
+}

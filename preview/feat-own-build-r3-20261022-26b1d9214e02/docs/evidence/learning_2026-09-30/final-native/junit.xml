@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="ssok" tests="66" failures="6" time="527.23"><testcase name="import" time="27.017" /><testcase name="scene-load" time="6.318" /><testcase name="app_controller_check" time="6.547" /><testcase name="assembly_snap_check" time="1.194" /><testcase name="authoring_ui_check" time="8.417" /><testcase name="biped_app_check" time="52.942" /><testcase name="biped_board_clearance_check" time="2.711" /><testcase name="biped_motion_check" time="38.108" /><testcase name="blender_camera_check" time="2.033" /><testcase name="blender_edit_check" time="2.942" /><testcase name="block_program_check" time="6.49" /><testcase name="browser_evidence_check" time="7.979" /><testcase name="construction_kit_check" time="2.565" /><testcase name="construction_kit_motion_check" time="44.445" /><testcase name="construction_kit_store_check" time="8.741" /><testcase name="construction_kit_ui_check" time="7.26" /><testcase name="control_flow_check" time="4.576" /><testcase name="core_authoring_check" time="5.628" /><testcase name="flag_mission_check" time="4.524" /><testcase name="humanoid_contract_check" time="0.617" /><testcase name="humanoid_motion_check-walk" time="2.27" /><testcase name="humanoid_motion_check-backward" time="2.271" /><testcase name="humanoid_motion_check-pick" time="2.37" /><testcase name="humanoid_motion_check-run" time="2.17" /><testcase name="humanoid_motion_check-walk-reverse-links" time="2.27" /><testcase name="humanoid_motion_check-run-reverse-links" time="2.27" /><testcase name="humanoid_motion_check-run-settle-frames=181" time="2.269" /><testcase name="humanoid_ui_check" time="6.48" /><testcase name="humanoid_ui_check-modular" time="7.282" /><testcase name="keyboard_navigation_check" time="4.576"><failure message="exit 1; see keyboard_navigation_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: FAIL arrow keys select the Blocks tab
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/keyboard_navigation_check.gd:124)
+       [1] _run (res://tests/keyboard_navigation_check.gd:48)
+       [2] _key (res://tests/keyboard_navigation_check.gd:99)
+ERROR: FAIL Tab reaches Apply blocks to code
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/keyboard_navigation_check.gd:124)
+       [1] _run (res://tests/keyboard_navigation_check.gd:51)
+       [2] _tab_until (res://tests/keyboard_navigation_check.gd:107)
+       [3] _key (res://tests/keyboard_navigation_check.gd:99)
+keyboard_navigation_check: 23 checks, 2 failures
+</failure></testcase><testcase name="learned_app_check" time="4.876" /><testcase name="learned_policy_check" time="4.124" /><testcase name="learned_tracking_check" time="6.115" /><testcase name="learner_language_check" time="0.674" /><testcase name="localization_check" time="6.955" /><testcase name="manual_control_check" time="0.968" /><testcase name="material_assets_check" time="1.022"><failure message="exit 1; see material_assets_check.log">ared baked normal map with local triplanar mapping
+PASS UnoBlue loads as a web-compatible StandardMaterial3D
+PASS UnoBlue preserves catalog color/PBR values as a shared external resource
+PASS UnoBlue catalog emission is limited to the indicator LED
+PASS UnoBlue has the expected emission state
+PASS UnoBlue uses a shared baked normal map with local triplanar mapping
+PASS palette directory exists
+PASS arduino_uno.tres loads as PartDef
+PASS arduino_uno source and materialized meshes exist
+PASS arduino_uno PartDef uses the persistent materialized mesh
+PASS arduino_uno exactly preserves all source vertex/index/normal arrays and AABB
+PASS arduino_uno surfaces resolve the correct shared catalog materials
+PASS arm_link.tres loads as PartDef
+PASS arm_link source and materialized meshes exist
+PASS arm_link PartDef uses the persistent materialized mesh
+PASS arm_link exactly preserves all source vertex/index/normal arrays and AABB
+PASS arm_link surfaces resolve the correct shared catalog materials
+PASS ball_caster.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/ball_caster.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL ball_caster source and materialized meshes exist
+PASS base.tres loads as PartDef
+PASS base source and materialized meshes exist
+PASS base PartDef uses the persistent materialized mesh
+PASS base exactly preserves all source vertex/index/normal arrays and AABB
+PASS base surfaces resolve the correct shared catalog materials
+PASS biped_body.tres loads as PartDef
+PASS biped_body source and materialized meshes exist
+PASS biped_body PartDef uses the persistent materialized mesh
+PASS biped_body exactly preserves all source vertex/index/normal arrays and AABB
+PASS biped_body surfaces resolve the correct shared catalog materials
+PASS board.tres loads as PartDef
+PASS board source and materialized meshes exist
+PASS board PartDef uses the persistent materialized mesh
+PASS board exactly preserves all source vertex/index/normal arrays and AABB
+PASS board surfaces resolve the correct shared catalog materials
+PASS car_chassis.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/car_chassis.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL car_chassis source and materialized meshes exist
+PASS chassis_plate.tres loads as PartDef
+PASS chassis_plate source and materialized meshes exist
+PASS chassis_plate PartDef uses the persistent materialized mesh
+PASS chassis_plate exactly preserves all source vertex/index/normal arrays and AABB
+PASS chassis_plate surfaces resolve the correct shared catalog materials
+PASS foot.tres loads as PartDef
+PASS foot source and materialized meshes exist
+PASS foot PartDef uses the persistent materialized mesh
+PASS foot exactly preserves all source vertex/index/normal arrays and AABB
+PASS foot surfaces resolve the correct shared catalog materials
+PASS hc_sr04.tres loads as PartDef
+PASS hc_sr04 source and materialized meshes exist
+PASS hc_sr04 PartDef uses the persistent materialized mesh
+PASS hc_sr04 exactly preserves all source vertex/index/normal arrays and AABB
+PASS hc_sr04 surfaces resolve the correct shared catalog materials
+PASS leg_link.tres loads as PartDef
+PASS leg_link source and materialized meshes exist
+PASS leg_link PartDef uses the persistent materialized mesh
+PASS leg_link exactly preserves all source vertex/index/normal arrays and AABB
+PASS leg_link surfaces resolve the correct shared catalog materials
+PASS microbit.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/microbit.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL microbit source and materialized meshes exist
+PASS motor_driver.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/motor_driver.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL motor_driver source and materialized meshes exist
+PASS servo.tres loads as PartDef
+PASS servo source and materialized meshes exist
+PASS servo PartDef uses the persistent materialized mesh
+PASS servo exactly preserves all source vertex/index/normal arrays and AABB
+PASS servo surfaces resolve the correct shared catalog materials
+PASS servo_bracket.tres loads as PartDef
+PASS servo_bracket source and materialized meshes exist
+PASS servo_bracket PartDef uses the persistent materialized mesh
+PASS servo_bracket exactly preserves all source vertex/index/normal arrays and AABB
+PASS servo_bracket surfaces resolve the correct shared catalog materials
+PASS stage_wall.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/stage_wall.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL stage_wall source and materialized meshes exist
+PASS tb6612_driver.tres loads as PartDef
+ERROR: Resource file not found: res://assets/parts/tb6612_driver.obj (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _check_meshes (res://tests/material_assets_check.gd:103)
+       [1] _run (res://tests/material_assets_check.gd:34)
+FAIL tb6612_driver source and materialized meshes exist
+PASS tt_motor.tres loads as PartDef
+PASS tt_motor source and materialized meshes exist
+PASS tt_motor PartDef uses the persistent materialized mesh
+PASS tt_motor exactly preserves all source vertex/index/normal arrays and AABB
+PASS tt_motor surfaces resolve the correct shared catalog materials
+PASS wheel_65.tres loads as PartDef
+PASS wheel_65 source and materialized meshes exist
+PASS wheel_65 PartDef uses the persistent materialized mesh
+PASS wheel_65 exactly preserves all source vertex/index/normal arrays and AABB
+PASS wheel_65 surfaces resolve the correct shared catalog materials
+FAIL all 13 robot part definitions are checked
+PASS ArmBody is bound to a palette mesh
+PASS BaseBody is bound to a palette mesh
+PASS Black is bound to a palette mesh
+PASS BoardBody is bound to a palette mesh
+PASS BracketMetal is bound to a palette mesh
+PASS Brown is bound to a palette mesh
+PASS ChassisMetal is bound to a palette mesh
+PASS Cream is bound to a palette mesh
+PASS DetailAmber is bound to a palette mesh
+PASS DetailCopper is bound to a palette mesh
+PASS DetailGraphite is bound to a palette mesh
+PASS DetailSteel is bound to a palette mesh
+PASS DetailTeal is bound to a palette mesh
+PASS DetailWhite is bound to a palette mesh
+PASS Gold is bound to a palette mesh
+PASS Orange is bound to a palette mesh
+PASS Red is bound to a palette mesh
+PASS RimYellow is bound to a palette mesh
+PASS Rubber is bound to a palette mesh
+PASS SensorBlue is bound to a palette mesh
+PASS ServoBlue is bound to a palette mesh
+PASS ServoBody is bound to a palette mesh
+PASS Shell is bound to a palette mesh
+PASS Silver is bound to a palette mesh
+PASS TtYellow is bound to a palette mesh
+PASS UnoBlue is bound to a palette mesh
+PASS assembly uses each materialized mesh without copying or overriding materials
+PASS run mode uses the same graph-derived materialized meshes as assembly
+material_assets_check: 27 materials, 19 parts, 89 surfaces, 7 failure(s)
+</failure></testcase><testcase name="mesh_assets_check" time="1.122"><failure message="exit 1; see mesh_assets_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS palette directory exists
+PASS arduino_uno.tres loads as PartDef
+PASS arduino_uno uses an imported ArrayMesh
+PASS arduino_uno has valid triangle geometry, normals and materials
+PASS arduino_uno: 3504 triangles (&lt; 5000), 11 surfaces
+PASS arm_link.tres loads as PartDef
+PASS arm_link uses an imported ArrayMesh
+PASS arm_link has valid triangle geometry, normals and materials
+PASS arm_link: 1609 triangles (&lt; 5000), 5 surfaces
+PASS ball_caster.tres loads as PartDef
+FAIL ball_caster uses an imported ArrayMesh
+PASS base.tres loads as PartDef
+PASS base uses an imported ArrayMesh
+PASS base has valid triangle geometry, normals and materials
+PASS base: 2632 triangles (&lt; 5000), 7 surfaces
+PASS biped_body.tres loads as PartDef
+PASS biped_body uses an imported ArrayMesh
+PASS biped_body has valid triangle geometry, normals and materials
+PASS biped_body: 3020 triangles (&lt; 5000), 9 surfaces
+PASS board.tres loads as PartDef
+PASS board uses an imported ArrayMesh
+PASS board has valid triangle geometry, normals and materials
+PASS board: 3096 triangles (&lt; 5000), 7 surfaces
+PASS car_chassis.tres loads as PartDef
+FAIL car_chassis uses an imported ArrayMesh
+PASS chassis_plate.tres loads as PartDef
+PASS chassis_plate uses an imported ArrayMesh
+PASS chassis_plate has valid triangle geometry, normals and materials
+PASS chassis_plate: 2282 triangles (&lt; 5000), 3 surfaces
+PASS foot.tres loads as PartDef
+PASS foot uses an imported ArrayMesh
+PASS foot has valid triangle geometry, normals and materials
+PASS foot: 1940 triangles (&lt; 5000), 7 surfaces
+PASS hc_sr04.tres loads as PartDef
+PASS hc_sr04 uses an imported ArrayMesh
+PASS hc_sr04 has valid triangle geometry, normals and materials
+PASS hc_sr04: 3204 triangles (&lt; 5000), 8 surfaces
+PASS leg_link.tres loads as PartDef
+PASS leg_link uses an imported ArrayMesh
+PASS leg_link has valid triangle geometry, normals and materials
+PASS leg_link: 1044 triangles (&lt; 5000), 6 surfaces
+PASS microbit.tres loads as PartDef
+FAIL microbit uses an imported ArrayMesh
+PASS motor_driver.tres loads as PartDef
+FAIL motor_driver uses an imported ArrayMesh
+PASS servo.tres loads as PartDef
+PASS servo uses an imported ArrayMesh
+PASS servo has valid triangle geometry, normals and materials
+PASS servo: 2280 triangles (&lt; 5000), 12 surfaces
+PASS servo_bracket.tres loads as PartDef
+PASS servo_bracket uses an imported ArrayMesh
+PASS servo_bracket has valid triangle geometry, normals and materials
+PASS servo_bracket: 1560 triangles (&lt; 5000), 3 surfaces
+PASS stage_wall.tres loads as PartDef
+FAIL stage_wall uses an imported ArrayMesh
+PASS tb6612_driver.tres loads as PartDef
+FAIL tb6612_driver uses an imported ArrayMesh
+PASS tt_motor.tres loads as PartDef
+PASS tt_motor uses an imported ArrayMesh
+PASS tt_motor has valid triangle geometry, normals and materials
+PASS tt_motor: 1940 triangles (&lt; 5000), 7 surfaces
+PASS wheel_65.tres loads as PartDef
+PASS wheel_65 uses an imported ArrayMesh
+PASS wheel_65 has valid triangle geometry, normals and materials
+PASS wheel_65: 2032 triangles (&lt; 5000), 4 surfaces
+PASS all existing palette parts are present
+PASS chassis_plate is available in the palette
+PASS chassis_plate.mount_center has a compatible palette part
+PASS chassis_plate.mount_center proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_center ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_left has a compatible palette part
+PASS chassis_plate.mount_left proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_left ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_right has a compatible palette part
+PASS chassis_plate.mount_right proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_right ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_rear has a compatible palette part
+PASS chassis_plate.mount_rear proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_rear ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate.mount_front has a compatible palette part
+PASS chassis_plate.mount_front proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS chassis_plate.mount_front ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS chassis_plate has tested mechanical ports
+PASS servo_bracket is available in the palette
+PASS servo_bracket.mount_bottom has a compatible palette part
+PASS servo_bracket.mount_bottom proximity snaps to base.mount_top
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_bottom ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket.mount_top has a compatible palette part
+PASS servo_bracket.mount_top proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_top ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket.mount_rear has a compatible palette part
+PASS servo_bracket.mount_rear proximity snaps to hc_sr04.mount
+PASS accessory snap creates exactly one ConnectionGraph link
+PASS servo_bracket.mount_rear ConnectionGraph links have compatible, aligned ports
+PASS accessory snap aligns the selected port positions
+PASS servo_bracket has tested mechanical ports
+PASS biped ConnectionGraph links have compatible, aligned ports
+PASS biped builds 11 bodies and 4 servo drives
+PASS biped wiring resolves PWM pin 3
+PASS biped wiring resolves PWM pin 5
+PASS biped wiring resolves PWM pin 6
+PASS biped wiring resolves PWM pin 9
+BIPED_MEASUREMENTS initial_height=0.13300 minimum_height=0.12472 final_height=0.13171 upright=0.99898
+PASS complete powered biped answer finishes without runtime errors: 
+PASS all biped transforms and velocities stay finite and near the work surface
+PASS biped finishes at a reasonable standing height (0.13171 m)
+mesh_assets_check: 6 failure(s)
+</failure></testcase><testcase name="modular_humanoid_check-walk" time="1.781" /><testcase name="modular_humanoid_check-pick" time="1.932" /><testcase name="modular_humanoid_check-pick-reverse-links" time="2.034" /><testcase name="modular_pickup_parallel_check" time="5.2" /><testcase name="motion_lab_check" time="15.668" /><testcase name="motion_lab_ui_check" time="12.749" /><testcase name="pickup_bridge_ui_check" time="22.094" /><testcase name="pickup_lab_ui_check" time="16.738" /><testcase name="pickup_store_check" time="7.837" /><testcase name="pickup_trial_check" time="32.449" /><testcase name="project_store_check" time="7.145" /><testcase name="relative_code_check" time="0.922"><failure message="exit 1; see relative_code_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: FAIL nonliteral/generated expression is not executed
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/relative_code_check.gd:112)
+       [1] _run (res://tests/relative_code_check.gd:54)
+relative_code_check: 26 checks, 1 failures
+</failure></testcase><testcase name="robot_car_check" time="1.484" /><testcase name="run_mode_check" time="0.725" /><testcase name="servo_torque_budget_check" time="0.671" /><testcase name="sonar_stage_check" time="25.696" /><testcase name="stage_authoring_check" time="6.86" /><testcase name="tutorial_ui_check" time="6.578" /><testcase name="viewport_framing_check" time="23.211" /><testcase name="workshop_ui_check" time="15.013"><failure message="exit 1; see workshop_ui_check.log">Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: FAIL all catalogs present including the learning biped and sixteen-channel kit board
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/workshop_ui_check.gd:167)
+       [1] _run (res://tests/workshop_ui_check.gd:45)
+ERROR: FAIL filters restore full catalog
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/workshop_ui_check.gd:167)
+       [1] _run (res://tests/workshop_ui_check.gd:76)
+ERROR: FAIL filters restore full catalog
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/workshop_ui_check.gd:167)
+       [1] _run (res://tests/workshop_ui_check.gd:76)
+ERROR: FAIL filters restore full catalog
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/workshop_ui_check.gd:167)
+       [1] _run (res://tests/workshop_ui_check.gd:76)
+ERROR: FAIL filters restore full catalog
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/workshop_ui_check.gd:167)
+       [1] _run (res://tests/workshop_ui_check.gd:76)
+workshop_ui_check: 420 checks, 5 failures
+</failure></testcase><testcase name="yaw_biped_check" time="0.978" /><testcase name="tests-motion_mcp_check.py" time="8.977" /><testcase name="tests-test_ci_verify.py" time="0.469" /><testcase name="tests-test_pickup_bridge.py" time="1.831" /><testcase name="tests-test_release_documents.py" time="3.795"><failure message="exit 1; see tests-test_release_documents.py.log">test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... FAIL
+
+======================================================================
+FAIL: test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/bumboo/Projects/ssok-issues-20260930/tests/test_release_documents.py", line 40, in test_documentation_links_survive_packaging_and_extraction
+    self.assertEqual([], missing, "archive contains broken documentation links")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['docs/TECHNICAL_NOTE_2026-09-30.md -&gt; ../[350 chars].md']
+
+Second list contains 5 additional elements.
+First extra element 0:
+'docs/TECHNICAL_NOTE_2026-09-30.md -&gt; ../assets/kenney/SOURCE.json'
+
+- []
++ ['docs/TECHNICAL_NOTE_2026-09-30.md -&gt; ../assets/kenney/SOURCE.json',
++  'docs/PRODUCT_EXPERIENCE.md -&gt; research/playful-ux-2026-09-30/README.md',
++  'docs/PRODUCT_EXPERIENCE.md -&gt; '
++  'research/existing-robot-task-technologies-2026-09-30.md',
++  'docs/PRODUCT_EXPERIENCE.md -&gt; research/reuse-shortlist-2026-09-30.md',
++  'docs/NATURAL_LANGUAGE_TASKS.md -&gt; '
++  'research/existing-robot-task-technologies-2026-09-30.md'] : archive contains broken documentation links
+
+----------------------------------------------------------------------
+Ran 1 test in 3.508s
+
+FAILED (failures=1)
+</failure></testcase><testcase name="tools-motion_lab-test_races.py" time="1.319" /><testcase name="tools-motion_lab-test_service.py" time="1.319" /><testcase name="tools-rl_lab-test_rl_lab.py" time="0.617" /></testsuite>

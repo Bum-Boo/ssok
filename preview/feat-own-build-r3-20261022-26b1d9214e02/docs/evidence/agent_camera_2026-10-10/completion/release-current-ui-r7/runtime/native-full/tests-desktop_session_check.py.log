@@ -1,0 +1,29 @@
+test_claimed_context_rejects_changed_first_frame_after_describe (tests.desktop_session_check.GoalChecks.test_claimed_context_rejects_changed_first_frame_after_describe) ... ok
+test_claimed_context_rejects_stop_then_reenable_before_first_image (tests.desktop_session_check.GoalChecks.test_claimed_context_rejects_stop_then_reenable_before_first_image) ... ok
+test_deadline_fails_closed (tests.desktop_session_check.GoalChecks.test_deadline_fails_closed) ... ok
+test_first_observation_failure_has_already_bound_cleanup_owner (tests.desktop_session_check.GoalChecks.test_first_observation_failure_has_already_bound_cleanup_owner) ... ok
+test_goal_sdk_image_decision_and_stop_tools (tests.desktop_session_check.GoalChecks.test_goal_sdk_image_decision_and_stop_tools) ... ok
+test_invalid_bounds_do_not_create_session (tests.desktop_session_check.GoalChecks.test_invalid_bounds_do_not_create_session) ... ok
+test_lost_reply_never_retries_and_revokes_session (tests.desktop_session_check.GoalChecks.test_lost_reply_never_retries_and_revokes_session) ... ok
+test_matching_claimed_context_keeps_action_and_reobserve (tests.desktop_session_check.GoalChecks.test_matching_claimed_context_keeps_action_and_reobserve) ... ok
+test_missing_and_consumed_frame_cannot_act (tests.desktop_session_check.GoalChecks.test_missing_and_consumed_frame_cannot_act) ... ok
+test_new_episode_cannot_rebind_after_step (tests.desktop_session_check.GoalChecks.test_new_episode_cannot_rebind_after_step) ... ok
+test_operator_endpoints_are_not_actor_client_capabilities (tests.desktop_session_check.GoalChecks.test_operator_endpoints_are_not_actor_client_capabilities) ... ok
+test_real_bytes_receipt_finite_action_reobserve_and_close (tests.desktop_session_check.GoalChecks.test_real_bytes_receipt_finite_action_reobserve_and_close) ... ok
+test_second_observe_before_decision_cancels (tests.desktop_session_check.GoalChecks.test_second_observe_before_decision_cancels) ... ok
+test_stale_human_revision_cancels_without_action (tests.desktop_session_check.GoalChecks.test_stale_human_revision_cancels_without_action) ... ok
+test_step_budget_reserves_final_image_then_refuses_movement (tests.desktop_session_check.GoalChecks.test_step_budget_reserves_final_image_then_refuses_movement) ... ok
+test_stop_does_not_wait_for_inflight_lock (tests.desktop_session_check.GoalChecks.test_stop_does_not_wait_for_inflight_lock) ... ok
+test_unbound_stop_closes_session_without_revoking_any_desktop (tests.desktop_session_check.GoalChecks.test_unbound_stop_closes_session_without_revoking_any_desktop) ... ok
+test_wrong_image_hash_cancels_without_action (tests.desktop_session_check.GoalChecks.test_wrong_image_hash_cancels_without_action) ... ok
+test_stale_preflight_scopes_cleanup_without_stopping_replacement_or_launching_cli (tests.desktop_session_check.RunnerCleanupChecks.test_stale_preflight_scopes_cleanup_without_stopping_replacement_or_launching_cli) ... Frame context is stale; observe the current desktop session again.
+{"status": "runner_failed", "cli_exit": null, "stop_confirmed": false, "owner_revocation_confirmed": true, "stop_scope": "context_replaced", "final_desktop_state": "ready", "observations": 0, "completed_actions": 0, "final_reobserved": false, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {}, "goal_success": "not certified; inspect camera/action evidence"}
+ok
+test_unbound_login_failure_never_stops_an_existing_desktop (tests.desktop_session_check.RunnerCleanupChecks.test_unbound_login_failure_never_stops_an_existing_desktop) ... This runner requires the existing Codex ChatGPT login; API-key fallback is disabled.
+{"status": "runner_failed", "cli_exit": null, "stop_confirmed": false, "owner_revocation_confirmed": false, "stop_scope": "unbound", "final_desktop_state": "not_observed", "observations": 0, "completed_actions": 0, "final_reobserved": false, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {}, "goal_success": "not certified; inspect camera/action evidence"}
+ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.518s
+
+OK

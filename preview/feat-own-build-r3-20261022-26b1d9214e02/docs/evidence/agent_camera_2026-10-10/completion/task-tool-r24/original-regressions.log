@@ -1,0 +1,25 @@
+test_close_requires_real_checkpoint_or_outcome (test_agent_task.TaskTests.test_close_requires_real_checkpoint_or_outcome) ... ok
+test_concurrent_begin_has_one_owner (test_agent_task.TaskTests.test_concurrent_begin_has_one_owner) ... ok
+test_distinct_subtasks_allow_collaboration (test_agent_task.TaskTests.test_distinct_subtasks_allow_collaboration) ... ok
+test_event_commit_survives_interrupted_snapshot_refresh (test_agent_task.TaskTests.test_event_commit_survives_interrupted_snapshot_refresh) ... ok
+test_hook_busy_lock_fails_open_without_mutation (test_agent_task.TaskTests.test_hook_busy_lock_fails_open_without_mutation) ... ok
+test_hook_exact_session_logs_without_prompt_or_transcript (test_agent_task.TaskTests.test_hook_exact_session_logs_without_prompt_or_transcript) ... ok
+test_hook_install_preserves_settings_and_is_idempotent (test_agent_task.TaskTests.test_hook_install_preserves_settings_and_is_idempotent) ... ok
+test_hook_never_claims_other_session (test_agent_task.TaskTests.test_hook_never_claims_other_session) ... ok
+test_invalid_slug_cannot_escape_store (test_agent_task.TaskTests.test_invalid_slug_cannot_escape_store) ... ok
+test_live_owner_rejects_conflicting_claim_and_mutation (test_agent_task.TaskTests.test_live_owner_rejects_conflicting_claim_and_mutation) ... ok
+test_malformed_hooks_fail_open (test_agent_task.TaskTests.test_malformed_hooks_fail_open) ... ok
+test_precompact_only_records_timestamp (test_agent_task.TaskTests.test_precompact_only_records_timestamp) ... ok
+test_realistic_cli_handoff_lifecycle (test_agent_task.TaskTests.test_realistic_cli_handoff_lifecycle) ... ok
+test_release_then_claim_keeps_handoff (test_agent_task.TaskTests.test_release_then_claim_keeps_handoff) ... ok
+test_session_end_expires_only_exact_matched_owner (test_agent_task.TaskTests.test_session_end_expires_only_exact_matched_owner) ... ok
+test_snapshot_readers_never_observe_partial_json (test_agent_task.TaskTests.test_snapshot_readers_never_observe_partial_json) ... ok
+test_stale_hook_does_not_renew_ownership (test_agent_task.TaskTests.test_stale_hook_does_not_renew_ownership) ... ok
+test_stale_lease_requires_explicit_takeover (test_agent_task.TaskTests.test_stale_lease_requires_explicit_takeover) ... ok
+test_stale_same_session_must_resume_before_update (test_agent_task.TaskTests.test_stale_same_session_must_resume_before_update) ... ok
+test_stop_is_nonblocking_and_loop_guard_is_noop (test_agent_task.TaskTests.test_stop_is_nonblocking_and_loop_guard_is_noop) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.313s
+
+OK

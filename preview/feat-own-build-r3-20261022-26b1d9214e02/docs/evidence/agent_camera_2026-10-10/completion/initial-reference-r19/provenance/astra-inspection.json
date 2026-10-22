@@ -1,0 +1,75 @@
+{
+    "requested_role":  "Astra visual inspection",
+    "requested_model":  "gpt-6-astra",
+    "serving_model":  null,
+    "identity_limits":  "Serving identity unexposed by image/file tools; requested role is not independent backend attestation.",
+    "viewed_count":  4,
+    "method":  "Exactly four original PNGs actually emitted and viewed using view_image original. Center x312–328; approximate zero-based boundary_y and floor strip=480-y; ±2 px visual uncertainty. SHA256/header dimensions read only from these images.",
+    "viewed":  [
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/combined/post-3.png",
+                       "sha256":  "8ae4e3f9cd884f5ccdbfd24664b446e1d5608c583d6bbcb6bf69f14ac29c1918",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  459,
+                       "center_floor_strip_px_approx":  21,
+                       "uncertainty_px":  2,
+                       "center_unobstructed":  true,
+                       "observations":  "Gray wall above thin beige bottom floor strip. Lower-side blue/gray geometry leaves center unobstructed. Boundary is visible with a soft transition; no central clipping."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/combined/bridge-observed.png",
+                       "sha256":  "969ae20e8331b37ef44573e169af15fc8b7a68e770bba5c93eb1b28ee68671c8",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  459,
+                       "center_floor_strip_px_approx":  21,
+                       "uncertainty_px":  2,
+                       "center_unobstructed":  true,
+                       "observations":  "Gray wall above thin beige bottom floor strip. Lower-side blue/gray geometry leaves center unobstructed. Boundary is visible with a soft transition; no central clipping."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/initial/post-3.png",
+                       "sha256":  "4da629badebabe305fe456295dff956c1cb9015441463b3f41ec193b5ded0459",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  459,
+                       "center_floor_strip_px_approx":  21,
+                       "uncertainty_px":  2,
+                       "center_unobstructed":  true,
+                       "observations":  "Gray wall above thin beige bottom floor strip. Lower-side blue/gray geometry leaves center unobstructed. Boundary is visible with a soft transition; no central clipping."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/initial/bridge-observed.png",
+                       "sha256":  "468e241ea60100b6c6423211ad172b06ea016c0f3427812f53da4e69d7537660",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  458,
+                       "center_floor_strip_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "center_unobstructed":  true,
+                       "observations":  "Gray wall above thin beige bottom floor strip. Lower-side blue/gray geometry leaves center unobstructed. Boundary is visible with a soft transition; no central clipping."
+                   }
+               ],
+    "findings":  {
+                     "combined_pair":  "Approximately 21 px in both images; no clear central-height difference at ±2 px visual precision.",
+                     "initial_pair":  "Approximately 21 px post-3 and 22 px bridge-observed; apparent one-pixel difference is within uncertainty.",
+                     "cross_pair":  "All four center strips appear very similar. No robust center-height difference distinguishable at this visual precision."
+                 },
+    "unviewed_scope":  "No other images, physical metrics/evaluator/source/private/auth/provider records read. Prior r18 evidence untouched.",
+    "limits":  [
+                   "Image-coordinate observations only; no physical metrics, success, causality, timing or reliability inference.",
+                   "No backend identity assertion.",
+                   "Selected stills do not establish continuous jitter or intermediate behavior.",
+                   "No app/runtime operations, delegation or code/task/vault/canonical edits.",
+                   "Only the authorized fresh nonsensitive JSON result written."
+               ]
+}

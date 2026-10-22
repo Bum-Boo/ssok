@@ -1,0 +1,375 @@
+{
+  "block_wait_index": 3,
+  "native_solutions": {
+    "finish-line": "left = Motor(pin0)\nright = Motor(pin12)\nleft.motor_on(\"forward\", 55)\nright.motor_on(\"forward\", 55)\nsleep(3000)\nstop()\n",
+    "raise-flag": "arm = Servo(pin0)\narm.write(90)\nsleep(1000)\narm.write(0)\nsleep(2000)\n",
+    "wall-brake": "left = Motor(pin0)\nright = Motor(pin12)\nsonar = Sonar(pin1, pin2)\nwhile sonar.distance_cm() > 10:\n    left.motor_on(\"forward\", 25)\n    right.motor_on(\"forward\", 25)\n    sleep(20)\nstop()\n"
+  },
+  "points": {
+    "add_block": [
+      1316.0,
+      690.0
+    ],
+    "apply_blocks": [
+      1208.0,
+      736.0
+    ],
+    "block_operation": [
+      1164.0,
+      690.0
+    ],
+    "block_seconds": [
+      1132.59375,
+      642.0
+    ],
+    "blocks_scroll": [
+      1212.0,
+      522.0
+    ],
+    "blocks_tab": [
+      1088.0,
+      201.0
+    ],
+    "close_projects": [
+      1022.0,
+      698.0
+    ],
+    "code_editor": [
+      1212.0,
+      538.0
+    ],
+    "code_tab": [
+      1083.0,
+      201.0
+    ],
+    "code_tab_scrolled": [
+      1083.0,
+      201.0
+    ],
+    "export": [
+      564.5,
+      394.0
+    ],
+    "flag_action": [
+      744.0,
+      201.0
+    ],
+    "flag_starter": [
+      642.0,
+      429.0
+    ],
+    "game_code_editor_finish-line": [
+      1128.0,
+      442.0
+    ],
+    "game_code_editor_raise-flag": [
+      1128.0,
+      442.0
+    ],
+    "game_code_editor_wall-brake": [
+      1128.0,
+      442.0
+    ],
+    "game_code_tab_finish-line": [
+      915.0,
+      153.0
+    ],
+    "game_code_tab_raise-flag": [
+      915.0,
+      153.0
+    ],
+    "game_code_tab_wall-brake": [
+      915.0,
+      153.0
+    ],
+    "game_confirm_finish-line": [
+      747.0,
+      516.0
+    ],
+    "game_confirm_raise-flag": [
+      747.0,
+      516.0
+    ],
+    "game_confirm_wall-brake": [
+      747.0,
+      516.0
+    ],
+    "game_program_finish-line": [
+      306.0,
+      83.0
+    ],
+    "game_program_raise-flag": [
+      306.0,
+      83.0
+    ],
+    "game_program_wall-brake": [
+      306.0,
+      83.0
+    ],
+    "game_run_finish-line": [
+      1338.0,
+      43.0
+    ],
+    "game_run_raise-flag": [
+      1338.0,
+      43.0
+    ],
+    "game_run_wall-brake": [
+      1338.0,
+      43.0
+    ],
+    "game_solution_finish-line": [
+      1221.0,
+      43.0
+    ],
+    "game_solution_raise-flag": [
+      1221.0,
+      43.0
+    ],
+    "game_solution_wall-brake": [
+      1221.0,
+      43.0
+    ],
+    "game_stage_finish-line": [
+      700.0,
+      489.0
+    ],
+    "game_stage_raise-flag": [
+      368.0,
+      462.0
+    ],
+    "game_stage_wall-brake": [
+      1032.0,
+      489.0
+    ],
+    "game_stop_finish-line": [
+      1338.0,
+      43.0
+    ],
+    "game_stop_raise-flag": [
+      1338.0,
+      43.0
+    ],
+    "game_stop_wall-brake": [
+      1338.0,
+      43.0
+    ],
+    "game_title_lab": [
+      700.0,
+      473.0
+    ],
+    "game_title_play": [
+      700.0,
+      375.0
+    ],
+    "import": [
+      544.5,
+      653.0
+    ],
+    "lab_blocks_tab": [
+      1050.0,
+      231.0
+    ],
+    "lab_close_projects": [
+      1022.0,
+      698.0
+    ],
+    "lab_code_editor": [
+      1128.0,
+      481.0
+    ],
+    "lab_code_tab": [
+      915.0,
+      231.0
+    ],
+    "lab_export": [
+      564.5,
+      394.0
+    ],
+    "lab_help": [
+      1252.5,
+      43.0
+    ],
+    "lab_project_name": [
+      700.0,
+      346.0
+    ],
+    "lab_run": [
+      1338.0,
+      43.0
+    ],
+    "lab_save": [
+      413.0,
+      394.0
+    ],
+    "lab_stage_export": [
+      1124.0,
+      601.0
+    ],
+    "lab_stages_tab": [
+      1175.5,
+      231.0
+    ],
+    "lab_stop": [
+      1338.0,
+      43.0
+    ],
+    "lab_wire_connect": [
+      1128.0,
+      462.0
+    ],
+    "lab_wire_disconnect_first": [
+      1128.0,
+      556.0
+    ],
+    "lab_wire_pin": [
+      1128.0,
+      416.0
+    ],
+    "lab_wiring_tab": [
+      1113.0,
+      231.0
+    ],
+    "learned_starter": [
+      130.0,
+      807.0
+    ],
+    "open": [
+      419.0,
+      640.0
+    ],
+    "project_confirm": [
+      746.0,
+      529.0
+    ],
+    "project_name": [
+      700.0,
+      346.0
+    ],
+    "projects": [
+      148.0,
+      45.0
+    ],
+    "run_code": [
+      1212.0,
+      851.0
+    ],
+    "run_mode": [
+      1050.0,
+      45.0
+    ],
+    "save": [
+      413.0,
+      394.0
+    ],
+    "saved_first": [
+      700.0,
+      492.0
+    ],
+    "settings_appearance": [
+      700.0,
+      328.0
+    ],
+    "settings_button": [
+      1358.0,
+      45.0
+    ],
+    "settings_close": [
+      922.0,
+      758.0
+    ],
+    "settings_code": [
+      700.0,
+      480.0
+    ],
+    "settings_language": [
+      700.0,
+      252.0
+    ],
+    "settings_mute": [
+      700.0,
+      524.0
+    ],
+    "settings_text": [
+      700.0,
+      404.0
+    ],
+    "settings_volume": [
+      700.0,
+      597.0
+    ],
+    "stage_answer": [
+      1208.0,
+      377.0
+    ],
+    "stage_confirm": [
+      852.5,
+      484.0
+    ],
+    "stage_export": [
+      1208.0,
+      745.0
+    ],
+    "stage_load": [
+      1208.0,
+      331.0
+    ],
+    "stage_picker": [
+      1208.0,
+      285.0
+    ],
+    "stages_tab": [
+      1213.5,
+      201.0
+    ],
+    "stages_tab_scrolled": [
+      1213.5,
+      201.0
+    ],
+    "starter": [
+      130.0,
+      623.0
+    ],
+    "stop": [
+      1102.0,
+      45.0
+    ],
+    "tabs_scroll_left": [
+      1352.0,
+      201.0
+    ],
+    "tabs_scroll_right": [
+      1368.0,
+      201.0
+    ],
+    "transfer_text": [
+      696.0,
+      578.0
+    ],
+    "wire_connect": [
+      1208.0,
+      432.0
+    ],
+    "wire_disconnect_first": [
+      1208.0,
+      551.0
+    ],
+    "wire_pin": [
+      1208.0,
+      386.0
+    ],
+    "wiring_tab": [
+      1151.0,
+      201.0
+    ],
+    "world_focus": [
+      700.0,
+      475.0
+    ]
+  },
+  "program_tab_count": 6,
+  "viewport": [
+    1400,
+    950
+  ]
+}

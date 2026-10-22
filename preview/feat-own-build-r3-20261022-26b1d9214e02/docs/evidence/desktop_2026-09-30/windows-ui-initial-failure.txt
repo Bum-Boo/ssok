@@ -1,0 +1,8 @@
+FAIL: Uninstall registration is removed
+At C:\Users\Hojun\ssok-desktop-checks\20260930-190931-ssok-windows-native-ui-v2-40b00f63\verify_installer.ps1:15 char:2
+4
++     if (-not $Value) { throw "FAIL: $Name" }
++                        ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (FAIL: Uninstall registration is removed:String) [], RuntimeException
+    + FullyQualifiedErrorId : FAIL: Uninstall registration is removed
+ 

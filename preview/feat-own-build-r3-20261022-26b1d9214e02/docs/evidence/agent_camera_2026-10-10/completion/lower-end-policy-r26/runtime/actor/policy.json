@@ -1,0 +1,26 @@
+{
+  "experiment": "DEBUG-r26-lower-end-stop-preference",
+  "stock_actor_prompt_sha256": "4d2c0d0606a4c60297b73d16b31566e10f96287f9a7526a9cc0cd7b35d2ffe24",
+  "candidate_actor_prompt_sha256": "af167b8d44a51c2c7835ee9918e060a204ab16680f81c5e6c478d7cd6e3e5ed5",
+  "replacements": [
+    [
+      "If the observed span already meets the goal, stop without an extra forward step.",
+      "If the observed span meets the goal interval, prefer stopping near its lower end (24–26 pixels for this goal). This is a policy preference within the original 24–38-pixel acceptance interval, not a replacement success criterion. Before another forward step, compare the most recent settled-image changes; use only one tick if it is reasonably likely to stay inside that original interval. Otherwise stop now; never cross its lower bound deliberately."
+    ],
+    [
+      "Aim for the middle of the requested interval rather than its uncertain edge.",
+      "Prefer the lower end of the requested interval while accounting for pixel uncertainty; stop if uncertain rather than forcing this preference."
+    ]
+  ],
+  "operator_installed": false,
+  "acceptance_interval_pixels": [
+    24,
+    38
+  ],
+  "preferred_stop_pixels": [
+    24,
+    26
+  ],
+  "goal_unchanged": true,
+  "physical_inputs": false
+}

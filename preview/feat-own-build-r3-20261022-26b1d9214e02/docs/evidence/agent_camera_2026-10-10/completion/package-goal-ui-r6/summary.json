@@ -1,0 +1,52 @@
+{
+  "checkpoint": "2026-10-11T05:11:01+09:00",
+  "base_head": "28609ea4c4e9e2ccd7eb93e269439001d8f1708e",
+  "draft_project_panel_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "app_input426_changes": [
+    "src/ui/project_panel.gd",
+    "tools/ci/browser_layout.gd"
+  ],
+  "camera10_unchanged": true,
+  "goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "immutable_package": {
+    "source": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+    "version": "0.3.1-camera-r2",
+    "checks": 12,
+    "failures": 0,
+    "seconds": 50.310005499981344,
+    "one_provider_cli_launch": true,
+    "one_action_ticks": 3,
+    "observations": 2,
+    "final_reobserved": true,
+    "stopped": true,
+    "native_exit_code": 0,
+    "backend_identity_attested": false,
+    "login_packaged": false
+  },
+  "local_ui_draft": {
+    "native_cases": 80,
+    "matrix_checks": 1181,
+    "matrix_failures": 0,
+    "actual_captures": 128,
+    "astra_final_matrix_views": 32,
+    "actual_os_input_checks": {
+      "large": 12,
+      "compact": 13
+    },
+    "astra_final_focus_views": 4,
+    "source_check_commands": 7,
+    "opus_final_verdict": "pass",
+    "browser_checks": {
+      "authoring": 9,
+      "settings": 14
+    },
+    "web_linux_build_passed": true,
+    "dirty_build": true,
+    "immutable_r2_package": false
+  },
+  "frozen_ai_image_goal": "9/9 nominal",
+  "frozen_independent_physical_goal": "0/9",
+  "global_goal_complete": false,
+  "published": false,
+  "merged": false
+}

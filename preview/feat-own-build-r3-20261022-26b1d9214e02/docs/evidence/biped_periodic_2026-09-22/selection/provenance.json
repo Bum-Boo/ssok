@@ -1,0 +1,27 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "host": "personal Himmel Linux",
+  "job": "20260922-070706-ssok-biped-horizontal-balance-0de48613",
+  "profiles": [
+    {
+      "heading_gain": -10,
+      "heading_rate_rad_s": 0.15,
+      "passed": 48,
+      "cases": 48
+    },
+    {
+      "heading_gain": -60,
+      "heading_rate_rad_s": 0.08,
+      "passed": 48,
+      "cases": 48
+    }
+  ],
+  "heading_trim_limit_deg": 3,
+  "turn_feedback_multiplier": 2,
+  "planar_heading": true,
+  "selection_not_held_out": true,
+  "frozen_profile": {
+    "heading_gain": -10,
+    "heading_rate_rad_s": 0.15
+  }
+}

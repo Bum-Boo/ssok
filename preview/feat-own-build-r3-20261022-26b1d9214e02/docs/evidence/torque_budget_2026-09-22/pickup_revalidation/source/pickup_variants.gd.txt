@@ -1,0 +1,52 @@
+extends SceneTree
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+func _run() -> void:
+	var spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(OS.get_cmdline_user_args()[0]))
+	var graph: ConnectionGraph = ConstructionKitHumanoidPreset.build()
+	for entry: Dictionary in graph.parts:
+		if entry.part_def.id == &"cargo_box":
+			entry.transform.origin += Vector3(float(spec.x), 0.0, float(spec.z))
+	if spec.get("reverse_links", false):
+		graph.links.reverse()
+	var policy: Dictionary = PickupPolicy.defaults()
+	policy.lift_seconds = float(spec.lift_seconds)
+	var trial: PickupTrial = PickupTrial.new()
+	root.add_child(trial)
+	var error: String = trial.start_trial(graph, policy, false)
+	if not error.is_empty():
+		push_error(error)
+		quit(2)
+		return
+	var trace: Array[Dictionary] = []
+	while trial.is_running:
+		await physics_frame
+		if trial._frames % 15 != 0:
+			continue
+		var motion: HumanoidMotion = trial._motion
+		var hardware: RunMode = trial._hardware
+		var torso: RigidBody3D = hardware.bodies[motion.body_part]
+		var box: RigidBody3D = hardware.bodies[motion._box_part]
+		var angles: Dictionary = {}
+		for key: String in motion._drives:
+			var drive: ServoDrive = motion._drives[key]
+			angles[key] = {"target": drive.target_deg, "command": drive.current_deg, "measured": drive.measured_deg}
+		trace.append({"frame": trial._frames, "phase": motion.pickup_state, "phase_time": motion._pickup_time,
+			"metrics": trial.metrics.duplicate(true), "angles": angles,
+			"torso_position": _vector(torso.global_position), "torso_up": _vector(torso.global_basis.y),
+			"torso_velocity": _vector(torso.linear_velocity), "torso_angular_velocity": _vector(torso.angular_velocity),
+			"box_position": _vector(box.global_position)})
+	var result: Dictionary = {"case": spec, "policy": policy, "metrics": trial.metrics.duplicate(true), "trace": trace}
+	var output: FileAccess = FileAccess.open(str(spec.output), FileAccess.WRITE)
+	output.store_string(JSON.stringify(result, "\t"))
+	output.close()
+	print(JSON.stringify({"case": spec, "metrics": result.metrics}))
+	trial.free()
+	quit()
+
+
+func _vector(value: Vector3) -> Array[float]:
+	return [value.x, value.y, value.z]

@@ -1,0 +1,28 @@
+{
+  "base": "4eb059f6432bebbbc8db94896cac56cbb8bb2927",
+  "branch": "feat/32-robot-camera-loop",
+  "scope": "actual tested application sources and critical unchanged actuator/runtime inputs",
+  "sources": {
+    "scenes/main.gd": "856ad5712fb8acda0f2229fd0e62626a6bf9792cf249d875a49d0f303b85f302",
+    "src/core/app_controller.gd": "5986d60c2beb74039f655f1903ce6dd2988ab37fc154398649d16219dea47d61",
+    "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b",
+    "src/runtime/agent_desktop_bridge.gd": "14315f1a3be2251aef906228be545afb4aa35464e6569d271f4ac2258c52ace6",
+    "src/ui/agent_trace_panel.gd": "de153a7416075838af864387f87e12e1d1325babe2fa6bf316989c154e11352f",
+    "tests/agent_camera_loop_check.gd": "8847aebf029f0e173aa81beee6a04e53782bfe8f236ef1a4dde1ae294c86b8d3",
+    "tests/desktop_client_check.py": "5d0f2cd613e7dc1544b760693bb769613c2bf2dbd890ab3eaf4b077e80b807b6",
+    "tests/localization_check.gd": "e48e2282227873c46502b0f523c0226d0d746d00d480a701a21907b7359f4c47",
+    "tools/app_control/run_desktop.gd": "e74bafde386109bcf83681e037f9e03d49348a0ab8df9e27fdb105283f75c020",
+    "tools/app_control/desktop_client.py": "c564f2fb9238daba4efc1a784d901a8e1229071f883fc3be531dc156a6882fe1",
+    "tools/app_control/desktop_mcp.py": "79dff66a94bbca6b0ffbb80419cc6918df2c5ff914e81b6b6f4ae01a199b0355",
+    "tools/app_control/verify_desktop.py": "f6380448cc9bc42cb159cd8cde0c7d8fffe1e91e1ffb3e48a82861a670f439a8",
+    "tools/localization/agent_camera_messages.json": "637d407e60ca05a23aa880a9dc28b8b5525ded87ec6aa2a01bb433ac2c45e999",
+    "assets/locales/ko.po": "8e74f6dab46642e87d74865ff0047a03b13ddf22764fd2962e0fcf0179eb624d",
+    "assets/locales/zh_CN.po": "78fd3012830805051d5992ca89247d7102ab99266640b9123b7f584efde113e9",
+    "assets/locales/ja.po": "02fdc85111201d3e72b631771655aad989468966db652e1b55f56e40ff3b1b90",
+    "project.godot": "20824a8cc09ee98ec302140d0081ad0716c58104f9f09fabc9184b3ca0fff122",
+    "scenes/main.tscn": "b78763c0870b048f69cc98bc9f8b9e0e6115ac77841caf974da56bce5e1ef240",
+    "src/runtime/drive_motor.gd": "96b27d8ffb6f486f00b7e2aba0fb564611afc46fb66460d3785500194d3e0d96",
+    "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54"
+  },
+  "remote_matches": true
+}

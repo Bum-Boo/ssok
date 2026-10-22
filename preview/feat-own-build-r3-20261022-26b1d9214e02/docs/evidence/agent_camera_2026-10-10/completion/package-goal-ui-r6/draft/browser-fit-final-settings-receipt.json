@@ -1,0 +1,20 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_settings.py",
+    "--directory",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-browser-layout-fit-r6/web",
+    "--output",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-fit-final-settings"
+  ],
+  "exit_code": 0,
+  "seconds": 55.329932900029235,
+  "passed": true,
+  "same_web_app_bytes": true,
+  "changed_layout_only": true,
+  "checks": 14
+}

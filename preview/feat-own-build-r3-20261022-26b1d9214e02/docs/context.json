@@ -1,0 +1,453 @@
+{
+  "schema": 1,
+  "managed": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/START_HERE.md",
+    "docs/STATUS.md",
+    "docs/DATA_MODEL.md",
+    "docs/FLOWS.md",
+    "docs/POLICIES.md",
+    "docs/MAINTENANCE.md",
+    "docs/ARCHITECTURE.md",
+    "docs/TECHNICAL_NOTE_2026-09-30.md",
+    "docs/evidence/contributor_context_2026-09-30/README.md",
+    "docs/INTERFACE_PREFERENCES.md",
+    "docs/SETTINGS_UX_AUDIT_2026-09-30.md",
+    "docs/evidence/settings_ux_2026-09-30/README.md",
+    "docs/STAGE_CONTRACTS.md",
+    "docs/PRELAUNCH_UX_AUDIT_2026-09-30.md",
+    "docs/evidence/prelaunch_ux_2026-09-30/README.md",
+    "docs/evidence/merge_2026-09-30/README.md",
+    "docs/evidence/settings_implementation_2026-09-30/README.md",
+    "docs/evidence/public_release_2026-09-30/README.md",
+    "docs/APP_CONTROL_API.md",
+    "docs/CONTROLS.md",
+    "CLAUDE-REVIEW.md",
+    "docs/evidence/agent_camera_2026-10-10/README.md",
+    "docs/evidence/agent_camera_2026-10-10/direct/README.md",
+    "docs/evidence/agent_camera_2026-10-10/repeated/README.md",
+    "docs/evidence/agent_camera_2026-10-10/goal_ui/README.md",
+    "docs/evidence/agent_camera_2026-10-10/stabilization/README.md",
+    "docs/evidence/agent_camera_2026-10-10/completion/README.md",
+    "docs/WORK_SUMMARY_A.md",
+    "docs/UIUX_REDESIGN.md",
+    "docs/WORK_SUMMARY_A2.md",
+    "docs/WORK_SUMMARY_A3.md",
+    "docs/WORK_SUMMARY_A4.md",
+    "docs/WORK_SUMMARY_A5.md",
+    "docs/WORK_SUMMARY_D2.md",
+    "docs/evidence/own_build_d2_2026-10-22/README.md"
+  ],
+  "routes": {
+    "assembly": {
+      "docs": [
+        "docs/DATA_MODEL.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/assembly/assembly_mode.gd",
+        "src/ui/wiring_panel.gd"
+      ],
+      "adrs": [
+        "0002",
+        "0007",
+        "0022"
+      ],
+      "watch": [
+        "src/assembly/*",
+        "src/ui/wiring_panel.gd",
+        "src/core/connection_graph.gd",
+        "src/core/part_def.gd",
+        "src/core/port.gd"
+      ]
+    },
+    "storage": {
+      "docs": [
+        "docs/DATA_MODEL.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/core/project_store.gd",
+        "src/runtime/motion_snapshot.gd",
+        "src/ui/project_panel.gd"
+      ],
+      "adrs": [
+        "0002",
+        "0016",
+        "0022"
+      ],
+      "watch": [
+        "src/core/project_store.gd",
+        "src/runtime/motion_snapshot.gd",
+        "src/ui/project_panel.gd"
+      ]
+    },
+    "language": {
+      "docs": [
+        "docs/FLOWS.md",
+        "docs/AUTHORING.md"
+      ],
+      "sources": [
+        "src/core/board_profile.gd",
+        "src/profiles/learner_program.gd",
+        "src/runtime/mini_runtime.gd",
+        "src/ui/block_program_panel.gd"
+      ],
+      "adrs": [
+        "0004",
+        "0007",
+        "0023"
+      ],
+      "watch": [
+        "src/profiles/*",
+        "src/core/board_profile.gd",
+        "src/blocks/*",
+        "src/runtime/mini_runtime.gd",
+        "src/ui/block_program_panel.gd"
+      ]
+    },
+    "physics": {
+      "docs": [
+        "docs/ARCHITECTURE.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/runtime/run_mode.gd",
+        "src/runtime/servo_drive.gd"
+      ],
+      "adrs": [
+        "0003",
+        "0020"
+      ],
+      "watch": [
+        "src/runtime/run_mode.gd",
+        "src/runtime/servo_drive.gd",
+        "src/runtime/*motion*.gd",
+        "src/runtime/*trial*.gd"
+      ]
+    },
+    "product": {
+      "docs": [
+        "docs/POLICIES.md",
+        "docs/FLAG_MISSION.md",
+        "docs/LOCALIZATION.md",
+        "docs/INTERFACE_PREFERENCES.md",
+        "docs/STAGE_CONTRACTS.md"
+      ],
+      "sources": [
+        "scenes/main.gd",
+        "src/ui/flag_mission.gd",
+        "src/ui/stage_panel.gd",
+        "src/runtime/stage_evaluator.gd"
+      ],
+      "adrs": [
+        "0007",
+        "0022",
+        "0023",
+        "0025",
+        "0026"
+      ],
+      "watch": [
+        "scenes/*",
+        "src/ui/*",
+        "src/core/stage*.gd",
+        "src/runtime/stage*.gd",
+        "assets/locales/*"
+      ]
+    },
+    "ai": {
+      "docs": [
+        "docs/POLICIES.md",
+        "docs/MOTION_LAB.md",
+        "docs/APP_CONTROL_API.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/runtime/motion_lab_client.gd",
+        "tools/motion_lab/service.py",
+        "src/runtime/agent_camera_loop.gd",
+        "src/runtime/agent_desktop_bridge.gd",
+        "src/ui/agent_trace_panel.gd",
+        "tools/app_control/desktop_mcp.py",
+        "tools/app_control/desktop_session.py",
+        "tools/app_control/run_goal.py",
+        "src/runtime/agent_goal_inbox.gd",
+        "tools/app_control/run_operator.py",
+        "tools/app_control/repeat_camera_trials.py",
+        "tools/app_control/refine_camera_goal.py",
+        "tools/app_control/desktop_client.py",
+        "tools/app_control/verify_bridge_race.py",
+        "tools/app_control/stabilize_camera_trials.py",
+        "tests/bridge_stop_owner_check.gd"
+      ],
+      "adrs": [
+        "0008",
+        "0010",
+        "0007",
+        "0023",
+        "0029"
+      ],
+      "watch": [
+        "src/runtime/motion_lab_client.gd",
+        "tools/motion_lab/*",
+        "tools/app_control/*",
+        "src/runtime/agent_*.gd",
+        "src/ui/agent_trace_panel.gd",
+        "tests/desktop_session_check.py",
+        "tests/desktop_client_check.py"
+      ]
+    },
+    "delivery": {
+      "docs": [
+        "docs/BUILD.md",
+        "docs/RELEASE_PLAN.md",
+        "docs/evidence/public_release_2026-09-30/README.md"
+      ],
+      "sources": [
+        "tools/ci/verify.py",
+        "tools/ci/build.py",
+        ".github/workflows/ci.yml"
+      ],
+      "adrs": [
+        "0001",
+        "0013",
+        "0017",
+        "0027"
+      ],
+      "watch": [
+        "project.godot",
+        "export_presets.cfg",
+        "tools/ci/*",
+        ".github/workflows/*"
+      ]
+    },
+    "docs": {
+      "docs": [
+        "docs/MAINTENANCE.md"
+      ],
+      "sources": [
+        "tools/docs/maintain.py",
+        "docs/context.json"
+      ],
+      "adrs": [
+        "0000",
+        "0024"
+      ],
+      "watch": [
+        "AGENTS.md",
+        "CONTRIBUTING.md",
+        "docs/*",
+        "tools/docs/*"
+      ]
+    },
+    "preferences": {
+      "docs": [
+        "docs/INTERFACE_PREFERENCES.md",
+        "docs/LOCALIZATION.md",
+        "docs/FLOWS.md"
+      ],
+      "sources": [
+        "src/ui/interface_preferences.gd",
+        "src/ui/settings_panel.gd",
+        "src/ui/ssok_theme.gd",
+        "scenes/main.gd"
+      ],
+      "adrs": [
+        "0007",
+        "0016",
+        "0026",
+        "0030"
+      ],
+      "watch": [
+        "src/ui/interface_preferences.gd",
+        "src/ui/settings_panel.gd",
+        "src/ui/ssok_theme.gd",
+        "tests/interface_preferences_check.gd",
+        "tools/ci/browser_settings.py"
+      ]
+    },
+    "workshop-ui": {
+      "docs": [
+        "docs/FLOWS.md",
+        "docs/UIUX_REDESIGN.md",
+        "docs/WORK_SUMMARY_A.md",
+        "docs/WORK_SUMMARY_A2.md",
+        "docs/WORK_SUMMARY_A3.md"
+      ],
+      "sources": [
+        "src/ui/workshop_guide.gd",
+        "src/ui/stage_goal_display.gd",
+        "src/ui/stage_goal_preview.gd",
+        "src/ui/workbench_surface.gd",
+        "src/ui/stage_hud.gd",
+        "src/screens/stage_select_screen.gd",
+        "src/ui/workshop_framing.gd"
+      ],
+      "adrs": [
+        "0025",
+        "0028",
+        "0030",
+        "0031",
+        "0032"
+      ],
+      "watch": [
+        "src/ui/workshop_guide.gd",
+        "src/ui/stage_goal*.gd",
+        "src/ui/workbench_surface.gd",
+        "src/ui/stage_hud.gd",
+        "src/screens/stage_select_screen.gd",
+        "tests/scene_workshop_ui_check.gd",
+        "src/ui/workshop_framing.gd",
+        "tests/workshop_presentation_check.gd"
+      ]
+    }
+  },
+  "symbols": {
+    "src/core/connection_graph.gd": {
+      "class": "ConnectionGraph"
+    },
+    "src/core/part_def.gd": {
+      "class": "PartDef"
+    },
+    "src/core/port.gd": {
+      "class": "Port"
+    },
+    "src/core/project_store.gd": {
+      "methods": [
+        "document",
+        "save",
+        "parse",
+        "load_project"
+      ],
+      "class": "ProjectStore"
+    },
+    "src/runtime/motion_snapshot.gd": {
+      "methods": [
+        "encode",
+        "decode"
+      ],
+      "class": "MotionSnapshot"
+    },
+    "src/runtime/mini_runtime.gd": {
+      "methods": [
+        "run",
+        "validate",
+        "stop"
+      ],
+      "class": "MiniRuntime"
+    },
+    "src/runtime/run_mode.gd": {
+      "methods": [
+        "build",
+        "teardown",
+        "servo_on_pin"
+      ],
+      "class": "RunMode"
+    },
+    "src/ui/flag_mission.gd": {
+      "methods": [
+        "_build_chart",
+        "_observed_flag_raised"
+      ],
+      "class": "FlagMission"
+    },
+    "scenes/main.gd": {
+      "methods": [
+        "_on_run_pressed",
+        "_on_mode_toggled",
+        "_on_stop_pressed",
+        "_prepare_project_document",
+        "_load_project"
+      ]
+    },
+    "src/ui/interface_preferences.gd": {
+      "class": "InterfacePreferences",
+      "methods": [
+        "set_preference",
+        "load_preferences",
+        "reset_preferences"
+      ]
+    },
+    "src/ui/settings_panel.gd": {
+      "class": "SettingsPanel",
+      "methods": [
+        "open_panel",
+        "close_panel"
+      ]
+    },
+    "src/runtime/agent_camera_loop.gd": {
+      "class": "AgentCameraLoop",
+      "methods": [
+        "begin",
+        "describe",
+        "observe",
+        "drive_step",
+        "cancel",
+        "receipt"
+      ]
+    },
+    "src/runtime/agent_desktop_bridge.gd": {
+      "class": "AgentDesktopBridge",
+      "methods": [
+        "start",
+        "is_listening"
+      ]
+    },
+    "src/ui/agent_trace_panel.gd": {
+      "class": "AgentTracePanel",
+      "methods": [
+        "set_state",
+        "set_frame",
+        "append_event",
+        "set_goal_status"
+      ]
+    },
+    "src/runtime/agent_goal_inbox.gd": {
+      "class": "AgentGoalInbox",
+      "methods": [
+        "submit",
+        "poll",
+        "leave",
+        "cancel"
+      ]
+    }
+  },
+  "contracts": {
+    "data-model": {
+      "document": "docs/DATA_MODEL.md",
+      "sources": {
+        "src/core/connection_graph.gd": "a06bebbcbfd0df1aaeaf8d845f99846f810790df8e8d34ce84c8f70d087abd3f",
+        "src/core/part_def.gd": "5d985d10337dc16fff873d09b86cd7364f92c92c73a704c7c275eca5260024e2",
+        "src/core/port.gd": "199796a3ddd472f85661dbc094f0b4b47fb5204965768a0da900a906fbbf257f",
+        "src/core/project_store.gd": "87b443ce5e3a48ee2ade5348f1bb3c0f8503c96d35f751a6525aec475b19e4ae",
+        "src/runtime/motion_snapshot.gd": "deaaabc1e4072335bbe3c9125ab775f6efb8da601c0050dee9236bd6723fa803",
+        "src/core/stage_definition.gd": "238f0c946762f7136f757cf25e6dc9d607e7bfc9913ee015478fde62c723fc43",
+        "src/core/board_profile.gd": "15e06c1157d9183d62abb29426c99c874df387cce2f2850d7707ee6a5cc91e96"
+      }
+    },
+    "execution-flow": {
+      "document": "docs/FLOWS.md",
+      "sources": {
+        "scenes/main.gd": "7c348da29258edaacaece3654c5369bda5d6fb2c888aa4386f33e1eb5bf07103",
+        "src/runtime/mini_runtime.gd": "ac4d6c41534d0713b7c8fcf31ef89e0f4849b15a08dc08e9d5adbe6fca709546",
+        "src/runtime/run_mode.gd": "5fc8240c4fbe9d19f525b5274f3bf70297a3f7b21de10134c7ea59da0f33b10e",
+        "src/ui/block_program_panel.gd": "be2f4753dff6e630aa50a914153cbee7b23582e5dd680b562ac9c2cbe1e4e5a7",
+        "src/ui/project_panel.gd": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+        "src/profiles/learner_program.gd": "811d7b1a41f6fc8e12ceaca3de0c864e4cf86d50f813039846acd7d32300aca9",
+        "src/runtime/stage_evaluator.gd": "78c3797f7c31e3bcd277a3dc7bf614422565f62dbfd44515f8290691bd4e8e77",
+        "src/ui/stage_panel.gd": "578b0b0a6f64605bfb51a68bdd58c3a4f30471d8731e44880abb0044f6e8455b",
+        "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
+        "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
+        "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c"
+      }
+    },
+    "flag-flow": {
+      "document": "docs/FLOWS.md",
+      "sources": {
+        "src/ui/flag_mission.gd": "f5e118c1aa5d98ae38106cad6eb4124dee30e126c48541c2ffefd366b042ad12"
+      }
+    }
+  }
+}

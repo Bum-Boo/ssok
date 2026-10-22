@@ -1,0 +1,115 @@
+{
+  "cases": [
+    {
+      "id": "lift2.5-offset0",
+      "x": 0,
+      "z": 0,
+      "lift_seconds": 2.5,
+      "reverse_links": false
+    },
+    {
+      "id": "lift2.5-offset1",
+      "x": -0.005,
+      "z": -0.01,
+      "lift_seconds": 2.5,
+      "reverse_links": false
+    },
+    {
+      "id": "lift2.5-offset2",
+      "x": 0.005,
+      "z": -0.01,
+      "lift_seconds": 2.5,
+      "reverse_links": false
+    },
+    {
+      "id": "lift2.5-offset3",
+      "x": -0.005,
+      "z": 0.01,
+      "lift_seconds": 2.5,
+      "reverse_links": false
+    },
+    {
+      "id": "lift2.5-offset4",
+      "x": 0.005,
+      "z": 0.01,
+      "lift_seconds": 2.5,
+      "reverse_links": true
+    },
+    {
+      "id": "lift3.25-offset0",
+      "x": 0,
+      "z": 0,
+      "lift_seconds": 3.25,
+      "reverse_links": false
+    },
+    {
+      "id": "lift3.25-offset1",
+      "x": -0.005,
+      "z": -0.01,
+      "lift_seconds": 3.25,
+      "reverse_links": false
+    },
+    {
+      "id": "lift3.25-offset2",
+      "x": 0.005,
+      "z": -0.01,
+      "lift_seconds": 3.25,
+      "reverse_links": false
+    },
+    {
+      "id": "lift3.25-offset3",
+      "x": -0.005,
+      "z": 0.01,
+      "lift_seconds": 3.25,
+      "reverse_links": false
+    },
+    {
+      "id": "lift3.25-offset4",
+      "x": 0.005,
+      "z": 0.01,
+      "lift_seconds": 3.25,
+      "reverse_links": true
+    },
+    {
+      "id": "lift4.0-offset0",
+      "x": 0,
+      "z": 0,
+      "lift_seconds": 4.0,
+      "reverse_links": false
+    },
+    {
+      "id": "lift4.0-offset1",
+      "x": -0.005,
+      "z": -0.01,
+      "lift_seconds": 4.0,
+      "reverse_links": false
+    },
+    {
+      "id": "lift4.0-offset2",
+      "x": 0.005,
+      "z": -0.01,
+      "lift_seconds": 4.0,
+      "reverse_links": false
+    },
+    {
+      "id": "lift4.0-offset3",
+      "x": -0.005,
+      "z": 0.01,
+      "lift_seconds": 4.0,
+      "reverse_links": false
+    },
+    {
+      "id": "lift4.0-offset4",
+      "x": 0.005,
+      "z": 0.01,
+      "lift_seconds": 4.0,
+      "reverse_links": true
+    }
+  ],
+  "scope": "Development diagnostics, unchanged physical model and pickup success criteria",
+  "sources": {
+    "src/runtime/servo_drive.gd": "3db647e0071b5c1dd63700b17bc215a5e015ea5ddae6960d13b63ba784d0df24",
+    "src/runtime/kit_humanoid_motion.gd": "6d59f60696b257c600ee41e72c200f641ae722091f69796259a57fc2685cf0b0",
+    "probe/pickup_variants.gd": "ecce537abf8eb02373d917a1786d9a7cd8868ec5740bf0ddd46c90931e6c4fa1"
+  }
+}

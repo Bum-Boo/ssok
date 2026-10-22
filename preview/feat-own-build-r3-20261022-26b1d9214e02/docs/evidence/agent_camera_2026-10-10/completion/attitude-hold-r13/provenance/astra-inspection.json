@@ -1,0 +1,75 @@
+{
+    "requested_model":  "gpt-6-astra",
+    "resolved_model":  null,
+    "identity_limits":  "Coordinator-assigned Astra inspection role. No independently exposed or attested resolved/backend model identity.",
+    "viewed_count":  4,
+    "method":  "Each of these four actual PNGs was emitted and viewed at original resolution using view_image original. Center x approximately 320, near-center band 312–328. Approximate zero-based boundary_y; floor height estimated as 480-boundary_y. ±2 px visual uncertainty for soft boundary. SHA256 and PNG header dimensions computed only for these files.",
+    "viewed":  [
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-hold-r13/stock/post-3.png",
+                       "sha256":  "2e18888227b90c8bad9a556b352df619cef6f95e3761ead2e29637afae3454ef",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "center_boundary_y_approx":  458,
+                       "floor_strip_height_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above thin beige floor strip. Blue/gray geometry occupies lower side edges but leaves central band unobstructed. Boundary visible above bottom edge; soft transition limits exact row assignment."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-hold-r13/stock/idle-4.png",
+                       "sha256":  "c737be3e64520456970cdf96c4d2ac5ac615d620d433114ad85270821f55fd5c",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "center_boundary_y_approx":  457,
+                       "floor_strip_height_px_approx":  23,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above thin beige floor strip. Blue/gray geometry occupies lower side edges but leaves central band unobstructed. Boundary visible above bottom edge; soft transition limits exact row assignment."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-hold-r13/attitude-hold-v2/post-3.png",
+                       "sha256":  "33d3e20a6eb161fdf1705d2dd63deb18de7cb6c70cd2c401f4b1847f8212d67e",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "center_boundary_y_approx":  458,
+                       "floor_strip_height_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above thin beige floor strip. Blue/gray geometry occupies lower side edges but leaves central band unobstructed. Boundary visible above bottom edge; soft transition limits exact row assignment."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-hold-r13/attitude-hold-v2/idle-4.png",
+                       "sha256":  "1d24e4dc2e1dc112b3b6a80a15ddfe7e418c5582b5d98f21ce2cc51faee75d1a",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "center_boundary_y_approx":  457,
+                       "floor_strip_height_px_approx":  23,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above thin beige floor strip. Blue/gray geometry occupies lower side edges but leaves central band unobstructed. Boundary visible above bottom edge; soft transition limits exact row assignment."
+                   }
+               ],
+    "findings":  {
+                     "stock_pair":  "Approximate center floor heights 22 px post-3 and 23 px idle-4; tiny visible difference within uncertainty.",
+                     "attitude_hold_v2_pair":  "Approximate center floor heights 22 px post-3 and 23 px idle-4; tiny visible difference within uncertainty. Post-3 boundary slopes subtly downward toward right.",
+                     "cross_variant":  "Corresponding center strips look very similar; no meaningful center-height difference distinguishable at ±2 px visual precision.",
+                     "scope":  "Pairwise selected-still appearance only; no continuous-motion measurement or performance verdict."
+                 },
+    "unviewed_files":  "All other images, evaluator/metrics/source/private files were unviewed and unread for this assignment.",
+    "limitations":  [
+                        "No physical-distance, causal, success, continuous-jitter, backend or reliability claim.",
+                        "Visual estimates are not classifier measurements; supplied coordinator prototype/metrics history did not determine image observations.",
+                        "Two stills per variant do not establish intermediate behavior.",
+                        "No app/model actions, source/task/repository/canonical-state edits or delegation.",
+                        "Only this authorized fresh inspection-result JSON was written."
+                    ]
+}

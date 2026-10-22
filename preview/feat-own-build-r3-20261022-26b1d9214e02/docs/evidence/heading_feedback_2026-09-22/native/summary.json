@@ -1,0 +1,383 @@
+{
+  "source_commit": "389f817deacbf62dfb3ff73dfa132301e4be7329",
+  "candidate_sha256": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "cases": 14,
+  "passed": 14,
+  "failed": 0,
+  "source_mismatches": 0,
+  "results": [
+    {
+      "name": "app-settle-0-fresh",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=0"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.8454394340515137,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=0 restart=false forward=0.42082 lateral=0.05629 yaw=-3.179 min_up=0.9581 min_height=0.1278"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-0-restart",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=0",
+        "--restart"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.917351245880127,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=0 restart=true forward=0.42981 lateral=0.03241 yaw=-3.960 min_up=0.9640 min_height=0.1287"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-1-fresh",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=1"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.8627133369445801,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=1 restart=false forward=0.42176 lateral=0.05779 yaw=-3.065 min_up=0.9581 min_height=0.1278"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-1-restart",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=1",
+        "--restart"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.9464483261108398,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=1 restart=true forward=0.43800 lateral=0.01239 yaw=7.399 min_up=0.9648 min_height=0.1294"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-60-fresh",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=60"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.8030338287353516,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=60 restart=false forward=0.42069 lateral=0.02566 yaw=10.467 min_up=0.9654 min_height=0.1288"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-60-restart",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=60",
+        "--restart"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.9923713207244873,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=60 restart=true forward=0.41783 lateral=0.00151 yaw=1.529 min_up=0.9660 min_height=0.1291"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-121-fresh",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=121"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.8959639072418213,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=121 restart=false forward=0.42887 lateral=0.03487 yaw=-4.582 min_up=0.9601 min_height=0.1290"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-121-restart",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=121",
+        "--restart"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.988396167755127,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=121 restart=true forward=0.42389 lateral=0.02889 yaw=5.834 min_up=0.9650 min_height=0.1292"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-180-fresh",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=180"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.8973672389984131,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=180 restart=false forward=0.43071 lateral=0.01862 yaw=-10.153 min_up=0.9652 min_height=0.1288"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-180-restart",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=180",
+        "--restart"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.9888272285461426,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=180 restart=true forward=0.41416 lateral=-0.01036 yaw=-8.686 min_up=0.9792 min_height=0.1289"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-257-fresh",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=257"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.8951706886291504,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=257 restart=false forward=0.42127 lateral=-0.00200 yaw=-2.050 min_up=0.9650 min_height=0.1290"
+      ],
+      "passed": true
+    },
+    {
+      "name": "app-settle-257-restart",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/learned_app_check.gd",
+        "--",
+        "--settle-frames=257",
+        "--restart"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 1.0837008953094482,
+      "checks": 737,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "measurement_lines": [
+        "LEARNED_APP settle=257 restart=true forward=0.40961 lateral=-0.01590 yaw=2.505 min_up=0.9815 min_height=0.1285"
+      ],
+      "passed": true
+    },
+    {
+      "name": "blender_camera_check",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/blender_camera_check.gd"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 0.2425234317779541,
+      "terminal_summary_pass": true,
+      "passed": true
+    },
+    {
+      "name": "viewport_framing_check",
+      "command": [
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+        "--headless",
+        "--path",
+        "/home/hojun/.local/share/agent-remote/jobs/20260922-165510-ssok-learned-heading-native-app-twelve-b42aa5fa/work/project",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/viewport_framing_check.gd"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "engine_error": false,
+      "engine_errors": [],
+      "seconds": 1.0823824405670166,
+      "checks": 62660,
+      "failures": 0,
+      "terminal_summary_pass": true,
+      "passed": true
+    }
+  ]
+}

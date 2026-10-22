@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-10-11T09:51:39+09:00",
+  "source_evaluator_sha256": "617c25e9aade64cb37bf2108f55e100da3169009984970a31112b0b4ecda6eaf",
+  "correction": "132 physics frames are fixture readback delay, not evaluator final snapshot time. Independent evaluator finalizes once stopped_ticks>=30 and rest_ticks>=12, or at stopped_ticks>=120; it then freezes its result. Physics fields are computed inside native runtime after Stop; external PNG classification and metric extraction occur after native exit.",
+  "raw_endpoint_flag_correction": {
+    "field": "all_pixels_and_physical_fields_computed_after_stop_and_native_exit",
+    "raw_value": true,
+    "accurate_statement": "External extraction/classification after Stop/native exit; physical fields are computed earlier by native evaluator. Raw source-copy-Git bytes preserved; this authored annotation supersedes the overbroad flag."
+  },
+  "numeric_verdicts_unchanged": true,
+  "new_native_runs": 0,
+  "existing_capture_pose_audit": {
+    "k32-v3": {
+      "source_result_sha256": "994f4fa605bdf35db61f5a80aa47d2d5f314faaf4018fd48dc8c8cfc3ad9f0bc",
+      "samples": 5,
+      "same_requested_callback_tick": true,
+      "max_abs_position_delta_m": 7.450580610801616e-09,
+      "max_abs_euler_delta_rad": 1.1641532009221134e-10
+    },
+    "combined": {
+      "source_result_sha256": "bc586a287c7552a6d8c9fecd787662a60c0e6b801601b43a461415240f104769",
+      "samples": 5,
+      "same_requested_callback_tick": true,
+      "max_abs_position_delta_m": 7.450580999379675e-09,
+      "max_abs_euler_delta_rad": 0.0
+    },
+    "single-observe/combined": {
+      "source_result_sha256": "38885d4ab4a608f18437e0ef21f586dd2bb5cc9f2fcef723f146053f9f2a7a3e",
+      "samples": 4,
+      "same_requested_callback_tick": true,
+      "max_abs_position_delta_m": 7.450580999379675e-09,
+      "max_abs_euler_delta_rad": 0.0
+    }
+  },
+  "audit_limit": "14 existing callback samples with same requested/callback ticks and negligible deltas do not support a pose-mismatch explanation in these cases. This does not attest every render/backend/continuous interval.",
+  "remaining": "Original joint goal unmet; no candidate applied; no target/physics/camera/source changes."
+}

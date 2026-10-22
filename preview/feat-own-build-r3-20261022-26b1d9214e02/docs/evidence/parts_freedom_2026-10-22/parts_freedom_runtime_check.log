@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS one and three argument ranges
+PASS nested ranges, continue, break and bounds evaluated once
+PASS empty ranges, precedence and short circuit
+PASS preflight rejects: for i in range(1, 2, 0):
+PASS preflight rejects: for i in range(1.5):
+PASS preflight rejects: for i in range(10001):
+PASS preflight rejects: for Servo in range(3):
+PASS preflight rejects: for i in range(range(2)):
+PASS preflight rejects: x = range(2)
+PASS preflight rejects: break
+PASS dynamic range bounds fail safely
+PASS dynamic range bounds fail safely
+PASS dynamic range bounds fail safely
+PASS exact iteration boundary is allowed
+PASS infinite while fails at total iteration limit
+PASS nested loops share total budget
+PASS simulated time limit checked even while sleeping
+PASS wall clock execution limit
+PASS new execution resets budgets
+PASS two pins resolve same driver channel
+PASS mismatched and reversed driver pins rejected
+PASS real sonar value selects motor branch
+PASS backward sets signed motor power
+PASS no argument stop brakes
+PASS whole source preflight rejects wrong pin pair before actuation
+PASS invalid power fails and brakes
+PASS execution limit brakes a running motor
+PASS Stop cancels loop and motors
+parts_freedom_runtime_check: 28 checks, 0 failures

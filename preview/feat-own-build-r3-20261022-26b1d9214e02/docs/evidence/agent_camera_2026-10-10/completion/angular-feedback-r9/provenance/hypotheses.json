@@ -1,0 +1,14 @@
+[
+  {
+    "rank": 1,
+    "prediction": "If residual chassis pitch drives camera jitter, adding motor-only positive housing-axis angular feedback K16 at unchanged PI/cap should reduce absolute pitch rate and original4px repeated-capture span without settle/physical/contact regression."
+  },
+  {
+    "rank": 2,
+    "prediction": "If capture request/render timing dominates, actual pitch rate can reduce while camera transform versus frame_ready chassis pose mismatch and pixel span remain."
+  },
+  {
+    "rank": 3,
+    "prediction": "If discrete action resolution remains independent, jitter may reduce but unchanged30/10/12 still misses physical14cm/image simultaneous goal. Do not relax the goal or read distance into control."
+  }
+]

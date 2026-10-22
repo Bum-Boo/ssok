@@ -1,0 +1,122 @@
+{
+  "date": "2026-09-30",
+  "recorded_source_commit": "521d171",
+  "export_base_commit": "3a142eb063f83d95a2d0e7a2e297719ff20bce5d",
+  "export_dirty_worktree": true,
+  "files": [
+    {
+      "file": "verification-summary.md",
+      "source": "build/verification-flag-final/SUMMARY.md",
+      "sha256": "d6b988b7d54d320aacc9c40a5e7110a1aace10524ae35173d9ef653278885005",
+      "bytes": 582
+    },
+    {
+      "file": "verification-results.json",
+      "source": "build/verification-flag-final/results.json",
+      "sha256": "3862162f216b0206e52f37619a452c59d5498dff15dbd44a0a0158c010b71b71",
+      "bytes": 5093
+    },
+    {
+      "file": "export-release.json",
+      "source": "build/flag-release/release.json",
+      "sha256": "f4df2cacccdf8ae82cfa755657362d74d6d2a7d7ba2f67c71e6b7af138fa09e5",
+      "bytes": 518
+    },
+    {
+      "file": "browser-smoke-result.json",
+      "source": "build/flag-browser-smoke-extended/result.json",
+      "sha256": "16ffd2dd21167498e38826fead59451dfcba0710884667523f8ce175a9ec9a30",
+      "bytes": 314
+    },
+    {
+      "file": "browser-console.json",
+      "source": "build/flag-browser-smoke-extended/console.json",
+      "sha256": "4cb3d20f7d0683458b9043d46ef76267a58bf7f785be55525e2e0952a7ec90d3",
+      "bytes": 398
+    },
+    {
+      "file": "browser-authoring-result.json",
+      "source": "build/flag-browser-authoring-final/result.json",
+      "sha256": "aeac9beaf0fc5941208f3a2d0e77611953440fe0c414c7b5136fcd68477c325c",
+      "bytes": 417
+    },
+    {
+      "file": "01-workshop.png",
+      "source": "build/flag-browser-smoke-extended/01-workshop.png",
+      "sha256": "885b26e70773f0876877092fa706d3325102693ac56a13808ed1f8b5ce5df2cf",
+      "bytes": 166614
+    },
+    {
+      "file": "02-servo-arm.png",
+      "source": "build/flag-browser-smoke-extended/02-servo-arm.png",
+      "sha256": "ea201eecd114ffe67aadf250b3b9b99d37062892e0d8deb0ce5a8eb7c063f832",
+      "bytes": 189473
+    },
+    {
+      "file": "03-flag-result.png",
+      "source": "build/flag-browser-smoke-extended/03-flag-result.png",
+      "sha256": "efd83cb00b62bf30bc2f3d9cc3b1ce6f5fce86efbf9dbb5219c542ac5b3a56c1",
+      "bytes": 182121
+    },
+    {
+      "file": "native/workshop_ui_check.log",
+      "source": "build/verification-flag-final/workshop_ui_check.log",
+      "sha256": "7f21fa189333976e4285649703ec6bdf71a40e861c48f92b8c77fc22590a4d7e",
+      "bytes": 115
+    },
+    {
+      "file": "native/control_flow_check.log",
+      "source": "build/verification-flag-final/control_flow_check.log",
+      "sha256": "9ce79f0c7429e0592f2c5f88024db1ed6615b3ce84a8877d35b45b089454d9a3",
+      "bytes": 1061
+    },
+    {
+      "file": "native/viewport_framing_check.log",
+      "source": "build/verification-flag-final/viewport_framing_check.log",
+      "sha256": "08e6ccabdd37f77eaf97626d4e47aba8a02e7152baa602ec6a14cefc6a19de78",
+      "bytes": 122
+    },
+    {
+      "file": "native/keyboard_navigation_check.log",
+      "source": "build/verification-flag-final/keyboard_navigation_check.log",
+      "sha256": "e6b2d85a106cf024fd60a50a8ce5ed1d03ded00b42793032e3c4df820791ec8e",
+      "bytes": 122
+    },
+    {
+      "file": "native/flag_mission_check.log",
+      "source": "build/verification-flag-final/flag_mission_check.log",
+      "sha256": "54929089beb08443ce11a9a9619c652c890694fd82ed3dac4a834169e9758e87",
+      "bytes": 321
+    },
+    {
+      "file": "native/import.log",
+      "source": "build/verification-flag-final/import.log",
+      "sha256": "f15ffd4c558b01611d562c8c257508942bdc2dc542124f423ae2a592a46edfa6",
+      "bytes": 1017
+    },
+    {
+      "file": "native/scene-load.log",
+      "source": "build/verification-flag-final/scene-load.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73
+    },
+    {
+      "file": "native/localization_check.log",
+      "source": "build/verification-flag-final/localization_check.log",
+      "sha256": "b6b13efa57ca98c0b0b3ec7207b1774e48564e38bb6789008dc1662796d880f2",
+      "bytes": 120
+    },
+    {
+      "file": "native/block_program_check.log",
+      "source": "build/verification-flag-final/block_program_check.log",
+      "sha256": "8070a3aaaf0d061bd380938ba21ca32770b3792ccc05873e6f97d8226cc31df3",
+      "bytes": 116
+    },
+    {
+      "file": "native/project_store_check.log",
+      "source": "build/verification-flag-final/project_store_check.log",
+      "sha256": "220882f5a414b714bb30504bbac1004119cd442eb4e2a2b1f5cafedeb6b84a87",
+      "bytes": 116
+    }
+  ]
+}

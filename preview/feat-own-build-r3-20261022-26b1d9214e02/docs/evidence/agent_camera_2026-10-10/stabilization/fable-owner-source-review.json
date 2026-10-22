@@ -1,0 +1,47 @@
+{
+  "requested_model": "fable",
+  "resolved_model": [
+    "claude-fable-5-1"
+  ],
+  "source_sha256": {
+    "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
+    "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b",
+    "tools/app_control/desktop_client.py": "3dfda807fba4683c742eb07604852d01b19018271abea7a8c0894a1d37e10678",
+    "tools/app_control/desktop_session.py": "ceebbb9eb2e064c476b51e2dbe5dce6660bd9501142076dd1ada998a0a2c511d",
+    "tools/app_control/run_goal.py": "234083ad93a9d23b7e4a4d4f7e19035185d08d890a42672e69c1ed0457d48d8b",
+    "tools/app_control/run_operator.py": "98cce95cc68bc907f6308afb929ac0469ee424392605a051b5ebadfc00031262",
+    "tests/bridge_stop_owner_check.gd": "74a8977c00f5af6f8e3e59d1d81fe3b306d5dd6fba802f5031ced34bd1748350",
+    "tests/desktop_session_check.py": "6f0ba89b0300812c2473312789473771f113b4b5bf5656b55902f5947c132633"
+  },
+  "exit_code": 0,
+  "is_error": false,
+  "review": {
+    "verdict": "pass",
+    "scope": "Source-only read of the eight listed files as pasted. Hashes, Godot/Python runtime results, images, and the earlier 9/9 and 0/3 goal trials are not attested on this revision; new actual tests remain pending as stated.",
+    "blocking_findings": [],
+    "contract_checks": {
+      "global_stop_preserved": "stop({}) skips scoped validation and calls app._on_stop_pressed in both lanes.",
+      "scoped_stop_exact_match": "args.size()==3, string episode_id (1..256, non-blank), integer revision/control_generation >=0; all three compared against live describe() before any side effect.",
+      "mismatch_no_side_effect": "Returns current describe() merged with owner_revoked:true, stop_scope:context_replaced; no cancel/Stop call on that path.",
+      "malformed_never_global": "invalid_stop_context returned before reaching the Stop call; non-Dictionary args rejected as unauthorized_or_invalid_request in both lanes.",
+      "atomicity": "Both _stop_request call sites run synchronously inside _process on the main thread with no await between describe() and _on_stop_pressed(); matched Stop's cancel() emits operation_finished so a pending primary actor reply closes with an error rather than hanging.",
+      "both_lanes_same_validator": "Primary match arm and priority lane both call _stop_request.",
+      "stale_vs_current": "cancel() always bumps control_generation, so repeated or post-stop scoped Stops resolve to context_replaced; regression test covers repeated cleanup not advancing generation.",
+      "session_binding": "DesktopGoalSession.observe binds context after describe() and before client.observe; describe/not-ready failures leave context None and stop() then returns stop_scope:unbound without any desktop request.",
+      "session_cleanup": "stop() bypasses the lock, always passes bound context, and client.stop requires owner_revoked:true plus matched_context|context_replaced; concurrent, deadline, lost-reply, hash-mismatch paths all stop scoped exactly once (closed flag prevents double stop).",
+      "runner": "Claimed context validated before codex login; deadline and finally both use scoped Stop; finally skipped when expected_context is None; stop_confirmed (state==stopped) reported separately from owner_revocation_confirmed.",
+      "operator": "claimed_context validated before policy/context/goal checks; exception cleanup after launch uses scoped Stop; operator_leave in finally.",
+      "no_retry": "request_max_retries/stream_max_retries 0; client raises on timeout/OSError without retry; decide clears frame before drive_step.",
+      "auth_leaks": "Token checked absent from args and responses; journal records only constructed fields; CLI diagnostics redact token and UUIDs."
+    },
+    "remaining_limits": [
+      "Not in review set: MotionSnapshot._is_integer (bool/float handling inferred from the passing 'revision: true' check), app._on_stop_pressed, AgentGoalInbox identity checks, tools/app_control/desktop_mcp.py. Their behavior is assumed, not verified.",
+      "run_goal: once expected_context is bound from a ready desktop, a local failure before CLI launch (e.g. output.mkdir on an existing directory, write errors) still issues a scoped Stop on that camera. Correct by contract (owner is bound) but stops a session the actor never drove.",
+      "run_goal: stop_confirmed reflects the desktop's current state at cleanup, not the actor's episode; if a human began a new session during the 10 s actor_stopped grace, status becomes context_changed and stop_confirmed is false even though the actor's episode was revoked. Fault states (decision_timeout, context_changed in the loop) surface as status context_changed rather than a distinct fault status.",
+      "Bridge queued-actor lane: the single queued observe/drive_step/trace_dispatch is dropped after 5 s measured from its accept time; a long pending primary operation (drive + settle) can exceed that, and the client then fails closed with a scoped Stop. Bounded and non-retrying, but a usability constraint.",
+      "run_operator: policy/context/goal rejection before launch does not Stop (active is None) and relies on operator_leave and inbox invalidation to release the claimed job; inbox source not reviewed.",
+      "Priority lane accepts a connection only while a primary peer exists; a stop arriving when the primary slot is free goes through the primary lane, which is correct but means the priority-lane validation path is exercised only under contention (the regression test forces this with a held connection)."
+    ]
+  },
+  "coordinator_note": "Source-only independent review. Actual current monitor-first4checks and scopedStop13checks passed outside Claude. A genuinely pending primary rejects actor requests busy; a held incomplete/read/send primary may outlast5sec queue expiry. Review does not attest image or experiment outcomes."
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+    "--",
+    "build/venv-linux/bin/python",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "tests.test_desktop_package",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 1.226,
+  "scope": "Actual Linux POSIX mode roundtrip; not native Mac runtime"
+}

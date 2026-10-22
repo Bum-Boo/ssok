@@ -1,0 +1,50 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "findings": [
+    {
+      "severity": "low",
+      "location": "tests/camera_evaluator_lifecycle_check.gd (driving_ branch, _run)",
+      "summary": "Driving-context coverage omits teardown and mode_off. The ready-state suite covers six context changes; the driving extension covers four (Stop, rebuild, app_free, new_episode). Toggling the mode button or tearing down run mode during an active 25-tick drive is a plausible user action and is not exercised. Not a blocker because the stated scope is explicitly four modes and the observer's _context_error path is the same (physics_removed) in both cases, but it is untested while driving."
+    },
+    {
+      "severity": "low",
+      "location": "tests/camera_evaluator_lifecycle_check.gd (driving_ branch: 'context action happens during real active drive')",
+      "summary": "The pre-action assertion checks loop state == driving but not `not evaluator.finished`. If the observer invalidated spuriously during the five driving frames, driving_stop would still fail later on valid==true, and the invalid modes would fail on physics_tick/reason only indirectly. Adding `not evaluator.finished` to that check would make the failure localized and explicit. Runtime evidence (samples=6, physics_tick=41 for invalid driving modes) shows this did not occur."
+    },
+    {
+      "severity": "low",
+      "location": "tests/camera_evaluator_lifecycle_check.gd (driving_stop result checks)",
+      "summary": "driving_stop asserts rest_ticks >= 12, zero duty, valid result and stopped_state, but does not assert any nonzero travel_x. The brief correctly says the 3cm goal is not required for a 5-frame interrupted drive, but a small positive-travel floor (e.g. > 0.001m) would make the 'motor actually drove before Stop' claim measurable rather than inferred from loop state. Runtime showed travel_x 0.0178m, so such a floor would pass."
+    },
+    {
+      "severity": "low",
+      "location": "tests/camera_evaluator_lifecycle_check.gd (driving_stop runtime: rest_ticks == 12)",
+      "summary": "The observed rest_ticks for driving_stop is exactly 12, which is the evaluator's finish threshold (stopped_ticks >= 30 and rest_ticks >= 12), not a margin problem. It does mean the result is written at the first eligible tick; the assertion is a deterministic lower bound, so this is informational only."
+    },
+    {
+      "severity": "info",
+      "location": "tools/ci/verify.py and tests/test_ci_verify.py (mode lists)",
+      "summary": "The eleven-mode list is duplicated verbatim between the CI inventory builder and the inventory test. This is intentional (the test guards the inventory), and the brief confirms the test failed first on the missing modes then passed, so the registration is proven. Maintenance note only."
+    },
+    {
+      "severity": "info",
+      "location": "tests/camera_evaluator_lifecycle_check.gd (first_result / first_calibration capture)",
+      "summary": "Immutability checks now apply to all invalid contexts (ready and driving). The two-frame snapshot precedes any replacement-owner frame_ready in new_episode because capture requires 12 settled ticks, so a wrongly appended replacement sample would be detected by the later byte comparison. The observer's early return on `finished` in _record_sample is the guarded path; no change to the observer was needed and none was made."
+    }
+  ],
+  "remaining_limits": [
+    "Static review only. No commands were rerun, no screenshots observed; the supplied runtime summary (14 selected checks, pass=True, 0 engine errors) is taken as reported by the coordinator, not independently verified.",
+    "Each driving mode ran once in this summary plus once in the earlier r33 diagnostics. No repeated-run flake evidence for the exact rest_ticks==12 boundary on slower hosts.",
+    "Rendered checks depend on a private warm Mesa cache and isolated user dirs with two scene warm draws; this does not demonstrate cold-start behavior or the product watchdog on an unprimed machine.",
+    "teardown and mode_off during an active drive remain untested.",
+    "Original AI case 9 trigger, physical precision follow-up, provider account/billing, owned-Mac verification, integration rebase and human merge are outside this review and are not approved by it.",
+    "Observer, src, UI, camera, controller, physics, goal, defaults, packaging, old-arch WIP and Windows sources are stated unchanged from f47c37e and were not re-reviewed beyond the observer text supplied here."
+  ],
+  "actual_invocations": 1,
+  "requested_model": "fable",
+  "resolved_model": [
+    "claude-fable-5-1"
+  ],
+  "input_hashes_unchanged": true
+}

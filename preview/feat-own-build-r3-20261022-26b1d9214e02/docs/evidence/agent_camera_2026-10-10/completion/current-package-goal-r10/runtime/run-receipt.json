@@ -1,0 +1,33 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r10-native.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\current-package-goal-r10",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\current-package-goal-r10\\layout.json",
+    "-Python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-Fixture",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\current-package-goal-r10\\project.json"
+  ],
+  "exit_code": 0,
+  "seconds": 54.462586499983445,
+  "timed_out": false,
+  "source426_unchanged": true,
+  "provider_cli_launch_limit": 1,
+  "actual_default_packaged_ui": true,
+  "process_local_python_utf8": true,
+  "current_pe_pck_bytes_unchanged": true,
+  "app_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "version": "0.3.1-projects-r7",
+  "external_repo_operator": true,
+  "global_goal_complete": false
+}

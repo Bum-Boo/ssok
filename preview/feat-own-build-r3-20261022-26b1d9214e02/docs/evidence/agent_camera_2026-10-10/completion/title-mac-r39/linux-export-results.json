@@ -1,0 +1,128 @@
+{
+  "source_head": "1f388f5f69ef1c0abf31c85c19e5e32ad44c5e78",
+  "rows": [
+    {
+      "locale": "en",
+      "command": [
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/title-r39-v4-clean-v2/linux/ssok.x86_64",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/en/engine.log",
+        "--write-movie",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/en/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 3.192,
+      "engine_errors": 0
+    },
+    {
+      "locale": "ko",
+      "command": [
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/title-r39-v4-clean-v2/linux/ssok.x86_64",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/ko/engine.log",
+        "--write-movie",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/ko/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 2.004,
+      "engine_errors": 0
+    },
+    {
+      "locale": "zh_CN",
+      "command": [
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/title-r39-v4-clean-v2/linux/ssok.x86_64",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/zh_CN/engine.log",
+        "--write-movie",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/zh_CN/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 1.888,
+      "engine_errors": 0
+    },
+    {
+      "locale": "ja",
+      "command": [
+        "/home/bumboo/Projects/ssok-title-mac-r39/build/title-r39-v4-clean-v2/linux/ssok.x86_64",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/ja/engine.log",
+        "--write-movie",
+        "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/ja/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 2.102,
+      "engine_errors": 0
+    }
+  ],
+  "bundle_hashes": {
+    "THIRD_PARTY_NOTICES.md": "3fde7695a6edd51c3547350cba9534c07d17f4c6886113cbee104b358ae337ea",
+    "README.md": "05b30d76ce46757778bc9736e56a407f88edf53747d39b326fb74fa674e28d3f",
+    "LICENSE": "a5a1fc9506be3ec6b20c8f2b63f83d1fa4dc64805947554c8cb5bde5c4469f63",
+    "AGENTS.md": "7ba808ee54ba9f3c718f61a4cecf777da9d7c3375d0461e7d4fef8d3aa64e07b",
+    "CONTRIBUTING.md": "3c88cb3f6c5cbd742283e5f7d6856259237f77f3d8944c8dcb0811bdcba71197",
+    "CLAUDE-REVIEW.md": "e53b85552fc80e334446966122ef5d877d538dec538dbe7dfd20e0a91c6409f1",
+    "ssok.x86_64": "d9f79ab89b5ae369aeed11c6052d402e8218cd503bf85b4a235f9c30c46a7c63",
+    "ssok.pck": "3de310f8ebd917b9345c4f80d662cfb8a00e3605f8fa8099ad1704dfafdda3b0"
+  },
+  "bundle_unchanged": true,
+  "provider_calls": 0,
+  "exported_full_routes_verified": false,
+  "images": [
+    {
+      "name": "linux-native-en.png",
+      "sha256": "dc39fe6387dd16cc2614b4fd4fa3977dd32bd85dc5914c74b0443a770e8e2b84",
+      "from": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/en/title00000007.png"
+    },
+    {
+      "name": "linux-native-ko.png",
+      "sha256": "180d70eae5bc034b075b45f186e1e28beea3e769b5eb6e2c9b793c33cca79bed",
+      "from": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/ko/title00000007.png"
+    },
+    {
+      "name": "linux-native-zh_CN.png",
+      "sha256": "118fd6d363b8e2b739c2003801df418d552690d437059e9b5f0de9163296dee6",
+      "from": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/zh_CN/title00000007.png"
+    },
+    {
+      "name": "linux-native-ja.png",
+      "sha256": "ea1bf4c049f2518625a60a1d1efaf1fc0e398a8e5400765b1d50256121a22a4b",
+      "from": "/home/bumboo/.agents/backups/ssok-completion-20261010/windows-continuation-r29/title-mac-r39/linux-export-v4/ja/title00000007.png"
+    }
+  ]
+}

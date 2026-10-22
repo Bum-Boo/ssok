@@ -1,0 +1,105 @@
+{
+  "url": "http://127.0.0.1:44971/?ssok_verify=1",
+  "passed": true,
+  "errors": [],
+  "checks": [
+    "Actual bundled policy at 60 Hz",
+    "Policy matches actual graph",
+    "Policy matches actual runtime",
+    "Completed walking snapshot remains immutable after polling and stop",
+    "Actual W command covers exactly 720 physics intervals / 12 seconds",
+    "Walking trajectory is finite",
+    "Forward displacement is at least 0.30 m",
+    "Lateral displacement is at most 0.10 m",
+    "Heading drift is at most 30 degrees",
+    "Robot remains upright and above the app height gate throughout walking",
+    "Both feet have actual airborne frames",
+    "Both collision soles clear the floor by more than 0.5 mm",
+    "W release stops commands for 90 physics intervals",
+    "Robot remains upright 1.5 seconds after stopping",
+    "Authored graph stays unchanged",
+    "Physics configuration stays unchanged",
+    "Authored graph stays unchanged",
+    "Physics configuration stays unchanged",
+    "No browser or engine errors"
+  ],
+  "stage": "measured",
+  "initial": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "engine": "4.7.2-stable (official)",
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "physics_hz": 60,
+    "policy_fingerprint": "b1766c23693273f686cc621ec0bed030319195bf782ace761373b16107e196cf",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "ready": true,
+    "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "schema": 1,
+    "settle_frames": 68,
+    "walk_frames": 0
+  },
+  "measurement": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "engine": "4.7.2-stable (official)",
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "physics_hz": 60,
+    "policy_fingerprint": "b1766c23693273f686cc621ec0bed030319195bf782ace761373b16107e196cf",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "ready": true,
+    "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "schema": 1,
+    "settle_frames": 79,
+    "started_at_physics_frame": 107,
+    "stop": {
+      "command": [
+        0,
+        0
+      ],
+      "finite": true,
+      "frames": 90,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+      "upright": 0.999880731105804
+    },
+    "walk": {
+      "failure": "",
+      "finite": true,
+      "foot_air_frames": [
+        175,
+        274
+      ],
+      "forward": 0.429880917072296,
+      "frames": 720,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": 0.0701107159256935,
+      "maximum_foot_clearance_m": [
+        0.00768368393182754,
+        0.0132304549217224
+      ],
+      "minimum_height": 0.128711712360382,
+      "minimum_upright": 0.958920001983643,
+      "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+      "seconds": 12,
+      "yaw_degrees": 12.8070076749349
+    },
+    "walk_frames": 720
+  },
+  "browser": "153.0.8010.12"
+}

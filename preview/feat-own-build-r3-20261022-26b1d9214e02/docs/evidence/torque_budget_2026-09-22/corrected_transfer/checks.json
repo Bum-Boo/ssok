@@ -1,0 +1,98 @@
+[
+  {
+    "name": "servo_torque_budget_check",
+    "command": [
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+      "--headless",
+      "--path",
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tests/servo_torque_budget_check.gd"
+    ],
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "name": "construction_kit_motion_check",
+    "command": [
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+      "--headless",
+      "--path",
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tests/construction_kit_motion_check.gd"
+    ],
+    "exit_code": 1,
+    "script_error": false
+  },
+  {
+    "name": "humanoid_motion_check-pick",
+    "command": [
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+      "--headless",
+      "--path",
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tests/humanoid_motion_check.gd",
+      "--",
+      "pick"
+    ],
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "name": "humanoid_motion_check-run",
+    "command": [
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+      "--headless",
+      "--path",
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tests/humanoid_motion_check.gd",
+      "--",
+      "run"
+    ],
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "name": "modular_humanoid_check-pick",
+    "command": [
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+      "--headless",
+      "--path",
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tests/modular_humanoid_check.gd",
+      "--",
+      "pick"
+    ],
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "name": "pickup_trial_check",
+    "command": [
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin",
+      "--headless",
+      "--path",
+      "/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tests/pickup_trial_check.gd"
+    ],
+    "exit_code": 0,
+    "script_error": false
+  }
+]

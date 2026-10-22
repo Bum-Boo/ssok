@@ -1,0 +1,13 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "physics_source_revision": "ed1daf0bf",
+  "baseline_commit": "cf15af7",
+  "new_model": "hinge-per-step-budget-v2",
+  "source_hashes": {
+    "src/runtime/servo_drive.gd": "3db647e0071b5c1dd63700b17bc215a5e015ea5ddae6960d13b63ba784d0df24",
+    "src/runtime/learned_biped_motion.gd": "b9c8b7ec0cd71c665bae657e4b7ae1979dd288ea59294598e08d535d69f8e235",
+    "tests/servo_torque_budget_check.gd": "7092e54e1fe6df6b4de7b91a490eaf8c024ba7969f81b5193dccd9f183c11c9f",
+    "tests/learned_tracking_check.gd": "a152e6ebd690b85197b6b31790234f065313947467a0517eaae060fac9dc493f"
+  },
+  "corrected_transfer_job": "himmel/20260922-114329-ssok-torque-correction-transfer-042024a4"
+}

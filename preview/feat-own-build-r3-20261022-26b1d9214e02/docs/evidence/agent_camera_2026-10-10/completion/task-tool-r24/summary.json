@@ -1,0 +1,49 @@
+{
+  "source_head": "b58b95408b1feb46c27370c6e7a328a44e067e59",
+  "original_source_sha256": "b0d54fe24ef658c7ed34036297ad6d227a1d693af36d82a4c53609febe2d5ef0",
+  "recovered_snapshot": {
+    "id": "12c493689732223d7ea820c84ae37759ca2238c06339b730dc580991fca4a2c6",
+    "time": "2026-10-10T21:15:23.302749759+09:00",
+    "hostname": "Freiren"
+  },
+  "restored_source_byte_identical": true,
+  "original_regressions": 20,
+  "failures": 0,
+  "errors": 0,
+  "cloned_drvfs_lifecycle_revisions": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "actual_task_resume_checkpoint_revisions": [
+    16,
+    17,
+    18
+  ],
+  "old_events1_to16_unchanged": true,
+  "canonical_task_edited_only_by_official_cli": true,
+  "windows_and_wsl_entry_verified": true,
+  "instruction_health_all_files": 23,
+  "instruction_health_issues": 0,
+  "instruction_health_warnings": 0,
+  "live_hooks_settings_profiles_or_schedules_installed": false,
+  "tool_schema_changed": false,
+  "source433_unchanged": true,
+  "app_ui_goal_controller_provider_changed": false,
+  "mac_private_vault_or_handoff_sent": false,
+  "whole_goal_complete": false,
+  "formal_release": "Performed after final docs/Fable review; inspect coordinator/native task receipt, not inferred from this checkpoint",
+  "limits": [
+    "Original native CLI retains prior-host cwd; actual current Windows checkout recorded in checkpoint",
+    "Syncthing not a distributed lock",
+    "Only original tool/test dependencies restored, not latest Arch camera raw",
+    "Original precision/calibration decision/fresh account/nativeMac/human merge/publication remain"
+  ],
+  "windows_environment_regressions": 5,
+  "windows_environment_failures": 0,
+  "windows_env_initial_failure_preserved": true,
+  "caller_environment_unchanged": true,
+  "windows_override_uses_wsl_path": true,
+  "status_encoding_corrected": true
+}

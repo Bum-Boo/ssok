@@ -1,0 +1,84 @@
+{
+  "requested_model": "gpt-6-astra",
+  "actual_model": "gpt-6-astra",
+  "model_identity_basis": "Native inspector role identified by coordinator; backend identity not independently introspected by file inspection.",
+  "scope": "Bounded visual inspection of three actual Web draft screenshots only.",
+  "source_sha_coordinator_supplied": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "files": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-fit-final-authoring/03-reopened.png",
+      "sha256": "9a05b293139dd40a42dfab95f674ac5bc4251209c1dc81ac49db96bc26b7f0af",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "view_method": "view_image detail original; actual visual inspection performed before this record",
+      "findings": {
+        "modal_visible": false,
+        "observations": [
+          "Workshop is visible with a biped assembly and a separate board; header reads 11 parts / 13 connections.",
+          "Bottom status reads: Project opened. Code runs only when you press Run code.",
+          "Raise the flag guidance card is visible; no Projects or confirmation dialog covers the workshop."
+        ]
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-fit-final-authoring/04-exported.png",
+      "sha256": "fb894f3583b55f7976ba75588017e947cdcd13e4f91bcd528f11d6dfaf1abd49",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "view_method": "view_image detail original; actual visual inspection performed before this record",
+      "findings": {
+        "confirmation_visible": false,
+        "observations": [
+          "Projects dialog shows Import / export tab and name Browser saved biped.",
+          "Save a snapshot, Export project, Copy JSON, Import project and Close labels are fully readable.",
+          "JSON editor contains selected tail text including Browser saved biped and version 1; scrollbars are visible.",
+          "Footer reads: Project JSON is ready. Keep a copy outside this device.",
+          "Full JSON contents are not visible in this still."
+        ]
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-fit-final-authoring/05-import-confirmation.png",
+      "sha256": "23bb598efc5e92bad1f49a2ff474b92038f6c0605a949f2d910711149f379509",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "view_method": "view_image detail original; actual visual inspection performed before this record",
+      "findings": {
+        "confirmation_visible": true,
+        "observations": [
+          "Confirm project action dialog is open over Projects Import / export.",
+          "Full warning is readable: Replace the current assembly and code? Save a snapshot first if you want to keep them.",
+          "Cancel and OK labels are readable with dark text on a light surface.",
+          "Underlying JSON tail includes Browser imported biped; Close and footer remain visible; overlay covers part of underlying controls including Export."
+        ],
+        "ok_approx_center_xy": [
+          782,
+          504
+        ],
+        "ok_approx_bounds_xyxy": [
+          764,
+          484,
+          800,
+          522
+        ],
+        "coordinate_uncertainty_px": 3
+      }
+    }
+  ],
+  "verdict": "PASS for the requested visible states: no modal in 03, readable transfer panel in 04, readable warning and OK/Cancel in 05.",
+  "material_visual_issues": [],
+  "scope_limits": [
+    "Stills do not establish actual click or keyboard delivery, process success, download completion, import/export correctness, full graph/source preservation, or CI geometry mechanics.",
+    "Coordinator runtime check results and source identity are separate evidence, not independently certified by this visual record.",
+    "Visible project-opened status is observed text, not independent functionality certification.",
+    "This is a Web/source UI draft inspection, not immutable package or publication approval.",
+    "Approximate button coordinates are visual estimates."
+  ],
+  "failures": []
+}

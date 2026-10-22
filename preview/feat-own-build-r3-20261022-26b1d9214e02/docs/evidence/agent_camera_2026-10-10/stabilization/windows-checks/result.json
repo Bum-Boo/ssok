@@ -1,0 +1,86 @@
+{
+  "host": "Windows",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "source_sha256": {
+    "assets/locales/ja.po": "5b1c9fc471e2abac1db2fd28c480c9b21e7b0cc9ec84b22c6d4b2313cd6fba7f",
+    "assets/locales/ko.po": "661219a6f221f5e153ed32c3d9274025ccd3a3cfcd5cb2a1b98e445bce083109",
+    "assets/locales/zh_CN.po": "fb2e155beb50bace36432cfcb000ffa36db4fa1acc1247fe1641e0d4e9ea9b46",
+    "scenes/main.gd": "d8bd6f0018fae5c6f8c0328179511505a136f02e880f964c1ef2a2483bdf9dad",
+    "src/core/app_controller.gd": "5986d60c2beb74039f655f1903ce6dd2988ab37fc154398649d16219dea47d61",
+    "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b",
+    "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
+    "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c",
+    "src/ui/agent_trace_panel.gd": "f8afbc47a236e33d7f0f919bfc2b0693e80628af7c863b91450db57c11d54da5",
+    "tests/agent_goal_ui_check.gd": "4669f8274b23f967f64b8000b550cd3e0010b6ff7f7ff3ff213267e36f5828d2",
+    "tests/camera_experiment_check.py": "fdde00d18f10b3a3dd601b2e1269bbaf342a8c475ec22b0aed73d8e42be9173b",
+    "tests/desktop_session_check.py": "6f0ba89b0300812c2473312789473771f113b4b5bf5656b55902f5947c132633",
+    "tests/localization_check.gd": "cc9eb5a2868665084f1283d65af686c0b9193760b43bdf4888414a5a05ff3ef0",
+    "tools/app_control/camera_evaluator.gd": "f68d8f2031c9b5a10a67917743b763c2f0f5e1fde9843a27ec08ae0ace4a3b33",
+    "tools/app_control/camera_trial.py": "c9d9d4641139e9e27de05416d3ee94f8d37d70048c28de2b2adc7a5118a22a1c",
+    "tools/app_control/desktop_client.py": "3dfda807fba4683c742eb07604852d01b19018271abea7a8c0894a1d37e10678",
+    "tools/app_control/desktop_mcp.py": "1c9afbc636ff99ec550b36139e7347a15b7992e555f01b08c5780e10a15d043c",
+    "tools/app_control/desktop_session.py": "ceebbb9eb2e064c476b51e2dbe5dce6660bd9501142076dd1ada998a0a2c511d",
+    "tools/app_control/experiment_session.py": "8cbff8c2fb9cbe664cb2d1d71f1058faa13f36c698da36980b9a1b245ab36286",
+    "tools/app_control/refine_camera_goal.py": "4a892be1bf27ab2129d5fe5af53da07f2edaed5d5c6e3c0c3bb552bdc6f4149a",
+    "tools/app_control/repeat_camera_trials.py": "aa642c1c6417f8b44c4b7cf5e3432db9ca62f91d7216c16abf87ca0772f140c2",
+    "tools/app_control/run_desktop.gd": "5185c07709875917c4b4b932fb3050b76fe80d808562b3a40b16a0ae419718d6",
+    "tools/app_control/run_goal.py": "234083ad93a9d23b7e4a4d4f7e19035185d08d890a42672e69c1ed0457d48d8b",
+    "tools/app_control/run_operator.py": "98cce95cc68bc907f6308afb929ac0469ee424392605a051b5ebadfc00031262",
+    "tools/app_control/run_requests.gd": "5ac4d05e9747b90a4219d2ce3b3e3085638ff1eb053f42b26605c9445fb29259",
+    "tools/app_control/verify_desktop.py": "ab3c4cf7aa2bed241b12daf1f01b4588bdbf042a22459bb910dddd26f4d0bd6c",
+    "tools/app_control/verify_operator.py": "acc372ecb14a429c764a7ad760ed6249dcca3faf1e7cd76859ab01a81b503778",
+    "tools/localization/agent_camera_messages.json": "9652c349c8a1581c02fab79b133314a8caa9824b8534fb3a2891f91a97ab2316",
+    "tools/app_control/verify_bridge_race.py": "596964041132d2df94cbab07b8b2a63f538ae6ccca3cce1ca6d5ef71ae882f0f",
+    "tools/app_control/stabilize_camera_trials.py": "ffe954d9fbfe60da8c66f07b183cf598401784b3ba14bc2a2a34cc532e66b744",
+    "tests/bridge_stop_owner_check.gd": "74a8977c00f5af6f8e3e59d1d81fe3b306d5dd6fba802f5031ced34bd1748350"
+  },
+  "source_changed": [],
+  "results": [
+    {
+      "check": "scene-load",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--quit"
+      ],
+      "exit": 0,
+      "engine_error": false,
+      "passed": true,
+      "seconds": 0.454,
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "check": "camera",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--script",
+        "tests/agent_camera_loop_check.gd"
+      ],
+      "exit": 0,
+      "engine_error": false,
+      "passed": true,
+      "seconds": 14.014,
+      "log_sha256": "17baca665adb6254e0db385c2fc7d8264bebb10be1bb3587ed8898afd1ff4e87"
+    },
+    {
+      "check": "goal-ui",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--script",
+        "tests/agent_goal_ui_check.gd"
+      ],
+      "exit": 0,
+      "engine_error": false,
+      "passed": false,
+      "seconds": 5.903,
+      "log_sha256": "766fc7fa14971a954a18e93652d28be26d019fdbb0f8a38dab98984528eff10b"
+    }
+  ],
+  "passed": false
+}

@@ -1,0 +1,45 @@
+from concurrent.futures import ThreadPoolExecutor
+import hashlib,json,os,random,re,shutil,subprocess,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
+from tools.rl_lab.feedback import evaluate,deployment_success,ranking
+GODOT='/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin'
+training=Path('/home/hojun/.local/share/agent-remote/jobs/20260922-115126-ssok-bounded-feedback-train-38f2f9bd')
+state=json.loads((training/'manifest.json').read_text())
+assert state['status']=='completed' and state['exit_code']==0
+out=ROOT/'out';out.mkdir(exist_ok=True)
+candidate_path=training/'work/project/out/best_policy.json'
+candidate=json.loads(candidate_path.read_text())
+assert candidate['provenance']['completed_iterations']==20
+shutil.copy2(candidate_path,out/'frozen_policy.json')
+baseline=json.loads((ROOT/'probe/transfer_candidate.json').read_text())
+baseline['runtime_fingerprint']=candidate['runtime_fingerprint']
+rng=random.Random(8922022);cases=[]
+for kind in ('fresh','restart'):
+ for i in range(64):
+  case=dict(seed=(8100000 if kind=='fresh' else 8200000)+i,settle_seconds=rng.randrange(301)/60,initial_velocity_noise=.004)
+  if kind=='restart':case.update(warmup_walk_seconds=rng.randrange(1,277)/60,restart_pause_seconds=rng.randrange(181)/60)
+  cases.append(case)
+native=[dict(settle_frames=s,restart=r) for r in (False,True) for s in (0,1,60,121,180,257)]
+spec=dict(policy_sha256=hashlib.sha256(candidate_path.read_bytes()).hexdigest(),cases=cases,native_cases=native,seed=8922022,workers=3,scope='Frozen candidate evaluation; no selection or parameter changes from these outcomes')
+(out/'frozen_specification.json').write_text(json.dumps(spec,indent=2))
+subprocess.run([GODOT,'--headless','--path',str(ROOT),'--import'],stdout=(out/'import.log').open('w'),stderr=subprocess.STDOUT,check=True,timeout=90)
+groups=evaluate(GODOT,[candidate,baseline],cases,3)
+(out/'heldout.json').write_text(json.dumps(dict(specification=spec,candidate=groups[0],baseline_transfer=groups[1]),indent=2))
+print('HELDOUT',ranking(groups[0]),'BASELINE',ranking(groups[1]),flush=True)
+shutil.copy2(candidate_path,ROOT/'assets/policies/yaw_biped_bounded_v2.json')
+bundled=ROOT/'src/runtime/bundled_biped_motion.gd'
+bundled.write_text(bundled.read_text().replace('yaw_biped_v2.json','yaw_biped_bounded_v2.json'))
+def run(case):
+ name=f"app-{case['settle_frames']}-{int(case['restart'])}"
+ env=dict(os.environ,XDG_DATA_HOME=str(out/name/'data'),XDG_CONFIG_HOME=str(out/name/'config'))
+ command=[GODOT,'--headless','--path',str(ROOT),'--fixed-fps','60','--script','tests/learned_app_check.gd','--',f"--settle-frames={case['settle_frames']}"]+(['--restart'] if case['restart'] else [])
+ result=subprocess.run(command,env=env,capture_output=True,text=True,timeout=120)
+ log=result.stdout+result.stderr;(out/f'{name}.log').write_text(log)
+ answer=dict(case=case,exit_code=result.returncode,passed=result.returncode==0 and 'SCRIPT ERROR:' not in log,metric_lines=[line for line in log.splitlines() if line.startswith(('LEARNED_APP','learned_app_check:'))])
+ print(json.dumps(answer),flush=True);return answer
+with ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(run,native))
+(out/'native_app.json').write_text(json.dumps(results,indent=2))
+summary=dict(candidate_success=sum(map(deployment_success,groups[0])),candidate_falls=sum(r['fallen'] for r in groups[0]),baseline_success=sum(map(deployment_success,groups[1])),baseline_falls=sum(r['fallen'] for r in groups[1]),native_app_passes=sum(r['passed'] for r in results),specification=spec)
+(out/'summary.json').write_text(json.dumps(summary,indent=2))
+print(json.dumps(summary),flush=True)

@@ -1,0 +1,58 @@
+extends SceneTree
+var out: String
+var main: Node3D
+var last_state: String = ""
+var wait: float = 0.0
+func _initialize() -> void:
+	_start.call_deferred()
+func _start() -> void:
+	var compact: bool = OS.get_cmdline_user_args().has("compact")
+	out = "res://build/ai-loop-evidence/completion/package-goal-ui-r6/native-final-keys-recovered-" + ("compact" if compact else "large")
+	root.size = Vector2i(960, 640) if compact else Vector2i(1400, 950)
+	root.gui_embed_subwindows = true
+	main = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	var prefs: InterfacePreferences = root.get_node("Preferences") as InterfacePreferences
+	prefs.set_preference("appearance", "dark" if compact else "light", "user://keys.cfg")
+	prefs.set_preference("text_scale", 2.0 if compact else 1.0, "user://keys.cfg")
+	for i: int in 12:
+		await process_frame
+	main._on_answer_pressed()
+	main._open_projects()
+	main.projects.save_current()
+	main.projects.library.select(0)
+	main.projects._refresh_actions()
+	# A normal Saved-project replace confirmation preserves the name focus.
+	main.projects.request_open()
+func _process(delta: float) -> bool:
+	if main == null or not is_instance_valid(main.projects) or out.is_empty():
+		return false
+	wait += delta
+	if wait < 0.10:
+		return false
+	wait = 0.0
+	var panel: ProjectPanel = main.projects
+	var focus: Control = panel.gui_get_focus_owner()
+	var tag: String = "none"
+	if focus == panel.title_edit: tag = "name"
+	elif focus == panel.save_button: tag = "save"
+	elif focus == panel.library: tag = "library"
+	elif focus == panel.open_button: tag = "open"
+	elif focus == panel.delete_button: tag = "delete"
+	elif focus is Button: tag = (focus as Button).text
+	elif focus != null: tag = focus.get_class()
+	var body_scroll: ScrollContainer = panel.title_edit.get_parent().get_parent() as ScrollContainer
+	var focus_fits: bool = false
+	if focus != null:
+		var area: Rect2 = body_scroll.get_global_rect() if body_scroll.is_ancestor_of(focus) else Rect2(Vector2.ZERO, Vector2(panel.size))
+		var rect: Rect2 = focus.get_global_rect()
+		focus_fits = area.encloses(rect)
+	var name_point: Vector2 = Vector2(panel.position) + panel.title_edit.get_global_rect().get_center()
+	var state: Dictionary = {"viewport": [root.size.x, root.size.y], "points": {"project_name": [name_point.x, name_point.y]}, "panel_visible": panel.visible, "dialog_visible": panel._confirmation.visible, "focus": tag, "focus_fits": focus_fits, "scroll_vertical": body_scroll.scroll_vertical, "saved_count": ProjectStore.list_projects().size(), "library_selected": not panel.library.get_selected_items().is_empty(), "runtime_running": main.runtime.is_running(), "navigation": main.navigation.navigation_enabled}
+	var serialized: String = JSON.stringify(state)
+	if serialized != last_state:
+		var file: FileAccess = FileAccess.open(out + "/state.json", FileAccess.WRITE)
+		file.store_string(serialized)
+		file.close()
+		last_state = serialized
+	return false

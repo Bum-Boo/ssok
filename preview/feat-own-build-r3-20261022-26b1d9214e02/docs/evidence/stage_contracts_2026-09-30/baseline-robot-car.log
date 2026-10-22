@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+sensor pose [X: (-0.003316, -0.002554, -0.999991), Y: (0.011915, 0.999926, -0.002593), Z: (0.999924, -0.011923, -0.003285), O: (0.074436, 0.125965, -0.000507)]
+initial sonar 110.364937782288 chassis (0.002926, 0.066814, -0.000118)
+mid (0.688747, 0.067088, 0.05467) motor speed 13.4614944458008 torque 0.00025667791524
+travel (1.099972, 0.000246, 0.095106) sonar 401.0 torque -0.00001623904565
+brake sonar 4.35710921883583 body (0.662716, 0.067016, -0.015244)
+ERROR: brakes before wall from measured distance
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/robot_car_check.gd:76)
+       [1] _run (res://tests/robot_car_check.gd:65)
+robot_car_check: 12 checks, 1 failures

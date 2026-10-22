@@ -1,0 +1,20 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=5",
+    "ai-macmini",
+    "uname",
+    "-s"
+  ],
+  "exit_code": 0,
+  "seconds": 1.2234210968017578,
+  "stdout": "Darwin\n",
+  "stderr": "",
+  "app_or_private_data_transferred": false,
+  "native_mac_app_behavior_verified": false,
+  "shared_lab_host": true,
+  "owned_mac_access_question_pending": true
+}

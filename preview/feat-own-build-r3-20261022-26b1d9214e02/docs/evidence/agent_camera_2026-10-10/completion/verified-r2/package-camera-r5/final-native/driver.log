@@ -1,0 +1,8 @@
+Task app cannot acquire foreground; refusing input (expected PID 66208, foreground PID 74164)
+At C:\Users\Hojun\Projects\ssok-ai-loop\tools\ci\windows\native_ui.ps1:38 char:44
++ ... ocess.Id) { throw "Task app cannot acquire foreground; refusing input ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Task app cannot...ound PID 74164):String) [], RuntimeException
+    + FullyQualifiedErrorId : Task app cannot acquire foreground; refusing input (expected PID 66208, foreground PID 7 
+   4164)
+ 

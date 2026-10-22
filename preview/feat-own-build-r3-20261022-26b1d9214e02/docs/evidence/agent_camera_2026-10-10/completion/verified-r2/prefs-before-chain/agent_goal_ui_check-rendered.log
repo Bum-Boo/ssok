@@ -1,0 +1,130 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 591.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+ERROR: Agent desktop bridge unavailable: 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _build_agent_tools (res://scenes/main.gd:135)
+       [1] _ready (res://scenes/main.gd:237)
+       [2] _run (res://tests/agent_goal_ui_check.gd:21)
+{"button":"Enable","capture":"en-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Enable"}
+{"button":"Capture","capture":"en-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Capture"}
+{"button":"Forward","capture":"en-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Forward"}
+{"button":"Run with AI","capture":"en-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"Run with AI"}
+{"run_rect":"[P: (1260.0, 556.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"en-dark-wide"}
+{"button":"Enable","capture":"en-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Enable"}
+{"button":"Capture","capture":"en-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Capture"}
+{"button":"Forward","capture":"en-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Forward"}
+{"button":"Run with AI","capture":"en-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"Run with AI"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":82,"scrolled":"en-dark-compact"}
+{"button":"Enable","capture":"en-dark-large","clip":false,"font_size":28,"min":"(106.0, 58.0)","overrun":0,"size":"(140.0, 58.0)","translated":"Enable"}
+{"button":"Capture","capture":"en-dark-large","clip":false,"font_size":28,"min":"(120.0, 58.0)","overrun":0,"size":"(154.0, 58.0)","translated":"Capture"}
+{"button":"Forward","capture":"en-dark-large","clip":false,"font_size":28,"min":"(125.0, 58.0)","overrun":0,"size":"(298.0, 58.0)","translated":"Forward"}
+{"button":"Run with AI","capture":"en-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(298.0, 58.0)","translated":"Run with AI"}
+{"run_rect":"[P: (1258.0, 769.0), S: (298.0, 58.0)]","scroll_rect":"[P: (1258.0, 396.0), S: (306.0, 431.0)]","scroll_y":448,"scrolled":"en-dark-large"}
+{"button":"Enable","capture":"en-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Enable"}
+{"button":"Capture","capture":"en-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Capture"}
+{"button":"Forward","capture":"en-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Forward"}
+{"button":"Run with AI","capture":"en-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"Run with AI"}
+{"run_rect":"[P: (1260.0, 556.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"en-light-wide"}
+{"button":"Enable","capture":"en-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Enable"}
+{"button":"Capture","capture":"en-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Capture"}
+{"button":"Forward","capture":"en-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"Forward"}
+{"button":"Run with AI","capture":"en-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"Run with AI"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":82,"scrolled":"en-light-compact"}
+{"button":"Enable","capture":"en-light-large","clip":false,"font_size":28,"min":"(106.0, 58.0)","overrun":0,"size":"(140.0, 58.0)","translated":"Enable"}
+{"button":"Capture","capture":"en-light-large","clip":false,"font_size":28,"min":"(120.0, 58.0)","overrun":0,"size":"(154.0, 58.0)","translated":"Capture"}
+{"button":"Forward","capture":"en-light-large","clip":false,"font_size":28,"min":"(125.0, 58.0)","overrun":0,"size":"(298.0, 58.0)","translated":"Forward"}
+{"button":"Run with AI","capture":"en-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(298.0, 58.0)","translated":"Run with AI"}
+{"run_rect":"[P: (1258.0, 769.0), S: (298.0, 58.0)]","scroll_rect":"[P: (1258.0, 396.0), S: (306.0, 431.0)]","scroll_y":448,"scrolled":"en-light-large"}
+{"button":"Enable","capture":"ko-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"켜기"}
+{"button":"Capture","capture":"ko-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"촬영"}
+{"button":"Forward","capture":"ko-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"앞으로"}
+{"button":"Run with AI","capture":"ko-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AI로 실행"}
+{"run_rect":"[P: (1260.0, 535.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"ko-dark-wide"}
+{"button":"Enable","capture":"ko-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"켜기"}
+{"button":"Capture","capture":"ko-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"촬영"}
+{"button":"Forward","capture":"ko-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"앞으로"}
+{"button":"Run with AI","capture":"ko-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AI로 실행"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":61,"scrolled":"ko-dark-compact"}
+{"button":"Enable","capture":"ko-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(91.0, 58.0)","translated":"켜기"}
+{"button":"Capture","capture":"ko-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(91.0, 58.0)","translated":"촬영"}
+{"button":"Forward","capture":"ko-dark-large","clip":false,"font_size":28,"min":"(93.0, 58.0)","overrun":0,"size":"(104.0, 58.0)","translated":"앞으로"}
+{"button":"Run with AI","capture":"ko-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(296.0, 58.0)","translated":"AI로 실행"}
+{"run_rect":"[P: (1260.0, 769.0), S: (296.0, 58.0)]","scroll_rect":"[P: (1260.0, 396.0), S: (304.0, 431.0)]","scroll_y":272,"scrolled":"ko-dark-large"}
+{"button":"Enable","capture":"ko-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"켜기"}
+{"button":"Capture","capture":"ko-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"촬영"}
+{"button":"Forward","capture":"ko-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"앞으로"}
+{"button":"Run with AI","capture":"ko-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AI로 실행"}
+{"run_rect":"[P: (1260.0, 535.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"ko-light-wide"}
+{"button":"Enable","capture":"ko-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"켜기"}
+{"button":"Capture","capture":"ko-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"촬영"}
+{"button":"Forward","capture":"ko-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"앞으로"}
+{"button":"Run with AI","capture":"ko-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AI로 실행"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":61,"scrolled":"ko-light-compact"}
+{"button":"Enable","capture":"ko-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(91.0, 58.0)","translated":"켜기"}
+{"button":"Capture","capture":"ko-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(91.0, 58.0)","translated":"촬영"}
+{"button":"Forward","capture":"ko-light-large","clip":false,"font_size":28,"min":"(93.0, 58.0)","overrun":0,"size":"(104.0, 58.0)","translated":"앞으로"}
+{"button":"Run with AI","capture":"ko-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(296.0, 58.0)","translated":"AI로 실행"}
+{"run_rect":"[P: (1260.0, 769.0), S: (296.0, 58.0)]","scroll_rect":"[P: (1260.0, 396.0), S: (304.0, 431.0)]","scroll_y":272,"scrolled":"ko-light-large"}
+{"button":"Enable","capture":"zh_CN-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"启用"}
+{"button":"Capture","capture":"zh_CN-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"拍摄"}
+{"button":"Forward","capture":"zh_CN-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前进"}
+{"button":"Run with AI","capture":"zh_CN-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"用 AI 运行"}
+{"run_rect":"[P: (1260.0, 535.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"zh_CN-dark-wide"}
+{"button":"Enable","capture":"zh_CN-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"启用"}
+{"button":"Capture","capture":"zh_CN-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"拍摄"}
+{"button":"Forward","capture":"zh_CN-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前进"}
+{"button":"Run with AI","capture":"zh_CN-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"用 AI 运行"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":61,"scrolled":"zh_CN-dark-compact"}
+{"button":"Enable","capture":"zh_CN-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(96.0, 58.0)","translated":"启用"}
+{"button":"Capture","capture":"zh_CN-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(96.0, 58.0)","translated":"拍摄"}
+{"button":"Forward","capture":"zh_CN-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(96.0, 58.0)","translated":"前进"}
+{"button":"Run with AI","capture":"zh_CN-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(296.0, 58.0)","translated":"用 AI 运行"}
+{"run_rect":"[P: (1260.0, 769.0), S: (296.0, 58.0)]","scroll_rect":"[P: (1260.0, 396.0), S: (304.0, 431.0)]","scroll_y":234,"scrolled":"zh_CN-dark-large"}
+{"button":"Enable","capture":"zh_CN-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"启用"}
+{"button":"Capture","capture":"zh_CN-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"拍摄"}
+{"button":"Forward","capture":"zh_CN-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前进"}
+{"button":"Run with AI","capture":"zh_CN-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"用 AI 运行"}
+{"run_rect":"[P: (1260.0, 535.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"zh_CN-light-wide"}
+{"button":"Enable","capture":"zh_CN-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"启用"}
+{"button":"Capture","capture":"zh_CN-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"拍摄"}
+{"button":"Forward","capture":"zh_CN-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前进"}
+{"button":"Run with AI","capture":"zh_CN-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"用 AI 运行"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":61,"scrolled":"zh_CN-light-compact"}
+{"button":"Enable","capture":"zh_CN-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(96.0, 58.0)","translated":"启用"}
+{"button":"Capture","capture":"zh_CN-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(96.0, 58.0)","translated":"拍摄"}
+{"button":"Forward","capture":"zh_CN-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(96.0, 58.0)","translated":"前进"}
+{"button":"Run with AI","capture":"zh_CN-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(296.0, 58.0)","translated":"用 AI 运行"}
+{"run_rect":"[P: (1260.0, 769.0), S: (296.0, 58.0)]","scroll_rect":"[P: (1260.0, 396.0), S: (304.0, 431.0)]","scroll_y":234,"scrolled":"zh_CN-light-large"}
+{"button":"Enable","capture":"ja-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"有効化"}
+{"button":"Capture","capture":"ja-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"撮影"}
+{"button":"Forward","capture":"ja-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前進"}
+{"button":"Run with AI","capture":"ja-dark-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AIで実行"}
+{"run_rect":"[P: (1260.0, 556.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"ja-dark-wide"}
+{"button":"Enable","capture":"ja-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"有効化"}
+{"button":"Capture","capture":"ja-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"撮影"}
+{"button":"Forward","capture":"ja-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前進"}
+{"button":"Run with AI","capture":"ja-dark-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AIで実行"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":82,"scrolled":"ja-dark-compact"}
+{"button":"Enable","capture":"ja-dark-large","clip":false,"font_size":28,"min":"(100.0, 58.0)","overrun":0,"size":"(114.0, 58.0)","translated":"有効化"}
+{"button":"Capture","capture":"ja-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(94.0, 58.0)","translated":"撮影"}
+{"button":"Forward","capture":"ja-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(94.0, 58.0)","translated":"前進"}
+{"button":"Run with AI","capture":"ja-dark-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(312.0, 58.0)","translated":"AIで実行"}
+{"run_rect":"[P: (1244.0, 769.0), S: (312.0, 58.0)]","scroll_rect":"[P: (1244.0, 396.0), S: (320.0, 431.0)]","scroll_y":348,"scrolled":"ja-dark-large"}
+{"button":"Enable","capture":"ja-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"有効化"}
+{"button":"Capture","capture":"ja-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"撮影"}
+{"button":"Forward","capture":"ja-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前進"}
+{"button":"Run with AI","capture":"ja-light-wide","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AIで実行"}
+{"run_rect":"[P: (1260.0, 556.0), S: (296.0, 38.0)]","scroll_rect":"[P: (1260.0, 277.0), S: (304.0, 587.0)]","scroll_y":0,"scrolled":"ja-light-wide"}
+{"button":"Enable","capture":"ja-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"有効化"}
+{"button":"Capture","capture":"ja-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"撮影"}
+{"button":"Forward","capture":"ja-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":0,"size":"(96.0, 38.0)","translated":"前進"}
+{"button":"Run with AI","capture":"ja-light-compact","clip":false,"font_size":14,"min":"(80.0, 38.0)","overrun":3,"size":"(296.0, 38.0)","translated":"AIで実行"}
+{"run_rect":"[P: (812.0, 474.0), S: (296.0, 38.0)]","scroll_rect":"[P: (812.0, 277.0), S: (304.0, 235.0)]","scroll_y":82,"scrolled":"ja-light-compact"}
+{"button":"Enable","capture":"ja-light-large","clip":false,"font_size":28,"min":"(100.0, 58.0)","overrun":0,"size":"(114.0, 58.0)","translated":"有効化"}
+{"button":"Capture","capture":"ja-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(94.0, 58.0)","translated":"撮影"}
+{"button":"Forward","capture":"ja-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":0,"size":"(94.0, 58.0)","translated":"前進"}
+{"button":"Run with AI","capture":"ja-light-large","clip":false,"font_size":28,"min":"(80.0, 58.0)","overrun":3,"size":"(312.0, 58.0)","translated":"AIで実行"}
+{"run_rect":"[P: (1244.0, 769.0), S: (312.0, 58.0)]","scroll_rect":"[P: (1244.0, 396.0), S: (320.0, 431.0)]","scroll_y":348,"scrolled":"ja-light-large"}
+Agent goal UI checks: 66 / failures: 0

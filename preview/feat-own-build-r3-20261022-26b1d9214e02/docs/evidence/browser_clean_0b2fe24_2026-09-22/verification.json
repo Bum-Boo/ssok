@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "source_commit": "0b2fe24607b9313646d0825ed8eaf6af000bd7b8",
+  "dirty_worktree": false,
+  "date_local": "2026-09-22",
+  "remote_job": "20260922-063545-ssok-clean-0b2fe24-browser-280911ab",
+  "remote_job_exit_code": 1,
+  "browser": "Chromium 153.0.8010.12",
+  "playwright": "1.63.0",
+  "python": "3.14.7",
+  "environment": "Personal Himmel Linux/WSL, 4 allocated CPU threads, 4096 MiB memory",
+  "browser_launch_arguments": [
+    "--enable-unsafe-swiftshader",
+    "--use-gl=angle",
+    "--use-angle=swiftshader"
+  ],
+  "result_counts": {
+    "passed": 2,
+    "failed": 1
+  },
+  "checks": {
+    "smoke": true,
+    "authoring": true,
+    "physics": false
+  },
+  "tests": {
+    "tools/ci/browser_smoke.py": "4e27d18a02d019651fb650be9a89be3731628c82113d168535ea12ebd3cb0c0e",
+    "tools/ci/browser_authoring.py": "12e7c2edec1f5e26f3d16c62555443c121b0a18fa3c4aa4ae3beaaca360eb3ce",
+    "tools/ci/browser_physics.py": "a3a079ceaf6b3c90866a2024d839e57d72e5142fc048a853eecc6c54746ab022"
+  },
+  "policy_files": {
+    "assets/policies/yaw_biped_v1.json": "42246c56f5074b98ddd7b8f9c1b4e243dc1191c6fd5d6d114e1bbaf3df9e8b9e"
+  }
+}

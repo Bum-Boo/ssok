@@ -1,0 +1,28 @@
+{
+  "before_driver_sha256": "f46b0ea5c784df8b8ce57248062b0a0c2669578a1ed2be727876bffc9ed61791",
+  "corrected_driver_sha256": "5a5daad4564a59cd4241a0b76eb7571d97b7c37fb7b5f63232da37c16414500a",
+  "generator_literal_matches_executed_launcher_bytes": true,
+  "launcher_sha256": "a82bc980c14c43222ea95d289f68723ef1b3154b3c0d04598072ea9d67bf5a68",
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/adaptive-ai-r21/run_adaptive-recovered.gd",
+    "--check-only"
+  ],
+  "preflight_exit": 0,
+  "new_rendered_native_trials": 0,
+  "new_actor_launches": 0,
+  "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\adaptive-ai-r21\\run_adaptive-recovered.gd",
+  "cause": "Mechanical offline-reader indentation also indented GDScript literal lines; removed literal-leading spaces",
+  "repair_check_failures": [
+    "CRLF source passed to write_text doubled carriage returns; equality assertion failed prelaunch; verified before reconstructed as normalized LF source with write_bytes",
+    "Normalized literal fixture first written with write_bytes differed from actual caller write_text CRLF; assertion failed prelaunch, corrected check uses same write_text as caller"
+  ],
+  "first_review_head": "04761106b380e223741ff45d8661e34e675d756b",
+  "first_verdict": "pass/ready_for_human_merge; helper defect recorded as remaining",
+  "review_parser_failure": "Compound verdict not required enum; no successful coordinator proof claimed",
+  "curation_edit_recovery": "README marker used LF against CRLF bytes; assertion after raw copies, before README/commit/model. Read normalized text then CAS bytes; raw copies/manifest preserved."
+}

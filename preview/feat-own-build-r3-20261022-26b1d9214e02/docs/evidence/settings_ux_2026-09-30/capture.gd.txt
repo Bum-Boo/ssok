@@ -1,0 +1,58 @@
+extends SceneTree
+var main: Node3D
+var report: Dictionary = {}
+const OUT: String = "/home/bumboo/Projects/ssok-settings-audit-20260930/build/settings-audit"
+func _initialize() -> void:
+	_run.call_deferred()
+func _run() -> void:
+	root.size = Vector2i(1600, 1000)
+	main = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	await process_frame
+	report["source"] = "4340fe2"
+	report["startup_locale"] = TranslationServer.get_locale()
+	report["user_data"] = OS.get_user_data_dir()
+	report["embed_subwindows"] = root.gui_embed_subwindows
+	if "restart" in OS.get_cmdline_user_args():
+		await capture("05-restart")
+		write_report("restart.json")
+		main.free()
+		quit()
+		return
+	SsokLocale.select_locale("ko", false)
+	await capture("01-korean")
+	main.code_edit.text += "\n# learner draft preserved / 학습자 초안\n"
+	main.blocks._add_block()
+	var before: String = workspace()
+	main.language_picker.grab_focus()
+	report["focus_before"] = str(root.gui_get_focus_owner().get_path())
+	main.language_picker.item_selected.emit(3)
+	await capture("02-english")
+	report["focus_after"] = "none" if root.gui_get_focus_owner() == null else str(root.gui_get_focus_owner().get_path())
+	report["workspace_preserved_en"] = workspace() == before
+	main.language_picker.item_selected.emit(2)
+	await capture("03-japanese")
+	report["workspace_preserved_ja"] = workspace() == before
+	main.language_picker.item_selected.emit(1)
+	await capture("04-chinese")
+	report["workspace_preserved_zh"] = workspace() == before
+	root.size = Vector2i(1024, 768)
+	await capture("04b-chinese-1024")
+	report["saved_locale"] = SsokLocale.saved_locale()
+	report["zh_TW_normalizes_to"] = SsokLocale.normalize("zh_TW")
+	write_report("observations.json")
+	main.free()
+	quit()
+func workspace() -> String:
+	return var_to_str([main.code_edit.text, main.assembly.graph.parts, main.assembly.graph.links, main.blocks.instructions, main.program_tabs.current_tab, main.mode_button.button_pressed])
+func capture(label: String) -> void:
+	for frame: int in range(8):
+		await process_frame
+	await RenderingServer.frame_post_draw
+	var err: Error = root.get_texture().get_image().save_png(OUT + "/" + label + ".png")
+	if err != OK:
+		push_error("Capture error: " + str(err))
+	report[label] = {"viewport": str(root.size), "picker_rect": str(main.language_picker.get_global_rect()), "header_rect": str(main._ui_root.get_node("WorkspaceHeader").get_global_rect()), "tab_titles": [main.program_tabs.get_tab_title(0), main.program_tabs.get_tab_title(1), main.program_tabs.get_tab_title(2)], "locale": TranslationServer.get_locale()}
+func write_report(filename: String) -> void:
+	var file: FileAccess = FileAccess.open(OUT + "/" + filename, FileAccess.WRITE)
+	file.store_string(JSON.stringify(report, "\t"))
