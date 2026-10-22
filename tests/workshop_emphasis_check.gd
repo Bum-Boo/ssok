@@ -40,6 +40,7 @@ func _run() -> void:
 		for locale: String in SsokLocale.LOCALES:
 			SsokLocale.select_locale(locale, false)
 			await _settle()
+			_check(main.stage_hud.goal_card.get_theme_stylebox("panel").bg_color == Color(SsokTheme.BG, 0.94), appearance + locale + " strip preserves appearance palette")
 			var title: Label = main.stage_hud._top.get_child(1)
 			var goal: Label = main.stage_hud.find_child("GoalSentence", true, false)
 			var hint: Label = main.stage_hud.hint_label

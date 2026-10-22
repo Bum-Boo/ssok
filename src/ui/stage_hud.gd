@@ -294,6 +294,9 @@ func show_measurement(value: Variant) -> void:
 
 func layout(area: Rect2) -> void:
 	_layout_area = area
+	var frame: StyleBoxFlat = goal_card.get_theme_stylebox("panel")
+	frame.bg_color = Color(SsokTheme.BG, 0.94)
+	frame.border_color = SsokTheme.BORDER
 	# Measure translated text, not the clipped Button minimum or a language breakpoint.
 	var goal: Label = find_child("GoalSentence", true, false)
 	for action: Button in _tool_actions:
