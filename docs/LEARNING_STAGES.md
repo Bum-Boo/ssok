@@ -15,20 +15,26 @@ connect the highlighted arm; drag/keyboard assembly remains available. A human f
 study has not happened: the 60-second/5-minute goals remain hypotheses.
 
 Learner code supports variables, finite arithmetic, comparisons, Boolean logic, if/elif/else,
-while, break/continue/pass, graph-bound Servo/Motor/Sonar and tick-based sleep/running_time.
+while, `for i in range(...)`, break/continue/pass, graph-bound Servo/Motor/Sonar and tick-based sleep/running_time.
 A flat operand-stack VM budgets **all bytecode operations**, including expressions, at 128 per
-physics tick. An infinite loop yields and Stop interrupts it. Board API descriptors generate
+physics tick. Loops yield and Stop interrupts them. A run fails after 10,000 total loop-body entries or 60 seconds
+of simulated or wall-clock execution, including sleeping time. Ranges accept one to three integer
+arguments (absolute value at most 1,000,000,000), evaluate their bounds once and allocate no list.
+A zero step or a range longer than 10,000 iterations is rejected; constant bounds are checked
+before any command executes. Nested loops share the total budget. Board API descriptors generate
 block cards; the parsed learner AST is the authoritative syntax. Indented headers/operations
 and remaining code cards preserve source; editing a nested card retains its indentation. This
-is a card view, not a full drag-and-drop Entry editor. `for range` and `def` remain P4 work.
+is a card view, not a full drag-and-drop Entry editor. `def` remains unsupported.
 
 A Motor address resolves through the driver's paired board inputs and motor connector. V2 uses
 P0/P8 and P12/P16, while the Uno TB6612 profile uses D3/D4 and D6/D7. The motor primitive also
-exposes brake and coast. No hinge velocity motor or VehicleBody3D is used. Wheels have cylindrical
+exposes brake and coast. `Motor(a, b)` verifies both ordered inputs of the same driver channel;
+the existing `Motor(a)` form remains compatible. `forward(speed)`, `backward(speed)` and `stop()`
+use 0–100 percent power and the existing torque-limited drive. No hinge velocity motor or VehicleBody3D is used. Wheels have cylindrical
 collisions, and a ball caster supports the front of the car. Stall torque 0.078 N·m is the
 conservative lower cited motor value, a simulator parameter rather than measured calibration.
 
-Sonar reads nine rays, 2–400 cm, `distance_cm()` or `machine.time_pulse_us(echo, 1, timeout)`;
+Sonar reads nine rays, 2–400 cm, `distance()` / `distance_cm()` or `machine.time_pulse_us(echo, 1, timeout)`;
 µs / 58 approximates cm. Invalid/no echo is 401 cm for the beginner wrapper and negative for the
 pulse API; a stage never scores invalid data as a valid clearance. Scene parts are detectable,
 the connected robot and workbench floor are excluded. Noise is off by default and opt-in seeded

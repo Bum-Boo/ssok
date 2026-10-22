@@ -27,8 +27,8 @@ runtime solver; their editable identities, collision geometry, wiring and summed
 The catalog is an original virtual standard, not a claim of commercial hardware compatibility.
 [Architecture](ARCHITECTURE.md) and [kit construction](CONSTRUCTION_KIT.md) document these boundaries.
 
-Board profiles describe capabilities and APIs, the language runtime interprets a servo teaching
-subset, and block cards derive from the board API. Keeping those layers separate lets a new board
+Board profiles describe capabilities and APIs, the language runtime interprets a bounded Python teaching
+subset with sensor values, conditionals and loops, and block cards derive from the board API. Keeping those layers separate lets a new board
 change its pin map without embedding board-specific logic in the interpreter or block editor.
 
 ## Testing the physical quantity, not just the configured number

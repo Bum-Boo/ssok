@@ -11,6 +11,8 @@ const MAX_SOURCE_BYTES: int = 65536
 const MAX_LINES: int = 2048
 const MAX_WAIT_SECONDS: float = 60.0
 const OPERATIONS_PER_TICK: int = 128
+const MAX_LOOP_ITERATIONS: int = 10000
+const MAX_EXECUTION_SECONDS: float = 60.0
 
 var hardware: RunMode
 var _running: bool = false
@@ -27,6 +29,9 @@ var _wake_tick: int = 0
 var _error: String = ""
 var current_line: int = 0
 var sleep_scale: float = 1.0
+var _iterations: int = 0
+var _iterators: Dictionary = {}
+var _started_msec: int = 0
 
 
 func run(source: String) -> void:
@@ -50,6 +55,9 @@ func run(source: String) -> void:
 	current_line = 0
 	_wake_tick = 0
 	_error = ""
+	_iterations = 0
+	_iterators.clear()
+	_started_msec = Time.get_ticks_msec()
 	_running = true
 	state = "running"
 	# Preserve immediate finite programs while bounding the work of infinite ones.
@@ -82,6 +90,17 @@ func validate(source: String, check_hardware: bool = true) -> Dictionary:
 		if check_hardware and not hardware.has_device(binding.kind, pins):
 			return {"line": binding.line, "error": tr("Pin %d has nothing connected") % pins[0]}
 	for instruction: Dictionary in parsed.bytecode:
+		if instruction.op == "range_init":
+			var bounds: Array = []
+			for argument: Dictionary in instruction.args:
+				var constant: Variant = _constant_number(argument)
+				if constant == null:
+					break
+				bounds.append(constant)
+			if bounds.size() == instruction.argc:
+				var range_error: String = _range_error(bounds)
+				if not range_error.is_empty():
+					return {"line": instruction.line, "error": range_error}
 		if instruction.op == "invoke" and instruction.name == "sleep" and instruction.args[0].get("kind") == "literal":
 			var scale: float = hardware.sleep_scale() if is_instance_valid(hardware) and hardware.is_built() else sleep_scale
 			var seconds: Variant = instruction.args[0].value
@@ -116,6 +135,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _step() -> void:
+	if _ticks >= int(MAX_EXECUTION_SECONDS * Engine.physics_ticks_per_second) or Time.get_ticks_msec() - _started_msec >= int(MAX_EXECUTION_SECONDS * 1000.0):
+		_abort(tr("Goal run reached its limit and stopped."))
+		return
 	if _ticks < _wake_tick:
 		return
 	var execution: int = _execution_id
@@ -136,6 +158,26 @@ func _step() -> void:
 			return
 		_pc += 1
 		match instruction.op:
+			"range_init":
+				var args: Array = []
+				for index: int in instruction.argc:
+					args.push_front(_stack.pop_back())
+				_error = _range_error(args)
+				if _error.is_empty():
+					var start: float = 0.0 if args.size() == 1 else float(args[0])
+					var end: float = float(args[0]) if args.size() == 1 else float(args[1])
+					var step: float = float(args[2]) if args.size() == 3 else 1.0
+					_iterators[instruction.iterator] = {"next": start, "end": end, "step": step}
+			"range_next":
+				var iterator: Dictionary = _iterators[instruction.iterator]
+				if iterator.next >= iterator.end if iterator.step > 0 else iterator.next <= iterator.end:
+					_pc = instruction.target
+				else:
+					_loop_guard()
+					_variables[instruction.name] = iterator.next
+					iterator.next += iterator.step
+			"loop_guard":
+				_loop_guard()
 			"literal":
 				_stack.append(instruction.value)
 			"name":
@@ -181,13 +223,7 @@ func _step() -> void:
 				_pc = instruction.target
 
 		if not _error.is_empty():
-			_running = false
-			if is_instance_valid(hardware):
-				hardware.stop_motors()
-			state = "failed"
-			last_failure = {"line": current_line, "column": 1, "message": _error}
-			failed.emit(current_line, _error)
-			settled.emit()
+			_abort(_error)
 			return
 		if _wake_tick > _ticks:
 			return
@@ -216,6 +252,46 @@ func _binary(operator: String, a: Variant, b: Variant) -> Variant:
 		">": return a > b
 		">=": return a >= b
 	return null
+
+
+func _constant_number(value: Dictionary) -> Variant:
+	if value.get("kind") == "literal":
+		return value.value
+	if value.get("kind") == "unary" and value.operator in ["-", "+"]:
+		var number: Variant = _constant_number(value.value)
+		if typeof(number) in [TYPE_INT, TYPE_FLOAT]:
+			return -float(number) if value.operator == "-" else float(number)
+	return null
+
+
+func _range_error(args: Array) -> String:
+	for value: Variant in args:
+		if typeof(value) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(value)) or float(value) != floorf(float(value)) or absf(float(value)) > 1000000000.0:
+			return tr("Use a finite number here.")
+	var start: float = 0.0 if args.size() == 1 else float(args[0])
+	var end: float = float(args[0]) if args.size() == 1 else float(args[1])
+	var step: float = float(args[2]) if args.size() == 3 else 1.0
+	if step == 0.0:
+		return tr("Cannot divide by zero.")
+	if maxf(0.0, ceilf((end - start) / step)) > MAX_LOOP_ITERATIONS:
+		return tr("Goal run reached its limit and stopped.")
+	return ""
+
+
+func _loop_guard() -> void:
+	_iterations += 1
+	if _iterations > MAX_LOOP_ITERATIONS:
+		_error = tr("Goal run reached its limit and stopped.")
+
+
+func _abort(message: String) -> void:
+	_running = false
+	if is_instance_valid(hardware):
+		hardware.stop_motors()
+	state = "failed"
+	last_failure = {"line": current_line, "column": 1, "message": message}
+	failed.emit(current_line, message)
+	settled.emit()
 
 
 func _call(name: String, args: Array) -> Variant:
@@ -260,6 +336,10 @@ func _device_call(device_value: Variant, method: String, args: Array) -> Variant
 		return null
 	if method == "motor_on":
 		if not _numeric(args[1]) or args[1] < 0 or args[1] > 100 or args[0] not in ["forward", "reverse", 1, -1]:
+			_error = tr("Choose forward or reverse and a speed from 0 to 100.")
+			return null
+	if method in ["forward", "backward"]:
+		if not _numeric(args[0]) or args[0] < 0 or args[0] > 100:
 			_error = tr("Choose forward or reverse and a speed from 0 to 100.")
 			return null
 	if method == "stop" and not args.is_empty() and args[0] not in ["brake", "coast"]:

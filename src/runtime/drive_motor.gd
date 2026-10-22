@@ -25,6 +25,14 @@ func stop(mode: String = "brake") -> void:
 	braking = mode == "brake"
 
 
+func forward(speed: float) -> void:
+	motor_on("forward", speed)
+
+
+func backward(speed: float) -> void:
+	motor_on("reverse", speed)
+
+
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(housing) or not is_instance_valid(wheel):
 		return

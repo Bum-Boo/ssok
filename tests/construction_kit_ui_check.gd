@@ -58,7 +58,7 @@ func _run() -> void:
 			if button.visible:
 				visible_count += 1
 				_check(String((button.get_meta("part_definition") as PartDef).id).begins_with("kit_"), "construction category has only kit components")
-		_check(visible_count == 25, "all elementary catalog SKUs including the sixteen-channel controller are reachable")
+		_check(visible_count == JSON.parse_string(FileAccess.get_file_as_string("res://assets/construction_kit/catalog.json")).parts.size(), "every declared elementary catalog SKU is reachable")
 		await _capture(locale + "-humanoid")
 		root.size = Vector2i(1152, 648)
 		await process_frame

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_wheel_40.res" id="1_pomg4"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_nt4r2"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_xhhjg"]
+
+[sub_resource type="Resource" id="Resource_2phjh"]
+script = ExtResource("2_nt4r2")
+id = &"hub"
+local_position = Vector3(0, 0, -0.01)
+local_normal = Vector3(0, 0, -1)
+tag = &"wheel_hub"
+accepts = Array[StringName]([&"motor_shaft"])
+
+[sub_resource type="Resource" id="Resource_eadim"]
+script = ExtResource("2_nt4r2")
+id = &"kit_hub"
+local_position = Vector3(0, 0, 0.01)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_shaft_8", &"kit_axle_8"])
+
+[resource]
+script = ExtResource("3_xhhjg")
+id = &"kit_wheel_40"
+display_name = "Wheel 40 mm"
+mesh = ExtResource("1_pomg4")
+ports = Array[ExtResource("2_nt4r2")]([SubResource("Resource_2phjh"), SubResource("Resource_eadim")])
+mass_kg = 0.02
+merge_fixed_connections = true
+wheel_radius = 0.02
+wheel_width = 0.02

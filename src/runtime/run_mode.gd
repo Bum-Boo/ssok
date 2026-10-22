@@ -232,7 +232,12 @@ func _make_joint(link: Dictionary) -> void:
 		hinge.global_transform = Transform3D(_basis_with_z(axis), anchor)
 		joint = hinge
 		var owner: int = link.a_part if a_port.rotates else link.b_part
-		if _graph.parts[owner].part_def.dc_motor:
+		if _graph.parts[owner].part_def.passive_hinge:
+			hinge.set_flag(HingeJoint3D.FLAG_USE_LIMIT, true)
+			# Godot's hinge angle is the opposite of the connected body's bearing-relative angle.
+			hinge.set_param(HingeJoint3D.PARAM_LIMIT_LOWER, -deg_to_rad(_graph.parts[owner].part_def.actuator_max_deg))
+			hinge.set_param(HingeJoint3D.PARAM_LIMIT_UPPER, -deg_to_rad(_graph.parts[owner].part_def.actuator_min_deg))
+		elif _graph.parts[owner].part_def.dc_motor:
 			var drive := DriveMotor.new()
 			drive.housing = bodies[owner]
 			drive.wheel = body_b if a_port.rotates else body_a
@@ -251,6 +256,11 @@ func _make_joint(link: Dictionary) -> void:
 		add_child(fixed)
 		fixed.global_transform = Transform3D(Basis.IDENTITY, anchor)
 		joint = fixed
+	if (a_port.rotates and a_def.passive_hinge) or (b_port.rotates and b_def.passive_hinge):
+		# Catalog angle limits use the bearing as the reference, regardless of link ordering.
+		joint.node_a = (body_a if a_port.rotates else body_b).get_path()
+		joint.node_b = (body_b if a_port.rotates else body_a).get_path()
+		return
 	joint.node_a = body_a.get_path()
 	joint.node_b = body_b.get_path()
 	if a_port.rotates or b_port.rotates:
@@ -296,7 +306,7 @@ func device(kind: String, args: Array) -> Variant:
 	if kind == "Servo":
 		return servo_on_pin(int(args[0]))
 	if kind == "Motor":
-		return motor_on_pin(int(args[0]))
+		return motor_on_pins(int(args[0]), int(args[1])) if args.size() == 2 else motor_on_pin(int(args[0]))
 	if kind == "Sonar":
 		return sonar_on_pins(int(args[0]), int(args[1]))
 	return null
@@ -338,6 +348,17 @@ func motor_on_pin(pin: int) -> DriveMotor:
 			drive.voltage_drop = _graph.parts[driver].part_def.driver_voltage_drop
 			return drive
 	return null
+
+
+func motor_on_pins(first: int, second: int) -> DriveMotor:
+	var drive: DriveMotor = motor_on_pin(first)
+	if drive == null:
+		return null
+	var wires: Dictionary = Wiring.pin_map(_graph)
+	if not wires.has(second) or wires[first].part != wires[second].part:
+		return null
+	var pairs: Dictionary = {&"input_0": &"input_8", &"input_12": &"input_16", &"input_3": &"input_4", &"input_6": &"input_7"}
+	return drive if wires[second].port == pairs.get(wires[first].port) else null
 
 
 func sonar_on_pins(trigger: int, echo: int) -> SonarSensor:

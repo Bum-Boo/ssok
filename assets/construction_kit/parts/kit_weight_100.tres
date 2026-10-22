@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_weight_100.res" id="1_lprng"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_b1uac"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_exopv"]
+
+[sub_resource type="Resource" id="Resource_ajaxv"]
+script = ExtResource("2_b1uac")
+id = &"mount_0_front"
+local_position = Vector3(-0.01, 0, 0.005)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_1vvye"]
+script = ExtResource("2_b1uac")
+id = &"mount_0_back"
+local_position = Vector3(-0.01, 0, -0.005)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_3dkka"]
+script = ExtResource("2_b1uac")
+id = &"mount_1_front"
+local_position = Vector3(0.01, 0, 0.005)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_wyn0a"]
+script = ExtResource("2_b1uac")
+id = &"mount_1_back"
+local_position = Vector3(0.01, 0, -0.005)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_exopv")
+id = &"kit_weight_100"
+display_name = "Weight 100 g"
+mesh = ExtResource("1_lprng")
+ports = Array[ExtResource("2_b1uac")]([SubResource("Resource_ajaxv"), SubResource("Resource_1vvye"), SubResource("Resource_3dkka"), SubResource("Resource_wyn0a")])
+mass_kg = 0.1
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.020000001, -0.01, -0.005, 0.008, 0.02, 0.01), AABB(-0.008, -0.01, -0.005, 0.008, 0.02, 0.01), AABB(-0.012, -0.01, -0.005, 0.004, 0.008, 0.01), AABB(-0.012, 0.0019999999, -0.005, 0.004, 0.008, 0.01), AABB(0, -0.01, -0.005, 0.008, 0.02, 0.01), AABB(0.012, -0.01, -0.005, 0.008, 0.02, 0.01), AABB(0.007999999, -0.01, -0.005, 0.004, 0.008, 0.01), AABB(0.007999999, 0.0019999999, -0.005, 0.004, 0.008, 0.01)])
