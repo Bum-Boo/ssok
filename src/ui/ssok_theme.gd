@@ -259,7 +259,7 @@ static func button(text: String, icon_name: String = "") -> Button:
 static func title_settings() -> LabelSettings:
 	var settings := LabelSettings.new()
 	settings.font = SsokLocale.ui_font
-	settings.font_size = font_size(17)
+	settings.font_size = font_size(28)
 	settings.font_color = TEXT
 	return settings
 

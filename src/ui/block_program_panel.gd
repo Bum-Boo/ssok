@@ -26,6 +26,7 @@ func _ready() -> void:
 	scroll.add_child(content)
 	var caption := Label.new()
 	caption.text = "Build a program with blocks"
+	caption.label_settings = SsokTheme.title_settings()
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	content.add_child(caption)
 	var read_button: Button = SsokTheme.button("Read from code", "code-xml")
@@ -120,6 +121,10 @@ func _rebuild() -> void:
 		var card := VBoxContainer.new()
 		rows.add_child(card)
 		card.set_meta("source_line", index + 1)
+		# Execution feedback must not tint the learner's inputs or resemble a primary action.
+		card.draw.connect(func() -> void:
+			if card.get_meta("executing", false):
+				card.draw_rect(Rect2(Vector2.ZERO, card.size), SsokTheme.ACCENT, false, 2.0))
 		var heading := HFlowContainer.new()
 		card.add_child(heading)
 		var label := Label.new()
@@ -231,4 +236,5 @@ func set_profile(value: BoardProfile) -> void:
 
 func highlight_line(line: int) -> void:
 	for row: Control in rows.get_children():
-		row.modulate = Color(1.0, 0.8, 0.4) if row.get_meta("source_line", -1) == line else Color.WHITE
+		row.set_meta("executing", row.get_meta("source_line", -1) == line)
+		row.queue_redraw()

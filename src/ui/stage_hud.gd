@@ -85,7 +85,7 @@ func _build_goal_card() -> void:
 	top.add_child(back)
 	var number := Label.new()
 	number.text = "Now"
-	number.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
+	number.add_theme_font_size_override("font_size", SsokTheme.font_size(28))
 	number.add_theme_color_override("font_color", SsokTheme.ACCENT)
 	top.add_child(number)
 	var goal := Label.new()
@@ -143,7 +143,8 @@ func _build_goal_card() -> void:
 
 	hint_label = Label.new()
 	hint_label.name = "Hint"
-	hint_label.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
+	hint_label.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
+	hint_label.add_theme_color_override("font_color", SsokTheme.TEXT_DIM)
 	hint_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	hint_label.max_lines_visible = 1
 	hint_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
