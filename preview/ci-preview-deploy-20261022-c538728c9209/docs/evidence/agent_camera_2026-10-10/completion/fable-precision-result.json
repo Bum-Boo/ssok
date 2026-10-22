@@ -1,0 +1,58 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "result": "```json\n{\n  \"verdict\": \"pass\",\n  \"blocking_findings\": [],\n  \"non_blocking_findings\": [\n    \"agent_camera_loop.gd _hold_brake: when speed and integral are both exactly 0.0, motor_on(dir, 0.0) sets duty=0 and braking=false, so DriveMotor applies zero torque (freewheel) for that tick instead of passive brake. Self-correcting on the next nonzero sample; a `if duty == 0.0: motor.stop()` guard would remove the gap.\",\n    \"Integral has no leak: a wheel stalled against the wall at speed 0 retains whatever integral accumulated (up to 25% duty) for the whole ready/capture window. Bounded and ADR-consistent, but means contact/gap criteria are measured under a persistent push, not a passive stop.\",\n    \"No process_physics_priority on AgentCameraLoop, so PI duty may apply one tick late depending on tree order relative to DriveMotor; CI fixed-fps hides any variance. Evaluator at priority 100 is unaffected.\",\n    \"_hold_brake dereferences motor.wheel without is_instance_valid; _context_valid guards only the chassis instance. Safe as long as any graph change bumps revision synchronously (as elsewhere), otherwise a one-tick script error is possible.\",\n    \"receipt() resets the 60s decision deadline every call for the same unconsumed frame, so an authenticated actor can renew ready (and the hold) indefinitely. Pre-existing behavior, now with active motors during the renewed window.\",\n    \"_context_valid omits app.motion_program.is_enabled(); begin() disables it but re-enablement would not revoke the generation. Pre-existing.\",\n    \"verify.py engine_error regex ('^(SCRIPT ERROR|ERROR):') will fail any rendered check if GL Compatibility under Xvfb/llvmpipe emits an ERROR: line; untested here.\"\n  ],\n  \"verified_claims\": [\n    \"Hold runs only while enabled, context-valid, and state is settling/capturing/ready or a brake step; forward steps keep fixed 25% duty with hold off.\",\n    \"Output path is DriveMotor.motor_on only; duty and integral clamped ±25; DriveMotor torque/impulse math unchanged.\",\n    \"No body pose/velocity writes, no physics pause, no evaluator data reaching the actor.\",\n    \"Integral cleared on drive_step and cancel; begin() routes through cancel; _exit_tree brakes and bumps generation.\",\n    \"cancel() calls _brake() (stop_motors, zero duty, brake mode) synchronously before enabled=false; test asserts duty==0.0 after local Stop.\",\n    \"_at_rest uses 0.001 m/s, 0.1 rad/s chassis, 0.05 rad/s wheel for 12 ticks; evaluator keeps 0.015/0.1/0.5 independently.\",\n    \"Consumed frames cannot act; post-step ready without capture keeps _consumed=true so observe is required.\",\n    \"Driving/settling deadlines 10s, ready 60s, settle limit 240 ticks, step 1..30 ticks all enforced.\",\n    \"verify.py: nt path uses taskkill /T /F then kill fallback; posix path unchanged; start_new_session is ignored on Windows (harmless). APPDATA/LOCALAPPDATA isolated on nt.\",\n    \"Rendered variants and bridge token present in inventory and asserted by test_ci_verify; ci.yml installs xvfb + libgl1-mesa-dri and wraps verify.py in xvfb-run at 1600x1000x24 matching the test root size.\",\n    \"ADR text matches code (proposed status, 25% cap, thresholds, clearing on Stop, non-claim about arbitrary robots). No UI strings/layout touched.\"\n  ],\n  \"remaining_limits\": [\n    \"Source-only review; hashes not recomputed, no execution. The 1.175mm/10s and 6/0 results and the 3 passing unit checks are taken as reported.\",\n    \"Correct GL Compatibility selection and absence of ERROR: lines under Xvfb/Mesa on ubuntu-24.04 are unverified; CI job time with added apt install vs 35-minute budget unverified.\",\n    \"Existence/contents of bridge_stop_owner_check.gd, agent_camera_loop_check.gd, agent_goal_ui_check.gd, RunMode.stop_motors, Wiring.pin_map and motion_lab server not in scope; test_ci_verify inventory assertions depend on them.\",\n    \"Gain robustness (P8/I16) only evidenced on the single rest fixture; incline, wall-contact, and different-mass behavior not shown. Earlier P8/I4 and P8/I16 loose-threshold failures remain as stated.\",\n    \"Model trials, full suite, packaging, and the frozen 24..38px/0.04..0.14m goal evaluation are pending and not covered by this review.\"\n  ]\n}\n```",
+  "modelUsage": {
+    "claude-fable-5-1": {
+      "inputTokens": 2,
+      "outputTokens": 8270,
+      "cacheReadInputTokens": 535,
+      "cacheCreationInputTokens": 23430,
+      "webSearchRequests": 0,
+      "costUSD": 0.8822537500000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 6568,
+      "canonicalModel": "claude-fable-5-1",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 23430,
+    "cache_read_input_tokens": 535,
+    "output_tokens": 8270,
+    "output_tokens_details": {
+      "thinking_tokens": 6568
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23430,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 8270,
+        "cache_read_input_tokens": 535,
+        "cache_creation_input_tokens": 23430,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 23430
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 0.8822537500000001,
+  "exit_code": 0
+}

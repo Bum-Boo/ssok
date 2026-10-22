@@ -1,0 +1,131 @@
+{
+  "schedule": [
+    {
+      "name": "fresh-60",
+      "settle": 60
+    },
+    {
+      "name": "fresh-90",
+      "settle": 90
+    },
+    {
+      "name": "fresh-150",
+      "settle": 150
+    },
+    {
+      "name": "restart-21-18",
+      "settle": 60,
+      "warmup": 21,
+      "pause": 18
+    },
+    {
+      "name": "restart-120-60",
+      "settle": 60,
+      "warmup": 120,
+      "pause": 60
+    },
+    {
+      "name": "restart-222-180",
+      "settle": 60,
+      "warmup": 222,
+      "pause": 180
+    }
+  ],
+  "passed": 0,
+  "completed": 1,
+  "total": 6,
+  "results": [
+    {
+      "case": {
+        "name": "fresh-60",
+        "settle": 60
+      },
+      "passed": false,
+      "checks": [
+        {
+          "passed": true,
+          "description": "Bundled actual application at 60 Hz"
+        },
+        {
+          "passed": true,
+          "description": "Exact graph fingerprint"
+        },
+        {
+          "passed": true,
+          "description": "Exact version-aware runtime fingerprint"
+        }
+      ],
+      "errors": [],
+      "browser": "153.0.8010.12",
+      "url": "http://127.0.0.1:45153/?ssok_verify=1",
+      "stage": "measure",
+      "initial": {
+        "bundled_policy": true,
+        "command": [
+          0,
+          0
+        ],
+        "engine": "4.7.2-stable (official)",
+        "foot_part_indices": [
+          4,
+          8
+        ],
+        "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+        "physics_hz": 60,
+        "policy_fingerprint": "414ea50b0e0996c05aa3e54574f40fb2fb31aa778cb51a94ccfa1985c473f6de",
+        "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+        "policy_runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+        "ready": true,
+        "runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+        "schema": 1,
+        "settle_frames": 75,
+        "walk_frames": 0
+      },
+      "failure": "TimeoutError: Page.wait_for_function: Timeout 180000ms exceeded.",
+      "last_observation": {
+        "bundled_policy": true,
+        "command": [
+          0,
+          1
+        ],
+        "engine": "4.7.2-stable (official)",
+        "foot_part_indices": [
+          4,
+          8
+        ],
+        "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+        "physics_hz": 60,
+        "policy_fingerprint": "414ea50b0e0996c05aa3e54574f40fb2fb31aa778cb51a94ccfa1985c473f6de",
+        "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+        "policy_runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+        "ready": true,
+        "runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+        "schema": 1,
+        "settle_frames": 85,
+        "started_at_physics_frame": 106,
+        "walk": {
+          "failure": "",
+          "finite": true,
+          "foot_air_frames": [
+            162,
+            277
+          ],
+          "forward": 0.433904349803925,
+          "frames": 720,
+          "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+          "lateral": 0.00981701817363501,
+          "maximum_foot_clearance_m": [
+            0.00483845248818397,
+            0.0123971968889236
+          ],
+          "minimum_height": 0.129211854934692,
+          "minimum_upright": 0.962072908878326,
+          "runtime_fingerprint": "0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae",
+          "seconds": 12,
+          "yaw_degrees": -3.78819452219197
+        },
+        "walk_frames": 720
+      }
+    }
+  ]
+}

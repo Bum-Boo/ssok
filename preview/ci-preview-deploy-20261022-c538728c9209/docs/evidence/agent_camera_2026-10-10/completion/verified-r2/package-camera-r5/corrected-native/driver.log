@@ -1,0 +1,11 @@
+{"phase": "before", "passed": true}
+{"phase": "after-native", "passed": true}
+{"phase": "bridge-eight", "passed": true}
+{"phase": "stopped", "passed": true}
+FAIL: Owned package normal exit code
+At C:\Users\Hojun\Projects\ssok-package-camera-r5-native.ps1:12 char:119
++ ... t]@{name=$Name;passed=$Value});if(-not $Value){throw "FAIL: $Name"} }
++                                                    ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (FAIL: Owned package normal exit code:String) [], RuntimeException
+    + FullyQualifiedErrorId : FAIL: Owned package normal exit code
+ 

@@ -1,0 +1,94 @@
+{
+  "role": "native gpt-6-astra worker earlier actual14PNG inspection",
+  "dimensions": [
+    640,
+    480
+  ],
+  "observations": [
+    {
+      "path": "clarified-hold-medium-blank\\layout1-run1\\actor\\camera\\delivered-1.png",
+      "sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82",
+      "observation": "Uniform blank RGB127; no assessable wall/robot/strip",
+      "strip_px": null
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\delivered-1.png",
+      "sha256": "e1dad258f4f854cfe8fcbfea27909e4361bb8fefafe853992c0dbc7a188a8678",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 118
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\delivered-2.png",
+      "sha256": "e1dad258f4f854cfe8fcbfea27909e4361bb8fefafe853992c0dbc7a188a8678",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 118
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout1-run1\\actor\\camera\\observation-2.png",
+      "sha256": "2a09610b382772a36c49989135648643f3c5a21aaf9477e32d22aa0dd27cb9b5",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 83
+    },
+    {
+      "path": "clarified-hold-medium-blank\\layout2-run1\\actor\\camera\\delivered-1.png",
+      "sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82",
+      "observation": "Uniform blank RGB127; no assessable wall/robot/strip",
+      "strip_px": null
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\delivered-1.png",
+      "sha256": "4ef67b37c15bfbec0646a89ba3a88f308c5d2c61393f8adda74b7b09e4cb63e6",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 164
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\delivered-2.png",
+      "sha256": "4ef67b37c15bfbec0646a89ba3a88f308c5d2c61393f8adda74b7b09e4cb63e6",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 164
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout2-run1\\actor\\camera\\observation-2.png",
+      "sha256": "66424c0fba6121e1eb6ebfde5337c885400d51d1f57669ab024af047379dc635",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 147
+    },
+    {
+      "path": "clarified-hold-medium-blank\\layout3-run1\\actor\\camera\\delivered-1.png",
+      "sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82",
+      "observation": "Uniform blank RGB127; no assessable wall/robot/strip",
+      "strip_px": null
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\delivered-1.png",
+      "sha256": "b7a0d76655d88ae1f3fc41d7403b7cc8a8a8f0f3ed4ac0d5b77f17b8f9089df9",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 180
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\delivered-2.png",
+      "sha256": "b7a0d76655d88ae1f3fc41d7403b7cc8a8a8f0f3ed4ac0d5b77f17b8f9089df9",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 180
+    },
+    {
+      "path": "clarified-hold-medium-frozen\\layout3-run1\\actor\\camera\\observation-2.png",
+      "sha256": "6c2ba77b7119799afab5a3028d9bea0ad489b0d33e593ce3e82b0c2664cae31e",
+      "observation": "Delivered1/2 are frozen identical; actual observation2 shows changed strip",
+      "strip_px": 170
+    },
+    {
+      "path": "operator-final-3e75cea\\actor\\camera\\observation-1.png",
+      "sha256": "bdbb96a92557083e7babcf0beb84030e20df050d24093d84f13112362c068e17",
+      "observation": "Same approximate164px center strip, tiny robot shape change; separate one-step operator goal",
+      "strip_px": 164
+    },
+    {
+      "path": "operator-final-3e75cea\\actor\\camera\\observation-2.png",
+      "sha256": "23589816f75518b077f9e993b29cd3700f70db3b7e21a61c314be9f9d1de19fe",
+      "observation": "Same approximate164px center strip, tiny robot shape change; separate one-step operator goal",
+      "strip_px": 164
+    }
+  ],
+  "limits": "Visual observations only, coordinator-computed hashes; not physical success or backend-model/billing attestation"
+}

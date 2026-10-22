@@ -1,0 +1,13 @@
+import os,shutil,subprocess,sys
+from pathlib import Path
+root=Path(__file__).resolve().parent
+base=Path('/home/hojun/.local/share/agent-remote/jobs/20260922-114329-ssok-torque-correction-transfer-042024a4/work')
+project=root/'project'
+shutil.copytree(base,project,ignore=shutil.ignore_patterns('.godot','out','build','__pycache__'))
+for path in root.glob('*.py'):
+ if path.name!='bootstrap.py':shutil.copy2(path,project/'probe'/path.name)
+for path in root.glob('*.gd'):shutil.copy2(path,project/'probe'/path.name)
+os.environ['XDG_DATA_HOME']=str(root/'userdata')
+os.environ['XDG_CONFIG_HOME']=str(root/'config')
+os.environ['XDG_CACHE_HOME']=str(root/'cache')
+raise SystemExit(subprocess.call([sys.executable,str(project/'probe'/sys.argv[1])],cwd=project))

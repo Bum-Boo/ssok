@@ -1,0 +1,164 @@
+{
+  "role": "native gpt-6-astra visual inspector",
+  "verdict": "pass_for_bounded_Settings_label_fix",
+  "actually_viewed_before": {
+    "file": "title-clip-before/title-before.png",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Settings visibly clipped to Setti"
+  },
+  "after": [
+    {
+      "file": "en-dark-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "59b20f9c861b90353d56980fd93e1d203fbb1b80426c4c5a05e2186c7aab4435",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "en-dark-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "37af534fcedfccfd9e16f914ef37323cd1f011c3c4076e17a2401292accd7739",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "en-light-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "49bd0696177965f0476dee864ba9d70806615a515a6ac26020648915b0a6fbfe",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "en-light-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "f4d6b4cdb958f2e10f6b709be75966a6c63bd1d8993fe299c4f0e922547d2f44",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ja-dark-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "623c307d67e308ce6ca2325cfa3d557f0a939d4e02b2cec56db3abf94e4497ad",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ja-dark-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "7b845beeb48a2e3f0c297bb187bb40136036bd1803e1b4f8ce130a43c67effb0",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ja-light-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "c7fb9b3f111175d21502f596fe5d0ecd05da7f45970dadc8447762182be19b1f",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ja-light-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "e4d6ea6c045272a8e08622db564cf372435d534eb8d5baa229fd0af4b7a5e15a",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ko-dark-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "3a688a7b8f7029ccdbe2dc868a54a43ef6da1bc2e97a83fd1333edc3fb2b04be",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ko-dark-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "faec1bf91e0530afb5e724311dc923aabf07cb85a0d5a83514274b92d8edb279",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ko-light-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "180274c775266eaf31972af074b5e7956a343b1aa39b96f74496831c72acb8a7",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "ko-light-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "83c84df94253c852c19b35ce486adf86a5fd411ceaac959bdc2c4f0aa44780a2",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "zh_CN-dark-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "a47ae70bf0acc98a6981bb13d942e8c61c553ad1b2df7df1ce09c6041c6bfe55",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "zh_CN-dark-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "8c79a609cf25e181bd56044ed949b277be07be95c03119e80c45c7b45aabb6d3",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "zh_CN-light-100-1400.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "sha256": "32a18b74b4e3304aee41ede7d16d61df0b53d05a22ad2bd90c1371cd7e0f654c",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    },
+    {
+      "file": "zh_CN-light-200-1152.png",
+      "dimensions": [
+        1152,
+        648
+      ],
+      "sha256": "75a4f479151ef9f5ef9ee9604c1708e38c5b1831cdcb8ac33e0dca066b4f7cf3",
+      "observation": "Full translated Settings text/cog; language picker and arrows fit; centered footer with complete visible keyboard-focus outline; no missing glyph boxes or overlap"
+    }
+  ],
+  "source_sha256": "5f81349019953ebb8d96075ad6f056bef1e5e56ed74633efffaba761dda8c8c1",
+  "incidental_outside_scope": [
+    "All 200% captures show scrolled lower menu; upper content outside viewport with scrollbar.",
+    "Japanese Open my project is ellipsized at 200% in both themes."
+  ],
+  "limits": "PNG visual review does not attest keyboard behavior, all 80 geometry combinations, source hashes or publication approval. Coordinator calculated image/source hashes."
+}

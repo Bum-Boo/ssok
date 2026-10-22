@@ -1,0 +1,74 @@
+param([string]$App,[string]$Work,[string]$Layout,[string]$Python,[string]$Fixture)
+$ErrorActionPreference='Stop'
+$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$OutputEncoding=[Text.UTF8Encoding]::new($false)
+. 'C:/Users/Hojun/Projects/ssok-ai-loop/tools/ci/windows/native_ui.ps1'
+$script:UiLayout=Get-Content -LiteralPath $Layout -Raw -Encoding utf8 | ConvertFrom-Json
+$clipboard=[Windows.Forms.Clipboard]::GetDataObject()
+$originalAppData=$env:APPDATA; $originalLocalData=$env:LOCALAPPDATA; $originalToken=$env:SSOK_AGENT_TOKEN
+$checks=[Collections.Generic.List[object]]::new()
+function Check([bool]$Value,[string]$Name) { $checks.Add([pscustomobject]@{name=$Name;passed=$Value});if(-not $Value){throw "FAIL: $Name"} }
+function Inspect([string]$Phase) {
+    & $Python -X utf8 'C:/Users/Hojun/Projects/ssok-package-goal-r10-inspect.py' $Phase
+    Check ($LASTEXITCODE -eq 0) "Authenticated package goal phase $Phase"
+}
+$script:UiProcess=$null;$operatorProcess=$null
+try {
+    Check (-not (Get-NetTCPConnection -LocalPort 8127 -State Listen -ErrorAction SilentlyContinue)) 'Fresh bridge port is unused'
+    $env:APPDATA=Join-Path $Work 'appdata';$env:LOCALAPPDATA=Join-Path $Work 'localappdata'
+    Check (-not (Test-Path -LiteralPath $env:APPDATA)) 'Fresh isolated app data'
+    $env:SSOK_AGENT_TOKEN=[Guid]::NewGuid().ToString('N')+[Guid]::NewGuid().ToString('N')
+    $script:UiProcess=Start-Process -FilePath $App -WorkingDirectory (Split-Path $App) -ArgumentList @('--rendering-driver','opengl3','--audio-driver','Dummy','--language','en','--single-window','--resolution','1400x950','--position','0,0','--max-fps','60','--','--ssok-agent-bridge') -PassThru -RedirectStandardOutput (Join-Path $Work 'native.stdout') -RedirectStandardError (Join-Path $Work 'native.stderr')
+    $ownedProcessHandle=$script:UiProcess.Handle
+    @{pid=$script:UiProcess.Id;app=$App} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $Work 'owned-app.json') -Encoding utf8
+    for($i=0;$i -lt 100;$i++){ $script:UiProcess.Refresh();if($script:UiProcess.HasExited){throw 'App exited before window'};if($script:UiProcess.MainWindowHandle -ne [IntPtr]::Zero){break};Start-Sleep -Milliseconds 100 }
+    Start-Sleep -Seconds 3
+    UiCapture (Join-Path $Work 'title.png')
+    UiClick 'title_projects';UiCapture (Join-Path $Work 'projects.png')
+    UiClick 'project_transfer_tab';UiClick 'transfer_text'
+    [Windows.Forms.Clipboard]::SetText((Get-Content -LiteralPath $Fixture -Raw -Encoding utf8))
+    UiFocus;[Windows.Forms.SendKeys]::SendWait('^a');[Windows.Forms.SendKeys]::SendWait('^v')
+    UiClick 'project_import';UiCapture (Join-Path $Work 'import-confirm.png')
+    UiClick 'project_confirm';UiCapture (Join-Path $Work 'car-imported.png')
+    for($i=0;$i -lt 6;$i++){UiClick 'tabs_right'}
+    UiClick 'ai_tab';UiClick 'goal_field'
+    [Windows.Forms.Clipboard]::SetText('Observe the camera, move forward only3 ticks once, observe again, then stop.')
+    UiFocus;[Windows.Forms.SendKeys]::SendWait('^a');[Windows.Forms.SendKeys]::SendWait('^v');[Windows.Forms.SendKeys]::SendWait('{ENTER}')
+    UiCapture (Join-Path $Work 'ai-enter-no-dispatch.png');Inspect 'enter'
+    $operatorProcess=Start-Process -FilePath $Python -WorkingDirectory 'C:/Users/Hojun/Projects/ssok-ai-loop' -ArgumentList @('-X','utf8','-m','tools.app_control.run_operator','--out',(Join-Path $Work 'actor'),'--seconds','60') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $Work 'operator.stdout') -RedirectStandardError (Join-Path $Work 'operator.stderr')
+    $operatorHandle=$operatorProcess.Handle
+    @{pid=$operatorProcess.Id;external_developer_tool=$true} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $Work 'owned-operator.json') -Encoding utf8
+    $connected=$false
+    for($i=0;$i -lt 150;$i++) {
+        $operatorProcess.Refresh();if($operatorProcess.HasExited){throw 'Operator exited before waiting'}
+        if((Get-Content -LiteralPath (Join-Path $Work 'operator.stdout') -Raw -Encoding utf8) -match 'Foreground operator waiting for one intentional app goal'){$connected=$true;break}
+        Start-Sleep -Milliseconds 100
+    }
+    Check $connected 'Existing login operator reaches foreground waiting state'
+    Start-Sleep -Milliseconds 700
+    UiCapture (Join-Path $Work 'ai-connected-before-run.png')
+    UiClick 'goal_run'
+    UiCapture (Join-Path $Work 'ai-running.png')
+    Check ($operatorProcess.WaitForExit(355000)) 'One foreground goal operator exits within bound'
+    @{has_exited=$operatorProcess.HasExited;exit_code=$operatorProcess.ExitCode;retained_handle=($operatorHandle -ne [IntPtr]::Zero)} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $Work 'operator-exit.json') -Encoding utf8
+    Check ($operatorProcess.ExitCode -eq 0) 'Actual requested AI operator exits successfully'
+    Inspect 'final';UiCapture (Join-Path $Work 'ai-stopped.png')
+    Check ($script:UiProcess.CloseMainWindow()) 'Owned native window receives normal close'
+    Check ($script:UiProcess.WaitForExit(10000)) 'Owned package closes normally'
+    @{has_exited=$script:UiProcess.HasExited;exit_code=$script:UiProcess.ExitCode;retained_handle=($ownedProcessHandle -ne [IntPtr]::Zero)} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $Work 'normal-exit.json') -Encoding utf8
+    Check ($script:UiProcess.ExitCode -eq 0) 'Owned package normal exit code'
+    $log=(Get-Content -LiteralPath (Join-Path $Work 'native.stdout') -Raw)+(Get-Content -LiteralPath (Join-Path $Work 'native.stderr') -Raw)
+    Check ($log -notmatch '(?m)^(SCRIPT ERROR:|ERROR:)') 'Actual package goal UI log has no engine errors'
+    Check (-not (Get-NetTCPConnection -LocalPort 8127 -State Listen -ErrorAction SilentlyContinue)) 'Bridge listener released on normal close'
+} finally {
+    if($script:UiProcess -and -not $script:UiProcess.HasExited){
+        try{UiClick 'agent_stop'}catch{}
+    }
+    if($operatorProcess -and -not $operatorProcess.HasExited){& taskkill.exe /PID $operatorProcess.Id /T /F | Out-Null;$operatorProcess.WaitForExit()}
+    if($script:UiProcess -and -not $script:UiProcess.HasExited){$script:UiProcess.Kill();$script:UiProcess.WaitForExit()}
+    if($clipboard){[Windows.Forms.Clipboard]::SetDataObject($clipboard,$true)}else{[Windows.Forms.Clipboard]::Clear()}
+    $env:APPDATA=$originalAppData;$env:LOCALAPPDATA=$originalLocalData;$env:SSOK_AGENT_TOKEN=$originalToken
+    @{clipboard_restoration_completed=$true;appdata_restored=($env:APPDATA -eq $originalAppData);localappdata_restored=($env:LOCALAPPDATA -eq $originalLocalData);token_restored=($env:SSOK_AGENT_TOKEN -eq $originalToken);owned_process_exited=($script:UiProcess -and $script:UiProcess.HasExited);owned_operator_exited=($operatorProcess -and $operatorProcess.HasExited)} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $Work 'driver-cleanup.json') -Encoding utf8
+    $checks | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $Work 'checks.json') -Encoding utf8
+}

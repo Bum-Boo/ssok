@@ -1,0 +1,13 @@
+import json,shutil,subprocess,sys
+from pathlib import Path
+root=Path(__file__).resolve().parent
+prior=Path('/home/hojun/.local/share/agent-remote/jobs/20260922-120620-ssok-bounded-policy-wasm-67da7898')
+state=json.loads((prior/'manifest.json').read_text())
+assert state['status']=='cancelled' and not state['resources_held']
+project=root/'evaluation'
+shutil.copytree(prior/'work',project,ignore=shutil.ignore_patterns('out','__pycache__'))
+for source in (root/'patch').rglob('*'):
+    if source.is_file():
+        target=project/source.relative_to(root/'patch');target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copy2(source,target)
+raise SystemExit(subprocess.call([sys.executable,str(project/'run_browser.py')],cwd=project))

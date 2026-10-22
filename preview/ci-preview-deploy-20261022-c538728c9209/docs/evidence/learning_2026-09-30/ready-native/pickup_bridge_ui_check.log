@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: FAIL HTTP baseline and two batches produce nine measured local trials
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/pickup_bridge_ui_check.gd:122)
+       [1] _transport (res://tests/pickup_bridge_ui_check.gd:84)
+ERROR: FAIL bridge candidates remain mock-labelled and verify physical pickup
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/pickup_bridge_ui_check.gd:122)
+       [1] _transport (res://tests/pickup_bridge_ui_check.gd:90)
+ERROR: FAIL measured history available for subsequent rounds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/pickup_bridge_ui_check.gd:122)
+       [1] _transport (res://tests/pickup_bridge_ui_check.gd:92)
+pickup_bridge_ui_check: 144 checks, 3 failures

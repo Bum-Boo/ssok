@@ -1,0 +1,282 @@
+{
+  "source_head": "afbc89968e1f11037dee10b12020baf5bf61b436",
+  "wall_x": 0.35,
+  "rows": [
+    {
+      "case": "r21-stock",
+      "label": "observation-1",
+      "png_sha256": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+      "position": [
+        0.000740710587706417,
+        0.0668003335595131,
+        -0.0011533253127709
+      ],
+      "rotation": [
+        0.00260333903133869,
+        0.00289722508750856,
+        -0.0114461751654744
+      ],
+      "gap_m": 0.254298232495785,
+      "pixels": {
+        "boundary_y": 363,
+        "floor_pixels": 117,
+        "column_range": [
+          363,
+          363
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+      "physics_tick": 711
+    },
+    {
+      "case": "r21-stock",
+      "label": "observation-2",
+      "png_sha256": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+      "position": [
+        0.0775380432605743,
+        0.0670253112912178,
+        -0.0016585934208706
+      ],
+      "rotation": [
+        0.00192832737229764,
+        -0.00191019731573761,
+        -0.0158395562320948
+      ],
+      "gap_m": 0.177221223711967,
+      "pixels": {
+        "boundary_y": 413,
+        "floor_pixels": 67,
+        "column_range": [
+          413,
+          413
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+      "physics_tick": 1512
+    },
+    {
+      "case": "r21-stock",
+      "label": "observation-3",
+      "png_sha256": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+      "position": [
+        0.09836246073246,
+        0.0668842568993568,
+        -0.00137410056777298
+      ],
+      "rotation": [
+        -0.00106360472273082,
+        -0.00303182215429842,
+        -0.0132569083943963
+      ],
+      "gap_m": 0.15654893219471,
+      "pixels": {
+        "boundary_y": 437,
+        "floor_pixels": 43,
+        "column_range": [
+          437,
+          437
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+      "physics_tick": 2213
+    },
+    {
+      "case": "r21-stock",
+      "label": "observation-4",
+      "png_sha256": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+      "position": [
+        0.101019822061062,
+        0.0669259279966354,
+        -0.00157027831301093
+      ],
+      "rotation": [
+        -0.00172869255766273,
+        0.000598742859438062,
+        -0.0140195861458778
+      ],
+      "gap_m": 0.1538937240839,
+      "pixels": {
+        "boundary_y": 439,
+        "floor_pixels": 41,
+        "column_range": [
+          439,
+          439
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+      "physics_tick": 2929
+    },
+    {
+      "case": "r21-stock",
+      "label": "observation-5",
+      "png_sha256": "ce5647750e09841f04391e2ca1ec7d8c6f238ad9e8e7b381491eaf6600098076",
+      "position": [
+        0.107637174427509,
+        0.066847637295723,
+        -0.00287876185029745
+      ],
+      "rotation": [
+        -0.00123051065020263,
+        0.00835139211267233,
+        -0.0125880166888237
+      ],
+      "gap_m": 0.147204115986824,
+      "pixels": {
+        "boundary_y": 449,
+        "floor_pixels": 31,
+        "column_range": [
+          449,
+          449
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "same-tick frame_ready body; assigned camera inferred from unchanged source/mount",
+      "physics_tick": 3772
+    },
+    {
+      "case": "r22-integral",
+      "label": "post-1",
+      "png_sha256": "94a5d5778149d25307419d7b9056ba0d07c91bcd7c07d359bd7301b3a2ad0fc4",
+      "position": [
+        0.0781149044632912,
+        0.0670795142650604,
+        0.00117040355689824
+      ],
+      "rotation": [
+        -0.000914454751182348,
+        -0.00702269515022635,
+        -0.0168308429419994
+      ],
+      "gap_m": 0.176462545990944,
+      "pixels": {
+        "boundary_y": 413,
+        "floor_pixels": 67,
+        "column_range": [
+          413,
+          413
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+      "physics_tick": 217
+    },
+    {
+      "case": "r22-integral",
+      "label": "post-2",
+      "png_sha256": "e87d9d73a8f74db4432e0e4d71fef7ca5074dff5574bc061d02541577438dc7b",
+      "position": [
+        0.0938391238451004,
+        0.0668774768710136,
+        0.00162833044305444
+      ],
+      "rotation": [
+        0.00249994313344359,
+        -0.00765692954882979,
+        -0.0128413438796997
+      ],
+      "gap_m": 0.161000460386276,
+      "pixels": {
+        "boundary_y": 431,
+        "floor_pixels": 49,
+        "column_range": [
+          431,
+          431
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+      "physics_tick": 354
+    },
+    {
+      "case": "r22-integral",
+      "label": "post-3",
+      "png_sha256": "b62d5350d0d3a90d59ea251f99fa4b32cd2e20d3d3e26be0b9369f902c18e861",
+      "position": [
+        0.115340746939182,
+        0.0671058371663094,
+        0.00169241765979677
+      ],
+      "rotation": [
+        -0.00233691977337003,
+        0.00707964692264795,
+        -0.0170374065637589
+      ],
+      "gap_m": 0.139222875237465,
+      "pixels": {
+        "boundary_y": 458,
+        "floor_pixels": 22,
+        "column_range": [
+          458,
+          458
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+      "physics_tick": 481
+    },
+    {
+      "case": "r22-integral",
+      "label": "bridge-observed",
+      "png_sha256": "483a4f55cde12374e8937e6412655e86c441d8bb609be9dbed602cf6457f3968",
+      "position": [
+        0.114679262042046,
+        0.0669016167521477,
+        0.00180780363734812
+      ],
+      "rotation": [
+        -0.000995400594547391,
+        0.00866530649363995,
+        -0.0135719198733568
+      ],
+      "gap_m": 0.140087306499481,
+      "pixels": {
+        "boundary_y": 458,
+        "floor_pixels": 22,
+        "column_range": [
+          458,
+          458
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "pose_provenance": "actual assigned camera * inverse mount, archived frame callback",
+      "physics_tick": 528
+    }
+  ],
+  "input_sha256": {
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\completion\\adaptive-ai-r21\\provenance\\adaptive-audit.json": "b5d7d05731a089fd854e4f542993f78943633695a54400381f6bdd649eb0a053",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\completion\\adaptive-ai-r21\\runtime\\actor\\camera\\observation-1.png": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\completion\\adaptive-ai-r21\\runtime\\actor\\camera\\observation-2.png": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\completion\\adaptive-ai-r21\\runtime\\actor\\camera\\observation-3.png": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\completion\\adaptive-ai-r21\\runtime\\actor\\camera\\observation-4.png": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\completion\\adaptive-ai-r21\\runtime\\actor\\camera\\observation-5.png": "ce5647750e09841f04391e2ca1ec7d8c6f238ad9e8e7b381491eaf6600098076",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\integral\\measured.json": "749890dd5da730fb0fbd7f376568c4bd760774e9a60e6cccb662296ac1398592",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\integral\\post-1.png": "94a5d5778149d25307419d7b9056ba0d07c91bcd7c07d359bd7301b3a2ad0fc4",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\integral\\post-2.png": "e87d9d73a8f74db4432e0e4d71fef7ca5074dff5574bc061d02541577438dc7b",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\integral\\post-3.png": "b62d5350d0d3a90d59ea251f99fa4b32cd2e20d3d3e26be0b9369f902c18e861",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\integral\\bridge-observed.png": "483a4f55cde12374e8937e6412655e86c441d8bb609be9dbed602cf6457f3968"
+  },
+  "r21_final_gap_m": 0.145837739109993,
+  "r22_final_gap_m": 0.139091894030571
+}

@@ -1,0 +1,19 @@
+{
+  "original_r17_source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\combo16\\attitude-brake.gd",
+  "original_sha256": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+  "candidate_sha256": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+  "candidate_control_bytes_identical_to_r17": true,
+  "endpoint_change_only": "Fixed idle1 -> actual DesktopClient observe -> context-bound Stop ->132frames evaluation",
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/observation-stop-r18/attitude-combined.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "production_applied": false,
+  "model_calls": 0
+}

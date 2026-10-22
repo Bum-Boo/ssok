@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "name": "Actual archive source identity with no Git executable on PATH",
+      "passed": true
+    },
+    {
+      "name": "Actual default local-Python launcher refuses missing token before app polling/model launch",
+      "passed": true
+    },
+    {
+      "name": "Actual altered doctor module is rejected before MCP/account probes",
+      "passed": true
+    },
+    {
+      "name": "Actual setup preserves an existing non-environment folder and refuses installation",
+      "passed": true
+    },
+    {
+      "name": "Actual dirty checkout refuses package generation",
+      "passed": true
+    },
+    {
+      "name": "Two clean operator builds have identical ZIP bytes",
+      "passed": true
+    },
+    {
+      "name": "Actual repeated setup reuses local environment and preserves interpreter/config and package bytes",
+      "passed": true
+    }
+  ],
+  "passed": 7,
+  "failed": 0,
+  "model_calls": 0,
+  "app_launches": 0,
+  "killed_processes": 0
+}

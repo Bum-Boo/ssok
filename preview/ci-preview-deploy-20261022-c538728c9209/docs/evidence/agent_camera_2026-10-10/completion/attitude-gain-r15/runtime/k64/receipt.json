@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/attitude-gain-r15/callback_probe.gd",
+    "--",
+    "--case",
+    "k64",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-gain-r15\\k64"
+  ],
+  "exit_code": 0,
+  "seconds": 20.99105559999589,
+  "timed_out": false,
+  "source426_unchanged": true,
+  "production_applied": false
+}

@@ -1,0 +1,101 @@
+extends SceneTree
+
+class ProbeLeaf extends ActionLeaf:
+	var response: int = SUCCESS
+	var ticks: int = 0
+	var interruptions: int = 0
+
+	func tick(_actor: Node, _blackboard: Blackboard) -> int:
+		ticks += 1
+		return response
+
+	func interrupt(_actor: Node, _blackboard: Blackboard) -> void:
+		interruptions += 1
+
+var checks: int = 0
+var failures: Array[String] = []
+var entered: Array[StringName] = []
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _check(value: bool, label: String) -> void:
+	checks += 1
+	if not value:
+		failures.append(label)
+	print("CHECK ", "PASS " if value else "FAIL ", label)
+
+func _run() -> void:
+	# SceneTree script execution initializes the plugin singletons explicitly.
+	for entry: Array in [
+		["BeehaveGlobalMetrics", "res://addons/beehave/metrics/beehave_global_metrics.gd"],
+		["BeehaveGlobalDebugger", "res://addons/beehave/debug/global_debugger.gd"]
+	]:
+		if root.get_node_or_null(entry[0]) == null:
+			var singleton: Node = load(entry[1]).new()
+			singleton.name = entry[0]
+			root.add_child(singleton)
+	var actor := Node.new()
+	actor.name = "SyntheticRobot"
+	root.add_child(actor)
+	var tree := BeehaveTree.new()
+	tree.process_thread = BeehaveTree.ProcessThread.MANUAL
+	var sequence := SequenceComposite.new()
+	var first := ProbeLeaf.new()
+	first.name = "Pick"
+	var second := ProbeLeaf.new()
+	second.name = "Place"
+	sequence.add_child(first)
+	sequence.add_child(second)
+	tree.add_child(sequence)
+	actor.add_child(tree)
+	first.response = BeehaveNode.RUNNING
+	_check(tree.tick() == BeehaveNode.RUNNING, "Beehave reports running")
+	_check(second.ticks == 0, "Running pickup blocks placement")
+	tree.interrupt()
+	_check(first.interruptions > 0, "Interrupt reaches active action")
+	_check(second.ticks == 0, "Interrupt does not execute placement")
+	first.response = BeehaveNode.FAILURE
+	_check(tree.tick() == BeehaveNode.FAILURE, "Beehave reports failure")
+	_check(second.ticks == 0, "Failed pickup blocks placement")
+	first.response = BeehaveNode.SUCCESS
+	_check(tree.tick() == BeehaveNode.SUCCESS, "Sequence succeeds when both actions succeed")
+	_check(second.ticks == 1, "Placement executes once after pickup succeeds")
+	actor.queue_free()
+	await process_frame
+
+	var chart := StateChart.new()
+	var flow := CompoundState.new()
+	flow.name = "Mission"
+	flow.initial_state = NodePath("Assemble")
+	for state_name: StringName in [&"Assemble", &"Run", &"Success"]:
+		var state := AtomicState.new()
+		state.name = state_name
+		state.state_entered.connect(func() -> void: entered.append(state_name))
+		flow.add_child(state)
+	_add_transition(flow.get_node("Assemble"), "wired", "../../Run")
+	_add_transition(flow.get_node("Run"), "goal_observed", "../../Success")
+	_add_transition(flow.get_node("Success"), "retry", "../../Assemble")
+	chart.add_child(flow)
+	root.add_child(chart)
+	await process_frame
+	_check(entered == [&"Assemble"], "State Charts starts at assembly")
+	chart.send_event(&"wired")
+	_check(entered.back() == &"Run", "Wiring event starts run state")
+	chart.send_event(&"goal_observed")
+	_check(entered.back() == &"Success", "Observed goal enters success state")
+	chart.freeze()
+	chart.thaw()
+	chart.send_event(&"retry")
+	_check(entered.back() == &"Assemble", "Retry returns to assembly after thaw")
+	chart.queue_free()
+	await process_frame
+	print("RESULT ", JSON.stringify({"engine": Engine.get_version_info().string, "checks": checks, "failures": failures, "scope": "Synthetic native addon execution; no robot physics, web, or live AI"}))
+	quit(0 if failures.is_empty() else 1)
+
+func _add_transition(state: Node, event: StringName, target: String) -> void:
+	var transition := Transition.new()
+	transition.name = event
+	transition.event = event
+	transition.to = NodePath(target)
+	state.add_child(transition)

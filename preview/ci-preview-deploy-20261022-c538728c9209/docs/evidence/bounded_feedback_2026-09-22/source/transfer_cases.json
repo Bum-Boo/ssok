@@ -1,0 +1,91 @@
+{
+  "purpose": "Development transfer diagnostic in corrected torque model; previously tested conditions, not held-out certification",
+  "old_policy_sha256": "9518b2f31040b1c6bd1d5328c0cc4015f100633683ed60bedaad289cf9387f76",
+  "frozen_policy_sha256": "aae5af2303a70292aa69ffec761d0398222526c6c61c4a17d69a6d49ca64cb34",
+  "cases": [
+    {
+      "group": "fresh_start",
+      "seed": 6101,
+      "settle_seconds": 3.6666666666666665,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6102,
+      "settle_seconds": 1.3166666666666667,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6110,
+      "settle_seconds": 0.06666666666666667,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6120,
+      "settle_seconds": 2.0166666666666666,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6140,
+      "settle_seconds": 3.533333333333333,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6164,
+      "settle_seconds": 3.6333333333333333,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "restart",
+      "seed": 6301,
+      "settle_seconds": 0.8166666666666667,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.1,
+      "restart_pause_seconds": 0.1
+    },
+    {
+      "group": "restart",
+      "seed": 6307,
+      "settle_seconds": 2.75,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.1,
+      "restart_pause_seconds": 1.0
+    },
+    {
+      "group": "restart",
+      "seed": 6308,
+      "settle_seconds": 3.5833333333333335,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.1,
+      "restart_pause_seconds": 3.0
+    },
+    {
+      "group": "restart",
+      "seed": 6327,
+      "settle_seconds": 3.05,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.9,
+      "restart_pause_seconds": 1.0
+    },
+    {
+      "group": "restart",
+      "seed": 6347,
+      "settle_seconds": 4.933333333333334,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 2.6,
+      "restart_pause_seconds": 1.0
+    },
+    {
+      "group": "restart",
+      "seed": 6364,
+      "settle_seconds": 4.6,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 4.7,
+      "restart_pause_seconds": 3.0
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "checkpoint": "2026-10-11T09:05:34+09:00",
+  "runtime_input_head": "5c8c41708e4126798256412ccc0345383054c365",
+  "original_source426_unchanged": true,
+  "extra_operator7_unchanged": true,
+  "app_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "app_version": "0.3.1-projects-r7",
+  "app_pe_pck_sha256": {
+    "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+    "ssok.pck": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535"
+  },
+  "operator_r14_zip_sha256": "734e273ed58f0a15ba6cc5ee2466f1c899912179e6d6ada5385a2c36c5ec7625",
+  "frozen_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "cases": {
+    "attitude32": {
+      "case": "k32",
+      "floor_pixels": [
+        23,
+        25,
+        26,
+        25,
+        26
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.8846670389169864,
+      "angular_rates": [
+        0.00457184994593263,
+        0.00449324399232864,
+        0.00446854438632727,
+        0.00502056954428554,
+        0.00527116237208247
+      ],
+      "final_gap_m": 0.141135603189468,
+      "stop_delta_from_last_frame_mm": -0.241875648499007,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.00429044896736741,
+          0.00429044896736741
+        ],
+        [
+          0.00431888177990913,
+          0.00431888177990913
+        ],
+        [
+          0.00434973184019327,
+          0.00434973184019327
+        ],
+        [
+          0.00427635759115219,
+          0.00427635759115219
+        ],
+        [
+          0.00407134555280209,
+          0.00407134555280209
+        ]
+      ],
+      "world_wheel_axis_rates": [
+        [
+          -0.0111501011997461,
+          -0.0171668343245983
+        ],
+        [
+          0.0039774477481842,
+          -3.4386230254313e-05
+        ],
+        [
+          0.00618575513362885,
+          0.00360360811464489
+        ],
+        [
+          -0.00369531498290598,
+          0.00784522294998169
+        ],
+        [
+          0.0214658621698618,
+          0.00346896587871015
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "physical": false,
+      "last_image": true,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "attitude32-rate16": {
+      "case": "combined",
+      "floor_pixels": [
+        21,
+        21,
+        23,
+        24,
+        24
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.6808191537860109,
+      "angular_rates": [
+        0.00432629883289337,
+        0.00442606117576361,
+        0.00445135682821274,
+        0.00446793390437961,
+        0.0043864599429071
+      ],
+      "final_gap_m": 0.14012835919857,
+      "stop_delta_from_last_frame_mm": -0.3383755683900036,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.00405268464237452,
+          0.00405268464237452
+        ],
+        [
+          0.00432240683585405,
+          0.00432240683585405
+        ],
+        [
+          0.00436435639858246,
+          0.00436435639858246
+        ],
+        [
+          0.00439062248915434,
+          0.00439062248915434
+        ],
+        [
+          0.00416916981339455,
+          0.00416916981339455
+        ]
+      ],
+      "world_wheel_axis_rates": [
+        [
+          -0.0207908134907484,
+          -0.0119506614282727
+        ],
+        [
+          0.0077107660472393,
+          0.00998631305992603
+        ],
+        [
+          0.0107706924900413,
+          0.0125297987833619
+        ],
+        [
+          0.00810894276946783,
+          0.00925958342850208
+        ],
+        [
+          0.0141745749861002,
+          0.00831469427794218
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "physical": false,
+      "last_image": true,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "attitude32-rate18": {
+      "case": "combined",
+      "floor_pixels": [
+        22,
+        23,
+        22,
+        23,
+        22
+      ],
+      "pixel_span": 1,
+      "capture_gap_span_mm": 1.0393708944319846,
+      "angular_rates": [
+        0.00460307253524661,
+        0.00450838496908545,
+        0.00408853590488434,
+        0.0040797358378768,
+        0.00480872811749578
+      ],
+      "final_gap_m": 0.1398636251688,
+      "stop_delta_from_last_frame_mm": -0.7601976394659982,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.00428011873736978,
+          0.00428011873736978
+        ],
+        [
+          0.00431499443948269,
+          0.00431499443948269
+        ],
+        [
+          0.00405801367014647,
+          0.00405801367014647
+        ],
+        [
+          0.00403123255819082,
+          0.00403123255819082
+        ],
+        [
+          0.00406490406021476,
+          0.00406490406021476
+        ]
+      ],
+      "world_wheel_axis_rates": [
+        [
+          -0.00906527042388916,
+          -0.0157202631235123
+        ],
+        [
+          0.0048209629021585,
+          0.00041751452954486
+        ],
+        [
+          -0.0103151723742485,
+          -0.00885271094739437
+        ],
+        [
+          0.0117399636656046,
+          0.00758451921865344
+        ],
+        [
+          0.0143404873088002,
+          0.000402214092900977
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "physical": true,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    }
+  },
+  "successful_native_runs": 3,
+  "joint_target_passes": 0,
+  "attitude_coefficient": 32,
+  "housing_rate_coefficients": [
+    16,
+    18
+  ],
+  "fixed18_comparison_after_near_bound_fail_preregistered": true,
+  "candidate_applied": false,
+  "pngs": 24,
+  "raw_files": 73,
+  "astra_actual_views": 6,
+  "inspection_serving_identity_attested": false,
+  "historical_ai_image": "9/9 unchanged",
+  "historical_ai_physical": "0/9 unchanged",
+  "model_calls_in_native_probes": 0,
+  "merged": false,
+  "published": false,
+  "global_goal_complete": false
+}

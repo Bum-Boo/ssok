@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS code mode excludes movement inputs
+FAIL learner program is sleeping after its first command
+PASS changing command source stops the sleeping program
+SCRIPT ERROR: Invalid access to property or key 'target_deg' on a base object of type 'Nil'.
+          at: _run (res://tests/control_flow_check.gd:31)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/control_flow_check.gd:31)
+
+TIMEOUT after 300 seconds

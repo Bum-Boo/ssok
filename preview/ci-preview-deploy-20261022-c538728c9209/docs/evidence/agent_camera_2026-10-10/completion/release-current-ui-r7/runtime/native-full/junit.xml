@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="ssok" tests="81" failures="2" time="401.614"><testcase name="import" time="2.987" /><testcase name="scene-load" time="0.456" /><testcase name="agent_camera_loop_check" time="4.992" /><testcase name="agent_camera_loop_check-rendered" time="16.478" /><testcase name="agent_camera_rest_check" time="24.98" /><testcase name="agent_goal_ui_check" time="5.829" /><testcase name="agent_goal_ui_check-rendered" time="16.218" /><testcase name="app_controller_check" time="4.919" /><testcase name="assembly_snap_check" time="0.367" /><testcase name="authoring_ui_check" time="5.272" /><testcase name="biped_app_check" time="18.134" /><testcase name="biped_board_clearance_check" time="1.383" /><testcase name="biped_motion_check" time="2.135" /><testcase name="blender_camera_check" time="0.272" /><testcase name="blender_edit_check" time="0.363" /><testcase name="block_program_check" time="4.812" /><testcase name="bridge_stop_owner_check" time="6.93" /><testcase name="browser_evidence_check" time="5.382" /><testcase name="construction_kit_check" time="1.111" /><testcase name="construction_kit_motion_check" time="7.123" /><testcase name="construction_kit_store_check" time="2.586" /><testcase name="construction_kit_ui_check" time="5.741" /><testcase name="control_flow_check" time="5.004" /><testcase name="core_authoring_check" time="5.925" /><testcase name="flag_mission_check" time="4.906" /><testcase name="game_flow_check" time="28.772" /><testcase name="humanoid_contract_check" time="0.279" /><testcase name="humanoid_motion_check-walk" time="1.382" /><testcase name="humanoid_motion_check-backward" time="1.387" /><testcase name="humanoid_motion_check-pick" time="1.385" /><testcase name="humanoid_motion_check-run" time="1.383" /><testcase name="humanoid_motion_check-walk-reverse-links" time="1.382" /><testcase name="humanoid_motion_check-run-reverse-links" time="1.383" /><testcase name="humanoid_motion_check-run-settle-frames=181" time="1.389" /><testcase name="humanoid_ui_check" time="5.843" /><testcase name="humanoid_ui_check-modular" time="6.215" /><testcase name="interface_preferences_check" time="7.864" /><testcase name="keyboard_navigation_check" time="4.999" /><testcase name="learned_app_check" time="5.085" /><testcase name="learned_policy_check" time="3.334" /><testcase name="learned_tracking_check" time="4.532" /><testcase name="learner_language_check" time="0.274" /><testcase name="localization_check" time="5.65" /><testcase name="manual_control_check" time="0.374" /><testcase name="material_assets_check" time="0.549" /><testcase name="mesh_assets_check" time="0.553" /><testcase name="modular_humanoid_check-walk" time="0.738" /><testcase name="modular_humanoid_check-pick" time="0.739" /><testcase name="modular_humanoid_check-pick-reverse-links" time="0.738" /><testcase name="modular_pickup_parallel_check" time="2.867" /><testcase name="motion_lab_check" time="9.345" /><testcase name="motion_lab_ui_check" time="7.595" /><testcase name="pickup_bridge_ui_check" time="10.554" /><testcase name="pickup_lab_ui_check" time="8.609" /><testcase name="pickup_store_check" time="6.014" /><testcase name="pickup_trial_check" time="6.662" /><testcase name="project_store_check" time="6.106" /><testcase name="relative_code_check" time="0.457" /><testcase name="robot_car_check" time="0.737" /><testcase name="run_mode_check" time="0.37" /><testcase name="servo_torque_budget_check" time="0.274" /><testcase name="sonar_stage_check" time="25.369" /><testcase name="stage_authoring_check" time="9.814" /><testcase name="stage_contract_check" time="14.627" /><testcase name="stage_ui_check" time="4.905" /><testcase name="tutorial_ui_check" time="5.368" /><testcase name="viewport_framing_check" time="7.029" /><testcase name="workshop_ui_check" time="5.458" /><testcase name="yaw_biped_check" time="0.555" /><testcase name="tests-camera_experiment_check.py" time="0.26" /><testcase name="tests-desktop_client_check.py" time="1.469" /><testcase name="tests-desktop_session_check.py" time="0.725" /><testcase name="tests-motion_mcp_check.py" time="4.079" /><testcase name="tests-test_ci_verify.py" time="1.608" /><testcase name="tests-test_desktop_package.py" time="0.141" /><testcase name="tests-test_pickup_bridge.py" time="1.732" /><testcase name="tests-test_release_documents.py" time="14.116"><failure message="exit 1; see tests-test_release_documents.py.log">test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... ERROR
+
+======================================================================
+ERROR: test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tests\test_release_documents.py", line 31, in test_documentation_links_survive_packaging_and_extraction
+    for match in re.finditer(r"\]\((&lt;[^&gt;]+&gt;|[^\s)]+)(?:\s+[^)]*)?\)", document.read_text()):
+                                                                      ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\build\toolchain-windows\python\cpython-3.14.7-windows-x86_64-none\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'cp949' codec can't decode byte 0xe2 in position 33: illegal multibyte sequence
+
+----------------------------------------------------------------------
+Ran 1 test in 13.997s
+
+FAILED (errors=1)
+</failure></testcase><testcase name="tools-docs-test_maintain.py" time="0.295" /><testcase name="tools-motion_lab-test_races.py" time="1.257" /><testcase name="tools-motion_lab-test_service.py" time="1.769" /><testcase name="tools-rl_lab-test_rl_lab.py" time="0.914"><failure message="exit 1; see tools-rl_lab-test_rl_lab.py.log">test_policy_round_trip (tools.rl_lab.test_rl_lab.EnvTest.test_policy_round_trip) ... ok
+test_step_is_finite_and_success_uses_task_metrics (tools.rl_lab.test_rl_lab.EnvTest.test_step_is_finite_and_success_uses_task_metrics) ... ERROR
+test_biped_loads_with_one_actuator_per_wired_hinge (tools.rl_lab.test_rl_lab.MjcfTest.test_biped_loads_with_one_actuator_per_wired_hinge) ... ok
+test_compound_export_preserves_mass_and_all_colliders (tools.rl_lab.test_rl_lab.MjcfTest.test_compound_export_preserves_mass_and_all_colliders) ... ok
+test_holds_assembly_pose_standing (tools.rl_lab.test_rl_lab.MjcfTest.test_holds_assembly_pose_standing) ... ERROR
+test_mjcf_is_deterministic (tools.rl_lab.test_rl_lab.MjcfTest.test_mjcf_is_deterministic) ... ok
+test_physics_rate_is_explicit_and_preserves_control_rate (tools.rl_lab.test_rl_lab.MjcfTest.test_physics_rate_is_explicit_and_preserves_control_rate) ... ERROR
+test_live_requires_consent_key_and_respects_call_cap (tools.rl_lab.test_rl_lab.PaidRequestGuardTest.test_live_requires_consent_key_and_respects_call_cap) ... error: --live needs --allow-paid; no request was sent
+error: OPENAI_API_KEY is not set in this terminal; no request was sent
+ok
+test_accepts_bounded_numbers_only (tools.rl_lab.test_rl_lab.ProposalTest.test_accepts_bounded_numbers_only) ... ok
+test_mock_reacts_to_drift (tools.rl_lab.test_rl_lab.ProposalTest.test_mock_reacts_to_drift) ... ERROR
+
+======================================================================
+ERROR: test_step_is_finite_and_success_uses_task_metrics (tools.rl_lab.test_rl_lab.EnvTest.test_step_is_finite_and_success_uses_task_metrics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\test_rl_lab.py", line 66, in test_step_is_finite_and_success_uses_task_metrics
+    env = WalkEnv(EnvConfig())
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 69, in __init__
+    self.task = load_task(config.task_json)
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 57, in load_task
+    task = json.loads(Path(path).read_text())
+                      ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\build\toolchain-windows\python\cpython-3.14.7-windows-x86_64-none\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'cp949' codec can't decode byte 0x88 in position 152: illegal multibyte sequence
+
+======================================================================
+ERROR: test_holds_assembly_pose_standing (tools.rl_lab.test_rl_lab.MjcfTest.test_holds_assembly_pose_standing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\test_rl_lab.py", line 56, in test_holds_assembly_pose_standing
+    env = WalkEnv(EnvConfig(init_noise_rad=0.0))
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 69, in __init__
+    self.task = load_task(config.task_json)
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 57, in load_task
+    task = json.loads(Path(path).read_text())
+                      ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\build\toolchain-windows\python\cpython-3.14.7-windows-x86_64-none\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'cp949' codec can't decode byte 0x88 in position 152: illegal multibyte sequence
+
+======================================================================
+ERROR: test_physics_rate_is_explicit_and_preserves_control_rate (tools.rl_lab.test_rl_lab.MjcfTest.test_physics_rate_is_explicit_and_preserves_control_rate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\test_rl_lab.py", line 41, in test_physics_rate_is_explicit_and_preserves_control_rate
+    env = WalkEnv(EnvConfig(physics_hz=hz, init_noise_rad=0.0))
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 69, in __init__
+    self.task = load_task(config.task_json)
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 57, in load_task
+    task = json.loads(Path(path).read_text())
+                      ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\build\toolchain-windows\python\cpython-3.14.7-windows-x86_64-none\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'cp949' codec can't decode byte 0x88 in position 152: illegal multibyte sequence
+
+======================================================================
+ERROR: test_mock_reacts_to_drift (tools.rl_lab.test_rl_lab.ProposalTest.test_mock_reacts_to_drift)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\test_rl_lab.py", line 107, in test_mock_reacts_to_drift
+    task = WalkEnv(EnvConfig()).task
+           ~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 69, in __init__
+    self.task = load_task(config.task_json)
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tools\rl_lab\env.py", line 57, in load_task
+    task = json.loads(Path(path).read_text())
+                      ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\build\toolchain-windows\python\cpython-3.14.7-windows-x86_64-none\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+UnicodeDecodeError: 'cp949' codec can't decode byte 0x88 in position 152: illegal multibyte sequence
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.055s
+
+FAILED (errors=4)
+</failure></testcase></testsuite>

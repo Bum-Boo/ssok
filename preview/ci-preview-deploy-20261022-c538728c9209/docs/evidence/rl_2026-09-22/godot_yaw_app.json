@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-22",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "platform": "Linux x86_64 native",
+  "policy_sha256": "42246c56f5074b98ddd7b8f9c1b4e243dc1191c6fd5d6d114e1bbaf3df9e8b9e",
+  "scope": "Actual main scene, learned example button, Run mode and injected W press/release; 720 physics frames at60Hz then90 stopped frames. Restart case first walks180 frames then stops60 frames. Deterministic integration cases, not randomized held-out evaluation or WASM verification.",
+  "command": "godot --headless --path . --language en --fixed-fps 60 --script tests/learned_app_check.gd -- --settle-frames=N [--restart]",
+  "gates": {
+    "forward_m": 0.3,
+    "max_lateral_m": 0.1,
+    "max_yaw_degrees": 30,
+    "minimum_up": 0.85,
+    "minimum_height_m": 0.09,
+    "stopped_up": 0.9,
+    "authored_graph_unchanged": true,
+    "edited_graph_rejected": true
+  },
+  "episodes": [
+    {
+      "settle_frames": 60,
+      "restart": false,
+      "forward_m": 0.42019,
+      "lateral_m": 0.0758,
+      "yaw_degrees": 25.894,
+      "minimum_up": 0.959,
+      "minimum_height_m": 0.1293,
+      "checks": 735,
+      "failures": 0
+    },
+    {
+      "settle_frames": 60,
+      "restart": true,
+      "forward_m": 0.40839,
+      "lateral_m": -0.04952,
+      "yaw_degrees": -10.976,
+      "minimum_up": 0.9714,
+      "minimum_height_m": 0.1291,
+      "checks": 734,
+      "failures": 0
+    },
+    {
+      "settle_frames": 0,
+      "restart": false,
+      "forward_m": 0.41964,
+      "lateral_m": -0.03192,
+      "yaw_degrees": -16.624,
+      "minimum_up": 0.9577,
+      "minimum_height_m": 0.1278,
+      "checks": 734,
+      "failures": 0
+    },
+    {
+      "settle_frames": 120,
+      "restart": false,
+      "forward_m": 0.42703,
+      "lateral_m": 0.05009,
+      "yaw_degrees": 12.283,
+      "minimum_up": 0.958,
+      "minimum_height_m": 0.1292,
+      "checks": 734,
+      "failures": 0
+    },
+    {
+      "settle_frames": 180,
+      "restart": false,
+      "forward_m": 0.42113,
+      "lateral_m": 0.03933,
+      "yaw_degrees": 8.55,
+      "minimum_up": 0.9599,
+      "minimum_height_m": 0.1291,
+      "checks": 734,
+      "failures": 0
+    }
+  ]
+}

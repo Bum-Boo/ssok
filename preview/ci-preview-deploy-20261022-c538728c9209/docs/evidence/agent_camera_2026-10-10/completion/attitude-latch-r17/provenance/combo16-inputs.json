@@ -1,0 +1,26 @@
+{
+  "reference_policy": "powered-forward brake entry",
+  "attitude_coefficient": 32,
+  "added_existing_housing_rate": 16,
+  "one_added_feedback_term": true,
+  "original_three_probes_preserved": true,
+  "fixture_sha256": {
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\combo16\\attitude-brake.gd": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\combo16\\callback_probe.gd": "63bbf79a6fc21745b0b87bfc414c31ae8fc096acf987df9fe1d863e4ca58ad19",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\combo16\\callback_sampler.gd": "b584cc1a08950690b5828ac39a785022f9f953712d1ffb455ff64f12fea6f254",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\combo16\\motor_callback.gd": "5e955f80cb2fd6718451c7f1efd5bbc9d5352ad932de79498dbbb2b70907215b",
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r17-combo16-run.py": "543201c66110c1e712b51a89033d6b64f68ffc58477517d2982755e1217a82b3",
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r17-combo16-target.py": "deb2ca51f62021a8fb231d82bc275735e60fdba191b2755f75cc55193bf7cb43"
+  },
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/attitude-latch-r17/combo16/attitude-brake.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "production_applied": false
+}

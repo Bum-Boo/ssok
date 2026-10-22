@@ -1,0 +1,284 @@
+{
+  "phase": "independent developer pixel measurement; Astra visual review pending",
+  "source_inputs_unchanged": true,
+  "goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "image_success": 9,
+  "physical_success": 0,
+  "trials": [
+    {
+      "trial": "layout1-run1",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout1-run1\\actor\\camera\\observation-5.png",
+      "sha256": "f49b07af114757e7ac35bbb21bc2c6a8cec4dbec0af23f372870f82b6f79a505",
+      "pixel": {
+        "boundary_y": 453,
+        "floor_pixels": 27,
+        "column_range": [
+          453,
+          453
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.142193824052811,
+      "actions": 4,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout1-run2",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout1-run2\\actor\\camera\\observation-4.png",
+      "sha256": "a3fe3f03388de238236dfd8fea4d8451664f10f2249f4848c0ce85b77ab706ce",
+      "pixel": {
+        "boundary_y": 448,
+        "floor_pixels": 32,
+        "column_range": [
+          448,
+          448
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.146689906716347,
+      "actions": 3,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout1-run3",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout1-run3\\actor\\camera\\observation-4.png",
+      "sha256": "4d466a9e28ddbea51e056298c46546b4c2b06e5f83d27d50b582ea4fa353dc96",
+      "pixel": {
+        "boundary_y": 456,
+        "floor_pixels": 24,
+        "column_range": [
+          456,
+          456
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.141289353370667,
+      "actions": 3,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout2-run1",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout2-run1\\actor\\camera\\observation-6.png",
+      "sha256": "983785e1a3c2fbee950037e21c363e53006b03a0b044462873169da1486e5835",
+      "pixel": {
+        "boundary_y": 444,
+        "floor_pixels": 36,
+        "column_range": [
+          444,
+          444
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.149675071239471,
+      "actions": 5,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout2-run2",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout2-run2\\actor\\camera\\observation-6.png",
+      "sha256": "ffdb8d7ef120cc206108867e91b34fac1a027a1245eab3a98197170edcbd0f2a",
+      "pixel": {
+        "boundary_y": 443,
+        "floor_pixels": 37,
+        "column_range": [
+          443,
+          443
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.148473113775253,
+      "actions": 5,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout2-run3",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout2-run3\\actor\\camera\\observation-6.png",
+      "sha256": "520ddbbb34e6c85a193227067d9fc292782c0e9000a3b374d59b7dd945eca2e6",
+      "pixel": {
+        "boundary_y": 445,
+        "floor_pixels": 35,
+        "column_range": [
+          445,
+          445
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.149192839860916,
+      "actions": 5,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout3-run1",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout3-run1\\actor\\camera\\observation-7.png",
+      "sha256": "f01a2e660bce0cd257c9c202950b93fdade87e74dcb653eca530b71e31aa1d35",
+      "pixel": {
+        "boundary_y": 443,
+        "floor_pixels": 37,
+        "column_range": [
+          443,
+          443
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.149975657463074,
+      "actions": 6,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout3-run2",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout3-run2\\actor\\camera\\observation-8.png",
+      "sha256": "edf4a0a7df08cc9805b51ae1833dcd5ae8a94645783e775b2c93e4c2cf779210",
+      "pixel": {
+        "boundary_y": 443,
+        "floor_pixels": 37,
+        "column_range": [
+          443,
+          443
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.149549305438995,
+      "actions": 7,
+      "transport_cli_exit": 0
+    },
+    {
+      "trial": "layout3-run3",
+      "final_image": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\clarified-hold-medium-final\\layout3-run3\\actor\\camera\\observation-8.png",
+      "sha256": "1029b71a6910c39946ff83822b288f3b8feb6d6f9a85ecd4d86fcb78e3ed78db",
+      "pixel": {
+        "boundary_y": 443,
+        "floor_pixels": 37,
+        "column_range": [
+          443,
+          443
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "physical": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": true,
+          "forward_progress": true,
+          "gap_in_target": false,
+          "no_contact": true,
+          "rest_after_stop": true,
+          "action_reobservation_stop": true
+        }
+      },
+      "gap_m": 0.147684097290039,
+      "actions": 7,
+      "transport_cli_exit": 0
+    }
+  ],
+  "study_summary": {
+    "trials": 9,
+    "successful": 0,
+    "transport_failures": 0
+  }
+}

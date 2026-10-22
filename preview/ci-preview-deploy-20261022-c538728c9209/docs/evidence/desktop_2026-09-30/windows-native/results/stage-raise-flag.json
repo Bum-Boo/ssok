@@ -1,0 +1,219 @@
+{
+  "author_solution": {
+    "format": "ssok-project",
+    "graph": {
+      "links": [
+        {
+          "a_part": 0,
+          "a_port": "mount_top",
+          "b_part": 1,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 1,
+          "a_port": "output_shaft",
+          "b_part": 2,
+          "b_port": "mount_base"
+        },
+        {
+          "a_part": 1,
+          "a_port": "signal_pin",
+          "b_part": 3,
+          "b_port": "pin_0"
+        }
+      ],
+      "parts": [
+        {
+          "id": "base",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.05999999865889549,
+            0.0
+          ]
+        },
+        {
+          "id": "servo",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.08500000089406967,
+            0.0
+          ]
+        },
+        {
+          "id": "arm_link",
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.016499999910593033,
+            0.125,
+            0.0
+          ]
+        },
+        {
+          "id": "microbit",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.11999999731779099,
+            0.05249999836087227,
+            0.0
+          ]
+        }
+      ],
+      "version": 1
+    },
+    "saved_utc": "2026-09-30T10:13:22",
+    "source": "arm = Servo(pin0)\narm.write(90)\nsleep(1000)\narm.write(0)\nsleep(2000)\n",
+    "title": "Raise the flag",
+    "version": 1
+  },
+  "constraints": {
+    "max_parts": 256,
+    "time_limit": 60.0
+  },
+  "format": "ssok-stage",
+  "id": "raise-flag",
+  "rules": [
+    {
+      "hold_seconds": 1.0,
+      "max": 100.0,
+      "metric": "height",
+      "min": 0.155,
+      "part_id": "arm_link"
+    }
+  ],
+  "scene": {
+    "format": "ssok-project",
+    "graph": {
+      "links": [
+        {
+          "a_part": 0,
+          "a_port": "mount_top",
+          "b_part": 1,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 1,
+          "a_port": "output_shaft",
+          "b_part": 2,
+          "b_port": "mount_base"
+        },
+        {
+          "a_part": 1,
+          "a_port": "signal_pin",
+          "b_part": 3,
+          "b_port": "pin_0"
+        }
+      ],
+      "parts": [
+        {
+          "id": "base",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.05999999865889549,
+            0.0
+          ]
+        },
+        {
+          "id": "servo",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.08500000089406967,
+            0.0
+          ]
+        },
+        {
+          "id": "arm_link",
+          "transform": [
+            0.0,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.016499999910593033,
+            0.125,
+            0.0
+          ]
+        },
+        {
+          "id": "microbit",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.11999999731779099,
+            0.05249999836087227,
+            0.0
+          ]
+        }
+      ],
+      "version": 1
+    },
+    "saved_utc": "2026-09-30T10:12:59",
+    "source": "arm = Servo(pin0)\narm.write(90)\nsleep(1000)\narm.write(0)\nsleep(2000)\n",
+    "title": "Raise the flag",
+    "version": 1
+  },
+  "title": "Raise the flag",
+  "version": 1
+}

@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.5 (Core Profile) Mesa 26.0.3-1ubuntu1 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 21.1.8, 256 bits)
+
+Movie Maker mode enabled, recording movie in 1152×648 @ 30 FPS...
+LEARNED_RECORDING {"engine":"4.7.2-stable (official)","forward_m":0.420723378658295,"graph_fingerprint":"c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7","lateral_m":0.0256671253591776,"minimum_height_m":0.128830504417419,"minimum_up":0.965398490428925,"physics_hz":60,"playback_speed":1.0,"policy_sha256":"4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d","policy_version":2,"render_fps":30,"runtime_fingerprint":"0a269bde27b83ce81d78c5fa745237ab960316f4660e6714b624b0a85c6361ae","stopped_up":0.999788343906403,"success":true,"walking_seconds":12.0,"yaw_degrees":10.386838571794}
+--------------------------------------------------------------------------------
+Done recording movie at path: /home/hojun/.local/share/agent-remote/jobs/20260922-172427-ssok-heading-framed-recording-fdc9e3fd/work/out/learned-app.avi
+437 frames at 30 FPS (movie length: 00:00:14:17), recorded in 00:00:20 (70% of real-time speed).
+CPU render time: 4.93 seconds (average: 11.28 ms/frame)
+GPU render time: 8.94 seconds (average: 20.46 ms/frame)
+Encoding time: 2.55 seconds (average: 5.84 ms/frame)
+--------------------------------------------------------------------------------
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)

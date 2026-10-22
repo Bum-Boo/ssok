@@ -1,0 +1,215 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (81 steps)
+[   0% ] update_scripts_classes | 
+[   1% ] update_scripts_classes | BeehaveDebuggerMessages
+[   2% ] update_scripts_classes | BeehaveDebuggerTab
+[   3% ] update_scripts_classes | 
+[   4% ] update_scripts_classes | 
+[   6% ] update_scripts_classes | 
+[   7% ] update_scripts_classes | 
+[   8% ] update_scripts_classes | 
+[   9% ] update_scripts_classes | 
+[  10% ] update_scripts_classes | 
+[  12% ] update_scripts_classes | 
+[  13% ] update_scripts_classes | TreeNode
+[  14% ] update_scripts_classes | 
+[  15% ] update_scripts_classes | Composite
+[  17% ] update_scripts_classes | RandomizedComposite
+[  18% ] update_scripts_classes | SelectorComposite
+[  19% ] update_scripts_classes | SelectorRandomComposite
+[  20% ] update_scripts_classes | SelectorReactiveComposite
+[  21% ] update_scripts_classes | SequenceComposite
+[  23% ] update_scripts_classes | SequenceRandomComposite
+[  24% ] update_scripts_classes | SequenceReactiveComposite
+[  25% ] update_scripts_classes | SequenceStarComposite
+[  26% ] update_scripts_classes | SimpleParallelComposite
+[  28% ] update_scripts_classes | CooldownDecorator
+[  29% ] update_scripts_classes | Decorator
+[  30% ] update_scripts_classes | DelayDecorator
+[  31% ] update_scripts_classes | AlwaysFailDecorator
+[  32% ] update_scripts_classes | InverterDecorator
+[  34% ] update_scripts_classes | LimiterDecorator
+[  35% ] update_scripts_classes | RepeaterDecorator
+[  36% ] update_scripts_classes | AlwaysSucceedDecorator
+[  37% ] update_scripts_classes | TimeLimiterDecorator
+[  39% ] update_scripts_classes | UntilFailDecorator
+[  40% ] update_scripts_classes | ActionLeaf
+[  41% ] update_scripts_classes | BlackboardCompareCondition
+[  42% ] update_scripts_classes | BlackboardEraseAction
+[  43% ] update_scripts_classes | BlackboardHasCondition
+[  45% ] update_scripts_classes | BlackboardSetAction
+[  46% ] update_scripts_classes | ConditionLeaf
+[  47% ] update_scripts_classes | Leaf
+[  48% ] update_scripts_classes | BeehaveNode
+[  50% ] update_scripts_classes | BeehaveTree
+[  51% ] update_scripts_classes | 
+[  52% ] update_scripts_classes | Blackboard
+[  53% ] update_scripts_classes | 
+[  54% ] update_scripts_classes | 
+[  56% ] update_scripts_classes | 
+[  57% ] update_scripts_classes | 
+[  58% ] update_scripts_classes | 
+[  59% ] update_scripts_classes | 
+[  60% ] update_scripts_classes | 
+[  62% ] update_scripts_classes | 
+[  63% ] update_scripts_classes | 
+[  64% ] update_scripts_classes | 
+[  65% ] update_scripts_classes | 
+[  67% ] update_scripts_classes | 
+[  68% ] update_scripts_classes | 
+[  69% ] update_scripts_classes | 
+[  70% ] update_scripts_classes | 
+[  71% ] update_scripts_classes | AllOfGuard
+[  73% ] update_scripts_classes | AnimationPlayerState
+[  74% ] update_scripts_classes | AnimationTreeState
+[  75% ] update_scripts_classes | AnyOfGuard
+[  76% ] update_scripts_classes | AtomicState
+[  78% ] update_scripts_classes | CompoundState
+[  79% ] update_scripts_classes | 
+[  80% ] update_scripts_classes | ExpressionGuard
+[  81% ] update_scripts_classes | 
+[  82% ] update_scripts_classes | 
+[  84% ] update_scripts_classes | Guard
+[  85% ] update_scripts_classes | HistoryState
+[  86% ] update_scripts_classes | NotGuard
+[  87% ] update_scripts_classes | ParallelState
+[  89% ] update_scripts_classes | SavedState
+[  90% ] update_scripts_classes | SerializedStateChart
+[  91% ] update_scripts_classes | SerializedStateChartState
+[  92% ] update_scripts_classes | StateChart
+[  93% ] update_scripts_classes | StateChartSerializer
+[  95% ] update_scripts_classes | StateChartState
+[  96% ] update_scripts_classes | StateIsActiveGuard
+[  97% ] update_scripts_classes | Transition
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started Scanning actions... (45 steps)
+[   0% ] _update_scan_actions | horizontal_layout.svg
+[   2% ] _update_scan_actions | port_bottom.svg
+[   4% ] _update_scan_actions | port_left.svg
+[   6% ] _update_scan_actions | port_right.svg
+[   8% ] _update_scan_actions | port_top.svg
+[  10% ] _update_scan_actions | vertical_layout.svg
+[  13% ] _update_scan_actions | action.svg
+[  15% ] _update_scan_actions | blackboard.svg
+[  17% ] _update_scan_actions | category_bt.svg
+[  19% ] _update_scan_actions | category_composite.svg
+[  21% ] _update_scan_actions | category_decorator.svg
+[  23% ] _update_scan_actions | category_leaf.svg
+[  26% ] _update_scan_actions | condition.svg
+[  28% ] _update_scan_actions | cooldown.svg
+[  30% ] _update_scan_actions | delayer.svg
+[  32% ] _update_scan_actions | failer.svg
+[  34% ] _update_scan_actions | inverter.svg
+[  36% ] _update_scan_actions | limiter.svg
+[  39% ] _update_scan_actions | repeater.svg
+[  41% ] _update_scan_actions | selector.svg
+[  43% ] _update_scan_actions | selector_random.svg
+[  45% ] _update_scan_actions | selector_reactive.svg
+[  47% ] _update_scan_actions | sequence.svg
+[  50% ] _update_scan_actions | sequence_random.svg
+[  52% ] _update_scan_actions | sequence_reactive.svg
+[  54% ] _update_scan_actions | simple_parallel.svg
+[  56% ] _update_scan_actions | succeeder.svg
+[  58% ] _update_scan_actions | tree.svg
+[  60% ] _update_scan_actions | until_fail.svg
+[  63% ] _update_scan_actions | state_chart_debugger.svg
+[  65% ] _update_scan_actions | all_of_guard.svg
+[  67% ] _update_scan_actions | animation_player_state.svg
+[  69% ] _update_scan_actions | animation_tree_state.svg
+[  71% ] _update_scan_actions | any_of_guard.svg
+[  73% ] _update_scan_actions | atomic_state.svg
+[  76% ] _update_scan_actions | compound_state.svg
+[  78% ] _update_scan_actions | expression_guard.svg
+[  80% ] _update_scan_actions | guard.svg
+[  82% ] _update_scan_actions | history_state.svg
+[  84% ] _update_scan_actions | not_guard.svg
+[  86% ] _update_scan_actions | parallel_state.svg
+[  89% ] _update_scan_actions | state_chart.svg
+[  91% ] _update_scan_actions | state_is_active_guard.svg
+[  93% ] _update_scan_actions | toggle_sidebar.svg
+[  95% ] _update_scan_actions | transition.svg
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started (Re)Importing Assets (29 steps)
+[   0% ] reimport | Preparing files to reimport...
+[   3% ] reimport | Preparing files to reimport...
+[   6% ] reimport | Preparing files to reimport...
+[  10% ] reimport | Preparing files to reimport...
+[  13% ] reimport | Preparing files to reimport...
+[  16% ] reimport | Preparing files to reimport...
+[  20% ] reimport | Preparing files to reimport...
+[  23% ] reimport | Preparing files to reimport...
+[  26% ] reimport | Preparing files to reimport...
+[  30% ] reimport | Preparing files to reimport...
+[  33% ] reimport | Preparing files to reimport...
+[  36% ] reimport | Preparing files to reimport...
+[  40% ] reimport | Preparing files to reimport...
+[  43% ] reimport | Preparing files to reimport...
+[  46% ] reimport | Preparing files to reimport...
+[  50% ] reimport | Preparing files to reimport...
+[  53% ] reimport | Preparing files to reimport...
+[  56% ] reimport | Preparing files to reimport...
+[  60% ] reimport | Preparing files to reimport...
+[  63% ] reimport | Preparing files to reimport...
+[  66% ] reimport | Preparing files to reimport...
+[  70% ] reimport | Preparing files to reimport...
+[  73% ] reimport | Preparing files to reimport...
+[  76% ] reimport | Preparing files to reimport...
+[  80% ] reimport | Preparing files to reimport...
+[  83% ] reimport | Preparing files to reimport...
+[  86% ] reimport | Preparing files to reimport...
+[  90% ] reimport | Preparing files to reimport...
+[  93% ] reimport | Preparing files to reimport...
+[   0% ] reimport | Executing pre-reimport operations...
+[   0% ] reimport | state_is_active_guard.svg
+[   3% ] reimport | not_guard.svg
+[   6% ] reimport | guard.svg
+[  10% ] reimport | expression_guard.svg
+[  13% ] reimport | any_of_guard.svg
+[  16% ] reimport | all_of_guard.svg
+[  20% ] reimport | state_chart_debugger.svg
+[  23% ] reimport | until_fail.svg
+[  26% ] reimport | succeeder.svg
+[  30% ] reimport | simple_parallel.svg
+[  33% ] reimport | sequence_reactive.svg
+[  36% ] reimport | sequence_random.svg
+[  40% ] reimport | sequence.svg
+[  43% ] reimport | selector_reactive.svg
+[  46% ] reimport | selector_random.svg
+[  50% ] reimport | selector.svg
+[  53% ] reimport | repeater.svg
+[  56% ] reimport | limiter.svg
+[  60% ] reimport | inverter.svg
+[  63% ] reimport | failer.svg
+[  66% ] reimport | delayer.svg
+[  70% ] reimport | cooldown.svg
+[  73% ] reimport | condition.svg
+[  76% ] reimport | category_leaf.svg
+[  80% ] reimport | category_decorator.svg
+[  83% ] reimport | category_composite.svg
+[  86% ] reimport | category_bt.svg
+[  90% ] reimport | blackboard.svg
+[  93% ] reimport | action.svg
+[  96% ] reimport | Finalizing Asset Import...
+[ DONE ] reimport
+
+[   0% ] reimport | Started (Re)Importing Assets (29 steps)
+[   0% ] reimport | Executing post-reimport operations...
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[ DONE ] loading_editor_layout
+

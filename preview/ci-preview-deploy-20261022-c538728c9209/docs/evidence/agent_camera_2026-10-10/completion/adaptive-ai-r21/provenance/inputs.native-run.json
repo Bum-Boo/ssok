@@ -1,0 +1,20 @@
+{
+  "head": "0b16d984096e00d4835bfb3ba6d48ad1b311e226",
+  "timestamp": "2026-10-11T10:29:27+09:00",
+  "launcher_sha256": "a82bc980c14c43222ea95d289f68723ef1b3154b3c0d04598072ea9d67bf5a68",
+  "driver_sha256": "bf33e69c9df18461c5ab348b54366e325b770092d00881b45d4740ab29d5c453",
+  "goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "actor_source_sha256": "152a54bb3cfb0875efc8759ce259071f0bd369bf2541c0e0f0a955be377409cd",
+  "preflight": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/adaptive-ai-r21/run_adaptive.gd",
+    "--check-only"
+  ],
+  "preflight_exit": 0,
+  "doctor_ready": true,
+  "production_applied": false
+}

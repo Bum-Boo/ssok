@@ -1,0 +1,148 @@
+{
+  "source_head": "1f388f5f69ef1c0abf31c85c19e5e32ad44c5e78",
+  "bundle_sha256": {
+    "ssok.app/Contents/PkgInfo": "7e50a30efad50208a173203ced60818d693bb61266b75aa10927d1a2adce80cb",
+    "ssok.app/Contents/Info.plist": "ec3223106c5d947906385e5038f0f97a9e2c30266e1cb8f16d2b62d8fa4b2c67",
+    "ssok.app/Contents/_CodeSignature/CodeResources": "98680485b6dfe870fcfb62b0a5b07eba21eb2a498aa734060e64487a2a44681c",
+    "ssok.app/Contents/Resources/icon.icns": "7f1b47179d6f54729a4925108935b9a3c5f08f9d5ef85ae3e7f6cd81b9fed249",
+    "ssok.app/Contents/Resources/ssok.pck": "3de310f8ebd917b9345c4f80d662cfb8a00e3605f8fa8099ad1704dfafdda3b0",
+    "ssok.app/Contents/Resources/PrivacyInfo.xcprivacy": "0535353bb08c25b8ce5ed9ac7e442a5994f402e0f6cbc4bed668cfc63c2ceac3",
+    "ssok.app/Contents/MacOS/ssok": "b5a33f5851b8be5f86c40dc3543a1fa5f8526dbc0b989ef27509bb6c10d5e344",
+    "ssok.app/Contents/Resources/ko.lproj/InfoPlist.strings": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a",
+    "ssok.app/Contents/Resources/en.lproj/InfoPlist.strings": "366098023762b023b560020df619376927358e7fcf83240a178e2343e56d2d20",
+    "ssok.app/Contents/Resources/zh_CN.lproj/InfoPlist.strings": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a",
+    "ssok.app/Contents/Resources/ja.lproj/InfoPlist.strings": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a"
+  },
+  "codesign_exit": 0,
+  "native_export_titles": [
+    {
+      "label": "native-title-en",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--language",
+        "en",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/en/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/en/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 2.278,
+      "engine_errors": 0
+    },
+    {
+      "label": "native-title-ko",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--language",
+        "ko",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ko/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ko/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.699,
+      "engine_errors": 0
+    },
+    {
+      "label": "native-title-zh_CN",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--language",
+        "zh_CN",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/zh_CN/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/zh_CN/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.686,
+      "engine_errors": 0
+    },
+    {
+      "label": "native-title-ja",
+      "command": [
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/MacOS/ssok",
+        "--audio-driver",
+        "Dummy",
+        "--language",
+        "ja",
+        "--resolution",
+        "1152x648",
+        "--log-file",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ja/engine.log",
+        "--write-movie",
+        "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ja/title.png",
+        "--quit-after",
+        "8",
+        "--fixed-fps",
+        "60"
+      ],
+      "exit": 0,
+      "timeout": false,
+      "seconds": 0.686,
+      "engine_errors": 0
+    }
+  ],
+  "same_PCK_editor_functional": {
+    "label": "same-PCK-functional",
+    "command": [
+      "/Users/aidesignlab/Projects/ssok-verify-r35/toolchain/Godot.app/Contents/MacOS/Godot",
+      "--main-pack",
+      "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/ssok.app/Contents/Resources/ssok.pck",
+      "--audio-driver",
+      "Dummy",
+      "--language",
+      "en",
+      "--script",
+      "/Users/aidesignlab/Projects/ssok-verify-r35/export-title-r39/package-check.gd"
+    ],
+    "exit": 0,
+    "timeout": false,
+    "seconds": 6.277,
+    "engine_errors": 0
+  },
+  "functional": {
+    "captures": [
+      "user://r39_export/01-title.png",
+      "user://r39_export/02-projects.png",
+      "user://r39_export/03-lab-stopped.png"
+    ],
+    "checks": 20,
+    "failures": 0,
+    "package_modified": false,
+    "provider_calls": 0
+  },
+  "bundle_unchanged": true,
+  "original_r7_unchanged": true,
+  "exported_executable_functional_routes_verified": false,
+  "provider_calls": 0
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+    "tools/ci/build.py",
+    "--godot",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+    "--version",
+    "0.3.1-projects-r7",
+    "--output",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7",
+    "--makensis",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-clean-r2/nsis-toolchain/usr/bin/makensis"
+  ],
+  "exit_code": 0,
+  "seconds": 1058.0605418170016,
+  "head": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "source426_unchanged": true,
+  "git_clean": true,
+  "published": false
+}

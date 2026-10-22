@@ -1,0 +1,26 @@
+{
+  "commit": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+    "--",
+    "env",
+    "XDG_DATA_HOME=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/user-data",
+    "build/venv-linux/bin/python",
+    "-X",
+    "utf8",
+    "tools/ci/build.py",
+    "--godot",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+    "--version",
+    "0.3.1-camera-r2",
+    "--output",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-clean-r2"
+  ],
+  "source_files": 426,
+  "no_source_changes_since_full_native": true,
+  "fresh_confined_output": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\camera-release-clean-r2"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "cli_exited",
+  "cli_exit": 0,
+  "stop_confirmed": true,
+  "observations": 2,
+  "completed_actions": 1,
+  "final_reobserved": true,
+  "requested_model": "gpt-6-astra",
+  "resolved_model": "CLI JSON does not attest model identity",
+  "usage": {
+    "input_tokens": 50434,
+    "cached_input_tokens": 30208,
+    "output_tokens": 190
+  },
+  "goal_success": "not certified; inspect camera/action evidence"
+}

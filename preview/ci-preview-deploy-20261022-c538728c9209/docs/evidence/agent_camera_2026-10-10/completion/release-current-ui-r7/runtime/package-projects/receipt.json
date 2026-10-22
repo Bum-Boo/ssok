@@ -1,0 +1,34 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-release-r7-projects-native.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\package-projects",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\package-projects\\layout.json",
+    "-Fixture",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\package-projects\\project.json"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "seconds": 18.966594700003043,
+  "checks": 6,
+  "failures": 0,
+  "package_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "package_version": "0.3.1-projects-r7",
+  "pe_pck_sha256": {
+    "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+    "ssok.pck": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535"
+  },
+  "source426_unchanged": true,
+  "package_bytes_unchanged": true,
+  "provider_calls": 0,
+  "published": false
+}

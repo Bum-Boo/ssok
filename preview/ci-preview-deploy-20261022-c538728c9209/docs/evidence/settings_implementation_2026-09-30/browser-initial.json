@@ -1,0 +1,32 @@
+{
+  "passed": false,
+  "url": "http://127.0.0.1:48538/?ssok_verify=1",
+  "checks": [
+    {
+      "label": "fresh browser follows light system appearance",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "scope": "Real canvas input, system appearance, explicit override, independent text sizes, mute/volume, draft hashes, persisted reload",
+  "failure": "TimeoutError: Page.wait_for_function: Timeout 30000ms exceeded.",
+  "observed": {
+    "code_font_size": 15,
+    "code_running": false,
+    "dark": false,
+    "draft_hash": "8339807512083796ba802ddd9bfafb82c74ef3452e7855744063970a28ffd02b",
+    "graph_hash": "0cc792602cf4ef6876f2c637207b710829fa8bc6e4121a352262f5f78c13cd00",
+    "locale": "en",
+    "run_mode": false,
+    "settings_open": true,
+    "source_hash": "3c2d4ef51c9c1d7a19683c1fdc4cf8f38c18735fac17cb8298dc781f191b657a",
+    "ui_font_size": 14,
+    "values": {
+      "appearance": "system",
+      "code_scale": 1,
+      "muted": false,
+      "text_scale": 1,
+      "volume": 60
+    }
+  }
+}

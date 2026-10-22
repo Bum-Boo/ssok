@@ -1,0 +1,237 @@
+{
+  "checked_at": "2026-09-30T11:50:06.743245+00:00",
+  "authenticated": false,
+  "source_commit": "af1973b28424aa89bed92db47312cbb14b655e16",
+  "checks": [
+    {
+      "label": "Repository is anonymously accessible and PUBLIC",
+      "passed": true
+    },
+    {
+      "label": "v0.2.0 is a published release",
+      "passed": true
+    },
+    {
+      "label": "All eight final release assets are present",
+      "passed": true,
+      "names": [
+        "SHA256SUMS",
+        "release.json",
+        "ssok-0.2.0-linux-x86_64.zip",
+        "ssok-0.2.0-macos-universal.zip",
+        "ssok-0.2.0-web.zip",
+        "ssok-0.2.0-windows-x86_64-installer.zip",
+        "ssok-0.2.0-windows-x86_64-setup.exe",
+        "ssok-0.2.0-windows-x86_64.zip"
+      ]
+    },
+    {
+      "label": "All asset digests/sizes match and anonymous downloads return 200",
+      "passed": true,
+      "assets": [
+        {
+          "name": "release.json",
+          "status": 200,
+          "bytes": 1232,
+          "expected_bytes": 1232,
+          "digest": "sha256:d1afb6c8a7a20126fe83a934fa2c66a328f70f76e1e8cdf6c516711500c70e42",
+          "expected_digest": "sha256:d1afb6c8a7a20126fe83a934fa2c66a328f70f76e1e8cdf6c516711500c70e42",
+          "passed": true
+        },
+        {
+          "name": "SHA256SUMS",
+          "status": 200,
+          "bytes": 580,
+          "expected_bytes": 580,
+          "digest": "sha256:7f53338f39abc2fe7142c89a2780e36e3f01d90f333d77a9e7497e3264733412",
+          "expected_digest": "sha256:7f53338f39abc2fe7142c89a2780e36e3f01d90f333d77a9e7497e3264733412",
+          "passed": true
+        },
+        {
+          "name": "ssok-0.2.0-linux-x86_64.zip",
+          "status": 200,
+          "bytes": 106883197,
+          "expected_bytes": 106883197,
+          "digest": "sha256:5a7c07abd8bb1b142c68f0cb70e8cb00190074c3f88b3bd84f5817239f876c16",
+          "expected_digest": "sha256:5a7c07abd8bb1b142c68f0cb70e8cb00190074c3f88b3bd84f5817239f876c16",
+          "passed": true
+        },
+        {
+          "name": "ssok-0.2.0-macos-universal.zip",
+          "status": 200,
+          "bytes": 139165607,
+          "expected_bytes": 139165607,
+          "digest": "sha256:36adfa4044f402b53f28fb7eae5a5a88fec303e60efe40f1621a08b3811881d1",
+          "expected_digest": "sha256:36adfa4044f402b53f28fb7eae5a5a88fec303e60efe40f1621a08b3811881d1",
+          "passed": true
+        },
+        {
+          "name": "ssok-0.2.0-web.zip",
+          "status": 200,
+          "bytes": 88675874,
+          "expected_bytes": 88675874,
+          "digest": "sha256:a7948fc191007f588560b1f9f343c430aa0caef4d4a5208d05ac56a6326d52f7",
+          "expected_digest": "sha256:a7948fc191007f588560b1f9f343c430aa0caef4d4a5208d05ac56a6326d52f7",
+          "passed": true
+        },
+        {
+          "name": "ssok-0.2.0-windows-x86_64-installer.zip",
+          "status": 200,
+          "bytes": 113601146,
+          "expected_bytes": 113601146,
+          "digest": "sha256:f3c99ab00c08cb7f9bff3cd52055d757a3d6f80454bf3fe5d3ac6ca4a2480098",
+          "expected_digest": "sha256:f3c99ab00c08cb7f9bff3cd52055d757a3d6f80454bf3fe5d3ac6ca4a2480098",
+          "passed": true
+        },
+        {
+          "name": "ssok-0.2.0-windows-x86_64-setup.exe",
+          "status": 200,
+          "bytes": 113878435,
+          "expected_bytes": 113878435,
+          "digest": "sha256:09f5430b6fdc2f6ed16daff54b866de2ab754fb088723e5e51033bb95c5201e9",
+          "expected_digest": "sha256:09f5430b6fdc2f6ed16daff54b866de2ab754fb088723e5e51033bb95c5201e9",
+          "passed": true
+        },
+        {
+          "name": "ssok-0.2.0-windows-x86_64.zip",
+          "status": 200,
+          "bytes": 116510389,
+          "expected_bytes": 116510389,
+          "digest": "sha256:02708b670af94da66428351d92121e9bffa7231f40351af9ba0fe77c23a9db11",
+          "expected_digest": "sha256:02708b670af94da66428351d92121e9bffa7231f40351af9ba0fe77c23a9db11",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "label": "Anonymous downloaded SHA256SUMS matches frozen bytes",
+      "passed": true,
+      "url": "https://github.com/Bum-Boo/ssok/releases/download/v0.2.0/SHA256SUMS",
+      "status": 200,
+      "bytes": 580,
+      "sha256": "7f53338f39abc2fe7142c89a2780e36e3f01d90f333d77a9e7497e3264733412"
+    },
+    {
+      "label": "Anonymous downloaded release.json matches frozen bytes",
+      "passed": true,
+      "url": "https://github.com/Bum-Boo/ssok/releases/download/v0.2.0/release.json",
+      "status": 200,
+      "bytes": 1232,
+      "sha256": "d1afb6c8a7a20126fe83a934fa2c66a328f70f76e1e8cdf6c516711500c70e42"
+    },
+    {
+      "label": "Anonymous downloaded ssok-0.2.0-web.zip matches frozen bytes",
+      "passed": true,
+      "url": "https://github.com/Bum-Boo/ssok/releases/download/v0.2.0/ssok-0.2.0-web.zip",
+      "status": 200,
+      "bytes": 88675874,
+      "sha256": "a7948fc191007f588560b1f9f343c430aa0caef4d4a5208d05ac56a6326d52f7"
+    },
+    {
+      "label": "Pages delivery manifest matches committed metadata",
+      "passed": true,
+      "url": "https://bum-boo.github.io/ssok/deploy.json",
+      "status": 200,
+      "bytes": 330888,
+      "sha256": "ed0be3cabab59201d91269d6fdbbacd632ec83fd2a028758be6721e6735d7dbc"
+    },
+    {
+      "label": "Every public runtime file matches exact verified Web export",
+      "passed": true,
+      "files": [
+        {
+          "path": ".nojekyll",
+          "url": "https://bum-boo.github.io/ssok/.nojekyll",
+          "status": 200,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "passed": true
+        },
+        {
+          "path": "index.apple-touch-icon.png",
+          "url": "https://bum-boo.github.io/ssok/index.apple-touch-icon.png",
+          "status": 200,
+          "bytes": 8724,
+          "sha256": "f32e02cf2bf20e001b6abffad467e88e04e2f87caca74be6e9814446f380a544",
+          "expected_sha256": "f32e02cf2bf20e001b6abffad467e88e04e2f87caca74be6e9814446f380a544",
+          "passed": true
+        },
+        {
+          "path": "index.audio.position.worklet.js",
+          "url": "https://bum-boo.github.io/ssok/index.audio.position.worklet.js",
+          "status": 200,
+          "bytes": 2973,
+          "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+          "expected_sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+          "passed": true
+        },
+        {
+          "path": "index.audio.worklet.js",
+          "url": "https://bum-boo.github.io/ssok/index.audio.worklet.js",
+          "status": 200,
+          "bytes": 7298,
+          "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+          "expected_sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+          "passed": true
+        },
+        {
+          "path": "index.html",
+          "url": "https://bum-boo.github.io/ssok/index.html",
+          "status": 200,
+          "bytes": 5615,
+          "sha256": "2ed9ef69fd334eb56c5cd48b4fef42823194f8ae6c6ccb2a6253ddc63e27f32d",
+          "expected_sha256": "2ed9ef69fd334eb56c5cd48b4fef42823194f8ae6c6ccb2a6253ddc63e27f32d",
+          "passed": true
+        },
+        {
+          "path": "index.icon.png",
+          "url": "https://bum-boo.github.io/ssok/index.icon.png",
+          "status": 200,
+          "bytes": 3975,
+          "sha256": "d88050ff76a991b8e660bf45025673066072b1b44c1ae654df384953539f7ef3",
+          "expected_sha256": "d88050ff76a991b8e660bf45025673066072b1b44c1ae654df384953539f7ef3",
+          "passed": true
+        },
+        {
+          "path": "index.js",
+          "url": "https://bum-boo.github.io/ssok/index.js",
+          "status": 200,
+          "bytes": 279815,
+          "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+          "expected_sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+          "passed": true
+        },
+        {
+          "path": "index.pck",
+          "url": "https://bum-boo.github.io/ssok/index.pck",
+          "status": 200,
+          "bytes": 29110104,
+          "sha256": "a6402d229d851403a55d8fe8c6a68336d730dae308b6b1849fe1af7b43775a17",
+          "expected_sha256": "a6402d229d851403a55d8fe8c6a68336d730dae308b6b1849fe1af7b43775a17",
+          "passed": true
+        },
+        {
+          "path": "index.png",
+          "url": "https://bum-boo.github.io/ssok/index.png",
+          "status": 200,
+          "bytes": 8383,
+          "sha256": "62858d1babe52b264efa3651c01f7ca1ad9796503bc2cb15f46864cd72ef505d",
+          "expected_sha256": "62858d1babe52b264efa3651c01f7ca1ad9796503bc2cb15f46864cd72ef505d",
+          "passed": true
+        },
+        {
+          "path": "index.wasm",
+          "url": "https://bum-boo.github.io/ssok/index.wasm",
+          "status": 200,
+          "bytes": 39514754,
+          "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+          "expected_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "release": "https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0"
+}

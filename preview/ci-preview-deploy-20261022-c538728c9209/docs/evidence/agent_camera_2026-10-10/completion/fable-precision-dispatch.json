@@ -1,0 +1,15 @@
+{
+  "requested_model": "fable",
+  "scope": "precision holding and full verifier correctness",
+  "source_sha256": {
+    "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
+    "src/runtime/drive_motor.gd": "96b27d8ffb6f486f00b7e2aba0fb564611afc46fb66460d3785500194d3e0d96",
+    "tools/app_control/camera_evaluator.gd": "617c25e9aade64cb37bf2108f55e100da3169009984970a31112b0b4ecda6eaf",
+    "tests/agent_camera_rest_check.gd": "54039695963748715beb8f194025619864b5dbb78a2ce9d35032ba7ac2be00cc",
+    "tools/ci/verify.py": "a9492cb990c80d6945c929f476f80823770690aac135c8665963f64c2204e5bf",
+    "tests/test_ci_verify.py": "da169110fd66a7e6f060c7fbaaf1f89112e72d83e1d3b3f87acc791b985acdeb",
+    ".github/workflows/ci.yml": "e2d38328d2cf24444a771a17986c0d970eed1deab7e4c2020cd6782018394a82",
+    "docs/adr/0029-rendered-desktop-agent-camera-loop.md": "14d99c5bc1fb244cfdb24bb9d469d0cd087c61edeb49edbd2d1144c932c06586"
+  },
+  "timeout_seconds": 180
+}

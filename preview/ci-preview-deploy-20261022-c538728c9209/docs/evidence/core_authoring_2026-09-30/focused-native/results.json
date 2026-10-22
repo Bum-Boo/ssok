@@ -1,0 +1,214 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 10,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.481,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.317,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "assembly_snap_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.566,
+      "timeout": false,
+      "engine_error": false,
+      "log": "assembly_snap_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/assembly_snap_check.gd"
+      ]
+    },
+    {
+      "name": "blender_edit_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.666,
+      "timeout": false,
+      "engine_error": false,
+      "log": "blender_edit_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/blender_edit_check.gd"
+      ]
+    },
+    {
+      "name": "block_program_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.417,
+      "timeout": false,
+      "engine_error": false,
+      "log": "block_program_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/block_program_check.gd"
+      ]
+    },
+    {
+      "name": "control_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.417,
+      "timeout": false,
+      "engine_error": false,
+      "log": "control_flow_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/control_flow_check.gd"
+      ]
+    },
+    {
+      "name": "core_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.47,
+      "timeout": false,
+      "engine_error": false,
+      "log": "core_authoring_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/core_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.821,
+      "timeout": false,
+      "engine_error": false,
+      "log": "localization_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "project_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.672,
+      "timeout": false,
+      "engine_error": false,
+      "log": "project_store_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/project_store_check.gd"
+      ]
+    },
+    {
+      "name": "relative_code_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.666,
+      "timeout": false,
+      "engine_error": false,
+      "log": "relative_code_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/relative_code_check.gd"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+extends SceneTree
+
+const OUT: String = "/home/bumboo/Projects/ssok-prelaunch-audit-20260930"
+var main: Node3D
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
+	root.size = Vector2i(1440, 900)
+	root.title = "SSOK prelaunch audit · source 90b9930"
+	SsokLocale.select_locale("ko")
+	main = load("res://scenes/main.tscn").instantiate()
+	root.add_child(main)
+	await process_frame
+	_inventory()
+	await _shot("01-first-entry")
+	await _advance(2)
+	main.flag_mission._action.pressed.emit()
+	await _shot("02-flag-assembly")
+	await _advance(3)
+	main.run_button.pressed.emit()
+	for index: int in 480:
+		await physics_frame
+		if main.flag_mission._phase == &"Success":
+			break
+	print("AUDIT_FLAG_PHASE ", main.flag_mission._phase)
+	await _shot("03-flag-result")
+	await _advance(4)
+	main._ensure_assembly_mode()
+	main.stages.clear_goal()
+	main.flag_mission.visible = false
+	main._on_kit_bridge_pressed()
+	main.part_category.select(4)
+	main._filter_parts()
+	main.program_tabs.current_tab = 4
+	await _shot("04-kit-lab-authoring")
+	await _advance(5)
+	main._clean_workspace = main._workspace_key()
+	main.stages.stage_requested.emit(main.stages._catalog[2])
+	main.part_category.select(0)
+	main._filter_parts()
+	await _shot("05-car-challenge")
+	await _advance(6)
+	main.free()
+	main = null
+	await process_frame
+	await process_frame
+	quit(0)
+
+func _advance(step: int) -> void:
+	var command: String = OUT.path_join("advance-%d" % step)
+	while not FileAccess.file_exists(command):
+		await create_timer(0.5).timeout
+
+func _shot(label: String) -> void:
+	for frame: int in 12:
+		await process_frame
+	await RenderingServer.frame_post_draw
+	var path: String = OUT.path_join("screenshots/%s.png" % label)
+	var result: Error = root.get_texture().get_image().save_png(path)
+	print("AUDIT_CAPTURE ", label, " result=", result, " status=", main.status.text)
+
+func _inventory() -> void:
+	var definitions: Array[PartDef] = main._load_part_defs()
+	var rows: Array[Dictionary] = []
+	for definition: PartDef in definitions:
+		var ports: Array[Dictionary] = []
+		for port: Port in definition.ports:
+			ports.append({"id": String(port.id), "kind": port.kind, "tag": String(port.tag)})
+		rows.append({"id": String(definition.id), "name": definition.display_name,
+			"path": definition.resource_path, "mass_kg": definition.mass_kg,
+			"category": main._part_category(definition), "board_profile": definition.board_profile_id,
+			"dc_motor": definition.dc_motor, "actuator_torque_nm": definition.actuator_torque_nm,
+			"ports": ports})
+	var file: FileAccess = FileAccess.open(OUT.path_join("inventory.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify({"revision": "90b9930", "part_count": rows.size(), "parts": rows}, "  "))
+	file.close()
+	print("AUDIT_INVENTORY ", rows.size())

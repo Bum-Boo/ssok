@@ -1,0 +1,94 @@
+{
+  "actual_model": "gpt-6-astra",
+  "role": "native visual inspector",
+  "method": "All eight actual PNGs viewed at original resolution via view_image; bounded read-only SHA256 and dimensions checked.",
+  "coordinator_supplied_local_patch_sha256": "9e3330debaba44cf7709c2f5f122458b5ea4d34b65fd92ede5a6f1ee9941dd30",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects.png",
+      "sha256": "e968429f2c7990fc8f84c624e188ddf3c01555359e242b0df7f941b421e20a61",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Baseline Projects dialog: title and Close fit. Export button visibly truncates to Expo; Delete to Delet. Saved projects selected; no saved projects message."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/import-confirm.png",
+      "sha256": "6bd0861a2c8b14b55814c0d08773c4a39940eb68449f9d0aace5b2a4daa3640c",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Baseline confirmation body is dark text on dark gray, low contrast; OK and Cancel readable. Underlying Import truncates to Impo."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render/en-light-1400x950-100-saved.png",
+      "sha256": "85cda3456006a8cb8432a91a641236d04df111482a2720a46a2f281966d02754",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Saved projects view without confirmation overlay. Full Save a snapshot, Export project, Open selected, Delete snapshot and Close labels fit. Projects title and close X fit. One saved snapshot visible."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render/en-light-1400x950-100-transfer.png",
+      "sha256": "7c71545c1242dc953e7a906a3f25c71e14ea5af9b7a790a54016e400d5e43821",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Transfer view without confirmation overlay. Full Copy JSON, Import project, Save a snapshot and Export project fit. JSON editor has scrollbars; footer message and Close visible without overlap."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render/en-light-1400x950-100-import-confirm.png",
+      "sha256": "530183d76eeca1f7c53efac7e66b17ae9e3b4fd0161360d2a858cea3754a0202",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Confirmation overlay visible: Confirm project action, fully readable wrapped replace-current-assembly-and-code message, OK and Cancel. Dark text on light background; contrast visibly improved from baseline. Overlay content and title fit."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render/en-light-960x640-200-saved.png",
+      "sha256": "d183011f5f0f44c0466ad029d7551f21ea8fc423e85a4d59c406434111b3664b",
+      "dimensions": [
+        960,
+        640
+      ],
+      "observations": "Despite saved filename, a Delete this saved snapshot confirmation is open over Saved projects. Confirmation title, body, OK, Cancel and X fit and are readable. Underlying Projects dialog reaches right/bottom viewport edges; title readable, outer X extremely close to right edge. Footer message wraps to two lines; full Close button remains visible. Overlay prevents full saved-action control inspection."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render/en-light-960x640-200-transfer.png",
+      "sha256": "6cbc95b1208c70a1523b8efaa36977644adde54cd8868984e41f954c71653381",
+      "dimensions": [
+        960,
+        640
+      ],
+      "observations": "A Delete this saved snapshot confirmation remains over transfer content. Confirmation title/body/buttons readable. Underlying transfer body and JSON editor are partially visible and clipped at scroll viewport boundary; Copy JSON and Import project controls not visible in this capture. Footer message and Close visible. Cannot certify hidden controls fit."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render/en-light-960x640-200-import-confirm.png",
+      "sha256": "b2dad36120a0fcfebcca0c64cdfd1a02c2b0f31cc5532cccfbe72b69bd9f7c7d",
+      "dimensions": [
+        960,
+        640
+      ],
+      "observations": "Large replace-current-assembly-and-code confirmation visible with readable two-line body, title, OK, Cancel and X all within viewport. Light panel and dark text readable. Underlying Projects footer and Close remain visible; underlying transfer actions not visible."
+    }
+  ],
+  "verdict": "100-percent visible label and confirmation-contrast corrections supported. 200-percent confirmation readability and footer Close visibility supported, but saved/transfer action coverage incomplete because unexpected delete confirmation overlays remain and controls are outside the captured scroll region. Full matrix pass not established.",
+  "issues": [
+    "200-percent saved and transfer files actually show delete-confirmation overlay; names do not establish a clean underlying view.",
+    "200-percent outer Projects dialog reaches right/bottom edges; outer X has almost no right clearance.",
+    "200-percent transfer Copy JSON and Import project actions are not visible in these captures; control fit/reachability unverified."
+  ],
+  "scope_limits": [
+    "No attribution of harness coordinate-frame or synthetic Escape failures to application; screenshots do not establish cause.",
+    "No runtime keyboard, click, scroll reachability or modal-dismissal certification.",
+    "Underlying controls obscured by overlays cannot be assessed fully.",
+    "Patch/source identity supplied by coordinator, not independently audited.",
+    "No source changes, design proposals, delegation or publishing."
+  ],
+  "read_failures": []
+}

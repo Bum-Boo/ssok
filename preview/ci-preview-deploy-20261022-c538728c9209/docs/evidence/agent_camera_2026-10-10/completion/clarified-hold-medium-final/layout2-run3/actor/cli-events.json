@@ -1,0 +1,184 @@
+[
+  {
+    "type": "thread.started",
+    "item_type": null,
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "item.completed",
+    "item_type": "error",
+    "server": null,
+    "tool": null,
+    "diagnostic": "Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.\n  session-flags: `features.skills` is ignored."
+  },
+  {
+    "type": "item.completed",
+    "item_type": "error",
+    "server": null,
+    "tool": null,
+    "diagnostic": "Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.\n  session-flags: `features.skills` is ignored."
+  },
+  {
+    "type": "turn.started",
+    "item_type": null,
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "decide"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "observe"
+  },
+  {
+    "type": "item.started",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "stop"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "mcp_tool_call",
+    "server": "ssok",
+    "tool": "stop"
+  },
+  {
+    "type": "item.completed",
+    "item_type": "agent_message",
+    "server": null,
+    "tool": null
+  },
+  {
+    "type": "turn.completed",
+    "item_type": null,
+    "server": null,
+    "tool": null
+  }
+]

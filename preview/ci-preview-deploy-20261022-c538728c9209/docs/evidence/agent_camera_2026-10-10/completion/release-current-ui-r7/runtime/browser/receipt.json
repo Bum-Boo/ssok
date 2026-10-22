@@ -1,0 +1,108 @@
+{
+  "scope": "Existing five actual browser gates on exact current clean r7 bytes; no publication",
+  "commit": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "version": "0.3.1-projects-r7",
+  "build_dirty": false,
+  "build_source_changed": false,
+  "source_sha256": {
+    "tools/ci/browser_smoke.py": "1909634e4d5c5692de762c2efbc858c1436d7bc8f03a431227851cd1c5d8f38b",
+    "tools/ci/browser_authoring.py": "037f65e202028b516a873394bddbd0103b7c149985642850120a767606250c7b",
+    "tools/ci/browser_physics.py": "a3a079ceaf6b3c90866a2024d839e57d72e5142fc048a853eecc6c54746ab022",
+    "tools/ci/browser_learning.py": "dc8ab6d82300ab7ac918001e7e466e32bc4f82b95e948746711510fe4af7bcf7",
+    "tools/ci/browser_settings.py": "db7530bc2c68c96b2a329108a2487ed462d19d70648f486445839f09fb1db46b",
+    "build/projects-release-clean-r7/export-logs/browser-layout.json": "abfb65b0bfcc376babd8f16d031bbbbc9ffbc9c3e70016ac78b15d435ac66e41",
+    "build/projects-release-clean-r7/web/index.apple-touch-icon.png": "f32e02cf2bf20e001b6abffad467e88e04e2f87caca74be6e9814446f380a544",
+    "build/projects-release-clean-r7/web/index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "build/projects-release-clean-r7/web/index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "build/projects-release-clean-r7/web/index.html": "78fabf04d12497ffecfca38e7cf8aa6b859a6a15ef819cca448d956ccd73d877",
+    "build/projects-release-clean-r7/web/index.icon.png": "d88050ff76a991b8e660bf45025673066072b1b44c1ae654df384953539f7ef3",
+    "build/projects-release-clean-r7/web/index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+    "build/projects-release-clean-r7/web/index.pck": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535",
+    "build/projects-release-clean-r7/web/index.png": "62858d1babe52b264efa3651c01f7ca1ad9796503bc2cb15f46864cd72ef505d",
+    "build/projects-release-clean-r7/web/index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+  },
+  "results": [
+    {
+      "name": "smoke",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_smoke.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/smoke"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 44.981,
+      "passed": true,
+      "result": "smoke/result.json"
+    },
+    {
+      "name": "authoring",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/authoring"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 78.742,
+      "passed": true,
+      "result": "authoring/result.json"
+    },
+    {
+      "name": "physics",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_physics.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/physics"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 27.925,
+      "passed": true,
+      "result": "physics/result.json"
+    },
+    {
+      "name": "learning",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_learning.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/learning"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 86.707,
+      "passed": true,
+      "result": "learning/result.json"
+    },
+    {
+      "name": "settings",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_settings.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/browser/settings"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 56.954,
+      "passed": true,
+      "result": "settings/result.json"
+    }
+  ],
+  "failures": 0,
+  "source_changed": false
+}

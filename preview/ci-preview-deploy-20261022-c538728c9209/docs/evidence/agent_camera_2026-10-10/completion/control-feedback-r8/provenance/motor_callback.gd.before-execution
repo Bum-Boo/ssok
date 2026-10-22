@@ -1,0 +1,11 @@
+extends "res://src/runtime/drive_motor.gd"
+## DEBUG-r8: observe the actual DriveMotor call; delegate unchanged to production.
+var debug_action: int = -1
+var debug_rows: Array[Dictionary] = []
+func _physics_process(delta: float) -> void:
+	var actual_duty: float = duty
+	super._physics_process(delta)
+	if debug_action >= 0:
+		debug_rows.append({"command_index": debug_action, "tick": Engine.get_physics_frames(),
+			"applied_duty": actual_duty, "torque_nm": applied_torque_nm,
+			"speed_rad_s": measured_rad_s})

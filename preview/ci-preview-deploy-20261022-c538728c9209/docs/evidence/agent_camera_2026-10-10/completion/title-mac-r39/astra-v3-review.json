@@ -1,0 +1,1023 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-11T12:47:44.739615+00:00",
+  "source_title_sha256": "1da2b8f7a8ddc94f61fe502e0514cd383fd1efeb8a3cf3877369be010b8a9e25",
+  "source_identity_scope": "Provided by coordinator and corroborated by Mac results source_title_sha256; product source not accessed.",
+  "scope": "Local Title r39 v3 visual evidence only: all 16 Arch draft originals, 8 compact Mac originals and 2 large Japanese Mac originals. Red input record was not newly viewed in this v3 scope.",
+  "inputs": [
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-images.json",
+      "sha256": "ae68895399c0eed65388a8a3bf4daca8cb1bebcf6e5866982d5a2fe5c6b9da95"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-results.json",
+      "sha256": "e755bbc94aa09bc17d96815c4fcdfd8036024d65ac0ea09954544bb159dc52b5"
+    }
+  ],
+  "method": "All 26 actual original PNGs individually opened with view_image detail original. SHA256 and PNG IHDR dimensions independently computed and matched to supplied receipts. No source/product/image modifications, rendering or cropped images.",
+  "images": [
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-0.png",
+      "platform": "Arch",
+      "case_index": 0,
+      "locale": "en",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "199bcda9f74f0e99d3326c46ddbc2eeadcafa9a6363190f22b0ec1b1e0f92b09",
+      "receipt_sha256": "199bcda9f74f0e99d3326c46ddbc2eeadcafa9a6363190f22b0ec1b1e0f92b09",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-1.png",
+      "platform": "Arch",
+      "case_index": 1,
+      "locale": "en",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "439264fccce41cc9baadd96ede30ce1115d5abf2fd1aaa392e76a064faaa25f9",
+      "receipt_sha256": "439264fccce41cc9baadd96ede30ce1115d5abf2fd1aaa392e76a064faaa25f9",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-1.png",
+        "sha256": "439264fccce41cc9baadd96ede30ce1115d5abf2fd1aaa392e76a064faaa25f9",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-2.png",
+      "platform": "Arch",
+      "case_index": 2,
+      "locale": "en",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "dc39fe6387dd16cc2614b4fd4fa3977dd32bd85dc5914c74b0443a770e8e2b84",
+      "receipt_sha256": "dc39fe6387dd16cc2614b4fd4fa3977dd32bd85dc5914c74b0443a770e8e2b84",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-3.png",
+      "platform": "Arch",
+      "case_index": 3,
+      "locale": "en",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "10181bde1b266b5434a4fa906fd4b813bf2341ca72011671a6eae9496fa76817",
+      "receipt_sha256": "10181bde1b266b5434a4fa906fd4b813bf2341ca72011671a6eae9496fa76817",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-3.png",
+        "sha256": "10181bde1b266b5434a4fa906fd4b813bf2341ca72011671a6eae9496fa76817",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-4.png",
+      "platform": "Arch",
+      "case_index": 4,
+      "locale": "ko",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "95ade4fd46c9d8d27695acf31ded3ee6cc16663e0a874b813ce3e249bba3aa20",
+      "receipt_sha256": "95ade4fd46c9d8d27695acf31ded3ee6cc16663e0a874b813ce3e249bba3aa20",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-5.png",
+      "platform": "Arch",
+      "case_index": 5,
+      "locale": "ko",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "13fac1422a42485d028f49cb352009581443cdf860bfbd9286edab017b68e0e2",
+      "receipt_sha256": "13fac1422a42485d028f49cb352009581443cdf860bfbd9286edab017b68e0e2",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-5.png",
+        "sha256": "13fac1422a42485d028f49cb352009581443cdf860bfbd9286edab017b68e0e2",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-6.png",
+      "platform": "Arch",
+      "case_index": 6,
+      "locale": "ko",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "180d70eae5bc034b075b45f186e1e28beea3e769b5eb6e2c9b793c33cca79bed",
+      "receipt_sha256": "180d70eae5bc034b075b45f186e1e28beea3e769b5eb6e2c9b793c33cca79bed",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-7.png",
+      "platform": "Arch",
+      "case_index": 7,
+      "locale": "ko",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "2e17ce62964816d9126f8163af4c41ab13c857fa6aa3a0cea90fa22b27e8ca85",
+      "receipt_sha256": "2e17ce62964816d9126f8163af4c41ab13c857fa6aa3a0cea90fa22b27e8ca85",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-7.png",
+        "sha256": "2e17ce62964816d9126f8163af4c41ab13c857fa6aa3a0cea90fa22b27e8ca85",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-8.png",
+      "platform": "Arch",
+      "case_index": 8,
+      "locale": "zh_CN",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "4a380234bfb2e42d083b6d41c020f747a40bc471b52963ade762e60f8e208051",
+      "receipt_sha256": "4a380234bfb2e42d083b6d41c020f747a40bc471b52963ade762e60f8e208051",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-9.png",
+      "platform": "Arch",
+      "case_index": 9,
+      "locale": "zh_CN",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "c04fdc9d3a56fb872066e3880b0cdb3044f0a03b07eb068edd9480c4a7facc1e",
+      "receipt_sha256": "c04fdc9d3a56fb872066e3880b0cdb3044f0a03b07eb068edd9480c4a7facc1e",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-9.png",
+        "sha256": "c04fdc9d3a56fb872066e3880b0cdb3044f0a03b07eb068edd9480c4a7facc1e",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-10.png",
+      "platform": "Arch",
+      "case_index": 10,
+      "locale": "zh_CN",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "118fd6d363b8e2b739c2003801df418d552690d437059e9b5f0de9163296dee6",
+      "receipt_sha256": "118fd6d363b8e2b739c2003801df418d552690d437059e9b5f0de9163296dee6",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-11.png",
+      "platform": "Arch",
+      "case_index": 11,
+      "locale": "zh_CN",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "794159b0250bc926d58ddccb1a60f6bc2c03088fe268bcc9979db1b397850366",
+      "receipt_sha256": "794159b0250bc926d58ddccb1a60f6bc2c03088fe268bcc9979db1b397850366",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-11.png",
+        "sha256": "794159b0250bc926d58ddccb1a60f6bc2c03088fe268bcc9979db1b397850366",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-12.png",
+      "platform": "Arch",
+      "case_index": 12,
+      "locale": "ja",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "44d8a575a731eb7eda3c4dbb13dfa37b73a95c742f78c4f9b5fa9147b0e8a66a",
+      "receipt_sha256": "44d8a575a731eb7eda3c4dbb13dfa37b73a95c742f78c4f9b5fa9147b0e8a66a",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-13.png",
+      "platform": "Arch",
+      "case_index": 13,
+      "locale": "ja",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "23ef910022ede27eba8fb518f6b3a48a770476accb1eb0c0e98affce543f6d7b",
+      "receipt_sha256": "23ef910022ede27eba8fb518f6b3a48a770476accb1eb0c0e98affce543f6d7b",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-13.png",
+        "sha256": "23ef910022ede27eba8fb518f6b3a48a770476accb1eb0c0e98affce543f6d7b",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-14.png",
+      "platform": "Arch",
+      "case_index": 14,
+      "locale": "ja",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "ea1bf4c049f2518625a60a1d1efaf1fc0e398a8e5400765b1d50256121a22a4b",
+      "receipt_sha256": "ea1bf4c049f2518625a60a1d1efaf1fc0e398a8e5400765b1d50256121a22a4b",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v3-captures\\green-v3-15.png",
+      "platform": "Arch",
+      "case_index": 15,
+      "locale": "ja",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "b23b61b237300122b90a6610d664d0a546fde958e9f47012ca47e7b3b52b3a63",
+      "receipt_sha256": "b23b61b237300122b90a6610d664d0a546fde958e9f47012ca47e7b3b52b3a63",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\arch-v2-captures\\green-v2-15.png",
+        "sha256": "b23b61b237300122b90a6610d664d0a546fde958e9f47012ca47e7b3b52b3a63",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-0.png",
+      "platform": "Mac",
+      "case_index": 0,
+      "locale": "en",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "d0e06d711a6f54cd8ce42dd3cb2ec11e570a987f5dd4f950a38c092bfc3fa3f8",
+      "receipt_sha256": "d0e06d711a6f54cd8ce42dd3cb2ec11e570a987f5dd4f950a38c092bfc3fa3f8",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-2.png",
+      "platform": "Mac",
+      "case_index": 2,
+      "locale": "en",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "143b447b6788225e31feaba7858fb58c5081d6fa82bf8cc4ca636510976068a7",
+      "receipt_sha256": "143b447b6788225e31feaba7858fb58c5081d6fa82bf8cc4ca636510976068a7",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-4.png",
+      "platform": "Mac",
+      "case_index": 4,
+      "locale": "ko",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-6.png",
+      "platform": "Mac",
+      "case_index": 6,
+      "locale": "ko",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "ddc2b962b3bb5e6b1fee542aea43f30a1872c6a2037939ac887135b1a27397bb",
+      "receipt_sha256": "ddc2b962b3bb5e6b1fee542aea43f30a1872c6a2037939ac887135b1a27397bb",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-8.png",
+      "platform": "Mac",
+      "case_index": 8,
+      "locale": "zh_CN",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "13173a8c2b2e626fe8ff583a0eef2f70122f1674d221f3763291ae00bc1d424d",
+      "receipt_sha256": "13173a8c2b2e626fe8ff583a0eef2f70122f1674d221f3763291ae00bc1d424d",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-10.png",
+      "platform": "Mac",
+      "case_index": 10,
+      "locale": "zh_CN",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "c7766985ecb502a1c31fe822d62ff1c72cb16b8803de4ff740bae396e2423f39",
+      "receipt_sha256": "c7766985ecb502a1c31fe822d62ff1c72cb16b8803de4ff740bae396e2423f39",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Menu captions remain readable on single lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-12.png",
+      "platform": "Mac",
+      "case_index": 12,
+      "locale": "ja",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "570801b2c79a7581e3307dd56a315b1819181f945fc2e00c05939a2feb8af0c6",
+      "receipt_sha256": "570801b2c79a7581e3307dd56a315b1819181f945fc2e00c05939a2feb8af0c6",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-14.png",
+      "platform": "Mac",
+      "case_index": 14,
+      "locale": "ja",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "89b6ccaadd822c56e4eacddc549c5e418daef888d95982dc3b761ef3d29db7e8",
+      "receipt_sha256": "89b6ccaadd822c56e4eacddc549c5e418daef888d95982dc3b761ef3d29db7e8",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Compact footer controls span approximately y577..615, leaving about 33 pixels beneath them. Compact Japanese logo is visibly smaller than the other compact locales, preserving room for its two-line caption.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-13.png",
+      "platform": "Mac",
+      "case_index": 13,
+      "locale": "ja",
+      "theme": "light",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "6bc0f46ba6faea0227bb5813cc65c4cc0b71e2ec7f500e745f48c79700e5b2e1",
+      "receipt_sha256": "6bc0f46ba6faea0227bb5813cc65c4cc0b71e2ec7f500e745f48c79700e5b2e1",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        942
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Mint/white S artwork is visibly complete."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "complete_artwork_observed",
+      "coordinate_uncertainty_px": 2,
+      "issues": [],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v2-captures\\title-13.png",
+        "sha256": "6bc0f46ba6faea0227bb5813cc65c4cc0b71e2ec7f500e745f48c79700e5b2e1",
+        "identical_png_sha256": true
+      }
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v3-captures\\title-15.png",
+      "platform": "Mac",
+      "case_index": 15,
+      "locale": "ja",
+      "theme": "dark",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "view_detail": "original",
+      "sha256": "cfc48206a2fdf23eb13b9559347a8a2d6e239ca2b13c672303b11ede98d8fbda",
+      "receipt_sha256": "cfc48206a2fdf23eb13b9559347a8a2d6e239ca2b13c672303b11ede98d8fbda",
+      "receipt_match": true,
+      "original_dimensions": [
+        1400,
+        942
+      ],
+      "observations": [
+        "Complete rounded logo tile sits inside the viewport with clear top margin; no logo edge clipping.",
+        "All four menu choices, their icons, introduction and menu captions are visible and readable.",
+        "Language selector and Settings controls, including localized labels and icons, are fully inside the viewport and readable.",
+        "Japanese examples caption occupies two readable lines without overlap.",
+        "No whole-frame blankness, corruption, missing-glyph boxes or text clipping observed.",
+        "Existing light/dark palette, rounded buttons, icon set and menu order remain visibly consistent with v2.",
+        "Large centered layout and full footer remain visibly consistent with v2.",
+        "Image-tool display impression of S artwork was partial; do not treat this as a product defect. Original file is byte-identical to v2, and read-only decoded region contains 2508 mint and 2477 light pixels."
+      ],
+      "logo_top_clipping_observed": false,
+      "language_settings_fully_visible_readable": true,
+      "menu_captions_readable": true,
+      "visual_logo_artwork_verdict": "display_uncertain_original_pixel_content_corroborated",
+      "coordinate_uncertainty_px": 2,
+      "issues": [
+        "Tool-display uncertainty for full S artwork; no source-PNG defect established."
+      ],
+      "limitations": "Still-image evidence only; no keyboard/focus/activation/scroll or physical behavior inferred. No translation-quality or calibrated accessibility certification.",
+      "large_v2_comparison": {
+        "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-v2-captures\\title-15.png",
+        "sha256": "cfc48206a2fdf23eb13b9559347a8a2d6e239ca2b13c672303b11ede98d8fbda",
+        "identical_png_sha256": true
+      },
+      "read_only_pixel_corroboration": {
+        "region_xyxy": [
+          625,
+          137,
+          775,
+          287
+        ],
+        "mint_pixels": 2508,
+        "light_pixels": 2477,
+        "method": "Original PNG decoded and pixels read individually; no crop rendered, no image altered."
+      }
+    }
+  ],
+  "summary": {
+    "viewed_arch": 16,
+    "viewed_mac": 10,
+    "all_hashes_match": true,
+    "observed_sizes": [
+      [
+        1152,
+        648
+      ],
+      [
+        1400,
+        950
+      ],
+      [
+        1400,
+        942
+      ]
+    ],
+    "compact_footer": "The v2 below-fold footer finding is resolved in these v3 compact captures: all localized Language/Settings labels and full controls are visible with bottom margin, including Japanese.",
+    "logo": "No top clipping in any inspected capture. Complete artwork visually observed in 25 captures; one Mac large dark tool-display impression is uncertain, with original pixel content corroborated and identical to v2.",
+    "cjk": "Korean, Simplified Chinese and Japanese glyphs readable in both themes. Japanese two-line examples caption remains readable without overlapping the project button.",
+    "style": "Existing palette, button shapes, iconography, menu order and caption appearance remain visibly consistent. Compact layout has tighter vertical arrangement and smaller logo; Japanese logo is smaller than other compact locales.",
+    "large_unchanged": "All eight Arch large originals and both requested Mac Japanese large originals have identical SHA256 to their v2 counterparts.",
+    "frame_integrity": "No blank/corrupt whole frames or observed text clipping."
+  },
+  "runtime_claims_not_inferred_from_images": {
+    "coordinator_provided": "Arch16 cases plus 6 regressions and Mac16 cases passed native/footer/keyboard checks with zero errors.",
+    "independently_executed_by_reviewer": false,
+    "mac_native_large_viewport": [
+      1400,
+      942
+    ],
+    "arch_large_viewport": [
+      1400,
+      950
+    ],
+    "os_clamp": "Coordinator-provided explanation; not inferred from PNGs."
+  },
+  "prior_findings": {
+    "v2_missing_s_claim": "Remains retracted; do not revive as product defect.",
+    "v2_footer_finding": "Historical v2 observation retained in old receipt; v3 compact captures show resolved visibility.",
+    "preserved_prior_receipt": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\astra-review.json",
+    "preserved_prior_receipt_sha256": "d046d4a2e47d0924d919bfbaa99e36877889e406bc835343c79c550bdaf706bc"
+  },
+  "verdict": "Scoped visual checks show complete on-screen footer labels, unclipped logo tiles and readable menus/captions at inspected sizes. Large selected captures are byte-identical to v2. No aesthetic, publication, runtime or whole-goal approval.",
+  "remaining_review_questions": [
+    "Claude owns aesthetic/code review of responsive compact sizing and spacing, including smaller Japanese logo.",
+    "Coordinator retains responsibility for native keyboard/focus and runtime provenance; screenshots show visibility only."
+  ],
+  "limitations": [
+    "Only listed locales/themes/sizes and supplied default text-scale captures reviewed.",
+    "Mac larger English/Korean/Chinese captures were not inspected.",
+    "Mac title-15 tool-display logo impression uncertain; original decoded color content and unchanged SHA prevent a missing-artwork product claim.",
+    "No physical/contact behavior, package navigation, publication readiness or source correctness inferred."
+  ],
+  "next_owner": "Coordinator for integration/runtime evidence and canonical records; Claude for scoped design/code review."
+}

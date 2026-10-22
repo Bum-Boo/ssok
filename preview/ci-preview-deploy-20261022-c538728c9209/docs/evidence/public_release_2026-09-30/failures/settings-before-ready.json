@@ -1,0 +1,36 @@
+{
+  "passed": false,
+  "url": "http://127.0.0.1:35920/?ssok_verify=1",
+  "checks": [
+    {
+      "label": "fresh browser follows light system appearance",
+      "passed": true
+    }
+  ],
+  "errors": [
+    "Cannot read properties of undefined (reading 'length')"
+  ],
+  "scope": "Real canvas input, system appearance, explicit override, independent text sizes, mute/volume, draft hashes, persisted reload",
+  "failure": "Error: Page.wait_for_function: TypeError: Cannot read properties of undefined (reading 'length')\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:68)\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:311:30), <anonymous>:4:60)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+  "observed": {
+    "code_font_size": 15,
+    "code_running": false,
+    "dark": false,
+    "draft_hash": "8339807512083796ba802ddd9bfafb82c74ef3452e7855744063970a28ffd02b",
+    "graph_hash": "0cc792602cf4ef6876f2c637207b710829fa8bc6e4121a352262f5f78c13cd00",
+    "locale": "en",
+    "program_panel_right": 1388,
+    "run_mode": false,
+    "settings_open": false,
+    "source_hash": "3c2d4ef51c9c1d7a19683c1fdc4cf8f38c18735fac17cb8298dc781f191b657a",
+    "ui_font_size": 14,
+    "values": {
+      "appearance": "system",
+      "code_scale": 1,
+      "muted": false,
+      "text_scale": 1,
+      "volume": 60
+    },
+    "viewport_width": 1400
+  }
+}

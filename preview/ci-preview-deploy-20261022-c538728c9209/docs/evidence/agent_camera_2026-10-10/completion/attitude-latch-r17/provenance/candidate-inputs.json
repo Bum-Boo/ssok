@@ -1,0 +1,42 @@
+[
+  {
+    "case": "prior",
+    "reference_policy": "prior",
+    "coefficient32_unchanged": true,
+    "housing_rate_coefficient": 0,
+    "motor_feedback_law_unchanged": true,
+    "prototype_sha256": "087b1eab6441d1a251d0acdb432d3c372bcb173dc5c16f48573cbf2d2a707772",
+    "template_sha256": "3f58ae80928a79a538704dba431b78b8a2a527e735a4a4440f9c9e7975ebce1f",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--script",
+      "build/ai-loop-evidence/completion/attitude-latch-r17/attitude-prior.gd",
+      "--check-only"
+    ],
+    "exit_code": 0,
+    "production_applied": false
+  },
+  {
+    "case": "brake",
+    "reference_policy": "brake",
+    "coefficient32_unchanged": true,
+    "housing_rate_coefficient": 0,
+    "motor_feedback_law_unchanged": true,
+    "prototype_sha256": "1544632d4c1ff4795ffd124a70729fa021459f8bfa9cc47b9b98d81e562161d5",
+    "template_sha256": "3f58ae80928a79a538704dba431b78b8a2a527e735a4a4440f9c9e7975ebce1f",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--script",
+      "build/ai-loop-evidence/completion/attitude-latch-r17/attitude-brake.gd",
+      "--check-only"
+    ],
+    "exit_code": 0,
+    "production_applied": false
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "engine": "4.7.2-stable (official)",
+  "forward_m": 0.420191258192062,
+  "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+  "lateral_m": 0.0757988318800926,
+  "minimum_height_m": 0.129295182228088,
+  "minimum_up": 0.959007859230042,
+  "physics_hz": 60,
+  "playback_speed": 1.0,
+  "policy_sha256": "42246c56f5074b98ddd7b8f9c1b4e243dc1191c6fd5d6d114e1bbaf3df9e8b9e",
+  "render_fps": 30,
+  "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+  "stopped_up": 0.999993145465851,
+  "success": true,
+  "walking_seconds": 12.0,
+  "yaw_degrees": 25.8939421152664,
+  "capture_script": "tools/godot/capture_learned_app.gd",
+  "capture_script_sha256": "dfb77cb2379a2c6e93839527e1a3c5ad03febb4037f9e5341575365a91a4c50a",
+  "application_source_commit": "ac2cc77d2f3f045a14da5825a0c8c4195ee80d53",
+  "capture_script_uncommitted_at_recording": true,
+  "command": "godot --path . --rendering-method gl_compatibility --write-movie build/learned-app.avi --fixed-fps 30 --script tools/godot/capture_learned_app.gd",
+  "media": {
+    "learned-walk.png": "1deea28574b0f0c6fc1934fc57c7fd89a56c6db1098041f0b18735143143c0d4",
+    "learned-walk.mp4": "6855a67252167ad6570ebeded90c770e772c05681f537cc715bbb39afcf7104c",
+    "learned-walk.gif": "d90ed645e14667415a6df5c7d42b7980442a3b19f0e61f0bd25c7699ae32188e"
+  },
+  "media_properties": {
+    "learned-walk.mp4": {
+      "width": 1152,
+      "height": 648,
+      "fps": 30,
+      "duration_seconds": 14.566667,
+      "source_recording": "learned-app.avi"
+    },
+    "learned-walk.gif": {
+      "width": 960,
+      "height": 540,
+      "fps": 10,
+      "duration_seconds": 14.6,
+      "source_recording": "learned-app.avi"
+    },
+    "learned-walk.png": {
+      "width": 1600,
+      "height": 900,
+      "source": "live viewport screenshot; separate from movie dimensions"
+    }
+  },
+  "source_recording_sha256": "5e34b117fd6459950ca7934008d13121511419d2d581f1c7c556b306811eeaa9",
+  "movie_writer_size_note": "MovieWriter opens at the project1152x648 viewport before the unchanged script sets the live window to1600x900; both AVI recordings remain1152x648.",
+  "visual_review": {
+    "sample_seconds": [
+      1.0,
+      7.0,
+      13.5
+    ],
+    "robot_visible_in_all_samples": true,
+    "movie_dimensions_verified_with": "ffprobe",
+    "poster_dimensions": [
+      1600,
+      900
+    ]
+  }
+}

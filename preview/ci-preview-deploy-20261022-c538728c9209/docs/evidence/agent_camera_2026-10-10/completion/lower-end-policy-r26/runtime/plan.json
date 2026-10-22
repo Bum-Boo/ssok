@@ -1,0 +1,33 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/lower-end-policy-r26/run_adaptive.gd",
+    "--",
+    "--ssok-agent-bridge",
+    "--evaluate-camera",
+    "--wall-x",
+    "0.35"
+  ],
+  "goal": "Approach the wall using only the robot camera. At the horizontal center of the480-pixel-high image, aim to leave a narrow beige floor strip about5–8% of the image height (roughly24–38pixels) between the wall base and the bottom edge, then stop before contact. The bottom corners can contain robot parts; judge the center floor strip. Reobserve after every short step. Prefer shorter steps near the wall; stop if uncertain. Do not claim a physical distance or collision-free success from the images.",
+  "frozen_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "wall_x": 0.35,
+  "limits": {
+    "cli_launches": 1,
+    "steps": 8,
+    "images": 9,
+    "seconds": 180
+  },
+  "provider": "OpenAI / requested gpt-6-astra / existing Codex ChatGPT login",
+  "actor_policy": "lower-end stop preference / not stock prompt",
+  "physical_inputs_to_actor": false,
+  "automatic_retry": false,
+  "paid_fallback": false,
+  "native_readiness_seconds": 80,
+  "fixture_post_stop_readback_frames": 132,
+  "new_controller": false
+}

@@ -1,0 +1,11 @@
+{
+  "before_sha256": "d144eccd5480379e14985207c5ae844079c0711682eb29d7b2deb5ae69f2b766",
+  "after_sha256": "506188f789e5eb03ebe5b7c05b0b98bbcd2698eea394b3e0f5a103d1d096d0d5",
+  "scope": "CI coordinate fixture only; excluded from PCK; app UI unchanged",
+  "observed_headless_before": "requested420px, reported200x169, OK636,541",
+  "observed_width_only": "420x169, OK782,541 outside actual Web OK",
+  "observed_restored_requested_rect": "420x120, OK782,504 inside Astra actual Web OK764..800/497..535",
+  "probe_evidence": "confirmation-headless-probe, probe2, probe3: all original JSON/log/GDScript retained",
+  "native_rendered_windows_failure": "correct vertical516 but platform OK left617 instead of Webright782; cancelled rather than open, title assertion fails.",
+  "not_publication": true
+}

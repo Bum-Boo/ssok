@@ -1,0 +1,75 @@
+{"status": "runner_failed", "cli_exit": null, "stop_confirmed": false, "owner_revocation_confirmed": true, "stop_scope": "context_replaced", "final_desktop_state": "ready", "observations": 0, "completed_actions": 0, "final_reobserved": false, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {}, "goal_success": "not certified; inspect camera/action evidence"}
+{"status": "runner_failed", "cli_exit": null, "stop_confirmed": false, "owner_revocation_confirmed": false, "stop_scope": "unbound", "final_desktop_state": "not_observed", "observations": 0, "completed_actions": 0, "final_reobserved": false, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {}, "goal_success": "not certified; inspect camera/action evidence"}
+test_bad_hash_dimensions_base64_and_schema (tests.desktop_client_check.DesktopProtocolChecks.test_bad_hash_dimensions_base64_and_schema) ... ok
+test_cli_observe_writes_readback_verified_sidecar_metadata_only (tests.desktop_client_check.DesktopProtocolChecks.test_cli_observe_writes_readback_verified_sidecar_metadata_only) ... ok
+test_cli_receipt_uses_saved_episode_and_refuses_process_restart (tests.desktop_client_check.DesktopProtocolChecks.test_cli_receipt_uses_saved_episode_and_refuses_process_restart) ... ok
+test_cli_step_and_receipt_stop_when_saved_metadata_has_no_episode (tests.desktop_client_check.DesktopProtocolChecks.test_cli_step_and_receipt_stop_when_saved_metadata_has_no_episode) ... ok
+test_cli_step_refuses_all_stale_contexts_before_action (tests.desktop_client_check.DesktopProtocolChecks.test_cli_step_refuses_all_stale_contexts_before_action) ... ok
+test_cli_step_uses_saved_context_and_waits_for_reply (tests.desktop_client_check.DesktopProtocolChecks.test_cli_step_uses_saved_context_and_waits_for_reply) ... ok
+test_describe_allows_unstarted_disabled_episode (tests.desktop_client_check.DesktopProtocolChecks.test_describe_allows_unstarted_disabled_episode) ... ok
+test_describe_uses_env_one_line_and_filters_privileged_data (tests.desktop_client_check.DesktopProtocolChecks.test_describe_uses_env_one_line_and_filters_privileged_data) ... ok
+test_fragmented_reply (tests.desktop_client_check.DesktopProtocolChecks.test_fragmented_reply) ... ok
+test_incomplete_and_corrupt_png (tests.desktop_client_check.DesktopProtocolChecks.test_incomplete_and_corrupt_png) ... ok
+test_malformed_envelope_json_or_framing (tests.desktop_client_check.DesktopProtocolChecks.test_malformed_envelope_json_or_framing) ... ok
+test_malformed_scoped_stop_never_becomes_global_stop (tests.desktop_client_check.DesktopProtocolChecks.test_malformed_scoped_stop_never_becomes_global_stop) ... ok
+test_no_token_or_short_token_never_connects (tests.desktop_client_check.DesktopProtocolChecks.test_no_token_or_short_token_never_connects) ... ok
+test_non_loopback_and_unbounded_timeout_rejected (tests.desktop_client_check.DesktopProtocolChecks.test_non_loopback_and_unbounded_timeout_rejected) ... ok
+test_observe_verifies_frame_bytes_and_metadata (tests.desktop_client_check.DesktopProtocolChecks.test_observe_verifies_frame_bytes_and_metadata) ... ok
+test_oversized_or_nonfinite_request_never_connects (tests.desktop_client_check.DesktopProtocolChecks.test_oversized_or_nonfinite_request_never_connects) ... ok
+test_oversized_response (tests.desktop_client_check.DesktopProtocolChecks.test_oversized_response) ... ok
+test_peer_error_preserves_only_safe_code (tests.desktop_client_check.DesktopProtocolChecks.test_peer_error_preserves_only_safe_code) ... ok
+test_reflected_token_is_never_returned_or_printed (tests.desktop_client_check.DesktopProtocolChecks.test_reflected_token_is_never_returned_or_printed) ... ok
+test_scoped_stop_requires_owner_revocation_acknowledgement (tests.desktop_client_check.DesktopProtocolChecks.test_scoped_stop_requires_owner_revocation_acknowledgement) ... ok
+test_scoped_stop_transmits_only_exact_owner_and_reports_replacement_state (tests.desktop_client_check.DesktopProtocolChecks.test_scoped_stop_transmits_only_exact_owner_and_reports_replacement_state) ... ok
+test_secret_in_receipt_args_never_reaches_peer (tests.desktop_client_check.DesktopProtocolChecks.test_secret_in_receipt_args_never_reaches_peer) ... ok
+test_step_and_receipt_require_nonempty_string_episode_before_connecting (tests.desktop_client_check.DesktopProtocolChecks.test_step_and_receipt_require_nonempty_string_episode_before_connecting) ... ok
+test_step_bounds_and_consumed_frame (tests.desktop_client_check.DesktopProtocolChecks.test_step_bounds_and_consumed_frame) ... ok
+test_step_rejects_missing_or_changed_reply_episode_even_when_ids_collide (tests.desktop_client_check.DesktopProtocolChecks.test_step_rejects_missing_or_changed_reply_episode_even_when_ids_collide) ... ok
+test_stop_requires_no_frame_or_revision (tests.desktop_client_check.DesktopProtocolChecks.test_stop_requires_no_frame_or_revision) ... ok
+test_timeout_closes_without_retry (tests.desktop_client_check.DesktopProtocolChecks.test_timeout_closes_without_retry) ... ok
+test_trace_dispatch_is_receipt_only_and_bounded (tests.desktop_client_check.DesktopProtocolChecks.test_trace_dispatch_is_receipt_only_and_bounded) ... ok
+test_trickle_response_has_total_deadline (tests.desktop_client_check.DesktopProtocolChecks.test_trickle_response_has_total_deadline) ... ok
+test_unsupported_privileged_tool_never_connects (tests.desktop_client_check.DesktopProtocolChecks.test_unsupported_privileged_tool_never_connects) ... ok
+test_wrong_id_and_wrong_observation_context (tests.desktop_client_check.DesktopProtocolChecks.test_wrong_id_and_wrong_observation_context) ... ok
+test_actual_sdk_tool_schema_image_and_action_capability (tests.desktop_client_check.OptionalMcpChecks.test_actual_sdk_tool_schema_image_and_action_capability) ... ok
+test_claimed_context_rejects_changed_first_frame_after_describe (tests.desktop_session_check.GoalChecks.test_claimed_context_rejects_changed_first_frame_after_describe) ... ok
+test_claimed_context_rejects_stop_then_reenable_before_first_image (tests.desktop_session_check.GoalChecks.test_claimed_context_rejects_stop_then_reenable_before_first_image) ... ok
+test_deadline_fails_closed (tests.desktop_session_check.GoalChecks.test_deadline_fails_closed) ... ok
+test_first_observation_failure_has_already_bound_cleanup_owner (tests.desktop_session_check.GoalChecks.test_first_observation_failure_has_already_bound_cleanup_owner) ... ok
+test_goal_sdk_image_decision_and_stop_tools (tests.desktop_session_check.GoalChecks.test_goal_sdk_image_decision_and_stop_tools) ... ok
+test_invalid_bounds_do_not_create_session (tests.desktop_session_check.GoalChecks.test_invalid_bounds_do_not_create_session) ... ok
+test_lost_reply_never_retries_and_revokes_session (tests.desktop_session_check.GoalChecks.test_lost_reply_never_retries_and_revokes_session) ... ok
+test_matching_claimed_context_keeps_action_and_reobserve (tests.desktop_session_check.GoalChecks.test_matching_claimed_context_keeps_action_and_reobserve) ... ok
+test_missing_and_consumed_frame_cannot_act (tests.desktop_session_check.GoalChecks.test_missing_and_consumed_frame_cannot_act) ... ok
+test_new_episode_cannot_rebind_after_step (tests.desktop_session_check.GoalChecks.test_new_episode_cannot_rebind_after_step) ... ok
+test_operator_endpoints_are_not_actor_client_capabilities (tests.desktop_session_check.GoalChecks.test_operator_endpoints_are_not_actor_client_capabilities) ... ok
+test_real_bytes_receipt_finite_action_reobserve_and_close (tests.desktop_session_check.GoalChecks.test_real_bytes_receipt_finite_action_reobserve_and_close) ... ok
+test_second_observe_before_decision_cancels (tests.desktop_session_check.GoalChecks.test_second_observe_before_decision_cancels) ... ok
+test_stale_human_revision_cancels_without_action (tests.desktop_session_check.GoalChecks.test_stale_human_revision_cancels_without_action) ... ok
+test_step_budget_reserves_final_image_then_refuses_movement (tests.desktop_session_check.GoalChecks.test_step_budget_reserves_final_image_then_refuses_movement) ... ok
+test_stop_does_not_wait_for_inflight_lock (tests.desktop_session_check.GoalChecks.test_stop_does_not_wait_for_inflight_lock) ... ok
+test_unbound_stop_closes_session_without_revoking_any_desktop (tests.desktop_session_check.GoalChecks.test_unbound_stop_closes_session_without_revoking_any_desktop) ... ok
+test_wrong_image_hash_cancels_without_action (tests.desktop_session_check.GoalChecks.test_wrong_image_hash_cancels_without_action) ... ok
+test_stale_preflight_scopes_cleanup_without_stopping_replacement_or_launching_cli (tests.desktop_session_check.RunnerCleanupChecks.test_stale_preflight_scopes_cleanup_without_stopping_replacement_or_launching_cli) ... Frame context is stale; observe the current desktop session again.
+ok
+test_unbound_login_failure_never_stops_an_existing_desktop (tests.desktop_session_check.RunnerCleanupChecks.test_unbound_login_failure_never_stops_an_existing_desktop) ... This runner requires the existing Codex ChatGPT login; API-key fallback is disabled.
+ok
+test_changed_package_module_stops_before_provider_launch (tests.test_operator_release.OperatorReleaseTest.test_changed_package_module_stops_before_provider_launch) ... ok
+test_changed_packaged_doctor_stops_before_provider_launch (tests.test_operator_release.OperatorReleaseTest.test_changed_packaged_doctor_stops_before_provider_launch) ... ok
+test_invalid_identity_cannot_fall_back_to_git (tests.test_operator_release.OperatorReleaseTest.test_invalid_identity_cannot_fall_back_to_git) ... ok
+test_missing_package_identity_stops_before_provider_launch (tests.test_operator_release.OperatorReleaseTest.test_missing_package_identity_stops_before_provider_launch) ... ok
+test_package_goal_dispatches_without_git_checkout (tests.test_operator_release.OperatorReleaseTest.test_package_goal_dispatches_without_git_checkout) ... ok
+test_accepted_login_reports_preparation_without_auth_output (tests.test_operator_doctor.OperatorDoctorTest.test_accepted_login_reports_preparation_without_auth_output) ... ok
+test_dependencies_only_never_probes_account_or_token (tests.test_operator_doctor.OperatorDoctorTest.test_dependencies_only_never_probes_account_or_token) ... ok
+test_failed_auth_exit_cannot_be_accepted_by_status_text (tests.test_operator_doctor.OperatorDoctorTest.test_failed_auth_exit_cannot_be_accepted_by_status_text) ... ok
+test_invalid_source_refuses_before_dependency_or_account_probe (tests.test_operator_doctor.OperatorDoctorTest.test_invalid_source_refuses_before_dependency_or_account_probe) ... ok
+test_missing_codex_returns_actionable_check_without_auth_process (tests.test_operator_doctor.OperatorDoctorTest.test_missing_codex_returns_actionable_check_without_auth_process) ... ok
+test_other_auth_mode_refuses_even_with_exit_zero_without_leaking_key (tests.test_operator_doctor.OperatorDoctorTest.test_other_auth_mode_refuses_even_with_exit_zero_without_leaking_key) ... ok
+test_timeout_reports_recovery_without_partial_auth_output (tests.test_operator_doctor.OperatorDoctorTest.test_timeout_reports_recovery_without_partial_auth_output) ... ok
+test_wrong_mcp_version_refuses_before_importing_server (tests.test_operator_doctor.OperatorDoctorTest.test_wrong_mcp_version_refuses_before_importing_server) ... ok
+test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... ok
+
+----------------------------------------------------------------------
+Ran 66 tests in 18.902s
+
+OK

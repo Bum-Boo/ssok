@@ -1,0 +1,75 @@
+{
+  "actual_native_run_to_external_operator_and_requested_astra": true,
+  "goal": "Observe the camera, move forward only3 ticks once, observe again, then stop.",
+  "actions": 1,
+  "ticks": 3,
+  "observations": 2,
+  "verified_camera_metadata": [
+    {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 1882,
+      "control_generation": 1,
+      "draw_frame": 1864,
+      "episode_id": "ae2031c62008bebdec374520",
+      "frame_id": 2,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 1882,
+      "revision": 4,
+      "robot_instance_id": "1270639236366",
+      "settle_confirmed_tick": 1882,
+      "sha256": "fe0310000e890bdadb65cdf002e741f61ace2ad525289da8646412d1381474f0",
+      "width": 640
+    },
+    {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 2363,
+      "control_generation": 1,
+      "draw_frame": 2344,
+      "episode_id": "ae2031c62008bebdec374520",
+      "frame_id": 3,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 2363,
+      "revision": 4,
+      "robot_instance_id": "1270639236366",
+      "settle_confirmed_tick": 2363,
+      "sha256": "8610fd7212977664c40354cea79201f603a74b89fcb1fcd5d17b62160830d54e",
+      "width": 640
+    }
+  ],
+  "state": {
+    "bridge_listening": true,
+    "can_step": false,
+    "control_generation": 2,
+    "enabled": false,
+    "episode_id": "ae2031c62008bebdec374520",
+    "frame_id": 3,
+    "revision": 4,
+    "robot_supported": true,
+    "state": "stopped"
+  },
+  "actor_result": {
+    "status": "cli_exited",
+    "cli_exit": 0,
+    "stop_confirmed": true,
+    "owner_revocation_confirmed": true,
+    "stop_scope": "context_replaced",
+    "final_desktop_state": "stopped",
+    "observations": 2,
+    "completed_actions": 1,
+    "final_reobserved": true,
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "usage": {
+      "input_tokens": 86296,
+      "cached_input_tokens": 70144,
+      "output_tokens": 346
+    },
+    "goal_success": "not certified; inspect camera/action evidence"
+  },
+  "provider_backend_identity_attested": false,
+  "account_login_packaged": false
+}

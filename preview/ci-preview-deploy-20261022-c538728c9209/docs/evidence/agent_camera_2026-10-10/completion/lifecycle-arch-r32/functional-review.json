@@ -1,0 +1,75 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "findings": [
+    {
+      "severity": "info",
+      "area": "tools/app_control/camera_evaluator.gd:_context_error",
+      "note": "Context binding is checked before any snapshot in both _physics_process and _record_sample, and _write_invalid is guarded by `finished`, so an invalidated scene emits valid=false with an explicit reason and empty final exactly once. The order app -> run_mode -> body count -> per-body identity -> episode -> revision matches the reasons the test expects for teardown/mode_off (physics_removed), app_free (app_removed), rebuild (body_removed|body_context_changed) and new_episode (episode_changed). Supplied runtime evidence shows each invalid case written at the same physics tick (36) as the context action, with no engine errors, which is consistent with the code."
+    },
+    {
+      "severity": "info",
+      "area": "observer passivity",
+      "note": "The evaluator never calls into agent_loop/run_mode mutators; it only reads state and connects to frame_ready/body_entered. new_episode evidence shows the replacement owner enabled and producing frame 2 after the observer invalidated, satisfying the no-cancellation requirement."
+    },
+    {
+      "severity": "low",
+      "area": "tools/app_control/camera_evaluator.gd:_snapshot / _ready",
+      "note": "_snapshot hard-codes run_mode.bodies[0], [3], [4] but _ready only rejects when wall is missing or robot is empty. A graph with fewer than five bodies that still contains a stage_wall would raise an index error instead of unsupported_fixture. Not reachable with the fixed RobotCarPreset fixture used here; worth a size guard if the observer is reused."
+    },
+    {
+      "severity": "low",
+      "area": "tools/app_control/camera_evaluator.gd:_ready",
+      "note": "The early physics_unavailable path writes before _episode_id/_revision are captured, so that result carries an empty episode_id. Harmless for the tested modes, but the record is less self-describing than the other invalid reasons."
+    },
+    {
+      "severity": "low",
+      "area": "tools/app_control/camera_evaluator.gd:_context_error",
+      "note": "app.app_controller is dereferenced without an is_instance_valid check, unlike run_mode and agent_loop. Safe while app_controller is owned by main.tscn and freed with app, but inconsistent with the rest of the guard."
+    },
+    {
+      "severity": "low",
+      "area": "tests/camera_evaluator_lifecycle_check.gd",
+      "note": "Rebuild accepts either body_removed or body_context_changed because the outcome depends on whether old bodies are freed or queue_freed within the same tick; this is documented in the reasons table and acceptable, but it means the test does not pin down one deterministic reason."
+    },
+    {
+      "severity": "low",
+      "area": "tests/camera_evaluator_lifecycle_check.gd",
+      "note": "The test confirms a final result exists and its shape, but does not verify it was written only once (e.g. by checking that camera-calibration.jsonl stops growing or by stamping the result). Single emission currently rests on the `finished` guard in code review rather than on an assertion."
+    },
+    {
+      "severity": "info",
+      "area": "tools/ci/verify.py diff and tests/test_ci_verify.py",
+      "note": "Registration expands the lifecycle script into seven independent rendered checks with `-- --lifecycle-mode <mode>` as the trailing arguments, excludes --headless and --ssok-agent-bridge, and skips the generic single-check registration. The Python test asserts exactly these properties and that the unsuffixed name is absent. The headless early exit returns 2, which the runner treats as failure, so a misconfigured headless run cannot pass silently."
+    },
+    {
+      "severity": "info",
+      "area": "warm-up and watchdog",
+      "note": "Two frame_post_draw waits before agent_loop.begin() keep shader setup out of the unchanged 60s operation watchdog without modifying app code. This is a test-harness mitigation, not a product fix, and should not be read as cold-start reliability."
+    },
+    {
+      "severity": "info",
+      "area": "scope",
+      "note": "Changes are limited to the observer, test, CI registration, generated map and evidence. No app src/UI/camera/controller/physics/goal/provider/default/package files are touched, and there is no user-facing text, so no localization update is required."
+    }
+  ],
+  "remaining_limits": [
+    "This review is static reading of the supplied files, diff and runtime summary; the reviewer did not rerun any command or inspect screenshots.",
+    "Each mode has a single supplied passing run; flakiness across repeated runs is not characterized.",
+    "Cold-cache startup reliability is not established: an earlier cold-cache rebuild process timed out, and the tracked test relies on a warm Mesa cache plus two warm-up draws.",
+    "The original AI case 9 context-change initiator remains unidentified; this work only makes the observer fail closed when such a change occurs.",
+    "No mode exercises a context change or Stop while a drive action is pending (acting/settling state); all context actions occur from the ready state.",
+    "The unsupported_collision_shape and unsupported_fixture paths are not exercised by the tracked test.",
+    "Results pertain to observer correctness only; they do not demonstrate optical goal adoption or success of the original physical goal.",
+    "Native rendered checks are owned by the coordinator; integration rebase and merge remain with the integration owner and the human respectively."
+  ],
+  "actual_invocations": 1,
+  "requested_model": "fable",
+  "resolved_model": [
+    "claude-fable-5-1"
+  ],
+  "input_hashes_unchanged": true,
+  "coordinator_clarifications": [
+    "Actual operation watchdog10seconds; ready decision watchdog60seconds. Reviewer60second operation wording is a static factual error, not the basis for runtime acceptance."
+  ]
+}

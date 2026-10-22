@@ -1,0 +1,1105 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 55,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 12.486,
+      "timeout": false,
+      "log": "import.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.983,
+      "timeout": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "assembly_snap_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.82,
+      "timeout": false,
+      "log": "assembly_snap_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/assembly_snap_check.gd"
+      ]
+    },
+    {
+      "name": "authoring_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.597,
+      "timeout": false,
+      "log": "authoring_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/authoring_ui_check.gd"
+      ]
+    },
+    {
+      "name": "biped_app_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 8.082,
+      "timeout": false,
+      "log": "biped_app_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/biped_app_check.gd"
+      ]
+    },
+    {
+      "name": "biped_motion_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.922,
+      "timeout": false,
+      "log": "biped_motion_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/biped_motion_check.gd"
+      ]
+    },
+    {
+      "name": "blender_camera_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.619,
+      "timeout": false,
+      "log": "blender_camera_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/blender_camera_check.gd"
+      ]
+    },
+    {
+      "name": "blender_edit_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.93,
+      "timeout": false,
+      "log": "blender_edit_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/blender_edit_check.gd"
+      ]
+    },
+    {
+      "name": "block_program_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.082,
+      "timeout": false,
+      "log": "block_program_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/block_program_check.gd"
+      ]
+    },
+    {
+      "name": "browser_evidence_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.849,
+      "timeout": false,
+      "log": "browser_evidence_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/browser_evidence_check.gd"
+      ]
+    },
+    {
+      "name": "construction_kit_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.339,
+      "timeout": false,
+      "log": "construction_kit_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/construction_kit_check.gd"
+      ]
+    },
+    {
+      "name": "construction_kit_motion_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 21.253,
+      "timeout": false,
+      "log": "construction_kit_motion_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/construction_kit_motion_check.gd"
+      ]
+    },
+    {
+      "name": "construction_kit_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.849,
+      "timeout": false,
+      "log": "construction_kit_store_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/construction_kit_store_check.gd"
+      ]
+    },
+    {
+      "name": "construction_kit_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.433,
+      "timeout": false,
+      "log": "construction_kit_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/construction_kit_ui_check.gd"
+      ]
+    },
+    {
+      "name": "control_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.831,
+      "timeout": false,
+      "log": "control_flow_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/control_flow_check.gd"
+      ]
+    },
+    {
+      "name": "humanoid_contract_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.72,
+      "timeout": false,
+      "log": "humanoid_contract_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_contract_check.gd"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-walk",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.778,
+      "timeout": false,
+      "log": "humanoid_motion_check-walk.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "walk"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-backward",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.679,
+      "timeout": false,
+      "log": "humanoid_motion_check-backward.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "backward"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-pick",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.675,
+      "timeout": false,
+      "log": "humanoid_motion_check-pick.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "pick"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-run",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.781,
+      "timeout": false,
+      "log": "humanoid_motion_check-run.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "run"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-walk-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.342,
+      "timeout": false,
+      "log": "humanoid_motion_check-walk-reverse-links.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "walk",
+        "--reverse-links"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-run-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.455,
+      "timeout": false,
+      "log": "humanoid_motion_check-run-reverse-links.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "run",
+        "--reverse-links"
+      ]
+    },
+    {
+      "name": "humanoid_motion_check-run-settle-frames=181",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.783,
+      "timeout": false,
+      "log": "humanoid_motion_check-run-settle-frames=181.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_motion_check.gd",
+        "--",
+        "run",
+        "--settle-frames=181"
+      ]
+    },
+    {
+      "name": "humanoid_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.428,
+      "timeout": false,
+      "log": "humanoid_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_ui_check.gd"
+      ]
+    },
+    {
+      "name": "humanoid_ui_check-modular",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.094,
+      "timeout": false,
+      "log": "humanoid_ui_check-modular.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/humanoid_ui_check.gd",
+        "--",
+        "--modular"
+      ]
+    },
+    {
+      "name": "keyboard_navigation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.922,
+      "timeout": false,
+      "log": "keyboard_navigation_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/keyboard_navigation_check.gd"
+      ]
+    },
+    {
+      "name": "learned_app_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.587,
+      "timeout": false,
+      "log": "learned_app_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/learned_app_check.gd"
+      ]
+    },
+    {
+      "name": "learned_policy_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.159,
+      "timeout": false,
+      "log": "learned_policy_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/learned_policy_check.gd"
+      ]
+    },
+    {
+      "name": "learned_tracking_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.688,
+      "timeout": false,
+      "log": "learned_tracking_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/learned_tracking_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.43,
+      "timeout": false,
+      "log": "localization_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "manual_control_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.024,
+      "timeout": false,
+      "log": "manual_control_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/manual_control_check.gd"
+      ]
+    },
+    {
+      "name": "material_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.928,
+      "timeout": false,
+      "log": "material_assets_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/material_assets_check.gd"
+      ]
+    },
+    {
+      "name": "mesh_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.12,
+      "timeout": false,
+      "log": "mesh_assets_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/mesh_assets_check.gd"
+      ]
+    },
+    {
+      "name": "modular_humanoid_check-walk",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.775,
+      "timeout": false,
+      "log": "modular_humanoid_check-walk.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/modular_humanoid_check.gd",
+        "--",
+        "walk"
+      ]
+    },
+    {
+      "name": "modular_humanoid_check-pick",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.72,
+      "timeout": false,
+      "log": "modular_humanoid_check-pick.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/modular_humanoid_check.gd",
+        "--",
+        "pick"
+      ]
+    },
+    {
+      "name": "modular_humanoid_check-pick-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.925,
+      "timeout": false,
+      "log": "modular_humanoid_check-pick-reverse-links.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/modular_humanoid_check.gd",
+        "--",
+        "pick",
+        "--reverse-links"
+      ]
+    },
+    {
+      "name": "modular_pickup_parallel_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.849,
+      "timeout": false,
+      "log": "modular_pickup_parallel_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/modular_pickup_parallel_check.gd"
+      ]
+    },
+    {
+      "name": "motion_lab_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 14.812,
+      "timeout": false,
+      "log": "motion_lab_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/motion_lab_check.gd"
+      ]
+    },
+    {
+      "name": "motion_lab_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 8.667,
+      "timeout": false,
+      "log": "motion_lab_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/motion_lab_ui_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_bridge_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 19.732,
+      "timeout": false,
+      "log": "pickup_bridge_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/pickup_bridge_ui_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_lab_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 14.152,
+      "timeout": false,
+      "log": "pickup_lab_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/pickup_lab_ui_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.649,
+      "timeout": false,
+      "log": "pickup_store_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/pickup_store_check.gd"
+      ]
+    },
+    {
+      "name": "pickup_trial_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.125,
+      "timeout": false,
+      "log": "pickup_trial_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/pickup_trial_check.gd"
+      ]
+    },
+    {
+      "name": "project_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.44,
+      "timeout": false,
+      "log": "project_store_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/project_store_check.gd"
+      ]
+    },
+    {
+      "name": "relative_code_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.921,
+      "timeout": false,
+      "log": "relative_code_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/relative_code_check.gd"
+      ]
+    },
+    {
+      "name": "run_mode_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.617,
+      "timeout": false,
+      "log": "run_mode_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/run_mode_check.gd"
+      ]
+    },
+    {
+      "name": "servo_torque_budget_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.618,
+      "timeout": false,
+      "log": "servo_torque_budget_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/servo_torque_budget_check.gd"
+      ]
+    },
+    {
+      "name": "tutorial_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.034,
+      "timeout": false,
+      "log": "tutorial_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/tutorial_ui_check.gd"
+      ]
+    },
+    {
+      "name": "workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.063,
+      "timeout": false,
+      "log": "workshop_ui_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/workshop_ui_check.gd"
+      ]
+    },
+    {
+      "name": "yaw_biped_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.871,
+      "timeout": false,
+      "log": "yaw_biped_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-bounded-full-check",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-bounded-full-check/tests/yaw_biped_check.gd"
+      ]
+    },
+    {
+      "name": "tests-motion_mcp_check.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 10.808,
+      "timeout": false,
+      "log": "tests-motion_mcp_check.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/motion_mcp_check.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tests-test_pickup_bridge.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.023,
+      "timeout": false,
+      "log": "tests-test_pickup_bridge.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/test_pickup_bridge.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tools-motion_lab-test_races.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.369,
+      "timeout": false,
+      "log": "tools-motion_lab-test_races.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tools/motion_lab/test_races.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tools-motion_lab-test_service.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.37,
+      "timeout": false,
+      "log": "tools-motion_lab-test_service.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tools/motion_lab/test_service.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tools-rl_lab-test_rl_lab.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.12,
+      "timeout": false,
+      "log": "tools-rl_lab-test_rl_lab.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tools/rl_lab/test_rl_lab.py",
+        "-v"
+      ]
+    }
+  ]
+}

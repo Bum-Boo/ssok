@@ -1,0 +1,840 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-11T13:25:01.162853+00:00",
+  "scope": "Read-only image inspection of exact local r39 export candidate; no product edits, aesthetics decision or publication approval.",
+  "source_commit": "1f388f5f69ef1c0abf31c85c19e5e32ad44c5e78",
+  "title_sha256": "0241a8b96b67661775a984dd85606499378ed8020b4829a1ac8978b6849d3d18",
+  "candidate_version_provided": "0.3.1-title-r39",
+  "inputs": [
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-results.json",
+      "sha256": "e67f146097407a6898dbcd3833ed9f4a23a3ba3ab4a86782d88078588d728e17"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\native-locale-v2-results.json",
+      "sha256": "1ed2eaa3e8fed38c22f5b811b3e970e4b5e27901a31f702f1e778b63c08895a2"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-image-hashes.json",
+      "sha256": "f9d6114b0cd82127c43407210e1c0e66b9e65e733c1b564e68cf984f61a637bd"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-results.json",
+      "sha256": "23e98200f46d25b7461fbc7b5cecec492385a0136a7053597dd8354ea4ed770f"
+    }
+  ],
+  "method": "All 33 listed original PNGs actually opened with view_image original detail. Encoded PNG dimensions and SHA256 independently read; 30 matched supplied PNG-hash receipts, three settings images have independently recorded hashes only. No image edits/crop renders, apps or provider workers launched.",
+  "images": [
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-title-en.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; initial language-argument attempt",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Actual displayed locale is Korean/light, regardless of filename/launch language argument."
+      ],
+      "requested_locale": "en",
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "FAIL locale-coverage claim for this attempt; PASS Korean/light Title visibility only."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-title-ko.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; initial language-argument attempt",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Actual displayed locale is Korean/light, regardless of filename/launch language argument."
+      ],
+      "requested_locale": "ko",
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "FAIL locale-coverage claim for this attempt; PASS Korean/light Title visibility only."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-title-zh_CN.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; initial language-argument attempt",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Actual displayed locale is Korean/light, regardless of filename/launch language argument."
+      ],
+      "requested_locale": "zh_CN",
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "FAIL locale-coverage claim for this attempt; PASS Korean/light Title visibility only."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-title-ja.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; initial language-argument attempt",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Actual displayed locale is Korean/light, regardless of filename/launch language argument."
+      ],
+      "requested_locale": "ja",
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "FAIL locale-coverage claim for this attempt; PASS Korean/light Title visibility only."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-locale-v2-en.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "d0e06d711a6f54cd8ce42dd3cb2ec11e570a987f5dd4f950a38c092bfc3fa3f8",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "d0e06d711a6f54cd8ce42dd3cb2ec11e570a987f5dd4f950a38c092bfc3fa3f8",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; owned saved-locale fixture; eighth rendered frame",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact."
+      ],
+      "requested_locale": "en",
+      "observed_locale": "en",
+      "observed_theme": "light",
+      "verdict": "PASS scoped native Title locale/visibility inspection."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-locale-v2-ko.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; owned saved-locale fixture; eighth rendered frame",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact."
+      ],
+      "requested_locale": "ko",
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "PASS scoped native Title locale/visibility inspection."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-locale-v2-zh_CN.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "13173a8c2b2e626fe8ff583a0eef2f70122f1674d221f3763291ae00bc1d424d",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "13173a8c2b2e626fe8ff583a0eef2f70122f1674d221f3763291ae00bc1d424d",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; owned saved-locale fixture; eighth rendered frame",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact."
+      ],
+      "requested_locale": "zh_CN",
+      "observed_locale": "zh_CN",
+      "observed_theme": "light",
+      "verdict": "PASS scoped native Title locale/visibility inspection."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\native-locale-v2-ja.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "570801b2c79a7581e3307dd56a315b1819181f945fc2e00c05939a2feb8af0c6",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "570801b2c79a7581e3307dd56a315b1819181f945fc2e00c05939a2feb8af0c6",
+      "receipt_match": true,
+      "evidence_route": "actual exported executable; owned saved-locale fixture; eighth rendered frame",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Japanese examples caption wraps to two readable lines without overlap."
+      ],
+      "requested_locale": "ja",
+      "observed_locale": "ja",
+      "observed_theme": "light",
+      "verdict": "PASS scoped native Title locale/visibility inspection."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\same-PCK-01-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+      "receipt_match": true,
+      "evidence_route": "exact exported PCK under official Godot 4.7.2 editor with external fixture; NOT native executable route proof",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Korean/light Title visibly matches native Korean capture."
+      ],
+      "verdict": "PASS scoped visible panel/state evidence."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\same-PCK-02-projects.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "d40c1672af223733aeaa263f6af4f14b3a7dbfbb44b4d8b13fe55a92930f5914",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "d40c1672af223733aeaa263f6af4f14b3a7dbfbb44b4d8b13fe55a92930f5914",
+      "receipt_match": true,
+      "evidence_route": "exact exported PCK under official Godot 4.7.2 editor with external fixture; NOT native executable route proof",
+      "observations": [
+        "Projects dialog title, Korean instructions, My robot field, save/export controls, tabs, empty-project message and close control are readable.",
+        "Open/delete controls are gray; screenshot does not demonstrate save/load/export operations."
+      ],
+      "verdict": "PASS scoped visible panel/state evidence."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\mac-export-captures\\same-PCK-03-lab-stopped.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "2223603f126598ac2ba21e17879f1be7603e05801db3f08c48af04bff4245016",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "2223603f126598ac2ba21e17879f1be7603e05801db3f08c48af04bff4245016",
+      "receipt_match": true,
+      "evidence_route": "exact exported PCK under official Godot 4.7.2 editor with external fixture; NOT native executable route proof",
+      "observations": [
+        "Car, wall and ground render visibly in Lab.",
+        "AI panel is selected; Stop control and stopped status text are visible and readable.",
+        "The status text does not prove physical rest or that Stop was successfully invoked."
+      ],
+      "verdict": "PASS scoped visible panel/state evidence."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\0-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "970f02eadab4f679b60875777ceb9efa821aee7a164ffa1f707ee435bc936c58",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "970f02eadab4f679b60875777ceb9efa821aee7a164ffa1f707ee435bc936c58",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "en",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\1-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "aee42f8f5719425db6114acc11fcc89bff2d699d4cb0781dd88a778519a3117d",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "aee42f8f5719425db6114acc11fcc89bff2d699d4cb0781dd88a778519a3117d",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "en",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\2-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "1b1b3c298d9f7fae736923f0e533b14f67019b7ca6a7d5f5453b94980e3d60a3",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "1b1b3c298d9f7fae736923f0e533b14f67019b7ca6a7d5f5453b94980e3d60a3",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "en",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\3-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "41f0087c7fbafb322b14df1fe99a4253fe55aa3fb08d1e799f77e007086d9573",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "41f0087c7fbafb322b14df1fe99a4253fe55aa3fb08d1e799f77e007086d9573",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "en",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\4-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "3bab6fe9a5a75ff55cdc0a4ec8b9238aeffd005d9f0f11df55981b1f624e098d",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "3bab6fe9a5a75ff55cdc0a4ec8b9238aeffd005d9f0f11df55981b1f624e098d",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\5-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "0ff57b7389fb9635f1c2d4623dab737236898a3cfcab8771e31324335c8289de",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "0ff57b7389fb9635f1c2d4623dab737236898a3cfcab8771e31324335c8289de",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ko",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\6-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "be77fd73f00b2f6de767aa5c453f8aa1740a31c2415efd12986d83b6bfde0537",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "be77fd73f00b2f6de767aa5c453f8aa1740a31c2415efd12986d83b6bfde0537",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ko",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\7-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "70d549a9430fefb1a85681a361c085d53cb8887bf13a58580096bf3cbac4cd81",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "70d549a9430fefb1a85681a361c085d53cb8887bf13a58580096bf3cbac4cd81",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ko",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\8-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "398e427e3d0808771157313bc30728e6d58b43975dcacb3f56e54ffdffbc603b",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "398e427e3d0808771157313bc30728e6d58b43975dcacb3f56e54ffdffbc603b",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "zh_CN",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\9-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "e96093fb115708535b3a17d5fe5046425473f4630ef150f02cffb95046bd3ac4",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "e96093fb115708535b3a17d5fe5046425473f4630ef150f02cffb95046bd3ac4",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "zh_CN",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\10-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "a029b499749c51a3ef74591078740513664e6f4339793abaa0b1443a8cbe55f7",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "a029b499749c51a3ef74591078740513664e6f4339793abaa0b1443a8cbe55f7",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "zh_CN",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\11-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "cebb923f0043c15b0bdf8b24bb75f5a24f7d155b4759a2084a58eda3b62dbcf4",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "cebb923f0043c15b0bdf8b24bb75f5a24f7d155b4759a2084a58eda3b62dbcf4",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "zh_CN",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\12-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "42b189fdfcf714aac368006ae2fb5978df7999081cee5e1eceda1767fe2ef19c",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "42b189fdfcf714aac368006ae2fb5978df7999081cee5e1eceda1767fe2ef19c",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Japanese examples caption wraps over two readable lines.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ja",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\13-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "c48487594f18cb25549693e9b2672e345581bd9c9889e655d3d8e85d1c61e0fd",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "c48487594f18cb25549693e9b2672e345581bd9c9889e655d3d8e85d1c61e0fd",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Japanese examples caption wraps over two readable lines.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ja",
+      "observed_theme": "light",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\14-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "62fbad4fb7a149c8d64bdb2d403f3b260a69211fbc2b0365f673840ce78b6bc5",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "62fbad4fb7a149c8d64bdb2d403f3b260a69211fbc2b0365f673840ce78b6bc5",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Japanese examples caption wraps over two readable lines.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ja",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\15-title.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "50e45b5262b29f47c0a3f97f9343f5001abe246738ce93c01181d79792c76000",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": "50e45b5262b29f47c0a3f97f9343f5001abe246738ce93c01181d79792c76000",
+      "receipt_match": true,
+      "evidence_route": "exported Web payload rendered in Chromium; fresh locale/theme/viewport fixture",
+      "observations": [
+        "Complete logo tile and mint/white S artwork fit above the introduction without top clipping.",
+        "All four menu labels and captions are visible and readable; no missing-glyph boxes or menu-text clipping observed.",
+        "Localized language selector and Settings labels and full controls are visible, with bottom margin.",
+        "No blank/corrupt whole-frame artifact.",
+        "Japanese examples caption wraps over two readable lines.",
+        "Visible theme, localized text and centered menu arrangement correspond to the requested capture case."
+      ],
+      "observed_locale": "ja",
+      "observed_theme": "dark",
+      "verdict": "PASS scoped Web Title visibility/readability."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\2-settings.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "c0dc4ec5ab243ec4f81eabacb98a99eb88ca616ed3835c716fd9bab7c06f2166",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "c0dc4ec5ab243ec4f81eabacb98a99eb88ca616ed3835c716fd9bab7c06f2166",
+      "receipt_match": true,
+      "evidence_route": "Web keyboard-route capture sequence, actions attributed to supplied runtime receipt",
+      "observations": [
+        "English dark Settings dialog visibly open over Title. Language, theme, interface/code size, mute and volume controls and close/default buttons readable.",
+        "Scrollable content area visible; Language selector has a focus outline."
+      ],
+      "verdict": "PASS screenshot state is consistent with claimed Settings-open/close/Stages route; keys themselves not inferred from pixels."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\2-settings-closed.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "bbb48c671e64bed0e535d2dc9f4dcba86440e0c7e4d3ae0c1d0689eb0141a5f7",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "bbb48c671e64bed0e535d2dc9f4dcba86440e0c7e4d3ae0c1d0689eb0141a5f7",
+      "receipt_match": true,
+      "evidence_route": "Web keyboard-route capture sequence, actions attributed to supplied runtime receipt",
+      "observations": [
+        "English dark Title visible with Settings dialog absent. Footer Settings control shows a focus outline; full Title remains inside viewport."
+      ],
+      "verdict": "PASS screenshot state is consistent with claimed Settings-open/close/Stages route; keys themselves not inferred from pixels."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-title-v4\\2-stages.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "0d082118680ec0b1af0931599e4a04c446c53e18148079b15ab12e65a6633686",
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "expected_sha256": "0d082118680ec0b1af0931599e4a04c446c53e18148079b15ab12e65a6633686",
+      "receipt_match": true,
+      "evidence_route": "Web keyboard-route capture sequence, actions attributed to supplied runtime receipt",
+      "observations": [
+        "Stages screen visible with Back button, three stage cards and Play controls; coming-soon items shown beneath.",
+        "Stage titles and explanations are readable; no card edge clipping observed."
+      ],
+      "verdict": "PASS screenshot state is consistent with claimed Settings-open/close/Stages route; keys themselves not inferred from pixels."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-settings-v4\\00-appearance-menu.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "9013877b3240e24d53ad220cafbd20f49e353e2bca931675eb81dc55fba891b7",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": null,
+      "receipt_match": null,
+      "evidence_route": "Web settings regression fixture with ssok_verify query; separate from plain Title route",
+      "observations": [
+        "Light English Settings dialog over workshop; theme dropdown expanded with readable System/Light/Dark options.",
+        "Dropdown overlays underlying fields as an open menu; dialog and close/default controls remain inside viewport."
+      ],
+      "receipt_note": "No PNG hash supplied in browser-results settings section; SHA256 independently recorded from actual viewed original.",
+      "verdict": "PASS scoped visible layout; scrolling/ellipsis limitations stated."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-settings-v4\\03-text-200-settings.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "a45771d1b3acee78db68d44a7ef2267df350748e8585f44a020a8e0d3eb17761",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": null,
+      "receipt_match": null,
+      "evidence_route": "Web settings regression fixture with ssok_verify query; separate from plain Title route",
+      "observations": [
+        "Dark Korean enlarged-text Settings dialog and right program panel fit inside viewport. Language/theme/interface-size labels and 200% value readable.",
+        "Inner settings content is scrollable; code-size label is visible but controls below current scroll area are not fully shown. Close/default buttons remain readable.",
+        "Large text wraps; some library entries are ellipsized. This image does not certify all hidden content or interaction."
+      ],
+      "receipt_note": "No PNG hash supplied in browser-results settings section; SHA256 independently recorded from actual viewed original.",
+      "verdict": "PASS scoped visible layout; scrolling/ellipsis limitations stated."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\browser-settings-v4\\05-reloaded.png",
+      "actually_viewed": true,
+      "view_tool": "view_image",
+      "detail": "original",
+      "sha256": "a583a74f1bd5bc1d7b4366f6ada30880fd3a51d6157c86359664341da37b1217",
+      "original_dimensions": [
+        1400,
+        950
+      ],
+      "expected_sha256": null,
+      "receipt_match": null,
+      "evidence_route": "Web settings regression fixture with ssok_verify query; separate from plain Title route",
+      "observations": [
+        "Dark Korean enlarged-text workshop visible with Settings closed; program panel, stage instructions and main controls remain inside viewport.",
+        "Long text wraps and some library items are ellipsized. Screenshot demonstrates displayed appearance only, not preference persistence by itself."
+      ],
+      "receipt_note": "No PNG hash supplied in browser-results settings section; SHA256 independently recorded from actual viewed original.",
+      "verdict": "PASS scoped visible layout; scrolling/ellipsis limitations stated."
+    }
+  ],
+  "summary": {
+    "viewed_total": 33,
+    "mac_native_initial": 4,
+    "mac_native_corrected": 4,
+    "mac_same_pck_editor": 3,
+    "web_title": 16,
+    "web_keyboard_routes": 3,
+    "web_settings": 3,
+    "scoped_visual_verdict": "PASS with evidence limits below; no new visual blocker observed.",
+    "native_locale": "Fresh native-locale-v2 images visibly show four distinct intended languages, all light theme at1152x648; full logo/menu/footer readable. Initial four all-Korean images remain preserved failed coverage evidence.",
+    "web": "All16Title cases visibly show expected locale/theme, full logo, menu captions and Language/Settings footer at1152x648 or1400x950. Japanese two-line caption remains readable.",
+    "keyboard_route": "Screenshots show Settings open, closed Title with Settings focus outline, and Stages list. Browser receipt supplies actual Tab/Enter/Escape sequence; pixels establish resulting visible states only.",
+    "settings": "Enlarged Korean Settings/program panel fit the1400x950 viewport. Scrolling and library ellipses remain; hidden controls not visually certified.",
+    "same_pck": "Projects and Lab stopped display are readable. These editor-fixture routes do not certify navigation through the native exported executable."
+  },
+  "preserved_failure": {
+    "initial_language_argument_coverage": "FAILED: native-title-en/ko/zh_CN/ja all render Korean/light and have identical SHA256.",
+    "identical_sha256": "fd17eabb1dcadbbaa8312bb0bff7dbe137233011f9225bc557abb15ee43c3374",
+    "resolution": "Fresh owned language.cfg fixture produced four distinct expected locale captures; fixture creation/CAS cleanup/bundle-unchanged facts are attributed to supplied native-locale-v2-results, not inferred from screenshots."
+  },
+  "runtime_provenance_separate": {
+    "native_runs": "Supplied receipts report native exits0/errors0, codesign0 and bundle/original-r7 unchanged; not reexecuted by image reviewer.",
+    "same_pck": "Supplied receipt reports20functional checks passed under official editor using exact PCK; exported_executable_functional_routes_verified is false.",
+    "web": "Supplied browser receipt reports16freshTitle cases and14settings checks passed with no console/page errors; image reviewer did not execute these checks.",
+    "pck_hash_mac": "3de310f8ebd917b9345c4f80d662cfb8a00e3605f8fa8099ad1704dfafdda3b0",
+    "pck_hash_web": "3de310f8ebd917b9345c4f80d662cfb8a00e3605f8fa8099ad1704dfafdda3b0",
+    "pck_hashes_match": true
+  },
+  "blockers": [],
+  "limitations": [
+    "No full native-executable Projects/Lab/camera/action/Stop route certification.",
+    "Native exported screenshots cover actual light appearance at1152x648 only; Web covers both themes/two sizes separately.",
+    "No physical behavior, contact success, keyboard input timing, persistence or source correctness inferred from images.",
+    "Three browser-settings hashes are recorded without an independent supplied PNG-hash reference.",
+    "Earlier missing-S image-tool impression remains retracted; display delta/reuse artifacts are not product defects.",
+    "No calibrated contrast/accessibility or translation-quality certification; no publication/aesthetic approval."
+  ],
+  "prior_receipts_preserved": [
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\astra-review.json",
+      "sha256": "d046d4a2e47d0924d919bfbaa99e36877889e406bc835343c79c550bdaf706bc"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\astra-v3-review.json",
+      "sha256": "c0c278f11c35e25e64cb06b0c3b1baecd7d7bdbf33ed1871bb1129d51c3d6645"
+    }
+  ],
+  "next_owner": "Coordinator for canonical recording/integration and runtime limits; Claude for design/code approval; user retains publication approval."
+}

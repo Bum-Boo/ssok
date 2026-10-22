@@ -1,0 +1,81 @@
+{
+  "hashes": 1555,
+  "hash_mismatches": [],
+  "engine_errors": [],
+  "summary": [
+    {
+      "variant": "shipping_reference",
+      "fresh_successes": 127,
+      "restart_successes": 124,
+      "failures": [
+        {
+          "seed": 990100095,
+          "settle_seconds": 1.55,
+          "warmup_walk_seconds": 0.0,
+          "restart_pause_seconds": 1.0,
+          "seconds": 2.18333333333333,
+          "min_upright": 0.492602795362473,
+          "minimum_height": 0.0878832161426544,
+          "preparation_fallen": false
+        },
+        {
+          "seed": 990200055,
+          "settle_seconds": 2.01666666666667,
+          "warmup_walk_seconds": 1.81666666666667,
+          "restart_pause_seconds": 1.55,
+          "seconds": 3.8,
+          "min_upright": 0.406737685203552,
+          "minimum_height": 0.0763965368270874,
+          "preparation_fallen": false
+        },
+        {
+          "seed": 990200093,
+          "settle_seconds": 1.33333333333333,
+          "warmup_walk_seconds": 0.783333333333333,
+          "restart_pause_seconds": 3.08333333333333,
+          "seconds": 4.01666666666667,
+          "min_upright": 0.410937488079071,
+          "minimum_height": 0.0760587275028229,
+          "preparation_fallen": false
+        },
+        {
+          "seed": 990200095,
+          "settle_seconds": 0.316666666666667,
+          "warmup_walk_seconds": 3.78333333333333,
+          "restart_pause_seconds": 4.53333333333333,
+          "seconds": 2.76666666666667,
+          "min_upright": 0.393299251794815,
+          "minimum_height": 0.0756411671638489,
+          "preparation_fallen": false
+        },
+        {
+          "seed": 990200098,
+          "settle_seconds": 1.33333333333333,
+          "warmup_walk_seconds": 1.88333333333333,
+          "restart_pause_seconds": 3.23333333333333,
+          "seconds": 6.18333333333333,
+          "min_upright": 0.4087735414505,
+          "minimum_height": 0.0776044845581055,
+          "preparation_fallen": false
+        }
+      ]
+    },
+    {
+      "variant": "heading_selected",
+      "fresh_successes": 127,
+      "restart_successes": 128,
+      "failures": [
+        {
+          "seed": 990100126,
+          "settle_seconds": 1.6,
+          "warmup_walk_seconds": 0.0,
+          "restart_pause_seconds": 1.0,
+          "seconds": 6.8,
+          "min_upright": 0.446221381425858,
+          "minimum_height": 0.0804500252008438,
+          "preparation_fallen": false
+        }
+      ]
+    }
+  ]
+}

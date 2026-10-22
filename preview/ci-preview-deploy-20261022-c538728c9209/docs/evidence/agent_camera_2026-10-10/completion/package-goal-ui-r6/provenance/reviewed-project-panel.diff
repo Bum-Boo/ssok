@@ -1,0 +1,197 @@
+diff --git a/src/ui/project_panel.gd b/src/ui/project_panel.gd
+index f8d247c..77701e8 100644
+--- a/src/ui/project_panel.gd
++++ b/src/ui/project_panel.gd
+@@ -21,6 +21,7 @@ var _confirmation: ConfirmationDialog
+ var _pending: Dictionary = {}
+ var _delete_id: String = ""
+ var _empty_library: Label
++var _dialog_panel: StyleBoxFlat
+ 
+ 
+ func configure(read_document: Callable, prepare_document: Callable = Callable()) -> void:
+@@ -47,40 +48,51 @@ func _ready() -> void:
+ 	add_child(margin)
+ 	var layout := VBoxContainer.new()
+ 	margin.add_child(layout)
++	# Enlarged or translated text scrolls above a fixed footer so Close stays reachable.
++	var body_scroll := ScrollContainer.new()
++	body_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
++	body_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
++	body_scroll.follow_focus = true
++	layout.add_child(body_scroll)
++	var body := VBoxContainer.new()
++	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
++	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
++	body_scroll.add_child(body)
+ 	var heading := Label.new()
+ 	heading.text = "Keep building. Pick up where you left off."
+ 	heading.label_settings = SsokTheme.title_settings()
+-	layout.add_child(heading)
++	body.add_child(heading)
+ 	var note := Label.new()
+ 	note.text = "Saved on this device. Export a copy before clearing browser data or changing devices."
+ 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+-	layout.add_child(note)
++	body.add_child(note)
+ 	var block_note := Label.new()
+ 	block_note.text = "Saving or exporting applies valid blocks to your code."
+ 	block_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+-	layout.add_child(block_note)
++	body.add_child(block_note)
+ 	title_edit = LineEdit.new()
+ 	title_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+ 	title_edit.placeholder_text = tr("Project name")
+ 	title_edit.max_length = 80
+-	layout.add_child(title_edit)
+-	var save_row := HBoxContainer.new()
+-	layout.add_child(save_row)
+-	save_button = SsokTheme.button("Save a snapshot", "save")
++	body.add_child(title_edit)
++	var save_row: HFlowContainer = _action_row()
++	body.add_child(save_row)
++	save_button = _full_label(SsokTheme.button("Save a snapshot", "save"))
+ 	save_button.pressed.connect(save_current)
+ 	save_row.add_child(save_button)
+-	var export_button: Button = SsokTheme.button("Export project", "download")
++	var export_button: Button = _full_label(SsokTheme.button("Export project", "download"))
+ 	export_button.pressed.connect(export_current)
+ 	save_row.add_child(export_button)
+ 	tabs = TabContainer.new()
+ 	tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+-	layout.add_child(tabs)
++	body.add_child(tabs)
+ 	var saved := VBoxContainer.new()
+ 	saved.name = "Saved projects"
+ 	tabs.add_child(saved)
+ 	library = ItemList.new()
+ 	library.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+ 	library.size_flags_vertical = Control.SIZE_EXPAND_FILL
++	library.custom_minimum_size.y = 96
+ 	library.item_selected.connect(func(_index: int) -> void: _refresh_actions())
+ 	library.item_activated.connect(func(_index: int) -> void: request_open())
+ 	saved.add_child(library)
+@@ -88,12 +100,12 @@ func _ready() -> void:
+ 	_empty_library.text = "No saved projects yet. Save your first snapshot above."
+ 	_empty_library.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ 	saved.add_child(_empty_library)
+-	var actions := HBoxContainer.new()
++	var actions: HFlowContainer = _action_row()
+ 	saved.add_child(actions)
+-	open_button = SsokTheme.button("Open selected", "folder-open")
++	open_button = _full_label(SsokTheme.button("Open selected", "folder-open"))
+ 	open_button.pressed.connect(request_open)
+ 	actions.add_child(open_button)
+-	delete_button = SsokTheme.button("Delete snapshot", "trash")
++	delete_button = _full_label(SsokTheme.button("Delete snapshot", "trash"))
+ 	delete_button.pressed.connect(request_delete)
+ 	actions.add_child(delete_button)
+ 	var transfer := VBoxContainer.new()
+@@ -106,15 +118,16 @@ func _ready() -> void:
+ 	transfer_edit = TextEdit.new()
+ 	transfer_edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+ 	transfer_edit.size_flags_vertical = Control.SIZE_EXPAND_FILL
++	transfer_edit.custom_minimum_size.y = 96
+ 	transfer.add_child(transfer_edit)
+-	var transfer_actions := HBoxContainer.new()
++	var transfer_actions: HFlowContainer = _action_row()
+ 	transfer.add_child(transfer_actions)
+-	var copy_button: Button = SsokTheme.button("Copy JSON", "copy")
++	var copy_button: Button = _full_label(SsokTheme.button("Copy JSON", "copy"))
+ 	copy_button.pressed.connect(func() -> void:
+ 		DisplayServer.clipboard_set(transfer_edit.text)
+ 		_status("Project JSON copied."))
+ 	transfer_actions.add_child(copy_button)
+-	import_button = SsokTheme.button("Import project", "upload")
++	import_button = _full_label(SsokTheme.button("Import project", "upload"))
+ 	import_button.pressed.connect(request_import)
+ 	transfer_actions.add_child(import_button)
+ 	var footer := HBoxContainer.new()
+@@ -123,11 +136,18 @@ func _ready() -> void:
+ 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ 	message.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ 	footer.add_child(message)
+-	var close_button: Button = SsokTheme.button("Close")
++	var close_button: Button = _full_label(SsokTheme.button("Close"))
+ 	close_button.pressed.connect(close_panel)
+ 	footer.add_child(close_button)
+ 	_confirmation = ConfirmationDialog.new()
++	_confirmation.theme = theme
+ 	_confirmation.title = "Confirm project action"
++	_confirmation.dialog_autowrap = true
++	# SsokTheme defines no AcceptDialog panel; use this window's surface so body text follows the palette.
++	_dialog_panel = StyleBoxFlat.new()
++	_dialog_panel.bg_color = SsokTheme.BG
++	_dialog_panel.set_content_margin_all(12)
++	_confirmation.add_theme_stylebox_override("panel", _dialog_panel)
+ 	_confirmation.confirmed.connect(_confirm_action)
+ 	add_child(_confirmation)
+ 	_refresh_actions()
+@@ -138,7 +158,8 @@ func open_panel() -> void:
+ 	title_edit.text = record.get("title", "")
+ 	refresh_library()
+ 	_status("Save creates a new snapshot; earlier versions are kept.")
+-	popup_centered(Vector2i(760, 520))
++	var available: Vector2i = _available_size()
++	popup_centered(Vector2i(mini(roundi(760 * SsokTheme.ui_scale), available.x), mini(roundi(520 * SsokTheme.ui_scale), available.y)))
+ 	title_edit.grab_focus()
+ 
+ 
+@@ -204,7 +225,7 @@ func _request_replace() -> void:
+ 		return
+ 	_delete_id = ""
+ 	_confirmation.dialog_text = "Replace the current assembly and code? Save a snapshot first if you want to keep them."
+-	_confirmation.popup_centered()
++	_popup_confirmation()
+ 
+ 
+ func request_delete() -> void:
+@@ -214,7 +235,7 @@ func request_delete() -> void:
+ 	_delete_id = _records[selected[0]].id
+ 	_pending = {}
+ 	_confirmation.dialog_text = "Delete this saved snapshot? Other snapshots and your open project are kept."
+-	_confirmation.popup_centered()
++	_popup_confirmation()
+ 
+ 
+ func _confirm_action() -> void:
+@@ -263,3 +284,39 @@ func _notification(what: int) -> void:
+ 		title_edit.placeholder_text = tr("Project name")
+ 		tabs.set_tab_title(0, tr("Saved projects"))
+ 		tabs.set_tab_title(1, tr("Import / export"))
++	elif what == NOTIFICATION_THEME_CHANGED and is_node_ready():
++		_sync_dialog_panel()
++
++
++func _action_row() -> HFlowContainer:
++	# Actions wrap to another line instead of compressing labels at large text sizes.
++	var row := HFlowContainer.new()
++	row.add_theme_constant_override("h_separation", 8)
++	row.add_theme_constant_override("v_separation", 8)
++	return row
++
++
++func _full_label(button: Button) -> Button:
++	# SsokTheme.button lets labels shrink to an ellipsis; these actions must keep their whole label.
++	button.clip_text = false
++	button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
++	return button
++
++
++func _available_size() -> Vector2i:
++	# Embedded titles sit above the centered content rect, so reserve one title height on each side.
++	var area := Vector2i(get_tree().root.get_visible_rect().size)
++	return area - Vector2i(32, 2 * SsokTheme.font_size(36) + 16)
++
++
++func _popup_confirmation() -> void:
++	_sync_dialog_panel()
++	# A fixed width lets the wrapped body grow downward within the screen.
++	_confirmation.popup_centered(Vector2i(mini(SsokTheme.font_size(420), _available_size().x), 0))
++
++
++func _sync_dialog_panel() -> void:
++	# The shared remember/adapt pass is not known to reach this Window override, so read the live palette here.
++	# Skipping equal colors avoids a redundant stylebox change notification.
++	if _dialog_panel.bg_color != SsokTheme.BG:
++		_dialog_panel.bg_color = SsokTheme.BG

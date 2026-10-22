@@ -1,0 +1,50 @@
+{
+  "base_commit": "7c602972d8c33ea7a6bac715afc0df173c9ac0db",
+  "is_release": false,
+  "description": "Isolated frozen v2 candidate plus probe-only read-only multi-episode observer. Production untouched. Root pending biped and kit work excluded.",
+  "policy_file_sha256": "9518b2f31040b1c6bd1d5328c0cc4015f100633683ed60bedaad289cf9387f76",
+  "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+  "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+  "schedule": [
+    {
+      "name": "fresh-60",
+      "settle": 60
+    },
+    {
+      "name": "fresh-90",
+      "settle": 90
+    },
+    {
+      "name": "fresh-150",
+      "settle": 150
+    },
+    {
+      "name": "restart-21-18",
+      "settle": 60,
+      "warmup": 21,
+      "pause": 18
+    },
+    {
+      "name": "restart-120-60",
+      "settle": 60,
+      "warmup": 120,
+      "pause": 60
+    },
+    {
+      "name": "restart-222-180",
+      "settle": 60,
+      "warmup": 222,
+      "pause": 180
+    }
+  ],
+  "file_sha256": {
+    "src/runtime/learned_biped_motion.gd": "0375b9dc632803429fe02f14a464b2bc7d1638d4f9764b5b58ce319bcd324d3a",
+    "src/runtime/bundled_biped_motion.gd": "cec71e4ebcdc080fae8f28d95cfe4480f34865b3beeb40285e71154842a1ee25",
+    "src/ui/browser_evidence.gd": "b45bfc3505f56a17b7ab3be6eeb175433d2a848c29a04c64b16c0ddb40a5d0f9",
+    "assets/policies/yaw_biped_v2.json": "9518b2f31040b1c6bd1d5328c0cc4015f100633683ed60bedaad289cf9387f76",
+    "build/browser_matrix.py": "e07ee8d84bdd4d4281ad82b115f04e6074092b3929f6d64b6b0458700c22a365",
+    "build/schedule.json": "03857bfd12b5447e133e3f9648ac77614153bf2adbec07e29d007e15b407508c",
+    "build/native_parity.gd": "0811818ec57fa640826ae367b3c74a389b8cefdb752429a9899bf6387182da18"
+  },
+  "native_limitations": "Independent native heldout candidate127/128 withonefall; Webresults pending, no release approval."
+}
