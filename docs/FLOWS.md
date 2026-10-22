@@ -127,6 +127,9 @@ flowchart LR
 [StageLevels](../src/core/stage_levels.gd)의 레벨 씬으로 기본 바닥을 바꿔요.
 [StageHud](../src/ui/stage_hud.gd)는 중앙 진입 팝업 없이 목표·조립/배선/코드/실행 칩과
 현재 단계 힌트를 두 줄 스트립에 보여줘요. 접이식 부품·프로그램, 도움, 실행/재설정은 첫 줄에 있어요.
+[ADR 0032](adr/0032-compact-workshop-presentation.md)에 따라 폭이 부족하면 힌트를 먼저 숨기고,
+칩은 아이콘/상태와 툴팁으로 줄여요. 도구 이름은 전체 표시 또는 아이콘으로 바뀌며, 주요 버튼은
+코드 탭과 구분되는 기존 `Run` 번역을 써요. 편집 패널 높이는 화면의 60% 이내이고 내부 스크롤로 접근해요.
 [WorkshopGuide](../src/ui/workshop_guide.gd)가 그래프·실제 배선·코드/블록 유효성·실행 모드를
 읽어 체크와 자동 패널 열림을 정해요. 사용자가 접은 패널은 단계가 바뀔 때까지 유지돼요.
 [StageGoalDisplay](../src/ui/stage_goal_display.gd)는 목표선/결승선/정지 구역의 월드 앵커를 UI 라벨과 리더 선으로 투영해요.

@@ -56,3 +56,7 @@ Godot TranslationServer의 자동 번역을 사용한다. 변수 포함 문장�
 `localization_check`와 `scene_workshop_ui_check`가 새 원문을 세 PO에서 명시적으로 확인해요.
 장면 숫자는 원문 코드나 입력을 번역하지 않고 목표 표시에서만 번역 후 포맷해요.
 현재 소스의 실제 GL 글리프/잘림 검수 제한은 [작업 요약](WORK_SUMMARY_A.md)에 적었어요.
+
+A-3은 주요 행동에 기존 `Run`(실행/运行/実行)을 재사용하고 `Code` 탭과 구분해요.
+안내·블록 피드백·튜토리얼·상태 메시지는 그 라벨을 그대로 인용하며 세 PO와 해당 inventory를
+동시에 갱신했어요. 새 버튼 키는 없어요. 실제 네 언어 GL 검수 한계는 [A-3 인계](WORK_SUMMARY_A3.md)에 남겨요.

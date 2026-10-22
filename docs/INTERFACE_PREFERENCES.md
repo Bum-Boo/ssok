@@ -43,3 +43,11 @@ UI 변경 시 4개 언어, 두 테마, 확대/좁은 창의 실제 화면과 관
 구현 API는 [Godot DisplayServer](https://docs.godotengine.org/en/stable/classes/class_displayserver.html), [Theme](https://docs.godotengine.org/en/stable/classes/class_theme.html)를 확인했어요(2026-09-30). 웹 대비 평가와 네이티브 토큰 평가를 구분해요.
 
 기존 [설정 UX 감사](SETTINGS_UX_AUDIT_2026-09-30.md)는 구현 전 상태의 증거예요. 이 구현은 최신 main의 문서 체계와 Stage 계약을 함께 유지해요.
+
+## 2026-10-22 A-3 작은 창 보완
+
+두 줄 스트립은 기본 글자에서 96px 이내예요. 번역한 실제 폭으로 도구 라벨을 표시하고,
+공간이 모자라면 힌트 생략 → 칩 라벨을 아이콘/툴팁으로 바꿔요. 프로그램·부품 오버레이는
+화면 높이의 60% 이내에서 내부 스크롤하며 기존 탭·코드·미적용 블록을 유지해요.
+제목/목표/힌트는 큰/중간/작은 글자, 힌트는 회색, 실행 블록 강조는 윤곽선이에요.
+[현재 검사와 GL 미검증 범위](WORK_SUMMARY_A3.md)를 A-2 이력과 구분해요.

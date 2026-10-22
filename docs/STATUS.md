@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-22 작업 A-3 로컬 후보: 작은 창 두 줄/60% 편집 패널·Run 라벨·글꼴 위계·도로 그림자 수신 보완. [소스·현재 검사·GL 미검증·인계](WORK_SUMMARY_A3.md), [ADR 0032](adr/0032-compact-workshop-presentation.md).
+
 2026-10-22 작업 A-2 로컬 후보: 내용물 자동 프레이밍·UI 목표 라벨·두 줄 안내·다크 장면·매트 테두리. 기존10+신규483검사 PASS. 실제 GL·공유 위키 기록은 환경 제약으로 미완료. [소스·검증·다음 담당](WORK_SUMMARY_A2.md), [ADR 0031](adr/0031-workshop-presentation-corrections.md).
 
 2026-10-11 사용자 최신버전 배포 승인: Fable 통합 Title·CLI 진단과 앱/Windows/Mac/operator 버전을 0.3.1로 맞춘 clean 소스를 최종 검증합니다. [현재 배포 범위·결과](evidence/public_release_2026-10-11/README.md). 아래 수치는 당시 소스 이력입니다.

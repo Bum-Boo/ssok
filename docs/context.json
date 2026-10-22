@@ -33,7 +33,8 @@
     "docs/evidence/agent_camera_2026-10-10/completion/README.md",
     "docs/WORK_SUMMARY_A.md",
     "docs/UIUX_REDESIGN.md",
-    "docs/WORK_SUMMARY_A2.md"
+    "docs/WORK_SUMMARY_A2.md",
+    "docs/WORK_SUMMARY_A3.md"
   ],
   "routes": {
     "assembly": {
@@ -268,7 +269,8 @@
         "docs/FLOWS.md",
         "docs/UIUX_REDESIGN.md",
         "docs/WORK_SUMMARY_A.md",
-        "docs/WORK_SUMMARY_A2.md"
+        "docs/WORK_SUMMARY_A2.md",
+        "docs/WORK_SUMMARY_A3.md"
       ],
       "sources": [
         "src/ui/workshop_guide.gd",
@@ -283,7 +285,8 @@
         "0025",
         "0028",
         "0030",
-        "0031"
+        "0031",
+        "0032"
       ],
       "watch": [
         "src/ui/workshop_guide.gd",
@@ -423,14 +426,14 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "ea6edea8bbec70d4799312e028c254656ee04cd6591158b9e3666f5b4310beab",
+        "scenes/main.gd": "5d37d26643ba327644f73682a47d84641e74a84fcd80b8c1303e0f1e4678d101",
         "src/runtime/mini_runtime.gd": "d79aeb048b47717cd6557f46735bbdf07b9c2357080109938a9cea841c48992a",
         "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54",
-        "src/ui/block_program_panel.gd": "46a82d592e4cb954c2d70421850784d8a095e36811867baae2fc5c6c26d708d9",
+        "src/ui/block_program_panel.gd": "be2f4753dff6e630aa50a914153cbee7b23582e5dd680b562ac9c2cbe1e4e5a7",
         "src/ui/project_panel.gd": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
         "src/profiles/learner_program.gd": "31bd49263fa8f6a07b83f5c251ec87cb9d5eb24b9cc80968b3d06a946ae3447d",
         "src/runtime/stage_evaluator.gd": "8818c87ca309a05469211f64f0c2ae2e49b0fb99da74a3a68f6ec1ee2de01eed",
-        "src/ui/stage_panel.gd": "b97352cfd3cfcbb494ef4c6c00e0612fe6541155f9b55537405044090363f0da",
+        "src/ui/stage_panel.gd": "cbead2f90c63a0ce4acf1dff05bf666f3f85b21d50064c6c9c18e5053e303a0d",
         "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
         "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
         "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c"
@@ -439,7 +442,7 @@
     "flag-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "src/ui/flag_mission.gd": "8d81c44b3edac1863ad9ceddc867de69cf20e830617878dfcfbf9bc0ae2c1c67"
+        "src/ui/flag_mission.gd": "f5e118c1aa5d98ae38106cad6eb4124dee30e126c48541c2ffefd366b042ad12"
       }
     }
   }
