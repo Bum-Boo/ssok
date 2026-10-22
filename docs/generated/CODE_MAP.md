@@ -18,7 +18,7 @@ ssok/
     profiles/  (1 GDScript files)
     runtime/  (22 GDScript files)
     screens/  (5 GDScript files)
-    ui/  (22 GDScript files)
+    ui/  (23 GDScript files)
   presets/
   assets/
     blender/
@@ -144,6 +144,7 @@ ssok/
 | [src/ui/web_clipboard.gd](../../src/ui/web_clipboard.gd) | WebClipboard |
 | [src/ui/wiring_panel.gd](../../src/ui/wiring_panel.gd) | WiringPanel |
 | [src/ui/workbench_surface.gd](../../src/ui/workbench_surface.gd) | WorkbenchSurface |
+| [src/ui/workshop_framing.gd](../../src/ui/workshop_framing.gd) | WorkshopFraming |
 | [src/ui/workshop_guide.gd](../../src/ui/workshop_guide.gd) | WorkshopGuide |
 
 보드와 언어는 논리 계층이에요. 실제 BoardProfile은 `src/core/`, MiniRuntime은

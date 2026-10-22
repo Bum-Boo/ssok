@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-10-22 작업 A 로컬 후보: 장면/지금 할 일/접이식 도구와 밝은 작업대. headless 10 suites PASS; 실제 GL·원본 브랜치 커밋·공유 위키 기록은 환경 제약으로 미완료. [변경·검증·패치·다음 담당](WORK_SUMMARY_A.md), [ADR 0030](adr/0030-scene-first-workshop-guidance.md).
+2026-10-22 작업 A-2 로컬 후보: 내용물 자동 프레이밍·UI 목표 라벨·두 줄 안내·다크 장면·매트 테두리. 기존10+신규483검사 PASS. 실제 GL·공유 위키 기록은 환경 제약으로 미완료. [소스·검증·다음 담당](WORK_SUMMARY_A2.md), [ADR 0031](adr/0031-workshop-presentation-corrections.md).
 
 2026-10-11 사용자 최신버전 배포 승인: Fable 통합 Title·CLI 진단과 앱/Windows/Mac/operator 버전을 0.3.1로 맞춘 clean 소스를 최종 검증합니다. [현재 배포 범위·결과](evidence/public_release_2026-10-11/README.md). 아래 수치는 당시 소스 이력입니다.
 

@@ -32,7 +32,8 @@
     "docs/evidence/agent_camera_2026-10-10/stabilization/README.md",
     "docs/evidence/agent_camera_2026-10-10/completion/README.md",
     "docs/WORK_SUMMARY_A.md",
-    "docs/UIUX_REDESIGN.md"
+    "docs/UIUX_REDESIGN.md",
+    "docs/WORK_SUMMARY_A2.md"
   ],
   "routes": {
     "assembly": {
@@ -266,7 +267,8 @@
       "docs": [
         "docs/FLOWS.md",
         "docs/UIUX_REDESIGN.md",
-        "docs/WORK_SUMMARY_A.md"
+        "docs/WORK_SUMMARY_A.md",
+        "docs/WORK_SUMMARY_A2.md"
       ],
       "sources": [
         "src/ui/workshop_guide.gd",
@@ -274,12 +276,14 @@
         "src/ui/stage_goal_preview.gd",
         "src/ui/workbench_surface.gd",
         "src/ui/stage_hud.gd",
-        "src/screens/stage_select_screen.gd"
+        "src/screens/stage_select_screen.gd",
+        "src/ui/workshop_framing.gd"
       ],
       "adrs": [
         "0025",
         "0028",
-        "0030"
+        "0030",
+        "0031"
       ],
       "watch": [
         "src/ui/workshop_guide.gd",
@@ -287,7 +291,9 @@
         "src/ui/workbench_surface.gd",
         "src/ui/stage_hud.gd",
         "src/screens/stage_select_screen.gd",
-        "tests/scene_workshop_ui_check.gd"
+        "tests/scene_workshop_ui_check.gd",
+        "src/ui/workshop_framing.gd",
+        "tests/workshop_presentation_check.gd"
       ]
     }
   },
@@ -417,7 +423,7 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "650f0218c0777c080a419e15c6f4b89d849c00924ef23185c83eb8ad7896d2cd",
+        "scenes/main.gd": "ea6edea8bbec70d4799312e028c254656ee04cd6591158b9e3666f5b4310beab",
         "src/runtime/mini_runtime.gd": "d79aeb048b47717cd6557f46735bbdf07b9c2357080109938a9cea841c48992a",
         "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54",
         "src/ui/block_program_panel.gd": "46a82d592e4cb954c2d70421850784d8a095e36811867baae2fc5c6c26d708d9",

@@ -126,17 +126,19 @@ flowchart LR
 스테이지 선택에는 목표 그림·난이도·배우는 것과 Lab 카드가 있어요. `stage`는 기존
 [StageLevels](../src/core/stage_levels.gd)의 레벨 씬으로 기본 바닥을 바꿔요.
 [StageHud](../src/ui/stage_hud.gd)는 중앙 진입 팝업 없이 목표·조립/배선/코드/실행 칩과
-짧은 힌트, 접이식 부품·프로그램 버튼, 도움, 실행/재설정을 보여줘요.
+현재 단계 힌트를 두 줄 스트립에 보여줘요. 접이식 부품·프로그램, 도움, 실행/재설정은 첫 줄에 있어요.
 [WorkshopGuide](../src/ui/workshop_guide.gd)가 그래프·실제 배선·코드/블록 유효성·실행 모드를
 읽어 체크와 자동 패널 열림을 정해요. 사용자가 접은 패널은 단계가 바뀔 때까지 유지돼요.
-[StageGoalDisplay](../src/ui/stage_goal_display.gd)는 장면에 목표 범위·조립 자세의 미리보기와
-판정기 관측값/유지 시간을 표시해요. 결과는 기존 판정기에서만 와요.
+[StageGoalDisplay](../src/ui/stage_goal_display.gd)는 목표선/결승선/정지 구역의 월드 앵커를 UI 라벨과 리더 선으로 투영해요.
+현재 값·목표 조건·유지 시간만 보여주며, 화면 밖 앵커는 가장자리에 고정해요. 결과는 기존 판정기에서만 와요.
+[WorkshopFraming](../src/ui/workshop_framing.gd)은 그래프 메시와 레벨의 목표 표시 AABB를 합쳐 패널을 뺀 화면에 맞춰요.
+진입/재시도/예제 불러오기에 적용하고, 사용자 카메라 조작 뒤에는 자동 프레이밍을 중단해요.
 도움 메뉴에서 예제·직접 팔 조립·설정·프로젝트·튜토리얼을 열어요. 예제 교체는 기존 확인 절차를
 거치고 스테이지 목표는 유지해요. `lab`에도 같은 안내와 접이식 도구를 쓰며 출제는 남겨요.
 `example`과 세션 없는 직접 `main.tscn` 진입은 기존 도구 구성을 유지해요.
 웹 검사의 `?ssok_workshop=1` / `?ssok_verify=1` 직접 진입도 유지해요.
 레벨 씬 생성/에디터 조정은 [ADR 0028](adr/0028-game-screen-flow-and-stage-levels.md),
-바뀐 표시 계약은 [ADR 0030](adr/0030-scene-first-workshop-guidance.md)이에요.
+바뀐 표시 계약은 [ADR 0030](adr/0030-scene-first-workshop-guidance.md)과 [0031](adr/0031-workshop-presentation-corrections.md)이에요.
 
 ## 깃발 임무
 
