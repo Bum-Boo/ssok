@@ -1,6 +1,6 @@
 # 0032 — Bound compact workshop overlays and name the primary action consistently
 
-- Status: accepted
+- Status: accepted; goal-summary hint priority partially superseded by [0033](0033-goal-label-space-and-observation-states.md)
 - Date: 2026-10-22
 - Implements: owner task A-3, fixed Astra findings from actual RTX 4090 captures.
 - Extends: [0030](0030-scene-first-workshop-guidance.md), [0031](0031-workshop-presentation-corrections.md).

@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-22 작업 A-4 로컬 후보: 목표 라벨 자연 폭/배율별 최소 폭·공간 부족 시 스트립 요약·관측 전 목표 한 줄·결승선 콘 18→8. [소스·현재 검사·GL 미검증·인계](WORK_SUMMARY_A4.md), [ADR 0033](adr/0033-goal-label-space-and-observation-states.md).
+
 2026-10-22 작업 A-3 로컬 후보: 작은 창 두 줄/60% 편집 패널·Run 라벨·글꼴 위계·도로 그림자 수신 보완. [소스·현재 검사·GL 미검증·인계](WORK_SUMMARY_A3.md), [ADR 0032](adr/0032-compact-workshop-presentation.md).
 
 2026-10-22 작업 A-2 로컬 후보: 내용물 자동 프레이밍·UI 목표 라벨·두 줄 안내·다크 장면·매트 테두리. 기존10+신규483검사 PASS. 실제 GL·공유 위키 기록은 환경 제약으로 미완료. [소스·검증·다음 담당](WORK_SUMMARY_A2.md), [ADR 0031](adr/0031-workshop-presentation-corrections.md).
@@ -19,8 +21,7 @@
 
 2026-10-11 실제 Windows 배포본 카메라 r5: 기본 Title→프로젝트 가져오기→Lab AI Enable/Forward/Stop, 인증 관측·8틱행동·재관측·늦은요청 거부11/0·정상exit0. 앱/패키지 변경0, provider호출0. 실패3회·도구복구/Astra20영상과 한계는 [r5 근거](evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). 실제 패키지 Run with AI/operator·Projects 문구/대비 Opus 검토·물리0/9/Mac/Arch/통합·공개 승인은 남음.
 
-로컬 후속 갱신: 2026-10-10, Codex. 최신 카메라 안정화 초안은 아래 진행 작업에 있어요.
-통합·배포의 다음 수치는 2026-09-30 이력이에요. 사용자 지시로 설치형 PR40과 설정 PR41을 병합하고 clean 앱 소스 `af1973b`의 v0.2.0을 공개했어요. [웹 실행](https://bum-boo.github.io/ssok/) · [당시 다운로드](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [배포 기록](evidence/public_release_2026-09-30/README.md). 저장소도 공개예요. native71/0·Windows17/0·같은 파일의 Web5종 최종통과·공개 작성9/설정14와 실제 다운로드 해시를 확인했어요. 첫 실패와 재실행 범위는 배포 기록에서 구분해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.
+로컬 후속 갱신: 2026-10-10, Codex. 최신 카메라 안정화 초안은 아래 진행 작업에 있어요. 통합·배포의 다음 수치는 2026-09-30 이력이에요. 사용자 지시로 설치형 PR40과 설정 PR41을 병합하고 clean 앱 소스 `af1973b`의 v0.2.0을 공개했어요. [웹 실행](https://bum-boo.github.io/ssok/) · [당시 다운로드](https://github.com/Bum-Boo/ssok/releases/tag/v0.2.0) · [배포 기록](evidence/public_release_2026-09-30/README.md). 저장소도 공개예요. native71/0·Windows17/0·같은 파일의 Web5종 최종통과·공개 작성9/설정14와 실제 다운로드 해시를 확인했어요. 첫 실패와 재실행 범위는 배포 기록에서 구분해요. 이전6브랜치 [통합 기록](evidence/merge_2026-09-30/README.md)은 당시 결과로 보존해요.
 
 ## 제품 결정과 구현 상태
 

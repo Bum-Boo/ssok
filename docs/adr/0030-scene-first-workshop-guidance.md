@@ -1,6 +1,6 @@
 # 0030 — Scene-first workshop guidance and a light workbench
 
-- Status: accepted
+- Status: accepted; screen goal assembly previews partially superseded by [0033](0033-goal-label-space-and-observation-states.md)
 - Date: 2026-10-22
 - Implements: owner task A, Claude's explicit design decision of 2026-10-22.
 - Partially supersedes: [0028](0028-game-screen-flow-and-stage-levels.md), only the opening
