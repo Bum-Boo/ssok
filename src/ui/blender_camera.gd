@@ -9,6 +9,8 @@ extends Node
 @export var min_distance: float = 0.005
 @export var max_distance: float = 20.0
 
+signal user_navigated
+
 var navigation_enabled: bool = true:
 	set(value):
 		navigation_enabled = value
@@ -180,6 +182,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if key.pressed and not key.echo and get_viewport().gui_get_focus_owner() == null:
 			handled = _handle_key(key)
 	if handled:
+		user_navigated.emit()
 		get_viewport().set_input_as_handled()
 
 

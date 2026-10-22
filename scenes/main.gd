@@ -86,6 +86,9 @@ var _replace_dialog: ConfirmationDialog
 ## Empty keeps the full legacy workshop that tests and older entry points use.
 var session: Dictionary = {}
 var stage_hud: StageHud
+var _auto_frame: bool = true
+var _framing_dirty: bool = true
+var _framing_area: Rect2
 var goal_display: StageGoalDisplay
 var _guide_phase: int = -1
 var _guide_dirty: bool = true
@@ -187,6 +190,7 @@ func _ready() -> void:
 	camera.fov = 45.0
 	navigation = BlenderCamera.new(camera)
 	add_child(navigation)
+	navigation.user_navigated.connect(func() -> void: _auto_frame = false)
 	_dress_scene()
 
 	assembly = AssemblyMode.new()
@@ -275,6 +279,10 @@ func _process(_delta: float) -> void:
 			_guide_dirty = true
 	if _scene_ui and _guide_dirty:
 		_refresh_guide()
+	if _scene_ui and _auto_frame and not run_mode.is_built():
+		var area: Rect2 = _camera_framing_rect()
+		if _framing_dirty or area != _framing_area:
+			_frame_workshop()
 	if goal_display != null:
 		var observed: Array[Dictionary] = []
 		if run_mode.is_built():
@@ -889,6 +897,16 @@ func _left_edge() -> float:
 	return library.get_global_rect().end.x if library.visible else 0.0
 
 
+func _workshop_bounds() -> AABB:
+	return WorkshopFraming.interest_bounds(assembly.graph, _level, session.get("level", {}).get("id", ""))
+
+
+func _frame_workshop() -> void:
+	navigation.frame_bounds(_workshop_bounds())
+	_framing_area = _camera_framing_rect()
+	_framing_dirty = false
+
+
 func _camera_framing_rect() -> Rect2:
 	var program: Rect2 = _side_panel.get_global_rect()
 	var tools_panel: Control = _ui_root.get_node("ViewportTools") as Control
@@ -1057,7 +1075,11 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 	if _scene_ui and session.get("mode", "") == "stage":
 		stages.load_goal(StageLevels.stage_definition(session.level))
 	_clean_workspace = _workspace_key()
-	navigation.frame_bounds(assembly.get_scene_bounds())
+	if session.get("mode", "") in ["stage", "lab"]:
+		_auto_frame = true
+		_framing_dirty = true
+	else:
+		navigation.frame_bounds(assembly.get_scene_bounds())
 	_set_status(message)
 	get_viewport().gui_release_focus()
 
@@ -1705,7 +1727,7 @@ func _enter_stage(level: Dictionary) -> void:
 	goal_display.configure(level, stage)
 	if _level != null:
 		navigation.set_view_angles(deg_to_rad(_level.view_yaw_degrees), deg_to_rad(_level.view_pitch_degrees))
-		navigation.frame_bounds(_level.play_area)
+		_framing_dirty = true
 	_refresh_control_ui()
 
 
@@ -1750,6 +1772,8 @@ func _on_run_button_pressed() -> void:
 
 
 func _reset_attempt() -> void:
+	_auto_frame = true
+	_framing_dirty = true
 	runtime.stop()
 	stages.on_stop()
 	_ensure_assembly_mode()
@@ -1828,7 +1852,9 @@ func _setup_scene_ui() -> void:
 	run_button.hide()
 	_side_panel.hide()
 	(_ui_root.get_node("PartsLibrary") as Control).hide()
-	assembly.graph_changed.connect(func() -> void: _guide_dirty = true)
+	assembly.graph_changed.connect(func() -> void:
+		_guide_dirty = true
+		_framing_dirty = true)
 	code_edit.text_changed.connect(func() -> void: _guide_dirty = true)
 	_layout_scene_ui()
 	# Start with the scene unobstructed, then open only the relevant tool.
