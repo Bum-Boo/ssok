@@ -307,7 +307,7 @@ func _call(name: String, args: Array) -> Variant:
 	if not is_instance_valid(hardware) or not hardware.is_built():
 		_error = tr("Run mode is not active")
 		return null
-	if name in ["Servo", "Motor", "Sonar"]:
+	if name in ["Servo", "Motor", "Sonar", "LineSensor"]:
 		return hardware.device(name, args)
 	if name == "stop":
 		hardware.stop_motors()

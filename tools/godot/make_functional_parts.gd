@@ -54,6 +54,8 @@ static func write_definition(entry: Dictionary) -> Error:
 	definition.mesh = mesh
 	definition.mass_kg = entry.mass_kg
 	definition.merge_fixed_connections = true
+	definition.surface_marker = entry.get("surface_marker", false)
+	definition.device_kind = entry.get("device_kind", "")
 	definition.gear_ratio = entry.get("gear_ratio", 0.0)
 	definition.passive_hinge = entry.get("passive_hinge", false)
 	definition.actuator_min_deg = entry.get("min_deg", -90.0)
@@ -66,6 +68,7 @@ static func write_definition(entry: Dictionary) -> Error:
 	for spec: Dictionary in entry.ports:
 		var port := Port.new()
 		port.id = spec.id
+		port.kind = Port.Kind.ELEC if spec.get("kind", "MECH") == "ELEC" else Port.Kind.MECH
 		port.local_position = _vector(spec.position)
 		port.local_normal = _vector(spec.normal)
 		port.tag = spec.tag

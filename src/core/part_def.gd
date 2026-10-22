@@ -34,3 +34,9 @@ extends Resource
 
 ## Ideal external gear reduction; its two shafts are separate derived bodies.
 @export var gear_ratio: float = 0.0
+
+## Single-signal virtual devices use graph electrical links, never fixed runtime pins.
+@export var device_kind: String = ""
+
+## Paint is visible to reflectance rays without becoming a step under small casters.
+@export var surface_marker: bool = false

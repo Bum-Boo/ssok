@@ -5,7 +5,7 @@ extends Node3D
 ## Every body and joint here is derived; teardown() must leave no trace.
 
 ## Parts that sit on the table and never move (frozen as static bodies).
-@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno", &"stage_wall"]
+@export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno", &"stage_wall", &"env_line_straight", &"env_line_corner"]
 
 var bodies: Array[RigidBody3D] = []
 ## graph part index -> ServoDrive, for every part that owns a rotating port in a link.
@@ -13,6 +13,8 @@ var servos: Dictionary = {}
 var motors: Dictionary = {}
 var sonars: Dictionary = {}
 var gears: Dictionary = {}
+var line_sensors: Dictionary = {}
+var _part_visuals: Dictionary = {}
 var _graph: ConnectionGraph
 var _body_offsets: Array[Transform3D] = []
 
@@ -67,6 +69,8 @@ func teardown() -> void:
 	motors.clear()
 	sonars.clear()
 	gears.clear()
+	line_sensors.clear()
+	_part_visuals.clear()
 	_body_offsets.clear()
 	_graph = null
 
@@ -97,7 +101,7 @@ func _make_cluster(members: Array[int]) -> void:
 			continue
 		total_mass += definition.mass_kg
 		mass_center += offset.origin * definition.mass_kg
-		_add_part_geometry(body, definition, offset)
+		_add_part_geometry(body, definition, offset, member)
 		if definition.id in anchored_part_ids:
 			body.freeze = true
 	if members.size() > 1:
@@ -162,10 +166,12 @@ func _make_body(entry: Dictionary, index: int) -> RigidBody3D:
 	body.name = "%s_%d" % [def.id, index]
 	body.mass = def.mass_kg
 	body.can_sleep = false
-	body.collision_layer = 3
+	body.collision_layer = 4 if def.surface_marker else 3
+	if def.surface_marker:
+		body.collision_mask = 0
 	body.contact_monitor = true
 	body.max_contacts_reported = 16
-	_add_part_geometry(body, def, Transform3D.IDENTITY)
+	_add_part_geometry(body, def, Transform3D.IDENTITY, index)
 	if def.id in anchored_part_ids:
 		body.freeze = true
 		body.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
@@ -174,11 +180,12 @@ func _make_body(entry: Dictionary, index: int) -> RigidBody3D:
 	return body
 
 
-func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transform3D) -> void:
+func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transform3D, part: int) -> void:
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = definition.mesh
 	mesh.transform = offset
 	body.add_child(mesh)
+	_part_visuals[part] = mesh
 	if definition.caster_radius > 0.0:
 		var shape := CollisionShape3D.new()
 		var sphere := SphereShape3D.new()
@@ -314,6 +321,8 @@ func device(kind: String, args: Array) -> Variant:
 		return servo_on_pin(int(args[0]))
 	if kind == "Motor":
 		return motor_on_pins(int(args[0]), int(args[1])) if args.size() == 2 else motor_on_pin(int(args[0]))
+	if kind == "LineSensor":
+		return line_on_pin(int(args[0]))
 	if kind == "Sonar":
 		return sonar_on_pins(int(args[0]), int(args[1]))
 	return null
@@ -510,3 +519,45 @@ func _make_gear(part: int) -> void:
 		else:
 			drive.output = shaft
 	drive.input.add_collision_exception_with(drive.output)
+
+
+func single_signal_part(pin: int, kind: String) -> int:
+	if _graph == null:
+		return -1
+	var wires: Dictionary = Wiring.pin_map(_graph)
+	if not wires.has(pin) or wires[pin].port != &"signal_pin":
+		return -1
+	var part: int = wires[pin].part
+	return part if _graph.parts[part].part_def.device_kind == kind else -1
+
+
+func line_on_pin(pin: int) -> LineSensor:
+	var part: int = single_signal_part(pin, "LineSensor")
+	if part < 0:
+		return null
+	if not line_sensors.has(part):
+		var sensor := LineSensor.new()
+		sensor.run_mode = self
+		sensor.part_index = part
+		line_sensors[part] = sensor
+	return line_sensors[part]
+
+
+## Brightness comes from the hit part's material, with white as the unmarked-floor default.
+func surface_brightness(hit: Dictionary) -> float:
+	var collider: Node = hit.collider
+	var nearest: float = INF
+	var brightness: float = 1.0
+	for index: int in bodies.size():
+		if bodies[index] != collider:
+			continue
+		var visual: MeshInstance3D = _part_visuals[index]
+		var distance: float = visual.global_position.distance_squared_to(hit.position)
+		if distance >= nearest:
+			continue
+		nearest = distance
+		var material: StandardMaterial3D = visual.mesh.surface_get_material(0) as StandardMaterial3D
+		if material != null:
+			var color: Color = material.albedo_color
+			brightness = 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b
+	return brightness

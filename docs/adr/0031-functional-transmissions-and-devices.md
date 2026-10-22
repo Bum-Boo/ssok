@@ -20,3 +20,16 @@ input reaction. This is a transmission advantage, not an increase in actuator to
 Shaft interfaces remain 8 mm; mounting pitch is 20 mm with actual 4 mm openings. Compound
 manufactured-device internals derive from PartDef, and teardown removes them with the runtime.
 Unverified devices are not exposed merely to increase the catalog count.
+
+LineSensor uses three downward rays over 150 mm, excluding the mechanically connected robot.
+All profiles return integer reflectance 0..1023 (black..white), with `is_dark()` below 512.
+No hit is 1023 with `last_valid=false`. Catalog hit material luminance determines the value;
+unmarked workbench floor defaults to white. Optional seeded Gaussian noise (sigma 0.01 normalized)
+follows sonar's opt-in `realistic` convention. Black line paint occupies observation layer 4,
+with no physical response; rays include floor layer 1 and paint layer 4. This prevents marker
+thickness from becoming an unintended obstacle to a small caster. Environment stock is anchored
+through the existing anchored_part_ids path. No runtime pins are hard-coded.
+
+The current UI category selector is a fixed list in scenes/main.gd. Catalog `categories.environment`
+and prefixed translated names describe workbench objects, but metadata cannot create a selector
+entry. That UI follow-up stays with the separate owner under the user's file boundary.

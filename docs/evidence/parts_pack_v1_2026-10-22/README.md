@@ -12,3 +12,8 @@ Commands use `XDG_DATA_HOME=/tmp/ssok-b2-data`, `XDG_CONFIG_HOME=/tmp/ssok-b2-co
 - Localization: 52,875/0; construction kit: 13,170/0.
 - Import exits 0 but emits socket creation errors in this sandbox; not counted as a clean pass.
 - Screen/glyph/clipping inspection is unrun without DISPLAY. Headless catalog checks are narrower.
+- Gripper experiment: [failed contact/friction test](gripper-failed.txt), 3/7 failed;
+  prototype removed from catalog/runtime. This is not a delivered gripper.
+- Line sensor: [actual readings and trajectory](line.txt), 13/0. Sensor code drives real
+  differential wheel physics through a bend; 33/81 samples detected the line across the route.
+  First attempts failed from inadequate steering, short run observation and paint/caster collision.

@@ -4,7 +4,7 @@ extends RefCounted
 ## Lossless for untouched lines; edited blocks emit the same bounded learner language.
 const MAX_LINES: int = 2048
 const IDENTIFIER: String = "^[A-Za-z_][A-Za-z0-9_]*$"
-const TEMPLATES: Dictionary = {"servo": "{name} = Servo({pin})", "write": "{name}.write({angle})",
+const TEMPLATES: Dictionary = {"line_sensor": "{name} = LineSensor({pin})", "line_value": "{variable} = {name}.value()", "line_dark": "{variable} = {name}.is_dark()", "servo": "{name} = Servo({pin})", "write": "{name}.write({angle})",
 	"write_relative": "{name}.write_relative({angle})", "sleep": "sleep({seconds})", "motor": "{name} = Motor({pin})", "motor_on": "{name}.motor_on(\"{direction}\", {speed})", "motor_stop": "{name}.stop(\"{mode}\")", "sonar": "{name} = Sonar({trigger}, {echo})", "distance": "{variable} = {name}.distance_cm()", "variable": "{name} = {expression}", "while": "while {expression}:", "if": "if {expression}:", "elif": "elif {expression}:", "else": "else:", "stop": "stop()", "for": "for {name} in range({expression}):", "break": "break", "motor_pair": "{name} = Motor({first}, {second})", "forward": "{name}.forward({speed})", "backward": "{name}.backward({speed})", "motor_brake": "{name}.stop()", "sensor_value": "{variable} = {name}.distance()"}
 
 
@@ -96,6 +96,12 @@ static func generate(instructions: Array, profile: BoardProfile) -> Dictionary:
 
 
 static func _learning_instruction(line: String, profile: BoardProfile) -> Dictionary:
+	var sensor: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*LineSensor\(\s*(?:pin)?(\d+)\s*\)$").search(line)
+	if sensor:
+		return {"op": "line_sensor", "args": {"name": sensor.get_string(1), "pin": int(sensor.get_string(2))}}
+	var observed: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*([A-Za-z_][A-Za-z0-9_]*)\.(value|is_dark)\(\)$").search(line)
+	if observed:
+		return {"op": "line_value" if observed.get_string(3) == "value" else "line_dark", "args": {"variable": observed.get_string(1), "name": observed.get_string(2)}}
 	var loop: RegExMatch = RegEx.create_from_string(r"^for ([A-Za-z_][A-Za-z0-9_]*) in range\((.*)\):$").search(line)
 	if loop:
 		return {"op": "for", "args": {"name": loop.get_string(1), "expression": loop.get_string(2)}}

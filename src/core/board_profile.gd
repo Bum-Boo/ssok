@@ -16,6 +16,9 @@ const GENERIC_API: Array[Dictionary] = [
 
 
 const LEARNING_API: Array[Dictionary] = [
+	{"id": "line_sensor", "label": "Connect line sensor", "arguments": [{"name": "name", "type": "identifier", "default": "line"}, {"name": "pin", "type": "integer", "default": 1, "min": 0, "max": 255}]},
+	{"id": "line_value", "label": "Read reflected light", "arguments": [{"name": "variable", "type": "identifier", "default": "light"}, {"name": "name", "type": "identifier", "default": "line"}]},
+	{"id": "line_dark", "label": "Detect dark line", "arguments": [{"name": "variable", "type": "identifier", "default": "dark"}, {"name": "name", "type": "identifier", "default": "line"}]},
 	{"id": "motor", "label": "Connect wheel motor", "arguments": [{"name": "name", "type": "identifier", "default": "left"}, {"name": "pin", "type": "integer", "default": 0, "min": 0, "max": 255}]},
 	{"id": "motor_on", "label": "Run wheel motor", "arguments": [{"name": "name", "type": "identifier", "default": "left"}, {"name": "direction", "type": "choice", "default": "forward", "choices": ["forward", "reverse"]}, {"name": "speed", "type": "number", "default": 40, "min": 0, "max": 100}]},
 	{"id": "motor_stop", "label": "Stop wheel motor", "arguments": [{"name": "name", "type": "identifier", "default": "left"}, {"name": "mode", "type": "choice", "default": "brake", "choices": ["brake", "coast"]}]},

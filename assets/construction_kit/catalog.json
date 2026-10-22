@@ -14088,6 +14088,619 @@
           ]
         }
       ]
+    },
+    {
+      "id": "kit_line_sensor",
+      "name": "Reflectance line sensor",
+      "kind": "sensor",
+      "material": "ChassisMetal",
+      "mass_kg": 0.035,
+      "size": [
+        0.04,
+        0.02,
+        0.004
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/kit_line_sensor.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              -0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              -0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.004,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.008,
+              0.02,
+              0.004
+            ],
+            "position": [
+              0.016,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              -0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.008,
+              0.004
+            ],
+            "position": [
+              0.01,
+              0.006,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.016,
+              0.02,
+              0.012
+            ],
+            "position": [
+              0,
+              0.016,
+              0
+            ]
+          },
+          {
+            "type": "box",
+            "size": [
+              0.016,
+              0.006,
+              0.014
+            ],
+            "position": [
+              0,
+              -0.012,
+              0
+            ],
+            "material": "black"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.04,
+              0.004,
+              0.004
+            ],
+            "position": [
+              0,
+              0.025,
+              0
+            ],
+            "material": "chassis_metal"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.004,
+              0.025,
+              0.004
+            ],
+            "position": [
+              0.016,
+              0.0125,
+              0
+            ],
+            "material": "chassis_metal"
+          }
+        ]
+      },
+      "holes": [
+        {
+          "id": "mount_0",
+          "position": [
+            -0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        },
+        {
+          "id": "mount_1",
+          "position": [
+            0.01,
+            0,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "diameter_m": 0.004,
+          "thickness_m": 0.004
+        }
+      ],
+      "ports": [
+        {
+          "id": "mount_0_front",
+          "position": [
+            -0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_0_back",
+          "position": [
+            -0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_0"
+        },
+        {
+          "id": "mount_1_front",
+          "position": [
+            0.01,
+            0,
+            0.002
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "mount_1_back",
+          "position": [
+            0.01,
+            0,
+            -0.002
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "tag": "kit_m4",
+          "accepts": [
+            "kit_m4"
+          ],
+          "hole_id": "mount_1"
+        },
+        {
+          "id": "signal_pin",
+          "position": [
+            0,
+            0.016,
+            -0.008
+          ],
+          "normal": [
+            0,
+            0,
+            -1
+          ],
+          "kind": "ELEC",
+          "tag": "digital_io",
+          "accepts": [
+            "board_digital_pwm",
+            "board_digital"
+          ]
+        },
+        {
+          "id": "mount",
+          "position": [
+            -0.02,
+            0.025,
+            0
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "tag": "sensor_mount",
+          "accepts": [
+            "base_mount"
+          ]
+        }
+      ],
+      "collision_boxes": [
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            -0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            -0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.004,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.008,
+            0.02,
+            0.004
+          ],
+          "position": [
+            0.016,
+            0,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            -0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.008,
+            0.004
+          ],
+          "position": [
+            0.01,
+            0.006,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.016,
+            0.02,
+            0.012
+          ],
+          "position": [
+            0,
+            0.016,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.016,
+            0.006,
+            0.014
+          ],
+          "position": [
+            0,
+            -0.012,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.04,
+            0.004,
+            0.004
+          ],
+          "position": [
+            0,
+            0.025,
+            0
+          ]
+        },
+        {
+          "size": [
+            0.004,
+            0.025,
+            0.004
+          ],
+          "position": [
+            0.016,
+            0.0125,
+            0
+          ]
+        }
+      ],
+      "device_kind": "LineSensor"
+    },
+    {
+      "id": "env_line_straight",
+      "name": "Environment: black line straight",
+      "kind": "environment",
+      "material": "ChassisMetal",
+      "mass_kg": 0.01,
+      "size": [
+        0.2,
+        0.001,
+        0.2
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/env_line_straight.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.04,
+              0.001,
+              0.2
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "material": "black"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [],
+      "collision_boxes": [
+        {
+          "size": [
+            0.04,
+            0.001,
+            0.2
+          ],
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "anchored": true,
+      "surface_marker": true
+    },
+    {
+      "id": "env_line_corner",
+      "name": "Environment: black line corner",
+      "kind": "environment",
+      "material": "ChassisMetal",
+      "mass_kg": 0.01,
+      "size": [
+        0.2,
+        0.001,
+        0.2
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "mesh": "res://assets/construction_kit/meshes/env_line_corner.res",
+      "geometry": {
+        "type": "functional_v1",
+        "components": [
+          {
+            "type": "box",
+            "size": [
+              0.04,
+              0.001,
+              0.112
+            ],
+            "position": [
+              0,
+              0,
+              -0.044
+            ],
+            "material": "black"
+          },
+          {
+            "type": "box",
+            "size": [
+              0.112,
+              0.001,
+              0.04
+            ],
+            "position": [
+              0.044,
+              0,
+              0
+            ],
+            "material": "black"
+          }
+        ]
+      },
+      "holes": [],
+      "ports": [],
+      "collision_boxes": [
+        {
+          "size": [
+            0.04,
+            0.001,
+            0.112
+          ],
+          "position": [
+            0,
+            0,
+            -0.044
+          ]
+        },
+        {
+          "size": [
+            0.112,
+            0.001,
+            0.04
+          ],
+          "position": [
+            0.044,
+            0,
+            0
+          ]
+        }
+      ],
+      "anchored": true,
+      "surface_marker": true
     }
-  ]
+  ],
+  "categories": {
+    "environment": {
+      "name": "Workbench objects",
+      "robot_part": false
+    }
+  }
 }
