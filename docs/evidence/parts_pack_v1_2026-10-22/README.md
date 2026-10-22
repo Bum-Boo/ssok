@@ -1,0 +1,55 @@
+# B-2 local verification — 2026-10-22
+
+Base: `fbf2d6392e0222e62010aa98a7318dce256e479c`, branch `feat/parts-freedom-r2-20261022`.
+Engine: `build/toolchain/godot`, 4.7.2 stable. No export, push or merge.
+Commands use `XDG_DATA_HOME=/tmp/ssok-b2-data`, `XDG_CONFIG_HOME=/tmp/ssok-b2-config`,
+`XDG_CACHE_HOME=/tmp/ssok-b2-cache` and `--headless --path . --script tests/<name>.gd`.
+
+- Gear physics: [actual output](gears.txt), 36 checks / 0 failures. First chain fixture failed
+  because wheel/housing collided; same-step server velocities and rigid rotor clustering were
+  required for the constraint. These failures preceded the passing measurement, not app success.
+- B regressions after gear addition: runtime 28/0, blocks 51/0, mechanics 79/0, workshop 50/0.
+- Localization: 52,875/0; construction kit: 13,170/0.
+- Import exits 0 but emits socket creation errors in this sandbox; not counted as a clean pass.
+- Screen/glyph/clipping inspection is unrun without DISPLAY. Headless catalog checks are narrower.
+- Gripper experiment: [failed contact/friction test](gripper-failed.txt), 3/7 failed;
+  prototype removed from catalog/runtime. This is not a delivered gripper.
+- Line sensor: [actual readings and trajectory](line.txt), 13/0. Sensor code drives real
+  differential wheel physics through a bend; 33/81 samples detected the line across the route.
+  First attempts failed from inadequate steering, short run observation and paint/caster collision.
+- Contact button: [wall/hold/release output](button.txt), 11/0. A moving graph-derived car
+  stops on front-shape contact, holds for 2.0333 seconds, then releases on reverse. A 50 ms
+  release debounce filters solver chatter; first strict contact-duration tests failed before it.
+- LED: [material/state/Stop output](led.txt), 19/0. Emission parameters were inspected on the
+  actual runtime material; rendered glow and clipping remain unverified in the headless environment.
+- Environment: [physical slopes and ball/cup output](environment.txt), 14/0. Maximum chassis
+  height: 10° 0.08335 m; 20° with 90 mm wheels 0.18736 m. A sideways cup receives and retains a
+  pushed ball (count 1). First fixtures failed at the steeper ramp and the cup's entrance lip;
+  a larger wheel and higher learner power were used, without changing common physics values.
+
+## Final content verification
+
+Application content commit: `7968d6f`, all recorded application hashes matched the final batch.
+[Source identity](source.json) records execution-start HEAD plus the tested overlay and validated
+content commit. The following documentation-only commit does not alter that application content.
+
+[Commands and results](results.json): the 74 previously passing B commands plus 5 new B-2
+commands produced 78/79 passing suites. Separate [inventory integration](inventory.txt) passed
+114/0 on the same application content, giving **79/80 passing suites**, with all **207 new checks**
+passing. Localization 53,542/0; construction kit 13,655/0; B-specific runtime/blocks/mechanics/
+workshop 28/0, 51/0, 79/0, 50/0; scene-load passed.
+
+The remaining [workshop UI failure](workshop-ui-failed.txt) is five assertions requiring exactly
+80 parts rather than the actual 92. That existing file is explicitly forbidden by the user and
+was not edited. The initial three-suite regression also included the `kit_` category contract and
+missing packaged-document source references; these were fixed and rerun. Environment IDs now use
+`kit_env_*`; all 42 construction catalog entries reach the existing filter. The new inventory
+fixture initially mistook Button.text's untranslated source for a rendered translation; it now
+checks the existing native auto-translation contract and localized search, not rendered glyphs.
+
+All six new sources are `tests/parts_pack_{gears,line,button,led,environment,inventory}_check.gd`.
+Run them via `build/toolchain/godot --headless --audio-driver Dummy --path . --language en
+--fixed-fps 60 --script tests/<name>.gd`, with XDG paths as above. No mock HTTP fixture was started.
+`tools.ci.build.copy_notices()` was tested offline for documentation packaging; no export ran.
+`maintain.py --check`, documentation unittest 10/0 and `git diff --check` passed. New translations:
+23 English keys + 69 translated entries were explicitly compared in all PO catalogs.

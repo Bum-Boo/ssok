@@ -22,7 +22,24 @@ static func write_definition(entry: Dictionary) -> Error:
 	var mesh := ArrayMesh.new()
 	for component: Dictionary in entry.geometry.components:
 		var primitive: PrimitiveMesh
-		if component.type == "cylinder":
+		if component.type == "wedge":
+			var size: Vector3 = _vector(component.size)
+			var vertices: Array[Vector3] = [Vector3(-size.x/2,0,-size.z/2),Vector3(size.x/2,0,-size.z/2),Vector3(-size.x/2,0,size.z/2),Vector3(size.x/2,0,size.z/2),Vector3(-size.x/2,size.y,size.z/2),Vector3(size.x/2,size.y,size.z/2)]
+			var triangles: Array[int] = [0,2,1,1,2,3,0,1,4,1,5,4,2,4,3,3,4,5,0,4,2,1,3,5]
+			var surface := SurfaceTool.new()
+			surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+			for index: int in triangles:
+				surface.add_vertex(vertices[index] + _vector(component.position))
+			surface.generate_normals()
+			surface.set_material(load("res://assets/materials/" + component.get("material", "chassis_metal") + ".tres"))
+			surface.commit(mesh)
+			continue
+		if component.type == "sphere":
+			var sphere := SphereMesh.new()
+			sphere.radius = component.radius
+			sphere.height = 2 * component.radius
+			primitive = sphere
+		elif component.type == "cylinder":
 			var cylinder := CylinderMesh.new()
 			cylinder.top_radius = component.radius
 			cylinder.bottom_radius = component.radius
@@ -54,6 +71,15 @@ static func write_definition(entry: Dictionary) -> Error:
 	definition.mesh = mesh
 	definition.mass_kg = entry.mass_kg
 	definition.merge_fixed_connections = true
+	definition.sphere_radius = entry.get("sphere_radius", 0.0)
+	definition.environment_role = entry.get("environment_role", "")
+	for point: Array in entry.get("collision_points", []):
+		definition.collision_points.append(_vector(point))
+	if entry.has("cup_inner_bounds"):
+		definition.cup_inner_bounds = AABB(_vector(entry.cup_inner_bounds.position), _vector(entry.cup_inner_bounds.size))
+	definition.surface_marker = entry.get("surface_marker", false)
+	definition.device_kind = entry.get("device_kind", "")
+	definition.gear_ratio = entry.get("gear_ratio", 0.0)
 	definition.passive_hinge = entry.get("passive_hinge", false)
 	definition.actuator_min_deg = entry.get("min_deg", -90.0)
 	definition.actuator_max_deg = entry.get("max_deg", 90.0)
@@ -65,6 +91,7 @@ static func write_definition(entry: Dictionary) -> Error:
 	for spec: Dictionary in entry.ports:
 		var port := Port.new()
 		port.id = spec.id
+		port.kind = Port.Kind.ELEC if spec.get("kind", "MECH") == "ELEC" else Port.Kind.MECH
 		port.local_position = _vector(spec.position)
 		port.local_normal = _vector(spec.normal)
 		port.tag = spec.tag

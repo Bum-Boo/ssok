@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_line_sensor.res" id="1_nrh15"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_hp8fi"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_ab0qg"]
+
+[sub_resource type="Resource" id="Resource_2ynyq"]
+script = ExtResource("2_hp8fi")
+id = &"mount_0_front"
+local_position = Vector3(-0.01, 0, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_eso8m"]
+script = ExtResource("2_hp8fi")
+id = &"mount_0_back"
+local_position = Vector3(-0.01, 0, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_jp0fo"]
+script = ExtResource("2_hp8fi")
+id = &"mount_1_front"
+local_position = Vector3(0.01, 0, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_62n5n"]
+script = ExtResource("2_hp8fi")
+id = &"mount_1_back"
+local_position = Vector3(0.01, 0, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_ufkhe"]
+script = ExtResource("2_hp8fi")
+id = &"signal_pin"
+kind = 1
+local_position = Vector3(0, 0.016, -0.008)
+local_normal = Vector3(0, 0, -1)
+tag = &"digital_io"
+accepts = Array[StringName]([&"board_digital_pwm", &"board_digital"])
+
+[sub_resource type="Resource" id="Resource_0c328"]
+script = ExtResource("2_hp8fi")
+id = &"mount"
+local_position = Vector3(-0.02, 0.025, 0)
+local_normal = Vector3(-1, 0, 0)
+tag = &"sensor_mount"
+accepts = Array[StringName]([&"base_mount"])
+
+[resource]
+script = ExtResource("3_ab0qg")
+id = &"kit_line_sensor"
+display_name = "Reflectance line sensor"
+mesh = ExtResource("1_nrh15")
+ports = Array[ExtResource("2_hp8fi")]([SubResource("Resource_2ynyq"), SubResource("Resource_eso8m"), SubResource("Resource_jp0fo"), SubResource("Resource_62n5n"), SubResource("Resource_ufkhe"), SubResource("Resource_0c328")])
+mass_kg = 0.035
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.020000001, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(-0.008, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(-0.012, -0.01, -0.002, 0.004, 0.008, 0.004), AABB(-0.012, 0.0019999999, -0.002, 0.004, 0.008, 0.004), AABB(0, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(0.012, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(0.007999999, -0.01, -0.002, 0.004, 0.008, 0.004), AABB(0.007999999, 0.0019999999, -0.002, 0.004, 0.008, 0.004), AABB(-0.008, 0.006000001, -0.006, 0.016, 0.02, 0.012), AABB(-0.008, -0.015000001, -0.007, 0.016, 0.006, 0.014), AABB(-0.02, 0.023, -0.002, 0.04, 0.004, 0.004), AABB(0.014, 0, -0.002, 0.004, 0.025, 0.004)])
+device_kind = "LineSensor"
+collision_points = PackedVector3Array()

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_axle_40.res" id="1_0ujjp"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_biwaj"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_p2ew4"]
+
+[sub_resource type="Resource" id="Resource_7ca7g"]
+script = ExtResource("2_biwaj")
+id = &"front"
+local_position = Vector3(0, 0, 0.02)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8", &"motor_shaft"])
+
+[sub_resource type="Resource" id="Resource_wsg4d"]
+script = ExtResource("2_biwaj")
+id = &"back"
+local_position = Vector3(0, 0, -0.02)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8", &"motor_shaft"])
+
+[sub_resource type="Resource" id="Resource_4l4of"]
+script = ExtResource("2_biwaj")
+id = &"motor_hub"
+local_position = Vector3(0, 0, -0.02)
+local_normal = Vector3(0, 0, -1)
+tag = &"wheel_hub"
+accepts = Array[StringName]([&"motor_shaft"])
+
+[resource]
+script = ExtResource("3_p2ew4")
+id = &"kit_axle_40"
+display_name = "Axle 8 × 40 mm"
+mesh = ExtResource("1_0ujjp")
+ports = Array[ExtResource("2_biwaj")]([SubResource("Resource_7ca7g"), SubResource("Resource_wsg4d"), SubResource("Resource_4l4of")])
+mass_kg = 0.016
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.004, -0.004, -0.02, 0.008, 0.008, 0.04)])
+collision_points = PackedVector3Array()

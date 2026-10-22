@@ -31,3 +31,17 @@ extends Resource
 @export var caster_radius: float = 0.0
 ## Passive bearings constrain motion without creating an addressable servo.
 @export var passive_hinge: bool = false
+
+## Ideal external gear reduction; its two shafts are separate derived bodies.
+@export var gear_ratio: float = 0.0
+
+## Single-signal virtual devices use graph electrical links, never fixed runtime pins.
+@export var device_kind: String = ""
+
+## Paint is visible to reflectance rays without becoming a step under small casters.
+@export var surface_marker: bool = false
+
+@export var sphere_radius: float = 0.0
+@export var collision_points: PackedVector3Array = []
+@export var environment_role: String = ""
+@export var cup_inner_bounds: AABB = AABB()
