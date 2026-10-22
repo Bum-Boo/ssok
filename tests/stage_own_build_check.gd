@@ -44,7 +44,7 @@ func _run() -> void:
 	for level: Dictionary in StageLevels.all():
 		var main: Node3D = await _open(level)
 		_check(main.assembly.graph.parts.is_empty() and main.code_edit.text.is_empty(), level.id + " starts with empty graph and code")
-		_check(main._ui_root.get_node("PartsLibrary").visible and main.part_buttons.size() == 81, level.id + " full tray including B parts and task flag")
+		_check(main._ui_root.get_node("PartsLibrary").visible and main.part_buttons.size() == MotionSnapshot._catalog().size(), level.id + " full tray including B parts and task flag")
 		_check(main._ui_root.get_node("ViewportTools").visible, level.id + " edit tools available")
 		for tab: String in ["Code", "Blocks", "Wiring", "Controls"]:
 			var found: bool = false

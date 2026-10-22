@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-22 작업 D-2 통합 후보: D의 빈 작업대에 B-2 기능 부품 12종과 C 브랜치 미리보기 워크플로를 병합했어요. 전체 카탈로그는 93종이며 Environment/Electronics 필터와 컵 전체 대상 지표를 연결했어요. 현재 검사·환경 제한·통합 checkpoint는 [작업 D-2](WORK_SUMMARY_D2.md)에서 확인해요. push·미리보기 게시·공개 플레이 확인은 통합 담당자 후속이에요.
+
 2026-10-22 작업 D 로컬 후보: B 병합·빈 작업대·전체 로봇/환경 판정·과제 깃발·확인 후 답지/초기화·스테이지별 보존. [검증·제한·인계](WORK_SUMMARY_D.md), [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md). 아래 미리 조립/도구 숨김 설명을 대체하며 통합·배포는 하지 않았어요.
 
 2026-10-22 작업 A-5 로컬 후보: 목표 문장 28px·회색 태그 14px·패널 제목 16px 굵게로 위계 교정. [현재 검사·GL 미검증·인계](WORK_SUMMARY_A5.md), [ADR 0034](adr/0034-correct-workshop-type-roles.md). A-4 공간/관측/콘 규칙과 [이력](WORK_SUMMARY_A4.md)은 유지해요.
@@ -41,11 +43,9 @@
 
 ## 진행 작업과 근거
 
-2026-10-11 관측 제동 전환 r4: stock/생략 prototype 둘 다3px변동·combined실패. 앱 적용 근거부족, 소스변경0.
-[단일변수 실험·한계·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/observation-continuity-r4/README.md).
+2026-10-11 관측 제동 전환 r4: stock/생략 prototype 둘 다3px변동·combined실패. 앱 적용 근거부족, 소스변경0. [단일변수 실험·한계·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/observation-continuity-r4/README.md).
 
-2026-10-11 물리/영상 경계 진단 r3:30/10/12 여백26px·거리14.0431cm 실패를 반복했고,
-1틱 추가는22px·13.7652cm로 영상 미달. 재관측22↔24px/0.655mm 변동을 확인했어요.
+2026-10-11 물리/영상 경계 진단 r3:30/10/12 여백26px·거리14.0431cm 실패를 반복했고, 1틱 추가는22px·13.7652cm로 영상 미달. 재관측22↔24px/0.655mm 변동을 확인했어요.
 조건의 좁은 경계와 자세 변화는 관측했지만 불가능성·원인·물리 개선을 확정하지 않았어요.
 앱/목표/물리/패키지 변경0, 기존AI 이미지9/9·물리0/9 유지.
 [진단·실패·한계·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/physical-compatibility-r3/README.md).
