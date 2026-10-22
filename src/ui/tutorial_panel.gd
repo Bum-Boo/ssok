@@ -13,7 +13,7 @@ const STEPS: Array[Dictionary] = [
 	{
 		"title": "Start with a robot",
 		"icon": "box",
-		"body": "Close this guide to try each step, then reopen the book icon to continue. Your place is kept until the app closes.\n\nIn the left library, choose Answer: biped for movement, or Answer: servo arm for a simple coding example. Loading a starter replaces the current assembly and code.",
+		"body": "Close this guide to try each step, then reopen the book icon to continue. Your place is kept until the app closes.\n\nOpen Help → Load an example. Choose Answer: biped for movement, or Answer: servo arm for a simple coding example. Loading a starter replaces the current assembly and code.",
 		"hint": "Look around: middle mouse to orbit, Shift + middle mouse to pan, wheel to zoom.",
 	},
 	{

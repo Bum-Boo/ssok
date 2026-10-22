@@ -30,7 +30,9 @@
     "docs/evidence/agent_camera_2026-10-10/repeated/README.md",
     "docs/evidence/agent_camera_2026-10-10/goal_ui/README.md",
     "docs/evidence/agent_camera_2026-10-10/stabilization/README.md",
-    "docs/evidence/agent_camera_2026-10-10/completion/README.md"
+    "docs/evidence/agent_camera_2026-10-10/completion/README.md",
+    "docs/WORK_SUMMARY_A.md",
+    "docs/UIUX_REDESIGN.md"
   ],
   "routes": {
     "assembly": {
@@ -249,7 +251,8 @@
       "adrs": [
         "0007",
         "0016",
-        "0026"
+        "0026",
+        "0030"
       ],
       "watch": [
         "src/ui/interface_preferences.gd",
@@ -257,6 +260,34 @@
         "src/ui/ssok_theme.gd",
         "tests/interface_preferences_check.gd",
         "tools/ci/browser_settings.py"
+      ]
+    },
+    "workshop-ui": {
+      "docs": [
+        "docs/FLOWS.md",
+        "docs/UIUX_REDESIGN.md",
+        "docs/WORK_SUMMARY_A.md"
+      ],
+      "sources": [
+        "src/ui/workshop_guide.gd",
+        "src/ui/stage_goal_display.gd",
+        "src/ui/stage_goal_preview.gd",
+        "src/ui/workbench_surface.gd",
+        "src/ui/stage_hud.gd",
+        "src/screens/stage_select_screen.gd"
+      ],
+      "adrs": [
+        "0025",
+        "0028",
+        "0030"
+      ],
+      "watch": [
+        "src/ui/workshop_guide.gd",
+        "src/ui/stage_goal*.gd",
+        "src/ui/workbench_surface.gd",
+        "src/ui/stage_hud.gd",
+        "src/screens/stage_select_screen.gd",
+        "tests/scene_workshop_ui_check.gd"
       ]
     }
   },
@@ -386,10 +417,10 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "d8bd6f0018fae5c6f8c0328179511505a136f02e880f964c1ef2a2483bdf9dad",
+        "scenes/main.gd": "650f0218c0777c080a419e15c6f4b89d849c00924ef23185c83eb8ad7896d2cd",
         "src/runtime/mini_runtime.gd": "d79aeb048b47717cd6557f46735bbdf07b9c2357080109938a9cea841c48992a",
         "src/runtime/run_mode.gd": "e21c3df9843c45ccc09aafcd33e2eb1598eccf9c6aebf6e9bb96bb66a370cc54",
-        "src/ui/block_program_panel.gd": "5f0e1d1236220dd89de8742b677dc7331a9015fbdbd46886cf3e173b7d8e1e22",
+        "src/ui/block_program_panel.gd": "46a82d592e4cb954c2d70421850784d8a095e36811867baae2fc5c6c26d708d9",
         "src/ui/project_panel.gd": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
         "src/profiles/learner_program.gd": "31bd49263fa8f6a07b83f5c251ec87cb9d5eb24b9cc80968b3d06a946ae3447d",
         "src/runtime/stage_evaluator.gd": "8818c87ca309a05469211f64f0c2ae2e49b0fb99da74a3a68f6ec1ee2de01eed",

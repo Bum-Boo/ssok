@@ -1,22 +1,19 @@
 # 현재 방향과 문서 기준
 
+2026-10-22 작업 A 로컬 후보: 장면/지금 할 일/접이식 도구와 밝은 작업대. headless 10 suites PASS; 실제 GL·원본 브랜치 커밋·공유 위키 기록은 환경 제약으로 미완료. [변경·검증·패치·다음 담당](WORK_SUMMARY_A.md), [ADR 0030](adr/0030-scene-first-workshop-guidance.md).
+
 2026-10-11 사용자 최신버전 배포 승인: Fable 통합 Title·CLI 진단과 앱/Windows/Mac/operator 버전을 0.3.1로 맞춘 clean 소스를 최종 검증합니다. [현재 배포 범위·결과](evidence/public_release_2026-10-11/README.md). 아래 수치는 당시 소스 이력입니다.
 
 2026-10-11 최종 로컬 검증: Title v4 독립Opus PASS·Astra 실제 패키지37PNG 검수, clean Linux/Web/Mac 빌드와 실제 실행 통과. Web16화면+설정14, native Linux4/Mac4언어, 같은MacPCK20검사 PASS/오류0. 별도 r40 CLI진단81검사·operator준비5PASS. r37정밀도 후보 NOT_ADOPTED; physical0/9·새계정·human merge·정확버전 공개 승인 미완료. [현재 결과·실패·다음 담당](evidence/agent_camera_2026-10-10/completion/title-mac-r39/FINAL.md).
 
-
 2026-10-11 r40 로컬 진단 수집: CLI 최상위error/turn.failed와 종료 경합 때의 영수증 유실을 수정. 실제Python71회귀+문서10/realpipes PASS, 독립Fable PASS. 과거r37원인은 복구불가·provider재시도0·앱/목표불변. [검증·한계](evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md).
 
-
 2026-10-11 r39 로컬 Title 보완: compact1152×648 로고·언어·설정이 모두 보이는 Opus작성 초안. Arch/Mac 기본32화면·확대28사례·Arch동적30검사 PASS/오류0, Astra26PNG/동일v4 bytes·독립Opus PASS. 원본r7패키지는 그대로, 신규빌드/통합/공개는 후속. [전후·실패·한계](evidence/agent_camera_2026-10-10/completion/title-mac-r39/README.md).
-
 
 2026-10-11 r26: 영상 하단 정지 선호를 실제AI 1회 시험했으나38px/14.9168cm jointFAIL입니다. 앱 미적용, 기준 불변. [결과·한계](evidence/agent_camera_2026-10-10/completion/lower-end-policy-r26/README.md).
 
 2026-10-11 r25: Mac SSH 연결을 확인했지만 공용 기기에는 비공개 코드를 보내지 않습니다. 최신 백업에 Arch 최종 원자료5폴더가 없고 현재 소스와도 다릅니다. [실측·회수 경로](evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md). [r24 공식 작업 인계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md)는 완료했습니다. 정밀도·계정·개인 Mac·Arch 원자료·통합 공개는 미완료입니다.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
-
-
 
 2026-10-11 실제 Windows 배포본 카메라 r5: 기본 Title→프로젝트 가져오기→Lab AI Enable/Forward/Stop, 인증 관측·8틱행동·재관측·늦은요청 거부11/0·정상exit0. 앱/패키지 변경0, provider호출0. 실패3회·도구복구/Astra20영상과 한계는 [r5 근거](evidence/agent_camera_2026-10-10/completion/verified-r2/package-camera-r5/README.md). 실제 패키지 Run with AI/operator·Projects 문구/대비 Opus 검토·물리0/9/Mac/Arch/통합·공개 승인은 남음.
 

@@ -43,7 +43,7 @@ func _ready() -> void:
 	for descriptor: Dictionary in profile.api:
 		operation_picker.add_item(descriptor.label)
 	add_row.add_child(operation_picker)
-	var add_button: Button = SsokTheme.button("+", "")
+	var add_button: Button = SsokTheme.button("Add block", "")
 	add_button.tooltip_text = "Add block"
 	add_button.pressed.connect(_add_block)
 	add_row.add_child(add_button)
@@ -120,17 +120,16 @@ func _rebuild() -> void:
 		var card := VBoxContainer.new()
 		rows.add_child(card)
 		card.set_meta("source_line", index + 1)
-		var heading := HBoxContainer.new()
+		var heading := HFlowContainer.new()
 		card.add_child(heading)
 		var label := Label.new()
 		var indent := Control.new()
 		indent.custom_minimum_size.x = int(item.get("indent", 0)) * 4
 		heading.add_child(indent)
-		label.text = profile.operation(item.op).label
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.text = {"sonar": "Link sensor", "motor_on": "Drive motor"}.get(item.op, profile.operation(item.op).label)
+		label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		heading.add_child(label)
-		var remove_button: Button = SsokTheme.button("", "trash")
+		var remove_button: Button = SsokTheme.button("Remove")
 		remove_button.tooltip_text = "Remove block"
 		remove_button.pressed.connect(func() -> void:
 			instructions.remove_at(index)
@@ -138,10 +137,21 @@ func _rebuild() -> void:
 		heading.add_child(remove_button)
 		for parameter: Dictionary in profile.operation(item.op).arguments:
 			var row := HBoxContainer.new()
-			card.add_child(row)
+			heading.add_child(row)
 			var name_label := Label.new()
 			name_label.text = parameter.name
-			name_label.custom_minimum_size.x = 80
+			if parameter.name in ["name", "expression", "direction", "mode"]:
+				name_label.text = ""
+			elif parameter.name == "speed":
+				name_label.text = "%"
+			elif parameter.name in ["trigger", "echo"]:
+				name_label.text = "T" if parameter.name == "trigger" else "E"
+				name_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+			elif parameter.name == "angle":
+				name_label.text = "°"
+			elif parameter.name == "seconds":
+				name_label.text = "ms" if profile.sleep_unit_seconds == 0.001 else "s"
+			name_label.visible = not name_label.text.is_empty()
 			row.add_child(name_label)
 			if parameter.type == "choice":
 				var picker := OptionButton.new()
@@ -151,25 +161,32 @@ func _rebuild() -> void:
 				picker.item_selected.connect(func(selected: int) -> void:
 					item.args[parameter.name] = parameter.choices[selected]
 					item.erase("raw"))
+				picker.tooltip_text = parameter.name
 				row.add_child(picker)
 			elif parameter.type in ["identifier", "expression"]:
 				var edit := LineEdit.new()
 				edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 				edit.text = item.args[parameter.name]
-				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				edit.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 				edit.text_changed.connect(func(value: String) -> void:
 					item.args[parameter.name] = value
 					item.erase("raw"))
+				edit.name = "Argument_" + parameter.name
+				edit.tooltip_text = parameter.name
+				edit.custom_minimum_size.x = 64 if parameter.type != "expression" else 150
 				row.add_child(edit)
 			elif parameter.type == "number":
 				var edit := LineEdit.new()
 				edit.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 				edit.text = str(item.args[parameter.name])
-				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				edit.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 				edit.virtual_keyboard_type = LineEdit.KEYBOARD_TYPE_NUMBER_DECIMAL
 				edit.text_changed.connect(func(value: String) -> void:
 					item.args[parameter.name] = float(value) if value.is_valid_float() else value
 					item.erase("raw"))
+				edit.name = "Argument_" + parameter.name
+				edit.tooltip_text = parameter.name
+				edit.custom_minimum_size.x = 64 if parameter.type != "expression" else 150
 				row.add_child(edit)
 			else:
 				var edit := SpinBox.new()
@@ -177,11 +194,18 @@ func _rebuild() -> void:
 				edit.max_value = parameter.max
 				edit.step = 1
 				edit.value = item.args[parameter.name]
-				edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				edit.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 				edit.value_changed.connect(func(value: float) -> void:
 					item.args[parameter.name] = value
 					item.erase("raw"))
+				edit.name = "Argument_" + parameter.name
+				edit.tooltip_text = parameter.name
+				edit.custom_minimum_size.x = 64 if parameter.type != "expression" else 150
 				row.add_child(edit)
+			if parameter.name in ["angle", "seconds", "speed"]:
+				row.move_child(name_label, row.get_child_count() - 1)
+
+		heading.move_child(remove_button, heading.get_child_count() - 1)
 
 
 func _apply() -> bool:

@@ -72,14 +72,13 @@ func _run() -> void:
 	_check(not main.flag_mission.visible, "the old flag panel is replaced by the stage HUD")
 	_check(main.program_tabs.is_tab_hidden(4) and main.program_tabs.is_tab_hidden(1), "stage mode hides challenge authoring and manual control tabs")
 	_check(main.program_tabs.get_current_tab_control().name == "Blocks", "the flag stage starts on blocks")
-	_check(main.stage_hud != null and main.stage_hud.briefing.visible, "the mission briefing opens first")
+	_check(main.stage_hud != null and not main.stage_hud.briefing.visible, "the scene opens without a central briefing")
 	_check(main.code_edit.text == StageLevels.FLAG_STARTER, "the starter program is loaded")
 	await _shot("04_briefing")
-	main.stage_hud.start_button.pressed.emit()
 	await _frames(2)
-	_check(not main.stage_hud.briefing.visible, "start closes the briefing")
+	_check(not main.stage_hud.briefing.visible, "the scene remains unobstructed")
 	_check(not main._ui_root.get_node("WorkspaceHeader").visible and not main._ui_root.get_node("WorkspaceFooter").visible and not main._ui_root.get_node("ViewportTools").visible, "stage focus layout hides the header, footer and edit tools")
-	_check(main._side_panel.get_global_rect().position.y <= 14.0, "the program panel uses the freed top space")
+	_check(main._side_panel.get_global_rect().position.y > main.stage_hud.goal_card.get_global_rect().end.y, "the program overlay starts below the task strip")
 	var camera_area: Rect2 = main._camera_framing_rect()
 	_check(camera_area.position.y >= main.stage_hud.goal_card.get_global_rect().end.y, "camera framing starts below the goal card")
 	await _shot("05_stage")
@@ -108,7 +107,6 @@ func _run() -> void:
 	main = _app.current as Node3D
 	_check(main != null and main._level != null and main._level.name == "FinishLineLevel", "next loads the finish-line level")
 	if main != null:
-		main.stage_hud.start_button.pressed.emit()
 		await _frames(2)
 		await _shot("08_finish_line")
 		main._on_run_pressed()
@@ -130,7 +128,6 @@ func _run() -> void:
 		main = _app.current as Node3D
 		_check(main != null and main._level != null and main._level.name == "WallBrakeLevel", "wall-brake level loads from the map")
 		if main != null:
-			main.stage_hud.start_button.pressed.emit()
 			await _frames(2)
 			await _shot("09_wall_brake")
 			main.code_edit.text = RobotCarPreset.BRAKE_CODE

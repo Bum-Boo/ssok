@@ -1,7 +1,7 @@
 class_name StageHud
 extends Control
 
-## In-stage 2D layer: a compact goal card, the opening briefing and the result window.
+## Scene-wide task strip and a compact result card.
 ## Success is shown only from the evaluator's observed outcome, never from the program ending.
 
 signal start_pressed
@@ -9,6 +9,11 @@ signal retry_requested
 signal next_requested
 signal list_requested
 signal exit_pressed
+signal phase_requested(index: int)
+signal parts_requested
+signal program_requested
+signal help_requested
+signal run_requested
 
 var level: Dictionary = {}
 var goal_card: PanelContainer
@@ -17,7 +22,6 @@ var hint_label: Label
 var problem_label: Label
 var briefing: Control
 var result: Control
-var start_button: Button
 var next_button: Button
 var retry_button: Button
 var _result_title: Label
@@ -25,12 +29,16 @@ var _result_detail: Label
 var _result_icon: TextureRect
 var _has_next: bool = false
 var _rule: Dictionary = {}
+var chips: Array[Button] = []
+var chip_grid: GridContainer
+var help_action: Button
+var run_action: Button
 
 
 func configure(stage_level: Dictionary, has_next: bool) -> void:
 	level = stage_level
 	_has_next = has_next
-	var stage: Dictionary = StageLevels.stage_definition(level)
+	var stage: Dictionary = StageLevels.stage_definition(level) if level.has("stage_id") else {}
 	_rule = stage.rules[0] if not stage.is_empty() else {}
 
 
@@ -39,12 +47,14 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_build_goal_card()
-	briefing = _modal("Briefing")
-	_build_briefing(briefing.get_meta("box"))
+	# Keep the old public handle for integrations, with no opening modal.
+	briefing = Control.new()
+	briefing.visible = false
+	add_child(briefing)
 	result = _modal("Result")
 	_build_result(result.get_meta("box"))
 	result.visible = false
-	show_briefing()
+
 
 
 func _build_goal_card() -> void:
@@ -55,10 +65,10 @@ func _build_goal_card() -> void:
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 4)
 	goal_card.add_child(box)
-	var top := HBoxContainer.new()
+	var top := HFlowContainer.new()
 	top.add_theme_constant_override("separation", 8)
 	box.add_child(top)
-	var back: Button = SsokTheme.button("", "arrow-left")
+	var back: Button = SsokTheme.button("Stages" if level.has("stage_id") else "Menu", "arrow-left")
 	back.name = "ExitButton"
 	back.tooltip_text = "Back to the stage list"
 	back.custom_minimum_size.x = 36
@@ -67,7 +77,7 @@ func _build_goal_card() -> void:
 	var number := Label.new()
 	number.add_theme_color_override("font_color", SsokTheme.ACCENT)
 	number.add_theme_font_size_override("font_size", SsokTheme.font_size(13))
-	SsokLocale.bind(number, "STAGE %s", [level.get("number", "")])
+	number.text = "Now"
 	top.add_child(number)
 	var title := Label.new()
 	title.text = level.get("title", "")
@@ -81,15 +91,36 @@ func _build_goal_card() -> void:
 	hint_button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 	hint_button.toggled.connect(func(show: bool) -> void: hint_label.visible = show)
 	top.add_child(hint_button)
-	var again: Button = SsokTheme.button("", "book-open")
-	again.name = "BriefingButton"
-	again.tooltip_text = "Show the mission again"
-	again.pressed.connect(show_briefing)
-	top.add_child(again)
+	for entry: Array in [["Parts library", "box", parts_requested], ["Robot program", "code-xml", program_requested], ["Help", "book-open", help_requested]]:
+		var action: Button = SsokTheme.button(entry[0], entry[1])
+		action.pressed.connect(func() -> void: entry[2].emit())
+		if entry[0] == "Help":
+			help_action = action
+		top.add_child(action)
 	var goal := Label.new()
 	goal.text = level.get("goal", "")
 	goal.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(goal)
+	chip_grid = GridContainer.new()
+	chip_grid.columns = 4
+	chip_grid.add_theme_constant_override("h_separation", 12)
+	box.add_child(chip_grid)
+	for index: int in 4:
+		var column := VBoxContainer.new()
+		column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		chip_grid.add_child(column)
+		var chip: Button = SsokTheme.button(WorkshopGuide.NAMES[index])
+		chip.pressed.connect(func() -> void: phase_requested.emit(index))
+		column.add_child(chip)
+		chips.append(chip)
+		var detail := Label.new()
+		detail.text = WorkshopGuide.HINTS[index]
+		detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		detail.label_settings = SsokTheme.dim_settings()
+		column.add_child(detail)
+	run_action = MenuScreen.primary(SsokTheme.button("Run code", "play"))
+	run_action.pressed.connect(func() -> void: run_requested.emit())
+	top.add_child(run_action)
 	measure_label = Label.new()
 	measure_label.name = "Measurement"
 	measure_label.label_settings = SsokTheme.dim_settings()
@@ -118,12 +149,17 @@ func _modal(node_name: String) -> Control:
 	layer.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(layer)
 	var shade := ColorRect.new()
-	shade.color = Color(0, 0, 0, 0.45)
+	shade.color = Color(0, 0, 0, 0.0)
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(shade)
-	var center := CenterContainer.new()
+	var center := VBoxContainer.new()
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	center.offset_left = 16
+	center.offset_right = -16
+	center.offset_top = 16
+	center.offset_bottom = -16
+	center.alignment = BoxContainer.ALIGNMENT_END
 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(center)
 	var parts: Array = MenuScreen.card(460)
@@ -133,40 +169,6 @@ func _modal(node_name: String) -> Control:
 	parts[1].add_theme_constant_override("separation", 12)
 	layer.set_meta("box", parts[1])
 	return layer
-
-
-func _build_briefing(box: VBoxContainer) -> void:
-	var number: Label = MenuScreen.text(box, "", 14, false, SsokTheme.ACCENT)
-	SsokLocale.bind(number, "STAGE %s", [level.get("number", "")])
-	MenuScreen.text(box, level.get("title", ""), 28)
-	MenuScreen.text(box, level.get("story", ""), 16)
-	var steps := VBoxContainer.new()
-	steps.add_theme_constant_override("separation", 6)
-	box.add_child(steps)
-	var steps_list: Array = level.get("steps", [])
-	for index: int in steps_list.size():
-		var row := HBoxContainer.new()
-		row.add_theme_constant_override("separation", 10)
-		steps.add_child(row)
-		var badge := Label.new()
-		badge.text = str(index + 1)
-		badge.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		badge.custom_minimum_size.x = 22
-		badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		badge.add_theme_color_override("font_color", SsokTheme.ACCENT)
-		row.add_child(badge)
-		var step := Label.new()
-		step.text = steps_list[index]
-		step.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		step.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(step)
-	start_button = MenuScreen.primary(SsokTheme.button("Start", "play"))
-	start_button.name = "StartButton"
-	start_button.custom_minimum_size.y = 46
-	start_button.pressed.connect(func() -> void:
-		briefing.visible = false
-		start_pressed.emit())
-	box.add_child(start_button)
 
 
 func _build_result(box: VBoxContainer) -> void:
@@ -191,13 +193,9 @@ func _build_result(box: VBoxContainer) -> void:
 	retry_button.custom_minimum_size.y = 44
 	retry_button.pressed.connect(func() -> void:
 		result.visible = false
+		run_action.visible = true
 		retry_requested.emit())
 	box.add_child(retry_button)
-	var list: Button = SsokTheme.button("Stage list", "map")
-	list.name = "ListButton"
-	list.custom_minimum_size.y = 44
-	list.pressed.connect(func() -> void: list_requested.emit())
-	box.add_child(list)
 
 
 ## Empty text hides the line. Only errors the learner can fix are shown here.
@@ -208,30 +206,39 @@ func show_problem(text: String, arguments: Array = [], translated_arguments: Arr
 
 
 func show_briefing() -> void:
-	result.visible = false
-	briefing.visible = true
-	start_button.grab_focus.call_deferred()
+	hint_label.visible = true
+
+
+func show_workflow(state: Dictionary) -> void:
+	for index: int in chips.size():
+		chips[index].auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		chips[index].text = ("✓ " if state.completed[index] else "") + ("→ " if index == state.current else "") + tr(WorkshopGuide.NAMES[index])
+		chips[index].add_theme_color_override("font_color", SsokTheme.ACCENT if index == state.current else SsokTheme.TEXT_DIM)
 
 
 func show_success(detail: String, arguments: Array = []) -> void:
 	briefing.visible = false
 	result.visible = true
+	run_action.visible = false
 	_result_icon.texture = SsokTheme.icon("trophy")
 	_result_icon.modulate = SsokTheme.ACCENT
 	SsokLocale.bind(_result_title, "Stage cleared!")
 	SsokLocale.bind(_result_detail, detail, arguments)
+	retry_button.theme_type_variation = &"Button" if _has_next else &"PrimaryButton"
 	next_button.visible = _has_next
-	retry_button.text = "Try another way"
+	retry_button.text = "Try again"
 	(next_button if _has_next else retry_button).grab_focus.call_deferred()
 
 
 func show_failure(message: String) -> void:
 	briefing.visible = false
 	result.visible = true
+	run_action.visible = false
 	_result_icon.texture = SsokTheme.icon("rotate-ccw")
 	_result_icon.modulate = SsokTheme.TEXT_DIM
 	SsokLocale.bind(_result_title, "Not yet")
 	SsokLocale.bind(_result_detail, message)
+	retry_button.theme_type_variation = &"PrimaryButton"
 	next_button.visible = false
 	retry_button.text = "Try again"
 	retry_button.grab_focus.call_deferred()
@@ -252,8 +259,8 @@ func show_measurement(value: Variant) -> void:
 
 
 func layout(area: Rect2) -> void:
-	var width: float = clampf(area.size.x, 280.0, 560.0)
-	goal_card.size = Vector2(width, 0)
+	chip_grid.columns = 2 if area.size.x < 1000.0 or SsokTheme.ui_scale >= 1.5 else 4
 	goal_card.position = area.position
+	goal_card.size = Vector2(area.size.x, 0)
 	goal_card.reset_size()
-	goal_card.size.x = width
+	goal_card.size.x = area.size.x

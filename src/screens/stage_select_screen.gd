@@ -4,6 +4,7 @@ extends MenuScreen
 ## Stage map. Order is a recommendation; nothing is locked (product policy: no forced path).
 
 signal stage_chosen(level_id: String)
+signal lab_requested
 
 var play_buttons: Dictionary = {}
 
@@ -30,7 +31,11 @@ func build() -> void:
 		var done: bool = cleared.has(level.id)
 		var badge: Label = text(top, "Cleared" if done else "New", 13, not done, SsokTheme.ACCENT if done else Color.TRANSPARENT)
 		badge.autowrap_mode = TextServer.AUTOWRAP_OFF
+		var picture := StageGoalPreview.new()
+		picture.stage_id = level.id
+		box.add_child(picture)
 		text(box, level.title, 22)
+		text(box, ["Beginner", "Intermediate", "Advanced"][int(level.number) - 1], 14, true)
 		text(box, level.topic, 14, true)
 		text(box, level.goal, 15)
 		var play: Button = SsokTheme.button("Play again" if done else "Play", "play")
@@ -41,6 +46,13 @@ func build() -> void:
 		play_buttons[level.id] = play
 		if not done and first_open == null:
 			first_open = primary(play)
+	var lab_card: Array = card(300)
+	grid.add_child(lab_card[0])
+	text(lab_card[1], "Free building (Lab)", 22)
+	text(lab_card[1], "Build, wire and program your own robot.", 15)
+	var lab: Button = SsokTheme.button("Open Lab", "box")
+	lab.pressed.connect(func() -> void: lab_requested.emit())
+	lab_card[1].add_child(lab)
 	var soon := Label.new()
 	soon.text = "Coming soon"
 	soon.theme_type_variation = &"SectionLabel"

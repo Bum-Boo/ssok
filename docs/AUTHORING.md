@@ -1,5 +1,10 @@
 # Projects and block programs
 
+Stage and Lab tool panels now collapse over the scene. Open **Help** for Projects, tutorial and
+explicit starter examples. Inline block argument controls still derive from the board descriptor;
+Run preserves the selected programming tab and pending-draft conflict checks. See
+[ADR 0030](adr/0030-scene-first-workshop-guidance.md).
+
 ## Preserve an assembly
 
 Open **Projects** or press **Ctrl/Cmd+S**. Give the project a name and select **Save a snapshot**.

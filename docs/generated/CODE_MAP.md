@@ -18,7 +18,7 @@ ssok/
     profiles/  (1 GDScript files)
     runtime/  (22 GDScript files)
     screens/  (5 GDScript files)
-    ui/  (18 GDScript files)
+    ui/  (22 GDScript files)
   presets/
   assets/
     blender/
@@ -136,11 +136,15 @@ ssok/
 | [src/ui/settings_panel.gd](../../src/ui/settings_panel.gd) | SettingsPanel |
 | [src/ui/ssok_locale.gd](../../src/ui/ssok_locale.gd) | SsokLocale |
 | [src/ui/ssok_theme.gd](../../src/ui/ssok_theme.gd) | SsokTheme |
+| [src/ui/stage_goal_display.gd](../../src/ui/stage_goal_display.gd) | StageGoalDisplay |
+| [src/ui/stage_goal_preview.gd](../../src/ui/stage_goal_preview.gd) | StageGoalPreview |
 | [src/ui/stage_hud.gd](../../src/ui/stage_hud.gd) | StageHud |
 | [src/ui/stage_panel.gd](../../src/ui/stage_panel.gd) | StagePanel |
 | [src/ui/tutorial_panel.gd](../../src/ui/tutorial_panel.gd) | TutorialPanel |
 | [src/ui/web_clipboard.gd](../../src/ui/web_clipboard.gd) | WebClipboard |
 | [src/ui/wiring_panel.gd](../../src/ui/wiring_panel.gd) | WiringPanel |
+| [src/ui/workbench_surface.gd](../../src/ui/workbench_surface.gd) | WorkbenchSurface |
+| [src/ui/workshop_guide.gd](../../src/ui/workshop_guide.gd) | WorkshopGuide |
 
 보드와 언어는 논리 계층이에요. 실제 BoardProfile은 `src/core/`, MiniRuntime은
 `src/runtime/`에 있어요. `src/profiles/`의 폴더 존재만으로 구현을 판단하지 않아요.

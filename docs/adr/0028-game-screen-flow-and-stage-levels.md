@@ -1,11 +1,15 @@
 # 0028 — Game screen flow, stage level scenes and per-mode tools
 
-- Status: accepted
+- Status: accepted; partially superseded by [0030](0030-scene-first-workshop-guidance.md)
 - Date: 2026-09-30
 - Implements: issue #43 and the owner's instruction of 2026-09-30 (stop #42, build level scenes,
   let 2D menu scenes choose what to do, and separate what each mode can do)
 - Extends: ADR 0007 (input ownership), 0023 (declarative tasks), 0025 (stage targets and outcomes).
   Graph authority, physics, board/runtime separation and stage schema v2 remain unchanged.
+
+> Stage/Lab opening briefing and fixed goal/program layout, and hidden example access are
+> superseded by [0030](0030-scene-first-workshop-guidance.md) (2026-10-22). Routing, levels,
+> graph authority, stage outcomes and standalone legacy entry points remain accepted.
 
 ## Context
 

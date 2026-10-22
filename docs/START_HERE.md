@@ -19,8 +19,8 @@
 | 저장, 가져오기, 버전 | [데이터 관계](DATA_MODEL.md), [저작 흐름](AUTHORING.md) | `src/core/project_store.gd`, `src/runtime/motion_snapshot.gd` | 0002, 0016, 0022 |
 | 보드, 언어, 블록 | [실행 흐름](FLOWS.md), [저작 흐름](AUTHORING.md) | `src/core/board_profile.gd`, `src/runtime/mini_runtime.gd`, `src/profiles/learner_program.gd` | 0004, 0007, 0023 |
 | 물리, 모터 | [아키텍처](ARCHITECTURE.md), [실행 흐름](FLOWS.md) | `src/runtime/run_mode.gd`, `src/runtime/servo_drive.gd` | 0003, 0020; 로봇별 ADR 추가 |
-| 첫 경험, 과제, UI | [제품 정책](POLICIES.md), [실행 흐름의 화면 흐름](FLOWS.md), [깃발 임무](FLAG_MISSION.md), [번역](LOCALIZATION.md), [설정 계약](INTERFACE_PREFERENCES.md) | `scenes/app.gd`, `src/screens/`, `src/core/stage_levels.gd`, `src/ui/stage_hud.gd`, `scenes/main.gd` | 0007, 0022, 0023, 0025, 0028 |
-| 설정, 테마, 언어 전환 | [설정 계약](INTERFACE_PREFERENCES.md), [번역](LOCALIZATION.md) | `src/ui/interface_preferences.gd`, `src/ui/settings_panel.gd`, `src/ui/ssok_theme.gd` | 0007, 0016, 0026 |
+| 첫 경험, 과제, UI | [제품 정책](POLICIES.md), [실행 흐름의 화면 흐름](FLOWS.md), [깃발 임무](FLAG_MISSION.md), [번역](LOCALIZATION.md), [설정 계약](INTERFACE_PREFERENCES.md) | `scenes/app.gd`, `src/screens/`, `src/core/stage_levels.gd`, `src/ui/stage_hud.gd`, `scenes/main.gd` | 0007, 0022, 0023, 0025, 0028, 0030 |
+| 설정, 테마, 언어 전환 | [설정 계약](INTERFACE_PREFERENCES.md), [번역](LOCALIZATION.md) | `src/ui/interface_preferences.gd`, `src/ui/settings_panel.gd`, `src/ui/ssok_theme.gd` | 0007, 0016, 0026, 0030 |
 | AI, 외부 도구 | [제품 정책](POLICIES.md), [APP_CONTROL_API](APP_CONTROL_API.md), [MOTION_LAB](MOTION_LAB.md) | `src/runtime/agent_camera_loop.gd`, `tools/app_control/run_goal.py`, `desktop_mcp.py`; 기존 `tools/motion_lab/service.py` | 0007, 0008, 0010, 0023, 0029(초안) |
 | 빌드, 배포 | [BUILD](BUILD.md), [RELEASE_PLAN](RELEASE_PLAN.md) | `tools/ci/verify.py`, `tools/ci/build.py`, `.github/workflows/ci.yml` | 0001, 0013, 0017 |
 | 문서, 다이어그램 | [갱신 규칙](MAINTENANCE.md) | `docs/context.json`, `tools/docs/maintain.py` | 0000, 0024 |
@@ -40,7 +40,7 @@ python3 tools/docs/maintain.py --route storage
 ```
 
 문서 검사 실패는 낡은 설명이나 끊어진 참조를 알리는 신호예요. 앱의 성공/실패 판정이나 작업 소유권 검사를 대신하지 않아요.
-`--route`는 해당 작업의 문서·코드·ADR 경로만 출력해요. 선택지는 assembly, storage, language, physics, product, ai, delivery, docs예요.
+`--route`는 해당 작업의 문서·코드·ADR 경로만 출력해요. 선택지는 assembly, storage, language, physics, product, ai, delivery, docs, preferences, workshop-ui예요.
 
 이 사용자의 로컬 환경에서는 `agent-task list --project ssok` 후 해당 작업의 `show`와 Handoff를 읽어요. 로컬 CLI가 없는 외부 개발자는 이슈/PR의 담당자와 인계 내용을 확인해요. 개인 볼트가 없어도 저장소 문서만으로 개발에 참여할 수 있어야 해요.
 

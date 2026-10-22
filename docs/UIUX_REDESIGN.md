@@ -58,3 +58,20 @@ godot --path . --language en --script tests/workshop_ui_check.gd -- --screenshot
 실행 결과(2026-09-15): import/메인 로드 성공, 언어팩 headless 13,498회·GL 캡처 포함 13,506회 검사 0 실패,
 작업실 headless 120회 검사 0 실패(GL 화면 흐름 64회 검사도 0 실패), 기존 제어 흐름 18회 PASS,
 AI UI 36회 검사 0 실패. AI UI의 외부 mock 브리지 전송 fixture는 서버 연결 설정이 없어 실행하지 않았다.
+
+## 2026-10-22 작업 A — Claude 결정 구현
+
+[ADR 0030](adr/0030-scene-first-workshop-guidance.md)에 따라 Stage/Lab을 장면 중심으로 바꿔요.
+현재 변경·소스·실제 검사와 미검증 범위는 [WORK_SUMMARY_A](WORK_SUMMARY_A.md)에 있어요.
+위 2026-09-15 캡처와 집계는 이번 소스의 검증 결과가 아니에요.
+
+```sh
+build/toolchain/godot --headless --path . --import --quit
+build/toolchain/godot --headless --path . --quit
+build/toolchain/godot --headless --path . --language en --fixed-fps 60 --script tests/scene_workshop_ui_check.gd
+```
+
+기존 필수 검사: `localization_check`, `control_flow_check`, `workshop_ui_check`,
+`authoring_ui_check`, `agent_goal_ui_check`, `app_controller_check`. 같은 명령의 script 경로를
+각 `tests/<name>.gd`로 바꿔요. 새 검사의 `-- --screenshots`는 실제 GL 디스플레이가 있는
+환경에서 네 언어·두 테마·축소/확대 상태를 `user://scene_workshop_previews/`에 저장해요.

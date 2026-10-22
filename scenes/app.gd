@@ -58,6 +58,7 @@ func show_stages() -> void:
 	var screen: StageSelectScreen = _screen("stages") as StageSelectScreen
 	screen.back_requested.connect(show_title)
 	screen.stage_chosen.connect(start_stage)
+	screen.lab_requested.connect(start_workshop.bind({"mode": "lab"}))
 	_replace(screen, "stages")
 
 

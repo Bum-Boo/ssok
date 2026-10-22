@@ -6,6 +6,11 @@ The goal depends on the simulated robot. A declarative rule requires the powered
 
 "Build this arm yourself" starts with a loose arm and an unwired servo. The mission action connects the compatible mechanical ports using the normal snap/undo path, then opens the Wiring tab. Ready feedback names the actual connected pin; repeated successful runs compare observed peak heights. See [Stages and learner hardware](LEARNING_STAGES.md). The 60-second/5-minute user study remains to be conducted with lab colleagues and a professor.
 
+In current Stage/Lab sessions the old central mission panel is hidden. The task strip and
+scene goal display replace its UI; **Help → Build this arm yourself** opens the existing practice
+assembly. Its state machine and physical observation remain unchanged for legacy entry points.
+See [ADR 0030](adr/0030-scene-first-workshop-guidance.md).
+
 ## Reused components
 
 | Component | Pinned source and license | Use in Ssok |

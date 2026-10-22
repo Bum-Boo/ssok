@@ -48,3 +48,11 @@ Godot TranslationServer의 자동 번역을 사용한다. 변수 포함 문장�
 검증: `godot --headless --path . --language en --script tests/localization_check.gd`.
 화면 확인: 같은 명령에서 `--headless`를 빼고 `-- --screenshots`를 추가하면
 `user://localization_previews/`에 언어별 작업실/실험실 이미지를 저장한다.
+
+## 2026-10-22 장면 작업실 안내
+
+`tools/localization/workshop_guide_messages.json`은 단계 칩·힌트·도움·목표값/유지시간·
+난이도/Lab 카드와 새 튜토리얼 경로의 영어 원문 및 ko/ja/zh_CN 번역을 담아요.
+`localization_check`와 `scene_workshop_ui_check`가 새 원문을 세 PO에서 명시적으로 확인해요.
+장면 숫자는 원문 코드나 입력을 번역하지 않고 목표 표시에서만 번역 후 포맷해요.
+현재 소스의 실제 GL 글리프/잘림 검수 제한은 [작업 요약](WORK_SUMMARY_A.md)에 적었어요.

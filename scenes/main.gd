@@ -86,6 +86,13 @@ var _replace_dialog: ConfirmationDialog
 ## Empty keeps the full legacy workshop that tests and older entry points use.
 var session: Dictionary = {}
 var stage_hud: StageHud
+var goal_display: StageGoalDisplay
+var _guide_phase: int = -1
+var _guide_dirty: bool = true
+var _scene_ui: bool = false
+var _guide_draft: String = ""
+var _guide_source: String = ""
+var _help_menu: MenuButton
 var exit_button: Button
 var _level: StageLevel
 var _exit_dialog: ConfirmationDialog
@@ -250,12 +257,31 @@ func _ready() -> void:
 	_set_status("Edit mode - select a part, then G to move or R to rotate; connections snap at ports")
 	get_viewport().gui_release_focus()
 	_apply_session()
+	if session.get("mode", "") in ["stage", "lab"]:
+		_setup_scene_ui()
 	_clean_workspace = _workspace_key()
 
 
 func _process(_delta: float) -> void:
 	_refresh_manual_status()
 	_follow_running_robot()
+	if _scene_ui and _guide_source != code_edit.text:
+		_guide_source = code_edit.text
+		_guide_dirty = true
+	if _scene_ui and blocks != null:
+		var draft: String = JSON.stringify(blocks.instructions)
+		if draft != _guide_draft:
+			_guide_draft = draft
+			_guide_dirty = true
+	if _scene_ui and _guide_dirty:
+		_refresh_guide()
+	if goal_display != null:
+		var observed: Array[Dictionary] = []
+		if run_mode.is_built():
+			observed = stages.evaluator.measurements
+		else:
+			goal_display.show_assembly(assembly.graph)
+		goal_display.show_samples(observed, stages.evaluator.status if run_mode.is_built() else "idle")
 	if stage_hud != null and run_mode.is_built() and not stages.evaluator.measurements.is_empty():
 		stage_hud.show_measurement(stages.evaluator.measurements[0].value)
 
@@ -794,6 +820,9 @@ func _replace_with_starter() -> void:
 func _adapt_layout() -> void:
 	if examples_menu == null:
 		return
+	if _scene_ui:
+		_layout_scene_ui()
+		return
 	var header: Control = _ui_root.get_node("WorkspaceHeader")
 	header.offset_bottom = 12.0 + maxf(62.0, 36.0 * SsokTheme.ui_scale + 24.0)
 	var compact_header: bool = get_viewport().get_visible_rect().size.x < 1200.0 or SsokTheme.ui_scale >= 1.5
@@ -870,7 +899,7 @@ func _camera_framing_rect() -> Rect2:
 	if stage_hud != null and stage_hud.goal_card.visible:
 		top = maxf(top, stage_hud.goal_card.get_global_rect().end.y)
 	var top_left: Vector2 = Vector2(_left_edge() + 12.0, top + 12.0)
-	var bottom_right: Vector2 = Vector2(program.position.x - 12.0, program.end.y - 12.0)
+	var bottom_right: Vector2 = Vector2(program.position.x - 12.0 if _side_panel.visible else get_viewport().get_visible_rect().size.x - 12.0, get_viewport().get_visible_rect().size.y - 24.0)
 	return Rect2(top_left, bottom_right - top_left)
 
 
@@ -1025,6 +1054,8 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 	runtime.sleep_scale = profile.sleep_unit_seconds
 	blocks.reset_source(code)
 	stages.clear_goal()
+	if _scene_ui and session.get("mode", "") == "stage":
+		stages.load_goal(StageLevels.stage_definition(session.level))
 	_clean_workspace = _workspace_key()
 	navigation.frame_bounds(assembly.get_scene_bounds())
 	_set_status(message)
@@ -1114,6 +1145,9 @@ func _on_mode_toggled(run: bool) -> void:
 		assembly.process_mode = Node.PROCESS_MODE_INHERIT
 		_set_status("Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel")
 	_refresh_control_ui()
+	_guide_dirty = true
+	if _scene_ui:
+		_guide_phase = -1
 	get_viewport().gui_release_focus()
 
 
@@ -1126,9 +1160,7 @@ func _on_run_pressed() -> void:
 	if not validation.is_empty():
 		_show_code_failure(validation.line, runtime._translated_error(validation), int(validation.get("column", 1)))
 		return
-	# Block users keep their blocks in view; the running block is highlighted there.
-	if program_tabs.current_tab != 2 and not program_tabs.is_tab_hidden(0):
-		program_tabs.current_tab = 0
+	# Execution keeps the learner's selected programming view.
 	control_source.select(CONTROL_CODE)
 	manual_controller.set_enabled(false)
 	if not mode_button.button_pressed:
@@ -1275,6 +1307,7 @@ func _apply_preferences() -> void:
 	SsokTheme.configure(dark, Preferences.values.text_scale, Preferences.values.code_scale)
 	_ui_root.theme.merge_with(SsokTheme.build())
 	SsokTheme.adapt(self)
+	_guide_dirty = true
 	code_edit.syntax_highlighter = SsokTheme.code_highlighter()
 	_adapt_layout.call_deferred()
 
@@ -1295,7 +1328,10 @@ func _close_settings() -> void:
 	assembly.process_mode = Node.PROCESS_MODE_DISABLED if mode_button.button_pressed else Node.PROCESS_MODE_INHERIT
 	navigation.navigation_enabled = true
 	manual_controller.set_enabled(_settings_manual_enabled and mode_button.button_pressed)
-	settings_button.grab_focus()
+	if _scene_ui:
+		stage_hud.help_action.grab_focus()
+	else:
+		settings_button.grab_focus()
 
 
 func _open_projects() -> void:
@@ -1475,6 +1511,7 @@ func _on_language_selected(index: int) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
+		_guide_dirty = true
 		language_picker.select(SsokLocale.LOCALES.find(SsokLocale.normalize(TranslationServer.get_locale())))
 		language_picker.tooltip_text = tr("Language")
 		_refresh_control_ui()
@@ -1491,10 +1528,10 @@ func _notification(what: int) -> void:
 func _dress_scene() -> void:
 	var env := Environment.new()
 	var sky_material := ProceduralSkyMaterial.new()
-	sky_material.sky_top_color = Color(0.50, 0.64, 0.86)
+	sky_material.sky_top_color = Color(0.78, 0.88, 0.91)
 	sky_material.sky_horizon_color = Color(0.84, 0.89, 0.95)
 	sky_material.ground_horizon_color = Color(0.84, 0.89, 0.95)
-	sky_material.ground_bottom_color = Color(0.42, 0.44, 0.47)
+	sky_material.ground_bottom_color = Color(0.78, 0.84, 0.84)
 	var sky := Sky.new()
 	sky.sky_material = sky_material
 	env.background_mode = Environment.BG_SKY
@@ -1507,9 +1544,10 @@ func _dress_scene() -> void:
 	add_child(world_env)
 	var floor_mesh := $Floor/MeshInstance3D as MeshInstance3D
 	var floor_material := StandardMaterial3D.new()
-	floor_material.albedo_color = Color(0.52, 0.49, 0.44)
+	floor_material.albedo_color = Color(0.76, 0.85, 0.81)
 	floor_material.roughness = 0.9
 	floor_mesh.material_override = floor_material
+	WorkbenchSurface.decorate(floor_mesh)
 
 
 ## Batch the per-hole hints so a kit with hundreds of attachment points stays usable.
@@ -1569,13 +1607,13 @@ func _practice_flag_arm() -> void:
 	graph.links.remove_at(1)
 	graph.parts[2].transform.origin = Vector3(-0.13, 0.11, 0)
 	_load_preset(graph, ServoArmPreset.microbit_code(), "Connect the loose arm, then wire its servo to a board pin.")
-	flag_mission.visible = true
+	flag_mission.visible = not _scene_ui
 	program_tabs.current_tab = 2
 
 
 func _on_microbit_arm_pressed() -> void:
 	_load_preset(ServoArmPreset.build_microbit(), ServoArmPreset.microbit_code(), "answer loaded - the finished servo arm")
-	flag_mission.visible = true
+	flag_mission.visible = not _scene_ui
 
 
 func _apply_session() -> void:
@@ -1617,6 +1655,8 @@ func _install_level(path: String) -> void:
 		remove_child(default_floor)
 		default_floor.queue_free()
 	add_child(_level)
+	var ground: MeshInstance3D = _level.get_node("Ground/Mesh")
+	WorkbenchSurface.decorate(ground)
 
 
 func _enter_stage(level: Dictionary) -> void:
@@ -1643,6 +1683,7 @@ func _enter_stage(level: Dictionary) -> void:
 	_load_preset(StageLevels.starting_graph(level, stage), level.get("starter_code", stage.scene.source), "Read the mission, then change the program.")
 	stages.load_goal(stage)
 	_set_tabs(level.get("tabs", ["Blocks", "Code"]))
+	program_tabs.set_tab_hidden(3, false)
 	control_source.select(CONTROL_CODE)
 	stage_hud = StageHud.new()
 	stage_hud.theme = _ui_root.theme
@@ -1659,6 +1700,9 @@ func _enter_stage(level: Dictionary) -> void:
 	stage_hud.list_requested.connect(func() -> void: exit_requested.emit())
 	stage_hud.exit_pressed.connect(_request_exit)
 	stages.outcome_changed.connect(_on_stage_outcome)
+	goal_display = StageGoalDisplay.new()
+	add_child(goal_display)
+	goal_display.configure(level, stage)
 	if _level != null:
 		navigation.set_view_angles(deg_to_rad(_level.view_yaw_degrees), deg_to_rad(_level.view_pitch_degrees))
 		navigation.frame_bounds(_level.play_area)
@@ -1710,6 +1754,8 @@ func _reset_attempt() -> void:
 	stages.on_stop()
 	_ensure_assembly_mode()
 	if stage_hud != null:
+		stage_hud.result.visible = false
+		stage_hud.run_action.visible = true
 		stage_hud.show_measurement(null)
 		stage_hud.show_problem("")
 	_set_status("Robot reset. Change the program, then press Run code.")
@@ -1737,3 +1783,117 @@ func _on_stage_outcome(message: String) -> void:
 		stage_hud.show_success("The goal was met in the physics run.")
 	elif stages.evaluator.status in ["not_met", "indeterminate"]:
 		stage_hud.show_failure(message)
+
+
+func _setup_scene_ui() -> void:
+	_scene_ui = true
+	for part_button: Button in part_buttons:
+		part_button.show()
+	flag_mission.visible = false
+	_empty_panel.visible = false
+	_help_panel.visible = false
+	for node_name: String in ["WorkspaceHeader", "WorkspaceFooter", "ViewportTools"]:
+		(_ui_root.get_node(node_name) as Control).hide()
+	if stage_hud == null:
+		stage_hud = StageHud.new()
+		stage_hud.configure({"goal": "Free building: add parts from the library, wire them, then program your robot."}, false)
+		_ui_root.add_child(stage_hud)
+		stage_hud.exit_pressed.connect(_request_exit)
+	stage_hud.goal_card.resized.connect(func() -> void: _position_scene_panels.call_deferred())
+	stage_hud.run_requested.connect(_on_run_button_pressed)
+	stage_hud.phase_requested.connect(_open_guide_phase)
+	stage_hud.parts_requested.connect(func() -> void: _toggle_overlay(_ui_root.get_node("PartsLibrary")))
+	stage_hud.program_requested.connect(func() -> void: _toggle_overlay(_side_panel))
+	_help_menu = MenuButton.new()
+	_help_menu.text = "Help"
+	_help_menu.name = "HelpMenu"
+	var popup: PopupMenu = _help_menu.get_popup()
+	for title: String in ["Tutorial", "Settings", "Projects", "Build this arm yourself"]:
+		popup.add_item(title)
+	var example_popup := PopupMenu.new()
+	for index: int in examples_menu.get_popup().item_count:
+		example_popup.add_item(examples_menu.get_popup().get_item_text(index))
+	example_popup.id_pressed.connect(_load_example_id)
+	popup.add_submenu_node_item("Load an example", example_popup)
+	popup.id_pressed.connect(_on_help_selected)
+	stage_hud.help_requested.connect(func() -> void:
+		popup.position = Vector2i(stage_hud.goal_card.get_global_rect().end.x - 260, stage_hud.goal_card.get_global_rect().end.y)
+		popup.popup())
+	_ui_root.add_child(_help_menu)
+	_help_menu.hide()
+	for control: Control in _starter_controls + _starter_section:
+		control.hide()
+	examples_menu.hide()
+	run_button.theme_type_variation = &"Button"
+	run_button.hide()
+	_side_panel.hide()
+	(_ui_root.get_node("PartsLibrary") as Control).hide()
+	assembly.graph_changed.connect(func() -> void: _guide_dirty = true)
+	code_edit.text_changed.connect(func() -> void: _guide_dirty = true)
+	_layout_scene_ui()
+	# Start with the scene unobstructed, then open only the relevant tool.
+	_refresh_guide.call_deferred()
+
+
+func _refresh_guide() -> void:
+	_guide_dirty = false
+	var source: String = code_edit.text
+	if blocks.has_draft():
+		var generated: Dictionary = ServoProgram.generate(blocks.instructions, blocks.profile)
+		source = generated.get("source", "") if not generated.has("error") and code_edit.text == blocks._source_at_load else ""
+	var state: Dictionary = WorkshopGuide.snapshot(assembly.graph, source, runtime, mode_button.button_pressed)
+	stage_hud.show_workflow(state)
+	stage_hud.run_action.text = "Reset robot" if mode_button.button_pressed else "Run code"
+	if state.current != _guide_phase:
+		_guide_phase = state.current
+		_open_guide_phase(_guide_phase)
+
+
+func _open_guide_phase(index: int) -> void:
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	library.visible = index == 0
+	_side_panel.visible = index in [1, 2]
+	if index == 1:
+		program_tabs.current_tab = 3
+	elif index == 2 and program_tabs.get_current_tab_control().name not in ["Blocks", "Code"]:
+		program_tabs.current_tab = 2
+	_layout_scene_ui()
+
+
+func _toggle_overlay(panel: Control) -> void:
+	panel.visible = not panel.visible
+	if panel.visible:
+		var other: Control = _side_panel if panel != _side_panel else _ui_root.get_node("PartsLibrary")
+		other.hide()
+	_layout_scene_ui()
+
+
+func _layout_scene_ui() -> void:
+	var size: Vector2 = get_viewport().get_visible_rect().size
+	stage_hud.layout(Rect2(12, 12, size.x - 24, 0))
+	_position_scene_panels()
+
+
+func _position_scene_panels() -> void:
+	var size: Vector2 = get_viewport().get_visible_rect().size
+	var top: float = stage_hud.goal_card.get_global_rect().end.y + 12.0
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	library.offset_top = top
+	library.offset_bottom = -12
+	_side_panel.offset_top = top
+	_side_panel.offset_bottom = -12
+	var width: float = minf(size.x - 24, maxf(520, 520 * SsokTheme.ui_scale))
+	_side_panel.offset_left = -width - 12
+	_side_panel.offset_right = -12
+
+
+func _on_help_selected(index: int) -> void:
+	match index:
+		0:
+			_open_tutorial()
+		1:
+			_open_settings()
+		2:
+			_open_projects()
+		3:
+			_request_starter(_practice_flag_arm)

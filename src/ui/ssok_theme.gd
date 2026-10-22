@@ -39,7 +39,8 @@ static func configure(use_dark: bool, text_scale: float, source_scale: float) ->
 
 
 static func font_size(base: int) -> int:
-	return roundi(base * ui_scale)
+	var tier: int = 14 if base <= 14 else (16 if base <= 22 else 28)
+	return roundi(tier * ui_scale)
 
 
 static func remember(node: Node) -> void:
@@ -137,8 +138,8 @@ static func populate(theme: Theme) -> void:
 	theme.set_font(&"font", &"CodeEdit", SsokLocale.code_font)
 	theme.default_font_size = font_size(14)
 
-	theme.set_stylebox(&"panel", &"PanelContainer", _flat(BG, 12, BORDER, 10))
-	theme.set_stylebox(&"panel", &"Panel", _flat(BG, 12, BORDER, 10))
+	theme.set_stylebox(&"panel", &"PanelContainer", _flat(Color(BG, 0.94), 12, BORDER, 10))
+	theme.set_stylebox(&"panel", &"Panel", _flat(Color(BG, 0.94), 12, BORDER, 10))
 	var window_border: StyleBoxFlat = _flat(BG, 0, BORDER, 8)
 	window_border.expand_margin_top = font_size(36)
 	theme.set_stylebox(&"embedded_border", &"Window", window_border)
@@ -153,7 +154,7 @@ static func populate(theme: Theme) -> void:
 	theme.set_font_size(&"title_font_size", &"Window", font_size(16))
 	theme.set_constant(&"title_height", &"Window", font_size(36))
 
-	theme.set_stylebox(&"normal", &"Button", _flat(BG_RAISED, 8, Color.TRANSPARENT, 7))
+	theme.set_stylebox(&"normal", &"Button", _flat(Color.TRANSPARENT, 8, BORDER, 7))
 	theme.set_stylebox(&"hover", &"Button", _flat(BG_RAISED.lightened(0.12) if dark else BG_RAISED.darkened(0.06), 8, ACCENT, 7))
 	theme.set_stylebox(&"pressed", &"Button", _flat(ACCENT_DOWN, 8, Color.TRANSPARENT, 7))
 	theme.set_stylebox(&"focus", &"Button", _flat(Color.TRANSPARENT, 8, ACCENT, 7))

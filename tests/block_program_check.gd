@@ -42,7 +42,7 @@ func _run() -> void:
 	main._ensure_assembly_mode()
 	main.blocks.read_source(source)
 	var wait_row: VBoxContainer = main.blocks.rows.get_child(2)
-	var duration_field: LineEdit = wait_row.get_child(1).get_child(1)
+	var duration_field: LineEdit = wait_row.find_child("Argument_seconds", true, false)
 	_check(duration_field.text == "0.05", "numeric block field displays the exact parsed duration")
 	_check(not main.blocks.has_draft(), "reading a program establishes the block baseline")
 	duration_field.text = "0.125"

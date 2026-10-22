@@ -4,7 +4,7 @@ extends Node
 signal changed
 
 const PATH: String = "user://interface.cfg"
-const DEFAULTS: Dictionary = {"appearance": "system", "text_scale": 1.0, "code_scale": 1.0, "muted": false, "volume": 60.0}
+const DEFAULTS: Dictionary = {"appearance": "light", "text_scale": 1.0, "code_scale": 1.0, "muted": false, "volume": 60.0}
 const SCALES: Array[float] = [1.0, 1.15, 1.3, 1.5, 2.0]
 var values: Dictionary = DEFAULTS.duplicate()
 var _poll_seconds: float = 0.0

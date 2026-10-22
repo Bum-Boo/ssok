@@ -115,14 +115,28 @@ flowchart LR
     Title --> Lab[자유 제작 작업실]
     Title --> Examples[예제 목록] --> Example[예제 작업실]
     Select --> Loading[로딩] --> Stage[레벨 + 작업실 stage 세션]
-    Stage --> Briefing[미션 소개] --> Play[코드 수정 / 실행]
+    Stage --> Play[장면 / 지금 할 일 / 접이식 도구]
     Play --> Result{관측 결과}
-    Result -->|성공| Clear[기록 저장 / 다음·다시·목록]
+    Result -->|성공| Clear[기록 저장 / 다음·다시]
     Result -->|미달성| Retry[다시 하기 / 힌트]
     Clear -->|다음| Loading
 ```
 
-[app.gd](../scenes/app.gd)가 화면을 바꿔요. 메뉴는 `scenes/screens/`의 2D 씬이고 할 일만 고르게 해요. 선택하면 매번 새 `main.tscn`을 `session`과 함께 만들어요. `stage` 세션은 [StageLevels](../src/core/stage_levels.gd)의 레벨 씬(`stages/<id>/level.tscn`)으로 기본 바닥을 바꾸고, 그 스테이지에 필요한 탭·부품만 보여줘요. 프로젝트·AI 실험실·예제·출제·물리 토글·옛 깃발 패널은 숨겨요. [StageHud](../src/ui/stage_hud.gd)가 미션 소개, 목표 카드의 실시간 측정값, 결과 창을 맡아요. `lab`은 스테이지 선택기와 예제를 숨기고 출제는 남겨요. `example`은 출제를 숨겨요. 세션이 없으면 기존 전체 작업실 그대로예요. 웹에서 `?ssok_workshop=1`이나 `?ssok_verify=1`로 열면 메뉴 없이 전체 작업실이 바로 떠요(브라우저 검사용). 레벨 씬은 [make_levels.gd](../tools/godot/make_levels.gd)로 만들고 에디터에서 다듬어도 돼요. 결정은 [ADR 0028](adr/0028-game-screen-flow-and-stage-levels.md)이에요.
+[app.gd](../scenes/app.gd)는 타이틀 → 스테이지 선택 → 로딩 → 새 작업실을 연결해요.
+스테이지 선택에는 목표 그림·난이도·배우는 것과 Lab 카드가 있어요. `stage`는 기존
+[StageLevels](../src/core/stage_levels.gd)의 레벨 씬으로 기본 바닥을 바꿔요.
+[StageHud](../src/ui/stage_hud.gd)는 중앙 진입 팝업 없이 목표·조립/배선/코드/실행 칩과
+짧은 힌트, 접이식 부품·프로그램 버튼, 도움, 실행/재설정을 보여줘요.
+[WorkshopGuide](../src/ui/workshop_guide.gd)가 그래프·실제 배선·코드/블록 유효성·실행 모드를
+읽어 체크와 자동 패널 열림을 정해요. 사용자가 접은 패널은 단계가 바뀔 때까지 유지돼요.
+[StageGoalDisplay](../src/ui/stage_goal_display.gd)는 장면에 목표 범위·조립 자세의 미리보기와
+판정기 관측값/유지 시간을 표시해요. 결과는 기존 판정기에서만 와요.
+도움 메뉴에서 예제·직접 팔 조립·설정·프로젝트·튜토리얼을 열어요. 예제 교체는 기존 확인 절차를
+거치고 스테이지 목표는 유지해요. `lab`에도 같은 안내와 접이식 도구를 쓰며 출제는 남겨요.
+`example`과 세션 없는 직접 `main.tscn` 진입은 기존 도구 구성을 유지해요.
+웹 검사의 `?ssok_workshop=1` / `?ssok_verify=1` 직접 진입도 유지해요.
+레벨 씬 생성/에디터 조정은 [ADR 0028](adr/0028-game-screen-flow-and-stage-levels.md),
+바뀐 표시 계약은 [ADR 0030](adr/0030-scene-first-workshop-guidance.md)이에요.
 
 ## 깃발 임무
 
