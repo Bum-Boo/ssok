@@ -219,3 +219,6 @@ Back/list/next → 초안 확인 → StageProgress 작업 저장 → 라우팅�
 벽 앞 정지는 환경 벽과의 최소 경계 거리 0.05~0.10 m, 최대 선속도 0.015 m/s 이하 0.3초, 실제 접촉 이력 없음이에요.
 센서/서보/섀시 종류나 upright를 성공 전제에 넣지 않아요. 기존 명시적 부품 규칙/초음파 규칙은 가져온 과제에서 계속 유효해요.
 새 규칙·집합 선택·진행 저장은 [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md), 현재 검증은 [작업 D](WORK_SUMMARY_D.md)예요.
+
+D-2 트레이는 Environment에서 표면 표시/환경 역할 부품, Electronics에서 LineSensor/Button/LED를 필터해요.
+검색은 해당 필터와 함께 적용하며 Construction kit는 기존 전체 키트 목록을 유지해요.

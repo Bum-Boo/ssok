@@ -39,6 +39,16 @@ func _run() -> void:
 			_check(button.visible, "localized search reaches " + locale + ": " + id)
 			main.part_search.text = ""
 			main._filter_parts()
+		_check(main.part_category.get_item_text(5) == "Environment", "environment selector keeps translation source in " + locale)
+		if locale != "en":
+			var pack: Translation = load("res://assets/locales/" + locale + ".po")
+			_check(not pack.get_message("Environment").is_empty(), "environment category translated in " + locale)
+		for category: int in [1, 3, 5]:
+			main.part_category.select(category)
+			main._filter_parts()
+			for id: String in IDS:
+				var expected: int = 5 if id.begins_with("kit_env_") else (3 if id in ["kit_line_sensor", "kit_contact_button", "kit_led"] else 1)
+				_check(inventory[id].visible == (category == expected), "category membership " + locale + ": " + id)
 	main.part_category.select(0)
 	main._filter_parts()
 	for id: String in IDS:

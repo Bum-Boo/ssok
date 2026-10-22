@@ -113,3 +113,6 @@ micro:bit/Uno의 실제 그래프 신호선에 연결한 뒤 `line = LineSensor(
 `led.off()`, `led.set(0.5)`의 밝기는 0~1이에요. 대응하는 연결·관측·출력 카드를 제공해요.
 기존 가상 서보 보드는 PWM 전용 포트를 유지하므로 이 예제에는 micro:bit/Uno를 권장해요.
 새 기어·환경 관측과 남은 집게 작업은 [B-2 검증](evidence/parts_pack_v1_2026-10-22/README.md)을 보세요.
+
+D-2에서는 부품 트레이의 Environment(환경)에서 선 조각·경사판·공·컵을 고를 수 있어요.
+라인 센서·접촉 버튼·LED는 Electronics에서도 찾아요. Construction kit의 전체 키트 접근은 유지해요.

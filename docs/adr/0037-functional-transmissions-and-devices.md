@@ -32,7 +32,8 @@ through the existing anchored_part_ids path. No runtime pins are hard-coded.
 
 The current UI category selector is a fixed list in scenes/main.gd. Catalog `categories.environment`
 and prefixed translated names describe workbench objects, but metadata cannot create a selector
-entry. That UI follow-up stays with the separate owner under the user's file boundary.
+entry. That UI follow-up stayed with the separate owner under the user's B-2 file boundary.
+D-2 now adds Environment for surface markers/environment roles and classifies the three new devices as Electronics; Construction kit access remains.
 
 Button observes solver contact indices on its own front plunger collision shape. A merged
 chassis's wheel/floor contacts cannot press it. `is_pressed()` reflects that contact; the runtime

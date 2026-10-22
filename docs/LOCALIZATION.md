@@ -74,3 +74,5 @@ D는 조립→배선→코드→실행 안내, 과제 깃발 이름, 답지/초�
 tools/localization/own_build_messages.json과 세 PO에 함께 추가해요. localization_check에서
 inventory 전체를 명시적으로 검사해요. 네 언어·두 테마·확대/작은 창의 headless 기하 검사는
 실제 GL 글리프/클리핑 검수와 구분하며 [작업 D](WORK_SUMMARY_D.md)에 남겨요.
+
+D-2는 Environment(환경/环境/環境) 항목을 functional_messages inventory와 세 PO에 함께 추가해요.

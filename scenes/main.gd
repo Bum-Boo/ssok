@@ -719,7 +719,7 @@ func _build_palette() -> void:
 	part_search.text_changed.connect(func(_query: String) -> void: _filter_parts())
 	box.add_child(part_search)
 	part_category = OptionButton.new()
-	for category: String in ["All parts", "Structure", "Actuators", "Electronics", "Construction kit"]:
+	for category: String in ["All parts", "Structure", "Actuators", "Electronics", "Construction kit", "Environment"]:
 		part_category.add_item(category)
 	part_category.focus_mode = Control.FOCUS_ALL
 	part_category.item_selected.connect(func(_index: int) -> void: _filter_parts())
@@ -736,7 +736,7 @@ func _build_palette() -> void:
 	scroll.add_child(parts_box)
 	for definition: PartDef in _load_part_defs():
 		var category: int = _part_category(definition)
-		var icon_name: String = ["box", "box", "cog", "cpu"][category]
+		var icon_name: String = ["box", "box", "cog", "cpu", "box", "box"][category]
 		var button := SsokTheme.button(definition.display_name, icon_name)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.theme_type_variation = &"QuietButton"
@@ -927,6 +927,10 @@ func _camera_framing_rect() -> Rect2:
 
 
 func _part_category(definition: PartDef) -> int:
+	if definition.surface_marker or not definition.environment_role.is_empty():
+		return 5
+	if definition.device_kind in ["LineSensor", "Button", "LED"]:
+		return 3
 	if not definition.board_profile_id.is_empty() or definition.id in [&"motor_driver", &"tb6612_driver"]:
 		return 3
 	var id: String = String(definition.resource_path.get_file().get_basename())
