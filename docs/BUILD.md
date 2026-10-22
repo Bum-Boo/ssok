@@ -52,6 +52,15 @@ the application pack; development and training still use a complete source check
 The Web preset explicitly disables threads, extensions, PWA service workers and simulated
 cross-origin headers. It runs on a normal static host, including GitHub Pages.
 
+The layout capture first follows the default router through all Stage sessions and Lab.
+The smoke gate opens the default title, selects the flag stage, confirms Show solution,
+then uses Run and Reset robot. Current route anchors use `game_*` and `lab_*`;
+legacy unprefixed anchors remain for the opt-in `ssok_workshop`/`ssok_verify` tools.
+The removed opening briefing has no `game_start_*` anchors; native verification now confirms
+the solution and opens the Code workflow chip. Layout failures exit nonzero, with a 45-second
+script deadline and a 60-second build-process deadline. Regenerate anchors from the exact source
+and isolated user data; saved projects must not leak into capture.
+
 ## Verification and failure reporting
 
 `tools/ci/verify.py` discovers every `tests/*_check.gd`, Python test module under `tests/` and
@@ -200,8 +209,8 @@ The owner authorized shared `ai-macmini` on2026-10-11 for allowlisted ssok game/
 The native Windows verifier is developer tooling. Run `tools/ci/windows/verify_installer.ps1`
 from a PowerShell STA session with `-Installer`, `-Work` (a new path) and `-Layout` pointing to
 that exact build's `export-logs/browser-layout.json`. It refuses an existing ssok install,
-uses native Windows mouse/keyboard input from the default title and stage map to enter
-reference programs and clear all three stages, checking fresh isolated progress records,
+uses native Windows mouse/keyboard input from the default title and stage map to confirm
+each author solution, enter reference programs and clear all three stages, checking fresh isolated progress records,
 captures only the foreground task app and restores the clipboard, and tests per-user installation, shortcuts, registration,
 uninstallation and preservation of an extra synthetic user file.
 

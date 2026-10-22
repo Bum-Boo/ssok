@@ -1,0 +1,21 @@
+[
+  {
+    "name": "layout-final",
+    "exit_code": 0,
+    "seconds": 8.328,
+    "source_commit": "e2c1eb3a9bca6cc1624d3e56c5b54952d0a8b4cc"
+  },
+  {
+    "name": "layout-missing-control",
+    "exit_code": 1,
+    "seconds": 0.323,
+    "source_commit": "e2c1eb3a9bca6cc1624d3e56c5b54952d0a8b4cc"
+  },
+  {
+    "name": "layout-watchdog",
+    "source_commit": "3fe5882432bb8870bf11757c0b0cdff225872e3a",
+    "exit_code": 1,
+    "seconds": 45.235,
+    "injection": "120-second await before route capture"
+  }
+]

@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Browser layout: router title
+ERROR: Missing browser control: game_title_lab
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (/tmp/d3-missing-layout.gd:12)
+       [1] _point (/tmp/d3-missing-layout.gd:337)
+       [2] _native_routes (/tmp/d3-missing-layout.gd:207)
+       [3] _settle (/tmp/d3-missing-layout.gd:322)

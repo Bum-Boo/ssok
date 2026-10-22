@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-22 작업 D-3 로컬 후보: 현재 라우터 Stage/Lab의 브라우저 앵커와 종료 기한을 복구하고 컵 관측을 자유 환경 물체로 제한했어요. 115 suites 89 PASS/26 환경 FAIL로 D-2 통과 집합을 유지했어요. Web export는 DNS/템플릿·소켓 제약, Windows 실기는 미검증이에요. [원인·실측·인계](WORK_SUMMARY_D3.md).
+
 2026-10-22 작업 D-2 통합 후보: D의 빈 작업대에 B-2 기능 부품 12종과 C 브랜치 미리보기 워크플로를 병합했어요. 전체 카탈로그는 93종이며 Environment/Electronics 필터와 컵 전체 대상 지표를 연결했어요. 현재 검사·환경 제한·통합 checkpoint는 [작업 D-2](WORK_SUMMARY_D2.md)에서 확인해요. push·미리보기 게시·공개 플레이 확인은 통합 담당자 후속이에요.
 
 2026-10-22 작업 D 로컬 후보: B 병합·빈 작업대·전체 로봇/환경 판정·과제 깃발·확인 후 답지/초기화·스테이지별 보존. [검증·제한·인계](WORK_SUMMARY_D.md), [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md). 아래 미리 조립/도구 숨김 설명을 대체하며 통합·배포는 하지 않았어요.
@@ -72,9 +74,7 @@ Windows Godot4.7.2/GL에서 Python56/0(SDK skip0), 렌더 카메라29/0, 목표 
 이전 원래0/9·frozen0/3·blank0/3과 구체화2/3 결과를 보존했어요. 범용 주행 신뢰성은 미확보예요.
 Claude Fable5-1의 최신 기능 소스 리뷰 pass; 변경 없는 패널 SHA f8afbc47…54da5에는
 기존 Opus 최종 디자인 리뷰를 유지해요. CLI는 backend identity/빈 입력 문맥/과금 상한을 증명하지 않아요.
-[안정화·소스·실패·검증](evidence/agent_camera_2026-10-10/stabilization/README.md) ·
-[목표 UI 이력](evidence/agent_camera_2026-10-10/goal_ui/README.md) ·
-[이전 반복 실험](evidence/agent_camera_2026-10-10/repeated/README.md).
+[안정화·소스·실패·검증](evidence/agent_camera_2026-10-10/stabilization/README.md) · [목표 UI 이력](evidence/agent_camera_2026-10-10/goal_ui/README.md) · [이전 반복 실험](evidence/agent_camera_2026-10-10/repeated/README.md).
 
 Arch 최신 원자료 일부 회수는 미완료예요. 기존 task는 Windows/WSL 원본 CLI로 재개·checkpoint했으며 최종 release는 현재 인계 영수증으로 확인해요. Windows 개발·검증 근거와 다음 절차는 [Claude 인계](../CLAUDE-REVIEW.md)에 있어요.
 다음은 최종 인계 commit의 Fable rebase, human merge와 해당 버전/범위 공개 승인, 이미지 목표 정밀도예요. 현재 main 통합·공개 배포·카탈로그 카메라·범용 로봇/학습은 미완료예요.
