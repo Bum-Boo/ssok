@@ -213,6 +213,7 @@ func _whole_measurement(metric: String, run_mode: RunMode, selector: String) -> 
 		if not bounds.position.is_finite() or not bounds.size.is_finite() or not body.linear_velocity.is_finite():
 			return {"error": "nonfinite_physics"}
 		match metric:
+			"cup_count": pass
 			"min_x": value = minf(value, bounds.position.x)
 			"max_height": value = maxf(value, bounds.end.y)
 			"robot_speed": value = maxf(value, body.linear_velocity.length())
@@ -226,6 +227,8 @@ func _whole_measurement(metric: String, run_mode: RunMode, selector: String) -> 
 						had_wall_contact = true
 				value = 1.0 if had_wall_contact else 0.0
 			_: return {"error": "unknown_metric"}
+	if metric == "cup_count":
+		value = run_mode.cup_object_count()
 	if metric == "wall_distance" and walls.is_empty():
 		return {"error": "wall_missing"}
 	return {"value": value, "state": "valid"} if is_finite(value) else {"error": "nonfinite_physics"}

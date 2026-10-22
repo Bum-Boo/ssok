@@ -101,7 +101,7 @@ B-2의 `gear_ratio`는 하우징과 두 회전자 사이의 수동 구속을 선
 
 ## Stage v2의 관계와 실행 증거
 
-`ssok-stage` v2는 `id`, `title`, `scene`, `author_solution`, `rules`, `constraints`를 가져요. `scene`과 `author_solution`은 각각 프로젝트 v1 문서예요. v1 Stage도 읽으며 v2로 생성해요. 규칙은 metric, part_id, min/max, hold_seconds와 target_index를 포함해요. `target_index = -1`은 기존 지표에서는 일치하는 종류가 정확히 하나일 때만 허용해요. v2 집합 지표는 [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md)에 따라 전체 또는 종류별 집합을 관측해요. 직접 선택한 인덱스는 로딩 시 그래프 인스턴스 토큰에 묶이며 삭제·대체하면 재선택이 필요해요. 이 토큰은 저장하는 영구 객체 ID가 아니에요.
+`ssok-stage` v2는 `id`, `title`, `scene`, `author_solution`, `rules`, `constraints`를 가져요. `scene`과 `author_solution`은 각각 프로젝트 v1 문서예요. v1 Stage도 읽으며 v2로 생성해요. 규칙은 metric, part_id, min/max, hold_seconds와 target_index를 포함해요. `target_index = -1`은 기존 지표에서는 일치하는 종류가 정확히 하나일 때만 허용해요. D-2의 `cup_count`는 v2/part_id="*"/target_index=-1로 컵 내부 자유 강체 수를 읽어요. v2 집합 지표는 [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md)에 따라 전체 또는 종류별 집합을 관측해요. 직접 선택한 인덱스는 로딩 시 그래프 인스턴스 토큰에 묶이며 삭제·대체하면 재선택이 필요해요. 이 토큰은 저장하는 영구 객체 ID가 아니에요.
 
 기본 스테이지는 StageLevels 항목이 레벨 씬 경로와 StageCatalog 정의를 묶어요. 새 진입은 빈 그래프/코드예요. 레벨 바닥·소품·목표와 물리 벽은 편집 그래프 밖에 있어요. 기존 답지의 그래프 벽은 Lab에서 유지하고 스테이지 로더에서는 중복을 제거해요. 레벨 자원과 실제 벽 경계도 실행 증거에 포함해요.
 

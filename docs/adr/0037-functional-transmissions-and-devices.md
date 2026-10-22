@@ -54,7 +54,8 @@ separate walls/base boxes with an open mouth. Ramps/cups join anchored_part_ids;
 interior, irrespective of object SKU and cup orientation. Sphere extents are analytic rather than
 rotated AABB corners. Other parts use conservative transformed mesh bounds; merged parts must
 all fit. The existing allowed solver penetration (1 mm in this project) is the containment tolerance.
-This is a runtime observation for later stage integration, not a new StageEvaluator metric.
+D-2 registers this observation as Stage v2 cup_count with part_id="*" and target_index=-1,
+using the existing min/max/hold and outcome rules. No built-in stage is added.
 
 The 20° slope requires a suitable robot: the verified fixture uses 90 mm wheels; the stock
 65 mm-wheel chassis catches its nose there. A sideways cup exposes its mouth to a floor-level

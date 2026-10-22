@@ -63,4 +63,9 @@ Built-in stages start empty or restore a validated local workspace; answer loadi
 confirmed replacement. Flag success observes task flags rather than servo readiness. Finish success
 observes all parts rather than one upright chassis. Wall success observes environment geometry,
 stationary hold and persistent actual contact history rather than requiring a sonar sensor.
-See [ADR 0035](adr/0036-own-build-stages-and-aggregate-goals.md) and [work D](WORK_SUMMARY_D.md).
+See [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md) and [work D](WORK_SUMMARY_D.md).
+
+D-2 adds `cup_count` only for v2, `part_id="*"`, `target_index=-1`. It observes
+`RunMode.cup_object_count()`: unique movable bodies wholly inside any cup, independent of SKU
+and cup orientation. Zero is valid; unavailable/nonfinite physics cannot clear. Existing min/max
+and hold rules apply. No built-in stage is added.

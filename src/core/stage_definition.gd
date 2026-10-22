@@ -1,7 +1,7 @@
 class_name StageDefinition
 extends RefCounted
 
-const METRICS: Array[String] = ["height", "x", "sonar_distance", "speed", "upright", "wall_contact", "min_x", "max_height", "robot_speed", "wall_distance"]
+const METRICS: Array[String] = ["height", "x", "sonar_distance", "speed", "upright", "wall_contact", "min_x", "max_height", "robot_speed", "wall_distance", "cup_count"]
 const MAX_BYTES: int = 1048576
 
 
@@ -28,11 +28,11 @@ static func valid(value: Variant) -> bool:
 			return false
 		if rule.metric not in METRICS or not rule.part_id is String or (rule.part_id != "*" and not MotionSnapshot._catalog().has(rule.part_id)):
 			return false
-		if rule.part_id == "*" and (value.version != 2 or rule.target_index != -1 or rule.metric not in ["min_x", "max_height", "robot_speed", "wall_distance", "wall_contact"]):
+		if rule.part_id == "*" and (value.version != 2 or rule.target_index != -1 or rule.metric not in ["min_x", "max_height", "robot_speed", "wall_distance", "wall_contact", "cup_count"]):
 			return false
-		if rule.metric in ["min_x", "max_height", "robot_speed", "wall_distance"] and (value.version != 2 or rule.target_index != -1):
+		if rule.metric in ["min_x", "max_height", "robot_speed", "wall_distance", "cup_count"] and (value.version != 2 or rule.target_index != -1):
 			return false
-		if rule.metric in ["min_x", "robot_speed", "wall_distance"] and rule.part_id != "*":
+		if rule.metric in ["min_x", "robot_speed", "wall_distance", "cup_count"] and rule.part_id != "*":
 			return false
 		if value.version == 2:
 			if not MotionSnapshot._is_integer(rule.target_index) or rule.target_index < -1:

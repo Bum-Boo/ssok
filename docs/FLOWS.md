@@ -40,7 +40,7 @@ B-2에서 `LineSensor(pin).value()/is_dark()`는 아래 방향 실제 레이와 
 발광 재질을 바꾸며 Stop 뒤 이전 VM 작업이 다시 켜지지 않아요. 새 장치도 전체 소스의
 그래프 배선 사전 검사와 기존 블록 왕복 경로를 써요. 기어는 API 없이 물리 구속으로 작동해요.
 `cup_object_count()`는 컵 방향·내부 경계에 든 자유 물체를 관측하는 런타임 함수이며
-Stage 규칙 연결은 별도 작업이에요. [B-2 검증](evidence/parts_pack_v1_2026-10-22/README.md).
+D-2의 Stage v2 `cup_count` 전체 대상 규칙이 같은 함수를 읽어요. [B-2 검증](evidence/parts_pack_v1_2026-10-22/README.md).
 
 ## 로컬 초안의 카메라·행동 제어권
 
