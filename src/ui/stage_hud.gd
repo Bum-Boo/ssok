@@ -34,6 +34,10 @@ var chip_grid: GridContainer
 var help_action: Button
 var _tool_actions: Array[Button] = []
 var _current_phase: int = 0
+var _top: HBoxContainer
+var _completed: Array = [false, false, false, false]
+var _compact_chips: bool = false
+var _layout_area: Rect2
 var run_action: Button
 
 
@@ -62,12 +66,16 @@ func _ready() -> void:
 func _build_goal_card() -> void:
 	goal_card = PanelContainer.new()
 	goal_card.name = "GoalCard"
+	var frame: StyleBoxFlat = get_theme_stylebox("panel", "PanelContainer").duplicate()
+	frame.set_content_margin_all(10)
+	goal_card.add_theme_stylebox_override("panel", frame)
 	goal_card.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(goal_card)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 4)
 	goal_card.add_child(box)
 	var top := HBoxContainer.new()
+	_top = top
 	top.add_theme_constant_override("separation", 8)
 	box.add_child(top)
 	var back: Button = SsokTheme.button("", "arrow-left")
@@ -86,6 +94,7 @@ func _build_goal_card() -> void:
 	goal.tooltip_text = level.get("goal", "")
 	goal.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
 	goal.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	goal.max_lines_visible = 1
 	goal.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	top.add_child(goal)
 	var hint_button: Button = SsokTheme.button("", "sparkles")
@@ -94,6 +103,8 @@ func _build_goal_card() -> void:
 	top.add_child(hint_button)
 	for entry: Array in [["Parts library", "box", parts_requested], ["Robot program", "code-xml", program_requested], ["Help", "book-open", help_requested]]:
 		var action: Button = SsokTheme.button(entry[0], entry[1])
+		action.clip_text = false
+		action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 		action.tooltip_text = entry[0]
 		action.set_meta("tool_label", entry[0])
 		action.pressed.connect(func() -> void: entry[2].emit())
@@ -102,6 +113,8 @@ func _build_goal_card() -> void:
 		_tool_actions.append(action)
 		top.add_child(action)
 	run_action = MenuScreen.primary(SsokTheme.button("Run code", "play"))
+	run_action.clip_text = false
+	run_action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 	run_action.pressed.connect(func() -> void: run_requested.emit())
 	top.add_child(run_action)
 	var steps := HBoxContainer.new()
@@ -132,11 +145,13 @@ func _build_goal_card() -> void:
 	hint_label.name = "Hint"
 	hint_label.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
 	hint_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	hint_label.max_lines_visible = 1
 	hint_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	steps.add_child(hint_label)
 	problem_label = Label.new()
 	problem_label.name = "Problem"
 	problem_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	problem_label.max_lines_visible = 1
 	problem_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	problem_label.add_theme_color_override("font_color", SsokTheme.ERROR)
 	problem_label.visible = false
@@ -210,6 +225,8 @@ func show_problem(text: String, arguments: Array = [], translated_arguments: Arr
 	if problem_label.visible:
 		SsokLocale.bind(problem_label, text, arguments, translated_arguments)
 		problem_label.tooltip_text = problem_label.text
+	if _layout_area.size.x > 0:
+		layout.call_deferred(_layout_area)
 
 
 func show_briefing() -> void:
@@ -218,12 +235,16 @@ func show_briefing() -> void:
 
 func show_workflow(state: Dictionary) -> void:
 	_current_phase = state.current
+	_completed = state.completed
 	SsokLocale.bind(hint_label, WorkshopGuide.HINTS[_current_phase])
 	hint_label.tooltip_text = hint_label.text
 	for index: int in chips.size():
 		chips[index].auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		chips[index].text = tr(WorkshopGuide.NAMES[index]) + (" ✓" if state.completed[index] else " ·")
+		chips[index].text = ("" if _compact_chips else tr(WorkshopGuide.NAMES[index]) + " ") + ("✓" if state.completed[index] else "·")
+		chips[index].tooltip_text = tr(WorkshopGuide.NAMES[index]) + ": " + tr(WorkshopGuide.HINTS[index])
 		chips[index].add_theme_color_override("font_color", SsokTheme.ACCENT if index == state.current else SsokTheme.TEXT_DIM)
+	if _layout_area.size.x > 0:
+		layout.call_deferred(_layout_area)
 
 
 func show_success(detail: String, arguments: Array = []) -> void:
@@ -269,8 +290,34 @@ func show_measurement(value: Variant) -> void:
 
 
 func layout(area: Rect2) -> void:
+	_layout_area = area
+	# Measure translated text, not the clipped Button minimum or a language breakpoint.
+	var goal: Label = find_child("GoalSentence", true, false)
 	for action: Button in _tool_actions:
-		action.text = "" if area.size.x < 1300 or SsokTheme.ui_scale >= 1.5 else action.get_meta("tool_label")
+		action.text = action.get_meta("tool_label")
+		action.custom_minimum_size.x = 36
+	var goal_width: float = goal.get_theme_font("font").get_string_size(tr(level.get("goal", "")), HORIZONTAL_ALIGNMENT_LEFT, -1, goal.get_theme_font_size("font_size")).x
+	var inner_width: float = area.size.x - goal_card.get_theme_stylebox("panel").get_minimum_size().x
+	var required: float = _top.get_combined_minimum_size().x + goal_width
+	for action: Button in _tool_actions:
+		if required <= inner_width:
+			break
+		var previous: float = action.get_combined_minimum_size().x
+		action.text = ""
+		required -= previous - action.get_combined_minimum_size().x
+	# Omit the hint first. Only then compact the four chips; all details stay in tooltips.
+	_compact_chips = false
+	for index: int in chips.size():
+		chips[index].text = tr(WorkshopGuide.NAMES[index]) + (" ✓" if _completed[index] else " ·")
+	var detail: Label = problem_label if problem_label.visible else hint_label
+	hint_label.visible = not problem_label.visible
+	var hint_width: float = detail.get_theme_font("font").get_string_size(detail.text, HORIZONTAL_ALIGNMENT_LEFT, -1, detail.get_theme_font_size("font_size")).x
+	if chip_grid.get_combined_minimum_size().x + hint_width + 12 > inner_width:
+		hint_label.hide()
+	if chip_grid.get_combined_minimum_size().x > inner_width:
+		_compact_chips = true
+		for index: int in chips.size():
+			chips[index].text = "✓" if _completed[index] else "·"
 	goal_card.position = area.position
 	goal_card.size = Vector2(area.size.x, 0)
 	goal_card.reset_size()

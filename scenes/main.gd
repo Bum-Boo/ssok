@@ -1828,6 +1828,20 @@ func _on_stage_outcome(message: String) -> void:
 
 func _setup_scene_ui() -> void:
 	_scene_ui = true
+	# Break minimum-height propagation from editor tabs into the viewport overlay.
+	for panel: PanelContainer in [_side_panel, _ui_root.get_node("PartsLibrary")]:
+		var content: Control = panel.get_child(0)
+		var scroll := ScrollContainer.new()
+		scroll.name = "OverlayScroll"
+		scroll.follow_focus = true
+		scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		panel.remove_child(content)
+		panel.add_child(scroll)
+		scroll.add_child(content)
+		content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		content.custom_minimum_size.y = 300
+
 	for part_button: Button in part_buttons:
 		part_button.show()
 	flag_mission.visible = false
@@ -1922,9 +1936,10 @@ func _position_scene_panels() -> void:
 	var top: float = stage_hud.goal_card.get_global_rect().end.y + 12.0
 	var library: Control = _ui_root.get_node("PartsLibrary")
 	library.offset_top = top
-	library.offset_bottom = -12
+	var height: float = minf(size.y * 0.6, size.y - top - 12)
+	library.offset_bottom = top + height - size.y
 	_side_panel.offset_top = top
-	_side_panel.offset_bottom = -12
+	_side_panel.offset_bottom = top + height - size.y
 	var width: float = minf(size.x - 24, maxf(520, 520 * SsokTheme.ui_scale))
 	_side_panel.offset_left = -width - 12
 	_side_panel.offset_right = -12

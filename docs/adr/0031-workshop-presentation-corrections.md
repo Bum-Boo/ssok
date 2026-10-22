@@ -1,6 +1,6 @@
 # 0031 — Frame subjects and theme the workbench presentation
 
-- Status: accepted
+- Status: accepted; hint visibility partially superseded by [0032](0032-compact-workshop-presentation.md)
 - Date: 2026-10-22
 - Implements: owner task A-2, the fixed Claude design findings of 2026-10-22.
 - Extends: [0030](0030-scene-first-workshop-guidance.md), only its presentation.
