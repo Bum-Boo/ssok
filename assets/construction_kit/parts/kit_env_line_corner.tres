@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
-[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/env_line_corner.res" id="1_nqtal"]
-[ext_resource type="Script" path="res://src/core/port.gd" id="2_vgs1j"]
-[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_6efko"]
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_env_line_corner.res" id="1_wort2"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_dols3"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_0dvst"]
 
 [resource]
-script = ExtResource("3_6efko")
-id = &"env_line_corner"
+script = ExtResource("3_0dvst")
+id = &"kit_env_line_corner"
 display_name = "Environment: black line corner"
-mesh = ExtResource("1_nqtal")
+mesh = ExtResource("1_wort2")
 mass_kg = 0.01
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.02, -0.0005, -0.1, 0.04, 0.001, 0.112), AABB(-0.012000002, -0.0005, -0.02, 0.112, 0.001, 0.04)])

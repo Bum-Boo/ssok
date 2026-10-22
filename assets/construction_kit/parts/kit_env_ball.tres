@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_env_ball.res" id="1_6070a"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_dnuuq"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_waten"]
+
+[resource]
+script = ExtResource("3_waten")
+id = &"kit_env_ball"
+display_name = "Environment: ball 40 mm"
+mesh = ExtResource("1_6070a")
+mass_kg = 0.025
+merge_fixed_connections = true
+sphere_radius = 0.02
+collision_points = PackedVector3Array()
+environment_role = "object"

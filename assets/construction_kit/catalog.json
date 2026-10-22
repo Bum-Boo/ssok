@@ -14561,7 +14561,7 @@
       "device_kind": "LineSensor"
     },
     {
-      "id": "env_line_straight",
+      "id": "kit_env_line_straight",
       "name": "Environment: black line straight",
       "kind": "environment",
       "material": "ChassisMetal",
@@ -14576,7 +14576,7 @@
         0,
         0
       ],
-      "mesh": "res://assets/construction_kit/meshes/env_line_straight.res",
+      "mesh": "res://assets/construction_kit/meshes/kit_env_line_straight.res",
       "geometry": {
         "type": "functional_v1",
         "components": [
@@ -14616,7 +14616,7 @@
       "surface_marker": true
     },
     {
-      "id": "env_line_corner",
+      "id": "kit_env_line_corner",
       "name": "Environment: black line corner",
       "kind": "environment",
       "material": "ChassisMetal",
@@ -14631,7 +14631,7 @@
         0,
         0
       ],
-      "mesh": "res://assets/construction_kit/meshes/env_line_corner.res",
+      "mesh": "res://assets/construction_kit/meshes/kit_env_line_corner.res",
       "geometry": {
         "type": "functional_v1",
         "components": [
@@ -15535,7 +15535,7 @@
       "device_kind": "LED"
     },
     {
-      "id": "env_ramp_10",
+      "id": "kit_env_ramp_10",
       "name": "Environment: ramp 10°",
       "kind": "environment",
       "material": "ChassisMetal",
@@ -15550,7 +15550,7 @@
         0,
         0
       ],
-      "mesh": "res://assets/construction_kit/meshes/env_ramp_10.res",
+      "mesh": "res://assets/construction_kit/meshes/kit_env_ramp_10.res",
       "geometry": {
         "type": "functional_v1",
         "components": [
@@ -15609,7 +15609,7 @@
       "anchored": true
     },
     {
-      "id": "env_ramp_20",
+      "id": "kit_env_ramp_20",
       "name": "Environment: ramp 20°",
       "kind": "environment",
       "material": "ChassisMetal",
@@ -15624,7 +15624,7 @@
         0,
         0
       ],
-      "mesh": "res://assets/construction_kit/meshes/env_ramp_20.res",
+      "mesh": "res://assets/construction_kit/meshes/kit_env_ramp_20.res",
       "geometry": {
         "type": "functional_v1",
         "components": [
@@ -15683,7 +15683,7 @@
       "anchored": true
     },
     {
-      "id": "env_ball",
+      "id": "kit_env_ball",
       "name": "Environment: ball 40 mm",
       "kind": "environment",
       "material": "ChassisMetal",
@@ -15698,7 +15698,7 @@
         0,
         0
       ],
-      "mesh": "res://assets/construction_kit/meshes/env_ball.res",
+      "mesh": "res://assets/construction_kit/meshes/kit_env_ball.res",
       "geometry": {
         "type": "functional_v1",
         "components": [
@@ -15721,7 +15721,7 @@
       "environment_role": "object"
     },
     {
-      "id": "env_cup",
+      "id": "kit_env_cup",
       "name": "Environment: cup",
       "kind": "environment",
       "material": "ChassisMetal",
@@ -15736,7 +15736,7 @@
         0,
         0
       ],
-      "mesh": "res://assets/construction_kit/meshes/env_cup.res",
+      "mesh": "res://assets/construction_kit/meshes/kit_env_cup.res",
       "geometry": {
         "type": "functional_v1",
         "components": [

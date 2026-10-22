@@ -20,7 +20,7 @@ func _run() -> void:
 	floor.position.y = -0.01
 	for angle: int in [10, 20]:
 		var graph: ConnectionGraph = RobotCarPreset.build()
-		graph.parts.append({"part_def": load(PARTS + "env_ramp_%d.tres" % angle), "transform": Transform3D(Basis(Vector3.UP, PI / 2), Vector3(0.5, 0, 0))})
+		graph.parts.append({"part_def": load(PARTS + "kit_env_ramp_%d.tres" % angle), "transform": Transform3D(Basis(Vector3.UP, PI / 2), Vector3(0.5, 0, 0))})
 		if angle == 20:
 			graph.links = graph.links.filter(func(link: Dictionary) -> bool: return link.a_part not in [3, 4] and link.b_part not in [3, 4])
 			for part: int in [3, 4]:
@@ -45,9 +45,9 @@ func _run() -> void:
 		await process_frame
 
 	var graph: ConnectionGraph = RobotCarPreset.build()
-	graph.parts.append({"part_def": load(PARTS + "env_ball.tres"), "transform": Transform3D(Basis.IDENTITY, Vector3(0.22, 0.022, 0))})
+	graph.parts.append({"part_def": load(PARTS + "kit_env_ball.tres"), "transform": Transform3D(Basis.IDENTITY, Vector3(0.22, 0.022, 0))})
 	# Rotate the cup onto its side: the learner can push through its open mouth.
-	graph.parts.append({"part_def": load(PARTS + "env_cup.tres"), "transform": Transform3D(Basis(Vector3.BACK, PI / 2), Vector3(0.8, 0.084, 0))})
+	graph.parts.append({"part_def": load(PARTS + "kit_env_cup.tres"), "transform": Transform3D(Basis(Vector3.BACK, PI / 2), Vector3(0.8, 0.084, 0))})
 	var hardware := RunMode.new()
 	root.add_child(hardware)
 	hardware.build(graph)
@@ -71,9 +71,9 @@ func _run() -> void:
 	hardware.free()
 	await process_frame
 	var observation := ConnectionGraph.new()
-	var container: PartDef = load(PARTS + "env_cup.tres").duplicate() as PartDef
+	var container: PartDef = load(PARTS + "kit_env_cup.tres").duplicate() as PartDef
 	container.id = &"test_container"
-	var object: PartDef = load(PARTS + "env_ball.tres").duplicate() as PartDef
+	var object: PartDef = load(PARTS + "kit_env_ball.tres").duplicate() as PartDef
 	object.id = &"test_object"
 	observation.parts.append({"part_def": container, "transform": Transform3D.IDENTITY})
 	observation.parts.append({"part_def": object, "transform": Transform3D(Basis.IDENTITY, Vector3(0, 0.03, 0))})

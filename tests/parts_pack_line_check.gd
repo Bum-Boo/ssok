@@ -21,7 +21,7 @@ func _run() -> void:
 	var graph := ConnectionGraph.new()
 	graph.parts.append({"part_def": load(PARTS + "kit_line_sensor.tres"), "transform": Transform3D(Basis.IDENTITY, Vector3(0, 0.05, 0))})
 	graph.parts.append({"part_def": load("res://assets/parts/microbit.tres"), "transform": Transform3D(Basis.IDENTITY, Vector3(1, 0.2, 0))})
-	graph.parts.append({"part_def": load(PARTS + "env_line_straight.tres"), "transform": Transform3D(Basis.IDENTITY, Vector3(0, 0.001, 0))})
+	graph.parts.append({"part_def": load(PARTS + "kit_env_line_straight.tres"), "transform": Transform3D(Basis.IDENTITY, Vector3(0, 0.001, 0))})
 	graph.links.append({"a_part": 0, "a_port": &"signal_pin", "b_part": 1, "b_port": &"pin_1"})
 	var hardware := RunMode.new()
 	root.add_child(hardware)
@@ -83,7 +83,7 @@ func _follow_line() -> void:
 		var angle: float = 0.0 if segment < 3 else deg_to_rad((segment - 2) * 6.0)
 		var x: float = 0.1 + segment * 0.14
 		var z: float = 0.008 + maxf(0, segment - 2) * maxf(0, segment - 2) * 0.007
-		graph.parts.append({"part_def": load(PARTS + "env_line_straight.tres"), "transform": Transform3D(Basis(Vector3.UP, PI / 2 - angle), Vector3(x, 0.001, z))})
+		graph.parts.append({"part_def": load(PARTS + "kit_env_line_straight.tres"), "transform": Transform3D(Basis(Vector3.UP, PI / 2 - angle), Vector3(x, 0.001, z))})
 	var hardware := RunMode.new()
 	root.add_child(hardware)
 	hardware.build(graph)
