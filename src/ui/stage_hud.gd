@@ -86,15 +86,16 @@ func _build_goal_card() -> void:
 	back.pressed.connect(func() -> void: exit_pressed.emit())
 	top.add_child(back)
 	var number := Label.new()
+	number.name = "GoalTag"
 	number.text = "Now"
-	number.add_theme_font_size_override("font_size", SsokTheme.font_size(28))
-	number.add_theme_color_override("font_color", SsokTheme.ACCENT)
+	number.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
+	number.add_theme_color_override("font_color", SsokTheme.TEXT_DIM)
 	top.add_child(number)
 	var goal := Label.new()
 	goal.name = "GoalSentence"
 	goal.text = level.get("goal", "")
 	goal.tooltip_text = level.get("goal", "")
-	goal.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
+	goal.add_theme_font_size_override("font_size", SsokTheme.font_size(28))
 	goal.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	goal.max_lines_visible = 1
 	goal.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
@@ -131,7 +132,7 @@ func _build_goal_card() -> void:
 		chip.custom_minimum_size = Vector2(0, 28)
 		chip.clip_text = false
 		chip.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
-		chip.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
+		chip.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
 		chip.tooltip_text = WorkshopGuide.HINTS[index]
 		chip.pressed.connect(func() -> void: phase_requested.emit(index))
 		chip_grid.add_child(chip)

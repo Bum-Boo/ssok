@@ -1,11 +1,14 @@
 # 0032 — Bound compact workshop overlays and name the primary action consistently
 
-- Status: accepted; goal-summary hint priority partially superseded by [0033](0033-goal-label-space-and-observation-states.md)
+- Status: accepted; goal-summary hint priority partially superseded by [0033](0033-goal-label-space-and-observation-states.md); typography roles partially superseded by [0034](0034-correct-workshop-type-roles.md)
 - Date: 2026-10-22
 - Implements: owner task A-3, fixed Astra findings from actual RTX 4090 captures.
 - Extends: [0030](0030-scene-first-workshop-guidance.md), [0031](0031-workshop-presentation-corrections.md).
 - Partially supersedes: [0031](0031-workshop-presentation-corrections.md), only the guarantee that
   normal-size hints always remain visible. Width takes precedence over displaying every hint.
+
+> [0034](0034-correct-workshop-type-roles.md) corrects only typography roles: the goal sentence
+> is large, its category tag small/dim, and panel headings middle/bold. Other rules remain.
 
 ## Decision
 

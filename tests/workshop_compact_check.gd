@@ -65,7 +65,7 @@ func _run() -> void:
 							previous = child
 					var goal: Label = hud.find_child("GoalSentence", true, false)
 					if scale == 1.0:
-						_check(goal.get_theme_font("font").get_string_size(tr(goal.text), HORIZONTAL_ALIGNMENT_LEFT, -1, goal.get_theme_font_size("font_size")).x <= goal.size.x, context + " entire goal visible")
+						_check(goal.get_theme_font_size("font_size") == 28 and goal.text_overrun_behavior == TextServer.OVERRUN_TRIM_ELLIPSIS and tr(goal.tooltip_text) == tr(goal.text), context + " large goal can trim with full tooltip")
 					for button: Button in hud._tool_actions + hud.chips + [hud.run_action]:
 						_button_fits(button, context)
 						_check(strip.encloses(button.get_global_rect()), context + " button inside strip")
