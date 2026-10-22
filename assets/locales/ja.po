@@ -2451,3 +2451,75 @@ msgstr "おもり 100 g"
 # Functional parts and block names (work B).
 msgid "Weight 300 g"
 msgstr "おもり 300 g"
+
+msgid "Task flag"
+msgstr "課題の旗"
+
+msgid "Show solution"
+msgstr "解答を見る"
+
+msgid "Build from scratch"
+msgstr "最初から作る"
+
+msgid "Cleared with solution"
+msgstr "解答でクリア"
+
+msgid "Replace your assembly and code with the author solution?"
+msgstr "今の組み立てとコードを解答に置き換えますか？"
+
+msgid "Clear this stage's assembly and code and start from an empty workbench?"
+msgstr "このステージの組み立てとコードを消して、空の作業台から始めますか？"
+
+msgid "Look at the environment, choose parts and build a robot to solve the challenge."
+msgstr "環境を見て部品を選び、ロボットを作って課題を解こう。"
+
+msgid "Author solution loaded. Try it, then build your own."
+msgstr "解答を読み込みました。試してから自分のロボットを作ろう。"
+
+msgid "Could not save this stage. Your build is kept here. Try again before leaving."
+msgstr "ステージを保存できませんでした。組み立ては残っています。出る前にもう一度保存してください。"
+
+msgid "Build a robot and attach the task flag. Raise it to the green line using your own mechanism."
+msgstr "ロボットを作って課題の旗を取り付けよう。自分の仕組みで緑の線まで上げよう。"
+
+msgid "Attach a board, servo, arm and task flag, or design another mechanism."
+msgstr "ボード・サーボ・アーム・旗を取り付けよう。別の仕組みでも大丈夫。"
+
+msgid "Wire the servo to a board pin, then use that pin in Servo(...). Try changing its angle."
+msgstr "サーボをボードのピンに配線し、Servo(...)で同じピンを使って角度を変えよう。"
+
+msgid "Move every part of your robot past the checkered finish line."
+msgstr "ロボットの全部品を市松模様のゴールラインの先へ動かそう。"
+
+msgid "Build your own moving robot. Every part must cross the finish line; tipping over is allowed."
+msgstr "動くロボットを作ろう。全部品がゴールを越えれば、倒れても大丈夫。"
+
+msgid "Attach a board, motor driver, motors and wheels to a chassis."
+msgstr "車体にボード・モータードライバー・モーター・車輪を取り付けよう。"
+
+msgid "Wire board pins to the driver and the driver to the motors. Use those pins in your code."
+msgstr "ボードのピンをドライバーへ、ドライバーをモーターへ配線し、コードでも同じピンを使おう。"
+
+msgid "Build a robot that stops 5 to 10 cm from the wall. Any mechanism works; touching the wall does not count."
+msgstr "壁の5〜10 cm手前で止まるロボットを作ろう。仕組みは自由。壁に触れるとクリアできないよ。"
+
+msgid "Build a moving robot; add a distance sensor if you want."
+msgstr "動くロボットを作ろう。距離センサーを付けてもいいよ。"
+
+msgid "A wired distance sensor can help. The goal measures your nearest part, not the sensor reading."
+msgstr "距離センサーを配線すると便利。判定はセンサー値ではなく壁に一番近い部品で行うよ。"
+
+msgid "Wire the actuator to board pins."
+msgstr "動かす部品をボードのピンに配線しよう。"
+
+msgid "Write code using your wired pins, then press “Run”."
+msgstr "配線したピンでコードを書き、「実行」を押そう。"
+
+msgid "Press “Run” and keep the flag on the green line for one second."
+msgstr "「実行」を押して、旗を緑の線より上で1秒間保とう。"
+
+msgid "Press “Run” and move every part past the checkered line."
+msgstr "「実行」を押して、全部品を市松模様の線の先へ動かそう。"
+
+msgid "Press “Run” and stay still inside the yellow zone."
+msgstr "「実行」を押して、黄色いゾーンで止まろう。"

@@ -1,0 +1,146 @@
+[
+  {
+    "en": "Task flag",
+    "ko": "과제 깃발",
+    "ja": "課題の旗",
+    "zh_CN": "任务旗帜"
+  },
+  {
+    "en": "Show solution",
+    "ko": "답지 보기",
+    "ja": "解答を見る",
+    "zh_CN": "查看答案"
+  },
+  {
+    "en": "Build from scratch",
+    "ko": "처음부터 만들기",
+    "ja": "最初から作る",
+    "zh_CN": "从零开始搭建"
+  },
+  {
+    "en": "Cleared with solution",
+    "ko": "답지로 통과",
+    "ja": "解答でクリア",
+    "zh_CN": "参考答案通关"
+  },
+  {
+    "en": "Replace your assembly and code with the author solution?",
+    "ko": "지금 조립과 코드를 답지로 바꿀까요?",
+    "ja": "今の組み立てとコードを解答に置き換えますか？",
+    "zh_CN": "要用参考答案替换当前组装和代码吗？"
+  },
+  {
+    "en": "Clear this stage's assembly and code and start from an empty workbench?",
+    "ko": "이 스테이지의 조립과 코드를 지우고 빈 작업대에서 시작할까요?",
+    "ja": "このステージの組み立てとコードを消して、空の作業台から始めますか？",
+    "zh_CN": "要清除此关的组装和代码，从空工作台开始吗？"
+  },
+  {
+    "en": "Look at the environment, choose parts and build a robot to solve the challenge.",
+    "ko": "환경을 보고, 부품을 골라 로봇을 만들어 과제를 풀어요.",
+    "ja": "環境を見て部品を選び、ロボットを作って課題を解こう。",
+    "zh_CN": "观察环境，挑选零件，搭建机器人完成任务。"
+  },
+  {
+    "en": "Author solution loaded. Try it, then build your own.",
+    "ko": "답지를 불러왔어요. 살펴보고 내 로봇을 만들어 봐요.",
+    "ja": "解答を読み込みました。試してから自分のロボットを作ろう。",
+    "zh_CN": "已载入参考答案。试一试，再搭建自己的机器人。"
+  },
+  {
+    "en": "Could not save this stage. Your build is kept here. Try again before leaving.",
+    "ko": "스테이지를 저장하지 못했어요. 조립은 여기 있어요. 나가기 전에 다시 저장해요.",
+    "ja": "ステージを保存できませんでした。組み立ては残っています。出る前にもう一度保存してください。",
+    "zh_CN": "未能保存此关。组装仍保留在这里，请在离开前重试。"
+  },
+  {
+    "en": "Build a robot and attach the task flag. Raise it to the green line using your own mechanism.",
+    "ko": "로봇을 만들고 과제 깃발을 붙여요. 내 방식으로 깃발을 초록 선까지 올려요.",
+    "ja": "ロボットを作って課題の旗を取り付けよう。自分の仕組みで緑の線まで上げよう。",
+    "zh_CN": "搭建机器人并装上任务旗帜，用自己的机构把旗帜升到绿线。"
+  },
+  {
+    "en": "Attach a board, servo, arm and task flag, or design another mechanism.",
+    "ko": "보드·서보·팔·과제 깃발을 붙여요. 다른 방식도 좋아요.",
+    "ja": "ボード・サーボ・アーム・旗を取り付けよう。別の仕組みでも大丈夫。",
+    "zh_CN": "安装主板、舵机、机械臂和任务旗帜，也可以设计其他机构。"
+  },
+  {
+    "en": "Wire the servo to a board pin, then use that pin in Servo(...). Try changing its angle.",
+    "ko": "서보를 보드 핀에 배선해요. Servo(...)에 같은 핀을 쓰고 각도를 바꿔 봐요.",
+    "ja": "サーボをボードのピンに配線し、Servo(...)で同じピンを使って角度を変えよう。",
+    "zh_CN": "将舵机连接到主板引脚，在 Servo(...) 中使用同一引脚，试着改变角度。"
+  },
+  {
+    "en": "Move every part of your robot past the checkered finish line.",
+    "ko": "로봇의 모든 부품을 체크무늬 결승선 너머로 옮겨요.",
+    "ja": "ロボットの全部品を市松模様のゴールラインの先へ動かそう。",
+    "zh_CN": "让机器人的所有零件越过方格终点线。"
+  },
+  {
+    "en": "Build your own moving robot. Every part must cross the finish line; tipping over is allowed.",
+    "ko": "움직이는 로봇을 만들어요. 모든 부품이 결승선을 넘으면 돼요. 넘어져도 괜찮아요.",
+    "ja": "動くロボットを作ろう。全部品がゴールを越えれば、倒れても大丈夫。",
+    "zh_CN": "搭建自己的移动机器人。所有零件越过终点即可，翻倒也没关系。"
+  },
+  {
+    "en": "Attach a board, motor driver, motors and wheels to a chassis.",
+    "ko": "섀시에 보드·모터 드라이버·모터·바퀴를 붙여요.",
+    "ja": "車体にボード・モータードライバー・モーター・車輪を取り付けよう。",
+    "zh_CN": "在底盘上安装主板、电机驱动器、电机和车轮。"
+  },
+  {
+    "en": "Wire board pins to the driver and the driver to the motors. Use those pins in your code.",
+    "ko": "보드 핀을 드라이버에, 드라이버를 모터에 배선해요. 코드에도 같은 핀을 써요.",
+    "ja": "ボードのピンをドライバーへ、ドライバーをモーターへ配線し、コードでも同じピンを使おう。",
+    "zh_CN": "将主板引脚连接驱动器，再连接电机。在代码中使用相同引脚。"
+  },
+  {
+    "en": "Build a robot that stops 5 to 10 cm from the wall. Any mechanism works; touching the wall does not count.",
+    "ko": "벽에서 5~10 cm 앞에 멈추는 로봇을 만들어요. 어떤 방식도 좋아요. 벽에 닿으면 통과할 수 없어요.",
+    "ja": "壁の5〜10 cm手前で止まるロボットを作ろう。仕組みは自由。壁に触れるとクリアできないよ。",
+    "zh_CN": "搭建能停在距墙5到10厘米处的机器人。方式不限，但不能碰墙。"
+  },
+  {
+    "en": "Build a moving robot; add a distance sensor if you want.",
+    "ko": "움직이는 로봇을 만들어요. 거리 센서를 붙여도 좋아요.",
+    "ja": "動くロボットを作ろう。距離センサーを付けてもいいよ。",
+    "zh_CN": "搭建移动机器人，可以选择安装距离传感器。"
+  },
+  {
+    "en": "A wired distance sensor can help. The goal measures your nearest part, not the sensor reading.",
+    "ko": "거리 센서를 배선하면 도움이 돼요. 판정은 센서값 대신 벽에 가장 가까운 부품을 봐요.",
+    "ja": "距離センサーを配線すると便利。判定はセンサー値ではなく壁に一番近い部品で行うよ。",
+    "zh_CN": "接好距离传感器会有帮助。判定看距墙最近的零件，而非传感器读数。"
+  },
+  {
+    "en": "Wire the actuator to board pins.",
+    "ko": "구동 부품을 보드 핀에 배선해요.",
+    "ja": "動かす部品をボードのピンに配線しよう。",
+    "zh_CN": "将驱动部件连接到主板引脚。"
+  },
+  {
+    "en": "Write code using your wired pins, then press “Run”.",
+    "ko": "배선한 핀으로 코드를 쓰고 “실행”을 눌러요.",
+    "ja": "配線したピンでコードを書き、「実行」を押そう。",
+    "zh_CN": "使用已连接的引脚编写代码，再按“运行”。"
+  },
+  {
+    "en": "Press “Run” and keep the flag on the green line for one second.",
+    "ko": "“실행”을 눌러 깃발을 초록 선 위에서 1초 동안 유지해요.",
+    "ja": "「実行」を押して、旗を緑の線より上で1秒間保とう。",
+    "zh_CN": "按“运行”，让旗帜在绿线以上保持一秒。"
+  },
+  {
+    "en": "Press “Run” and move every part past the checkered line.",
+    "ko": "“실행”을 눌러 모든 부품을 체크무늬 선 너머로 옮겨요.",
+    "ja": "「実行」を押して、全部品を市松模様の線の先へ動かそう。",
+    "zh_CN": "按“运行”，让所有零件越过方格线。"
+  },
+  {
+    "en": "Press “Run” and stay still inside the yellow zone.",
+    "ko": "“실행”을 눌러 노란 구역에서 멈춰요.",
+    "ja": "「実行」を押して、黄色いゾーンで止まろう。",
+    "zh_CN": "按“运行”，停在黄色区域内。"
+  }
+]

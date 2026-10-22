@@ -2451,3 +2451,75 @@ msgstr "配重 100 g"
 # Functional parts and block names (work B).
 msgid "Weight 300 g"
 msgstr "配重 300 g"
+
+msgid "Task flag"
+msgstr "任务旗帜"
+
+msgid "Show solution"
+msgstr "查看答案"
+
+msgid "Build from scratch"
+msgstr "从零开始搭建"
+
+msgid "Cleared with solution"
+msgstr "参考答案通关"
+
+msgid "Replace your assembly and code with the author solution?"
+msgstr "要用参考答案替换当前组装和代码吗？"
+
+msgid "Clear this stage's assembly and code and start from an empty workbench?"
+msgstr "要清除此关的组装和代码，从空工作台开始吗？"
+
+msgid "Look at the environment, choose parts and build a robot to solve the challenge."
+msgstr "观察环境，挑选零件，搭建机器人完成任务。"
+
+msgid "Author solution loaded. Try it, then build your own."
+msgstr "已载入参考答案。试一试，再搭建自己的机器人。"
+
+msgid "Could not save this stage. Your build is kept here. Try again before leaving."
+msgstr "未能保存此关。组装仍保留在这里，请在离开前重试。"
+
+msgid "Build a robot and attach the task flag. Raise it to the green line using your own mechanism."
+msgstr "搭建机器人并装上任务旗帜，用自己的机构把旗帜升到绿线。"
+
+msgid "Attach a board, servo, arm and task flag, or design another mechanism."
+msgstr "安装主板、舵机、机械臂和任务旗帜，也可以设计其他机构。"
+
+msgid "Wire the servo to a board pin, then use that pin in Servo(...). Try changing its angle."
+msgstr "将舵机连接到主板引脚，在 Servo(...) 中使用同一引脚，试着改变角度。"
+
+msgid "Move every part of your robot past the checkered finish line."
+msgstr "让机器人的所有零件越过方格终点线。"
+
+msgid "Build your own moving robot. Every part must cross the finish line; tipping over is allowed."
+msgstr "搭建自己的移动机器人。所有零件越过终点即可，翻倒也没关系。"
+
+msgid "Attach a board, motor driver, motors and wheels to a chassis."
+msgstr "在底盘上安装主板、电机驱动器、电机和车轮。"
+
+msgid "Wire board pins to the driver and the driver to the motors. Use those pins in your code."
+msgstr "将主板引脚连接驱动器，再连接电机。在代码中使用相同引脚。"
+
+msgid "Build a robot that stops 5 to 10 cm from the wall. Any mechanism works; touching the wall does not count."
+msgstr "搭建能停在距墙5到10厘米处的机器人。方式不限，但不能碰墙。"
+
+msgid "Build a moving robot; add a distance sensor if you want."
+msgstr "搭建移动机器人，可以选择安装距离传感器。"
+
+msgid "A wired distance sensor can help. The goal measures your nearest part, not the sensor reading."
+msgstr "接好距离传感器会有帮助。判定看距墙最近的零件，而非传感器读数。"
+
+msgid "Wire the actuator to board pins."
+msgstr "将驱动部件连接到主板引脚。"
+
+msgid "Write code using your wired pins, then press “Run”."
+msgstr "使用已连接的引脚编写代码，再按“运行”。"
+
+msgid "Press “Run” and keep the flag on the green line for one second."
+msgstr "按“运行”，让旗帜在绿线以上保持一秒。"
+
+msgid "Press “Run” and move every part past the checkered line."
+msgstr "按“运行”，让所有零件越过方格线。"
+
+msgid "Press “Run” and stay still inside the yellow zone."
+msgstr "按“运行”，停在黄色区域内。"
