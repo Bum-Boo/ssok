@@ -130,6 +130,8 @@ flowchart LR
 [ADR 0032](adr/0032-compact-workshop-presentation.md)에 따라 폭이 부족하면 힌트를 먼저 숨기고,
 칩은 아이콘/상태와 툴팁으로 줄여요. 도구 이름은 전체 표시 또는 아이콘으로 바뀌며, 주요 버튼은
 코드 탭과 구분되는 기존 `Run` 번역을 써요. 편집 패널 높이는 화면의 60% 이내이고 내부 스크롤로 접근해요.
+[ADR 0034](adr/0034-correct-workshop-type-roles.md)에 따라 목표 문장 28px·분류 태그 회색 14px, 칩/힌트 16/14px을 써요.
+편집·도움 패널 제목은 16px 굵게, 결과 제목은 28px이며 공간이 부족한 목표는 축소 없이 생략/전체 툴팁을 유지해요.
 [WorkshopGuide](../src/ui/workshop_guide.gd)가 그래프·실제 배선·코드/블록 유효성·실행 모드를
 읽어 체크와 자동 패널 열림을 정해요. 사용자가 접은 패널은 단계가 바뀔 때까지 유지돼요.
 [StageGoalDisplay](../src/ui/stage_goal_display.gd)는 목표선/결승선/정지 구역의 월드 앵커를 UI 라벨과 리더 선으로 투영해요.

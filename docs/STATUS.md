@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-10-22 작업 A-4 로컬 후보: 목표 라벨 자연 폭/배율별 최소 폭·공간 부족 시 스트립 요약·관측 전 목표 한 줄·결승선 콘 18→8. [소스·현재 검사·GL 미검증·인계](WORK_SUMMARY_A4.md), [ADR 0033](adr/0033-goal-label-space-and-observation-states.md).
+2026-10-22 작업 A-5 로컬 후보: 목표 문장 28px·회색 태그 14px·패널 제목 16px 굵게로 위계 교정. [현재 검사·GL 미검증·인계](WORK_SUMMARY_A5.md), [ADR 0034](adr/0034-correct-workshop-type-roles.md). A-4 공간/관측/콘 규칙과 [이력](WORK_SUMMARY_A4.md)은 유지해요.
 
 2026-10-22 작업 A-3 로컬 후보: 작은 창 두 줄/60% 편집 패널·Run 라벨·글꼴 위계·도로 그림자 수신 보완. [소스·현재 검사·GL 미검증·인계](WORK_SUMMARY_A3.md), [ADR 0032](adr/0032-compact-workshop-presentation.md).
 
