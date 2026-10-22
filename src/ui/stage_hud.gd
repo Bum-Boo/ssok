@@ -39,6 +39,8 @@ var _completed: Array = [false, false, false, false]
 var _compact_chips: bool = false
 var _layout_area: Rect2
 var run_action: Button
+var _goal_summary: String = ""
+var _goal_detail: String = ""
 
 
 func configure(stage_level: Dictionary, has_next: bool) -> void:
@@ -240,6 +242,7 @@ func show_workflow(state: Dictionary) -> void:
 	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else WorkshopGuide.HINTS[_current_phase]
 	SsokLocale.bind(hint_label, instruction)
 	hint_label.tooltip_text = hint_label.text
+	_apply_goal_summary()
 	for index: int in chips.size():
 		chips[index].auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		chips[index].text = ("" if _compact_chips else tr(WorkshopGuide.NAMES[index]) + " ") + ("✓" if state.completed[index] else "·")
@@ -248,6 +251,23 @@ func show_workflow(state: Dictionary) -> void:
 		chips[index].add_theme_color_override("font_color", SsokTheme.ACCENT if index == state.current else SsokTheme.TEXT_DIM)
 	if _layout_area.size.x > 0:
 		layout.call_deferred(_layout_area)
+
+
+func show_goal_summary(text: String, detail: String) -> void:
+	_goal_summary = text
+	_goal_detail = detail
+	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else WorkshopGuide.HINTS[_current_phase]
+	SsokLocale.bind(hint_label, instruction)
+	hint_label.tooltip_text = hint_label.text
+	_apply_goal_summary()
+	if _layout_area.size.x > 0:
+		layout.call_deferred(_layout_area)
+
+
+func _apply_goal_summary() -> void:
+	if not _goal_summary.is_empty():
+		SsokLocale.bind(hint_label, _goal_summary)
+		hint_label.tooltip_text = _goal_detail
 
 
 func show_success(detail: String, arguments: Array = []) -> void:
@@ -318,9 +338,10 @@ func layout(area: Rect2) -> void:
 	var detail: Label = problem_label if problem_label.visible else hint_label
 	hint_label.visible = not problem_label.visible
 	var hint_width: float = detail.get_theme_font("font").get_string_size(detail.text, HORIZONTAL_ALIGNMENT_LEFT, -1, detail.get_theme_font_size("font_size")).x
-	if chip_grid.get_combined_minimum_size().x + hint_width + 12 > inner_width:
+	var needs_summary: bool = not _goal_summary.is_empty() and not problem_label.visible
+	if not needs_summary and chip_grid.get_combined_minimum_size().x + hint_width + 12 > inner_width:
 		hint_label.hide()
-	if chip_grid.get_combined_minimum_size().x > inner_width:
+	if chip_grid.get_combined_minimum_size().x > inner_width or (needs_summary and chip_grid.get_combined_minimum_size().x + hint_width + 12 > inner_width):
 		_compact_chips = true
 		for index: int in chips.size():
 			chips[index].text = "✓" if _completed[index] else "·"

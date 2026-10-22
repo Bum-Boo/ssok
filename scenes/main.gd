@@ -1740,6 +1740,7 @@ func _enter_stage(level: Dictionary) -> void:
 	_ui_root.add_child(goal_display)
 	goal_display.camera = $Camera3D
 	goal_display.area_provider = _camera_framing_rect
+	goal_display.summary_changed.connect(stage_hud.show_goal_summary)
 	goal_display.configure(level, stage)
 	goal_display.anchor = WorkshopFraming.goal_anchor(_level, level.id)
 	if _level != null:

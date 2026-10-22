@@ -2,6 +2,8 @@ class_name StageGoalDisplay
 extends Control
 
 ## Screen-space annotation only; scored values come from the existing evaluator.
+signal summary_changed(text: String, detail: String)
+
 var label: Label
 var card: PanelContainer
 var anchor: Vector3
@@ -15,6 +17,9 @@ var camera: Camera3D
 var area_provider: Callable
 var _appearance: String = ""
 var _assembly_value: Variant = null
+var _summary: String = ""
+var _published_summary: String = ""
+var _published_detail: String = ""
 
 
 func configure(stage_level: Dictionary, stage: Dictionary) -> void:
@@ -29,7 +34,7 @@ func configure(stage_level: Dictionary, stage: Dictionary) -> void:
 	label.name = "ObservedGoal"
 	label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.autowrap_mode = TextServer.AUTOWRAP_OFF
 	card.add_child(label)
 	_refresh()
 
@@ -55,9 +60,19 @@ func update_projection() -> void:
 		card.add_theme_stylebox_override("panel", style)
 		label.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
 		label.add_theme_color_override("font_color", SsokTheme.TEXT)
-	# Width and height stay in UI pixels, independent of camera distance.
-	card.custom_minimum_size.x = minf(380.0 * SsokTheme.ui_scale, area.size.x)
-	card.size = Vector2(card.custom_minimum_size.x, 0)
+	# Never trade legibility for space: use the natural text width or the scaled floor.
+	card.custom_minimum_size.x = 260.0 * SsokTheme.ui_scale
+	card.size = card.get_combined_minimum_size()
+	card.visible = area.size.x >= card.size.x and area.size.y >= card.size.y
+	var summary: String = "" if card.visible else _summary
+	var detail: String = "" if card.visible else label.text
+	if summary != _published_summary or detail != _published_detail:
+		_published_summary = summary
+		_published_detail = detail
+		summary_changed.emit(summary, detail)
+	if not card.visible:
+		queue_redraw()
+		return
 	projected_anchor = camera.unproject_position(anchor)
 	var offscreen: bool = camera.is_position_behind(anchor) or not area.has_point(projected_anchor)
 	if camera.is_position_behind(anchor):
@@ -80,7 +95,7 @@ func update_projection() -> void:
 
 
 func _draw() -> void:
-	if card != null:
+	if card != null and card.visible:
 		draw_line(projected_anchor, leader_end, SsokTheme.ACCENT, 1.5, true)
 
 
@@ -121,6 +136,8 @@ func _refresh() -> void:
 		var current: String = "%.3f %s" % [float(value) * scale, unit] if value != null else tr("Measurement unavailable")
 		var target: String = "≥ %.3f %s" % [float(rule.min) * scale, unit] if rule.max >= 50.0 else "%.3f–%.3f %s" % [float(rule.min) * scale, float(rule.max) * scale, unit]
 		lines.append(tr("%s: %s / Target: %s") % [metric, current, target])
+		if index == 0:
+			_summary = lines[-1]
 		lines.append(tr("Hold: %.1f / %.1f s") % [float(sample.get("held_seconds", 0.0)), float(rule.hold_seconds)])
 	label.text = "\n".join(lines)
 
