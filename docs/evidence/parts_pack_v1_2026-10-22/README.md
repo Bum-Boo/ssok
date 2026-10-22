@@ -26,3 +26,30 @@ Commands use `XDG_DATA_HOME=/tmp/ssok-b2-data`, `XDG_CONFIG_HOME=/tmp/ssok-b2-co
   height: 10° 0.08335 m; 20° with 90 mm wheels 0.18736 m. A sideways cup receives and retains a
   pushed ball (count 1). First fixtures failed at the steeper ramp and the cup's entrance lip;
   a larger wheel and higher learner power were used, without changing common physics values.
+
+## Final content verification
+
+Application content commit: `7968d6f`, all recorded application hashes matched the final batch.
+[Source identity](source.json) records execution-start HEAD plus the tested overlay and validated
+content commit. The following documentation-only commit does not alter that application content.
+
+[Commands and results](results.json): the 74 previously passing B commands plus 5 new B-2
+commands produced 78/79 passing suites. Separate [inventory integration](inventory.txt) passed
+114/0 on the same application content, giving **79/80 passing suites**, with all **207 new checks**
+passing. Localization 53,542/0; construction kit 13,655/0; B-specific runtime/blocks/mechanics/
+workshop 28/0, 51/0, 79/0, 50/0; scene-load passed.
+
+The remaining [workshop UI failure](workshop-ui-failed.txt) is five assertions requiring exactly
+80 parts rather than the actual 92. That existing file is explicitly forbidden by the user and
+was not edited. The initial three-suite regression also included the `kit_` category contract and
+missing packaged-document source references; these were fixed and rerun. Environment IDs now use
+`kit_env_*`; all 42 construction catalog entries reach the existing filter. The new inventory
+fixture initially mistook Button.text's untranslated source for a rendered translation; it now
+checks the existing native auto-translation contract and localized search, not rendered glyphs.
+
+All six new sources are `tests/parts_pack_{gears,line,button,led,environment,inventory}_check.gd`.
+Run them via `build/toolchain/godot --headless --audio-driver Dummy --path . --language en
+--fixed-fps 60 --script tests/<name>.gd`, with XDG paths as above. No mock HTTP fixture was started.
+`tools.ci.build.copy_notices()` was tested offline for documentation packaging; no export ran.
+`maintain.py --check`, documentation unittest 10/0 and `git diff --check` passed. New translations:
+23 English keys + 69 translated entries were explicitly compared in all PO catalogs.
