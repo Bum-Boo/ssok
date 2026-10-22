@@ -246,6 +246,16 @@ Existing release assets are not silently overwritten. A tag or a build alone is 
 a successful public deployment: open the final URL anonymously and run the browser smoke with
 `--url https://OWNER.github.io/ssok/` after publication.
 
+## Preview deployment
+
+Push a `feat/**` or `ci/**` branch containing `.github/workflows/preview.yml` to export Web only.
+The workflow summary links to `https://bum-boo.github.io/ssok/preview/<branch-slug>/`.
+Slugs replace non-alphanumeric runs in the lowercase branch with `-` and keep up to 80 characters,
+then append `-` and the first 12 SHA-256 hex characters of the original name; pushes replace that preview.
+Rerun the latest branch run with **Actions → Preview ssok on the web → Re-run all jobs**;
+or use **Run workflow** on that branch once the workflow is present on the default branch.
+Pages must still serve `gh-pages` at `/`; root/release files are preserved and a Pages build is requested.
+
 ## Upstream references
 
 - [Official Godot 4.7.2 release and downloads](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)
