@@ -46,6 +46,12 @@ func _run() -> void:
 		var sky: ProceduralSkyMaterial = scene_env.sky.sky_material
 		var ground: MeshInstance3D = main._level.get_node("Ground/WorkbenchMat")
 		var grid: MeshInstance3D = main._level.get_node("Ground/MatGrid")
+		var edge: MeshInstance3D = main._level.get_node("Ground/WorkbenchEdge")
+		_check(edge.mesh.get_aabb().size.x > ground.mesh.get_aabb().size.x and edge.mesh.get_aabb().size.z > ground.mesh.get_aabb().size.z, "rim exposes a finite mat boundary")
+		_check(edge.position.y + edge.mesh.get_aabb().end.y < ground.position.y + ground.mesh.get_aabb().end.y, "rim remains below the work surface")
+		_check(main._level.get_node("Ground").find_children("*", "CollisionShape3D", true, false).size() == 1, "decoration adds no collision shape")
+		_check(not main._level.get_node("Ground/Mesh").visible, "outside the finite mat the original ground is hidden")
+
 		_prefs.values.appearance = "dark"
 		_prefs.changed.emit()
 		_check(sky.sky_top_color.get_luminance() < 0.1 and sky.ground_bottom_color.get_luminance() < 0.1, "dark scene background switches immediately")
