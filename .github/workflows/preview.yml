@@ -1,0 +1,151 @@
+name: Preview ssok on the web
+
+on:
+  push:
+    branches: ['feat/**', 'ci/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+# Every preview writes the same branch, so serialize across source branches too.
+concurrency:
+  group: ssok-preview-gh-pages
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    if: startsWith(github.ref, 'refs/heads/feat/') || startsWith(github.ref, 'refs/heads/ci/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.14.7'
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: build/toolchain/downloads
+          key: godot-4.7.2-linux-and-templates-f298490b
+      - name: Resolve the preview path
+        id: target
+        env:
+          PREVIEW_BRANCH: ${{ github.ref_name }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import os
+          import re
+
+          branch = os.environ['PREVIEW_BRANCH']
+          name = re.sub(r'[^a-z0-9]+', '-', branch.lower()).strip('-')[:80]
+          suffix = hashlib.sha256(branch.encode('utf-8')).hexdigest()[:12]
+          slug = f'{name}-{suffix}'
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f'slug={slug}\n')
+          PY
+      - name: Install Godot 4.7.2 and export templates
+        run: python tools/ci/install_godot.py --templates
+      - name: Export and audit Web only
+        env:
+          PREVIEW_VERSION: ${{ github.sha }}
+        run: python tools/ci/build.py --godot "$PWD/build/toolchain/godot" --platforms Web --version "$PREVIEW_VERSION"
+      - name: Check the existing Pages source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/pages" > "$RUNNER_TEMP/ssok-pages.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          settings = json.loads((Path(os.environ['RUNNER_TEMP']) / 'ssok-pages.json').read_text())
+          source = settings.get('source', {})
+          if (settings.get('build_type'), source.get('branch'), source.get('path')) != ('legacy', 'gh-pages', '/'):
+              raise SystemExit('Expected Pages from gh-pages root; no publishing settings or files were changed.')
+          PY
+      - name: Check out the current site without replacing its root
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: gh-pages
+          path: build/pages
+      - name: Update only this branch preview
+        id: publish
+        working-directory: build/pages
+        env:
+          PREVIEW_SLUG: ${{ steps.target.outputs.slug }}
+        run: |
+          # Old reruns and deleted source branches must not replace a newer preview.
+          current_sha=$(git ls-remote --exit-code origin "$GITHUB_REF" | cut -f1)
+          if [ "$current_sha" != "$GITHUB_SHA" ]; then
+            echo 'Skipped: the source branch has a newer revision.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          test -f index.html
+          test -f .nojekyll
+          test -f "$GITHUB_WORKSPACE/build/web/index.html"
+          destination="preview/$PREVIEW_SLUG"
+          test ! -L preview
+          test ! -L "$destination"
+          mkdir -p "$destination"
+          rsync -a --checksum --delete "$GITHUB_WORKSPACE/build/web/" "$destination/"
+          git add -- "$destination"
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m "Update web preview $PREVIEW_SLUG" -m "Source: $GITHUB_SHA" -m 'Agent: codex'
+            # Never force: a concurrent release must cause a safe failure, not lost files.
+            git push origin HEAD:refs/heads/gh-pages
+          fi
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo 'published=true' >> "$GITHUB_OUTPUT"
+      - name: Request Pages publication and wait for the committed site
+        if: steps.publish.outputs.published == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PREVIEW_COMMIT: ${{ steps.publish.outputs.commit }}
+        run: |
+          # GITHUB_TOKEN pushes alone do not trigger branch-source Pages builds.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+          for attempt in {1..60}; do
+            gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" > "$RUNNER_TEMP/ssok-pages-build.json"
+            state=$(python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          build = json.loads((Path(os.environ['RUNNER_TEMP']) / 'ssok-pages-build.json').read_text())
+          print(build.get('status', 'pending') if build.get('commit') == os.environ['PREVIEW_COMMIT'] else 'pending')
+          PY
+          )
+            if [ "$state" = built ]; then exit 0; fi
+            if [ "$state" = errored ]; then
+              cat "$RUNNER_TEMP/ssok-pages-build.json"
+              exit 1
+            fi
+            sleep 10
+          done
+          echo 'Timed out waiting for Pages; inspect Pages build history and rerun this workflow.' >&2
+          exit 1
+      - name: Link to the published preview
+        if: steps.publish.outputs.published == 'true'
+        env:
+          PREVIEW_SLUG: ${{ steps.target.outputs.slug }}
+        run: |
+          base_url=$(python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          print(json.loads((Path(os.environ['RUNNER_TEMP']) / 'ssok-pages.json').read_text())['html_url'].rstrip('/'))
+          PY
+          )
+          printf 'Play this branch: [%s/preview/%s/](%s/preview/%s/)\n\nSource: `%s`\n' \
+            "$base_url" "$PREVIEW_SLUG" "$base_url" "$PREVIEW_SLUG" "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
