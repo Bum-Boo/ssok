@@ -35,6 +35,8 @@ func build() -> void:
 		picture.stage_id = level.id
 		box.add_child(picture)
 		text(box, level.title, 22)
+		if StageProgress.cleared_with_solution(level.id):
+			text(box, "Cleared with solution", 13, true)
 		text(box, ["Beginner", "Intermediate", "Advanced"][int(level.number) - 1], 14, true)
 		text(box, level.topic, 14, true)
 		text(box, level.goal, 15)

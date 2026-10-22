@@ -119,8 +119,8 @@ func _refresh() -> void:
 		var sample: Dictionary = samples[index] if index < samples.size() else {}
 		var value: Variant = sample.get("value", null)
 		var scale: float = 0.01 if rule.metric == "sonar_distance" else 1.0
-		var unit: String = "m" if rule.metric in ["height", "x", "sonar_distance"] else ("m/s" if rule.metric == "speed" else "")
-		var metric: String = tr({"height": "Flag height", "x": "Distance driven", "sonar_distance": "Distance to wall", "speed": "Speed", "upright": "Upright", "wall_contact": "Wall contact"}.get(rule.metric, rule.metric))
+		var unit: String = "m" if rule.metric in ["height", "x", "sonar_distance", "min_x", "max_height", "wall_distance"] else ("m/s" if rule.metric in ["speed", "robot_speed"] else "")
+		var metric: String = tr({"min_x": "Distance driven", "max_height": "Flag height" if rule.part_id == "flag" else "Height (m)", "robot_speed": "Speed", "wall_distance": "Distance to wall", "height": "Flag height", "x": "Distance driven", "sonar_distance": "Distance to wall", "speed": "Speed", "upright": "Upright", "wall_contact": "Wall contact"}.get(rule.metric, rule.metric))
 		var current: String = "%.3f %s" % [float(value) * scale, unit] if value != null else tr("Measurement unavailable")
 		var target: String = "≥ %.3f %s" % [float(rule.min) * scale, unit] if rule.max >= 50.0 else "%.3f–%.3f %s" % [float(rule.min) * scale, float(rule.max) * scale, unit]
 		var observed: String = tr("%s: %s / Target: %s") % [metric, current, target]

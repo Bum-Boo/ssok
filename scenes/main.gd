@@ -85,6 +85,9 @@ var _replace_dialog: ConfirmationDialog
 ## Set by the app router before entering the tree: {"mode": "stage"|"lab"|"example", ...}.
 ## Empty keeps the full legacy workshop that tests and older entry points use.
 var session: Dictionary = {}
+var _used_solution: bool = false
+var _stage_replace_dialog: ConfirmationDialog
+var _stage_reset_dialog: ConfirmationDialog
 var stage_hud: StageHud
 var _workbench_environment: Environment
 var _auto_frame: bool = true
@@ -527,6 +530,7 @@ func _build_ui() -> void:
 	stages.outcome_changed.connect(func(message: String) -> void: _set_status(message))
 	stages.context_provider = func() -> Dictionary:
 		var context: Dictionary = StageDefinition.runtime_context(run_mode, assembly.graph, stages._resource_identity)
+		context.environment_walls = _level.wall_bounds() if _level != null else []
 		context.board = blocks.profile.id
 		context.board_api = blocks.profile.api.duplicate(true)
 		context.pin_constants = blocks.profile.pin_constants.duplicate(true)
@@ -1060,6 +1064,16 @@ func _on_kit_bridge_pressed() -> void:
 
 func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void:
 	_ensure_assembly_mode()
+	if session.get("mode") == "stage" and _level != null and not _level.wall_bounds().is_empty():
+		for index: int in range(graph.parts.size() - 1, -1, -1):
+			if graph.parts[index].part_def.id == &"stage_wall":
+				graph.parts.remove_at(index)
+				graph.links = graph.links.filter(func(link: Dictionary) -> bool: return link.a_part != index and link.b_part != index)
+				for link: Dictionary in graph.links:
+					if link.a_part > index:
+						link.a_part -= 1
+					if link.b_part > index:
+						link.b_part -= 1
 	assembly.load_graph(graph)
 	_colorize(assembly)
 	_mark_ports(assembly)
@@ -1709,14 +1723,19 @@ func _enter_stage(level: Dictionary) -> void:
 	_install_level(level.scene)
 	var library: Control = _ui_root.get_node("PartsLibrary") as Control
 	var allowed: Array = level.get("parts", [])
-	library.visible = not allowed.is_empty()
+	library.visible = true
 	for button: Button in part_buttons:
 		var definition: PartDef = button.get_meta("part_definition")
-		button.visible = String(definition.id) in allowed
-	flag_mission.show_visual = level.id == "raise-flag"
-	_load_preset(StageLevels.starting_graph(level, stage), level.get("starter_code", stage.scene.source), "Read the mission, then change the program.")
+		button.visible = allowed.is_empty() or String(definition.id) in allowed
+	flag_mission.show_visual = false
+	if level.id == "wall-brake":
+		_level.install_wall(0.8)
+		stages.evaluator.environment_walls = _level.wall_bounds()
+	var saved: Dictionary = StageProgress.load_workspace(level.id)
+	_used_solution = saved.get("used_solution", false)
+	_load_preset(ProjectStore.graph_from(saved.project) if not saved.is_empty() else ConnectionGraph.new(), saved.project.source if not saved.is_empty() else "", "Look at the environment, choose parts and build a robot to solve the challenge.")
 	stages.load_goal(stage)
-	_set_tabs(level.get("tabs", ["Blocks", "Code"]))
+	_set_tabs(["Blocks", "Code", "Wiring", "Controls"])
 	program_tabs.set_tab_hidden(3, false)
 	control_source.select(CONTROL_CODE)
 	stage_hud = StageHud.new()
@@ -1725,14 +1744,15 @@ func _enter_stage(level: Dictionary) -> void:
 	_ui_root.add_child(stage_hud)
 	stage_hud.start_pressed.connect(func() -> void:
 		get_viewport().gui_release_focus()
-		_set_status("Change the program, then press “Run”."))
+		_set_status("Look at the environment, choose parts and build a robot to solve the challenge."))
 	stage_hud.retry_requested.connect(_reset_attempt)
 	stage_hud.next_requested.connect(func() -> void:
 		var next: Dictionary = StageLevels.next_after(level.id)
-		if not next.is_empty():
+		if not next.is_empty() and _save_stage_workspace():
 			next_stage_requested.emit(next.id))
-	stage_hud.list_requested.connect(func() -> void: exit_requested.emit())
+	stage_hud.list_requested.connect(_request_exit)
 	stage_hud.exit_pressed.connect(_request_exit)
+	_build_stage_actions()
 	stages.outcome_changed.connect(_on_stage_outcome)
 	goal_display = StageGoalDisplay.new()
 	_ui_root.add_child(goal_display)
@@ -1770,8 +1790,11 @@ func _request_exit() -> void:
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
-	# Stage progress is kept separately; a stage attempt itself needs no save prompt.
-	if session.get("mode", "") == "stage" or _workspace_key() == _clean_workspace:
+	if session.get("mode", "") == "stage":
+		if _save_stage_workspace():
+			exit_requested.emit()
+		return
+	if _workspace_key() == _clean_workspace:
 		exit_requested.emit()
 	else:
 		_exit_dialog.popup_centered()
@@ -1818,7 +1841,7 @@ func _on_stage_outcome(message: String) -> void:
 		return
 	if stages.evaluator.success:
 		var level_id: String = session.get("level", {}).get("id", "")
-		if StageProgress.mark_cleared(level_id) != OK:
+		if StageProgress.mark_cleared(level_id, _used_solution) != OK:
 			_set_status("Stage cleared, but progress could not be saved.", true)
 		stage_hud.show_success("The goal was met in the physics run.")
 	elif stages.evaluator.status in ["not_met", "indeterminate"]:
@@ -1848,6 +1871,8 @@ func _setup_scene_ui() -> void:
 	_help_panel.visible = false
 	for node_name: String in ["WorkspaceHeader", "WorkspaceFooter", "ViewportTools"]:
 		(_ui_root.get_node(node_name) as Control).hide()
+	if session.get("mode") == "stage":
+		(_ui_root.get_node("ViewportTools") as Control).show()
 	if stage_hud == null:
 		stage_hud = StageHud.new()
 		stage_hud.configure({"goal": "Build, wire and program your own robot."}, false)
@@ -1868,7 +1893,11 @@ func _setup_scene_ui() -> void:
 	for index: int in examples_menu.get_popup().item_count:
 		example_popup.add_item(examples_menu.get_popup().get_item_text(index))
 	example_popup.id_pressed.connect(_load_example_id)
-	popup.add_submenu_node_item("Load an example", example_popup)
+	if session.get("mode") != "stage":
+		popup.add_submenu_node_item("Load an example", example_popup)
+	else:
+		example_popup.free()
+		popup.set_item_disabled(3, true)
 	popup.id_pressed.connect(_on_help_selected)
 	stage_hud.help_requested.connect(func() -> void:
 		popup.position = Vector2i(stage_hud.goal_card.get_global_rect().end.x - 260, stage_hud.goal_card.get_global_rect().end.y)
@@ -1936,6 +1965,9 @@ func _position_scene_panels() -> void:
 	var top: float = stage_hud.goal_card.get_global_rect().end.y + 12.0
 	var library: Control = _ui_root.get_node("PartsLibrary")
 	library.offset_top = top
+	var tools: Control = _ui_root.get_node("ViewportTools")
+	if tools.visible:
+		tools.position = Vector2(_left_edge() + 12.0, top)
 	var height: float = minf(size.y * 0.6, size.y - top - 12)
 	library.offset_bottom = top + height - size.y
 	_side_panel.offset_top = top
@@ -1955,3 +1987,49 @@ func _on_help_selected(index: int) -> void:
 			_open_projects()
 		3:
 			_request_starter(_practice_flag_arm)
+
+
+func _build_stage_actions() -> void:
+	_stage_replace_dialog = ConfirmationDialog.new()
+	_stage_replace_dialog.theme = _ui_root.theme
+	_stage_replace_dialog.title = "Show solution"
+	_stage_replace_dialog.dialog_text = "Replace your assembly and code with the author solution?"
+	_stage_replace_dialog.confirmed.connect(_load_stage_solution)
+	add_child(_stage_replace_dialog)
+	_stage_reset_dialog = ConfirmationDialog.new()
+	_stage_reset_dialog.theme = _ui_root.theme
+	_stage_reset_dialog.title = "Build from scratch"
+	_stage_reset_dialog.dialog_text = "Clear this stage's assembly and code and start from an empty workbench?"
+	_stage_reset_dialog.confirmed.connect(_clear_stage_build)
+	add_child(_stage_reset_dialog)
+	stage_hud.solution_requested.connect(func() -> void: _stage_replace_dialog.popup_centered())
+	stage_hud.reset_build_requested.connect(func() -> void: _stage_reset_dialog.popup_centered())
+
+
+func _load_stage_solution() -> void:
+	var stage: Dictionary = StageLevels.stage_definition(session.level)
+	var graph: ConnectionGraph = StageLevels.starting_graph(session.level, stage)
+	_used_solution = true
+	_reset_attempt()
+	_load_preset(graph, stage.author_solution.source, "Author solution loaded. Try it, then build your own.")
+	_save_stage_workspace()
+
+
+func _clear_stage_build() -> void:
+	_used_solution = false
+	_reset_attempt()
+	_load_preset(ConnectionGraph.new(), "", "Look at the environment, choose parts and build a robot to solve the challenge.")
+	_save_stage_workspace()
+
+
+func _save_stage_workspace() -> bool:
+	if session.get("mode", "") != "stage":
+		return true
+	var record: Dictionary = _prepare_project_document()
+	if record.has("error"):
+		_set_status(record.error, true)
+		return false
+	if StageProgress.save_workspace(session.level.id, record, _used_solution) != OK:
+		_set_status("Could not save this stage. Your build is kept here. Try again before leaving.", true)
+		return false
+	return true

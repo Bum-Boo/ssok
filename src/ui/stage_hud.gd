@@ -13,6 +13,8 @@ signal phase_requested(index: int)
 signal parts_requested
 signal program_requested
 signal help_requested
+signal solution_requested
+signal reset_build_requested
 signal run_requested
 
 var level: Dictionary = {}
@@ -115,6 +117,22 @@ func _build_goal_card() -> void:
 			help_action = action
 		_tool_actions.append(action)
 		top.add_child(action)
+	if level.has("stage_id"):
+		var answer := MenuButton.new()
+		answer.name = "SolutionMenu"
+		answer.text = "Show solution"
+		answer.icon = SsokTheme.icon("book-open")
+		answer.tooltip_text = "Show solution"
+		answer.set_meta("tool_label", "Show solution")
+		answer.get_popup().add_item("Show solution", 0)
+		answer.get_popup().add_item("Build from scratch", 1)
+		answer.get_popup().id_pressed.connect(func(id: int) -> void:
+			if id == 0:
+				solution_requested.emit()
+			else:
+				reset_build_requested.emit())
+		_tool_actions.append(answer)
+		top.add_child(answer)
 	run_action = MenuScreen.primary(SsokTheme.button("Run", "play"))
 	run_action.clip_text = false
 	run_action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
@@ -133,7 +151,7 @@ func _build_goal_card() -> void:
 		chip.clip_text = false
 		chip.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 		chip.add_theme_font_size_override("font_size", SsokTheme.font_size(16))
-		chip.tooltip_text = WorkshopGuide.HINTS[index]
+		chip.tooltip_text = _phase_hint(index)
 		chip.pressed.connect(func() -> void: phase_requested.emit(index))
 		chip_grid.add_child(chip)
 		chips.append(chip)
@@ -240,14 +258,14 @@ func show_briefing() -> void:
 func show_workflow(state: Dictionary) -> void:
 	_current_phase = state.current
 	_completed = state.completed
-	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else WorkshopGuide.HINTS[_current_phase]
+	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else _phase_hint(_current_phase)
 	SsokLocale.bind(hint_label, instruction)
 	hint_label.tooltip_text = hint_label.text
 	_apply_goal_summary()
 	for index: int in chips.size():
 		chips[index].auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		chips[index].text = ("" if _compact_chips else tr(WorkshopGuide.NAMES[index]) + " ") + ("✓" if state.completed[index] else "·")
-		var chip_hint: String = instruction if index == _current_phase else WorkshopGuide.HINTS[index]
+		var chip_hint: String = instruction if index == _current_phase else _phase_hint(index)
 		chips[index].tooltip_text = tr(WorkshopGuide.NAMES[index]) + ": " + tr(chip_hint)
 		chips[index].add_theme_color_override("font_color", SsokTheme.ACCENT if index == state.current else SsokTheme.TEXT_DIM)
 	if _layout_area.size.x > 0:
@@ -257,7 +275,7 @@ func show_workflow(state: Dictionary) -> void:
 func show_goal_summary(text: String, detail: String) -> void:
 	_goal_summary = text
 	_goal_detail = detail
-	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else WorkshopGuide.HINTS[_current_phase]
+	var instruction: String = "Challenge running. Watching the real robot." if _completed[3] else _phase_hint(_current_phase)
 	SsokLocale.bind(hint_label, instruction)
 	hint_label.tooltip_text = hint_label.text
 	_apply_goal_summary()
@@ -350,3 +368,8 @@ func layout(area: Rect2) -> void:
 	goal_card.size = Vector2(area.size.x, 0)
 	goal_card.reset_size()
 	goal_card.size.x = area.size.x
+
+
+func _phase_hint(index: int) -> String:
+	var steps: Array = level.get("steps", [])
+	return steps[index] if index < steps.size() else WorkshopGuide.HINTS[index]
