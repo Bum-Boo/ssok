@@ -66,7 +66,7 @@ func _run() -> void:
 					if character.unicode_at(0) > 32:
 						_check(SsokLocale.ui_font.has_char(character.unicode_at(0)), locale + " glyph: " + character)
 		_check(_main.language_picker.selected == SsokLocale.LOCALES.find(locale), "selector stays in sync")
-		_check(_main.run_button.tr(_main.run_button.text) == TranslationServer.translate("Run code"), "native button translation")
+		_check(_main.run_button.tr(_main.run_button.text) == TranslationServer.translate("Run"), "native button translation")
 		_check(_main.flag_mission._message.text == TranslationServer.translate("Build a small robot, wire its motor, and raise the flag."), "flag mission translates when language changes")
 		_check(_main.status.text.contains(TranslationServer.translate("Foot")), "live formatted part name")
 		_check(panel.status_label.text.contains(TranslationServer.translate("COMPLETED")), "live job state")

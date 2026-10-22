@@ -310,8 +310,8 @@ func _refresh_text() -> void:
 			description = "Connect the servo to a board pin. The program uses your actual wiring."
 			button = "Open wiring"
 		&"Ready":
-			description = "Run the code. Watch the flag move down and return to its mark."
-			button = "Run code"
+			description = "Press “Run”. Watch the flag move down and return to its mark."
+			button = "Run"
 		&"Running":
 			description = "The flag is moving. The real arm position decides success."
 			button = "Stop"

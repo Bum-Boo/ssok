@@ -245,7 +245,7 @@ func _physics_process(delta: float) -> void:
 
 func _author() -> void:
 	if pending_blocks.is_valid() and pending_blocks.call():
-		SsokLocale.bind(_status, "Blocks are ready. Apply them to update the code; Run code starts the robot.")
+		SsokLocale.bind(_status, "Blocks are ready. Apply them to update the code; “Run” starts the robot.")
 		return
 	if run_mode.is_built() or _target.selected < 0:
 		SsokLocale.bind(_status, "Return to edit mode and choose a target part first.")

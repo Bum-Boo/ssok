@@ -22,8 +22,7 @@ msgstr "控制：WASD / 手柄移动"
 msgid "Control: Learner code"
 msgstr "控制：编写的代码"
 
-msgid "Run code"
-msgstr "运行代码"
+
 
 msgid "Stop input / code"
 msgstr "停止控制 / 代码"
@@ -124,8 +123,8 @@ msgstr "请先点击要删除的零件。"
 msgid "answer loaded - the finished servo arm"
 msgstr "示例已加载：完成的舵机机械臂"
 
-msgid "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example"
-msgstr "双足机器人已加载：运行模式下用 WASD / 摇杆移动，或运行代码体验踏步示例"
+msgid "Biped loaded - Run mode for WASD / stick movement, or “Run” for the stepping example"
+msgstr "双足机器人已加载：运行模式下用 WASD / 摇杆移动，或“运行”体验踏步示例"
 
 msgid "Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel"
 msgstr "编辑模式：G 移动 / R 旋转 / X,Y,Z 约束轴 / Esc 取消"
@@ -133,8 +132,8 @@ msgstr "编辑模式：G 移动 / R 旋转 / X,Y,Z 约束轴 / Esc 取消"
 msgid "W/S forward/back · A/D turn · left stick · Space stop"
 msgstr "W/S 前进·后退 · A/D 转向 · 左摇杆 · Space 停止"
 
-msgid "Code control - press Run code; movement inputs are disabled"
-msgstr "代码控制：点击运行代码；移动输入已禁用。"
+msgid "Code control - press “Run”; movement inputs are disabled"
+msgstr "代码控制：点击“运行”；移动输入已禁用。"
 
 msgid "Input stopped - servos hold their last targets; return to edit mode to reset the robot"
 msgstr "输入已停止：舵机保持最后目标；返回编辑模式可重置机器人。"
@@ -157,8 +156,8 @@ msgstr "左键：选择 · G 移动 / R 旋转 · X/Y/Z 轴 · 数值：mm / 度
 msgid "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
 msgstr "W/S 前进·后退 · A/D 转向 · 左摇杆 · Space/手柄 A 制动 · Esc 停止输入"
 
-msgid "Code control · Run code to start · Stop input / code to cancel · Esc stops"
-msgstr "代码控制 · 运行代码以开始 · 停止控制 / 代码以取消 · Esc 停止"
+msgid "Code control · “Run” to start · Stop input / code to cancel · Esc stops"
+msgstr "代码控制 · “运行”以开始 · 停止控制 / 代码以取消 · Esc 停止"
 
 msgid "Choose a control source, then enter Run mode.\nPart dimensions are fixed; G uses mm and R uses degrees."
 msgstr "选择控制方式，然后进入运行模式。\n零件尺寸固定；G 使用 mm，R 使用度。"
@@ -706,8 +705,8 @@ msgstr "打开教程会停止代码和移动输入，但不会暂停物理。关
 msgid "Run your own servo code"
 msgstr "运行自己的舵机代码"
 
-msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. Run code enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
-msgstr "首次编程练习可加载舵机机械臂示例，在代码页查看程序。运行代码会开启物理，并让程序控制已接线的舵机。\n\n代码和 WASD 不会同时操控机器人。在编辑器中打字不会移动机器人。停止会取消程序；返回编辑模式可恢复装配姿态。"
+msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. “Run” enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
+msgstr "首次编程练习可加载舵机机械臂示例，在代码页查看程序。“运行”会开启物理，并让程序控制已接线的舵机。\n\n代码和 WASD 不会同时操控机器人。在编辑器中打字不会移动机器人。停止会取消程序；返回编辑模式可恢复装配姿态。"
 
 msgid "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code."
 msgstr "编辑器支持精简的 Python 风格舵机语言，而非完整 Python 运行时。加载示例会替换当前代码。"
@@ -1288,8 +1287,8 @@ msgstr "快照已删除。"
 msgid "Could not delete this snapshot."
 msgstr "无法删除此快照。"
 
-msgid "Project opened. Code runs only when you press Run code."
-msgstr "项目已打开。仅在点击运行代码后执行。"
+msgid "Project opened. Code runs only when you press “Run”."
+msgstr "项目已打开。仅在点击“运行”后执行。"
 
 msgid "Blocks"
 msgstr "积木"
@@ -1348,11 +1347,11 @@ msgstr "此命令超出了控制板 API 的范围。代码未更改。"
 msgid "A block contains an invalid value. Your code is unchanged."
 msgstr "积木中有无效值。代码未更改。"
 
-msgid "Blocks are ready. Apply them to update the code; Run code starts the robot."
-msgstr "积木已就绪。应用后可更新代码，点击运行代码启动机器人。"
+msgid "Blocks are ready. Apply them to update the code; “Run” starts the robot."
+msgstr "积木已就绪。应用后可更新代码，点击“运行”启动机器人。"
 
-msgid "Code updated. Run code to try your program."
-msgstr "代码已更新。运行代码来试试程序。"
+msgid "Code updated. Press “Run” to try your program."
+msgstr "代码已更新。点击“运行”来试试程序。"
 
 msgid "Code changed after these blocks were loaded. Read from code before applying."
 msgstr "读取积木后代码已更改。请重新从代码读取后再应用。"
@@ -1390,8 +1389,8 @@ msgstr "按 Esc 离开代码编辑器，按 Tab 在控件间移动。"
 msgid "Build a program from blocks"
 msgstr "用积木构建程序"
 
-msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
-msgstr "打开积木并选择从代码读取。修改角度或添加等待积木，然后应用到代码。点击运行代码才会启动机器人，应用积木不会自动运行。\n\n保存或导出也会包含尚未应用的有效积木。如果分别修改了代码和积木，请先解决冲突再保存。不支持的代码会保持原样。"
+msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. “Run” starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
+msgstr "打开积木并选择从代码读取。修改角度或添加等待积木，然后应用到代码。点击“运行”才会启动机器人，应用积木不会自动运行。\n\n保存或导出也会包含尚未应用的有效积木。如果分别修改了代码和积木，请先解决冲突再保存。不支持的代码会保持原样。"
 
 msgid "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus."
 msgstr "使用 Tab 和 Shift + Tab 在控件间移动。Esc 可离开代码编辑器或关闭对话框。界面控件获得焦点时，机器人控制会暂停。"
@@ -1488,8 +1487,8 @@ msgstr "载入舵机机械臂"
 msgid "Connect the servo to a board pin. The program uses your actual wiring."
 msgstr "把舵机接到主板引脚上。程序会按照实际接线运行。"
 
-msgid "Run the code. Watch the flag move down and return to its mark."
-msgstr "运行代码，看看旗帜是否先下降，再回到目标高度。"
+msgid "Press “Run”. Watch the flag move down and return to its mark."
+msgstr "点击“运行”。观察旗帜下降并回到标记处。"
 
 msgid "The flag is moving. The real arm position decides success."
 msgstr "旗帜正在移动。是否成功取决于机械臂的实际位置。"
@@ -1851,8 +1850,8 @@ msgstr "城堡的旗帜倒下了。转动舵机，让机械臂把旗帜举到绿
 msgid "Change the angle in the servo block."
 msgstr "修改舵机积木里的角度。"
 
-msgid "Press Run code."
-msgstr "点击“运行代码”。"
+msgid "Press “Run”."
+msgstr "点击“运行”。"
 
 msgid "Keep the flag on the green line for one second."
 msgstr "让旗帜在绿线处停留一秒。"
@@ -2058,8 +2057,8 @@ msgstr "提示"
 msgid "Show the mission again"
 msgstr "再看一次任务"
 
-msgid "Press Run code to try it."
-msgstr "点击“运行代码”试试看。"
+msgid "Press “Run” to try it."
+msgstr "点击“运行”试试看。"
 
 msgid "Start"
 msgstr "开始"
@@ -2103,14 +2102,14 @@ msgstr "返回关卡列表"
 msgid "Read the mission, then change the program."
 msgstr "先看任务，再修改程序。"
 
-msgid "Change the program, then press Run code."
-msgstr "修改程序，然后点击“运行代码”。"
+msgid "Change the program, then press “Run”."
+msgstr "修改程序，然后点击“运行”。"
 
 msgid "Free building: add parts from the library, wire them, then program your robot."
 msgstr "自由搭建：从零件库添加零件并接线，再为机器人编程。"
 
-msgid "Robot reset. Change the program, then press Run code."
-msgstr "机器人已复位。修改程序，然后点击“运行代码”。"
+msgid "Robot reset. Change the program, then press “Run”."
+msgstr "机器人已复位。修改程序，然后点击“运行”。"
 
 msgid "Stage cleared, but progress could not be saved."
 msgstr "已过关，但无法保存进度。"
@@ -2336,14 +2335,14 @@ msgstr "把电机连接到控制板引脚。"
 msgid "Edit the blocks or code."
 msgstr "修改积木或代码。"
 
-msgid "Run and watch the goal marker."
-msgstr "运行并观察目标标记。"
+msgid "Press “Run” and watch the goal marker."
+msgstr "点击“运行”，观察目标标记。"
 
 msgid "Help"
 msgstr "帮助"
 
-msgid "Run to measure the goal."
-msgstr "运行后测量目标值。"
+msgid "Press “Run” to measure the goal."
+msgstr "点击“运行”测量目标值。"
 
 msgid "Measurement unavailable"
 msgstr "无法测量"

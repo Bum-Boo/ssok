@@ -112,7 +112,7 @@ func _build_goal_card() -> void:
 			help_action = action
 		_tool_actions.append(action)
 		top.add_child(action)
-	run_action = MenuScreen.primary(SsokTheme.button("Run code", "play"))
+	run_action = MenuScreen.primary(SsokTheme.button("Run", "play"))
 	run_action.clip_text = false
 	run_action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 	run_action.pressed.connect(func() -> void: run_requested.emit())
@@ -280,7 +280,7 @@ func show_measurement(value: Variant) -> void:
 	var metric: String = level.get("metric_label", "")
 	var rule: Dictionary = _rule
 	if value == null or rule.is_empty():
-		SsokLocale.bind(measure_label, "Press Run code to try it.")
+		SsokLocale.bind(measure_label, "Press “Run” to try it.")
 		return
 	var scale: float = 1.0 if rule.metric == "sonar_distance" else 100.0
 	if rule.max >= 50.0:

@@ -544,7 +544,7 @@ func _build_ui() -> void:
 		flag_mission.visible = false)
 	program_tabs.add_child(stages)
 	program_tabs.current_tab = 2
-	run_button = SsokTheme.button("Run code", "play")
+	run_button = SsokTheme.button("Run", "play")
 	run_button.theme_type_variation = &"PrimaryButton"
 	run_button.add_theme_color_override("icon_normal_color", SsokTheme.BG_SUNKEN)
 	run_button.pressed.connect(_on_run_button_pressed)
@@ -1029,7 +1029,7 @@ func _on_answer_pressed() -> void:
 
 
 func _on_biped_pressed() -> void:
-	_load_preset(BipedPreset.build(), BipedPreset.ANSWER_CODE, "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example")
+	_load_preset(BipedPreset.build(), BipedPreset.ANSWER_CODE, "Biped loaded - Run mode for WASD / stick movement, or “Run” for the stepping example")
 
 
 func _on_learned_biped_pressed() -> void:
@@ -1232,7 +1232,7 @@ func _apply_control_source() -> void:
 			else:
 				_set_status("W/S forward/back · A/D turn · left stick · Space stop")
 		else:
-			_set_status("Code control - press Run code; movement inputs are disabled")
+			_set_status("Code control - press “Run”; movement inputs are disabled")
 	_refresh_control_ui()
 
 
@@ -1318,7 +1318,7 @@ func _apply_blocks(source: String) -> bool:
 		SsokLocale.bind(blocks.feedback, "Code changed after these blocks were loaded. Read from code before applying.")
 		return false
 	code_edit.text = source
-	_set_status("Code updated. Run code to try your program.")
+	_set_status("Code updated. Press “Run” to try your program.")
 	return true
 
 
@@ -1384,7 +1384,7 @@ func _load_project(record: Dictionary) -> void:
 	if not ProjectStore.valid(record):
 		return
 	project_title = record.title
-	_load_preset(ProjectStore.graph_from(record), record.source, "Project opened. Code runs only when you press Run code.")
+	_load_preset(ProjectStore.graph_from(record), record.source, "Project opened. Code runs only when you press “Run”.")
 	control_source.select(CONTROL_CODE)
 	_refresh_control_ui()
 
@@ -1465,7 +1465,7 @@ func _refresh_control_ui() -> void:
 		return
 	if stage_hud != null:
 		var attempt_active: bool = mode_button.button_pressed
-		run_button.text = "Reset robot" if attempt_active else "Run code"
+		run_button.text = "Reset robot" if attempt_active else "Run"
 		run_button.icon = SsokTheme.icon("rotate-ccw" if attempt_active else "play")
 	var running: bool = mode_button.button_pressed
 	stop_button.disabled = not running
@@ -1481,7 +1481,7 @@ func _refresh_control_ui() -> void:
 		elif motion_program is BundledBipedMotion:
 			run_help = BundledBipedMotion.HELP
 		if control_source.selected == CONTROL_CODE:
-			run_help = "Code control · Run code to start · Stop input / code to cancel · Esc stops"
+			run_help = "Code control · “Run” to start · Stop input / code to cancel · Esc stops"
 		_help_label.text = tr(camera_help) + "\n" + tr(run_help if running else edit_help)
 
 
@@ -1727,7 +1727,7 @@ func _enter_stage(level: Dictionary) -> void:
 	_ui_root.add_child(stage_hud)
 	stage_hud.start_pressed.connect(func() -> void:
 		get_viewport().gui_release_focus()
-		_set_status("Change the program, then press Run code."))
+		_set_status("Change the program, then press “Run”."))
 	stage_hud.retry_requested.connect(_reset_attempt)
 	stage_hud.next_requested.connect(func() -> void:
 		var next: Dictionary = StageLevels.next_after(level.id)
@@ -1799,7 +1799,7 @@ func _reset_attempt() -> void:
 		stage_hud.run_action.visible = true
 		stage_hud.show_measurement(null)
 		stage_hud.show_problem("")
-	_set_status("Robot reset. Change the program, then press Run code.")
+	_set_status("Robot reset. Change the program, then press “Run”.")
 
 
 ## A finished program leaves the robot still; waiting for the full time limit would only
@@ -1900,7 +1900,7 @@ func _refresh_guide() -> void:
 		source = generated.get("source", "") if not generated.has("error") and code_edit.text == blocks._source_at_load else ""
 	var state: Dictionary = WorkshopGuide.snapshot(assembly.graph, source, runtime, mode_button.button_pressed)
 	stage_hud.show_workflow(state)
-	stage_hud.run_action.text = "Reset robot" if mode_button.button_pressed else "Run code"
+	stage_hud.run_action.text = "Reset robot" if mode_button.button_pressed else "Run"
 	if state.current != _guide_phase:
 		_guide_phase = state.current
 		_open_guide_phase(_guide_phase)

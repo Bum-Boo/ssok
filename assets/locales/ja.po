@@ -22,8 +22,7 @@ msgstr "操作：WASD / ゲームパッド移動"
 msgid "Control: Learner code"
 msgstr "操作：自分のコード"
 
-msgid "Run code"
-msgstr "コードを実行"
+
 
 msgid "Stop input / code"
 msgstr "操作 / コードを停止"
@@ -124,8 +123,8 @@ msgstr "先に削除するパーツをクリックしてください。"
 msgid "answer loaded - the finished servo arm"
 msgstr "作例を読み込みました：完成したサーボアーム"
 
-msgid "Biped loaded - Run mode for WASD / stick movement, or Run code for the stepping example"
-msgstr "二足ロボットを読み込みました：実行モードで WASD / スティック操作、コード実行で足踏みの作例"
+msgid "Biped loaded - Run mode for WASD / stick movement, or “Run” for the stepping example"
+msgstr "二足ロボットを読み込みました：実行モードで WASD / スティック操作、「実行」で足踏みの作例"
 
 msgid "Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel"
 msgstr "編集モード：G 移動 / R 回転 / X,Y,Z 軸制限 / Esc 取消"
@@ -133,8 +132,8 @@ msgstr "編集モード：G 移動 / R 回転 / X,Y,Z 軸制限 / Esc 取消"
 msgid "W/S forward/back · A/D turn · left stick · Space stop"
 msgstr "W/S 前進・後退 · A/D 旋回 · 左スティック · Space 停止"
 
-msgid "Code control - press Run code; movement inputs are disabled"
-msgstr "コード操作：コード実行を押してください。移動入力は無効です。"
+msgid "Code control - press “Run”; movement inputs are disabled"
+msgstr "コード操作：「実行」を押してください。移動入力は無効です。"
 
 msgid "Input stopped - servos hold their last targets; return to edit mode to reset the robot"
 msgstr "入力停止：サーボは最後の目標を保持します。編集モードに戻るとロボットをリセットします。"
@@ -157,8 +156,8 @@ msgstr "左クリック：選択 · G 移動 / R 回転 · X/Y/Z 軸 · 数値�
 msgid "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
 msgstr "W/S 前進・後退 · A/D 旋回 · 左スティック · Space/パッド A ブレーキ · Esc 入力停止"
 
-msgid "Code control · Run code to start · Stop input / code to cancel · Esc stops"
-msgstr "コード操作 · コード実行で開始 · 操作 / コードを停止で取消 · Esc 停止"
+msgid "Code control · “Run” to start · Stop input / code to cancel · Esc stops"
+msgstr "コード操作 · 「実行」で開始 · 操作 / コードを停止で取消 · Esc 停止"
 
 msgid "Choose a control source, then enter Run mode.\nPart dimensions are fixed; G uses mm and R uses degrees."
 msgstr "操作方法を選んで実行モードに入ります。\nパーツの寸法は固定です。G は mm、R は度単位です。"
@@ -706,8 +705,8 @@ msgstr "このガイドを開くとコードと移動入力は止まるけれど
 msgid "Run your own servo code"
 msgstr "自分のサーボコードを実行しよう"
 
-msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. Run code enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
-msgstr "初めてのコーディング練習にはサーボアームのサンプルを読み込み、コードタブでプログラムを見てみよう。「コード実行」で物理演算がオンになり、プログラムが配線されたサーボを制御するよ。\n\nコードと WASD が同時にロボットを動かすことはないよ。エディタで文字を入力してもロボットは動かないよ。停止でプログラムを中止し、編集モードに戻ると組み立て時の姿勢に戻るよ。"
+msgid "For a first code exercise, load the servo arm example and inspect its program in the Code tab. “Run” enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose."
+msgstr "初めてのコーディング練習にはサーボアームのサンプルを読み込み、コードタブでプログラムを見てみよう。「実行」で物理演算がオンになり、プログラムが配線されたサーボを制御するよ。\n\nコードと WASD が同時にロボットを動かすことはないよ。エディタで文字を入力してもロボットは動かないよ。停止でプログラムを中止し、編集モードに戻ると組み立て時の姿勢に戻るよ。"
 
 msgid "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code."
 msgstr "エディタは小さな Python 風サーボ言語に対応しているけれど、完全な Python 実行環境ではないよ。サンプルを読み込むと現在のコードが置き換わるよ。"
@@ -1288,8 +1287,8 @@ msgstr "スナップショットを削除しました。"
 msgid "Could not delete this snapshot."
 msgstr "スナップショットを削除できませんでした。"
 
-msgid "Project opened. Code runs only when you press Run code."
-msgstr "プロジェクトを開きました。「コードを実行」を押すまで実行されません。"
+msgid "Project opened. Code runs only when you press “Run”."
+msgstr "プロジェクトを開きました。「実行」を押すまで実行されません。"
 
 msgid "Blocks"
 msgstr "ブロック"
@@ -1348,11 +1347,11 @@ msgstr "このコマンドはボードAPIの範囲外です。コードは変更
 msgid "A block contains an invalid value. Your code is unchanged."
 msgstr "ブロックに無効な値があります。コードは変更されていません。"
 
-msgid "Blocks are ready. Apply them to update the code; Run code starts the robot."
-msgstr "ブロックを用意しました。コードに反映し、「コードを実行」でロボットを動かせます。"
+msgid "Blocks are ready. Apply them to update the code; “Run” starts the robot."
+msgstr "ブロックを用意しました。コードに反映し、「実行」でロボットを動かせます。"
 
-msgid "Code updated. Run code to try your program."
-msgstr "コードを更新しました。実行してプログラムを試してください。"
+msgid "Code updated. Press “Run” to try your program."
+msgstr "コードを更新しました。「実行」を押してプログラムを試してください。"
 
 msgid "Code changed after these blocks were loaded. Read from code before applying."
 msgstr "ブロックの読み込み後にコードが変更されました。反映する前にコードから読み直してください。"
@@ -1390,8 +1389,8 @@ msgstr "Escでコードエディターを離れ、Tabでコントロール間を
 msgid "Build a program from blocks"
 msgstr "ブロックからプログラムを作る"
 
-msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
-msgstr "ブロックを開き、コードから読み込むを選びます。角度を変えるか待つブロックを追加し、コードに反映します。コードを実行するとロボットが動きます。反映だけでは自動実行されません。\n\n保存や書き出しには有効な未反映ブロックも含まれます。コードとブロックを別々に編集した場合は競合を解消してから保存してください。未対応のコードはそのまま保持されます。"
+msgid "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. “Run” starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact."
+msgstr "ブロックを開き、コードから読み込むを選びます。角度を変えるか待つブロックを追加し、コードに反映します。「実行」するとロボットが動きます。反映だけでは自動実行されません。\n\n保存や書き出しには有効な未反映ブロックも含まれます。コードとブロックを別々に編集した場合は競合を解消してから保存してください。未対応のコードはそのまま保持されます。"
 
 msgid "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus."
 msgstr "TabとShift + Tabでコントロール間を移動します。Escでコードエディターを離れるかダイアログを閉じます。UIにフォーカスがある間、ロボット操作は停止します。"
@@ -1488,8 +1487,8 @@ msgstr "サーボアームを読み込む"
 msgid "Connect the servo to a board pin. The program uses your actual wiring."
 msgstr "サーボをボードのピンにつなぎましょう。プログラムは実際の配線に従って動きます。"
 
-msgid "Run the code. Watch the flag move down and return to its mark."
-msgstr "コードを実行し、旗が下がってから目標の高さに戻るか見ましょう。"
+msgid "Press “Run”. Watch the flag move down and return to its mark."
+msgstr "「実行」を押そう。旗が下がって目印に戻る様子を見よう。"
 
 msgid "The flag is moving. The real arm position decides success."
 msgstr "旗が動いています。実際のアームの位置で成功を判定します。"
@@ -1851,8 +1850,8 @@ msgstr "お城の旗が倒れています。サーボを回して、アームで
 msgid "Change the angle in the servo block."
 msgstr "サーボのブロックの角度を変えよう。"
 
-msgid "Press Run code."
-msgstr "「コードを実行」を押そう。"
+msgid "Press “Run”."
+msgstr "「実行」を押そう。"
 
 msgid "Keep the flag on the green line for one second."
 msgstr "旗を緑の線に1秒とどめよう。"
@@ -2058,8 +2057,8 @@ msgstr "ヒント"
 msgid "Show the mission again"
 msgstr "ミッションをもう一度見る"
 
-msgid "Press Run code to try it."
-msgstr "「コードを実行」を押して試そう。"
+msgid "Press “Run” to try it."
+msgstr "「実行」を押して試そう。"
 
 msgid "Start"
 msgstr "スタート"
@@ -2103,14 +2102,14 @@ msgstr "ステージ一覧に戻る"
 msgid "Read the mission, then change the program."
 msgstr "ミッションを読んで、プログラムを変えてみよう。"
 
-msgid "Change the program, then press Run code."
-msgstr "プログラムを変えてから「コードを実行」を押そう。"
+msgid "Change the program, then press “Run”."
+msgstr "プログラムを変えてから「実行」を押そう。"
 
 msgid "Free building: add parts from the library, wire them, then program your robot."
 msgstr "自由制作: 部品を出して配線し、ロボットのプログラムを作ろう。"
 
-msgid "Robot reset. Change the program, then press Run code."
-msgstr "ロボットを元に戻しました。プログラムを変えてから「コードを実行」を押そう。"
+msgid "Robot reset. Change the program, then press “Run”."
+msgstr "ロボットを元に戻しました。プログラムを変えてから「実行」を押そう。"
 
 msgid "Stage cleared, but progress could not be saved."
 msgstr "ステージはクリアしましたが、記録を保存できませんでした。"
@@ -2336,14 +2335,14 @@ msgstr "モーターをボードのピンにつなごう。"
 msgid "Edit the blocks or code."
 msgstr "ブロックやコードを変えよう。"
 
-msgid "Run and watch the goal marker."
-msgstr "実行して目標マーカーを見よう。"
+msgid "Press “Run” and watch the goal marker."
+msgstr "「実行」を押して目標マーカーを見よう。"
 
 msgid "Help"
 msgstr "ヘルプ"
 
-msgid "Run to measure the goal."
-msgstr "実行すると目標値を測定します。"
+msgid "Press “Run” to measure the goal."
+msgstr "「実行」を押すと目標値を測定します。"
 
 msgid "Measurement unavailable"
 msgstr "測定できません"

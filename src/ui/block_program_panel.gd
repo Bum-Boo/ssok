@@ -83,7 +83,7 @@ func read_source(source: String) -> bool:
 	instructions = result.instructions
 	_instructions_at_load = instructions.duplicate(true)
 	_rebuild()
-	SsokLocale.bind(feedback, "Blocks are ready. Apply them to update the code; Run code starts the robot.")
+	SsokLocale.bind(feedback, "Blocks are ready. Apply them to update the code; “Run” starts the robot.")
 	return true
 
 
@@ -217,7 +217,7 @@ func _apply() -> bool:
 		return false
 	_source_at_load = result.source
 	_instructions_at_load = instructions.duplicate(true)
-	SsokLocale.bind(feedback, "Code updated. Run code to try your program.")
+	SsokLocale.bind(feedback, "Code updated. Press “Run” to try your program.")
 	return true
 
 

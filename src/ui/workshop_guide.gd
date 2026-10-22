@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Read-only projection of workshop state. It never edits the graph or executes code.
 const NAMES: Array[String] = ["Assemble", "Wire", "Code", "Run"]
-const HINTS: Array[String] = ["Place parts on the workbench.", "Connect the motors to board pins.", "Edit the blocks or code.", "Run and watch the goal marker."]
+const HINTS: Array[String] = ["Place parts on the workbench.", "Connect the motors to board pins.", "Edit the blocks or code.", "Press “Run” and watch the goal marker."]
 
 
 static func snapshot(graph: ConnectionGraph, source: String, runtime: MiniRuntime, running: bool) -> Dictionary:

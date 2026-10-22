@@ -37,13 +37,13 @@ const STEPS: Array[Dictionary] = [
 	{
 		"title": "Run your own servo code",
 		"icon": "code-xml",
-		"body": "For a first code exercise, load the servo arm example and inspect its program in the Code tab. Run code enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose.",
+		"body": "For a first code exercise, load the servo arm example and inspect its program in the Code tab. “Run” enables physics and gives your program control of the wired servos.\n\nCode and WASD never drive the robot at the same time. Typing in an editor does not move the robot. Stop cancels the program; return to edit mode to restore the assembled pose.",
 		"hint": "The editor supports a small Python-style servo language, not the full Python runtime. Loading an example replaces your current code.",
 	},
 	{
 		"title": "Build a program from blocks",
 		"icon": "code-xml",
-		"body": "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. Run code starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact.",
+		"body": "Open Blocks and choose Read from code. Change an angle or add a Wait block, then Apply blocks to code. “Run” starts the robot; applying blocks never starts it automatically.\n\nSaving or exporting also includes valid unapplied blocks. If code and blocks were edited independently, resolve the conflict before saving. Unsupported code is kept intact.",
 		"hint": "Use Tab and Shift + Tab to move between controls. Esc leaves the code editor and closes dialogs. Robot controls pause while a UI control has focus.",
 	},
 	{
