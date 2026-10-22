@@ -125,10 +125,15 @@ DOCUMENTATION_REFERENCES = (
 )
 
 
-def execute(command: list[str], log: Path, *, cwd: Path = PROJECT, env=None) -> None:
+def execute(command: list[str], log: Path, *, cwd: Path = PROJECT, env=None, timeout: int = 300) -> None:
     print("Running " + " ".join(command), flush=True)
-    result = subprocess.run(command, cwd=cwd, env=env, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, text=True, timeout=300)
+    try:
+        result = subprocess.run(command, cwd=cwd, env=env, stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired as error:
+        captured = error.stdout or b""
+        log.write_text(captured.decode(errors="replace") if isinstance(captured, bytes) else captured)
+        raise SystemExit(f"Build timed out after {timeout}s; see {log}") from error
     log.write_text(result.stdout)
     if result.returncode or re.search(r"^(SCRIPT ERROR:|ERROR:)", result.stdout, re.MULTILINE):
         print(result.stdout[-8000:])
@@ -191,7 +196,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="ssok-browser-layout-") as temporary:
         environment = dict(os.environ, XDG_DATA_HOME=temporary, XDG_CONFIG_HOME=temporary)
         execute(base + ["--language", "en", "--script", "res://tools/ci/browser_layout.gd", "--",
-                        str(logs / "browser-layout.json")], logs / "browser-layout.log", env=environment)
+                        str(logs / "browser-layout.json")], logs / "browser-layout.log", env=environment, timeout=60)
     artifacts = []
     filenames = {"Web": "index.html", "Linux": "ssok.x86_64", "Windows": "ssok.exe", "macOS": "ssok.zip"}
     for platform in dict.fromkeys(args.platforms):

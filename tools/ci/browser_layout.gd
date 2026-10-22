@@ -3,9 +3,24 @@ extends SceneTree
 ## Derive canvas test anchors from the same controls and fonts as the exported client.
 var _points: Dictionary = {}
 var _native_solutions: Dictionary = {}
+var _started_ms: int = 0
+var _failed: bool = false
+
+
+func _fail(message: String) -> void:
+	_failed = true
+	push_error(message)
+	quit(1)
+
+
+func _watchdog() -> void:
+	if Time.get_ticks_msec() - _started_ms > 45000:
+		_fail("Browser layout exceeded its 45 second deadline")
 
 
 func _initialize() -> void:
+	_started_ms = Time.get_ticks_msec()
+	process_frame.connect(_watchdog)
 	_run.call_deferred()
 
 
@@ -18,6 +33,10 @@ func _run() -> void:
 	root.size = Vector2i(1400, 950)
 	root.gui_embed_subwindows = true
 	SsokLocale.select_locale("en", false)
+	await _native_routes()
+	if _failed:
+		return
+	print("Browser layout: legacy opt-in workshop compatibility")
 	var main: Node3D = load("res://scenes/main.tscn").instantiate()
 	root.add_child(main)
 	await _settle()
@@ -46,7 +65,9 @@ func _run() -> void:
 	tab_bar.ensure_tab_visible(tab_bar.tab_count - 1)
 	await _settle()
 	var stage_tab_rect: Rect2 = tab_bar.get_tab_rect(4)
-	assert(tab_bar.get_tab_idx_at_point(stage_tab_rect.get_center()) == 4)
+	if tab_bar.get_tab_idx_at_point(stage_tab_rect.get_center()) != 4:
+		_fail("Stages tab did not scroll into view")
+		return
 	_rect("stages_tab_scrolled", tab_bar, stage_tab_rect)
 	main.program_tabs.current_tab = 4
 	await _settle()
@@ -66,7 +87,9 @@ func _run() -> void:
 	tab_bar.ensure_tab_visible(0)
 	await _settle()
 	var code_tab_rect: Rect2 = tab_bar.get_tab_rect(0)
-	assert(tab_bar.get_tab_idx_at_point(code_tab_rect.get_center()) == 0)
+	if tab_bar.get_tab_idx_at_point(code_tab_rect.get_center()) != 0:
+		_fail("Code tab did not scroll into view")
+		return
 	_rect("code_tab_scrolled", tab_bar, code_tab_rect)
 	_point("code_editor", main.code_edit)
 	main.program_tabs.current_tab = 3
@@ -126,7 +149,7 @@ func _run() -> void:
 	main.blocks.scroll.scroll_vertical = 1000000
 	await _settle()
 	_point("block_operation", main.blocks.operation_picker)
-	_point("add_block", _button(main.blocks, "+"))
+	_point("add_block", _button(main.blocks, "Add block"))
 	var wait_operation: int = -1
 	for index: int in main.blocks.profile.api.size():
 		if main.blocks.profile.api[index].id == "sleep":
@@ -142,7 +165,7 @@ func _run() -> void:
 	main.blocks.scroll.scroll_vertical = 1000000
 	await _settle()
 	var last_card: Control = main.blocks.rows.get_child(main.blocks.rows.get_child_count() - 1)
-	_point("block_seconds", last_card.get_child(1).get_child(1))
+	_point("block_seconds", last_card.find_child("Argument_seconds", true, false))
 	_point("apply_blocks", _button(main.blocks, "Apply blocks to code"))
 	_point("settings_button", main.settings_button)
 	main._open_settings()
@@ -161,48 +184,117 @@ func _run() -> void:
 	var program_tab_count: int = tab_bar.tab_count
 	main.free()
 	await _settle()
-	await _native_routes()
+	if _failed:
+		return
 	var output: FileAccess = FileAccess.open(args[0], FileAccess.WRITE)
+	if output == null:
+		_fail("Cannot write browser layout: " + args[0])
+		return
 	output.store_string(JSON.stringify({"viewport": [root.size.x, root.size.y], "points": _points, "block_wait_index": wait_operation, "program_tab_count": program_tab_count, "native_solutions": _native_solutions}, "  ") + "\n")
 	print("Browser layout: %d control anchors" % _points.size())
 	quit()
 
 
 func _native_routes() -> void:
-	# Packaged release templates open the router and forbid scene path overrides.
-	# Capture the real title/map/briefing/editor controls for the native input gate.
+	# Default exported clients enter through this router, with current session layouts.
 	StageProgress.path = "user://native-layout-progress.json"
+	DirAccess.remove_absolute(StageProgress.path)
 	var router: Node = load("res://scenes/app.tscn").instantiate()
 	root.add_child(router)
 	await _settle()
+	print("Browser layout: router title")
 	_point("game_title_play", router.current.play_button)
+	_point("game_title_lab", _button(router.current, "Free building"))
 	router.show_stages()
 	await _settle()
 	for level: Dictionary in StageLevels.all():
 		_point("game_stage_" + level.id, router.current.play_buttons[level.id])
 	for level: Dictionary in StageLevels.all():
+		print("Browser layout: stage " + level.id)
 		router.start_stage(level.id)
-		for frame: int in 30:
-			await process_frame
-			if router.current is Node3D:
-				break
-		assert(router.current is Node3D, "Native layout stage did not load")
+		if not await _workshop_ready(router, "stage"):
+			return
 		var workshop: Node3D = router.current
+		_point("game_solution_" + level.id, workshop.stage_hud.find_child("SolutionMenu", true, false))
+		workshop.stage_hud.solution_requested.emit()
 		await _settle()
-		_point("game_start_" + level.id, workshop.stage_hud.start_button)
-		workshop.stage_hud.start_button.pressed.emit()
+		_point("game_confirm_" + level.id, workshop._stage_replace_dialog.get_ok_button())
+		workshop._stage_replace_dialog.confirmed.emit()
+		workshop._stage_replace_dialog.hide()
+		await _settle()
+		_point("game_program_" + level.id, workshop.stage_hud.chips[2])
+		workshop.stage_hud.phase_requested.emit(2)
 		workshop.program_tabs.current_tab = 0
 		await _settle()
 		var bar: TabBar = workshop.program_tabs.get_tab_bar()
-		var code_rect: Rect2 = bar.get_tab_rect(0)
-		assert(bar.get_tab_idx_at_point(code_rect.get_center()) == 0)
-		_rect("game_code_tab_" + level.id, bar, code_rect)
+		_tab("game_code_tab_" + level.id, bar, 0)
 		_point("game_code_editor_" + level.id, workshop.code_edit)
-		_point("game_run_" + level.id, workshop.run_button)
-		_native_solutions[level.id] = "arm = Servo(pin0)\narm.write(90)\nsleep(3000)\n" if level.id == "raise-flag" else (RobotCarPreset.ANSWER_CODE if level.id == "finish-line" else RobotCarPreset.BRAKE_CODE)
+		_point("game_run_" + level.id, workshop.stage_hud.run_action)
+		# Run becomes Reset robot in this session; no separate Stop button is visible.
+		_point("game_stop_" + level.id, workshop.stage_hud.run_action)
+		_native_solutions[level.id] = workshop.code_edit.text
 		router.show_stages()
 		await _settle()
+	print("Browser layout: Lab")
+	router.start_workshop({"mode": "lab"})
+	if not await _workshop_ready(router, "lab"):
+		return
+	var lab: Node3D = router.current
+	_point("lab_run", lab.stage_hud.run_action)
+	_point("lab_stop", lab.stage_hud.run_action)
+	_point("lab_help", lab.stage_hud.help_action)
+	# Use the same Help example action to populate wiring and blocks for their anchors.
+	lab._load_example_id(0)
+	await _settle()
+	lab.stage_hud.phase_requested.emit(2)
+	lab.program_tabs.current_tab = 0
+	await _settle()
+	_point("lab_code_editor", lab.code_edit)
+	var bar: TabBar = lab.program_tabs.get_tab_bar()
+	_tab("lab_code_tab", bar, 0)
+	_tab("lab_blocks_tab", bar, 2)
+	_tab("lab_wiring_tab", bar, 3)
+	_tab("lab_stages_tab", bar, 4)
+	lab.program_tabs.current_tab = 3
+	await _settle()
+	_point("lab_wire_pin", lab.wiring_panel.pin_choice)
+	_point("lab_wire_connect", lab.wiring_panel.connect_button)
+	if lab.wiring_panel.connections.get_child_count() == 0:
+		_fail("Lab example has no wiring rows")
+		return
+	_point("lab_wire_disconnect_first", lab.wiring_panel.connections.get_child(0).get_child(1))
+	lab.program_tabs.current_tab = 4
+	await _settle()
+	lab.stages.get_child(0).scroll_vertical = 1000000
+	await _settle()
+	_point("lab_stage_export", _button(lab.stages, "Export verified challenge"))
+	lab._open_projects()
+	await _settle()
+	_point("lab_project_name", lab.projects.title_edit)
+	_point("lab_save", lab.projects.save_button)
+	_point("lab_export", _button(lab.projects, "Export project"))
+	_point("lab_close_projects", _button(lab.projects, "Close"))
+	lab.projects.close_panel()
 	router.free()
+	await _settle()
+
+
+func _workshop_ready(router: Node, mode: String) -> bool:
+	for frame: int in 120:
+		await process_frame
+		if router.current is Node3D and router.current.session.get("mode") == mode:
+			await _settle()
+			return true
+	_fail("Router did not load " + mode + " session within 120 frames")
+	return false
+
+
+func _tab(name: String, bar: TabBar, index: int) -> void:
+	var rectangle: Rect2 = bar.get_tab_rect(index)
+	if bar.is_tab_hidden(index) or bar.get_tab_idx_at_point(rectangle.get_center()) != index:
+		_fail("Browser tab is hidden or scrolled out: " + name)
+		return
+	_rect(name, bar, rectangle)
 
 
 func _settle() -> void:
@@ -222,7 +314,12 @@ func _button(parent: Node, text: String) -> Button:
 
 
 func _point(name: String, control: Control) -> void:
-	assert(control != null, "Missing browser control: " + name)
+	if control == null:
+		_fail("Missing browser control: " + name)
+		return
+	if not control.is_visible_in_tree():
+		_fail("Hidden browser control: " + name)
+		return
 	_rect(name, control, Rect2(Vector2.ZERO, control.size))
 
 
@@ -231,5 +328,7 @@ func _rect(name: String, control: Control, rectangle: Rect2) -> void:
 	var window: Window = control.get_window()
 	if window != root:
 		center += Vector2(window.position)
-	assert(Rect2(Vector2.ZERO, root.size).has_point(center), "Control outside browser viewport: " + name)
+	if not Rect2(Vector2.ZERO, root.size).has_point(center):
+		_fail("Control outside browser viewport: " + name)
+		return
 	_points[name] = [center.x, center.y]

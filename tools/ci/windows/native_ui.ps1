@@ -100,7 +100,13 @@ function VerifyNativeUi([string]$App,[string]$Work,[string]$Layout) {
             $id=$ids[$index]
             UiClick "game_stage_$id"
             Start-Sleep -Milliseconds 1000
-            UiClick "game_start_$id"
+            UiClick "game_solution_$id"
+            [Windows.Forms.SendKeys]::SendWait('{DOWN}{ENTER}')
+            Start-Sleep -Milliseconds 400
+            UiClick "game_confirm_$id"
+            Start-Sleep -Milliseconds 700
+            # The Code workflow chip opens the editor overlay.
+            UiClick "game_program_$id"
             UiClick "game_code_tab_$id"
             UiClick "game_code_editor_$id"
             [Windows.Forms.Clipboard]::SetText($script:UiLayout.native_solutions.$id)

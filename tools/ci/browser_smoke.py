@@ -53,12 +53,10 @@ def main() -> None:
         server = ThreadingHTTPServer(("127.0.0.1", 0), partial(Handler, directory=str(args.directory.resolve())))
         threading.Thread(target=server.serve_forever, daemon=True).start()
     url = args.url or f"http://127.0.0.1:{server.server_address[1]}/"
-    # The app opens on menus; this gate exercises the workshop coordinates directly.
-    url += ("&" if "?" in url else "?") + "ssok_workshop=1"
     logs, errors = [], []
     result = {"url": url, "passed": False, "errors": errors,
         "viewport": [1400, 950],
-        "scope": "Export loading, canvas rendering, servo-arm starter, program run and stop; screenshots require review"}
+        "scope": "Export loading, canvas rendering, router, empty stage, confirmed author solution, program run and reset; screenshots require review"}
 
     def persist():
         (output / "console.json").write_text(json.dumps(logs, indent=2) + "\n")
@@ -87,14 +85,28 @@ def main() -> None:
                 assert canvas.is_visible(), "WebGL canvas is not visible"
                 capture(page, "01-workshop")
                 # Canvas controls have no DOM selectors; the build captures their actual layout.
-                page.mouse.click(*layout["points"]["flag_starter"])
+                def click(name):
+                    page.mouse.click(*layout["points"][name])
+                    page.wait_for_timeout(700)
+
+                click("game_title_play")
+                capture(page, "02-stage-list")
+                click("game_stage_raise-flag")
+                page.wait_for_timeout(1000)
+                capture(page, "03-empty-stage")
+                click("game_solution_raise-flag")
+                page.keyboard.press("ArrowDown")
+                page.keyboard.press("Enter")
                 page.wait_for_timeout(400)
-                capture(page, "02-servo-arm")
-                page.mouse.click(*layout["points"]["flag_action"])
-                page.wait_for_timeout(30000)
-                capture(page, "03-flag-result")
-                page.mouse.click(*layout["points"]["stop"])
-                page.wait_for_timeout(200)
+                capture(page, "04-solution-confirmation")
+                click("game_confirm_raise-flag")
+                capture(page, "05-author-solution")
+                click("game_run_raise-flag")
+                page.wait_for_timeout(10000)
+                capture(page, "06-flag-result")
+                # Reset is the current stage's stop-and-return-to-edit action.
+                click("game_stop_raise-flag")
+                capture(page, "07-reset")
                 errors.extend(item["text"] for item in logs if item["type"] == "error" or item["text"].startswith(("ERROR:", "SCRIPT ERROR:")))
                 result.update(single_threaded=True, browser=browser.version)
                 if errors:
