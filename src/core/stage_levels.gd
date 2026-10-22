@@ -58,7 +58,7 @@ static func next_after(id: String) -> Dictionary:
 
 
 ## The catalog arm is assembled upright, so servo 0 degrees already meets the goal. The flag
-## stage starts with the arm lying toward +Z instead: write(0) keeps it down and write(90)
+## answer loads with the arm lying toward +Z instead: write(0) keeps it down and write(90)
 ## raises it (measured 2026-09-30: tip 8.9 cm vs 16.5 cm).
 static func starting_graph(level: Dictionary, stage: Dictionary) -> ConnectionGraph:
 	var graph: ConnectionGraph = ProjectStore.graph_from(stage.author_solution)

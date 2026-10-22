@@ -1821,7 +1821,7 @@ func _reset_attempt() -> void:
 		stage_hud.run_action.visible = true
 		stage_hud.show_measurement(null)
 		stage_hud.show_problem("")
-	_set_status("Robot reset. Change the program, then press “Run”.")
+	_set_status("Robot reset. Change your build or code, then press “Run”.")
 
 
 ## A finished program leaves the robot still; waiting for the full time limit would only
@@ -1992,18 +1992,20 @@ func _on_help_selected(index: int) -> void:
 func _build_stage_actions() -> void:
 	_stage_replace_dialog = ConfirmationDialog.new()
 	_stage_replace_dialog.theme = _ui_root.theme
+	_stage_replace_dialog.dialog_autowrap = true
 	_stage_replace_dialog.title = "Show solution"
 	_stage_replace_dialog.dialog_text = "Replace your assembly and code with the author solution?"
 	_stage_replace_dialog.confirmed.connect(_load_stage_solution)
 	add_child(_stage_replace_dialog)
 	_stage_reset_dialog = ConfirmationDialog.new()
 	_stage_reset_dialog.theme = _ui_root.theme
+	_stage_reset_dialog.dialog_autowrap = true
 	_stage_reset_dialog.title = "Build from scratch"
 	_stage_reset_dialog.dialog_text = "Clear this stage's assembly and code and start from an empty workbench?"
 	_stage_reset_dialog.confirmed.connect(_clear_stage_build)
 	add_child(_stage_reset_dialog)
-	stage_hud.solution_requested.connect(func() -> void: _stage_replace_dialog.popup_centered())
-	stage_hud.reset_build_requested.connect(func() -> void: _stage_reset_dialog.popup_centered())
+	stage_hud.solution_requested.connect(func() -> void: _stage_replace_dialog.popup_centered(Vector2i(mini(SsokTheme.font_size(420), int(get_viewport().get_visible_rect().size.x) - 48), 0)))
+	stage_hud.reset_build_requested.connect(func() -> void: _stage_reset_dialog.popup_centered(Vector2i(mini(SsokTheme.font_size(420), int(get_viewport().get_visible_rect().size.x) - 48), 0)))
 
 
 func _load_stage_solution() -> void:

@@ -10,7 +10,7 @@ var play_buttons: Dictionary = {}
 
 
 func build() -> void:
-	header("Stages", "Pick a stage. Each one has its own place, goal and robot.")
+	header("Stages", "Pick a stage. Build your own robot to reach its goal.")
 	var cleared: Dictionary = StageProgress.load_cleared()
 	var grid := HFlowContainer.new()
 	grid.add_theme_constant_override("h_separation", 16)
