@@ -85,6 +85,7 @@ func _run() -> void:
 		for point: Vector3 in [Vector3(100, 0, 0), Vector3(-100, 0, 0), Vector3(0, 100, 0), Vector3(0, -100, 0), main.get_node("Camera3D").global_position + main.get_node("Camera3D").global_basis.z, main.get_node("Camera3D").global_position, main.get_node("Camera3D").global_position + main.get_node("Camera3D").global_basis.x]:
 			display.anchor = point
 			await _settle()
+			_check(display.projected_anchor.is_finite(), "offscreen and camera-plane anchors remain finite")
 			_check(main._camera_framing_rect().encloses(display.card.get_global_rect()), "offscreen label stays on edge")
 			_check(main._camera_framing_rect().has_point(display.projected_anchor), "leader remains in available area")
 			var safe: Rect2 = main._camera_framing_rect().grow(-8)

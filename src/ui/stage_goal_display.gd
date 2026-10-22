@@ -72,7 +72,11 @@ func update_projection() -> void:
 	if not card.visible:
 		queue_redraw()
 		return
-	projected_anchor = camera.unproject_position(anchor)
+	var local_anchor: Vector3 = camera.global_transform.affine_inverse() * anchor
+	# Godot returns zero with an error for perspective points at camera depth zero.
+	# Preserve that edge-clamping input without asking the camera to divide by zero.
+	var singular: bool = camera.projection != Camera3D.PROJECTION_ORTHOGONAL and is_zero_approx(local_anchor.z)
+	projected_anchor = Vector2.ZERO if singular else camera.unproject_position(anchor)
 	var offscreen: bool = camera.is_position_behind(anchor) or not area.has_point(projected_anchor)
 	if camera.is_position_behind(anchor):
 		var direction: Vector2 = area.get_center() - projected_anchor
