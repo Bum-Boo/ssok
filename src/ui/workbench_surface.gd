@@ -46,6 +46,22 @@ static func decorate(ground: MeshInstance3D) -> void:
 	ink.albedo_color = Color("9ab9ac")
 	lines.material_override = ink
 	ground.get_parent().add_child(lines)
+	_stabilize_road_paint(ground.get_parent().get_parent())
+
+
+static func _stabilize_road_paint(level: Node) -> void:
+	if not level.has_node("Props/Road"):
+		return
+	# Submillimeter paint sits on a shadow-casting mat. Keep lighting, but exclude
+	# these instructional surfaces from shadow-map comparisons and their bias artifacts.
+	for branch: String in ["Props", "Markers"]:
+		for visual: MeshInstance3D in level.get_node(branch).find_children("*", "MeshInstance3D", true, false):
+			if not visual.mesh is BoxMesh or visual.mesh.size.y >= 0.001:
+				continue
+			var paint: StandardMaterial3D = visual.material_override.duplicate()
+			paint.disable_receive_shadows = true
+			visual.material_override = paint
+
 
 
 static func apply_theme(root: Node, dark: bool) -> void:
