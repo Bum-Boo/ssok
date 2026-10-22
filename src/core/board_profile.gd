@@ -27,6 +27,13 @@ const LEARNING_API: Array[Dictionary] = [
 	{"id": "elif", "label": "Else if", "arguments": [{"name": "expression", "type": "expression", "default": "True"}]},
 	{"id": "else", "label": "Else", "arguments": []},
 	{"id": "stop", "label": "Stop all motors", "arguments": []},
+	{"id": "for", "label": "Repeat range", "arguments": [{"name": "name", "type": "identifier", "default": "i"}, {"name": "expression", "type": "expression", "default": "3"}]},
+	{"id": "break", "label": "Break loop", "arguments": []},
+	{"id": "motor_pair", "label": "Connect wheel motor", "arguments": [{"name": "name", "type": "identifier", "default": "left"}, {"name": "first", "type": "integer", "default": 0, "min": 0, "max": 255}, {"name": "second", "type": "integer", "default": 8, "min": 0, "max": 255}]},
+	{"id": "forward", "label": "Motor forward", "arguments": [{"name": "name", "type": "identifier", "default": "left"}, {"name": "speed", "type": "number", "default": 40, "min": 0, "max": 100}]},
+	{"id": "backward", "label": "Motor backward", "arguments": [{"name": "name", "type": "identifier", "default": "left"}, {"name": "speed", "type": "number", "default": 40, "min": 0, "max": 100}]},
+	{"id": "motor_brake", "label": "Stop wheel motor", "arguments": [{"name": "name", "type": "identifier", "default": "left"}]},
+	{"id": "sensor_value", "label": "Sensor value", "arguments": [{"name": "variable", "type": "identifier", "default": "distance"}, {"name": "name", "type": "identifier", "default": "sonar"}]},
 ]
 
 var sleep_unit_seconds: float = 1.0

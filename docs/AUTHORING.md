@@ -54,11 +54,16 @@ sleep(0.5)
 arm.write_relative(-20)
 ```
 
-Supported operations are servo binding, absolute angle, signed rest-relative angle and timed wait.
+Supported operations include servo binding, absolute/rest-relative angle, motor power, sonar values,
+variables, arithmetic/logic, if/elif/else, while, for/range and break/continue/pass. Repeat-range,
+condition and sensor-value cards retain indentation on code/block round trips. New repeat-range
+cards generate an empty `pass` body; creating a new nested body still uses code in the existing
+flat card editor. [Language limits and hardware](LEARNING_STAGES.md) describe the full subset.
 The teaching runtime resolves pin 9 through the current wiring graph. An unwired pin produces an
 error. Before sending any motor command, the runtime checks the whole program for supported syntax,
 defined servo names, connected pins and finite values. A later invalid line cannot partly actuate
-the robot. Programs are limited to 2048 lines and 64 KiB; each wait is at most 60 seconds.
+the robot. Programs are limited to 2048 lines and 64 KiB; each wait is at most 60 seconds. Each run has a 10,000 total loop-entry budget and a
+60-second simulated/wall-clock limit, including waits. Exceeding a budget fails and brakes DC motors.
 `write` clamps to 0–180 degrees; relative commands clamp to the joint's bounded signed offsets. This language is
 not full Python and does not compile or upload real-board firmware.
 

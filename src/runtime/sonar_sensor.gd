@@ -11,6 +11,10 @@ var last_valid: bool = false
 var last_distance_cm: float = 401.0
 
 
+func distance() -> float:
+	return distance_cm()
+
+
 func distance_cm() -> float:
 	last_state = "unavailable"
 	last_valid = false

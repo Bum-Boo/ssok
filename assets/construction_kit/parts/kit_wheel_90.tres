@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_wheel_90.res" id="1_yk2o1"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_kvbla"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_2gd6m"]
+
+[sub_resource type="Resource" id="Resource_o2inf"]
+script = ExtResource("2_kvbla")
+id = &"hub"
+local_position = Vector3(0, 0, -0.01)
+local_normal = Vector3(0, 0, -1)
+tag = &"wheel_hub"
+accepts = Array[StringName]([&"motor_shaft"])
+
+[sub_resource type="Resource" id="Resource_4ph68"]
+script = ExtResource("2_kvbla")
+id = &"kit_hub"
+local_position = Vector3(0, 0, 0.01)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_axle_8"
+accepts = Array[StringName]([&"kit_shaft_8", &"kit_axle_8"])
+
+[resource]
+script = ExtResource("3_2gd6m")
+id = &"kit_wheel_90"
+display_name = "Wheel 90 mm"
+mesh = ExtResource("1_yk2o1")
+ports = Array[ExtResource("2_kvbla")]([SubResource("Resource_o2inf"), SubResource("Resource_4ph68")])
+mass_kg = 0.055
+merge_fixed_connections = true
+wheel_radius = 0.045
+wheel_width = 0.02

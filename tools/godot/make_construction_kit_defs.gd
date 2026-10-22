@@ -1,6 +1,7 @@
 extends SceneTree
 
 const ROOT: String = "res://assets/construction_kit/"
+const FUNCTIONAL_PARTS = preload("res://tools/godot/make_functional_parts.gd")
 const MATERIALS = preload("res://tools/godot/part_materials.gd")
 var _failed: bool = false
 
@@ -18,6 +19,9 @@ func _initialize() -> void:
 		if not selected.is_empty() and entry.id != selected:
 			continue
 		generated += 1
+		if entry.geometry.type == "functional_v1":
+			_failed = FUNCTIONAL_PARTS.write_definition(entry) != OK or _failed
+			continue
 		var source: ArrayMesh = load(ROOT + "obj/" + String(entry.id) + ".obj") as ArrayMesh
 		if source == null:
 			_failed = true

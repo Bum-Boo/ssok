@@ -4,8 +4,8 @@ extends RefCounted
 const MAX_DEPTH: int = 32
 const MAX_EXPRESSION_TOKENS: int = 256
 const PRECEDENCE: Dictionary = {"or": 1, "and": 2, "==": 3, "!=": 3, "<": 3, "<=": 3, ">": 3, ">=": 3, "+": 4, "-": 4, "*": 5, "/": 5, "//": 5, "%": 5}
-const FUNCTIONS: Dictionary = {"Servo": [1, 1], "Motor": [1, 1], "Sonar": [2, 2], "sleep": [1, 1], "running_time": [0, 0], "motor_on": [3, 3], "stop": [0, 0], "machine.time_pulse_us": [2, 3]}
-const METHODS: Dictionary = {"write": [1, 1], "write_relative": [1, 1], "motor_on": [2, 2], "stop": [0, 1], "distance_cm": [0, 0]}
+const FUNCTIONS: Dictionary = {"Servo": [1, 1], "Motor": [1, 2], "Sonar": [2, 2], "sleep": [1, 1], "running_time": [0, 0], "motor_on": [3, 3], "stop": [0, 0], "machine.time_pulse_us": [2, 3]}
+const METHODS: Dictionary = {"write": [1, 1], "write_relative": [1, 1], "motor_on": [2, 2], "forward": [1, 1], "backward": [1, 1], "stop": [0, 1], "distance_cm": [0, 0], "distance": [0, 0]}
 var error: Dictionary = {}
 var ast: Array[Dictionary] = []
 var bytecode: Array[Dictionary] = []
@@ -17,6 +17,7 @@ var _token_index: int = 0
 var _expression_line: int = 1
 var _depth: int = 0
 var _names: Dictionary = {}
+var _range_header: bool = false
 
 
 func parse(source: String) -> Dictionary:
@@ -66,7 +67,20 @@ func _block(indent: int, depth: int) -> Array[Dictionary]:
 			if text not in ["from servo import Servo", "from microbit import *", "from microbit import sleep", "import machine"]:
 				_fail(row.line, 1, "This import is not supported.")
 			continue
-		if text.begins_with("if ") or text.begins_with("while "):
+		if text.begins_with("for "):
+			var header: RegExMatch = RegEx.create_from_string(r"^for ([A-Za-z_][A-Za-z0-9_]*) in range\((.*)\):$").search(text)
+			if header == null:
+				_fail(row.line, 1, "Check the command name and its arguments.")
+				break
+			var bounds: Dictionary = expression("range(" + header.get_string(2) + ")", row.line, true)
+			for argument: Dictionary in bounds.get("args", []):
+				_check_names(argument, row.line)
+			var name: String = header.get_string(1)
+			if _reserved_name(name) or bounds.get("args", []).size() not in [1, 2, 3]:
+				_fail(row.line, 1, "Choose another variable name.")
+			_names[name] = true
+			nodes.append({"op": "for", "name": name, "args": bounds.get("args", []), "body": _child(indent, depth, row.line), "line": row.line})
+		elif text.begins_with("if ") or text.begins_with("while "):
 			var kind: String = "while" if text.begins_with("while ") else "if"
 			if not text.ends_with(":"):
 				_fail(row.line, text.length(), "Add ':' after the condition.")
@@ -102,7 +116,7 @@ func _block(indent: int, depth: int) -> Array[Dictionary]:
 			_check_names(value, row.line)
 			if assignment:
 				var name: String = assignment.get_string(1)
-				if name in ["True", "False", "machine"] or name.begins_with("pin") and name.substr(3).is_valid_int() or FUNCTIONS.has(name):
+				if _reserved_name(name):
 					_fail(row.line, 1, "Choose another variable name.")
 				_names[name] = true
 				nodes.append({"op": "assign", "name": name, "value": value, "line": row.line})
@@ -124,7 +138,8 @@ func _child(indent: int, depth: int, line: int) -> Array[Dictionary]:
 	return _block(_lines[_line_index].indent, depth + 1)
 
 
-func expression(text: String, line: int = 1) -> Dictionary:
+func expression(text: String, line: int = 1, range_header: bool = false) -> Dictionary:
+	_range_header = range_header
 	_tokens.clear()
 	_token_index = 0
 	_expression_line = line
@@ -175,6 +190,8 @@ func _expr(minimum: int) -> Dictionary:
 			_take()
 			name += "." + _take()
 		if _peek() == "(":
+			var is_range: bool = name == "range" and _range_header
+			_range_header = false
 			_take()
 			var arguments: Array[Dictionary] = []
 			if _peek() != ")":
@@ -187,7 +204,7 @@ func _expr(minimum: int) -> Dictionary:
 					arguments.append(_expr(0))
 			_expect(")")
 			left = {"kind": "call", "name": name, "args": arguments}
-			var limits: Array = FUNCTIONS.get(name, METHODS.get(name.get_slice(".", 1), []))
+			var limits: Array = [1, 3] if is_range else FUNCTIONS.get(name, METHODS.get(name.get_slice(".", 1), []))
 			if limits.is_empty() or arguments.size() < limits[0] or arguments.size() > limits[1]:
 				_fail(_expression_line, 1, "Check the command name and its arguments.")
 		else:
@@ -233,11 +250,26 @@ func _check_names(value: Dictionary, line: int) -> void:
 
 func _compile(nodes: Array, loops: Array) -> void:
 	for node: Dictionary in nodes:
-		if node.op in ["if", "while"]:
+		if node.op == "for":
+			for argument: Dictionary in node.args:
+				_emit_expression(argument, node.line)
+			var iterator: int = bytecode.size()
+			bytecode.append({"op": "range_init", "args": node.args, "argc": node.args.size(), "iterator": iterator, "line": node.line})
+			var start: int = bytecode.size()
+			bytecode.append({"op": "range_next", "iterator": iterator, "name": node.name, "target": 0, "line": node.line})
+			var scope: Dictionary = {"start": start, "breaks": []}
+			_compile(node.body, loops + [scope])
+			bytecode.append({"op": "jump", "target": start, "line": node.line})
+			bytecode[start].target = bytecode.size()
+			for offset: int in scope.breaks:
+				bytecode[offset].target = bytecode.size()
+		elif node.op in ["if", "while"]:
 			var start: int = bytecode.size()
 			_emit_expression(node.condition, node.line)
 			var test: int = bytecode.size()
 			bytecode.append({"op": "test", "target": 0, "line": node.line})
+			if node.op == "while":
+				bytecode.append({"op": "loop_guard", "line": node.line})
 			var scope: Dictionary = {"start": start, "breaks": []}
 			_compile(node.body, loops + [scope] if node.op == "while" else loops)
 			if node.op == "while":
@@ -291,6 +323,10 @@ func _emit_expression(value: Dictionary, line: int) -> void:
 
 func _peek() -> String:
 	return _tokens[mini(_token_index, _tokens.size() - 1)].value
+
+
+func _reserved_name(name: String) -> bool:
+	return name in ["True", "False", "machine", "range"] or name.begins_with("pin") and name.substr(3).is_valid_int() or FUNCTIONS.has(name)
 
 
 func _take() -> String:

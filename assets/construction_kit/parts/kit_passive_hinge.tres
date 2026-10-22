@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/construction_kit/meshes/kit_passive_hinge.res" id="1_1ofh5"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_ro458"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_j6id2"]
+
+[sub_resource type="Resource" id="Resource_ybbpp"]
+script = ExtResource("2_ro458")
+id = &"mount_0_front"
+local_position = Vector3(-0.01, 0, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_7tjb3"]
+script = ExtResource("2_ro458")
+id = &"mount_0_back"
+local_position = Vector3(-0.01, 0, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_rdh88"]
+script = ExtResource("2_ro458")
+id = &"mount_1_front"
+local_position = Vector3(0.01, 0, 0.002)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_jlr4t"]
+script = ExtResource("2_ro458")
+id = &"mount_1_back"
+local_position = Vector3(0.01, 0, -0.002)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Resource_4j144"]
+script = ExtResource("2_ro458")
+id = &"output"
+local_position = Vector3(0, 0.02, 0.008)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_shaft_8"
+accepts = Array[StringName]([&"kit_axle_8"])
+rotates = true
+
+[resource]
+script = ExtResource("3_j6id2")
+id = &"kit_passive_hinge"
+display_name = "Passive hinge"
+mesh = ExtResource("1_1ofh5")
+ports = Array[ExtResource("2_ro458")]([SubResource("Resource_ybbpp"), SubResource("Resource_7tjb3"), SubResource("Resource_rdh88"), SubResource("Resource_jlr4t"), SubResource("Resource_4j144")])
+mass_kg = 0.035
+actuator_min_deg = -45.0
+actuator_max_deg = 45.0
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.020000001, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(-0.008, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(-0.012, -0.01, -0.002, 0.004, 0.008, 0.004), AABB(-0.012, 0.0019999999, -0.002, 0.004, 0.008, 0.004), AABB(0, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(0.012, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(0.007999999, -0.01, -0.002, 0.004, 0.008, 0.004), AABB(0.007999999, 0.0019999999, -0.002, 0.004, 0.008, 0.004), AABB(-0.008, 0.006000001, -0.006, 0.016, 0.02, 0.012)])
+passive_hinge = true

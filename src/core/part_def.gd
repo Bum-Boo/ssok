@@ -29,3 +29,5 @@ extends Resource
 @export var rolling_friction: float = 0.8
 
 @export var caster_radius: float = 0.0
+## Passive bearings constrain motion without creating an addressable servo.
+@export var passive_hinge: bool = false

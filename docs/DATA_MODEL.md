@@ -70,6 +70,12 @@ Link의 각 끝점은 **부품 배열 인덱스 + 그 정의의 포트 ID**로 �
 | `LearnerProgram` / `BlockProgramPanel` | 지원 코드의 명령 표현과 미적용 초안 | 학습자 source와 충돌하면 양쪽 보존 |
 | `ProjectStore` / `MotionSnapshot` | JSON 계약과 검증 | 불러오기에서 자동 코드 실행 금지 |
 
+수동 힌지는 `PartDef.passive_hinge`로 구분해요. `actuator_min_deg/max_deg`는 이 경우
+무동력 HingeJoint3D의 각도 제한이며 배선 가능한 ServoDrive를 만들지 않아요.
+양수 방향은 베어링 출력 포트의 법선을 따르는 연결 부품의 상대 회전이고 링크 기록 순서와 무관해요.
+한계는 카탈로그 정의이고 인스턴스별 편집/저장 값은 아직 없어요. 새 바퀴는 기존
+`wheel_radius/width`, 추는 `mass_kg`를 사용하며 프로젝트 JSON 형식은 그대로예요.
+
 ## 프로젝트 v1의 실제 모양
 
 ```text

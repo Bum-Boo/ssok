@@ -5,7 +5,7 @@ extends RefCounted
 const MAX_LINES: int = 2048
 const IDENTIFIER: String = "^[A-Za-z_][A-Za-z0-9_]*$"
 const TEMPLATES: Dictionary = {"servo": "{name} = Servo({pin})", "write": "{name}.write({angle})",
-	"write_relative": "{name}.write_relative({angle})", "sleep": "sleep({seconds})", "motor": "{name} = Motor({pin})", "motor_on": "{name}.motor_on(\"{direction}\", {speed})", "motor_stop": "{name}.stop(\"{mode}\")", "sonar": "{name} = Sonar({trigger}, {echo})", "distance": "{variable} = {name}.distance_cm()", "variable": "{name} = {expression}", "while": "while {expression}:", "if": "if {expression}:", "elif": "elif {expression}:", "else": "else:", "stop": "stop()"}
+	"write_relative": "{name}.write_relative({angle})", "sleep": "sleep({seconds})", "motor": "{name} = Motor({pin})", "motor_on": "{name}.motor_on(\"{direction}\", {speed})", "motor_stop": "{name}.stop(\"{mode}\")", "sonar": "{name} = Sonar({trigger}, {echo})", "distance": "{variable} = {name}.distance_cm()", "variable": "{name} = {expression}", "while": "while {expression}:", "if": "if {expression}:", "elif": "elif {expression}:", "else": "else:", "stop": "stop()", "for": "for {name} in range({expression}):", "break": "break", "motor_pair": "{name} = Motor({first}, {second})", "forward": "{name}.forward({speed})", "backward": "{name}.backward({speed})", "motor_brake": "{name}.stop()", "sensor_value": "{variable} = {name}.distance()"}
 
 
 static func parse(source: String, profile: BoardProfile) -> Dictionary:
@@ -73,7 +73,8 @@ static func valid_instruction(item: Dictionary, profile: BoardProfile) -> bool:
 
 static func generate(instructions: Array, profile: BoardProfile) -> Dictionary:
 	var lines: PackedStringArray = []
-	for item: Dictionary in instructions:
+	for index: int in instructions.size():
+		var item: Dictionary = instructions[index]
 		if not valid_instruction(item, profile):
 			return {"error": "A block contains an invalid value. Your code is unchanged."}
 		if item.has("raw"):
@@ -82,15 +83,37 @@ static func generate(instructions: Array, profile: BoardProfile) -> Dictionary:
 			var descriptor: Dictionary = profile.operation(item.op)
 			var line: String = TEMPLATES[item.op]
 			for parameter: Dictionary in descriptor.arguments:
-				var value: String = profile.format_pin(int(item.args[parameter.name])) if parameter.name in ["pin", "trigger", "echo"] else str(item.args[parameter.name])
+				var value: String = profile.format_pin(int(item.args[parameter.name])) if parameter.name in ["pin", "trigger", "echo", "first", "second"] else str(item.args[parameter.name])
 				line = line.replace("{" + parameter.name + "}", value)
-			lines.append(" ".repeat(int(item.get("indent", 0))) + line)
+			var indent: int = int(item.get("indent", 0))
+			lines.append(" ".repeat(indent) + line)
+			# The existing panel creates bodies for while/if; range uses the same safe empty body.
+			if item.op == "for" and (index + 1 == instructions.size() or int(instructions[index + 1].get("indent", 0)) <= indent):
+				lines.append(" ".repeat(indent + 4) + "pass")
 	var source: String = "\n".join(lines)
 	var verified: Dictionary = parse(source, profile)
 	return {"source": source} if not verified.has("error") else verified
 
 
 static func _learning_instruction(line: String, profile: BoardProfile) -> Dictionary:
+	var loop: RegExMatch = RegEx.create_from_string(r"^for ([A-Za-z_][A-Za-z0-9_]*) in range\((.*)\):$").search(line)
+	if loop:
+		return {"op": "for", "args": {"name": loop.get_string(1), "expression": loop.get_string(2)}}
+	if line == "break":
+		return {"op": "break", "args": {}}
+	var pair: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*Motor\(\s*(?:pin)?(\d+)\s*,\s*(?:pin)?(\d+)\s*\)$").search(line)
+	if pair:
+		return {"op": "motor_pair", "args": {"name": pair.get_string(1), "first": int(pair.get_string(2)), "second": int(pair.get_string(3))}}
+	var direction: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\.(forward|backward)\(\s*(\d+(?:\.\d+)?)\s*\)$").search(line)
+	if direction:
+		return {"op": direction.get_string(2), "args": {"name": direction.get_string(1), "speed": float(direction.get_string(3))}}
+	var brake: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\.stop\(\)$").search(line)
+	if brake:
+		return {"op": "motor_brake", "args": {"name": brake.get_string(1)}}
+	var reading: RegExMatch = RegEx.create_from_string(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*([A-Za-z_][A-Za-z0-9_]*)\.distance\(\)$").search(line)
+	if reading:
+		return {"op": "sensor_value", "args": {"variable": reading.get_string(1), "name": reading.get_string(2)}}
+
 	for operation_id: String in ["while", "if", "elif"]:
 		if line.begins_with(operation_id + " ") and line.ends_with(":"):
 			return {"op": operation_id, "args": {"expression": line.substr(operation_id.length() + 1).trim_suffix(":")}}
