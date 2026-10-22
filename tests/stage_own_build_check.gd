@@ -203,8 +203,11 @@ func _run() -> void:
 	var exited: Array[bool] = [false]
 	main.exit_requested.connect(func() -> void: exited[0] = true)
 	var kept: String = main._workspace_key()
+	main._on_run_pressed()
+	_check(main.stages.evaluator.status == "running", "save-failure probe starts a live attempt")
 	main._request_exit()
 	_check(not exited[0] and main._workspace_key() == kept, "write failure keeps the learner in the editor with unchanged build")
+	_check(not main.run_mode.is_built() and main.stages.evaluator.status == "cancelled", "failed exit cancels observation and restores edit mode")
 	StageProgress.path = current_path
 	main.blocks.instructions.append({"op": "raw", "raw": "# keep this draft"})
 	main.code_edit.text += "# conflicting code"

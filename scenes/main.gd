@@ -1791,6 +1791,8 @@ func _request_exit() -> void:
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
 	if session.get("mode", "") == "stage":
+		_ensure_assembly_mode()
+		stages.on_stop()
 		if _save_stage_workspace():
 			exit_requested.emit()
 		return
