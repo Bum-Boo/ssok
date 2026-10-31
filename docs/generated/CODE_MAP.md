@@ -40,6 +40,7 @@ ssok/
     godot_state_charts/
   tests/
     fixtures/
+    review/
   tools/
     app_control/
     blender/

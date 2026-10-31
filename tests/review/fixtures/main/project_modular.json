@@ -1,0 +1,936 @@
+{
+  "format": "ssok-project",
+  "graph": {
+    "links": [
+      {
+        "a_part": 0,
+        "a_port": "chest",
+        "b_part": 1,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "pelvis",
+        "b_part": 2,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "neck",
+        "b_part": 3,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "board",
+        "b_part": 4,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "hip_left",
+        "b_part": 5,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 5,
+        "a_port": "output",
+        "b_part": 6,
+        "b_port": "input"
+      },
+      {
+        "a_part": 6,
+        "a_port": "frame",
+        "b_part": 7,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 5,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_20"
+      },
+      {
+        "a_part": 7,
+        "a_port": "knee",
+        "b_part": 8,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 8,
+        "a_port": "output",
+        "b_part": 9,
+        "b_port": "input"
+      },
+      {
+        "a_part": 9,
+        "a_port": "frame",
+        "b_part": 10,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 8,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_21"
+      },
+      {
+        "a_part": 10,
+        "a_port": "ankle",
+        "b_part": 11,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 11,
+        "a_port": "output",
+        "b_part": 12,
+        "b_port": "input"
+      },
+      {
+        "a_part": 12,
+        "a_port": "frame",
+        "b_part": 13,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 11,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_22"
+      },
+      {
+        "a_part": 0,
+        "a_port": "shoulder_left",
+        "b_part": 14,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 14,
+        "a_port": "output",
+        "b_part": 15,
+        "b_port": "input"
+      },
+      {
+        "a_part": 15,
+        "a_port": "frame",
+        "b_part": 16,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 14,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_23"
+      },
+      {
+        "a_part": 16,
+        "a_port": "elbow",
+        "b_part": 17,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 17,
+        "a_port": "output",
+        "b_part": 18,
+        "b_port": "input"
+      },
+      {
+        "a_part": 18,
+        "a_port": "frame",
+        "b_part": 19,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 17,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_24"
+      },
+      {
+        "a_part": 19,
+        "a_port": "hand",
+        "b_part": 20,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "hip_right",
+        "b_part": 21,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 21,
+        "a_port": "output",
+        "b_part": 22,
+        "b_port": "input"
+      },
+      {
+        "a_part": 22,
+        "a_port": "frame",
+        "b_part": 23,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 21,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_25"
+      },
+      {
+        "a_part": 23,
+        "a_port": "knee",
+        "b_part": 24,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 24,
+        "a_port": "output",
+        "b_part": 25,
+        "b_port": "input"
+      },
+      {
+        "a_part": 25,
+        "a_port": "frame",
+        "b_part": 26,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 24,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_26"
+      },
+      {
+        "a_part": 26,
+        "a_port": "ankle",
+        "b_part": 27,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 27,
+        "a_port": "output",
+        "b_part": 28,
+        "b_port": "input"
+      },
+      {
+        "a_part": 28,
+        "a_port": "frame",
+        "b_part": 29,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 27,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_27"
+      },
+      {
+        "a_part": 0,
+        "a_port": "shoulder_right",
+        "b_part": 30,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 30,
+        "a_port": "output",
+        "b_part": 31,
+        "b_port": "input"
+      },
+      {
+        "a_part": 31,
+        "a_port": "frame",
+        "b_part": 32,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 30,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_28"
+      },
+      {
+        "a_part": 32,
+        "a_port": "elbow",
+        "b_part": 33,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 33,
+        "a_port": "output",
+        "b_part": 34,
+        "b_port": "input"
+      },
+      {
+        "a_part": 34,
+        "a_port": "frame",
+        "b_part": 35,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 33,
+        "a_port": "signal",
+        "b_part": 4,
+        "b_port": "pin_29"
+      },
+      {
+        "a_part": 35,
+        "a_port": "hand",
+        "b_part": 36,
+        "b_port": "mount"
+      }
+    ],
+    "parts": [
+      {
+        "id": "modular_torso_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.75,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_chest_shell",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.75,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_pelvis_shell",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.6299999952316284,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_head_shell",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.9950000047683716,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_controller",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.75,
+          -0.07500000298023224
+        ]
+      },
+      {
+        "id": "modular_hip_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.5900000333786011,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_leg_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.5900000333786011,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_thigh_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.4699999988079071,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_knee_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.3499999940395355,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_leg_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.3499999940395355,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_shin_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.23000000417232513,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_ankle_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.11000000685453415,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_leg_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.11000000685453415,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_foot",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.07999999821186066,
+          0.03500000014901161
+        ]
+      },
+      {
+        "id": "modular_shoulder_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.8799999952316284,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_arm_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.8799999952316284,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_upper_arm_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.7699999809265137,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_elbow_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.6599999666213989,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_arm_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.6599999666213989,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_forearm_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.550000011920929,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_gripper_hand",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.4699999988079071,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_hip_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.5900000333786011,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_leg_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.5900000333786011,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_thigh_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.4699999988079071,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_knee_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.3499999940395355,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_leg_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.3499999940395355,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_shin_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.23000000417232513,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_ankle_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.11000000685453415,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_leg_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.11000000685453415,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_foot",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.07999999821186066,
+          0.03500000014901161
+        ]
+      },
+      {
+        "id": "modular_shoulder_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.8799999952316284,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_arm_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.8799999952316284,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_upper_arm_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.7699999809265137,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_elbow_servo",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.6599999666213989,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_arm_bracket",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.6599999666213989,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_forearm_frame",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.550000011920929,
+          0.0
+        ]
+      },
+      {
+        "id": "modular_gripper_hand",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.4699999988079071,
+          0.0
+        ]
+      },
+      {
+        "id": "cargo_box",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.15000000596046448,
+          0.25999999046325684
+        ]
+      }
+    ],
+    "version": 1
+  },
+  "saved_utc": "2026-10-31T04:53:05",
+  "source": "# main source modular\n",
+  "title": "Main modular",
+  "version": 1
+}

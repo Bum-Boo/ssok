@@ -1,0 +1,384 @@
+{
+  "format": "ssok-project",
+  "graph": {
+    "links": [
+      {
+        "a_part": 0,
+        "a_port": "neck",
+        "b_part": 1,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "board",
+        "b_part": 2,
+        "b_port": "mount"
+      },
+      {
+        "a_part": 0,
+        "a_port": "hip_left",
+        "b_part": 3,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 3,
+        "a_port": "knee",
+        "b_part": 4,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 4,
+        "a_port": "ankle",
+        "b_part": 5,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 0,
+        "a_port": "shoulder_left",
+        "b_part": 6,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 6,
+        "a_port": "elbow",
+        "b_part": 7,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 3,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_20"
+      },
+      {
+        "a_part": 4,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_21"
+      },
+      {
+        "a_part": 5,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_22"
+      },
+      {
+        "a_part": 6,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_23"
+      },
+      {
+        "a_part": 7,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_24"
+      },
+      {
+        "a_part": 0,
+        "a_port": "hip_right",
+        "b_part": 8,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 8,
+        "a_port": "knee",
+        "b_part": 9,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 9,
+        "a_port": "ankle",
+        "b_part": 10,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 0,
+        "a_port": "shoulder_right",
+        "b_part": 11,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 11,
+        "a_port": "elbow",
+        "b_part": 12,
+        "b_port": "pivot"
+      },
+      {
+        "a_part": 8,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_25"
+      },
+      {
+        "a_part": 9,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_26"
+      },
+      {
+        "a_part": 10,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_27"
+      },
+      {
+        "a_part": 11,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_28"
+      },
+      {
+        "a_part": 12,
+        "a_port": "signal",
+        "b_part": 2,
+        "b_port": "pin_29"
+      }
+    ],
+    "parts": [
+      {
+        "id": "humanoid_torso",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.75,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_head",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.9950000047683716,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_board",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.75,
+          -0.0949999988079071
+        ]
+      },
+      {
+        "id": "humanoid_thigh",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.4699999988079071,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_shin",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.23000000417232513,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_foot",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.11999999731779099,
+          0.07999999821186066,
+          0.03500000014901161
+        ]
+      },
+      {
+        "id": "humanoid_upper_arm",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.7699999809265137,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_forearm",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -0.20000000298023224,
+          0.550000011920929,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_thigh",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.4699999988079071,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_shin",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.23000000417232513,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_foot",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.11999999731779099,
+          0.07999999821186066,
+          0.03500000014901161
+        ]
+      },
+      {
+        "id": "humanoid_upper_arm",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.7699999809265137,
+          0.0
+        ]
+      },
+      {
+        "id": "humanoid_forearm",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.20000000298023224,
+          0.550000011920929,
+          0.0
+        ]
+      },
+      {
+        "id": "cargo_box",
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.15000000596046448,
+          0.25999999046325684
+        ]
+      }
+    ],
+    "version": 1
+  },
+  "saved_utc": "2026-10-31T04:53:05",
+  "source": "# main source humanoid\n",
+  "title": "Main humanoid",
+  "version": 1
+}
