@@ -96,6 +96,17 @@ jobs:
           test ! -L preview
           test ! -L "$destination"
           mkdir -p "$destination"
+          # The marker lets the wait below confirm that Pages serves this exact source.
+          python - <<'PY'
+          import os
+          import sys
+
+          sys.path.insert(0, os.environ['GITHUB_WORKSPACE'])
+          from tools.ci.pages_preview_wait import write_marker
+
+          write_marker(os.path.join(os.environ['GITHUB_WORKSPACE'], 'build/web'), os.environ['GITHUB_SHA'],
+                       os.environ['GITHUB_REF_NAME'], os.environ['PREVIEW_SLUG'], os.environ['GITHUB_RUN_ID'])
+          PY
           rsync -a --checksum --delete "$GITHUB_WORKSPACE/build/web/" "$destination/"
           git add -- "$destination"
           if ! git diff --cached --quiet; then
@@ -106,34 +117,28 @@ jobs:
           fi
           echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo 'published=true' >> "$GITHUB_OUTPUT"
-      - name: Request Pages publication and wait for the committed site
+      - name: Request a Pages build and wait until this preview is served
         if: steps.publish.outputs.published == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           PREVIEW_COMMIT: ${{ steps.publish.outputs.commit }}
+          PREVIEW_SLUG: ${{ steps.target.outputs.slug }}
         run: |
-          # GITHUB_TOKEN pushes alone do not trigger branch-source Pages builds.
-          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
-          for attempt in {1..60}; do
-            gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" > "$RUNNER_TEMP/ssok-pages-build.json"
-            state=$(python - <<'PY'
+          # GITHUB_TOKEN pushes alone may not trigger branch-source Pages builds, so one is
+          # requested. Success is the served preview.json with this source commit, because
+          # builds/latest can keep answering a queued placeholder after the site is live.
+          base_url=$(python - <<'PY'
           import json
           import os
           from pathlib import Path
 
-          build = json.loads((Path(os.environ['RUNNER_TEMP']) / 'ssok-pages-build.json').read_text())
-          print(build.get('status', 'pending') if build.get('commit') == os.environ['PREVIEW_COMMIT'] else 'pending')
+          print(json.loads((Path(os.environ['RUNNER_TEMP']) / 'ssok-pages.json').read_text())['html_url'].rstrip('/'))
           PY
           )
-            if [ "$state" = built ]; then exit 0; fi
-            if [ "$state" = errored ]; then
-              cat "$RUNNER_TEMP/ssok-pages-build.json"
-              exit 1
-            fi
-            sleep 10
-          done
-          echo 'Timed out waiting for Pages; inspect Pages build history and rerun this workflow.' >&2
-          exit 1
+          python tools/ci/pages_preview_wait.py --repository "$GITHUB_REPOSITORY" \
+            --commit "$PREVIEW_COMMIT" --source "$GITHUB_SHA" \
+            --url "$base_url/preview/$PREVIEW_SLUG/" --timeout 900 --interval 15 \
+            --summary "$GITHUB_STEP_SUMMARY"
       - name: Link to the published preview
         if: steps.publish.outputs.published == 'true'
         env:

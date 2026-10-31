@@ -265,6 +265,15 @@ Rerun the latest branch run with **Actions → Preview ssok on the web → Re-ru
 or use **Run workflow** on that branch once the workflow is present on the default branch.
 Pages must still serve `gh-pages` at `/`; root/release files are preserved and a Pages build is requested.
 
+The publish step writes `preview.json` (source commit, branch, slug, run id) beside the exported
+`index.html` before syncing the preview directory. `tools/ci/pages_preview_wait.py` then polls for
+up to 15 minutes, every 15 seconds, until `preview/<slug>/preview.json` is served with the pushed
+source commit. The served marker is the success signal: `GET /pages/builds/latest` can keep
+reporting a `queued` placeholder after the site is already live (run 39797157788 timed out that way).
+The Pages API is still read for diagnostics on every poll, and a build that errored for the pushed
+`gh-pages` commit fails the step immediately. The step never force-pushes, deletes or changes Pages settings;
+on a timeout the committed files stay on `gh-pages` and the log says what the URL last returned.
+
 ## Upstream references
 
 - [Official Godot 4.7.2 release and downloads](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)
