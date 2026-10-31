@@ -1,0 +1,31 @@
+READY begin settle_ticks=34 wall_ms=2781
+READY drive0 settle_ticks=155 wall_ms=10734
+READY observe0 settle_ticks=12 wall_ms=876
+READY drive1 settle_ticks=152 wall_ms=11159
+READY observe1 settle_ticks=26 wall_ms=2003
+READY drive2 settle_ticks=152 wall_ms=11167
+READY observe2 settle_ticks=12 wall_ms=876
+travel_x=0.18127996029216
+HOLD DISABLED for idle comparison
+IDLE tick=544 ms=42759 d=(0.0, 0.0, 0.0) |d|=0.00000 yaw=0.003624 v=0.000636 w=0.004469 sleep=false 
+IDLE tick=574 ms=44836 d=(0.000706, 0.000123, 0.000134) |d|=0.00073 yaw=0.005338 v=0.001756 w=0.005763 sleep=false 
+IDLE tick=604 ms=47023 d=(0.001193, -0.000239, 0.000419) |d|=0.00129 yaw=0.007664 v=0.002277 w=0.021218 sleep=false 
+IDLE tick=634 ms=49315 d=(0.001967, -0.000079, 0.000539) |d|=0.00204 yaw=0.008231 v=0.001749 w=0.005742 sleep=false 
+IDLE tick=664 ms=51613 d=(0.002805, 0.000047, 0.000656) |d|=0.00288 yaw=0.009706 v=0.001642 w=0.004796 sleep=false 
+IDLE tick=694 ms=53812 d=(0.003453, -0.000213, 0.000588) |d|=0.00351 yaw=0.007401 v=0.001842 w=0.006204 sleep=false 
+IDLE tick=724 ms=56005 d=(0.004292, -0.000087, 0.000442) |d|=0.00432 yaw=0.005464 v=0.001745 w=0.006064 sleep=false 
+IDLE tick=754 ms=58160 d=(0.005127, 0.000038, 0.000298) |d|=0.00514 yaw=0.003503 v=0.001747 w=0.006103 sleep=false 
+IDLE tick=784 ms=60249 d=(0.005964, 0.000164, 0.000154) |d|=0.00597 yaw=0.001523 v=0.001749 w=0.006152 sleep=false 
+IDLE tick=814 ms=62381 d=(0.006433, -0.000277, 0.00018) |d|=0.00644 yaw=-0.000570 v=0.001757 w=0.012296 sleep=false 
+IDLE tick=844 ms=64569 d=(0.007237, -0.000159, 0.000188) |d|=0.00724 yaw=-0.005877 v=0.001654 w=0.011286 sleep=false 
+IDLE tick=874 ms=66771 d=(0.008038, -0.000043, 0.000199) |d|=0.00804 yaw=-0.011101 v=0.001658 w=0.011268 sleep=false 
+IDLE tick=904 ms=68976 d=(0.008693, -0.000516, 0.000184) |d|=0.00871 yaw=-0.015534 v=0.004839 w=0.156631 sleep=false 
+IDLE tick=934 ms=71165 d=(0.009521, -0.000185, 0.000102) |d|=0.00952 yaw=-0.017313 v=0.001743 w=0.005990 sleep=false 
+IDLE tick=964 ms=73331 d=(0.010359, -0.00006, -0.000024) |d|=0.01036 yaw=-0.019234 v=0.001747 w=0.006047 sleep=false 
+IDLE tick=994 ms=75512 d=(0.011198, 0.000066, -0.000148) |d|=0.01120 yaw=-0.021179 v=0.001748 w=0.006094 sleep=false 
+IDLE tick=1024 ms=77681 d=(0.01223, -0.000827, -0.000353) |d|=0.01226 yaw=-0.024761 v=0.054174 w=1.531779 sleep=false 
+IDLE tick=1054 ms=79877 d=(0.012489, -0.000248, -0.000203) |d|=0.01249 yaw=-0.021142 v=0.001631 w=0.011737 sleep=false 
+IDLE tick=1084 ms=82083 d=(0.013281, -0.000131, -0.000189) |d|=0.01328 yaw=-0.015700 v=0.001643 w=0.011657 sleep=false 
+IDLE tick=1114 ms=84279 d=(0.014076, -0.000013, -0.000178) |d|=0.01408 yaw=-0.010287 v=0.001647 w=0.011633 sleep=false 
+IDLE tick=1144 ms=86552 d=(0.014668, -0.000323, -0.000153) |d|=0.01467 yaw=-0.006267 v=0.002214 w=0.040231 sleep=false 
+idle_drift_m=0.01467255782336 delta=(0.014668, -0.000323, -0.000153) enabled=true state=ready

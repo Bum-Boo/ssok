@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-10-31 r3 후속 클라우드 세션: 미리보기 대기를 실제 served marker 기준으로 바꾸고, 카메라 루프의 10초 벽시계 한도가 느린 렌더러에서 정상 settle(130틱)을 취소하던 결함을 물리 틱 기준으로 고쳤어요. 유휴 drift 한도는 측정 근거(Windows 1.18·Linux 2.77 mm)로 4 mm. 전체 116/0, 실제 Actions·GPU·Windows는 미검증. [보고서](cloud-20261031-ssok-fix.md), [근거](evidence/cloud_fix_2026-10-31/README.md).
+
 2026-10-22 작업 D-3 로컬 후보: 현재 라우터 Stage/Lab의 브라우저 앵커와 종료 기한을 복구하고 컵 관측을 자유 환경 물체로 제한했어요. 115 suites 89 PASS/26 환경 FAIL로 D-2 통과 집합을 유지했어요. Web export는 DNS/템플릿·소켓 제약, Windows 실기는 미검증이에요. [원인·실측·인계](WORK_SUMMARY_D3.md).
 
 2026-10-22 작업 D-2 통합 후보: D의 빈 작업대에 B-2 기능 부품 12종과 C 브랜치 미리보기 워크플로를 병합했어요. 전체 카탈로그는 93종이며 Environment/Electronics 필터와 컵 전체 대상 지표를 연결했어요. 현재 검사·환경 제한·통합 checkpoint는 [작업 D-2](WORK_SUMMARY_D2.md)에서 확인해요. push·미리보기 게시·공개 플레이 확인은 통합 담당자 후속이에요.
@@ -19,9 +21,7 @@
 2026-10-11 r40 로컬 진단 수집: CLI 최상위error/turn.failed와 종료 경합 때의 영수증 유실을 수정. 실제Python71회귀+문서10/realpipes PASS, 독립Fable PASS. 과거r37원인은 복구불가·provider재시도0·앱/목표불변. [검증·한계](evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md).
 
 2026-10-11 r39 로컬 Title 보완: compact1152×648 로고·언어·설정이 모두 보이는 Opus작성 초안. Arch/Mac 기본32화면·확대28사례·Arch동적30검사 PASS/오류0, Astra26PNG/동일v4 bytes·독립Opus PASS. 원본r7패키지는 그대로, 신규빌드/통합/공개는 후속. [전후·실패·한계](evidence/agent_camera_2026-10-10/completion/title-mac-r39/README.md).
-
 2026-10-11 r26: 영상 하단 정지 선호를 실제AI 1회 시험했으나38px/14.9168cm jointFAIL입니다. 앱 미적용, 기준 불변. [결과·한계](evidence/agent_camera_2026-10-10/completion/lower-end-policy-r26/README.md).
-
 2026-10-11 r25: Mac SSH 연결을 확인했지만 공용 기기에는 비공개 코드를 보내지 않습니다. 최신 백업에 Arch 최종 원자료5폴더가 없고 현재 소스와도 다릅니다. [실측·회수 경로](evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md). [r24 공식 작업 인계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md)는 완료했습니다. 정밀도·계정·개인 Mac·Arch 원자료·통합 공개는 미완료입니다.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 

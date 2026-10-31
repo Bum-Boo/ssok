@@ -1,0 +1,90 @@
+extends SceneTree
+
+## Developer probe: mirrors tests/agent_camera_rest_check.gd and prints per-interval
+## chassis/motor/hold state so the idle drift can be attributed. Not a repository test.
+var app: Node3D
+var _t0: int = 0
+
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+func _ticks() -> int:
+	return Engine.get_physics_frames()
+
+
+func _ready_camera(label: String) -> void:
+	var start_tick: int = _ticks()
+	var start_ms: int = Time.get_ticks_msec()
+	for tick: int in 900:
+		if app.agent_loop.state == "ready":
+			print("READY ", label, " settle_ticks=", _ticks() - start_tick, " wall_ms=", Time.get_ticks_msec() - start_ms)
+			return
+		if not app.agent_loop.enabled:
+			print("FAULT ", label, " state=", app.agent_loop.state, " after_ticks=", _ticks() - start_tick)
+			return
+		await physics_frame
+	print("BUDGET ", label)
+
+
+func _row(label: String, before: Vector3) -> void:
+	var body: RigidBody3D = app.run_mode.bodies[0]
+	var motors: Array = []
+	for motor: DriveMotor in app.agent_loop._channels:
+		motors.append("duty=%.4f w=%.5f I=%.4f" % [motor.duty, motor.measured_rad_s, float(app.agent_loop._hold_integral.get(motor, 0.0))])
+	print("%s tick=%d ms=%d d=%s |d|=%.5f yaw=%.6f v=%.6f w=%.6f sleep=%s %s" % [label, _ticks(), Time.get_ticks_msec() - _t0,
+		body.global_position - before, body.global_position.distance_to(before), body.rotation.y,
+		body.linear_velocity.length(), body.angular_velocity.length(), body.sleeping, " ; ".join(motors)])
+
+
+func _run() -> void:
+	_t0 = Time.get_ticks_msec()
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	var width: int = 1600
+	var height: int = 1000
+	var index: int = args.find("--size")
+	if index >= 0:
+		width = int(args[index + 1])
+		height = int(args[index + 2])
+	root.size = Vector2i(width, height)
+	app = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(app)
+	await process_frame
+	app._load_preset(RobotCarPreset.build(0.6), RobotCarPreset.BRAKE_CODE, "")
+	app.control_source.select(app.CONTROL_CODE)
+	app.mode_button.button_pressed = true
+	app.agent_loop.begin()
+	await _ready_camera("begin")
+	var body: RigidBody3D = app.run_mode.bodies[0]
+	var start: Vector3 = body.global_position
+	var steps: int = 3
+	index = args.find("--steps")
+	if index >= 0:
+		steps = int(args[index + 1])
+	for step: int in steps:
+		var meta: Dictionary = app.agent_loop.metadata
+		app.agent_loop.drive_step({"episode_id": meta.episode_id, "frame_id": meta.frame_id,
+			"revision": meta.revision, "control_generation": meta.control_generation,
+			"action": "forward", "ticks": 25})
+		await _ready_camera("drive%d" % step)
+		app.agent_loop.observe()
+		await _ready_camera("observe%d" % step)
+	print("travel_x=", body.global_position.x - start.x)
+	if "--no-hold" in args:
+		# Comparison only: passive braking without the PI hold, as before the holding change.
+		for motor: DriveMotor in app.agent_loop._channels:
+			motor.stop()
+		app.agent_loop._channels.clear()
+		print("HOLD DISABLED for idle comparison")
+	var before: Vector3 = body.global_position
+	_row("IDLE", before)
+	for tick: int in 600:
+		await physics_frame
+		if (tick + 1) % 30 == 0:
+			_row("IDLE", before)
+	print("idle_drift_m=", body.global_position.distance_to(before), " delta=", body.global_position - before,
+		" enabled=", app.agent_loop.enabled, " state=", app.agent_loop.state)
+	app._on_stop_pressed()
+	app.free()
+	quit(0)

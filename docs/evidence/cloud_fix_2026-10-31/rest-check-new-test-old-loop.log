@@ -1,0 +1,14 @@
+ERROR: Camera/action settles within its finite budget
+drive_step 0: ticks=103 wall_ms=13268 state=fault
+ERROR: Slow frames do not cancel a physically settled operation
+ERROR: Camera/action settles within its finite budget
+ERROR: Camera/action settles within its finite budget
+drive_step 1: ticks=0 wall_ms=0 state=fault
+ERROR: Camera/action settles within its finite budget
+ERROR: Camera/action settles within its finite budget
+drive_step 2: ticks=0 wall_ms=0 state=fault
+ERROR: Camera/action settles within its finite budget
+idle_drift_m=0.01511332485825 delta=(0.015088, 0.000123, 0.000866)
+ERROR: Idle camera remains ready without provider/action calls
+ERROR: Ready camera drifts at most 4mm over 10 seconds
+agent_camera_rest_check: 14 checks, 9 failures
