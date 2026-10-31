@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+REVIEW finish_line_placed_block ui_status=Challenge cleared. Change your build and try another solution. status=success reason= measurements=[{"held_seconds":0.0166666666666667,"met":true,"metric":"min_x","part_index":-1,"state":"valid","value":0.780000030994415}]
+ERROR: a passive block placed past the line without moving does not clear finish-line
+REVIEW finish_line_author_only ui_status=Challenge cleared. Change your build and try another solution. status=success reason= measurements=[{"held_seconds":0.0166666666666667,"met":true,"metric":"min_x","part_index":-1,"state":"valid","value":0.50173956155777}]
+REVIEW finish_line_author_plus_env_tile ui_status=finished status=not_met reason=program_finished measurements=[{"held_seconds":0.0,"met":false,"metric":"min_x","part_index":-1,"state":"valid","value":-0.120000004768372}]
+ERROR: an environment line tile is not part of the robot set for min_x
+REVIEW wall_brake_learner_placed_wall ui_status=Challenge cleared. Change your build and try another solution. status=success reason= measurements=[{"held_seconds":0.383333333333333,"met":true,"metric":"wall_distance","part_index":-1,"state":"valid","value":0.0699990764260292},{"held_seconds":0.3,"met":true,"metric":"robot_speed","part_index":-1,"state":"valid","value":0.0000506514697917737},{"held_seconds":0.383333333333333,"met":true,"metric":"wall_contact","part_index":-1,"state":"valid","value":0.0}]
+ERROR: a learner-placed stage_wall prop is not the stage's environment wall
+REVIEW save_trap exited=false status=Could not save this stage. Your build is kept here. Try again before leaving.
+ERROR: oversized stage workspace either leaves or explains why it cannot be saved
+stage_aggregate_review_check: 6 checks, 4 failures

@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+FAIL shared material cargo_box surface 0 (res://assets/humanoid/cargo_box.tres::StandardMaterial3D_i6d5v)
+FAIL shared material humanoid_board surface 0 (res://assets/humanoid/humanoid_board.tres::StandardMaterial3D_3itdu)
+FAIL shared material humanoid_foot surface 0 (res://assets/humanoid/humanoid_foot.tres::StandardMaterial3D_heopf)
+FAIL shared material humanoid_forearm surface 0 (res://assets/humanoid/humanoid_forearm.tres::StandardMaterial3D_riv4l)
+FAIL shared material humanoid_forearm surface 1 (res://assets/humanoid/humanoid_forearm.tres::StandardMaterial3D_4u3de)
+FAIL shared material humanoid_head surface 0 (res://assets/humanoid/humanoid_head.tres::StandardMaterial3D_15ca4)
+FAIL shared material humanoid_shin surface 0 (res://assets/humanoid/humanoid_shin.tres::StandardMaterial3D_wkbsn)
+FAIL shared material humanoid_thigh surface 0 (res://assets/humanoid/humanoid_thigh.tres::StandardMaterial3D_f26qp)
+FAIL shared material humanoid_torso surface 0 (res://assets/humanoid/humanoid_torso.tres::StandardMaterial3D_ixkll)
+FAIL shared material humanoid_upper_arm surface 0 (res://assets/humanoid/humanoid_upper_arm.tres::StandardMaterial3D_8rfco)
+AUDIT loaded part definitions: 93, unique ids: 93
+SIZE_MISMATCH kit_passive_hinge declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.036, 0.012) mesh_center=(0.0, 0.008, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_wheel_40 declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.04, 0.02) mesh_center=(0.0, 0.0, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_wheel_90 declared=(0.04, 0.02, 0.004) mesh=(0.09, 0.09, 0.02) mesh_center=(0.0, 0.0, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_weight_100 declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.02, 0.01) mesh_center=(0.0, 0.0, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_weight_300 declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.02, 0.025) mesh_center=(0.0, 0.0, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_gear_2 declared=(0.04, 0.05, 0.02) mesh=(0.04, 0.036, 0.012) mesh_center=(0.0, 0.008, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_gear_3 declared=(0.04, 0.05, 0.02) mesh=(0.04, 0.036, 0.012) mesh_center=(0.0, 0.008, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_line_sensor declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.042, 0.014) mesh_center=(0.0, 0.006, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_env_line_straight declared=(0.2, 0.001, 0.2) mesh=(0.04, 0.001, 0.2) mesh_center=(0.0, 0.0, 0.0) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_env_line_corner declared=(0.2, 0.001, 0.2) mesh=(0.12, 0.001, 0.12) mesh_center=(0.04, 0.0, -0.04) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_contact_button declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.036, 0.023) mesh_center=(0.0, 0.008, 0.0055) declared_center=(0.0, 0.0, 0.0)
+SIZE_MISMATCH kit_led declared=(0.04, 0.02, 0.004) mesh=(0.04, 0.036, 0.023) mesh_center=(0.0, 0.008, 0.0055) declared_center=(0.0, 0.0, 0.0)
+CATEGORY environment { "name": "Workbench objects", "robot_part": false }
+AUDIT kit catalog entries: 42
+parts_catalog_data_check: 3612 checks, 10 failures
+WARNING: 44 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+ERROR: 1 resources still in use at exit (run with --verbose for details).

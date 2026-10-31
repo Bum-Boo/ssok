@@ -1,0 +1,10 @@
+REVIEW parts 5 expected 4
+REVIEW metrics ['max_height'] expected ['height']
+PASS Web flag: {'elapsed_seconds': 2.3, 'execution_id': 5, 'expired': False, 'measurements': [{'held_seconds': 1, 'met': True, 'metric': 'max_height', 'part_index': -1, 'state': 'valid', 'value': 0.184894904494286}], 'reason': '', 'status': 'success', 'success': True, 'wall_contact': False}
+REVIEW parts 9 expected 9
+REVIEW metrics ['min_x'] expected ['x', 'upright']
+PASS Web finish: {'elapsed_seconds': 1.45, 'execution_id': 10, 'expired': False, 'measurements': [{'held_seconds': 0.0166666666666667, 'met': True, 'metric': 'min_x', 'part_index': -1, 'state': 'valid', 'value': 0.501764953136444}], 'reason': '', 'status': 'success', 'success': True, 'wall_contact': False}
+REVIEW parts 10 expected 10
+REVIEW metrics ['wall_distance', 'robot_speed', 'wall_contact'] expected ['sonar_distance', 'speed', 'wall_contact']
+PASS Web sonar: {'elapsed_seconds': 3.83333333333332, 'execution_id': 15, 'expired': False, 'measurements': [{'held_seconds': 0.666666666666667, 'met': True, 'metric': 'wall_distance', 'part_index': -1, 'state': 'valid', 'value': 0.0694425702095032}, {'held_seconds': 0.3, 'met': True, 'metric': 'robot_speed', 'part_index': -1, 'state': 'valid', 'value': 0.00511024752631783}, {'held_seconds': 3.833
+REVIEW challenge parts ssok-stage 10

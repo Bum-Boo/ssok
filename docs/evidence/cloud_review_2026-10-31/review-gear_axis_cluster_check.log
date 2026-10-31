@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+CASE plate (parallel z) merged=true gear_axis=(0.0, 0.0, 1.0) constraint_axis=(0.0, 0.0, 1.0) |dot|=1.000
+CASE plate (parallel z) input=3.8048 output=-1.9024 expected_output=-1.9024
+CASE kit motor face (perpendicular z) merged=true gear_axis=(1.0, 0.0, 0.0) constraint_axis=(0.0, 0.0, 1.0) |dot|=0.000
+CASE kit motor face (perpendicular z) input=4.7559 output=0.0000 expected_output=-2.3780
+FAIL kit motor face (perpendicular z): constraint axis follows gear part axis
+FAIL kit motor face (perpendicular z): output follows input by ratio
+CASE angle bracket base (perpendicular z) merged=true gear_axis=(0.0, 1.0, 0.0) constraint_axis=(0.0, 0.0, 1.0) |dot|=0.000
+CASE angle bracket base (perpendicular z) input=-6.8390 output=0.0000 expected_output=3.4195
+FAIL angle bracket base (perpendicular z): constraint axis follows gear part axis
+FAIL angle bracket base (perpendicular z): output follows input by ratio
+gear_axis_cluster_check: 9 checks, 4 failures

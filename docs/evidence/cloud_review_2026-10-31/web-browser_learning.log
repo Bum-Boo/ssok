@@ -1,0 +1,11 @@
+Loading Web export
+Web observations ready
+Starting Web flag
+Traceback (most recent call last):
+  File "<scratch>/r3/tools/ci/browser_learning.py", line 152, in <module>
+    main()
+    ~~~~^^
+  File "<scratch>/r3/tools/ci/browser_learning.py", line 92, in main
+    assert len(observation["scene"]["graph"]["parts"]) == expected_parts, observation
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'result': {'failure': {}, 'line': 0, 'motors': [], 'running': False, 'servos': [], 'stage': {'elapsed_seconds': 0, 'execution_id': 4, 'expired': False, 'measurements': [], 'reason': '', 'status': 'idle', 'success': False, 'wall_contact': False}, 'stage_id': 'raise-flag', 'state': 'idle'}, 'scene': {'board': 'microbit', 'graph': {'links': [{'a_part': 0, 'a_port': 'mount_top', 'b_pa

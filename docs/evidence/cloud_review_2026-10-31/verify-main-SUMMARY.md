@@ -1,0 +1,80 @@
+# ssok verification
+
+Godot `4.7.2.stable.official.ed1daf0bf` · 72 checks · 1 failures
+
+Every failed check blocks this command. No expected-failure suppression.
+
+| Check | Result | Seconds |
+|---|---|---:|
+| `import` | PASS | 14.0 |
+| `scene-load` | PASS | 0.6 |
+| `app_controller_check` | PASS | 4.6 |
+| `assembly_snap_check` | PASS | 0.4 |
+| `authoring_ui_check` | PASS | 4.9 |
+| `biped_app_check` | PASS | 18.1 |
+| `biped_board_clearance_check` | PASS | 1.5 |
+| `biped_motion_check` | PASS | 5.0 |
+| `blender_camera_check` | PASS | 0.4 |
+| `blender_edit_check` | PASS | 0.6 |
+| `block_program_check` | PASS | 5.0 |
+| `browser_evidence_check` | PASS | 5.3 |
+| `construction_kit_check` | PASS | 1.2 |
+| `construction_kit_motion_check` | PASS | 10.1 |
+| `construction_kit_store_check` | PASS | 3.3 |
+| `construction_kit_ui_check` | PASS | 5.9 |
+| `control_flow_check` | PASS | 4.8 |
+| `core_authoring_check` | PASS | 5.7 |
+| `flag_mission_check` | PASS | 4.9 |
+| `game_flow_check` | PASS | 27.6 |
+| `humanoid_contract_check` | PASS | 0.5 |
+| `humanoid_motion_check-walk` | PASS | 1.8 |
+| `humanoid_motion_check-backward` | PASS | 1.9 |
+| `humanoid_motion_check-pick` | PASS | 1.8 |
+| `humanoid_motion_check-run` | PASS | 1.7 |
+| `humanoid_motion_check-walk-reverse-links` | PASS | 1.8 |
+| `humanoid_motion_check-run-reverse-links` | PASS | 1.7 |
+| `humanoid_motion_check-run-settle-frames=181` | PASS | 1.7 |
+| `humanoid_ui_check` | PASS | 6.0 |
+| `humanoid_ui_check-modular` | PASS | 6.5 |
+| `interface_preferences_check` | PASS | 10.9 |
+| `keyboard_navigation_check` | PASS | 4.9 |
+| `learned_app_check` | PASS | 5.1 |
+| `learned_policy_check` | PASS | 2.9 |
+| `learned_tracking_check` | PASS | 3.9 |
+| `learner_language_check` | PASS | 0.4 |
+| `localization_check` | PASS | 6.1 |
+| `manual_control_check` | PASS | 0.5 |
+| `material_assets_check` | PASS | 0.5 |
+| `mesh_assets_check` | PASS | 0.7 |
+| `modular_humanoid_check-walk` | PASS | 1.4 |
+| `modular_humanoid_check-pick` | PASS | 1.2 |
+| `modular_humanoid_check-pick-reverse-links` | PASS | 1.2 |
+| `modular_pickup_parallel_check` | PASS | 3.2 |
+| `motion_lab_check` | PASS | 8.2 |
+| `motion_lab_ui_check` | FAIL | 124.7 |
+| `pickup_bridge_ui_check` | PASS | 20.1 |
+| `pickup_lab_ui_check` | PASS | 18.9 |
+| `pickup_store_check` | PASS | 6.8 |
+| `pickup_trial_check` | PASS | 8.0 |
+| `project_store_check` | PASS | 7.0 |
+| `relative_code_check` | PASS | 1.0 |
+| `robot_car_check` | PASS | 1.3 |
+| `run_mode_check` | PASS | 0.5 |
+| `servo_torque_budget_check` | PASS | 0.4 |
+| `sonar_stage_check` | PASS | 20.2 |
+| `stage_authoring_check` | PASS | 10.5 |
+| `stage_contract_check` | PASS | 12.7 |
+| `stage_ui_check` | PASS | 5.1 |
+| `tutorial_ui_check` | PASS | 6.8 |
+| `viewport_framing_check` | PASS | 8.4 |
+| `workshop_ui_check` | PASS | 6.2 |
+| `yaw_biped_check` | PASS | 0.7 |
+| `tests-motion_mcp_check.py` | PASS | 6.7 |
+| `tests-test_ci_verify.py` | PASS | 0.4 |
+| `tests-test_desktop_package.py` | PASS | 0.3 |
+| `tests-test_pickup_bridge.py` | PASS | 2.0 |
+| `tests-test_release_documents.py` | PASS | 3.8 |
+| `tools-docs-test_maintain.py` | PASS | 0.2 |
+| `tools-motion_lab-test_races.py` | PASS | 2.3 |
+| `tools-motion_lab-test_service.py` | PASS | 1.3 |
+| `tools-rl_lab-test_rl_lab.py` | PASS | 0.6 |

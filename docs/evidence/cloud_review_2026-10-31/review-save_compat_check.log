@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+ERROR: kit workspace graph round-trips exactly
+FAIL kit workspace graph round-trips exactly
+DIFF part 44 kit_angle_bracket c2 main=-3.82137093032941e-15 restored=-3.820000007504279e-15 delta=1.3709228251310851e-18
+DIFF part 80 kit_angle_bracket c2 main=-3.82137093032941e-15 restored=-3.820000007504279e-15 delta=1.3709228251310851e-18
+SCRIPT ERROR: Invalid operands 'String' and 'bool' in operator '=='.
+NON_BOOL_CLEAR load_cleared={  }
+ERROR: Parse JSON failed. Error at line 126: Expected key
+ERROR: Parse JSON failed. Error at line 126: Expected key
+ERROR: Parse JSON failed. Error at line 126: Expected key
+CORRUPT_THEN_CLEAR cleared=["raise-flag"] workspaces=[]
+TMP_ONLY cleared=[]
+DEFAULT_APPEARANCE light
+save_compat_check: 60 checks, 1 failures
