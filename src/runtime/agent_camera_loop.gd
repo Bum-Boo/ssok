@@ -11,6 +11,11 @@ const MAX_STEP_TICKS: int = 30
 const SETTLE_TICKS: int = 12
 const SETTLE_LIMIT: int = 240
 const DECISION_TIMEOUT_MS: int = 60000
+# Driving and settling are bounded in physics ticks (MAX_STEP_TICKS, SETTLE_LIMIT). A software
+# renderer under --fixed-fps advances about 10 ticks per wall second, so a 25-tick step plus its
+# measured ~130-tick settle takes 12 s or more; the earlier 10 s wall deadline cancelled those
+# physically correct operations. This guard now only covers a stalled physics clock.
+const OPERATION_TIMEOUT_MS: int = 60000
 const HOLD_P: float = 8.0
 const HOLD_I: float = 16.0
 var app: Node3D
@@ -118,7 +123,7 @@ func drive_step(args: Dictionary) -> Dictionary:
 	state = "driving"
 	_forward_driving = args.action == "forward"
 	_hold_integral.clear()
-	_deadline = Time.get_ticks_msec() + 10000
+	_deadline = Time.get_ticks_msec() + OPERATION_TIMEOUT_MS
 	for motor: DriveMotor in _channels:
 		if args.action == "forward":
 			motor.motor_on("forward", 25.0)
@@ -204,7 +209,7 @@ func _start_settle() -> void:
 	_stable = 0
 	_settle_elapsed = 0
 	state = "settling"
-	_deadline = Time.get_ticks_msec() + 10000
+	_deadline = Time.get_ticks_msec() + OPERATION_TIMEOUT_MS
 	state_changed.emit(describe())
 
 

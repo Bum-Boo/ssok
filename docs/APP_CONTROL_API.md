@@ -99,7 +99,9 @@ clears holding and restores ordinary zero-duty braking. A frame is consumed once
 needs a fresh observation. After the tick
 bound, brake and measured settling finish before reply. A new episode, human graph/source/mode
 change or local Stop invalidates older context. Invalid action bounds cancel. The ready decision
-watchdog is 60 seconds; operation timeout is 10 seconds. No automatic retry/resume is performed.
+watchdog is 60 seconds. Driving and settling are bounded in physics ticks (30 and 240); a 60-second
+wall-clock guard only covers a stalled physics clock, because a software renderer under fixed
+physics stepping advances fewer ticks per second than real time. No automatic retry/resume is performed.
 
 The optional official Python MCP SDK wrapper runs via `python -m tools.app_control.desktop_mcp`.
 Read-only is default (`describe`, `observe`, `stop`); add `--allow-actions` to expose `drive_step`.

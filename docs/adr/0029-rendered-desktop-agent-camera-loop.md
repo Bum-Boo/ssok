@@ -76,4 +76,19 @@ owner revocation from the current desktop being physically stopped.
 This draft covers a rendered car camera/control slice, not universal robot navigation, catalog camera serialization, community, RL training or Isaac Lab. Provider calls remain external and require their own disclosed model/billing/data/request bounds. Actual image-guided model trials and blind controls must be reported separately from deterministic transport and physics checks. Claude authors and independently reviews design code after Astra's actual screenshot inspection. Publishing requires approval of the reviewed version/scope; the integration owner remains Claude Fable and merge belongs to the human.
 
 
+The 2026-10-31 verification follow-up corrects the operation watchdog without changing any physical
+threshold, motor duty, hold gain or capture rule. Driving and settling were already bounded in physics
+ticks (30 and 240); a separate 10 s wall-clock deadline also cancelled them. Under `--fixed-fps 60` on
+the CI software renderer the engine advances about 10 ticks per wall second, and a 25-tick forward
+step needs a measured 130 settle ticks (deterministic on every repeat), so the wall deadline fired at
+roughly 105 ticks and faulted a correctly settling robot (`operation_timeout`), after which passive
+braking produced the 14.7–15.0 mm idle creep seen in CI. The wall guard is now 60 s and covers only
+a stalled physics clock; the 60 s ready decision watchdog is unchanged. The rendered rest regression
+emulates the slow renderer and records the measured idle drift of the unchanged hold: 1.1753 mm
+(Windows GL) and 2.7669 mm (Linux llvmpipe, identical across repeats and window sizes) against
+14.67 mm without holding on the same Linux host. Its bound is 4 mm, which accepts both measured
+platforms and still rejects passive braking and the rejected 5.7–6.0 mm P-only variants. The
+remaining lateral sub-millimetre-per-second slide is a solver property of the cylinder wheels and
+near-frictionless caster, not a controller fault; a shape change would need its own decision.
+
 The r40 developer-tool follow-up retains bounded sanitized public terminal CLI diagnostics from top-level error and turn.failed, without assistant/reasoning payloads or raw stderr. It drains an already-exited process after context polling so receipt generation survives that race. No actor, provider, retry, control or optical contract changes. Historical r37 terminal cause is not recoverable; [verification and redaction limits](../evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md) remain explicit.
