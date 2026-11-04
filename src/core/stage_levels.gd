@@ -83,7 +83,10 @@ static func starting_graph(level: Dictionary, stage: Dictionary) -> ConnectionGr
 					continue
 				if RunMode._port(graph.parts[part].part_def, connection.a_port if connection.a_part == part else connection.b_port).kind == Port.Kind.MECH:
 					moving.append(other)
-		var turn := Transform3D(Basis(axis.normalized(), PI / 2.0), pivot)
+		# Kit torque actuators turn the connected arm in the positive port direction;
+		# legacy ideal servos use the opposite hinge convention.
+		var lower_angle: float = -PI / 2.0 if graph.parts[link.a_part].part_def.actuator_drives_connected_body else PI / 2.0
+		var turn := Transform3D(Basis(axis.normalized(), lower_angle), pivot)
 		for part: int in moving:
 			graph.parts[part].transform = turn * Transform3D.IDENTITY.translated(-pivot) * graph.parts[part].transform
 		break
