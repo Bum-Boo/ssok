@@ -1,0 +1,49 @@
+RUN  agent_camera_loop_check
+PASS agent_camera_loop_check (3.9s)
+RUN  agent_camera_loop_check-rendered
+PASS agent_camera_loop_check-rendered (10.9s)
+RUN  agent_camera_rest_check
+PASS agent_camera_rest_check (14.3s)
+RUN  camera_evaluator_lifecycle_check-normal_stop
+PASS camera_evaluator_lifecycle_check-normal_stop (5.2s)
+RUN  camera_evaluator_lifecycle_check-drive_stop
+PASS camera_evaluator_lifecycle_check-drive_stop (11.5s)
+RUN  camera_evaluator_lifecycle_check-teardown
+PASS camera_evaluator_lifecycle_check-teardown (5.1s)
+RUN  camera_evaluator_lifecycle_check-mode_off
+PASS camera_evaluator_lifecycle_check-mode_off (5.2s)
+RUN  camera_evaluator_lifecycle_check-app_free
+PASS camera_evaluator_lifecycle_check-app_free (5.2s)
+RUN  camera_evaluator_lifecycle_check-rebuild
+PASS camera_evaluator_lifecycle_check-rebuild (5.2s)
+RUN  camera_evaluator_lifecycle_check-new_episode
+PASS camera_evaluator_lifecycle_check-new_episode (6.4s)
+RUN  camera_evaluator_lifecycle_check-driving_stop
+PASS camera_evaluator_lifecycle_check-driving_stop (5.4s)
+RUN  camera_evaluator_lifecycle_check-driving_rebuild
+PASS camera_evaluator_lifecycle_check-driving_rebuild (5.2s)
+RUN  camera_evaluator_lifecycle_check-driving_app_free
+PASS camera_evaluator_lifecycle_check-driving_app_free (5.0s)
+RUN  camera_evaluator_lifecycle_check-driving_new_episode
+PASS camera_evaluator_lifecycle_check-driving_new_episode (6.0s)
+RUN  camera_evaluator_lifecycle_check-driving_teardown
+PASS camera_evaluator_lifecycle_check-driving_teardown (5.3s)
+RUN  camera_evaluator_lifecycle_check-driving_mode_off
+PASS camera_evaluator_lifecycle_check-driving_mode_off (5.2s)
+RUN  parts_pack_button_check
+PASS parts_pack_button_check (0.5s)
+RUN  parts_pack_environment_check
+PASS parts_pack_environment_check (1.6s)
+RUN  parts_pack_gears_check
+PASS parts_pack_gears_check (1.8s)
+RUN  parts_pack_inventory_check
+PASS parts_pack_inventory_check (4.1s)
+RUN  parts_pack_led_check
+PASS parts_pack_led_check (0.4s)
+RUN  parts_pack_line_check
+PASS parts_pack_line_check (0.6s)
+RUN  robot_car_check
+PASS robot_car_check (0.7s)
+RUN  sonar_stage_check
+PASS sonar_stage_check (16.3s)
+24 checks; 0 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2c-20261105\repo\build\verification-m2c-before\SUMMARY.md

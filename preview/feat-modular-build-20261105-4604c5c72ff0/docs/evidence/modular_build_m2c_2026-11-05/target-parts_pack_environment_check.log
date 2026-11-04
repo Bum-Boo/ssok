@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ENVIRONMENT seed=20261022 physics_ticks=60 (run with --fixed-fps 60)
+RAMP angle=10 max_chassis_y=0.08354 final=(1.728772, 0.016507, -0.014749)
+RAMP angle=20 max_chassis_y=0.57630 final=(0.457928, 0.5763, -0.469719)
+CUP DIRECT ball_inside=1 chassis_overlap=1 chassis_only=0
+CUP ball=(0.700775, 0.019621, -0.000064) chassis=(0.611514, 0.016608, -0.00011) object_count=1 peak=1
+CUP SETTLED ball=(0.704645, 0.018999, -0.000519) chassis=(0.614618, 0.016923, 0.000506) object_count=0 peak=1
+FAIL ball remains contained after Stop
+parts_pack_environment_check: 21 checks, 1 failures
