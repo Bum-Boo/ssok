@@ -49,6 +49,8 @@ bolted to kit beams, and the stage answers depend on `car_chassis` named slots.
 
 ## Consequences
 
+벽 답지는 키트 차가 통과할 때까지 임시로 옛 차를 쓴다.
+
 Saved graphs that use legacy parts still load and run. Tests that counted tray buttons or relied on
 the floor-grid spawn change. New placement logic is exposed as testable `AssemblyMode` calls so
 headless checks do not need real mouse events. The design specification with states, colours and

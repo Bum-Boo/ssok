@@ -106,7 +106,7 @@ func _run() -> void:
 			for index: int in graph.parts.size():
 				velocities.append({"id": String(graph.parts[index].part_def.id), "speed_m_s": run.bodies[index].linear_velocity.length()})
 			print("KIT_STAGE_BODY_SPEEDS ", JSON.stringify(velocities))
-		_check(judge.success, level.id + " unchanged answer physically clears kit stage")
+		_check(judge.success, level.id + " unchanged program physically clears the author answer")
 		vm.stop()
 		run.teardown()
 	world.free()

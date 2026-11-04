@@ -44,6 +44,10 @@ func _run() -> void:
 		run.build(graph)
 		var caster: int = -1
 		var wheel: int = -1
+		var wheels: Array[int] = []
+		var sonar: int = -1
+		var robot_max_x: float = -INF
+		var sonar_max_x: float = -INF
 		var clusters: Array[Dictionary] = []
 		var seen: Array[RigidBody3D] = []
 		for index: int in graph.parts.size():
@@ -52,6 +56,15 @@ func _run() -> void:
 				caster = index
 			if graph.parts[index].part_def.wheel_radius > 0:
 				wheel = index
+				wheels.append(index)
+			if id == "hc_sr04":
+				sonar = index
+			if id != "stage_wall":
+				for corner: int in 8:
+					var point: Vector3 = graph.parts[index].transform * graph.parts[index].part_def.mesh.get_aabb().get_endpoint(corner)
+					robot_max_x = maxf(robot_max_x, point.x)
+					if id == "hc_sr04":
+						sonar_max_x = maxf(sonar_max_x, point.x)
 			var body: RigidBody3D = run.bodies[index]
 			if body in seen:
 				continue
@@ -66,6 +79,12 @@ func _run() -> void:
 			"caster_center": _vec(graph.parts[caster].transform.origin), "wheel_axis": _vec(graph.parts[wheel].transform.origin),
 			"caster_minus_axis_y_m": graph.parts[caster].transform.origin.y - graph.parts[wheel].transform.origin.y,
 			"caster_shares_carrier_body": run.bodies[caster] == run.bodies[0]}
+		summary["caster_ahead_axis_m"] = graph.parts[caster].transform.origin.x - graph.parts[wheel].transform.origin.x
+		summary["wheel_track_m"] = absf(graph.parts[wheels[0]].transform.origin.z - graph.parts[wheels[1]].transform.origin.z)
+		summary["chassis_com_world_m"] = _vec(run.bodies[0].transform * run.bodies[0].center_of_mass)
+		summary["robot_max_x_m"] = robot_max_x
+		summary["sonar_face_x_m"] = (graph.parts[sonar].transform * Vector3(0, 0, 0.012)).x
+		summary["sonar_bound_max_x_m"] = sonar_max_x
 		for link: Dictionary in graph.links:
 			var caster_port: StringName
 			if link.a_part == caster:
@@ -118,6 +137,24 @@ func _run() -> void:
 				window.append(sample)
 		summary["samples"] = window
 		print("M2B_DIAGNOSTIC ", JSON.stringify(summary))
+		vm.stop()
+		run.teardown()
+		await process_frame
+		var finish_graph: ConnectionGraph = RobotCarPreset.build() if name == "legacy" else KitCarPreset.build()
+		var finish := StageEvaluator.new()
+		finish.configure(StageLevels.stage_definition(StageLevels.find("finish-line")), finish_graph)
+		run.build(finish_graph)
+		if not finish.start(finish_graph):
+			push_error("Invalid finish diagnostic graph: " + name)
+			runtime_failed = true
+		else:
+			vm.run(RobotCarPreset.ANSWER_CODE)
+			for tick: int in 600:
+				await physics_frame
+				finish.observe(run, finish_graph, 1.0 / 60.0)
+				if finish.success:
+					break
+			print("M2D_FINISH ", name, " ", JSON.stringify(finish.result()))
 		vm.stop()
 		run.teardown()
 		await process_frame
