@@ -1,0 +1,14 @@
+{
+  "phase": "Ranked before phase4 probes/source theory; current three-step and two-step minimal checks completed",
+  "feedback_loop": "python -X utf8 C:/Users/Hojun/Projects/ssok-camera-gap-replay-r8.py baseline",
+  "red_current_runs": ["baseline: image25px pass / gap0.14000070095m fail / bothfalse /20.228s", "repeat: image23px fail / gap0.1399281919m pass / bothfalse /19.485s"],
+  "minimization": "No UI/provider/learner program input is needed; rendered graph/camera, three bounded action+settled-observation partitions and scoped Stop remain. Removing one intermediate observation while keeping52 total ticks (30/22) moves final gap to0.12610054m/image1px; it does not preserve the original near-boundary symptom. The three action partitions are load-bearing for that replay. Runtime variation means the individual failed subcriterion is not deterministic; combined red was reproduced twice, not a100%-failure probability proof.",
+  "hypotheses": [
+    {"rank":1,"name":"Residual body-angle motion at admitted captures","prediction":"If admitted angular motion changes floor pixels despite nearly equal gap, PNG-SHA/physics-tick aligned capture data show pitch differences and nonzero angular rates; tightening only the developer capture-rest angular gate should reduce floor-pixel span at repeated observation, or reject inability to settle."},
+    {"rank":2,"name":"Observation/latency effects on wheel PI holding","prediction":"If request waiting/settled-boundary timing matters, capture-aligned gap/duty histories vary during idle and same bounded forward total produces different positions after repartition. An in-process frame-counted replay can separate external TCP/wall-clock variation from physical/control variation."},
+    {"rank":3,"name":"Discrete forward-step resolution near joint acceptance boundary","prediction":"If minimum fixed-duty forward1tick overshoots the image target, the original near-boundary capture followed by forward1tick shifts below24px while an allowed brake-only1tick does not. Existing action tape may be unable to robustly land both goals; no threshold/goal easing or hidden metric steering is permitted."},
+    {"rank":4,"name":"After-image Stop releases holding and changes final gap","prediction":"If Stop causes the independent physical failure, the PNG-aligned pre-Stop gap is within14cm and final post-Stop gap exceeds14cm. If failing capture gap already exceeds14cm or Stop moves closer, this is not sufficient cause for that run."}
+  ],
+  "invariants": "No actor metric inputs/provider/model calls, camera or robot transform/velocity writes, motor physics/evaluator/goal changes. Existing sources426 remain frozen. Any candidate is developer-only and not applied before causal evidence/regression.",
+  "global_goal_complete": false
+}

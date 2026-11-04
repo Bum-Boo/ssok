@@ -1,0 +1,149 @@
+{
+  "url": "http://127.0.0.1:44787/?ssok_verify=1",
+  "passed": false,
+  "errors": [],
+  "checks": [
+    "Actual bundled policy at 60 Hz",
+    "Policy matches actual graph",
+    "Policy matches actual runtime",
+    "Completed walking snapshot remains immutable after polling and stop",
+    "Actual W command covers exactly 720 physics intervals / 12 seconds",
+    "Walking trajectory is finite",
+    "Forward displacement is at least 0.30 m"
+  ],
+  "stage": "stop",
+  "initial": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "engine": "4.7.2-stable (official)",
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "physics_hz": 60,
+    "policy_fingerprint": "b1766c23693273f686cc621ec0bed030319195bf782ace761373b16107e196cf",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "ready": true,
+    "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "schema": 1,
+    "settle_frames": 73,
+    "walk_frames": 0
+  },
+  "measurement": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "engine": "4.7.2-stable (official)",
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "physics_hz": 60,
+    "policy_fingerprint": "b1766c23693273f686cc621ec0bed030319195bf782ace761373b16107e196cf",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "ready": true,
+    "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "schema": 1,
+    "settle_frames": 83,
+    "started_at_physics_frame": 112,
+    "stop": {
+      "command": [
+        0,
+        0
+      ],
+      "finite": true,
+      "frames": 90,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+      "upright": 0.999763131141663
+    },
+    "walk": {
+      "failure": "",
+      "finite": true,
+      "foot_air_frames": [
+        172,
+        280
+      ],
+      "forward": 0.421612054109573,
+      "frames": 720,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": 0.101063936948776,
+      "maximum_foot_clearance_m": [
+        0.00803448334336281,
+        0.0127505332231522
+      ],
+      "minimum_height": 0.129288685321808,
+      "minimum_upright": 0.962357521057129,
+      "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+      "seconds": 12,
+      "yaw_degrees": 10.8655767760039
+    },
+    "walk_frames": 720
+  },
+  "browser": "153.0.8010.12",
+  "failure": "AssertionError: Lateral displacement is at most 0.10 m",
+  "last_observation": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "engine": "4.7.2-stable (official)",
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "physics_hz": 60,
+    "policy_fingerprint": "b1766c23693273f686cc621ec0bed030319195bf782ace761373b16107e196cf",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "ready": true,
+    "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+    "schema": 1,
+    "settle_frames": 83,
+    "started_at_physics_frame": 112,
+    "stop": {
+      "command": [
+        0,
+        0
+      ],
+      "finite": true,
+      "frames": 90,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+      "upright": 0.999763131141663
+    },
+    "walk": {
+      "failure": "",
+      "finite": true,
+      "foot_air_frames": [
+        172,
+        280
+      ],
+      "forward": 0.421612054109573,
+      "frames": 720,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": 0.101063936948776,
+      "maximum_foot_clearance_m": [
+        0.00803448334336281,
+        0.0127505332231522
+      ],
+      "minimum_height": 0.129288685321808,
+      "minimum_upright": 0.962357521057129,
+      "runtime_fingerprint": "11a4b8c162d955fd346dbece9ea8a1a8d567f4de56231ce48b4a792d8f1a773d",
+      "seconds": 12,
+      "yaw_degrees": 10.8655767760039
+    },
+    "walk_frames": 720
+  }
+}

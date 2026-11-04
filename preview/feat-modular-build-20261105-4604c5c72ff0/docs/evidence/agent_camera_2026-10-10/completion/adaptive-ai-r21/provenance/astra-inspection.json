@@ -1,0 +1,99 @@
+{
+  "requested_role": "Astra visual inspection",
+  "requested_model": "gpt-6-astra",
+  "serving_model": null,
+  "identity_limits": "Serving model unexposed; requested role only, without independent backend attestation.",
+  "viewed_count": 5,
+  "original_view_count": 5,
+  "method": "Computed file-byte SHA256 and PNG header dimensions before viewing. Actually emitted/viewed exactly five original PNGs using view_image original. Approximate zero-based boundary y at center x320; floor span=480-y. ±2 px visual uncertainty from soft transition.",
+  "viewed": [
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/adaptive-ai-r21/layout1/actor/camera/observation-1.png",
+      "sha256": "ab939c21350ba6dab86bd9a3454cf9782a4d28447e7be0db10ff4fd98a8d9fed",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 37404,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 363,
+      "floor_span_px_approx": 117,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Blue sky strip remains above broad gray wall; beige floor below approximately y363. Lower-side blue/gray robot geometry leaves center unobstructed."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/adaptive-ai-r21/layout1/actor/camera/observation-2.png",
+      "sha256": "748bcb40393eeffecd28ab2da14fed15d8cdfdfa335e0074075a851d6e23d0dd",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 50509,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 413,
+      "floor_span_px_approx": 67,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame, beige floor occupies bottom strip. Lower-side blue/gray geometry leaves center unobstructed; soft wall/floor transition remains visible."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/adaptive-ai-r21/layout1/actor/camera/observation-3.png",
+      "sha256": "45ba2ad62d0c7dde22a4b5d956b67e8c8614ae167d4c8a2652e8b1ebdb66ccbb",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 82948,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 438,
+      "floor_span_px_approx": 42,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame, beige floor occupies bottom strip. Lower-side blue/gray geometry leaves center unobstructed; soft wall/floor transition remains visible."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/adaptive-ai-r21/layout1/actor/camera/observation-4.png",
+      "sha256": "d3d936db7edd98f8bc0eb7dae5a6d976d526ba847033525cd3d2518775a171c8",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 94231,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 440,
+      "floor_span_px_approx": 40,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame, beige floor occupies bottom strip. Lower-side blue/gray geometry leaves center unobstructed; soft wall/floor transition remains visible."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/adaptive-ai-r21/layout1/actor/camera/observation-5.png",
+      "sha256": "ce5647750e09841f04391e2ca1ec7d8c6f238ad9e8e7b381491eaf6600098076",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 107723,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 449,
+      "floor_span_px_approx": 31,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame, beige floor occupies bottom strip. Lower-side blue/gray geometry leaves center unobstructed; soft wall/floor transition remains visible."
+    }
+  ],
+  "findings": [
+    "Center floor-span estimates across images 1–5: 117, 67, 42, 40, 31 px, each ±2 px.",
+    "Wall/floor boundary appears progressively lower across this selected sequence. Images 3 and 4 differ only slightly, within per-image uncertainty.",
+    "Sky visible in image 1 is absent in images 2–5. Central measurement region is unobstructed in all five; lower lateral regions are occluded by robot geometry."
+  ],
+  "scope": "New selected r21 stock camera trajectory inspected independently of earlier fixed-tape examples. Image-coordinate observations only.",
+  "unviewed_scope": "No evaluator/source/private vault/provider data or other images inspected.",
+  "limitations": [
+    "No physical-distance/motion, causal, timing, runtime, target-success or reliability inference.",
+    "No model/backend attestation.",
+    "Five stills do not establish continuous behavior.",
+    "No models/tests/delegation or source/canonical edits; only this fresh authorized result JSON written."
+  ]
+}

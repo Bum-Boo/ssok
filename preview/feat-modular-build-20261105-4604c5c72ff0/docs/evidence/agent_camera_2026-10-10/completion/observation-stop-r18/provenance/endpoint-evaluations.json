@@ -1,0 +1,500 @@
+{
+  "k32-double-observe": {
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.00587304634973407,
+        "gap_x": 0.14059767127037,
+        "linear_speed": 0.00178057933226228,
+        "linear_velocity": [
+          0.0017510240431875,
+          0.00021611321426462,
+          0.00024015117378439
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0450171604752541
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.062668688595295
+          }
+        ],
+        "position": [
+          0.114244312047958,
+          0.0669369399547577,
+          -0.00027719061472453
+        ],
+        "rotation": [
+          0.00144214241299778,
+          0.00287274038419127,
+          -0.014315627515316
+        ],
+        "wheel_speed": 0.0673594251275063,
+        "x": 0.114244312047958
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00454585254192352,
+        "gap_x": 0.177704498171806,
+        "linear_speed": 0.0007868364918977,
+        "linear_velocity": [
+          -0.00070403842255473,
+          0.00019949211855419,
+          0.0002892134943977
+        ],
+        "motors": [
+          {
+            "duty": -0.00301015299061936,
+            "speed": -0.0251821465790272
+          },
+          {
+            "duty": -0.00458837651709716,
+            "speed": -0.020007124170661
+          }
+        ],
+        "position": [
+          0.0771411061286926,
+          0.0669550821185112,
+          0.00018679279310163
+        ],
+        "rotation": [
+          -0.00100920035038143,
+          0.00200638524256647,
+          -0.0145497499033809
+        ],
+        "wheel_speed": 0.0209252145141363,
+        "x": 0.0771411061286926
+      },
+      "minimum_gap_x": 0.133697316050529,
+      "rest_ticks": 12.0,
+      "samples": 395.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.0371032059192657,
+      "valid": true,
+      "wall_contact": false
+    },
+    "bridge_stop": {
+      "observation": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 546,
+        "control_generation": 1,
+        "draw_frame": 522,
+        "episode_id": "0d260d8b41210ad7c146d940",
+        "frame_id": 7,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 546,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 546,
+        "sha256": "d98de485b7c123284133f9d6a6a07753a4d220e543df46c1007edb60640b9f37",
+        "width": 640
+      },
+      "stop_result": {
+        "state": "stopped",
+        "revision": 3,
+        "control_generation": 2,
+        "episode_id": "0d260d8b41210ad7c146d940",
+        "frame_id": 7,
+        "owner_revoked": true,
+        "stop_scope": "matched_context"
+      },
+      "observation_return_to_stop_ack_ms": 42.25830000359565,
+      "scope": "Existing authenticated desktop protocol; no model decision, pixel/physical input or global Stop"
+    },
+    "native_receipt": {
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "build/ai-loop-evidence/completion/observation-stop-r18/callback_probe.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--case",
+        "k32",
+        "--output",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\k32-v3"
+      ],
+      "exit_code": 0,
+      "seconds": 16.729041200014763,
+      "timed_out": false,
+      "failure": null,
+      "source426_unchanged": true,
+      "model_calls": 0,
+      "production_applied": false,
+      "token_persisted": false,
+      "caller_process_environment_restored": true
+    },
+    "last_camera_physics": {
+      "gap_x": 0.141008824110031,
+      "angular_speed": 0.00446950644254684,
+      "linear_speed": 0.000387169449822977,
+      "wheel_speed": 0.00265701883472502,
+      "position": [
+        0.113615036010742,
+        0.0671600922942162,
+        -0.000447448663180694
+      ],
+      "rotation": [
+        0.000520049419719726,
+        0.000380549958208576,
+        -0.0183104239404202
+      ],
+      "linear_velocity": [
+        -0.000135281807160936,
+        0.0002009663003264,
+        -0.000302012515021488
+      ],
+      "motors": [
+        {
+          "duty": -0.00439049839162421,
+          "speed": -0.00358747900463641
+        },
+        {
+          "duty": -0.00189114108330492,
+          "speed": -0.00674718944355845
+        }
+      ]
+    },
+    "model_calls": 0,
+    "all_pixels_and_physical_fields_computed_after_stop_and_native_exit": true
+  },
+  "candidate-double-observe": {
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.0116706239059567,
+        "gap_x": 0.140055045485497,
+        "linear_speed": 0.00164499680977315,
+        "linear_velocity": [
+          0.00163097446784377,
+          0.00019952734874095,
+          -7.826540240785e-05
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0160208977758884
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0723407194018364
+          }
+        ],
+        "position": [
+          0.11466471105814,
+          0.0669750720262527,
+          0.0019827838987112
+        ],
+        "rotation": [
+          -0.00243791798129678,
+          -0.00705952290445566,
+          -0.0147356856614351
+        ],
+        "wheel_speed": 0.07737997174263,
+        "x": 0.11466471105814
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00448671262711287,
+        "gap_x": 0.176476880908012,
+        "linear_speed": 0.00074080633930862,
+        "linear_velocity": [
+          -0.00065211311448365,
+          0.00019970943685621,
+          0.00028923802892677
+        ],
+        "motors": [
+          {
+            "duty": -0.00277366425717868,
+            "speed": -0.0229389406740665
+          },
+          {
+            "duty": -0.00458452231747407,
+            "speed": -0.0191642306745052
+          }
+        ],
+        "position": [
+          0.0782533437013626,
+          0.0669907853007317,
+          0.00103923783171922
+        ],
+        "rotation": [
+          -0.00097443017875775,
+          -0.00515902461484075,
+          -0.0152035346254706
+        ],
+        "wheel_speed": 0.0186610259115696,
+        "x": 0.0782533437013626
+      },
+      "minimum_gap_x": 0.132699504494667,
+      "rest_ticks": 65.0,
+      "samples": 497.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.0364113673567772,
+      "valid": true,
+      "wall_contact": false
+    },
+    "bridge_stop": {
+      "observation": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 656,
+        "control_generation": 1,
+        "draw_frame": 631,
+        "episode_id": "05a6270cc9516cabb8bf225b",
+        "frame_id": 7,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 656,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 656,
+        "sha256": "2fa77a98ce831b0a51d402e0f2739c35b5136ecd9d62a9b8d039fd65c9ada803",
+        "width": 640
+      },
+      "stop_result": {
+        "state": "stopped",
+        "revision": 3,
+        "control_generation": 2,
+        "episode_id": "05a6270cc9516cabb8bf225b",
+        "frame_id": 7,
+        "owner_revoked": true,
+        "stop_scope": "matched_context"
+      },
+      "observation_return_to_stop_ack_ms": 42.55579999880865,
+      "scope": "Existing authenticated desktop protocol; no model decision, pixel/physical input or global Stop"
+    },
+    "native_receipt": {
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "build/ai-loop-evidence/completion/observation-stop-r18/callback_probe.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--case",
+        "combined",
+        "--output",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\combined"
+      ],
+      "exit_code": 0,
+      "seconds": 18.490460600005463,
+      "timed_out": false,
+      "failure": null,
+      "source426_unchanged": true,
+      "model_calls": 0,
+      "production_applied": false,
+      "token_persisted": false,
+      "caller_process_environment_restored": true
+    },
+    "last_camera_physics": {
+      "gap_x": 0.141031071543694,
+      "angular_speed": 0.00541639840230346,
+      "linear_speed": 0.000270568591076881,
+      "wheel_speed": 0.0160764250904322,
+      "position": [
+        0.11379212886095,
+        0.0667994320392609,
+        0.00195016048382968
+      ],
+      "rotation": [
+        -0.00240261433646083,
+        -0.0127635281533003,
+        -0.0114276455715299
+      ],
+      "linear_velocity": [
+        0.000184171061846428,
+        0.000192672538105398,
+        4.65369121229742e-05
+      ],
+      "motors": [
+        {
+          "duty": -0.0016968585285746,
+          "speed": -0.00711056962609291
+        },
+        {
+          "duty": -0.00367406495361744,
+          "speed": 0.0115355476737022
+        }
+      ]
+    },
+    "model_calls": 0,
+    "all_pixels_and_physical_fields_computed_after_stop_and_native_exit": true
+  },
+  "candidate-single-observe": {
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.00568735785782337,
+        "gap_x": 0.139617308974266,
+        "linear_speed": 0.00175252626650035,
+        "linear_velocity": [
+          0.00171920366119593,
+          0.00021259392087813,
+          0.00026550047914497
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0447897873818874
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0607763230800629
+          }
+        ],
+        "position": [
+          0.115078799426556,
+          0.0670245513319969,
+          0.00194728211499751
+        ],
+        "rotation": [
+          -0.0008784694946371,
+          -0.00449753273278475,
+          -0.0159139186143875
+        ],
+        "wheel_speed": 0.0654512122273445,
+        "x": 0.115078799426556
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00448671262711287,
+        "gap_x": 0.176476880908012,
+        "linear_speed": 0.00074080633930862,
+        "linear_velocity": [
+          -0.00065211311448365,
+          0.00019970943685621,
+          0.00028923802892677
+        ],
+        "motors": [
+          {
+            "duty": -0.00277366425717868,
+            "speed": -0.0229389406740665
+          },
+          {
+            "duty": -0.00458452231747407,
+            "speed": -0.0191642306745052
+          }
+        ],
+        "position": [
+          0.0782533437013626,
+          0.0669907853007317,
+          0.00103923783171922
+        ],
+        "rotation": [
+          -0.00097443017875775,
+          -0.00515902461484075,
+          -0.0152035346254706
+        ],
+        "wheel_speed": 0.0186610259115696,
+        "x": 0.0782533437013626
+      },
+      "minimum_gap_x": 0.132699504494667,
+      "rest_ticks": 64.0,
+      "samples": 415.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.036825455725193,
+      "valid": true,
+      "wall_contact": false
+    },
+    "bridge_stop": {
+      "observation": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 574,
+        "control_generation": 1,
+        "draw_frame": 552,
+        "episode_id": "974d1965defd29267c24631d",
+        "frame_id": 6,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 574,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 574,
+        "sha256": "969ae20e8331b37ef44573e169af15fc8b7a68e770bba5c93eb1b28ee68671c8",
+        "width": 640
+      },
+      "stop_result": {
+        "state": "stopped",
+        "revision": 3,
+        "control_generation": 2,
+        "episode_id": "974d1965defd29267c24631d",
+        "frame_id": 6,
+        "owner_revoked": true,
+        "stop_scope": "matched_context"
+      },
+      "observation_return_to_stop_ack_ms": 41.58219997771084,
+      "scope": "Existing authenticated desktop protocol; no model decision, pixel/physical input or global Stop"
+    },
+    "native_receipt": {
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "build/ai-loop-evidence/completion/observation-stop-r18/single-observe/callback_probe.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--case",
+        "combined",
+        "--output",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\single-observe\\combined"
+      ],
+      "exit_code": 0,
+      "seconds": 17.21469520003302,
+      "timed_out": false,
+      "failure": null,
+      "source426_unchanged": true,
+      "model_calls": 0,
+      "production_applied": false,
+      "token_persisted": false,
+      "caller_process_environment_restored": true
+    },
+    "last_camera_physics": {
+      "gap_x": 0.140603601932526,
+      "angular_speed": 0.00441244710236788,
+      "linear_speed": 0.00040259983506985,
+      "wheel_speed": 0.00932818651199341,
+      "position": [
+        0.114292338490486,
+        0.0668397843837738,
+        0.00172682700213045
+      ],
+      "rotation": [
+        -0.00142661505378783,
+        -0.00625668140128255,
+        -0.0124407075345516
+      ],
+      "linear_velocity": [
+        0.00018186669331044,
+        0.000202782903215848,
+        0.000296462851110846
+      ],
+      "motors": [
+        {
+          "duty": -0.00163536549879547,
+          "speed": 0.00372235709801316
+        },
+        {
+          "duty": -0.00394970051913212,
+          "speed": 0.00495553622022271
+        }
+      ]
+    },
+    "model_calls": 0,
+    "all_pixels_and_physical_fields_computed_after_stop_and_native_exit": true
+  }
+}

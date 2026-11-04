@@ -1,0 +1,111 @@
+{
+  "requested_model": "gpt-6-astra",
+  "identity_basis": "Coordinator's explicit native role selection; backend identity not independently inspected.",
+  "inspection": "All 11 PNG files actually viewed at original resolution.",
+  "viewed": [
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/windows-installer-serial/title.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Complete centered title screen. Play stages, Free building, Explore examples, Open my project, language and Settings controls and descriptions are readable."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/windows-installer-serial/map.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Three stage cards show complete titles, objectives and Play controls. Back and all visible Coming soon labels fit within the viewport."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/windows-installer-serial/stage-raise-flag.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Stage cleared dialog is fully readable, with Next stage, Try another way and Stage list. HUD displays flag height 16.5 cm against a minimum 15.5 cm goal. Visible code writes servo angle 90 and sleeps 3000."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/windows-installer-serial/stage-finish-line.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Stage cleared dialog and its three controls are fully readable. HUD displays 50.6 cm driven against a minimum 50.0 cm goal. Visible code drives both motors forward at 55, sleeps 3000 and stops."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/windows-installer-serial/stage-wall-brake.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Stage cleared dialog shows Try another way and Stage list. HUD displays wall distance 7.2 cm against the 5.0–10.0 cm goal. Visible code uses sonar distance > 10, both motors forward at 25, sleep(20), then stop()."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/package-projects/01-title.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Complete readable title screen, including Open my project and its Continue a saved build description."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/package-projects/02-projects.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Projects dialog fully fits. Device-storage warning, valid-blocks notice, My robot title, snapshot/export controls, tabs, empty-state explanation and snapshot-preservation footer are readable. Open selected and Delete snapshot appear disabled. Background counter shows 0 parts / 0 connections."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/package-projects/03-confirmation.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Confirmation fully displays the assembly/code replacement warning and snapshot advice. OK, Cancel and close icon are visible. Underlying Projects dialog and JSON remain visible around the intentional modal overlay."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/package-projects/04-cancelled.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Confirmation is absent; Projects remains open with My robot title and 0 parts / 0 connections. Import instructions, including Imported code never runs automatically, are fully readable. This appearance is consistent with cancellation."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/package-projects/05-imported.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Workshop visibly contains a wheeled car and wall. Counter displays 10 parts / 16 connections, control mode is Learner code, and Run code is visible. Footer reads Project opened. Code runs only when you press Run code."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/package-projects/06-reexported.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Projects title field and visible JSON both show Package camera verification. Copy JSON, Import project and Close are readable. Footer displays Project JSON copied. Background retains 10 parts / 16 connections."
+    }
+  ],
+  "material_issues": [],
+  "minor_issues": [
+    "Import _ export visibly contains an underscore separator.",
+    "A long Motor Driver library label is ellipsized; scrollable background block fields can end with partial rows.",
+    "The Copy JSON tooltip in the final still occupies the gap below its button without materially obscuring the footer."
+  ],
+  "verdict": "No material clipping or accidental overlap observed. Full warnings and primary controls are readable. Stills show all three stage-success dialogs, a cancellation-consistent Projects state, and the imported car/wall workshop.",
+  "limits": [
+    "No runtime input, clipboard, graph/source equality, physics correctness, download or numeric contrast conclusions were inferred from stills.",
+    "Installer serial 17/0, Projects 6/0 and strict reexport equality are coordinator observations, not this visual inspection's findings.",
+    "Source commit, version, PCK hash and existing Opus review are supplied provenance and were not independently verified.",
+    "Prior installer 10/1 with clipboard error and wall-only diagnostic exit 1 remain preserved; these images do not prove the initial failure's cause.",
+    "The stage's 5.0–10.0 cm goal is distinct from the frozen AI 14 cm physical 0/9 result.",
+    "No files, styles or runtime state were modified."
+  ],
+  "recording": "Returned inspector JSON; path prefix expanded by coordinator, observations unchanged."
+}

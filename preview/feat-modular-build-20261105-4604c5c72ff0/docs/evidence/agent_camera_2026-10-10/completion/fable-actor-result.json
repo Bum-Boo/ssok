@@ -1,0 +1,58 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "result": "```json\n{\n  \"verdict\": \"pass\",\n  \"review_basis\": \"Read-only review of the six pasted sources only. SHA256 values not recomputed (no tools). desktop_client.py, experiment_session.py, repeat_camera_trials.py, run_desktop.gd and camera_evaluator.gd were not provided; claims about them rest on the earlier passing review and on how they are called here.\",\n  \"blocking_findings\": [],\n  \"confirmed_ok\": [\n    \"Context binding: run_goal captures episode/revision/control_generation from describe() before the CLI starts and passes --expected-context; DesktopGoalSession.observe asserts it on every frame, decide re-asserts with include_frame=True against a fresh describe before trace_dispatch/drive_step. First and every action are bound.\",\n    \"Final observation: max_observations >= max_steps+1 enforced in both run_goal arg check and session constructor; after the last decide frame=None so one more observe is allowed, then stop. final_reobserved requires observations == actions+1 and confirmed actor_stop. Score requires that plus independent physical checks; budget exhaustion cannot be scored as success.\",\n    \"Cancellation/cleanup: SIGTERM mapped to KeyboardInterrupt, finally always attempts scoped client.stop(expected_context) then end_process (killpg on POSIX, taskkill /T /F on the owned CLI PID on Windows); context_changed path uses the stale context so a new owner is not revoked. MCP adapter stops with reason mcp_disconnected on stdio close. camera_trial terminates Godot and restores SSOK_AGENT_TOKEN in finally.\",\n    \"Unicode: every JSON/JSONL read and write in run_goal, camera_trial, stabilize_camera_trials and desktop_session uses explicit encoding='utf-8'; runner.log is written as raw bytes; godot.log is only an fd redirect target. The earlier cp949 decode failure path is closed in the pasted sources.\",\n    \"Hidden information: goal mode enables only observe/decide/stop; the describe tool exists only in the non-goal server. Model receives frame metadata text + PNG, decide results, and ToolError strings (truncated, token-redacted in CLI events). No evaluator file, wall_x, or physical metrics are passed into run_goal; prompt guidance is generic pixel/midpoint/budget text with no target-specific calibration.\",\n    \"Budget/provider: one CLI launch, request_max_retries=0, stream_max_retries=0, OPENAI_API_KEY popped, ChatGPT login required, session tool-call cap 2*max_observations+max_steps, dual deadline (runner and session). Manifest/plan state truthfully that no billing cap exists.\",\n    \"Public-only outputs: cli-events.json keeps only type/item_type/server/tool/usage and a redacted 400-char error diagnostic; events.jsonl contains only constructed fields including the <=240-char public summary.\"\n  ],\n  \"remaining_limits\": [\n    {\"type\": \"preexisting\", \"item\": \"decide returns the drive_step result dict to the model unfiltered; desktop_client.drive_step is not in this review. If the app reply contains any scene or odometry metric it would reach the model. Earlier review covered it; re-verify if desktop_client changes.\"},\n    {\"type\": \"preexisting\", \"item\": \"Prompt tension: the stdin task says 'Prefer short steps' while actor.md says use larger bounded steps while far. Not a safety issue; may contribute to short-step behaviour.\"},\n    {\"type\": \"preexisting\", \"item\": \"If the actor stops with zero actions (goal already met on first image, or immediate uncertainty), final_reobserved is False and exit is 1, so a correct no-op is reported as failure. Not possible for the current layouts at 24..38px but the labelling is strict.\"},\n    {\"type\": \"preexisting\", \"item\": \"A session-side stop with reason request_failed or concurrent_request is classified by run_goal as operator_or_app_stopped; label is imprecise but exit remains 1 and events.jsonl carries the true reason.\"},\n    {\"type\": \"preexisting\", \"item\": \"camera_trial's subprocess.run timeout (seconds+45) kills run_goal without its finally; on Windows the Codex child could outlive it until the session deadline/MCP failure ends it. Godot is still terminated, so no robot risk; only orphan CLI risk in an unlikely overrun.\"},\n    {\"type\": \"preexisting\", \"item\": \"stabilize summary indexes layout{i%3+1} assuming len(LAYOUTS)==3; fine for the 3x3 study, brittle if LAYOUTS changes.\"},\n    {\"type\": \"preexisting\", \"item\": \"Codex tool_timeout_sec=20 vs observe settling wait; a slow settle yields a CLI-side timeout the session does not see until the next misordered call. Did not occur in the medium pilot.\"},\n    {\"type\": \"optional\", \"item\": \"Physical criteria (4..14cm) remain unmet in all medium-effort runs (14.41/14.91/15.11cm); this is an unresolved result, not a source bug, and nothing here hides or reclassifies it.\"},\n    {\"type\": \"attestation\", \"item\": \"CLI JSON still does not attest backend model identity or billing; manifests say so explicitly.\"}\n  ]\n}\n```",
+  "modelUsage": {
+    "claude-fable-5-1": {
+      "inputTokens": 2,
+      "outputTokens": 5273,
+      "cacheReadInputTokens": 3313,
+      "cacheCreationInputTokens": 19430,
+      "webSearchRequests": 0,
+      "costUSD": 0.65309825,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 3480,
+      "canonicalModel": "claude-fable-5-1",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 19430,
+    "cache_read_input_tokens": 3313,
+    "output_tokens": 5273,
+    "output_tokens_details": {
+      "thinking_tokens": 3480
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 19430,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 5273,
+        "cache_read_input_tokens": 3313,
+        "cache_creation_input_tokens": 19430,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 19430
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 0.65309825,
+  "exit_code": 0
+}

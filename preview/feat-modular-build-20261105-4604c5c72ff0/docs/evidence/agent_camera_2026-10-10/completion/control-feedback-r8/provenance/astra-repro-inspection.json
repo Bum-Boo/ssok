@@ -1,0 +1,70 @@
+{
+  "requested_model": "gpt-6-astra",
+  "identity_basis": "Explicit native role selection supplied by coordinator; no independent backend introspection.",
+  "method": "Actual original-resolution visual inspection of all six images. Approximate center-strip measurements at x=312–328; zero-based y coordinates. Floor height estimated as 480 minus boundary_y.",
+  "viewed": [
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8-baseline/replay-near-30-10-12/post-3.png",
+      "dimensions": [640, 480],
+      "boundary_y_approx": 457,
+      "floor_height_px_approx": 23,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Borderline lower edge; nominal estimate below goal, uncertainty includes 24.",
+      "observations": "Thin beige floor strip visible beneath gray wall; boundary slopes slightly downward toward the right."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8-baseline/replay-near-30-10-12/final-idle.png",
+      "dimensions": [640, 480],
+      "boundary_y_approx": 455,
+      "floor_height_px_approx": 25,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Visually within goal.",
+      "observations": "Beige strip remains visible and is slightly taller at center than in baseline post-3."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8-repeat/replay-near-30-10-12/post-3.png",
+      "dimensions": [640, 480],
+      "boundary_y_approx": 456,
+      "floor_height_px_approx": 24,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "At nominal lower bound; visual uncertainty prevents a firm threshold classification.",
+      "observations": "Thin beige floor strip visible; boundary slopes slightly upward toward the right."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8-repeat/replay-near-30-10-12/final-idle.png",
+      "dimensions": [640, 480],
+      "boundary_y_approx": 457,
+      "floor_height_px_approx": 23,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Borderline lower edge; nominal estimate below goal, uncertainty includes 24.",
+      "observations": "Beige strip remains visible, with a slight upward boundary slope toward the right."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8-minimal-two-step/replay-near-30-22/post-2.png",
+      "dimensions": [640, 480],
+      "boundary_y_approx": "At or beyond approximately 479",
+      "floor_height_px_approx": "0–1",
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Clearly not met.",
+      "observations": "Gray wall reaches essentially the bottom edge at center; no appreciable beige floor strip is visible."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8-minimal-two-step/replay-near-30-22/final-idle.png",
+      "dimensions": [640, 480],
+      "boundary_y_approx": "At or beyond approximately 479",
+      "floor_height_px_approx": "0–1",
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Clearly not met.",
+      "observations": "Gray wall again fills the center almost to the bottom edge; no appreciable beige floor strip is visible."
+    }
+  ],
+  "occlusion_and_clipping": "Blue/gray robot geometry occupies both lower side edges in every image but leaves x=312–328 unobstructed. Wall extends beyond the top and lateral frame. In the two-step images, the floor boundary is effectively clipped by the bottom frame.",
+  "verdict": "Three-step images show a narrow center floor strip near the 24 px lower threshold. The baseline final-idle image appears within the nominal goal; other three-step images are threshold-borderline. Both two-step images clearly lack the required 24–38 px floor strip.",
+  "limits": [
+    "Measurements are visual estimates, not classifier outputs; exact lower-bound cases require the coordinator's separate pixel validation.",
+    "No physical distance, causation, runtime action or reliability conclusion inferred.",
+    "Source, mount, FOV and unchanged colors are coordinator-provided provenance, not independently verified.",
+    "This is a bounded developer-diagnosis comparison, not a new AI-reliability study.",
+    "No files or runtime state were modified."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 6,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 43.3,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-desktop-20260930",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.774,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-desktop-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.989,
+      "timeout": false,
+      "engine_error": false,
+      "log": "localization_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-desktop-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-desktop-20260930/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "mesh_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.147,
+      "timeout": false,
+      "engine_error": false,
+      "log": "mesh_assets_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-desktop-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-desktop-20260930/tests/mesh_assets_check.gd"
+      ]
+    },
+    {
+      "name": "tests-test_desktop_package.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.433,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-test_desktop_package.py.log",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_desktop_package.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "tests-test_release_documents.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.593,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-test_release_documents.py.log",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_release_documents.py",
+        "-v"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "requested_role": "Astra visual inspection",
+  "requested_model": "gpt-6-astra",
+  "verified_model": null,
+  "identity_limits": "No serving-model identity exposed by tools; requested role is not self-attestation.",
+  "viewed_count": 7,
+  "original_view_count": 7,
+  "method": "Computed each PNG file-byte SHA256 and header dimensions before viewing. Extracted only 64-hex SHA candidates from corresponding observation-N.json; each had one candidate matching the actual PNG SHA256. Then emitted and actually viewed all seven originals using view_image original. Top-left origin, x320; approximate wall/floor boundary y and floor span=480-y. ±2 px visual uncertainty from soft transition/slight slope.",
+  "viewed": [
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-1.png",
+      "sha256": "12081051c517d2f973b3387e6b45113f442947ce59df2f448edeb95c23c28675",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 37240,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-1.json",
+      "metadata_sha_candidates": [
+        "12081051c517d2f973b3387e6b45113f442947ce59df2f448edeb95c23c28675"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 363,
+      "floor_span_px_approx": 117,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Blue sky strip above gray wall; beige floor visible below center boundary. Side robot geometry leaves center clear."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-2.png",
+      "sha256": "7afa0c4542a4cd0bfc9182541353fc721030dd8e174253236517acadf0cb7e30",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 47721,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-2.json",
+      "metadata_sha_candidates": [
+        "7afa0c4542a4cd0bfc9182541353fc721030dd8e174253236517acadf0cb7e30"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 414,
+      "floor_span_px_approx": 66,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame; beige floor strip below a slightly sloped/soft boundary. Blue-gray lower-side geometry does not occlude center."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-3.png",
+      "sha256": "548063b737a9facc52b8ce08ea6d20430d9b9fabd9f63a4e42b0781dc8c7a366",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 67785,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-3.json",
+      "metadata_sha_candidates": [
+        "548063b737a9facc52b8ce08ea6d20430d9b9fabd9f63a4e42b0781dc8c7a366"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 425,
+      "floor_span_px_approx": 55,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame; beige floor strip below a slightly sloped/soft boundary. Blue-gray lower-side geometry does not occlude center."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-4.png",
+      "sha256": "a4defa358b486b846b947025b6fb95c94133b4ede2eb088eb0406134d61950e0",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 101100,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-4.json",
+      "metadata_sha_candidates": [
+        "a4defa358b486b846b947025b6fb95c94133b4ede2eb088eb0406134d61950e0"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 443,
+      "floor_span_px_approx": 37,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame; beige floor strip below a slightly sloped/soft boundary. Blue-gray lower-side geometry does not occlude center."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-5.png",
+      "sha256": "d19056257b27875ca6393ce7772616fd23c6ad1917751390b1c12ebeb1ba7f8c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 104348,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-5.json",
+      "metadata_sha_candidates": [
+        "d19056257b27875ca6393ce7772616fd23c6ad1917751390b1c12ebeb1ba7f8c"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 445,
+      "floor_span_px_approx": 35,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame; beige floor strip below a slightly sloped/soft boundary. Blue-gray lower-side geometry does not occlude center."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-6.png",
+      "sha256": "49edd261c38ba2215a318d7ed10f380e693fdd204fe079959c5a05eb5d5e1024",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 107674,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-6.json",
+      "metadata_sha_candidates": [
+        "49edd261c38ba2215a318d7ed10f380e693fdd204fe079959c5a05eb5d5e1024"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 445,
+      "floor_span_px_approx": 35,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame; beige floor strip below a slightly sloped/soft boundary. Blue-gray lower-side geometry does not occlude center."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-7.png",
+      "sha256": "c4a70ad1bd5b22c371d1084487c32b96a29e3c5759472f56939c6a6a3cf10fa3",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 108976,
+      "metadata_path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\lower-end-policy-r26\\layout1\\actor\\camera\\observation-7.json",
+      "metadata_sha_candidates": [
+        "c4a70ad1bd5b22c371d1084487c32b96a29e3c5759472f56939c6a6a3cf10fa3"
+      ],
+      "metadata_sha_matches": true,
+      "center_x": 320,
+      "origin": "top-left",
+      "boundary_y_approx": 443,
+      "floor_span_px_approx": 37,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall fills upper frame; beige floor strip below a slightly sloped/soft boundary. Blue-gray lower-side geometry does not occlude center."
+    }
+  ],
+  "target_floor_span_px": [
+    24,
+    38
+  ],
+  "latest_image_assessment": "Observation-7 estimate is 37±2 px (boundary y443±2). Nominal estimate fits 24–38 px, but uncertainty reaches 39 px, so a strict upper-bound pass is not visually certain.",
+  "findings": [
+    "Estimated center spans across observations 1–7 are 117, 66, 55, 37, 35, 35, 37 px, each ±2 px.",
+    "Boundary appears lower from images 1 through 5; small differences among 4–7 are near visual uncertainty.",
+    "All center measurement regions are clear and boundary is visible. Lateral robot geometry occludes lower side areas only.",
+    "All seven dimensions are 640×480 and all actual hashes match their corresponding observation metadata SHA."
+  ],
+  "unviewed_scope": "No evaluator, physical metrics, source, private vault/auth/config/provider or other images read. Only seven PNGs and corresponding JSON metadata SHA strings accessed.",
+  "limits": [
+    "No metric distance, contact, physical success, causality, timing or reliability inference.",
+    "Target assessment is image-coordinate-only, not overall goal/runtime success.",
+    "Visual estimates are not exact pixel classification; latest image strict threshold remains uncertain.",
+    "No models/delegation/app actions/source or canonical edits; only authorized fresh result JSON written."
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "checkpoint": "2026-10-11T08:13:06+09:00",
+  "runtime_input_head": "008f7ea0bf3dd2c8a8113eb3431f4793ad072ece",
+  "original_source426_unchanged": true,
+  "app_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "app_version": "0.3.1-projects-r7",
+  "frozen_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "cases": {
+    "stock": {
+      "case": "stock",
+      "floor_pixels": [
+        23,
+        25,
+        27,
+        23,
+        23
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.9587258100509921,
+      "angular_rates": [
+        0.00459566479548812,
+        0.00448583764955401,
+        0.00446007447317243,
+        0.00628370884805918,
+        0.00459109246730804
+      ],
+      "final_gap_m": 0.141063079237938,
+      "stop_delta_from_last_frame_mm": -0.9298175573349832,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.0043101659975946,
+          0.0043101659975946
+        ],
+        [
+          0.00431662425398827,
+          0.00431662425398827
+        ],
+        [
+          0.00434411223977804,
+          0.00434411223977804
+        ],
+        [
+          0.0040389709174633,
+          0.0040389709174633
+        ],
+        [
+          0.00435956893488765,
+          0.00435956893488765
+        ]
+      ],
+      "world_wheel_axis_rates": [
+        [
+          -0.0110102687031031,
+          -0.0170599780976772
+        ],
+        [
+          -0.00127860566135496,
+          -0.00517799519002438
+        ],
+        [
+          0.00217228778637946,
+          -0.000334059674059972
+        ],
+        [
+          -0.00602467777207494,
+          0.0194618627429008
+        ],
+        [
+          0.00870537478476763,
+          0.014032082632184
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        -9.313225989016072e-10,
+        0.0
+      ],
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "attitude-hold-v2": {
+      "case": "attitude-hold",
+      "floor_pixels": [
+        22,
+        23,
+        25,
+        26,
+        24
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.6750226020809935,
+      "angular_rates": [
+        0.00430114427581429,
+        0.00455440767109394,
+        0.00449294317513704,
+        0.00449152616783977,
+        0.00448010908439755
+      ],
+      "final_gap_m": 0.14079912006855,
+      "stop_delta_from_last_frame_mm": -0.9222924709320068,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "signed_housing_axis_rates": [
+        [
+          0.00405382178723812,
+          0.00405382178723812
+        ],
+        [
+          0.00437371199950576,
+          0.00437371199950576
+        ],
+        [
+          0.00437292410060763,
+          0.00437292410060763
+        ],
+        [
+          0.00439887214452028,
+          0.00439887214452028
+        ],
+        [
+          0.00441925320774317,
+          0.00441925320774317
+        ]
+      ],
+      "world_wheel_axis_rates": [
+        [
+          -0.0171527359634638,
+          -0.00872040446847677
+        ],
+        [
+          0.0074514071457088,
+          0.011812960729003
+        ],
+        [
+          0.00677001895383,
+          0.00984046328812838
+        ],
+        [
+          0.00539877125993371,
+          0.00738593796268106
+        ],
+        [
+          0.00560023169964552,
+          0.0059331483207643
+        ]
+      ],
+      "assigned_vs_callback_pitch_delta_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -7.365085184570137e-05
+      ],
+      "physical": false,
+      "last_image": true,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    }
+  },
+  "successful_native_runs": 2,
+  "compile_failure_preserved": true,
+  "failed_attempt_physics_trial_started": false,
+  "candidate_coefficient": 16,
+  "candidate_applied": false,
+  "pngs": 16,
+  "astra_actual_views": 4,
+  "requested_model": "gpt-6-astra",
+  "resolved_model": null,
+  "image_estimate_uncertainty_px": 2,
+  "calibration_v2_status": "proposal_only_not_adopted_not_run",
+  "historical_ai_image": "9/9 unchanged",
+  "historical_ai_physical": "0/9 unchanged",
+  "model_calls_in_native_probes": 0,
+  "merged": false,
+  "published": false,
+  "global_goal_complete": false
+}

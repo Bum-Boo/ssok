@@ -1,0 +1,535 @@
+verify	Set up job	﻿2026-09-30T10:21:28.2778190Z Current runner version: '2.337.0'
+verify	Set up job	2026-09-30T10:21:28.2813836Z ##[group]Runner Image Provisioner
+verify	Set up job	2026-09-30T10:21:28.2815242Z Hosted Compute Agent
+verify	Set up job	2026-09-30T10:21:28.2816112Z Version: 20260901.588
+verify	Set up job	2026-09-30T10:21:28.2817114Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+verify	Set up job	2026-09-30T10:21:28.2818198Z Build Date: 2026-09-01T19:56:44Z
+verify	Set up job	2026-09-30T10:21:28.2819205Z Worker ID: {42c588be-adc5-4e30-b1f5-c755b492cd3e}
+verify	Set up job	2026-09-30T10:21:28.2820443Z Azure Region: westus3
+verify	Set up job	2026-09-30T10:21:28.2821372Z ##[endgroup]
+verify	Set up job	2026-09-30T10:21:28.2823892Z ##[group]Operating System
+verify	Set up job	2026-09-30T10:21:28.2824895Z Ubuntu
+verify	Set up job	2026-09-30T10:21:28.2825662Z 24.04.5
+verify	Set up job	2026-09-30T10:21:28.2826503Z LTS
+verify	Set up job	2026-09-30T10:21:28.2827252Z ##[endgroup]
+verify	Set up job	2026-09-30T10:21:28.2828065Z ##[group]Runner Image
+verify	Set up job	2026-09-30T10:21:28.2829098Z Image: ubuntu-24.04
+verify	Set up job	2026-09-30T10:21:28.2829942Z Version: 20260927.320.1
+verify	Set up job	2026-09-30T10:21:28.2831756Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+verify	Set up job	2026-09-30T10:21:28.2834866Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+verify	Set up job	2026-09-30T10:21:28.2836524Z ##[endgroup]
+verify	Set up job	2026-09-30T10:21:28.2838248Z ##[group]GITHUB_TOKEN Permissions
+verify	Set up job	2026-09-30T10:21:28.2840968Z Contents: read
+verify	Set up job	2026-09-30T10:21:28.2841847Z Metadata: read
+verify	Set up job	2026-09-30T10:21:28.2842941Z ##[endgroup]
+verify	Set up job	2026-09-30T10:21:28.2845986Z Secret source: Actions
+verify	Set up job	2026-09-30T10:21:28.2847510Z Cache mode: write
+verify	Set up job	2026-09-30T10:21:28.2848608Z Prepare workflow directory
+verify	Set up job	2026-09-30T10:21:28.3499296Z Prepare all required actions
+verify	Set up job	2026-09-30T10:21:28.3571383Z Getting action download info
+verify	Set up job	2026-09-30T10:21:28.7922959Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+verify	Set up job	2026-09-30T10:21:28.8958797Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+verify	Set up job	2026-09-30T10:21:29.2149810Z Download action repository 'actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+verify	Set up job	2026-09-30T10:21:30.1587403Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+verify	Set up job	2026-09-30T10:21:30.7637021Z Complete job name: verify
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-30T10:21:30.8429425Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8430241Z with:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8430530Z   repository: Bum-Boo/ssok
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8433892Z   token: ***
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8434179Z   ssh-strict: true
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8434439Z   ssh-user: git
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8434711Z   persist-credentials: true
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8434996Z   clean: true
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8435273Z   sparse-checkout-cone-mode: true
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8435578Z   fetch-depth: 1
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8435833Z   fetch-tags: false
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8436099Z   show-progress: true
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8436374Z   lfs: false
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8436619Z   submodules: false
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8436916Z   set-safe-directory: true
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8437213Z   allow-unsafe-pr-checkout: false
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.8437868Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9691834Z Syncing repository: Bum-Boo/ssok
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9695738Z ##[group]Getting Git version info
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9698279Z Working directory is '/home/runner/work/ssok/ssok'
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9699541Z [command]/usr/bin/git version
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9799318Z git version 2.55.0
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9805353Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9814877Z Temporarily overriding HOME='/home/runner/work/_temp/70e55c30-151d-437d-9089-bd5bc1c869ea' before making global git config changes
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9816824Z Adding repository directory to the temporary git global config as a safe directory
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9820601Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ssok/ssok
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9939578Z Deleting the contents of '/home/runner/work/ssok/ssok'
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9942029Z ##[group]Determining repository object format
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9943889Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9945474Z ##[group]Initializing the repository
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:30.9946825Z [command]/usr/bin/git init /home/runner/work/ssok/ssok
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0044325Z hint: Using 'master' as the name for the initial branch. This default branch name
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0057525Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0058383Z hint: to use in all of your new repositories, which will suppress this warning,
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0059173Z hint: call:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0059588Z hint:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0060127Z hint: 	git config --global init.defaultBranch <name>
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0060787Z hint:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0061425Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0062679Z hint: 'development'. The just-created branch can be renamed via this command:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0063419Z hint:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0063920Z hint: 	git branch -m <name>
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0064429Z hint:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0065094Z hint: Disable this message with "git config set advice.defaultBranchName false"
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0066915Z Initialized empty Git repository in /home/runner/work/ssok/ssok/.git/
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0068873Z [command]/usr/bin/git remote add origin https://github.com/Bum-Boo/ssok
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0129054Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0130267Z ##[group]Disabling automatic garbage collection
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0131192Z [command]/usr/bin/git config --local gc.auto 0
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0178652Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0179654Z ##[group]Setting up auth
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0180304Z Removing SSH command configuration
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0181164Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0224594Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0689326Z Removing HTTP extra header
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0690704Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.0737028Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1076408Z Removing includeIf entries pointing to credentials config files
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1093515Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1154300Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1440455Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1486658Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/ssok/ssok/.git.path /home/runner/work/_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1557833Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/ssok/ssok/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1603479Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1639783Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1665287Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1666806Z ##[group]Fetching the repository
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:31.1668732Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b4df1a9459ba7c24f2a9f9e69d3a969f41feb7fc:refs/remotes/pull/40/merge
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7621889Z From https://github.com/Bum-Boo/ssok
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7630037Z  * [new ref]         b4df1a9459ba7c24f2a9f9e69d3a969f41feb7fc -> pull/40/merge
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7654134Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7655085Z ##[group]Determining the checkout info
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7655967Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7657792Z [command]/usr/bin/git sparse-checkout disable
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7699747Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7735848Z ##[group]Checking out the ref
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:34.7741640Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/40/merge
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1916294Z Note: switching to 'refs/remotes/pull/40/merge'.
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1919198Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1928376Z You are in 'detached HEAD' state. You can look around, make experimental
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1929718Z changes and commit them, and you can discard any commits you make in this
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1943823Z state without impacting any branches by switching back to a branch.
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1944792Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1945408Z If you want to create a new branch to retain commits you create, you may
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1946417Z do so (now or later) by using -c with the switch command. Example:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1947015Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1947503Z   git switch -c <new-branch-name>
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1947950Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1948280Z Or undo this operation with:
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1948708Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1949099Z   git switch -
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1949635Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1950255Z Turn off this advice by setting config variable advice.detachedHead to false
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1951069Z 
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1951844Z HEAD is now at b4df1a9 Merge d7a0b54b77b6ce60e4953b0facae37586a597248 into 6eacf39d8dbaa71f76932acaefd18bcec9ec3b7a
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.1954667Z ##[endgroup]
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.2043244Z [command]/usr/bin/git log -1 --format=%H
+verify	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:21:35.2044211Z b4df1a9459ba7c24f2a9f9e69d3a969f41feb7fc
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	﻿2026-09-30T10:21:35.2311424Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2311843Z with:
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2312065Z   python-version: 3.14.7
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2312289Z   cache: pip
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2312902Z   cache-dependency-path: tools/ci/requirements-lock.txt
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2313303Z   check-latest: false
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2315790Z   token: ***
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2316043Z   update-environment: true
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2316295Z   allow-prereleases: false
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2316533Z   freethreaded: false
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.2316746Z ##[endgroup]
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.3512134Z ##[group]Installed versions
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.3546994Z Successfully set up CPython (3.14.7)
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.3548129Z ##[endgroup]
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:35.4079758Z [command]/opt/hostedtoolcache/Python/3.14.7/x64/bin/pip cache dir
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:36.6711099Z /home/runner/.cache/pip
+verify	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-09-30T10:21:36.9157374Z pip cache is not found
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	﻿2026-09-30T10:21:36.9296169Z ##[group]Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9296536Z with:
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9296752Z   path: build/toolchain/downloads
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9297017Z   key: godot-4.7.2-linux-editor-cadd3204
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9297299Z   enableCrossOsArchive: false
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9297553Z   fail-on-cache-miss: false
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9297786Z   lookup-only: false
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9298040Z   save-always: false
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9298237Z env:
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9298487Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9298920Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9299319Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9299681Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9300037Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9300525Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:36.9300888Z ##[endgroup]
+verify	Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9	2026-09-30T10:21:37.2695182Z Cache not found for input keys: godot-4.7.2-linux-editor-cadd3204
+verify	Run python tools/ci/install_godot.py	﻿2026-09-30T10:21:37.2778255Z ##[group]Run python tools/ci/install_godot.py
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2778733Z ^[[36;1mpython tools/ci/install_godot.py^[[0m
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2959704Z shell: /usr/bin/bash -e {0}
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2960011Z env:
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2960287Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2960708Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2961125Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2961485Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2961847Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2962215Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.2962869Z ##[endgroup]
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:37.4823015Z Downloading official Godot_v4.7.2-stable_linux.x86_64.zip
+verify	Run python tools/ci/install_godot.py	2026-09-30T10:21:38.7748640Z GODOT=/home/runner/work/ssok/ssok/build/toolchain/godot
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	﻿2026-09-30T10:21:38.7924408Z ##[group]Run python -m pip install -r tools/ci/requirements-lock.txt
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7924966Z ^[[36;1mpython -m pip install -r tools/ci/requirements-lock.txt^[[0m
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7960900Z shell: /usr/bin/bash -e {0}
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7961167Z env:
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7961434Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7961858Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7962270Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7962904Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7963266Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7963639Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:38.7963981Z ##[endgroup]
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.2018399Z Collecting absl-py==2.5.0 (from -r tools/ci/requirements-lock.txt (line 1))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.2745596Z   Downloading absl_py-2.5.0-py3-none-any.whl.metadata (3.3 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.2870937Z Collecting annotated-types==0.8.0 (from -r tools/ci/requirements-lock.txt (line 2))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.2976012Z   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.3168656Z Collecting anyio==4.15.1 (from -r tools/ci/requirements-lock.txt (line 3))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.3271605Z   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.3396504Z Collecting attrs==26.1.0 (from -r tools/ci/requirements-lock.txt (line 4))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.3504254Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.4430151Z Collecting cffi==2.1.1 (from -r tools/ci/requirements-lock.txt (line 5))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.4536117Z   Downloading cffi-2.1.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.4673696Z Collecting click==8.5.0 (from -r tools/ci/requirements-lock.txt (line 6))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.4790724Z   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.6209576Z Collecting cryptography==50.0.1 (from -r tools/ci/requirements-lock.txt (line 7))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.6315318Z   Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.6449292Z Collecting etils==1.14.0 (from -r tools/ci/requirements-lock.txt (line 8))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.6553913Z   Downloading etils-1.14.0-py3-none-any.whl.metadata (6.5 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.6774259Z Collecting fsspec==2026.9.0 (from -r tools/ci/requirements-lock.txt (line 9))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.6879144Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.7375886Z Collecting glfw==2.10.2 (from -r tools/ci/requirements-lock.txt (line 10))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.7481392Z   Downloading glfw-2.10.2-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9164619Z Collecting greenlet==3.5.6 (from -r tools/ci/requirements-lock.txt (line 11))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9271195Z   Downloading greenlet-3.5.6-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9376272Z Collecting h11==0.16.0 (from -r tools/ci/requirements-lock.txt (line 12))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9479598Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9588587Z Collecting httpcore2==2.13.0 (from -r tools/ci/requirements-lock.txt (line 13))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9693390Z   Downloading httpcore2-2.13.0-py3-none-any.whl.metadata (26 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9845160Z Collecting httpx2==2.13.0 (from -r tools/ci/requirements-lock.txt (line 14))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:40.9948414Z   Downloading httpx2-2.13.0-py3-none-any.whl.metadata (10 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0109718Z Collecting idna==3.20 (from -r tools/ci/requirements-lock.txt (line 15))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0213560Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0387826Z Collecting jsonschema==4.26.0 (from -r tools/ci/requirements-lock.txt (line 16))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0494494Z   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0624056Z Collecting jsonschema-specifications==2025.9.1 (from -r tools/ci/requirements-lock.txt (line 17))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0729257Z   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0878726Z Collecting mcp==2.2.0 (from -r tools/ci/requirements-lock.txt (line 18))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.0985869Z   Downloading mcp-2.2.0-py3-none-any.whl.metadata (7.8 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.1105635Z Collecting mcp-types==2.2.0 (from -r tools/ci/requirements-lock.txt (line 19))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.1210646Z   Downloading mcp_types-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.1791372Z Collecting mujoco==3.13.0 (from -r tools/ci/requirements-lock.txt (line 20))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.2565051Z   Downloading mujoco-3.13.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (232 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.4497536Z Collecting numpy==2.5.3 (from -r tools/ci/requirements-lock.txt (line 21))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.4604091Z   Downloading numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.4768662Z Collecting opentelemetry-api==1.44.0 (from -r tools/ci/requirements-lock.txt (line 22))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.4872600Z   Downloading opentelemetry_api-1.44.0-py3-none-any.whl.metadata (1.4 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.5169170Z Collecting playwright==1.63.0 (from -r tools/ci/requirements-lock.txt (line 23))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.5274849Z   Downloading playwright-1.63.0-py3-none-manylinux1_x86_64.whl.metadata (3.3 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.5382284Z Collecting pycparser==3.0 (from -r tools/ci/requirements-lock.txt (line 24))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.5486852Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.6331524Z Collecting pydantic==2.13.5 (from -r tools/ci/requirements-lock.txt (line 25))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:41.6437789Z   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2208217Z Collecting pydantic_core==2.46.5 (from -r tools/ci/requirements-lock.txt (line 26))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2314396Z   Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2445338Z Collecting pyee==13.0.1 (from -r tools/ci/requirements-lock.txt (line 27))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2553206Z   Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2734584Z Collecting PyJWT==2.14.0 (from -r tools/ci/requirements-lock.txt (line 28))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2839682Z   Downloading pyjwt-2.14.0-py3-none-any.whl.metadata (3.4 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.2969179Z Collecting PyOpenGL==3.1.10 (from -r tools/ci/requirements-lock.txt (line 29))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.3074147Z   Downloading pyopengl-3.1.10-py3-none-any.whl.metadata (3.3 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.3197830Z Collecting python-multipart==0.0.32 (from -r tools/ci/requirements-lock.txt (line 30))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.3302000Z   Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.3496396Z Collecting referencing==0.37.0 (from -r tools/ci/requirements-lock.txt (line 31))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.3603532Z   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.5719775Z Collecting rpds-py==2026.6.3 (from -r tools/ci/requirements-lock.txt (line 32))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.5825892Z   Downloading rpds_py-2026.6.3-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.5972936Z Collecting sse-starlette==3.4.11 (from -r tools/ci/requirements-lock.txt (line 33))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6078259Z   Downloading sse_starlette-3.4.11-py3-none-any.whl.metadata (15 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6288609Z Collecting starlette==1.6.0 (from -r tools/ci/requirements-lock.txt (line 34))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6397558Z   Downloading starlette-1.6.0-py3-none-any.whl.metadata (6.4 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6519706Z Collecting truststore==0.10.4 (from -r tools/ci/requirements-lock.txt (line 35))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6623602Z   Downloading truststore-0.10.4-py3-none-any.whl.metadata (4.4 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6733271Z Collecting typing-inspection==0.4.4 (from -r tools/ci/requirements-lock.txt (line 36))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6841580Z   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.6983507Z Collecting typing_extensions==4.16.0 (from -r tools/ci/requirements-lock.txt (line 37))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.7093605Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.7290058Z Collecting uvicorn==0.53.0 (from -r tools/ci/requirements-lock.txt (line 38))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.7397352Z   Downloading uvicorn-0.53.0-py3-none-any.whl.metadata (6.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.7552610Z Collecting zipp==4.1.0 (from -r tools/ci/requirements-lock.txt (line 39))
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.7659270Z   Downloading zipp-4.1.0-py3-none-any.whl.metadata (3.6 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.8330900Z Downloading absl_py-2.5.0-py3-none-any.whl (137 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.8469583Z Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.8592644Z Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.8729319Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.8860742Z Downloading cffi-2.1.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.9005826Z Downloading click-8.5.0-py3-none-any.whl (125 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.9132055Z Downloading cryptography-50.0.1-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.9650876Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 92.2 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.9767205Z Downloading etils-1.14.0-py3-none-any.whl (172 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:42.9896663Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0033220Z Downloading glfw-2.10.2-py2.py3-none-manylinux_2_28_x86_64.whl (248 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0163076Z Downloading greenlet-3.5.6-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (670 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0215424Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 670.8/670.8 kB 148.9 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0320144Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0443398Z Downloading httpcore2-2.13.0-py3-none-any.whl (83 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0573551Z Downloading httpx2-2.13.0-py3-none-any.whl (95 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0697889Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0821447Z Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.0953422Z Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.1077548Z Downloading mcp-2.2.0-py3-none-any.whl (365 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.1209031Z Downloading mcp_types-2.2.0-py3-none-any.whl (69 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.1339796Z Downloading mujoco-3.13.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (20.4 MB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.2050653Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.4/20.4 MB 297.4 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.2149268Z Downloading numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.2589062Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 395.7 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.2693741Z Downloading opentelemetry_api-1.44.0-py3-none-any.whl (60 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.2818667Z Downloading playwright-1.63.0-py3-none-manylinux1_x86_64.whl (48.2 MB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.8500144Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 MB 84.8 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.8605787Z Downloading pyee-13.0.1-py3-none-any.whl (15 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.8728926Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.8855207Z Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.8991779Z Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9077223Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 305.9 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9181218Z Downloading pyjwt-2.14.0-py3-none-any.whl (32 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9312746Z Downloading pyopengl-3.1.10-py3-none-any.whl (3.2 MB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9439966Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 282.5 MB/s  0:00:00
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9544763Z Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9668150Z Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9796055Z Downloading rpds_py-2026.6.3-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (367 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:43.9928465Z Downloading sse_starlette-3.4.11-py3-none-any.whl (17 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.0051576Z Downloading starlette-1.6.0-py3-none-any.whl (75 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.0176412Z Downloading truststore-0.10.4-py3-none-any.whl (18 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.0299538Z Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.0428325Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.0563762Z Downloading uvicorn-0.53.0-py3-none-any.whl (87 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.0683881Z Downloading zipp-4.1.0-py3-none-any.whl (10 kB)
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:44.4618362Z Installing collected packages: PyOpenGL, glfw, zipp, typing_extensions, truststore, rpds-py, python-multipart, PyJWT, pycparser, numpy, idna, h11, greenlet, fsspec, etils, click, attrs, annotated-types, absl-py, uvicorn, typing-inspection, referencing, pyee, pydantic_core, opentelemetry-api, httpcore2, cffi, anyio, starlette, pydantic, playwright, jsonschema-specifications, httpx2, cryptography, sse-starlette, mujoco, mcp-types, jsonschema, mcp
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:53.1393572Z 
+verify	Run python -m pip install -r tools/ci/requirements-lock.txt	2026-09-30T10:21:53.1436445Z Successfully installed PyJWT-2.14.0 PyOpenGL-3.1.10 absl-py-2.5.0 annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 cffi-2.1.1 click-8.5.0 cryptography-50.0.1 etils-1.14.0 fsspec-2026.9.0 glfw-2.10.2 greenlet-3.5.6 h11-0.16.0 httpcore2-2.13.0 httpx2-2.13.0 idna-3.20 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.2.0 mcp-types-2.2.0 mujoco-3.13.0 numpy-2.5.3 opentelemetry-api-1.44.0 playwright-1.63.0 pycparser-3.0 pydantic-2.13.5 pydantic_core-2.46.5 pyee-13.0.1 python-multipart-0.0.32 referencing-0.37.0 rpds-py-2026.6.3 sse-starlette-3.4.11 starlette-1.6.0 truststore-0.10.4 typing-inspection-0.4.4 typing_extensions-4.16.0 uvicorn-0.53.0 zipp-4.1.0
+verify	Run all checks, including mock HTTP and MCP transport	﻿2026-09-30T10:21:53.3656522Z ##[group]Run python tools/ci/verify.py --godot "$PWD/build/toolchain/godot"
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3657470Z ^[[36;1mpython tools/ci/verify.py --godot "$PWD/build/toolchain/godot"^[[0m
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3714519Z shell: /usr/bin/bash -e {0}
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3714957Z env:
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3715409Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3716111Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3716835Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3717719Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3718365Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3718950Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.3719430Z ##[endgroup]
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:21:53.6095841Z RUN  import
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:02.7052325Z PASS import (9.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:02.7058760Z RUN  scene-load
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:06.3343414Z PASS scene-load (3.6s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:06.3360751Z RUN  app_controller_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:11.4694846Z PASS app_controller_check (5.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:11.4701373Z RUN  assembly_snap_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:11.8353446Z PASS assembly_snap_check (0.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:11.8360024Z RUN  authoring_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:15.5599559Z PASS authoring_ui_check (3.7s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:15.5606682Z RUN  biped_app_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:28.2068108Z PASS biped_app_check (12.6s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:28.2076652Z RUN  biped_board_clearance_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:29.3248568Z PASS biped_board_clearance_check (1.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:29.3260142Z RUN  biped_motion_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:31.9972524Z PASS biped_motion_check (2.7s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:31.9979982Z RUN  blender_camera_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:32.2630114Z PASS blender_camera_check (0.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:32.2638206Z RUN  blender_edit_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:32.6290824Z PASS blender_edit_check (0.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:32.6297952Z RUN  block_program_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:35.9527526Z PASS block_program_check (3.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:35.9537084Z RUN  browser_evidence_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:39.6772309Z PASS browser_evidence_check (3.7s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:39.6781175Z RUN  construction_kit_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:40.5946107Z PASS construction_kit_check (0.9s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:40.5954563Z RUN  construction_kit_motion_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:47.3767040Z PASS construction_kit_motion_check (6.8s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:47.3776967Z RUN  construction_kit_store_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:49.4967168Z PASS construction_kit_store_check (2.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:49.4978439Z RUN  construction_kit_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:53.7726436Z PASS construction_kit_ui_check (4.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:53.7734128Z RUN  control_flow_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:57.0979621Z PASS control_flow_check (3.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:22:57.0987054Z RUN  core_authoring_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:01.0729289Z PASS core_authoring_check (4.0s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:01.0738130Z RUN  flag_mission_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:04.3968334Z PASS flag_mission_check (3.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:04.3975581Z RUN  humanoid_contract_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:04.7627776Z PASS humanoid_contract_check (0.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:04.7635160Z RUN  humanoid_motion_check-walk
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:05.9805898Z PASS humanoid_motion_check-walk (1.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:05.9814917Z RUN  humanoid_motion_check-backward
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:07.1989980Z PASS humanoid_motion_check-backward (1.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:07.1997549Z RUN  humanoid_motion_check-pick
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:08.5171093Z PASS humanoid_motion_check-pick (1.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:08.5179658Z RUN  humanoid_motion_check-run
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:09.7353082Z PASS humanoid_motion_check-run (1.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:09.7361639Z RUN  humanoid_motion_check-walk-reverse-links
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:10.9538091Z PASS humanoid_motion_check-walk-reverse-links (1.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:10.9545870Z RUN  humanoid_motion_check-run-reverse-links
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:12.1721177Z PASS humanoid_motion_check-run-reverse-links (1.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:12.1729588Z RUN  humanoid_motion_check-run-settle-frames=181
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:13.3903267Z PASS humanoid_motion_check-run-settle-frames=181 (1.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:13.3917023Z RUN  humanoid_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:17.7682242Z PASS humanoid_ui_check (4.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:17.7691099Z RUN  humanoid_ui_check-modular
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:22.6961282Z PASS humanoid_ui_check-modular (4.9s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:22.6969242Z RUN  keyboard_navigation_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:26.2200573Z PASS keyboard_navigation_check (3.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:26.2211424Z RUN  learned_app_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:29.7441140Z PASS learned_app_check (3.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:29.7451139Z RUN  learned_policy_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:32.1656229Z PASS learned_policy_check (2.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:32.1669300Z RUN  learned_tracking_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:35.3396793Z PASS learned_tracking_check (3.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:35.3406916Z RUN  learner_language_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:35.7056866Z PASS learner_language_check (0.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:35.7067374Z RUN  localization_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:39.9818058Z PASS localization_check (4.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:39.9828661Z RUN  manual_control_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:40.3482545Z PASS manual_control_check (0.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:40.3493228Z RUN  material_assets_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:40.8156729Z PASS material_assets_check (0.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:40.8167647Z RUN  mesh_assets_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:41.3827901Z PASS mesh_assets_check (0.6s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:41.3837070Z RUN  modular_humanoid_check-walk
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:42.2503668Z PASS modular_humanoid_check-walk (0.9s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:42.2513928Z RUN  modular_humanoid_check-pick
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:43.0678061Z PASS modular_humanoid_check-pick (0.8s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:43.0689432Z RUN  modular_humanoid_check-pick-reverse-links
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:43.8855733Z PASS modular_humanoid_check-pick-reverse-links (0.8s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:43.8863662Z RUN  modular_pickup_parallel_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:46.4066377Z PASS modular_pickup_parallel_check (2.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:46.4077585Z RUN  motion_lab_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:52.9381925Z PASS motion_lab_check (6.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:23:52.9390435Z RUN  motion_lab_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:00.0842652Z PASS motion_lab_ui_check (7.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:00.0855490Z RUN  pickup_bridge_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:10.4271159Z PASS pickup_bridge_ui_check (10.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:10.4279700Z RUN  pickup_lab_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:18.6121909Z PASS pickup_lab_ui_check (8.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:18.6134756Z RUN  pickup_store_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:22.5383505Z PASS pickup_store_check (3.9s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:22.5394008Z RUN  pickup_trial_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:27.5661297Z PASS pickup_trial_check (5.0s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:27.5673263Z RUN  project_store_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:31.5425852Z PASS project_store_check (4.0s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:31.5434307Z RUN  relative_code_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:32.0090143Z PASS relative_code_check (0.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:32.0098460Z RUN  robot_car_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:32.6760029Z PASS robot_car_check (0.7s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:32.6771579Z RUN  run_mode_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:33.0422854Z PASS run_mode_check (0.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:33.0435509Z RUN  servo_torque_budget_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:33.3087053Z PASS servo_torque_budget_check (0.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:33.3096548Z RUN  sonar_stage_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:49.6649422Z PASS sonar_stage_check (16.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:49.6658900Z RUN  stage_authoring_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:57.4988560Z PASS stage_authoring_check (7.8s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:24:57.5001083Z RUN  stage_contract_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:07.3385881Z PASS stage_contract_check (9.8s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:07.3398953Z RUN  stage_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:10.9630771Z PASS stage_ui_check (3.6s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:10.9643333Z RUN  tutorial_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:14.9888275Z PASS tutorial_ui_check (4.0s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:14.9903215Z RUN  viewport_framing_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:20.1173668Z PASS viewport_framing_check (5.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:20.1188855Z RUN  workshop_ui_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:24.1932843Z PASS workshop_ui_check (4.1s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:24.1945900Z RUN  yaw_biped_check
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:24.6600754Z PASS yaw_biped_check (0.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:24.6610440Z RUN  tests-motion_mcp_check.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:30.5416703Z PASS tests-motion_mcp_check.py (5.9s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:30.5426499Z RUN  tests-test_ci_verify.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:30.7572876Z PASS tests-test_ci_verify.py (0.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:30.7586851Z RUN  tests-test_desktop_package.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:31.0735528Z PASS tests-test_desktop_package.py (0.3s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:31.0749272Z RUN  tests-test_pickup_bridge.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:32.9443443Z PASS tests-test_pickup_bridge.py (1.9s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:32.9462303Z RUN  tests-test_release_documents.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:35.4161351Z PASS tests-test_release_documents.py (2.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:35.4170638Z RUN  tools-docs-test_maintain.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:35.5816355Z PASS tools-docs-test_maintain.py (0.2s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:35.5829461Z RUN  tools-motion_lab-test_races.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:37.0569188Z PASS tools-motion_lab-test_races.py (1.5s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:37.0581752Z RUN  tools-motion_lab-test_service.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:38.4264296Z PASS tools-motion_lab-test_service.py (1.4s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:38.4278246Z RUN  tools-rl_lab-test_rl_lab.py
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:39.1467011Z PASS tools-rl_lab-test_rl_lab.py (0.7s)
+verify	Run all checks, including mock HTTP and MCP transport	2026-09-30T10:25:39.3304161Z 70 checks; 0 failures. Results: /home/runner/work/ssok/ssok/build/verification/SUMMARY.md
+verify	Preserve every result and failure	﻿2026-09-30T10:25:39.3519263Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+verify	Preserve every result and failure	2026-09-30T10:25:39.3519672Z with:
+verify	Preserve every result and failure	2026-09-30T10:25:39.3519952Z   name: verification-b4df1a9459ba7c24f2a9f9e69d3a969f41feb7fc
+verify	Preserve every result and failure	2026-09-30T10:25:39.3520317Z   path: build/verification/
+verify	Preserve every result and failure	2026-09-30T10:25:39.3520561Z   if-no-files-found: warn
+verify	Preserve every result and failure	2026-09-30T10:25:39.3520791Z   compression-level: 6
+verify	Preserve every result and failure	2026-09-30T10:25:39.3521005Z   overwrite: false
+verify	Preserve every result and failure	2026-09-30T10:25:39.3521221Z   include-hidden-files: false
+verify	Preserve every result and failure	2026-09-30T10:25:39.3521461Z   archive: true
+verify	Preserve every result and failure	2026-09-30T10:25:39.3521644Z env:
+verify	Preserve every result and failure	2026-09-30T10:25:39.3521889Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Preserve every result and failure	2026-09-30T10:25:39.3522292Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+verify	Preserve every result and failure	2026-09-30T10:25:39.3522954Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Preserve every result and failure	2026-09-30T10:25:39.3523316Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Preserve every result and failure	2026-09-30T10:25:39.3523680Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Preserve every result and failure	2026-09-30T10:25:39.3524086Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+verify	Preserve every result and failure	2026-09-30T10:25:39.3524399Z ##[endgroup]
+verify	Preserve every result and failure	2026-09-30T10:25:39.5441411Z With the provided path, there will be 73 files uploaded
+verify	Preserve every result and failure	2026-09-30T10:25:39.5442830Z Artifact name is valid!
+verify	Preserve every result and failure	2026-09-30T10:25:39.5443456Z Root directory input is valid!
+verify	Preserve every result and failure	2026-09-30T10:25:39.7140804Z ##[error]Failed to CreateArtifact: Artifact storage quota has been hit. Unable to upload any new artifacts. Usage is recalculated every 6-12 hours.
+verify	Preserve every result and failure	More info on storage limits: https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#calculating-minute-and-storage-spending
+verify	Job summary	﻿2026-09-30T10:25:39.7227732Z ##[group]Run test ! -f build/verification/SUMMARY.md || cat build/verification/SUMMARY.md >> "$GITHUB_STEP_SUMMARY"
+verify	Job summary	2026-09-30T10:25:39.7228487Z ^[[36;1mtest ! -f build/verification/SUMMARY.md || cat build/verification/SUMMARY.md >> "$GITHUB_STEP_SUMMARY"^[[0m
+verify	Job summary	2026-09-30T10:25:39.7265152Z shell: /usr/bin/bash -e {0}
+verify	Job summary	2026-09-30T10:25:39.7265421Z env:
+verify	Job summary	2026-09-30T10:25:39.7265683Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Job summary	2026-09-30T10:25:39.7266097Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+verify	Job summary	2026-09-30T10:25:39.7266508Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Job summary	2026-09-30T10:25:39.7266867Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Job summary	2026-09-30T10:25:39.7267227Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+verify	Job summary	2026-09-30T10:25:39.7267596Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+verify	Job summary	2026-09-30T10:25:39.7267910Z ##[endgroup]
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-09-30T10:25:39.7438222Z Post job cleanup.
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8373891Z [command]/usr/bin/git version
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8450414Z git version 2.55.0
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8540249Z Temporarily overriding HOME='/home/runner/work/_temp/b3087463-a02d-46d5-a393-28524fc71188' before making global git config changes
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8566741Z Adding repository directory to the temporary git global config as a safe directory
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8583340Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ssok/ssok
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8643049Z Removing SSH command configuration
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8663097Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.8766409Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.9382085Z Removing HTTP extra header
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.9383351Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:39.9494295Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0066282Z Removing includeIf entries pointing to credentials config files
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0083433Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0107714Z includeif.gitdir:/home/runner/work/ssok/ssok/.git.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0123204Z includeif.gitdir:/home/runner/work/ssok/ssok/.git/worktrees/*.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0129229Z includeif.gitdir:/github/workspace/.git.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0153046Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0173521Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/ssok/ssok/.git.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0195498Z /home/runner/work/_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0242907Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/ssok/ssok/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-77361780\-96c4\-46f7\-a285\-4e10078801d8\.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0291159Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/ssok/ssok/.git/worktrees/*.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0313142Z /home/runner/work/_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0343857Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/ssok/ssok/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-77361780\-96c4\-46f7\-a285\-4e10078801d8\.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0383657Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0403236Z /github/runner_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0443613Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-77361780\-96c4\-46f7\-a285\-4e10078801d8\.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0501445Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0523173Z /github/runner_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0557516Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-77361780\-96c4\-46f7\-a285\-4e10078801d8\.config
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0584804Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-09-30T10:25:40.0798630Z Removing credentials config '/home/runner/work/_temp/git-credentials-77361780-96c4-46f7-a285-4e10078801d8.config'
+verify	Complete job	﻿2026-09-30T10:25:40.0930024Z Cleaning up orphan processes

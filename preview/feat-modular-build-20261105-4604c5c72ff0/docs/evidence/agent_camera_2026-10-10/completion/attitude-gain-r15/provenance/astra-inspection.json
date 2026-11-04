@@ -1,0 +1,103 @@
+{
+    "requested_role":  "Astra visual inspection",
+    "requested_model":  "gpt-6-astra",
+    "actual_serving_identity":  null,
+    "identity_limits":  "Requested role supplied by coordinator; actual serving/backend identity is not independently exposed or attested.",
+    "viewed_count":  6,
+    "method":  "All six listed PNGs actually emitted and viewed at original resolution via view_image original. Visual central band x approximately 312–328, centered at x320. Zero-based boundary_y estimate and gap to bottom = 480-boundary_y; uncertainty ±2 px for soft boundary. Per-file SHA256 and PNG-header dimensions computed for these same files only.",
+    "viewed":  [
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-gain-r15/stock/post-3.png",
+                       "sha256":  "2e18888227b90c8bad9a556b352df619cef6f95e3761ead2e29637afae3454ef",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "central_wall_bottom_y_approx":  458,
+                       "central_floor_gap_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall occupies most of frame above a narrow beige floor strip. Blue/gray geometry occupies lower side edges but leaves central measurement band unobstructed. Boundary remains above frame bottom; transition softness limits row precision."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-gain-r15/stock/idle-4.png",
+                       "sha256":  "c737be3e64520456970cdf96c4d2ac5ac615d620d433114ad85270821f55fd5c",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "central_wall_bottom_y_approx":  457,
+                       "central_floor_gap_px_approx":  23,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall occupies most of frame above a narrow beige floor strip. Blue/gray geometry occupies lower side edges but leaves central measurement band unobstructed. Boundary remains above frame bottom; transition softness limits row precision."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-gain-r15/k32/post-3.png",
+                       "sha256":  "0a287b2bd290c837151f65ef684f744f2f331af3bf7e9c3e67c8efc77ff07667",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "central_wall_bottom_y_approx":  458,
+                       "central_floor_gap_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall occupies most of frame above a narrow beige floor strip. Blue/gray geometry occupies lower side edges but leaves central measurement band unobstructed. Boundary remains above frame bottom; transition softness limits row precision."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-gain-r15/k32/idle-4.png",
+                       "sha256":  "301e35a2f13f7da4b38719aa788cc196029dc96bf5bfa39c5414a9cda27650ea",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "central_wall_bottom_y_approx":  455,
+                       "central_floor_gap_px_approx":  25,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall occupies most of frame above a narrow beige floor strip. Blue/gray geometry occupies lower side edges but leaves central measurement band unobstructed. Boundary remains above frame bottom; transition softness limits row precision."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-gain-r15/k64/post-3.png",
+                       "sha256":  "0b189a0e342633cc56411fcf2fd351ed83f5c356b7c08e43081e2aa1ca35d1bd",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "central_wall_bottom_y_approx":  457,
+                       "central_floor_gap_px_approx":  23,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall occupies most of frame above a narrow beige floor strip. Blue/gray geometry occupies lower side edges but leaves central measurement band unobstructed. Boundary remains above frame bottom; transition softness limits row precision."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-gain-r15/k64/idle-4.png",
+                       "sha256":  "fff3a5bc2de4a4bead346aeada54ad666ff2c84f7fa6b2c4535a8e437d50ee41",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "central_wall_bottom_y_approx":  458,
+                       "central_floor_gap_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall occupies most of frame above a narrow beige floor strip. Blue/gray geometry occupies lower side edges but leaves central measurement band unobstructed. Boundary remains above frame bottom; transition softness limits row precision."
+                   }
+               ],
+    "findings":  {
+                     "stock":  "Post-3 gap approximately 22 px, idle-4 approximately 23 px; apparent 1 px difference lies within uncertainty.",
+                     "k32":  "Post-3 approximately 22 px, idle-4 approximately 25 px; idle-4 strip appears slightly taller, approximately 3 px in image coordinates, with uncertainty on each estimate.",
+                     "k64":  "Post-3 approximately 23 px, idle-4 approximately 22 px; apparent 1 px difference lies within uncertainty.",
+                     "comparison":  "All images show narrow unobstructed center strips. K32 idle-4 appears marginally taller than its post-3 capture; other pair differences are not clearly distinguishable at this visual precision. This is a selected-still comparison only."
+                 },
+    "provenance":  "Coordinator states per-instance developer probes with unchanged production app and original goal; not independently verified through source or runtime.",
+    "unviewed_boundaries":  "No other images, evaluator, physics/source, private vault or provider files read; no app/browser operated.",
+    "limits":  [
+                   "No distance, ticks, physical motion, causality, runtime or goal-success inference.",
+                   "No continuous-jitter or reliability claim from selected stills.",
+                   "Visual estimates are not exact pixel-classifier measurements.",
+                   "No independent model/backend identity claim.",
+                   "No delegation, repository/task/canonical changes; only this authorized fresh result JSON written."
+               ]
+}

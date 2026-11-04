@@ -1,0 +1,24 @@
+from pathlib import Path
+from datetime import datetime,timezone,timedelta
+import hashlib,json,msvcrt,os,subprocess,time
+r=Path('C:/Users/Hojun/Projects/ssok-ai-loop');base=Path('C:/Users/Hojun/.agents/backups/ssok-completion-20261010');b=base/'release-current-ui-r7';b.mkdir(exist_ok=False)
+out=r/'build/ai-loop-evidence/completion/release-current-ui-r7';out.mkdir(exist_ok=False)
+git=lambda *a:subprocess.check_output(['git',*a],cwd=r).decode().strip();sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+head=git('rev-parse','HEAD');assert head=='fa868ca07cdd9d2b8edb27cbab89cd00263c851f' and git('branch','--show-current')=='feat/32-robot-camera-loop' and not git('status','--porcelain')
+baseline=json.loads((r/'build/ai-loop-evidence/completion/full-native-final-r2/source-before.json').read_text())['files'];inputs={n:sha(r/n) for n in baseline};assert set(n for n in inputs if baseline[n]!=inputs[n])=={'src/ui/project_panel.gd','tools/ci/browser_layout.gd'}
+plan=Path('C:/Users/Hojun/Documents/Obsidians/Frieren (arch)/30_Projects/ssok/AI 관측·행동 루프 공동개발 계획.md');old=plan.read_bytes();m=json.loads((base/'package-goal-ui-r6/records/manifest.json').read_text());assert sha(plan)==m[str(plan)]['post_sha256'];assert b'<!-- ssok-release-current-ui-r7 -->' not in old
+stamp=datetime.now(timezone(timedelta(hours=9))).isoformat(timespec='seconds')
+text=old.decode('utf8')+'\n\n<!-- ssok-release-current-ui-r7 -->\n### 최신 Projects UI의 clean 패키지 로컬 검증 — '+stamp+'\n\nOutcome: reviewed UI가 포함된 clean source '+head+'의 Windows 설치형/portable 및 Web/Linux/macOS cross-export를 실제 검증한다. 앱/디자인/물리/목표/기준값 변경0. Allowed: ignored build output, bounded outside-repository verification helpers, existing docs/evidence/state/records only. Acceptance: current full native suite; clean4exports/6artifact SHA; same-Web5gates; exact Windows install/UI/uninstall and PE/PCK SHA; actual packaged visual inspection and cleanup. Native Mac는 기기 없으므로 미검증으로 유지. Source owner Codex; design reviewed Opus, image inspection Astra, integration Fable/human merge. Publication approval absent; no push/merge/deploy/paid model fallback. Physical0/9 and Arch CLI rev16 release remain. Next: verified artifacts + exact failures/unrun limits into existing state/handoff, reviewable local candidate before publication decision.\n'
+(b/'plan.before.md').write_bytes(old);data=text.encode('utf8')
+with plan.open('r+b',buffering=0) as f:
+    size=max(len(old),len(data))+1;msvcrt.locking(f.fileno(),msvcrt.LK_NBLCK,size)
+    try:assert f.read()==old;f.seek(0);f.write(data);f.truncate();os.fsync(f.fileno())
+    finally:f.seek(0);msvcrt.locking(f.fileno(),msvcrt.LK_UNLCK,size)
+assert plan.read_bytes()==data
+(b/'contract.json').write_bytes((json.dumps({'head':head,'plan':str(plan),'before_sha256':hashlib.sha256(old).hexdigest(),'post_sha256':sha(plan),'source426':inputs,'published':False},indent=2)+'\n').encode('utf8'));(out/'source-before.json').write_bytes((json.dumps({'head':head,'files':inputs},indent=2)+'\n').encode('utf8'))
+python=str(r/'build/venv-native/Scripts/python.exe');engine=str(r/'build/toolchain-windows/Godot_v4.7.2-stable_win64.exe');command=[python,'-X','utf8','tools/ci/verify.py','--godot',engine,'--python',python,'--output',str(out/'native-full')]
+environment=os.environ.copy();environment.pop('SSOK_AGENT_TOKEN',None);environment['PYTHONUTF8']='1';started=time.monotonic()
+print('BEGIN current clean-source full native verification',flush=True)
+with (out/'native-full.log').open('wb') as log:x=subprocess.run(command,cwd=r,env=environment,stdout=log,stderr=subprocess.STDOUT,timeout=1800)
+results=json.loads((out/'native-full/results.json').read_text());receipt={'command':command,'exit_code':x.returncode,'seconds':time.monotonic()-started,'head':head,'source426_unchanged':all(sha(r/n)==h for n,h in inputs.items()),'git_clean':not git('status','--porcelain'),'checks':results['checks'],'failures':results['failures'],'provider':'mock; no live call','published':False}
+(out/'native-full-receipt.json').write_bytes((json.dumps(receipt,indent=2)+'\n').encode('utf8'));print(json.dumps(receipt),flush=True);assert x.returncode==0 and results['failures']==0 and receipt['source426_unchanged'] and receipt['git_clean']

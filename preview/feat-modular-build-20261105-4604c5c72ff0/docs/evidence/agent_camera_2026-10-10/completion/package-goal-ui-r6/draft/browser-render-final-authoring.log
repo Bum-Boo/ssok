@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 301, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 173, in main
+    assert reopened["title"] == saved["title"], "Open failed to restore the project title"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Open failed to restore the project title
+thoring.py", line 173, in main
+    assert reopened["title"] == saved["title"], "Open failed to restore the project title"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Open failed to restore the project title
+

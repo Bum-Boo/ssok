@@ -1,0 +1,16 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=5",
+    "freiren",
+    "hostname"
+  ],
+  "exit_code": 1,
+  "wall_time_seconds": 5.047934,
+  "reachability": "connection_timeout_before_authentication_or_remote_command",
+  "power_state_proven": false,
+  "remote_mutation": false
+}

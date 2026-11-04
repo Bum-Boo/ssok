@@ -1,0 +1,10 @@
+OK: python - Python3.11 or newer is required.
+OK: source - Operator archive identity or checkout root is available.
+OK: mcp - Pinned MCP2.2.0 server is available.
+OK: codex - Codex CLI must be available on PATH.
+OK: login - Existing Codex ChatGPT login is available.
+OK: token - App and operator need the same shell token of at least32 characters.
+Local checks passed; submit a goal intentionally in ssok.
+Foreground operator waiting for one intentional app goal; existing Codex login,8steps/9images/300seconds.
+{"provider": "OpenAI", "requested_model": "gpt-6-astra", "auth": "existing Codex ChatGPT login", "expected_context": {"episode_id": "24044c4c3489f273de496260", "revision": 4, "control_generation": 1}, "experiment_image": "live", "sent_data": ["goal", "robot camera PNG", "public frame context", "concise visual summaries", "tool results"], "limits": {"cli_launches": 1, "steps": 8, "observations": 9, "seconds": 300}, "model_request_count": "not exposed by CLI; action/image limits are not a billing cap", "source_head": "f2342f8890422b76f64c6f1a842140bc7c1f64c1"}
+{"status": "cli_exited", "cli_exit": 0, "stop_confirmed": true, "owner_revocation_confirmed": true, "stop_scope": "context_replaced", "final_desktop_state": "stopped", "observations": 2, "completed_actions": 1, "final_reobserved": true, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {"input_tokens": 86371, "cached_input_tokens": 75008, "output_tokens": 353}, "goal_success": "not certified; inspect camera/action evidence"}

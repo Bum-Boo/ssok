@@ -1,0 +1,74 @@
+[
+  {
+    "phase": "design",
+    "type": "result",
+    "is_error": false,
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 43140,
+        "cacheReadInputTokens": 535,
+        "cacheCreationInputTokens": 15126,
+        "webSearchRequests": 0,
+        "costUSD": 0.983923,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 29757,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "duration_ms": 365096,
+    "num_turns": 1,
+    "permission_denials": []
+  },
+  {
+    "phase": "fix",
+    "type": "result",
+    "is_error": false,
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 14570,
+        "cacheReadInputTokens": 1454,
+        "cacheCreationInputTokens": 8991,
+        "webSearchRequests": 0,
+        "costUSD": 0.3636268,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4679,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "duration_ms": 112926,
+    "num_turns": 1,
+    "permission_denials": []
+  },
+  {
+    "phase": "final",
+    "type": "result",
+    "is_error": false,
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 2500,
+        "cacheReadInputTokens": 1454,
+        "cacheCreationInputTokens": 9330,
+        "webSearchRequests": 0,
+        "costUSD": 0.1249388,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1028,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "duration_ms": 24398,
+    "num_turns": 1,
+    "permission_denials": []
+  }
+]

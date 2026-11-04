@@ -1,0 +1,24 @@
+{
+  "type": "result",
+  "is_error": false,
+  "result": "{\"verdict\":\"pass\",\"findings\":[{\"id\":\"F1\",\"severity\":\"info\",\"area\":\"pinned_stop\",\"observation\":\"The root VBoxContainer adds the Stop and Status row before the ScrollContainer, so it sits outside the scrolled content. Stop has no disabled assignment anywhere in _refresh_state. Astra R5 shows the row at y231..269 in the compact, light, scrolled and driving captures, and Stop keeps its normal appearance while driving.\",\"action\":\"none\"},{\"id\":\"F2\",\"severity\":\"info\",\"area\":\"camera_preview\",\"observation\":\"_fit_preview sets the minimum height from width times 0.75. SCROLL_MODE_SHOW_ALWAYS keeps the width stable, so the height cannot feed back into it. Astra measured about 294x221, which is 4:3. In compact the preview starts near y350 and about 58px falls below the viewport at the top scroll position. Astra classed this as ordinary viewport clipping, and wall and floor are visible immediately, so it is not a defect.\",\"action\":\"none\"},{\"id\":\"F3\",\"severity\":\"info\",\"area\":\"state_gating\",\"observation\":\"Forward requires enabled, state 'ready' and can_step. Capture requires 'ready' or 'stopped'. Enable is blocked while active unless the state is stopped or fault. Astra R5 driving capture shows Enable, Capture and Forward disabled and Stop enabled, which matches the code. Click and braking behavior were not tested.\",\"action\":\"none\"},{\"id\":\"F4\",\"severity\":\"info\",\"area\":\"trace_safety\",\"observation\":\"append_event whitelists EVENT_KEYS, so reasoning fields are dropped. History is capped at 40 entries and each line at 240 characters. The displayed SHA-256 is computed from the received PNG bytes, not taken from metadata. The receipt copy says a hash match does not prove it was sent or read. Astra observed the fixture disclaimers and that no reasoning is shown.\",\"action\":\"none\"},{\"id\":\"F5\",\"severity\":\"info\",\"area\":\"localization\",\"observation\":\"Static and bound strings go through SsokLocale.bind or auto-translated section labels. _set_raw removes localized_source so a language switch cannot restore stale bound text. Astra saw no missing-glyph boxes in EN, KO, ZH or JA, and all status and button labels fit.\",\"action\":\"none\"},{\"id\":\"F6\",\"severity\":\"info\",\"area\":\"out_of_scope\",\"observation\":\"The bottom Run code button stays active-looking during Driving. That button is outside src/ui/agent_trace_panel.gd, and the runtime is stated to enforce context and bounds. Mid-word wrapping of raw trace strings comes from the intentional AUTOWRAP_ARBITRARY setting and stays readable. Neither is a critical issue or a demonstrable code bug in the allowed file.\",\"action\":\"none\"}],\"files\":[],\"messages\":[{\"en\":\"AI trace panel design review passed. Stop stays pinned above the scrolling trace, the camera preview stays 4:3, and all four languages render. No code changes required.\",\"ko\":\"AI 추적 패널 디자인 검토를 통과했습니다. 정지 버튼은 스크롤되는 추적 위에 고정되고, 카메라 미리보기는 4:3을 유지하며, 네 언어 모두 표시됩니다. 코드 변경은 필요하지 않습니다.\",\"zh_CN\":\"AI 轨迹面板设计审查已通过。停止按钮固定在滚动轨迹上方，相机预览保持 4:3，四种语言均正常显示。无需修改代码。\",\"ja\":\"AI トレースパネルのデザインレビューに合格しました。停止ボタンはスクロールするトレースの上に固定され、カメラプレビューは 4:3 を保ち、4 言語すべてが表示されます。コード変更は不要です。\"}],\"limits\":\"I reviewed the source text supplied in this request, not the file on disk. I did not compute the file hash myself, so I cannot confirm it matches Astra's SHA-256 DE153A74...352F. I did not run Godot, view any PNGs or test any interaction. All visual claims come from Astra's R5 report. Button response, braking, keyboard navigation, contrast ratios, external-agent PNG delivery and live model behavior are unverified. The summary and receipt content are UI fixtures. Public release still needs the user's explicit approval.\"}",
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 2,
+      "outputTokens": 2500,
+      "cacheReadInputTokens": 1454,
+      "cacheCreationInputTokens": 9330,
+      "webSearchRequests": 0,
+      "costUSD": 0.1249388,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1028,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "duration_ms": 24398,
+  "num_turns": 1,
+  "permission_denials": []
+}

@@ -1,0 +1,5 @@
+{"event": "session", "data": {"max_steps": 8, "max_observations": 9, "seconds": 300, "provider": "OpenAI / gpt-6-astra / Codex CLI"}}
+{"event": "image_control", "data": {"mode": "blank", "real_camera_sent": false}}
+{"event": "observe", "data": {"observation": 1, "metadata": {"camera_id": "virtual-front-camera", "capture_requested_tick": 449, "control_generation": 1, "draw_frame": 425, "episode_id": "40929302c5ee267e96c407bb", "frame_id": 2, "height": 480, "interpolation_enabled": false, "part_id": 0, "physics_tick": 449, "revision": 3, "robot_instance_id": "1363266245973", "settle_confirmed_tick": 449, "sha256": "9ea8a595b3070bf3822827926977a01fb071da2b3cab5e474b45f6e8273bfd9a", "width": 640}}}
+{"event": "delivery", "data": {"observation": 1, "mode": "blank", "delivered_sha256": "b36782b458c9591ee4ce1204a36ad5d168c501e0974de76770a21a87f76ecc82", "real_sha256": "9ea8a595b3070bf3822827926977a01fb071da2b3cab5e474b45f6e8273bfd9a"}}
+{"event": "stop", "data": {"reason": "actor_stop", "confirmed": true, "state": "stopped"}}

@@ -1,0 +1,25 @@
+extends SceneTree
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
+	var assembly := AssemblyMode.new()
+	root.add_child(assembly)
+	assembly.load_graph(ServoArmPreset.build())
+	assembly.graph.links.pop_back()
+	var servo: PartNode = assembly._part_nodes[1]
+	var before: Transform3D = servo.global_transform
+	assembly.snap(servo, &"signal_pin", assembly._part_nodes[3], &"pin_9")
+	print("BEFORE electrical connection moved servo_m=", before.origin.distance_to(servo.global_position))
+	var hardware := RunMode.new()
+	root.add_child(hardware)
+	hardware.build(ServoArmPreset.build())
+	var runtime := MiniRuntime.new()
+	runtime.hardware = hardware
+	root.add_child(runtime)
+	runtime.failed.connect(func(line: int, message: String) -> void: print("BEFORE failed line=", line, " ", message))
+	var drive: ServoDrive = hardware.servo_on_pin(9)
+	await runtime.run("arm = Servo(9)\narm.write(70)\ninvalid()");
+	print("BEFORE invalid program powered=", drive.powered, " target=", drive.target_deg)
+	quit()

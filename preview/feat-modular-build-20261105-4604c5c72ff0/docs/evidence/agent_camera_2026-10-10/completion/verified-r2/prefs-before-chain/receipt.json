@@ -1,0 +1,60 @@
+{
+  "phase": "prefs-before-chain",
+  "results": [
+    {
+      "name": "agent_goal_ui_check-rendered",
+      "passed": false,
+      "exit_code": 0,
+      "seconds": 16.337,
+      "timeout": false,
+      "engine_error": true,
+      "log": "agent_goal_ui_check-rendered.log",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tests\\agent_goal_ui_check.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--screenshots"
+      ],
+      "preferences_exists": true,
+      "preferences_sha256": "f29ef70ffe8311a2550c3002ba745323d62651788d82644922715a016d856b7a",
+      "preferences_text": "[interface]\n\nappearance=\"light\"\ntext_scale=2.0\ncode_scale=1.0\nmuted=false\nvolume=60.0\n"
+    },
+    {
+      "name": "authoring_ui_check",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 5.567,
+      "timeout": false,
+      "engine_error": true,
+      "log": "authoring_ui_check.log",
+      "command": [
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tests\\authoring_ui_check.gd"
+      ],
+      "preferences_exists": true,
+      "preferences_sha256": "f29ef70ffe8311a2550c3002ba745323d62651788d82644922715a016d856b7a",
+      "preferences_text": "[interface]\n\nappearance=\"light\"\ntext_scale=2.0\ncode_scale=1.0\nmuted=false\nvolume=60.0\n"
+    }
+  ],
+  "failures": 2
+}

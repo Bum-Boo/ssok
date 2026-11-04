@@ -1,0 +1,52 @@
+{
+  "inputs": [
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r6-native.ps1",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\ssok-package-goal-r6-native.ps1",
+      "sha256": "15fd288939bee7a5d838367d7def0f1004a64284e7eaa1876605bab05855b262"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r6-run.py",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\ssok-package-goal-r6-run.py",
+      "sha256": "aa622616f047de67a3d43d9b3f44c662ee066e4ece813e87c4e4f5bed52f1384"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r6-inspect.py",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\ssok-package-goal-r6-inspect.py",
+      "sha256": "e82c21884592d1caf3b2cf7d5da31533c853284f1492d0bd4d8e6afd73816fdc"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\layout.gd",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\layout.gd",
+      "sha256": "d7388005d8269986d04bd83596f237daa4890161f2fa47deb6edd3839702b11c"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\layout-native.json",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\layout-native.json",
+      "sha256": "f0f314133c73b16f72f5e5e5275b5f0fda597a1dfe8b3696a72cd5f1403bba77"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\project.json",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\project.json",
+      "sha256": "6b2ecb5d6245b755c50eaf826cfe5ff89ee40293100784c73fc0426134899709"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\native_ui.ps1",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\package-goal-ui-r6\\native-driver-inputs\\native_ui.ps1",
+      "sha256": "91802e81b4698f1be9e0618f08defd523645390faa7e2686ee710bb75caca0b6"
+    }
+  ],
+  "package": {
+    "archive": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\camera-release-clean-r2\\ssok-0.3.1-camera-r2-windows-x86_64.zip",
+    "archive_sha256": "572ae8eb14b90149938b9e8b10d9498ccc3b2863d7ccebf7674ba215e1e07f6e",
+    "app": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-camera-r5\\portable\\ssok.exe",
+    "exact_export_and_installer_bytes": {
+      "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+      "ssok.pck": "2d4c4143b201f3b4cb3315a811673ea182247a09a18d1cf5a30e049a17928fe3"
+    },
+    "source": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+    "version": "0.3.1-camera-r2",
+    "layout_only_not_app_verification": true
+  },
+  "source426_unchanged": true
+}

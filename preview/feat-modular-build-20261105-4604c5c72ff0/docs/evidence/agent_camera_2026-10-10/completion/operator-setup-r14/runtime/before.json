@@ -1,0 +1,19 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\app_control\\start-operator.ps1",
+    "-Out",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\before-default"
+  ],
+  "exit_code": 1,
+  "actual_missing_mcp": true,
+  "default_python": "3.13.3",
+  "model_launches": 0,
+  "app_launches": 0,
+  "evidence_dir_created": false,
+  "synthetic_token_value_recorded": false
+}

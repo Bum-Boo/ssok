@@ -1,0 +1,68 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "result": "Functional review passed with no blockers. The rebase was a real up-to-date no-op: origin/main is still at the branch's existing base, so HEAD is unchanged and the tree remains clean. One note on execution: the first combined fetch-plus-rebase call was denied by the permission mode, so I ran fetch and rebase as two separate single invocations, each exactly once.\n\n```json\n{\n  \"verdict\": \"PASS\",\n  \"blockers\": [],\n  \"review_findings\": [\n    \"Preferences fixtures capture existence and bytes before scene load, restore on the single exit path, and verify by byte equality or absence; both existed and newly-created cases handled.\",\n    \"Motion server 413 path is bounded: FIN via SHUT_WR, drain capped at min(size, 131072) bytes and 1 second monotonic deadline, per-read timeouts, OSError caught; Connection: close sets close_connection so no handler loop.\",\n    \"Header-only huge Content-Length test asserts 413 and body text without sending a body; it is a genuine red-to-green against the prior path.\",\n    \"POSIX executable-mode test uses an explicit labelled skipIf on Windows only; no expected-failure masking.\",\n    \"browser_layout derives scroll-arrow rects from real theme icons, asserts get_tab_idx_at_point matches the scrolled tab, bounds stage load to 30 frames with assert, and isolates StageProgress.path.\",\n    \"native_ui.ps1 isolates APPDATA/LOCALAPPDATA, refuses pre-existing progress, waits at most 30s for the real cleared flag, injects only learner code via clipboard, and restores env and clipboard in finally.\",\n    \"title_screen.gd two-property change matches the independently design-reviewed SHA; not re-reviewed for design.\"\n  ],\n  \"limitations\": [\n    \"Review is of the provided diff and full text only; no app, tests, browser, or models were run by me.\",\n    \"Fixture restoration does not run on a hard crash of the Godot process.\",\n    \"native_ui.ps1 Copy-Item after a failed cleared check throws rather than continuing; fails loud, not masked.\",\n    \"Physical/navigation and release success are not certified; final installer PNG-count gate remains pending.\",\n    \"No main merge, push, or publication performed or approved.\"\n  ],\n  \"actual_commands\": [\n    \"git status --porcelain\",\n    \"git branch --show-current\",\n    \"git rev-parse HEAD\",\n    \"git fetch origin main\",\n    \"git rebase origin/main\",\n    \"git status --porcelain\",\n    \"git rev-parse HEAD\",\n    \"git rev-parse origin/main\",\n    \"git cherry -v origin/main\"\n  ],\n  \"results\": {\n    \"status_before\": \"clean\",\n    \"branch\": \"feat/32-robot-camera-loop\",\n    \"fetch\": \"origin main -> FETCH_HEAD\",\n    \"rebase\": \"Current branch feat/32-robot-camera-loop is up to date.\",\n    \"status_after\": \"clean\",\n    \"cherry\": [\n      \"+ 3e75ceab0c5a422b3b2e4630d05f7b0f73372eec Add bounded robot camera control and goal operator\",\n      \"+ 8100cb3ef4b9808a60b814d128dcc92f2c0aa5ef Refresh generated stage source identity\",\n      \"+ f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4 Stabilize cross-platform verification\"\n    ]\n  },\n  \"before\": \"f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4\",\n  \"after\": \"f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4\",\n  \"upstreamHEAD\": \"4eb059f6432bebbbc8db94896cac56cbb8bb2927\",\n  \"rebase_completed\": true,\n  \"rebase_noop\": true,\n  \"conflicts\": false,\n  \"remaining_gates\": [\n    \"Full final new installer gate (map.png rename) pending\",\n    \"Physical goal reach at max 14cm (0/9) and blind controls (0/3) uncertified\",\n    \"Native Mac and Arch recovery handoffs\",\n    \"Human merge of feat/32-robot-camera-loop to main\"\n  ]\n}\n```",
+  "modelUsage": {
+    "claude-fable-5-1": {
+      "inputTokens": 162,
+      "outputTokens": 4837,
+      "cacheReadInputTokens": 248225,
+      "cacheCreationInputTokens": 51103,
+      "webSearchRequests": 0,
+      "costUSD": 1.32758625,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1994,
+      "canonicalModel": "claude-fable-5-1",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 162,
+    "cache_creation_input_tokens": 51103,
+    "cache_read_input_tokens": 248225,
+    "output_tokens": 4837,
+    "output_tokens_details": {
+      "thinking_tokens": 1994
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 51103,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 32,
+        "output_tokens": 1443,
+        "cache_read_input_tokens": 50673,
+        "cache_creation_input_tokens": 430,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 430
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_017shoz7XZrNKhAtLrxWCD8X",
+      "tool_input": {
+        "command": "git fetch origin main 2>&1; echo \"---fetch exit $?\"; git rebase origin/main 2>&1; echo \"---rebase exit $?\"",
+        "description": "Fetch origin main and rebase branch onto it"
+      }
+    }
+  ],
+  "total_cost_usd": 1.32758625,
+  "exit_code": 0
+}

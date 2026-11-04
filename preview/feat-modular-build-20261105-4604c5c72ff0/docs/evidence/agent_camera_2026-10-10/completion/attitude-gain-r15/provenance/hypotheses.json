@@ -1,0 +1,14 @@
+[
+  {
+    "rank": 1,
+    "prediction": "If attitude holding is too weak, coefficient32 should lower pixel span and signed housing-axis body rates; coefficient64 is considered only if32 settles normally but still fails the joint target."
+  },
+  {
+    "rank": 2,
+    "prediction": "If the sign is counterproductive, stronger positive gains should not improve the same signal; negative16 is a bounded sign control only after positive32/64 both fail without span reduction."
+  },
+  {
+    "rank": 3,
+    "prediction": "If contact/joint and post-Stop dynamics dominate, coefficients may shift single pixels/gap but not reduce jitter or satisfy the unchanged joint goal; reject rather than relax criteria."
+  }
+]

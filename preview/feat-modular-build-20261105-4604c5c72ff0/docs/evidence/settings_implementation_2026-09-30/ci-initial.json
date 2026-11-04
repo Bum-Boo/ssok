@@ -1,0 +1,16 @@
+{
+  "source": "81914b6c4f70f6d2691cd05658e6ae42330c8f4a",
+  "url": "https://github.com/Bum-Boo/ssok/actions/runs/36700827668",
+  "checks": 70,
+  "failures": [
+    "browser_evidence_check: early Preferences singleton reference compile error",
+    "learned_app_check: locale contaminated by preferences test",
+    "motion_lab_ui_check: locale contaminated by preferences test",
+    "pickup_bridge_ui_check: locale contaminated by preferences test",
+    "tests-test_release_documents.py: two new source references absent from packaged docs"
+  ],
+  "artifact_upload": "storage quota exceeded",
+  "recheck_source": "d71a68d",
+  "recheck_checks": 8,
+  "recheck_failures": 0
+}

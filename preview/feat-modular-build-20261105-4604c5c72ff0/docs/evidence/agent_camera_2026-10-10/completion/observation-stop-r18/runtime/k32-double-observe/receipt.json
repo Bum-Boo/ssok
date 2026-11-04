@@ -1,0 +1,26 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/observation-stop-r18/callback_probe.gd",
+    "--",
+    "--ssok-agent-bridge",
+    "--case",
+    "k32",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\k32-v3"
+  ],
+  "exit_code": 0,
+  "seconds": 16.729041200014763,
+  "timed_out": false,
+  "failure": null,
+  "source426_unchanged": true,
+  "model_calls": 0,
+  "production_applied": false,
+  "token_persisted": false,
+  "caller_process_environment_restored": true
+}

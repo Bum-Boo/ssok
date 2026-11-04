@@ -1,0 +1,83 @@
+{
+  "requested_role": "Astra visual inspection",
+  "requested_model": "gpt-6-astra",
+  "serving_model": null,
+  "identity_limits": "Serving backend identity remains unexposed; requested role only, without attestation.",
+  "original_view_count": 4,
+  "viewed_count": 4,
+  "method": "Computed file-byte SHA256 and PNG-header dimensions before viewing. Then actually emitted/viewed exactly these four PNGs with view_image original. Visual estimate at x=320; zero-based boundary y and floor strip=480-y, ±2 px for soft boundary.",
+  "viewed": [
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/initial/post-3.png",
+      "sha256": "4da629badebabe305fe456295dff956c1cb9015441463b3f41ec193b5ded0459",
+      "bytes": 121042,
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 459,
+      "floor_strip_px_approx": 21,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above narrow beige floor strip. Lower-side blue/gray geometry does not obscure center. Boundary visible above frame bottom; soft transition limits exact row choice."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/initial/bridge-observed.png",
+      "sha256": "468e241ea60100b6c6423211ad172b06ea016c0f3427812f53da4e69d7537660",
+      "bytes": 109880,
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 458,
+      "floor_strip_px_approx": 22,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above narrow beige floor strip. Lower-side blue/gray geometry does not obscure center. Boundary visible above frame bottom; soft transition limits exact row choice."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/body-integral-r20/integral/post-3.png",
+      "sha256": "448598c9255f77fa783559ad202914ca1f40260084ff37383dafdd159f7a89ef",
+      "bytes": 128966,
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 461,
+      "floor_strip_px_approx": 19,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above narrow beige floor strip. Lower-side blue/gray geometry does not obscure center. Boundary visible above frame bottom; soft transition limits exact row choice."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/body-integral-r20/integral/bridge-observed.png",
+      "sha256": "1d2c7589bb09fba1a1eeb74315a7af956e482c5a3f7579566d8400d713865900",
+      "bytes": 122048,
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 460,
+      "floor_strip_px_approx": 20,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above narrow beige floor strip. Lower-side blue/gray geometry does not obscure center. Boundary visible above frame bottom; soft transition limits exact row choice."
+    }
+  ],
+  "findings": {
+    "r19_initial": "Approximate floor strips 21 px post-3 and 22 px bridge-observed; difference within visual uncertainty.",
+    "r20_integral": "Approximate floor strips 19 px post-3 and 20 px bridge-observed; difference within visual uncertainty.",
+    "comparison": "Integral pair appears marginally thinner at center by approximately 2 px than corresponding initial-reference images; this is within the stated ±2 px per-image precision, not a robust measured change. All centers unobstructed."
+  },
+  "unviewed_scope": "No evaluator/source/private/provider files or other images inspected. No r19 or source files altered.",
+  "limitations": [
+    "No physical distance, cause, timing, target-success or reliability inference.",
+    "No tick/runtime or continuous-jitter claim from stills.",
+    "No serving-model attestation.",
+    "No models/tests or redelegation; only authorized fresh result JSON written."
+  ]
+}

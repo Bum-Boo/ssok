@@ -1,0 +1,42 @@
+{
+  "requested_model": "fable",
+  "resolved_models": [
+    "claude-fable-5-1"
+  ],
+  "exit": 0,
+  "is_error": false,
+  "scope": "independent bridge transport source review, no runtime/visual review",
+  "source_sha256": {
+    "src/runtime/agent_desktop_bridge.gd": "b15b9dc35a46ca1d70a6382be3b5aba30d5545a51eae3608e7adbf256d2ba763",
+    "tools/app_control/verify_bridge_race.py": "4e14c33be5874bb9042baa480ad7490bdb2d16a5f2e1c9acee0f50ba192da5aa",
+    "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b",
+    "tools/app_control/desktop_client.py": "903172f694e8febd252648250d35902d88b25be2d1e1fa1c0a7e2e1f1f4836b7"
+  },
+  "findings": {
+    "verdict": "pass",
+    "reviewed": {
+      "src/runtime/agent_desktop_bridge.gd": "b15b9dc3",
+      "src/runtime/agent_camera_loop.gd": "234b69fe",
+      "tools/app_control/verify_bridge_race.py": "4e14c33b",
+      "tools/app_control/desktop_client.py": "903172f6"
+    },
+    "blocking_findings": [],
+    "verified_properties": [
+      "Race: stop lane queues an authenticated observe/drive_step/trace_dispatch only when _pending is false and no queued peer exists; otherwise replies busy. Promotion happens only when _peer == null, at the top of _process, after _poll_queued_peer and _poll_stop_peer, so a primary that closed in frame N is replaced by the queued peer in frame N+1 and dispatched in that same frame (buffer already holds the newline, count<=0 early-return is bypassed).",
+      "One command owner: promoted request re-runs the full primary validator (token, tool type, args type, one_request_required, size) and dispatches once; _finish only replies when _pending, which the queued request never sets while waiting. Cancel paths (disconnect/send failure) only fire for was_pending on the primary, never for a queued peer.",
+      "Buffer aliasing: PackedByteArray assignments copy by value; each move (_stop_buffer->_queued_buffer->_buffer) is followed by resetting the source to a new PackedByteArray, so _close_stop/_close_queued/_close clear() calls cannot alias.",
+      "Timeout: queue expires after 5 s measured from _stop_accepted_at (so stop-lane read time counts), promoted primary inherits that accept time against the 15 s primary limit. Both bounded, no retry.",
+      "Disconnect: _poll_queued_peer polls status each frame and drops the peer without touching loop state; comment is accurate since nothing executed.",
+      "Stop safety: after queueing, _stop_peer is nulled immediately so the next connection enters the stop lane; Stop runs cancel() which bumps control_generation and clears enabled, so a later promoted drive_step/trace_dispatch/observe fails agent_not_ready/stale_dispatch/agent_disabled through the normal validators. verify_bridge_race asserts exactly this (stale_dispatch, stop < 1 s).",
+      "operation_finished binding unchanged (connected once in start(), _finish gated on _pending); loop, client, provider, UI, physics, thresholds untouched. No token or request body is logged or echoed."
+    ],
+    "remaining_limits": [
+      "Expanded observe/drive/queuedStop regression is still running; not claimed as passed.",
+      "Queue expiry closes the queued connection silently (no NDJSON error). Client surfaces a generic connection-closed DesktopError, consistent with no-retry policy but less diagnosable than a 'busy' reply.",
+      "A long-running primary actor (drive_step up to ~14 s with settling) can outlast the 5 s queue window, so an actor arriving on the stop lane during a monitor-held primary then primary-pending sequence is dropped rather than served. Acceptable under one-owner rule; noted for operators.",
+      "Only one queued slot; a third concurrent connection during a held primary with a queued actor is not accepted by any lane until one frees (pre-existing single-stop-lane behavior).",
+      "Promoted request inherits the stop-lane 4096-byte bound, so actor requests larger than 4 KiB arriving on the secondary lane are closed, while the same request on the primary lane allows 1 MiB. Current client payloads are well under 4 KiB."
+    ]
+  },
+  "coordinator_observed": "Expanded actual transport paths passed after review dispatch; queued actor frees Stop lane, observed32ms Stop and stale_dispatch for queuedreceipt."
+}

@@ -1,0 +1,31 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r6-native.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-camera-r5\\portable\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\layout-native.json",
+    "-Python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-Fixture",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\project.json"
+  ],
+  "exit_code": 0,
+  "seconds": 50.310005499981344,
+  "timed_out": false,
+  "source426_unchanged": true,
+  "provider_cli_launch_limit": 1,
+  "actual_default_packaged_ui": true,
+  "app_source": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+  "version": "0.3.1-camera-r2",
+  "external_repo_operator": true,
+  "global_goal_complete": false
+}

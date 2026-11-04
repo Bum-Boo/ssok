@@ -1,0 +1,7 @@
+OK: python - Python3.11 or newer is required.
+OK: source - Operator archive identity or checkout root is available.
+FIX: mcp - The selected Python has no MCP SDK.
+  Run tools/app_control/setup-operator.ps1 in this archive.
+OK: codex - Codex CLI must be available on PATH.
+OK: login - Existing Codex ChatGPT login is available.
+Complete the listed setup steps, then run this check again.

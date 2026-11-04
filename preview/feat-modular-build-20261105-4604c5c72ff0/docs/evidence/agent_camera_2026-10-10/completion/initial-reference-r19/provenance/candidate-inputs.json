@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-11T09:59:14+09:00",
+  "baseline_sha256": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+  "candidate_sha256": "1ec040e3f9a4a6509b7758a6e65e09f1973f5b2bcb58458f035e694454ce75b1",
+  "hold_brake_and_cancel_bytes_unchanged": true,
+  "changed_policy": "Seed once at first nativeframe_ready, retain across all observed frames/forward/brake entry; cancel invalidates",
+  "reference_audit": "Numeric quaternion and exact seed metadata; read-only audit, no physical-distance or target-pose input",
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/initial-reference-r19/attitude-initial.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "production_applied": false,
+  "model_calls": 0
+}

@@ -1,0 +1,129 @@
+{
+  "exit_code": 0,
+  "is_error": false,
+  "modelUsage": {
+    "claude-fable-5-1": {
+      "inputTokens": 2,
+      "outputTokens": 8671,
+      "cacheReadInputTokens": 3313,
+      "cacheCreationInputTokens": 31762,
+      "webSearchRequests": 0,
+      "costUSD": 1.0696382500000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 6192,
+      "canonicalModel": "claude-fable-5-1",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 31762,
+    "cache_read_input_tokens": 3313,
+    "output_tokens": 8671,
+    "output_tokens_details": {
+      "thinking_tokens": 6192
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 31762,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 8671,
+        "cache_read_input_tokens": 3313,
+        "cache_creation_input_tokens": 31762,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 31762
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 1.0696382500000001,
+  "requested_model": "fable",
+  "scope": "read-only source/design review; no runtime rerun by Claude",
+  "findings": {
+    "reviewer": "Claude Fable 5.1 (read-only, source-only; no tools, hashes and test runs not independently verified)",
+    "scope": "ssok issue32 foreground app-goal operator: agent_goal_inbox.gd, agent_desktop_bridge.gd, agent_camera_loop.gd, run_operator.py, run_goal.py, desktop_session.py, desktop_mcp.py, desktop_client.py, plus the _on_agent_goal_requested excerpt",
+    "verdict": "pass",
+    "prior_findings": {
+      "B1_old_goal_context_lost_before_first_observation": "resolved. Inbox binds episode_id/control_generation/revision at submit; poll re-checks _context_valid before claiming; run_operator re-describes before dispatch; run_goal validates --expected-context and asserts it against describe before CLI start; DesktopGoalSession.observe asserts self.context against describe AND against the returned frame metadata; run_goal's monitor loop exits on any running-context change.",
+      "B2_stopped_fault_cancellation_depends_only_on_context": "resolved. AgentGoalInbox._on_loop_state cancels whenever busy and loop.state is stopped/fault, independent of context; AgentCameraLoop.cancel always increments control_generation, disables, brakes, and emits state_changed before operation_finished."
+    },
+    "blocking": [],
+    "nonblocking": [
+      {
+        "area": "Stop over-reach after intentional re-enable",
+        "file": "tools/app_control/run_goal.py (finally: client.stop()); src/runtime/agent_camera_loop.gd begin() -> cancel('new_session')",
+        "detail": "If the user re-enables the camera (new begin) while an operator goal is running, the inbox correctly clears, run_goal sees context_changed and exits, but its finally-block Stop then cancels the user's brand-new session. Safety-conservative, not a control hazard; consider skipping the final Stop when the observed episode_id/generation no longer matches expected_context and state is already not 'ready' for that context."
+      },
+      {
+        "area": "Decision timeout vs. operator startup latency",
+        "file": "src/runtime/agent_camera_loop.gd (DECISION_TIMEOUT_MS 60000 armed at first capture); tools/app_control/run_operator.py",
+        "detail": "The job is claimed only when state=='ready', which starts a 60 s decision deadline. Codex login check (up to 15 s) plus CLI startup must deliver the first observe inside that window or the loop faults (decision_timeout), the inbox cancels, and run_goal exits 1 as context_changed. Observed runs passed, but this is a latent reliability limit; no security impact."
+      },
+      {
+        "area": "Operator identity takeover window",
+        "file": "src/runtime/agent_goal_inbox.gd poll()/connected()",
+        "detail": "While run_operator waits on its child it does not heartbeat; ownership is held only via _claimed. After the job ends, heartbeat is stale, so a second operator process can become _operator before the first's operator_leave, which then fails invalid_operator (caught). Harmless because claimed jobs reject other identities, but a short explicit post-job grace or re-poll would make the UI status cleaner."
+      },
+      {
+        "area": "Exclusivity is per-frame, not per-session",
+        "file": "src/runtime/agent_camera_loop.gd drive_step; src/runtime/agent_desktop_bridge.gd",
+        "detail": "Any holder of SSOK_AGENT_TOKEN on loopback (e.g. a manually launched run_goal) can still drive the same episode alongside the operator's session. Frames are single-consume and DesktopGoalSession rejects reused frames, so no double-dispatch of one frame, but two sessions could alternate. Pre-existing token model; document as a known limit."
+      },
+      {
+        "area": "Teardown without state signal",
+        "file": "src/runtime/agent_camera_loop.gd _exit_tree; src/runtime/agent_goal_inbox.gd",
+        "detail": "Loop _exit_tree disables without emitting state_changed; a pending inbox request then lingers until QUEUE/GOAL TTL. Bridge _exit_tree does call loop.cancel on normal shutdown, so only a detached-loop edge case; cheap fix is to also cancel the inbox from the app's teardown path."
+      },
+      {
+        "area": "Status wording on invalid context at claim",
+        "file": "src/runtime/agent_goal_inbox.gd poll()",
+        "detail": "cancel() with default status reports 'Goal run stopped.' when the claim was refused because the context went stale; 'failed' wording would match _on_loop_state. Cosmetic."
+      },
+      {
+        "area": "Goal text visible to local process list",
+        "file": "tools/app_control/run_operator.py",
+        "detail": "Goal and public context are passed as child argv. Token is not. Local-only exposure of user-typed goal text; acceptable, note in docs."
+      }
+    ],
+    "verified_properties": {
+      "stop_cancellation": "Human Stop and bridge stop lane both reach loop.cancel('local_stop'); inbox clears on stopped/fault; run_goal detects operator_or_app_stopped vs actor_stopped via events and always issues a final Stop; run_operator stops the app before terminating the runner on error/timeout.",
+      "exclusive_controller_ownership": "begin disables runtime/manual/motion program; _context_valid rejects manual re-enable, runtime running, revision or body change; poll rejects a second operator while one is connected or has a claimed job; leave only by the owning identity.",
+      "stale_goal_frame": "Submit-time triple bound end-to-end; first describe and first frame both asserted; drive_step requires exact episode/frame/revision/generation and unconsumed frame; decide re-asserts with include_frame.",
+      "operator_capability_separation": "operator_poll/operator_leave only via DesktopClient(allow_operator=True) in run_operator; run_goal/desktop_mcp clients default allow_operator=False; Codex is restricted to observe/decide/stop by enabled_tools with shell/code/web/apps/multi_agent disabled and read-only sandbox.",
+      "no_login_api_fallback": "forced_login_method=chatgpt, requires_openai_auth=true, OPENAI_API_KEY popped from env, login status checked in both operator and runner, request/stream retries 0.",
+      "bounded_one_job": "run_operator exits after one claimed job; 8 steps/9 observations/300 s policy asserted before dispatch; inbox QUEUE_TTL 20 s, GOAL_LIMIT 310 s; runner wait 345 s; session call cap 2*observations+steps.",
+      "secrets_output": "Goal rejected if it contains the token or control chars; client rejects token in args/responses; CLI diagnostics redact token and UUIDs; manifest/result/events contain only public fields; stdout limited to JSON manifest/result."
+    },
+    "not_claimed": "Final UI/import/localization/camera checks still running; no reliability or goal-success claim; test counts and file hashes taken from the request, not re-run."
+  },
+  "dispatch": {
+    "requested_model": "fable",
+    "scope": "independent functional integration review of new appgoal operator",
+    "timeout_seconds": 180,
+    "source_sha256": {
+      "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c",
+      "src/runtime/agent_desktop_bridge.gd": "f81f1af6498443d600e8ecef48b0d7d09766758f8c941a9bcfe6147b3836165c",
+      "tools/app_control/run_operator.py": "47a5f2bde5a7588781edbba2dcabdb86b9f9743c38ed6ba16db42489cefc2c42",
+      "tools/app_control/desktop_client.py": "903172f694e8febd252648250d35902d88b25be2d1e1fa1c0a7e2e1f1f4836b7",
+      "tools/app_control/run_goal.py": "671ae737cf75895fca5a28dc83797689ead60f2ca44fa783eef5f15fa213c994",
+      "tools/app_control/desktop_session.py": "d5440a11fc3921d4dd97b26ff768ee884ac05ace8e676c58968850cdd54df5cc",
+      "tools/app_control/desktop_mcp.py": "1c9afbc636ff99ec550b36139e7347a15b7992e555f01b08c5780e10a15d043c",
+      "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b"
+    }
+  }
+}

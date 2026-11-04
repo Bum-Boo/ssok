@@ -1,0 +1,27 @@
+MakeNSIS v3.08-3+deb12u1 - Copyright 1999-2021 Contributors
+See the file COPYING for license details.
+Credits can be found in the Users Manual.
+
+Command line defined: "PAYLOAD=/home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/delivery/windows"
+Command line defined: "OUTPUT=/home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/delivery/ssok-desktop-20260930-windows-x86_64-setup.exe"
+Command line defined: "APP_VERSION=desktop-20260930"
+Command line defined: "UNINSTALL_FILES=/home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/delivery/export-logs/windows-uninstall.nsh"
+Processing script file: "/home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/source/tools/release/windows/installer.nsi" (UTF8)
+
+Processed 1 file, writing output (x86-unicode):
+
+Output: "/home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/delivery/ssok-desktop-20260930-windows-x86_64-setup.exe"
+Install: 4 pages (256 bytes), 1 section (4120 bytes), 1857 instructions (51996 bytes), 975 strings (50268 bytes), 4 language tables (1176 bytes).
+Uninstall: 3 pages (256 bytes), 1 section (4120 bytes), 1721 instructions (48188 bytes), 1739 strings (220470 bytes), 4 language tables (1128 bytes).
+Datablock optimizer saved 2703 KiB (~1.3%).
+
+Using zlib (compress whole) compression.
+
+EXE header size:              111104 / 93184 bytes
+Install code:                          (106232 bytes)
+Install data:                          (195989801 bytes)
+Uninstall code+data:                   (357016 bytes)
+Compressed data:           104548306 / 196453049 bytes
+CRC (0xB2066A8A):                  4 / 4 bytes
+
+Total size:                104659414 / 196546237 bytes (53.2%)

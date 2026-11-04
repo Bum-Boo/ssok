@@ -1,0 +1,77 @@
+"""Exercise only the exact owned clean-r7 installer, preserving unrelated installs."""
+from pathlib import Path
+import hashlib
+import json
+import subprocess
+import time
+import winreg
+
+root = Path('C:/Users/Hojun/Projects/ssok-ai-loop')
+release = root / 'build/projects-release-clean-r7'
+work = root / 'build/ai-loop-evidence/completion/release-current-ui-r7/windows-installer-serial'
+metadata = json.loads((release / 'release.json').read_text())
+assert not metadata['dirty_worktree'] and not metadata['source_changed_during_build']
+assert metadata['commit'] == 'fa868ca07cdd9d2b8edb27cbab89cd00263c851f'
+installer = release / 'ssok-0.3.1-projects-r7-windows-x86_64-setup.exe'
+artifact = next(item for item in metadata['artifacts'] if item['file'] == installer.name)
+assert hashlib.sha256(installer.read_bytes()).hexdigest() == artifact['sha256']
+assert not work.exists()
+work.mkdir(parents=True)
+
+
+def registered(key):
+    try:
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key):
+            return True
+    except FileNotFoundError:
+        return False
+
+
+keys = [r'Software\Microsoft\Windows\CurrentVersion\Uninstall\ssok', r'Software\Bum-Boo\ssok']
+assert not any(registered(key) for key in keys), 'Refuse an existing user installation'
+import os
+shortcut=Path(os.environ['APPDATA'])/'Microsoft/Windows/Start Menu/Programs/ssok/ssok.lnk'
+assert not shortcut.exists(), 'Refuse an existing start-menu shortcut'
+expected = {name: dict(size=(release / 'windows' / name).stat().st_size,
+                       sha256=hashlib.sha256((release / 'windows' / name).read_bytes()).hexdigest())
+            for name in ['ssok.exe', 'ssok.pck']}
+command = ['powershell.exe', '-NoProfile', '-STA', '-ExecutionPolicy', 'Bypass',
+           '-File', str(root / 'tools/ci/windows/verify_installer.ps1'),
+           '-Installer', str(installer), '-Work', str(work),
+           '-Layout', str(release / 'export-logs/browser-layout.json')]
+attested = {}
+started = time.monotonic()
+with (work / 'installer-gate.log').open('wb') as log:
+    process = subprocess.Popen(command, cwd=root, stdout=log, stderr=subprocess.STDOUT,
+                               creationflags=subprocess.CREATE_NO_WINDOW)
+    while process.poll() is None:
+        for name, target in expected.items():
+            path = work / 'installed' / name
+            try:
+                if name not in attested and path.is_file() and path.stat().st_size == target['size']:
+                    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                    if digest == target['sha256']:
+                        attested[name] = digest
+            except OSError:
+                pass  # Retry only our own files while the installer writes them.
+        if time.monotonic() - started > 600:
+            # Only the owned verifier tree; the PS gate normally reaps its app in finally.
+            subprocess.run(['taskkill.exe', '/PID', str(process.pid), '/T', '/F'],
+                           capture_output=True, timeout=30)
+            process.wait(timeout=30)
+            raise TimeoutError('Owned final installer gate timed out; logs retained, inspect owned install before recovery')
+        time.sleep(0.2)
+    code = process.returncode
+rows = json.loads((work / 'checks.json').read_text(encoding='utf-8-sig'))
+receipt = dict(command=command, exit_code=code, seconds=round(time.monotonic() - started, 3),
+               version=metadata['version'], commit=metadata['commit'], installer_sha256=artifact['sha256'],
+               checks=len(rows), failures=sum(not row['passed'] for row in rows),
+               installed_exact_export_bytes=attested, expected_bytes=expected,
+               registration_remaining={key: registered(key) for key in keys},
+               user_added_file_preserved=(work / 'installed/user-added.keep').is_file())
+(work / 'receipt.json').write_bytes((json.dumps(receipt, indent=2) + '\n').encode('utf8'))
+print(json.dumps(receipt), flush=True)
+print((work / 'installer-gate.log').read_text(encoding='utf8', errors='replace')[-2200:])
+assert code == 0 and receipt['failures'] == 0
+assert len(attested) == 2 and not any(receipt['registration_remaining'].values())
+assert receipt['user_added_file_preserved']

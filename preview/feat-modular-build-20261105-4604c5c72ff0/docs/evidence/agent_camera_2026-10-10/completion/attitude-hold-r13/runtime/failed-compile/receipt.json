@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/attitude-hold-r13/callback_probe.gd",
+    "--",
+    "--case",
+    "attitude-hold",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold"
+  ],
+  "exit_code": 1,
+  "seconds": 90.41337009996641,
+  "timed_out": true,
+  "source426_unchanged": true,
+  "production_applied": false
+}

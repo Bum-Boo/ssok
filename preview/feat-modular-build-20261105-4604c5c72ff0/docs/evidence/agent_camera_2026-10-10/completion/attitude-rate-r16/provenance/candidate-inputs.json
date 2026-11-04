@@ -1,0 +1,19 @@
+{
+  "attitude_coefficient": 32,
+  "added_housing_rate_coefficient": 16,
+  "prototype_sha256": "2d672e2efddc8b81a988e2bba1a30ad038a9aefc3be2b3e96a7f02062c936996",
+  "template_sha256": "0a13f77825b789e5ef3cd14bcbb5f7c419daf0dce052ce66362843981bae2c47",
+  "single_added_control_term": true,
+  "pose_velocity_setters": 0,
+  "production_changed": false,
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/attitude-rate-r16/attitude-combined.gd",
+    "--check-only"
+  ],
+  "exit_code": 0
+}

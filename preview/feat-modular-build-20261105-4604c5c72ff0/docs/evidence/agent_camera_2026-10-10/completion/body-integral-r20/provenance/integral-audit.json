@@ -1,0 +1,505 @@
+{
+  "baseline_reused_not_rerun": true,
+  "baseline_evidence": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\initial",
+  "baseline_summary": {
+    "case": "initial",
+    "floor_pixels": [
+      117,
+      67,
+      48,
+      21,
+      23
+    ],
+    "last_floor_pixels": 23,
+    "final_gap_m": 0.138985395431519,
+    "last_image_gap_m": 0.138834774494171,
+    "stop_delta_from_last_frame_mm": 0.15062093734799498,
+    "actual_motor_counts": [
+      [
+        30,
+        30
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    "physical": true,
+    "last_image": false,
+    "combined": false,
+    "bridge_observation_and_matched_context_stop": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "source426_unchanged": true
+  },
+  "candidate_summary": {
+    "case": "integral",
+    "floor_pixels": [
+      117,
+      67,
+      47,
+      19,
+      21
+    ],
+    "last_floor_pixels": 21,
+    "final_gap_m": 0.137462928891182,
+    "last_image_gap_m": 0.138348609209061,
+    "stop_delta_from_last_frame_mm": -0.8856803178790007,
+    "actual_motor_counts": [
+      [
+        30,
+        30
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    "physical": true,
+    "last_image": false,
+    "combined": false,
+    "bridge_observation_and_matched_context_stop": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "source426_unchanged": true
+  },
+  "candidate_native_receipt": {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "build/ai-loop-evidence/completion/body-integral-r20/callback_probe.gd",
+      "--",
+      "--ssok-agent-bridge",
+      "--case",
+      "integral",
+      "--output",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\body-integral-r20\\integral"
+    ],
+    "exit_code": 0,
+    "seconds": 16.626028599974234,
+    "timed_out": false,
+    "failure": null,
+    "source426_unchanged": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "token_persisted": false,
+    "caller_process_environment_restored": true
+  },
+  "candidate_evaluation": {
+    "final": {
+      "angular_speed": 0.011184960603714,
+      "gap_x": 0.137462928891182,
+      "linear_speed": 0.00158181984443218,
+      "linear_velocity": [
+        0.00156613590661436,
+        0.00019611744210124,
+        0.0001044511955115
+      ],
+      "motors": [
+        {
+          "duty": 0.0,
+          "speed": 0.0695907920598984
+        },
+        {
+          "duty": 0.0,
+          "speed": 0.0154602704569697
+        }
+      ],
+      "position": [
+        0.117506749927998,
+        0.0668487101793289,
+        0.00070918939309194
+      ],
+      "rotation": [
+        0.00211069942452013,
+        -0.00307939201593399,
+        -0.0124054998159409
+      ],
+      "wheel_speed": 0.0743821561336517,
+      "x": 0.117506749927998
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.00453284243121743,
+      "gap_x": 0.1761514544487,
+      "linear_speed": 0.00068626104621216,
+      "linear_velocity": [
+        -0.00059109344147145,
+        0.00019978449563495,
+        0.00028574280440807
+      ],
+      "motors": [
+        {
+          "duty": -0.00272758176915038,
+          "speed": -0.0214122291654348
+        },
+        {
+          "duty": -0.00440951089770534,
+          "speed": -0.0167551916092634
+        }
+      ],
+      "position": [
+        0.0784936472773552,
+        0.0670206844806671,
+        0.00109996914397925
+      ],
+      "rotation": [
+        -0.00109144696034491,
+        -0.00731227779760957,
+        -0.0157513245940208
+      ],
+      "wheel_speed": 0.0171454939991236,
+      "x": 0.0784936472773552
+    },
+    "minimum_gap_x": 0.131253927946091,
+    "rest_ticks": 12.0,
+    "samples": 410.0,
+    "schema": 1.0,
+    "stopped_state": "stopped",
+    "travel_x": 0.0390131026506424,
+    "valid": true,
+    "wall_contact": false
+  },
+  "last_camera_physics": {
+    "gap_x": 0.138348609209061,
+    "angular_speed": 0.00461687566712499,
+    "linear_speed": 0.000391426758142188,
+    "wheel_speed": 0.0121392775326967,
+    "position": [
+      0.116320595145226,
+      0.0670942515134811,
+      0.000968650681897998
+    ],
+    "rotation": [
+      0.000291712727630511,
+      0.00204562768340111,
+      -0.0171037763357162
+    ],
+    "linear_velocity": [
+      0.00017071797628887,
+      0.000200417547603138,
+      -0.000289660296402872
+    ],
+    "motors": [
+      {
+        "duty": -0.00378783570167918,
+        "speed": 0.00771540217101574
+      },
+      {
+        "duty": -0.0017276500413815,
+        "speed": 0.00133071537129581
+      }
+    ]
+  },
+  "bridge_stop": {
+    "observation": {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 533,
+      "control_generation": 1,
+      "draw_frame": 509,
+      "episode_id": "c4cc2646611d587d74c468ac",
+      "frame_id": 6,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 533,
+      "revision": 3,
+      "robot_instance_id": "1365497615735",
+      "settle_confirmed_tick": 533,
+      "sha256": "1d2c7589bb09fba1a1eeb74315a7af956e482c5a3f7579566d8400d713865900",
+      "width": 640
+    },
+    "stop_result": {
+      "state": "stopped",
+      "revision": 3,
+      "control_generation": 2,
+      "episode_id": "c4cc2646611d587d74c468ac",
+      "frame_id": 6,
+      "owner_revoked": true,
+      "stop_scope": "matched_context"
+    },
+    "observation_return_to_stop_ack_ms": 51.058400014881045,
+    "scope": "Existing authenticated desktop protocol; no model decision, pixel/physical input or global Stop"
+  },
+  "latch_audit": [
+    {
+      "body_integral_values": [
+        0.0,
+        0.0
+      ],
+      "bound": true,
+      "frame_id": 1,
+      "observation_metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 41,
+        "control_generation": 1,
+        "draw_frame": 27,
+        "episode_id": "c4cc2646611d587d74c468ac",
+        "frame_id": 1,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 41,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 41,
+        "sha256": "bbd25669f567b355174182d1dd506adbc2196d085dceebb8beefb82145cd0885",
+        "width": 640
+      },
+      "reason": "initial_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(-0.001855, -0.002158, -0.009715)",
+      "tick": 41
+    },
+    {
+      "body_integral_values": [
+        0.00148845174893116,
+        0.00148845174893116
+      ],
+      "bound": true,
+      "frame_id": 2,
+      "observation_metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 53,
+        "control_generation": 1,
+        "draw_frame": 36,
+        "episode_id": "c4cc2646611d587d74c468ac",
+        "frame_id": 2,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 53,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 53,
+        "sha256": "543bd98a2209fe39085d2431ecebe2adf458c2948492759669864bd7a3042299",
+        "width": 640
+      },
+      "reason": "retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(-0.001989, -0.002795, -0.010568)",
+      "tick": 53
+    },
+    {
+      "body_integral_values": [],
+      "bound": true,
+      "frame_id": 2,
+      "reason": "forward_retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(-0.002, -0.002846, -0.010639)",
+      "tick": 54
+    },
+    {
+      "body_integral_values": [
+        0.144679685565643,
+        0.144679685565643
+      ],
+      "bound": true,
+      "frame_id": 3,
+      "observation_metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 214,
+        "control_generation": 1,
+        "draw_frame": 195,
+        "episode_id": "c4cc2646611d587d74c468ac",
+        "frame_id": 3,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 214,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 214,
+        "sha256": "cecfb8298424b142cebb9ace99090057d7ed6c5942ad72dda6c0e64b5b37dc88",
+        "width": 640
+      },
+      "reason": "retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(-0.00095, -0.007064, -0.016617)",
+      "tick": 214
+    },
+    {
+      "body_integral_values": [],
+      "bound": true,
+      "frame_id": 3,
+      "reason": "forward_retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(-0.000938, -0.007047, -0.016689)",
+      "tick": 215
+    },
+    {
+      "body_integral_values": [
+        0.16061828154925,
+        0.16061828154925
+      ],
+      "bound": true,
+      "frame_id": 4,
+      "observation_metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 349,
+        "control_generation": 1,
+        "draw_frame": 329,
+        "episode_id": "c4cc2646611d587d74c468ac",
+        "frame_id": 4,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 349,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 349,
+        "sha256": "5192be9972de040b281a525f63961210a52eb3a8740556984eede2c50bc08f50",
+        "width": 640
+      },
+      "reason": "retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(0.003299, -0.010439, -0.011898)",
+      "tick": 349
+    },
+    {
+      "body_integral_values": [],
+      "bound": true,
+      "frame_id": 4,
+      "reason": "forward_retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(0.0033, -0.010472, -0.011965)",
+      "tick": 350
+    },
+    {
+      "body_integral_values": [
+        0.144525099297365,
+        0.144525099297365
+      ],
+      "bound": true,
+      "frame_id": 5,
+      "observation_metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 488,
+        "control_generation": 1,
+        "draw_frame": 466,
+        "episode_id": "c4cc2646611d587d74c468ac",
+        "frame_id": 5,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 488,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 488,
+        "sha256": "448598c9255f77fa783559ad202914ca1f40260084ff37383dafdd159f7a89ef",
+        "width": 640
+      },
+      "reason": "retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(0.000799, 0.003466, -0.013861)",
+      "tick": 488
+    },
+    {
+      "body_integral_values": [
+        0.214140425249934,
+        0.214140425249934
+      ],
+      "bound": true,
+      "frame_id": 6,
+      "observation_metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 533,
+        "control_generation": 1,
+        "draw_frame": 509,
+        "episode_id": "c4cc2646611d587d74c468ac",
+        "frame_id": 6,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 533,
+        "revision": 3,
+        "robot_instance_id": "1365497615735",
+        "settle_confirmed_tick": 533,
+        "sha256": "1d2c7589bb09fba1a1eeb74315a7af956e482c5a3f7579566d8400d713865900",
+        "width": 640
+      },
+      "reason": "retained_anchor",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(0.000292, 0.002046, -0.017104)",
+      "tick": 533
+    }
+  ],
+  "policy_verification": {
+    "single_seed": true,
+    "seed_frame_id": 1,
+    "numeric_quaternion": [
+      -0.000922037637792528,
+      -0.00108355842530727,
+      -0.00485826656222343,
+      0.999987185001373
+    ],
+    "five_later_observations_same_reference": true,
+    "three_forward_actions_reference_retained": true,
+    "forward_integral_reset_observed": true,
+    "body_integral_nonzero_observed": true,
+    "largest_recorded_body_integral": 0.214140425249934,
+    "cancel_reset_in_code_not_extra_trial": true
+  },
+  "physical_fields_computed_by_native_evaluator": true,
+  "external_metric_extraction_and_png_classifier_after_stop_native_exit": true,
+  "evaluator_final_condition": "(stopped_ticks>=30 and rest_ticks>=12) or stopped_ticks>=120;132 is fixture readback delay",
+  "model_calls": 0,
+  "production_applied": false
+}

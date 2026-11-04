@@ -1,0 +1,8 @@
+OK: python - Python3.11 or newer is required.
+OK: source - Operator archive identity or checkout root is available.
+OK: mcp - Pinned MCP2.2.0 server is available.
+OK: codex - Codex CLI must be available on PATH.
+OK: login - Existing Codex ChatGPT login is available.
+FIX: token - App and operator need the same shell token of at least32 characters.
+  Follow the README token/app-start steps in this shell; never paste the token into a goal.
+Complete the listed setup steps, then run this check again.

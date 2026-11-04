@@ -1,0 +1,175 @@
+RUN  import
+PASS import (3.7s)
+RUN  scene-load
+PASS scene-load (0.5s)
+RUN  assembly_snap_check
+PASS assembly_snap_check (0.3s)
+RUN  authoring_ui_check
+PASS authoring_ui_check (0.6s)
+RUN  biped_app_check
+PASS biped_app_check (2.9s)
+RUN  biped_board_clearance_check
+PASS biped_board_clearance_check (0.6s)
+RUN  biped_motion_check
+PASS biped_motion_check (3.5s)
+RUN  blender_camera_check
+PASS blender_camera_check (0.3s)
+RUN  blender_edit_check
+PASS blender_edit_check (0.3s)
+RUN  block_program_check
+PASS block_program_check (0.6s)
+RUN  browser_evidence_check
+PASS browser_evidence_check (1.0s)
+RUN  construction_kit_check
+PASS construction_kit_check (0.6s)
+RUN  construction_kit_motion_check
+PASS construction_kit_motion_check (5.8s)
+RUN  construction_kit_store_check
+PASS construction_kit_store_check (1.5s)
+RUN  construction_kit_ui_check
+PASS construction_kit_ui_check (0.9s)
+RUN  control_flow_check
+PASS control_flow_check (0.6s)
+RUN  core_authoring_check
+PASS core_authoring_check (0.8s)
+RUN  humanoid_contract_check
+PASS humanoid_contract_check (0.3s)
+RUN  humanoid_motion_check-walk
+PASS humanoid_motion_check-walk (1.2s)
+RUN  humanoid_motion_check-backward
+PASS humanoid_motion_check-backward (1.2s)
+RUN  humanoid_motion_check-pick
+PASS humanoid_motion_check-pick (1.1s)
+RUN  humanoid_motion_check-run
+PASS humanoid_motion_check-run (1.1s)
+RUN  humanoid_motion_check-walk-reverse-links
+PASS humanoid_motion_check-walk-reverse-links (1.1s)
+RUN  humanoid_motion_check-run-reverse-links
+PASS humanoid_motion_check-run-reverse-links (1.1s)
+RUN  humanoid_motion_check-run-settle-frames=181
+PASS humanoid_motion_check-run-settle-frames=181 (1.1s)
+RUN  humanoid_ui_check
+PASS humanoid_ui_check (1.2s)
+RUN  humanoid_ui_check-modular
+PASS humanoid_ui_check-modular (1.6s)
+RUN  keyboard_navigation_check
+PASS keyboard_navigation_check (0.6s)
+RUN  learned_app_check
+PASS learned_app_check (0.9s)
+RUN  learned_policy_check
+PASS learned_policy_check (1.2s)
+RUN  learned_tracking_check
+PASS learned_tracking_check (1.6s)
+RUN  localization_check
+PASS localization_check (1.0s)
+RUN  manual_control_check
+PASS manual_control_check (0.3s)
+RUN  material_assets_check
+PASS material_assets_check (0.3s)
+RUN  mesh_assets_check
+PASS mesh_assets_check (0.5s)
+RUN  modular_humanoid_check-walk
+PASS modular_humanoid_check-walk (1.0s)
+RUN  modular_humanoid_check-pick
+PASS modular_humanoid_check-pick (1.0s)
+RUN  modular_humanoid_check-pick-reverse-links
+PASS modular_humanoid_check-pick-reverse-links (1.0s)
+RUN  modular_pickup_parallel_check
+PASS modular_pickup_parallel_check (2.0s)
+RUN  motion_lab_check
+PASS motion_lab_check (4.1s)
+RUN  motion_lab_ui_check
+FAIL motion_lab_ui_check (120.6s)
+ - https://godotengine.org
+
+PASS current biped has a stable snapshot fingerprint
+PASS opening the lab stops manual control
+PASS modal lab suspends code and viewport navigation
+PASS typing a goal cannot leave WASD movement active
+PASS unversioned bridge cannot start a search
+PASS different-program bridge is rejected before evaluation or paid proposals
+PASS applying while physics is running is rejected
+PASS same-graph edit-mode result applies explicitly
+PASS apply changes the existing WASD joint program
+PASS apply changes neither learner code nor assembly
+PASS changed graph invalidates the result immediately
+PASS changing the graph resets its applied policy to defaults
+PASS stale policy cannot be applied to a changed graph
+PASS restoring the exact assembly permits explicit reapplication
+PASS fallen result is rejected
+PASS nonfinite policy is rejected
+PASS bridge metrics must match the locally captured graph fingerprint
+PASS unversioned measurements cannot certify the current controller
+PASS a different controller family cannot supply eligible measurements
+PASS mismatched best rejects the response even when history matches
+PASS malformed best policy cannot hide behind valid history
+PASS malformed history metrics are rejected before rendering
+PASS result can be saved under user://
+PASS saved result excludes token, goal and model output text
+PASS saved measurements retain the controller identity
+PASS saved bounded policy loads without automatic application
+PASS loading alone does not change the active movement program
+PASS live API search requires explicit consent
+PASS live consent permits a valid search request without sending it
+PASS unencrypted non-loopback endpoint is rejected
+PASS loopback-looking external hostname is rejected
+PASS URL credentials are rejected
+PASS invalid TCP port is rejected
+PASS loopback IPv6 and HTTPS origins are accepted
+PASS OpenAI API key pasted in bridge field is rejected
+PASS failed HTTP connection is safe and leaves the lab disconnected
+PASS unavailable active search exposes explicit recovery without silently forgetting
+PASS disconnect requires acknowledgement that the remote search is not cancelled
+PASS confirmed forget permits new bridge credentials after a restart
+PASS lost start response blocks implicit paid retry
+PASS closing and reopening does not silently forget an unknown start
+PASS explicit recovery resets local state without sending a new search
+PASS HTTP fixture is explicitly a mock provider
+FAIL native HTTP starts and polls an isolated Godot trial to completion
+FAIL mock search records baseline and candidate without GPT calls
+SCRIPT ERROR: Invalid call. Nonexistent function 'get' in base 'Nil'.
+          at: _check_http_flow (res://tests/motion_lab_ui_check.gd:176)
+          GDScript backtrace (most recent call first):
+              [0] _check_http_flow (res://tests/motion_lab_ui_check.gd:176)
+PASS closing restores navigation without automatically resuming movement
+motion_lab_ui_check: 46 checks, 2 failures
+
+RUN  pickup_bridge_ui_check
+PASS pickup_bridge_ui_check (6.9s)
+RUN  pickup_lab_ui_check
+PASS pickup_lab_ui_check (4.8s)
+RUN  pickup_store_check
+PASS pickup_store_check (2.0s)
+RUN  pickup_trial_check
+PASS pickup_trial_check (3.8s)
+RUN  project_store_check
+PASS project_store_check (1.2s)
+RUN  relative_code_check
+PASS relative_code_check (0.4s)
+RUN  run_mode_check
+PASS run_mode_check (0.3s)
+RUN  servo_torque_budget_check
+PASS servo_torque_budget_check (0.3s)
+RUN  tutorial_ui_check
+PASS tutorial_ui_check (0.8s)
+RUN  viewport_framing_check
+PASS viewport_framing_check (1.3s)
+RUN  workshop_ui_check
+PASS workshop_ui_check (0.7s)
+RUN  yaw_biped_check
+PASS yaw_biped_check (0.3s)
+RUN  tests-motion_mcp_check.py
+PASS tests-motion_mcp_check.py (4.0s)
+RUN  tests-test_ci_verify.py
+PASS tests-test_ci_verify.py (0.2s)
+RUN  tests-test_pickup_bridge.py
+PASS tests-test_pickup_bridge.py (1.7s)
+RUN  tests-test_release_documents.py
+PASS tests-test_release_documents.py (1.0s)
+RUN  tools-motion_lab-test_races.py
+PASS tools-motion_lab-test_races.py (1.1s)
+RUN  tools-motion_lab-test_service.py
+PASS tools-motion_lab-test_service.py (1.2s)
+RUN  tools-rl_lab-test_rl_lab.py
+PASS tools-rl_lab-test_rl_lab.py (0.4s)
+60 checks; 1 failures. Results: /home/hojun/.local/share/agent-remote/jobs/20260930-113049-ssok-core-final-609242b-0c02e9d1/work/out/verification/SUMMARY.md

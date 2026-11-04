@@ -1,0 +1,48 @@
+{
+  "initial_failed_revision": 18,
+  "initial_expected_revision": 19,
+  "cases": [
+    {
+      "case": "default_store",
+      "exit_code": 0,
+      "expected_revision": 18,
+      "actual_revision": 18,
+      "passed": true
+    },
+    {
+      "case": "windows_override_empty_wslenv",
+      "exit_code": 0,
+      "expected_revision": 19,
+      "actual_revision": 19,
+      "passed": true
+    },
+    {
+      "case": "windows_override_preserves_existing_wslenv",
+      "exit_code": 0,
+      "expected_revision": 19,
+      "actual_revision": 19,
+      "passed": true
+    },
+    {
+      "case": "explicit_vault_overrides_environment_with_spaces",
+      "exit_code": 0,
+      "expected_revision": 18,
+      "actual_revision": 18,
+      "passed": true
+    },
+    {
+      "case": "explicit_clone_vault_without_environment",
+      "exit_code": 0,
+      "expected_revision": 19,
+      "actual_revision": 19,
+      "passed": true
+    }
+  ],
+  "passed": 5,
+  "failed": 0,
+  "caller_environment_unchanged": true,
+  "canonical_or_clone_mutations": 0,
+  "wrapper_sha256": "321642a47005fb586cee67f3d67d4e0f0763e2e58585b87e876ba9a9e16d60e1",
+  "global_environment_change": false,
+  "reference": "https://learn.microsoft.com/en-us/windows/wsl/filesystems"
+}

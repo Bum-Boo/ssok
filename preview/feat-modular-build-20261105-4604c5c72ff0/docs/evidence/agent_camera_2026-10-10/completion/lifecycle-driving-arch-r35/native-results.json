@@ -1,0 +1,1749 @@
+{
+  "source": {
+    "tests/camera_evaluator_lifecycle_check.gd": "ac28e98ae27a00338ff6d82265d30056a08e88052bfe23e0937e1ca0ecb8ca37",
+    "tests/test_ci_verify.py": "1935dc66e2eccee3ab52f269669ae3ba42f37cc699ef8836074e8d343d919b0c",
+    "tools/ci/verify.py": "064cadd6280ef971a8759c1bf6f584e92f420c67cf54595a77d608a0bd8f8266",
+    "docs/generated/CODE_MAP.md": "e906ada59d33e41b0fd1dfe3df98814268abd2ac15c607eebaaab29ff7878bce",
+    "docs/evidence/agent_camera_2026-10-10/completion/lifecycle-driving-arch-r35/README.md": "04a3dae37cb020bfde1b9ef00744fc2bd2c767bb66638f5f9968b35be53bdfc5",
+    "tools/app_control/camera_evaluator.gd": "d5b2b16e59b43e93664c4e165eca2781a69114babca44911f12afcc04e8fead5"
+  },
+  "checks": [
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.616,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ],
+      "log_sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    },
+    {
+      "name": "agent_camera_loop_check-rendered",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 19.713,
+      "timeout": false,
+      "engine_error": false,
+      "log": "agent_camera_loop_check-rendered.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/agent_camera_loop_check.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--screenshots"
+      ],
+      "log_sha256": "2946605252fb292b2f8bf9315c953896ca6edd77f67625dd53a81f5fd48c3327"
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-normal_stop",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.042,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-normal_stop.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "normal_stop"
+      ],
+      "log_sha256": "fd11e510e53fca30abb32d8dab202b42736c655fc98895df3aa6c822e44beb8f",
+      "native_result": {
+        "checks": 7,
+        "elapsed_msec": 8731,
+        "evaluation": {
+          "final": {
+            "angular_speed": 0.00597598263993859,
+            "gap_x": 0.504113011062145,
+            "linear_speed": 0.00172649638261646,
+            "linear_velocity": [
+              0.00169695657677948,
+              0.00020618447160814,
+              -0.00024210754781961
+            ],
+            "motors": [
+              {
+                "duty": 0.0,
+                "speed": 0.0620374158024788
+              },
+              {
+                "duty": 0.0,
+                "speed": 0.0436356514692307
+              }
+            ],
+            "position": [
+              0.00103286292869598,
+              0.0666839182376862,
+              -0.00017105613369494
+            ],
+            "rotation": [
+              -0.00061298866057768,
+              -0.00362158427014947,
+              -0.00967169087380171
+            ],
+            "wheel_speed": 0.0666075795888901,
+            "x": 0.00103286292869598
+          },
+          "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "minimum_gap_x": 0.504113011062145,
+          "rest_ticks": 31.0,
+          "samples": 31.0,
+          "schema": 1.0,
+          "stopped_state": "stopped",
+          "travel_x": 0.00074579395004548,
+          "valid": true,
+          "wall_contact": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "local_stop"
+            },
+            "physics_tick": 36,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "normal_stop",
+        "phase": "after_observation"
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-drive_stop",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 19.613,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-drive_stop.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "drive_stop"
+      ],
+      "log_sha256": "5baf01d1b0646ff826651a1ff29587217b6354b60fbe618da8ae453fd286a118",
+      "native_result": {
+        "checks": 18,
+        "elapsed_msec": 17285,
+        "evaluation": {
+          "final": {
+            "angular_speed": 0.0116901928558946,
+            "gap_x": 0.322206765413284,
+            "linear_speed": 0.00164614547975361,
+            "linear_velocity": [
+              0.00163115933537483,
+              0.00019933233852498,
+              -9.685416443971e-05
+            ],
+            "motors": [
+              {
+                "duty": 0.0,
+                "speed": 0.0159871876239777
+              },
+              {
+                "duty": 0.0,
+                "speed": 0.0724266320466995
+              }
+            ],
+            "position": [
+              0.182604059576988,
+              0.0669552758336067,
+              0.00088441692059859
+            ],
+            "rotation": [
+              -0.00238938047550619,
+              0.00414337823167443,
+              -0.0143729951232672
+            ],
+            "wheel_speed": 0.0774659141898155,
+            "x": 0.182604059576988
+          },
+          "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "minimum_gap_x": 0.313622176647186,
+          "rest_ticks": 65.0,
+          "samples": 530.0,
+          "schema": 1.0,
+          "stopped_state": "stopped",
+          "travel_x": 0.182316990598338,
+          "valid": true,
+          "wall_contact": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "3d76f799959b45b9cae3cdb9",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 2,
+              "sha256": "1f247d97ba22bed729cd122862e411cd9cc53a9d660cecc14a2414a1af47fb63"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "3d76f799959b45b9cae3cdb9",
+              "frame_id": 2,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 197,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 3,
+              "sha256": "692f2d0004f0d9e7d46dc01428c316dd4208918ee1258e4c291dcdcad174c495"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "3d76f799959b45b9cae3cdb9",
+              "frame_id": 3,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 362,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 4,
+              "sha256": "4c31f4863d947db3fc98bc68df2bc2385b51f9dd0b7f663f09ea54b40be289d4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "local_stop"
+            },
+            "physics_tick": 535,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "drive_stop",
+        "phase": "after_observation"
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-teardown",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.043,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-teardown.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "teardown"
+      ],
+      "log_sha256": "bf7503d2ece613fcf93cb027edf6052e120f41d68a81320e472ffe57257b8517",
+      "native_result": {
+        "checks": 10,
+        "elapsed_msec": 8763,
+        "evaluation": {
+          "episode_id": "78923b0092e47d7819abe633",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "physics_removed",
+          "physics_tick": 36.0,
+          "samples": 1.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "context_changed"
+            },
+            "physics_tick": 36,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "teardown",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-mode_off",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.595,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-mode_off.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "mode_off"
+      ],
+      "log_sha256": "475291311d9dba23d23b96f98b9cea438c355f4e7ef40e4a8b1ea101ad943717",
+      "native_result": {
+        "checks": 10,
+        "elapsed_msec": 9307,
+        "evaluation": {
+          "episode_id": "d1b5bb963d143fb53189596f",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "physics_removed",
+          "physics_tick": 36.0,
+          "samples": 1.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "mode_changed"
+            },
+            "physics_tick": 36,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "mode_off",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-app_free",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.042,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-app_free.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "app_free"
+      ],
+      "log_sha256": "319e0262b9574fac827d74f5cc722150b49eb46984f1133d4b246ec24285aef3",
+      "native_result": {
+        "checks": 9,
+        "elapsed_msec": 8802,
+        "evaluation": {
+          "episode_id": "0134c0b93a8de3603f2bb8a6",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "app_removed",
+          "physics_tick": 36.0,
+          "samples": 1.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "bridge_closed"
+            },
+            "physics_tick": 36,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "app_free",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-rebuild",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.043,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-rebuild.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "rebuild"
+      ],
+      "log_sha256": "c96f4cdc3f48033228bf3df0c3bde7969e94577c7a35405f59441066336e7e6e",
+      "native_result": {
+        "checks": 11,
+        "elapsed_msec": 8771,
+        "evaluation": {
+          "episode_id": "d58053c7ec237682738bb1a3",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "body_removed",
+          "physics_tick": 36.0,
+          "samples": 1.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "context_changed"
+            },
+            "physics_tick": 36,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "rebuild",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-new_episode",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.144,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-new_episode.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "new_episode"
+      ],
+      "log_sha256": "d7972a867855d4117d0b31bb1d3f1c607d8783181d046b9f1a2d47ccfad356cf",
+      "native_result": {
+        "checks": 10,
+        "elapsed_msec": 8862,
+        "evaluation": {
+          "episode_id": "665148a85e92a7c05ffce0e8",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "episode_changed",
+          "physics_tick": 36.0,
+          "samples": 1.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 36,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 2,
+              "sha256": "2d9e39fc566829671d853dd3f4eb746a4e0568c6633324cd7e45d2a8f918531e"
+            },
+            "tool": "observe"
+          }
+        ],
+        "failures": 0,
+        "mode": "new_episode",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_stop",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.194,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-driving_stop.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "driving_stop"
+      ],
+      "log_sha256": "796f16a2874c005915a261dbc77b99ce4cc5f38862aa5987b171361f9f74bb06",
+      "native_result": {
+        "checks": 11,
+        "elapsed_msec": 8870,
+        "evaluation": {
+          "final": {
+            "angular_speed": 0.0128331026062369,
+            "gap_x": 0.486900992691517,
+            "linear_speed": 0.00164127070456743,
+            "linear_velocity": [
+              0.00162220862694085,
+              0.00021905143512412,
+              -0.00011926885781576
+            ],
+            "motors": [
+              {
+                "duty": 0.0,
+                "speed": 0.0118733020499349
+              },
+              {
+                "duty": 0.0,
+                "speed": 0.0760328844189644
+              }
+            ],
+            "position": [
+              0.0181014947593212,
+              0.0668287724256516,
+              -3.490058224997e-05
+            ],
+            "rotation": [
+              -0.00278407498262823,
+              0.00251199887134135,
+              -0.0121137602254748
+            ],
+            "wheel_speed": 0.0803916454315186,
+            "x": 0.0181014947593212
+          },
+          "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "minimum_gap_x": 0.486900992691517,
+          "rest_ticks": 12.0,
+          "samples": 39.0,
+          "schema": 1.0,
+          "stopped_state": "stopped",
+          "travel_x": 0.0178144257806707,
+          "valid": true,
+          "wall_contact": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "fabde0d5576454a957a295e9",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {
+              "reason": "local_stop"
+            },
+            "physics_tick": 41,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "driving_stop",
+        "phase": "after_observation"
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_rebuild",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.143,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-driving_rebuild.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "driving_rebuild"
+      ],
+      "log_sha256": "d1746351e0b432daee5062360659aa47266d4376e7178c62f5cfbdb526625cc3",
+      "native_result": {
+        "checks": 13,
+        "elapsed_msec": 8844,
+        "evaluation": {
+          "episode_id": "6ac0a09a95ade50a9d0717ae",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "body_removed",
+          "physics_tick": 41.0,
+          "samples": 6.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "6ac0a09a95ade50a9d0717ae",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {
+              "reason": "context_changed"
+            },
+            "physics_tick": 41,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "driving_rebuild",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_app_free",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.295,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-driving_app_free.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "driving_app_free"
+      ],
+      "log_sha256": "ac6dcdd30dbab80a5c7a0d42051b730c04798978a9ce608f0453364c3bcee090",
+      "native_result": {
+        "checks": 11,
+        "elapsed_msec": 9071,
+        "evaluation": {
+          "episode_id": "2009bf2a2d0bd59f5dc006f2",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "app_removed",
+          "physics_tick": 41.0,
+          "samples": 6.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "2009bf2a2d0bd59f5dc006f2",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {
+              "reason": "bridge_closed"
+            },
+            "physics_tick": 41,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "driving_app_free",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_new_episode",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.244,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-driving_new_episode.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "driving_new_episode"
+      ],
+      "log_sha256": "ad64a826cca3cbc7232fbbe1801eea20803ee054deb4907f354841eb8da4308f",
+      "native_result": {
+        "checks": 12,
+        "elapsed_msec": 8956,
+        "evaluation": {
+          "episode_id": "7261b6f024a849efa80dc16e",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "episode_changed",
+          "physics_tick": 41.0,
+          "samples": 6.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "7261b6f024a849efa80dc16e",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 41,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 2,
+              "sha256": "e21c9ee73727fa0ee917eaba54af20b969d6fba392a47867a2429f2c58917d8a"
+            },
+            "tool": "observe"
+          }
+        ],
+        "failures": 0,
+        "mode": "driving_new_episode",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_teardown",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.193,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-driving_teardown.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "driving_teardown"
+      ],
+      "log_sha256": "56a9d37a8651ab7c1f6bf7959fdb50326729e83e7e854d4e16db403322ef15bb",
+      "native_result": {
+        "checks": 12,
+        "elapsed_msec": 8938,
+        "evaluation": {
+          "episode_id": "fd3b5c7cd8cbef6cfdfd22b7",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "physics_removed",
+          "physics_tick": 41.0,
+          "samples": 6.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "fd3b5c7cd8cbef6cfdfd22b7",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {
+              "reason": "context_changed"
+            },
+            "physics_tick": 41,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "driving_teardown",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_mode_off",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 11.243,
+      "timeout": false,
+      "engine_error": false,
+      "log": "camera_evaluator_lifecycle_check-driving_mode_off.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop-r29",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop-r29/tests/camera_evaluator_lifecycle_check.gd",
+        "--",
+        "--lifecycle-mode",
+        "driving_mode_off"
+      ],
+      "log_sha256": "11262d0aeef6e23f62681ec0af1cea196e7b177c2daa4b46c12020abd45b1f49",
+      "native_result": {
+        "checks": 12,
+        "elapsed_msec": 8935,
+        "evaluation": {
+          "episode_id": "1c82560d0317b17549ba9926",
+          "final": {},
+          "initial": {
+            "angular_speed": 0.00507091823965311,
+            "gap_x": 0.505061149597168,
+            "linear_speed": 0.00056182459229603,
+            "linear_velocity": [
+              0.00045217340812087,
+              0.00020158813276793,
+              -0.00026560929836705
+            ],
+            "motors": [
+              {
+                "duty": -0.00307636155861352,
+                "speed": 0.0195345245301723
+              },
+              {
+                "duty": -0.00197901736829711,
+                "speed": 0.0068282694555819
+              }
+            ],
+            "position": [
+              0.00028706897865049,
+              0.0665628984570503,
+              -3.60735648428e-05
+            ],
+            "rotation": [
+              -0.00026375829475,
+              -0.00167286163195968,
+              -0.00737943453714252
+            ],
+            "wheel_speed": 0.0239794682711363,
+            "x": 0.00028706897865049
+          },
+          "invalid_reason": "physics_removed",
+          "physics_tick": 41.0,
+          "samples": 6.0,
+          "schema": 1.0,
+          "valid": false
+        },
+        "events": [
+          {
+            "args": {
+              "reason": "new_session"
+            },
+            "physics_tick": 2,
+            "result": "braked",
+            "tool": "stop"
+          },
+          {
+            "args": {},
+            "result": {
+              "frame_id": 1,
+              "sha256": "00b1d283aa2704e10df71da2aeea311b579cd886bfd6adfd76810f2820ccfbe4"
+            },
+            "tool": "observe"
+          },
+          {
+            "args": {
+              "action": "forward",
+              "control_generation": 1,
+              "episode_id": "1c82560d0317b17549ba9926",
+              "frame_id": 1,
+              "revision": 3,
+              "ticks": 25
+            },
+            "physics_tick": 36,
+            "result": "accepted",
+            "tool": "drive_step"
+          },
+          {
+            "args": {
+              "reason": "mode_changed"
+            },
+            "physics_tick": 41,
+            "result": "braked",
+            "tool": "stop"
+          }
+        ],
+        "failures": 0,
+        "mode": "driving_mode_off",
+        "phase": "after_observation"
+      },
+      "invalid_result_score": {
+        "success": false,
+        "checks": {
+          "valid_evaluation": false,
+          "forward_progress": false,
+          "gap_in_target": false,
+          "no_contact": false,
+          "rest_after_stop": false,
+          "action_reobservation_stop": true
+        }
+      }
+    },
+    {
+      "name": "tests-camera_experiment_check.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.164,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-camera_experiment_check.py.log",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests/camera_experiment_check.py",
+        "-v"
+      ],
+      "log_sha256": "817eac969ff08790e603b8fd7ab5cf702e1734052ef2f9c8b00dab64cb7fc943"
+    }
+  ],
+  "conditions": "Arch Godot4.7.2 Compatibility, CI fixed-fps60, isolated user data and experiment-local warm Mesa cache"
+}

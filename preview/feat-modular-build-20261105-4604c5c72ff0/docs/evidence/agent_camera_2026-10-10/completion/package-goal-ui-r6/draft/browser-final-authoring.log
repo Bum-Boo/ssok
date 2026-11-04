@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 301, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 172, in main
+    reopened = export_document("reopened")
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py", line 130, in export_document
+    with page.expect_download(timeout=30000) as pending:
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 85, in __exit__
+    self._event.value
+  File "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 59, in value
+    raise exception
+playwright._impl._errors.TimeoutError: Timeout 30000ms exceeded while waiting for event "download"
+=========================== logs ===========================
+waiting for event "download"
+============================================================
+.TimeoutError: Timeout 30000ms exceeded while waiting for event "download"
+=========================== logs ===========================
+waiting for event "download"
+============================================================
+

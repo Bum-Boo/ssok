@@ -1,0 +1,90 @@
+{
+  "requested_model": "gpt-6-astra",
+  "exposed_identity": "Coordinator-designated Astra visual-inspection role. No independent backend model identity introspection or attestation was available.",
+  "scope": "Bounded visual inspection for an existing developer diagnosis; not a new AI-navigation trial or reliability study.",
+  "method": "Actually viewed and emitted all six original 640x480 PNGs with view_image original. Visual estimates only within center strip x=312–328. Coordinates use zero-based y; floor height approximated as 480 minus boundary_y. Boundary softness supports approximately ±1 pixel uncertainty, not exact classification.",
+  "provenance": "Coordinator reports HEAD dd9c814 and unchanged camera, mount, FOV and colors. These were not independently verified.",
+  "viewed": [
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8/stock/post-3.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "boundary_y_approx": 458,
+      "floor_height_px_approx": 22,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Nominally below goal; estimated 21–23 px remains below 24.",
+      "observations": "Gray wall fills most of frame above a thin beige floor strip. Center strip is unobstructed; blue/gray robot geometry occupies lower side edges."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8/stock/idle-2.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "boundary_y_approx": 454,
+      "floor_height_px_approx": 26,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Visually within goal, estimated 25–27 px.",
+      "observations": "Gray wall fills most of frame above a thin beige floor strip. Center strip is unobstructed; blue/gray robot geometry occupies lower side edges."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8/stock/idle-4.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "boundary_y_approx": 457,
+      "floor_height_px_approx": 23,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Borderline lower edge; estimated 22–24 px includes threshold.",
+      "observations": "Gray wall fills most of frame above a thin beige floor strip. Center strip is unobstructed; blue/gray robot geometry occupies lower side edges."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8/partition-13-a/post-3.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "boundary_y_approx": 462,
+      "floor_height_px_approx": 18,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Clearly below goal, estimated 17–19 px.",
+      "observations": "Gray wall fills most of frame above a thin beige floor strip. Center strip is unobstructed; blue/gray robot geometry occupies lower side edges."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8/partition-13-a/idle-2.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "boundary_y_approx": 458,
+      "floor_height_px_approx": 22,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Nominally below goal; estimated 21–23 px remains below 24.",
+      "observations": "Gray wall fills most of frame above a thin beige floor strip. Center strip is unobstructed; blue/gray robot geometry occupies lower side edges."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/control-feedback-r8/partition-13-a/idle-4.png",
+      "dimensions": [
+        640,
+        480
+      ],
+      "boundary_y_approx": 464,
+      "floor_height_px_approx": 16,
+      "uncertainty_px": 1,
+      "goal_24_to_38_px": "Clearly below goal, estimated 15–17 px.",
+      "observations": "Gray wall fills most of frame above a thin beige floor strip. Center strip is unobstructed; blue/gray robot geometry occupies lower side edges."
+    }
+  ],
+  "comparison": "Stock idle-2 visibly has the tallest center floor strip and is within the 24–38 px nominal goal. Stock idle-4 is threshold-borderline. Partition-13-a shows thinner strips at corresponding captures; none appears within goal at these visual estimates. This describes the six stills only.",
+  "occlusion_and_clipping": "No robot geometry occludes x=312–328. Floor/wall boundary remains visible above the bottom edge in all six images. Robot geometry clips the floor strip at both side edges; wall extends beyond the upper frame.",
+  "limits": [
+    "Visual estimates are not an exact pixel classifier and threshold cases require separate validation.",
+    "No physical distance, causation, runtime action or reliability inferred.",
+    "No developer physics/evaluator measurements were read.",
+    "Only the six requested PNGs were viewed; no other image claims.",
+    "No app, UI, style, source, runtime or canonical records were changed. Only this authorized inspection result file was created."
+  ]
+}

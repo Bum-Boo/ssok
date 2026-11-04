@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "tools/ci/verify.py",
+    "--godot",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\native-encoding-recovery",
+    "--match",
+    "^(tests-test_release_documents\\.py|tools-rl_lab-test_rl_lab\\.py)$"
+  ],
+  "exit_code": 0,
+  "seconds": 15.498316899989732,
+  "process_local_pythonutf8": "1 (inherited by child Python; parent -X utf8 alone was insufficient)",
+  "checks": 2,
+  "failures": 0,
+  "source426_unchanged": true,
+  "git_clean": true,
+  "original_full_failure_receipt": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\native-full-receipt.json",
+  "published": false
+}

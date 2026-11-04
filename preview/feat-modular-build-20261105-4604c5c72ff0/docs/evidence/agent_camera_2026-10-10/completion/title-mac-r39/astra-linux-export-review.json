@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-11T13:25:35.098983+00:00",
+  "scope": "Bounded Linux exported-executable Title inspection only; no source/UI edits or publication approval.",
+  "source_head": "1f388f5f69ef1c0abf31c85c19e5e32ad44c5e78",
+  "title_sha256_provided_by_related_export_receipt": "0241a8b96b67661775a984dd85606499378ed8020b4829a1ac8978b6849d3d18",
+  "input": {
+    "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\linux-export-results.json",
+    "sha256": "fb60233bb378978135a4fbd9a3fb9be674749192eebb2e30d98713abea5e5f25"
+  },
+  "images": [
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\linux-export-captures\\linux-native-en.png",
+      "actually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "sha256": "dc39fe6387dd16cc2614b4fd4fa3977dd32bd85dc5914c74b0443a770e8e2b84",
+      "receipt_sha256": "dc39fe6387dd16cc2614b4fd4fa3977dd32bd85dc5914c74b0443a770e8e2b84",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observed_locale": "en",
+      "observed_theme": "dark",
+      "observations": [
+        "Full rounded logo tile and S artwork fit inside the viewport with top margin.",
+        "All four menu labels, introduction and captions are readable; no missing-glyph boxes or clipping observed.",
+        "Localized Language and Settings controls and labels are fully visible with bottom margin.",
+        "Menu captions readable on single lines.",
+        "No blank/corrupt frame observed."
+      ],
+      "verdict": "PASS scoped Title rendering/locale/footer inspection.",
+      "limitations": "Still image only: no input, navigation, persistence, physical behavior, runtime-error absence or full exported-route success inferred."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\linux-export-captures\\linux-native-ko.png",
+      "actually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "sha256": "180d70eae5bc034b075b45f186e1e28beea3e769b5eb6e2c9b793c33cca79bed",
+      "receipt_sha256": "180d70eae5bc034b075b45f186e1e28beea3e769b5eb6e2c9b793c33cca79bed",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observed_locale": "ko",
+      "observed_theme": "dark",
+      "observations": [
+        "Full rounded logo tile and S artwork fit inside the viewport with top margin.",
+        "All four menu labels, introduction and captions are readable; no missing-glyph boxes or clipping observed.",
+        "Localized Language and Settings controls and labels are fully visible with bottom margin.",
+        "Menu captions readable on single lines.",
+        "No blank/corrupt frame observed."
+      ],
+      "verdict": "PASS scoped Title rendering/locale/footer inspection.",
+      "limitations": "Still image only: no input, navigation, persistence, physical behavior, runtime-error absence or full exported-route success inferred."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\linux-export-captures\\linux-native-zh_CN.png",
+      "actually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "sha256": "118fd6d363b8e2b739c2003801df418d552690d437059e9b5f0de9163296dee6",
+      "receipt_sha256": "118fd6d363b8e2b739c2003801df418d552690d437059e9b5f0de9163296dee6",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observed_locale": "zh_CN",
+      "observed_theme": "dark",
+      "observations": [
+        "Full rounded logo tile and S artwork fit inside the viewport with top margin.",
+        "All four menu labels, introduction and captions are readable; no missing-glyph boxes or clipping observed.",
+        "Localized Language and Settings controls and labels are fully visible with bottom margin.",
+        "Menu captions readable on single lines.",
+        "No blank/corrupt frame observed."
+      ],
+      "verdict": "PASS scoped Title rendering/locale/footer inspection.",
+      "limitations": "Still image only: no input, navigation, persistence, physical behavior, runtime-error absence or full exported-route success inferred."
+    },
+    {
+      "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\linux-export-captures\\linux-native-ja.png",
+      "actually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "sha256": "ea1bf4c049f2518625a60a1d1efaf1fc0e398a8e5400765b1d50256121a22a4b",
+      "receipt_sha256": "ea1bf4c049f2518625a60a1d1efaf1fc0e398a8e5400765b1d50256121a22a4b",
+      "receipt_match": true,
+      "original_dimensions": [
+        1152,
+        648
+      ],
+      "observed_locale": "ja",
+      "observed_theme": "dark",
+      "observations": [
+        "Full rounded logo tile and S artwork fit inside the viewport with top margin.",
+        "All four menu labels, introduction and captions are readable; no missing-glyph boxes or clipping observed.",
+        "Localized Language and Settings controls and labels are fully visible with bottom margin.",
+        "Japanese examples caption wraps into two readable lines without overlap.",
+        "No blank/corrupt frame observed."
+      ],
+      "verdict": "PASS scoped Title rendering/locale/footer inspection.",
+      "limitations": "Still image only: no input, navigation, persistence, physical behavior, runtime-error absence or full exported-route success inferred."
+    }
+  ],
+  "method": "Four actual original PNGs viewed using view_image original detail; SHA256 and PNG dimensions independently computed and verified against supplied image records.",
+  "summary": "Four intended locales visibly render in dark appearance at1152x648. Logo, all menu captions and Language/Settings footer are fully visible and readable. No scoped visual blocker observed.",
+  "runtime_claims_attributed": "Coordinator/receipt report actual :0 GL exported executable, isolated XDG game preferences, eighth rendered frames, exits0/errors0 and unchanged bundle. Image reviewer did not execute these checks.",
+  "pck_sha256_from_receipt": "3de310f8ebd917b9345c4f80d662cfb8a00e3605f8fa8099ad1704dfafdda3b0",
+  "full_exported_routes_verified": false,
+  "blockers": [],
+  "limits": [
+    "Only dark1152x648 native Title images inspected; no other native theme/size or route coverage claimed.",
+    "No design/aesthetic, publication or whole-goal approval.",
+    "Previous missing-S tool-display impression remains retracted; no such product claim is made."
+  ],
+  "combined_mac_web_receipt_preserved": {
+    "path": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\title-mac-r39\\astra-export-review.json",
+    "sha256": "7022ae877a53fbf21747a6b7498abe11ff29d38077cc38e3cee4a1e426786d04"
+  },
+  "next_owner": "Coordinator for runtime evidence/canonical recording; Claude for scoped design/code review."
+}

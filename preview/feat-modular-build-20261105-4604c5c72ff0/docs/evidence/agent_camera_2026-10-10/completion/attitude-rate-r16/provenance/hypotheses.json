@@ -1,0 +1,14 @@
+[
+  {
+    "rank": 1,
+    "prediction": "If angle holding and angular-rate correction complement each other, adding fixed housing-axis rate16 to unchanged attitude32 should retain final image24..38 while improving physical4..14cm/travel/contact/rest/Stop; lower body-rate/span would support but not prove damping."
+  },
+  {
+    "rank": 2,
+    "prediction": "If the terms conflict through wheel/contact coupling, the combination may worsen image/spans or settling despite a changed final gap; reject rather than tune more gains."
+  },
+  {
+    "rank": 3,
+    "prediction": "If post-Stop ownership release dominates, camera-time pose/rate changes need not improve the final independent gap; separately retain last-frame-to-Stop displacement and fail the unchanged joint target."
+  }
+]

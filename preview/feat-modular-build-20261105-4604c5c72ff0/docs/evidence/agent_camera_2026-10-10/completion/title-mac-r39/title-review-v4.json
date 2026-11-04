@@ -1,0 +1,90 @@
+{
+  "requested_model": "opus",
+  "models": [
+    "claude-opus-5-5"
+  ],
+  "input_sha256": "6b71ea0ea0972af1ac6c40456f0cf880f60cfdf111583093a9a2f95e15e91751",
+  "output_sha256": "e3addbd81b3c014e7d1db080dfd2fd1e388705946340ce31d7b21a60b5934ff0",
+  "permission_denials": [],
+  "verdict": {
+    "verdict": "pass",
+    "blockers": [],
+    "findings": [
+      {
+        "id": "F1-fit-convergence",
+        "severity": "info",
+        "area": "responsive_fit",
+        "summary": "_fit_to_viewport is idempotent and cannot oscillate.",
+        "detail": "The fit decision uses `bare` = content minimum minus the current logo minimum and the current gaps. `bare` does not depend on the previous fit. Content width is set only by MenuScreen._resize, never by the fit, so the wrap-dependent label heights inside `bare` are stable within a viewport size. A refit triggered by the fit's own minimum_size_changed recomputes the same targets, and the `!=` guards skip the writes. `_on_next_frame` dedupes on the unbound method Callable, so several triggers in one frame collapse to one fit. This matches the dynamic evidence: 30/30 PASS, 4 resizes, en→ja→en, no churn, minimum_change_count settles at 8."
+      },
+      {
+        "id": "F2-geometry-matches-intent",
+        "severity": "info",
+        "area": "responsive_fit",
+        "summary": "Reported geometry agrees with the arithmetic at every registered size.",
+        "detail": "1152x648 en/ko/zh_CN: available 582, content 582, logo 134, scroll_max 646 = page 646, footer y577..615. ja: logo 111 absorbs the two-line caption. 1400x950: 644+66 <= 950, so defaults 18/12/150 apply and are byte-identical to v2. Mac 1400x942 also takes defaults; logo y149 vs Arch y153 is exactly the (950-942)/2 centering shift, which fits an OS clamp rather than a layout difference. Enlarged text (1.3/1.5/2.0) floors the logo at 88, keeps 12/8, and scrolls. Font sizes, 52 px button heights and hit targets are never reduced, so the fit trades decoration (logo, gaps) and not legibility."
+      },
+      {
+        "id": "F3-startup-focus-guard",
+        "severity": "info",
+        "area": "startup_focus",
+        "summary": "The v4 guard correctly fixes the three out-of-tree grab_focus errors without changing live timing.",
+        "detail": "router._replace calls remove_child() synchronously and queue_free() later, so the stale deferred call previously reached Control::grab_focus on an out-of-tree node. `_focus_play_on_start` checks is_inside_tree() and is_visible_in_tree(), so a replaced Title cannot error or take focus from its successor. If the Title is already freed, the deferred call is dropped because its object is invalid. A live Title still gets exactly one deferred grab, so focus_entered → _show_logo_with_play and follow_focus behave as before."
+      },
+      {
+        "id": "F4-settings-open-rebuild-focus",
+        "severity": "minor",
+        "area": "startup_focus/accessibility",
+        "pre_existing": true,
+        "summary": "On the settings_open rebuild path, the deferred Play grab can still run after open_panel() and move keyboard focus behind the modal.",
+        "detail": "_on_preferences_changed calls show_title(), which queues _focus_play_on_start, and then calls settings.open_panel() synchronously. When the deferred call runs, the new Title is in the tree and Play is visible under the overlay, so the guard passes and Play takes focus. Whether this hurts users depends on SettingsPanel, which was not provided: specifically, whether open_panel grabs focus on a modal control and whether the panel blocks input from reaching controls behind it. The 'Settings modal rebuild Escape' dynamic check passed, so Escape still works. Not a regression (v2 had the same unguarded deferred grab), and the v4 author flagged it. Suggested follow-up, not required for this change: add `and not settings.visible` to the guard."
+      },
+      {
+        "id": "F5-compact-step-discontinuity",
+        "severity": "polish",
+        "area": "responsive_fit",
+        "summary": "The switch to compact mode is a step, not a ramp.",
+        "detail": "Defaults need about 710 px of viewport height (644 + 66). One pixel below that, spacing drops to 12/8 while the logo stays clamped at 150, so content shrinks by 46 px at once and spacing is tighter than strictly needed for roughly 664..709 px heights. The behavior is visually stable and deterministic, with no hysteresis needed because `bare` is independent of the fit. An optional refinement would shrink the logo first and tighten gaps only below the 88 floor. Not required."
+      },
+      {
+        "id": "F6-locale-dependent-logo-size",
+        "severity": "polish",
+        "area": "visual_consistency",
+        "summary": "In compact mode the logo size depends on locale (134 px vs 111 px for ja), so switching en↔ja live visibly resizes the logo.",
+        "detail": "This is the intended consequence of fitting the two-line ja caption without scrolling. Astra observed it and found it acceptable. It is an aesthetic trade-off, not a defect."
+      },
+      {
+        "id": "F7-first-frame-before-fit",
+        "severity": "polish",
+        "area": "responsive_fit",
+        "summary": "On short viewports, one frame may be drawn with the default 18/12/150 layout before the next-frame fit applies.",
+        "detail": "The fit is deliberately deferred until labels have settled. If the Title is created during a frame's process step, that frame's draw can show the unfitted layout. The deferred Play grab can also trigger a follow_focus scroll, which _show_logo_with_play corrects to 0 on the next frame. All settled captures and after_focus readings show scroll_vertical 0 and the fitted geometry, so this is at most a one-frame flicker. Not observed in any evidence and not a blocker."
+      },
+      {
+        "id": "F8-residual-unguarded-deferred-focus",
+        "severity": "info",
+        "area": "startup_focus",
+        "pre_existing": true,
+        "summary": "language_picker.item_selected still calls language_picker.grab_focus.call_deferred() without a guard.",
+        "detail": "This could hit the same !is_inside_tree() error if select_locale ever caused a synchronous router rebuild. The live en→ja→en run reported 0 engine errors, so the locale switch does not currently rebuild Title. Out of scope for this change; recorded so the pattern is not forgotten."
+      },
+      {
+        "id": "F9-scope-discipline",
+        "severity": "info",
+        "area": "scope",
+        "summary": "The change stays inside its stated scope.",
+        "detail": "Only title_screen.gd changed. Logo and menu became members; the fit, scheduling and focus helpers were added. Fonts, colors, text, assets, hierarchy, actions, MenuScreen and the router are unchanged. The ScrollContainer lookup via the parent chain in _show_logo_with_play is brittle, but it is carried over from earlier code and matches the MenuScreen structure."
+      }
+    ],
+    "limits": [
+      "This is a design and code review of the source text and receipts supplied in the request. No tools were run, nothing was executed, and no hashes were recomputed. Binding of the reviewed text to Title SHA 0241a8b9…d18 relies on the coordinator and on the Mac results' source_title_sha256.",
+      "SettingsPanel, SsokLocale, InterfacePreferences and the test harness sources were not provided. F4 and F8 are reasoned from call order, not observed.",
+      "No images were viewed in this invocation. Visual conclusions rely on Astra's v3 receipt plus the reported byte-identity of all 32 v4 PNGs to v3.",
+      "The 'missing S' observation from v2 stays retracted: it was tool-display uncertainty, and the bytes and pixel counts corroborate a complete S. This review makes no GPU or product-defect claim and requests no GPU fix.",
+      "Export and runtime browser tests have not run yet and are not covered here.",
+      "The original r7 Mac package is unchanged and does not contain this Title fix. No claim is made otherwise.",
+      "A pass here is a design review verdict only. It is not publication, export or whole-goal approval."
+    ],
+    "publication_allowed": false
+  }
+}

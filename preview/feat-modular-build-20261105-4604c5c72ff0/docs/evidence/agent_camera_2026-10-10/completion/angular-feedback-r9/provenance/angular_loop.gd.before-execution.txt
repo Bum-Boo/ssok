@@ -1,0 +1,14 @@
+extends "res://src/runtime/agent_camera_loop.gd"
+
+## DEBUG-r9: motor-only housing angular damping; PI/25% cap/physical actuator unchanged.
+func _hold_brake(delta: float) -> void:
+	# Passive back-EMF braking permits slow roll during model latency. Use bounded
+	# wheel-speed feedback through the existing motors, never body/scene overrides.
+	for motor: DriveMotor in _channels:
+		var axis: Vector3 = (motor.housing.global_basis * motor.axis_local).normalized()
+		var speed: float = (motor.wheel.angular_velocity - motor.housing.angular_velocity).dot(axis)
+		var integral: float = clampf(float(_hold_integral.get(motor, 0.0)) + speed * delta * HOLD_I, -25.0, 25.0)
+		_hold_integral[motor] = integral
+		var duty: float = clampf(-speed * HOLD_P - integral + motor.housing.angular_velocity.dot(axis) * 16.0, -25.0, 25.0)
+		motor.motor_on("reverse" if duty < 0.0 else "forward", absf(duty))
+
