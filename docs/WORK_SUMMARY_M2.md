@@ -839,3 +839,371 @@ CSV 26개는 LF 정규화 해시·샘플 수·tick 구간·선속도 벡터 크�
 다음 작업은 구속/접촉의 속도 잔류 원인을 분리하고, 필요하면 그래프에 고정된 하우징과
 낮은 마찰 구의 물리 표현을 설계하는 것이에요. 이는 아직 구현하거나 채택하지 않았어요.
 검증된 수정 없이 브리프의 중단 조건으로 인계해요. 푸시·병합·배포는 하지 않았어요.
+
+
+## M2c — 볼 캐스터 차체 병합 대조 (2026-11-05)
+
+작업 계약: 시작 `55ac0d251b67d9aa493d42d91497395ca8690573`, 격리 작업실
+`C:/Users/Hojun/agent-jobs/ssok-M2c-20261105/repo`, 브랜치 `feat/modular-build-20261105`.
+사용자 brief의 execute 범위로 고정 캐스터 병합 하나만 시험해요. 대상 흐름은 같은 그래프·답지
+→ RunMode 파생 강체 → 실제 세 Stage와 옛 차 회귀예요. 허용 변경은 캐스터 리소스/생성기,
+진단 계측과 근거 문서예요. 형상·답지 코드·판정·전역 물리는 고정해요. 합격은 세 답지 통과와
+옛 차 새 실패 없음이며, 미달이면 변환을 복원하고 측정만 커밋해요. 푸시하지 않아요.
+총괄 Codex가 계측·검사·통합을 맡고 독립 Astra는 읽기 전용 정확성 검수만 맡았어요.
+필수 도구의 실제 proof는 Windows native Godot 4.7.2 import/진단 실행과 Python 검증기이며,
+기존 live 상위 task는 인계 대상으로 보존하고 별도 M2c 소유권을 사용했어요.
+
+### 결정과 동일 조건 실험
+
+`RunMode.build()`가 이미 비회전 MECH 링크의 opt-in 고정 묶음을 만들므로 런타임의
+부품 ID 분기를 추가할 필요가 없었어요. 후보 변경은 다음 두 줄뿐이에요.
+
+- `assets/parts/ball_caster.tres`: `merge_fixed_connections = true` 추가.
+- `tools/godot/make_learning_parts.gd`: 같은 속성 `false` → `true`.
+
+`src/runtime/run_mode.gd`와 `presets/kit_car.gd`는 수정하지 않았어요.
+기존 `_add_part_geometry()`가 캐스터 구를 추가할 때 강체 전체에 마찰 0.01을 설정해요.
+따라서 병합된 차체 접촉도 0.01이고, 별도 바퀴는 0.8이에요. 이 영향은 받아들이되 아래의
+경사로·공 밀기 수치를 그대로 비교해요. PartDef/그래프 변환이고 키트 구멍과 옛 마운트 모두
+같이 처리했어요. 회전 링크를 병합하는 예외는 추가하지 않았어요.
+
+`tools/ci/diagnose_kit_car.gd`에 솔버 강체의 마찰과 캐스터/차체 동일 강체 여부만 추가했어요.
+진단 전후 도구는 같고 바닥 윗면 y=0.05 m, 벽 x=0.8 m, 60 Hz, 생성 직후 동일
+BRAKE_CODE 조건이에요. VM 종료 뒤 2초까지 관측하며 성공 상태는 StageEvaluator 결과예요.
+아래 속도는 evaluator의 **모든 로봇 부품 중 최대 선속도**이고, CSV는 캐스터가 매핑된
+솔버 강체의 속도예요. 병합 후 CSV 접촉은 차체 묶음의 접촉이며 캐스터 구만의 접촉이 아니에요.
+`mass_ratio=1`은 같은 강체끼리 나눈 값이므로 병합 후 독립 캐스터 질량비로 해석하지 않아요.
+
+[전후 JSON·60 Hz CSV·소스 해시·실제 검사 출력](evidence/modular_build_m2c_2026-11-05/README.md).
+
+| 솔버 강체 | 옛 차 전 → 병합 후보 | 키트 차 전 → 병합 후보 |
+|---|---|---|
+| 차체 kg / 마찰 | 0.174000 / 1 → 0.179000 / 0.01 | 0.539800 / 1 → 0.544800 / 0.01 |
+| 차체 구성 | car_chassis, tt_motor×2, microbit, motor_driver, hc_sr04 → 같은 구성+ball_caster | kit_plate_220_120, kit_beam_140×2, kit_beam_100×2, tt_motor×2, microbit, motor_driver, kit_spacer_20, kit_angle_bracket, hc_sr04 → 같은 구성+ball_caster |
+| 왼쪽·오른쪽 바퀴 각각 kg / 마찰 | wheel_65 0.030000 / 0.8 → 동일·별도 강체 | kit_wheel_90 0.055000 / 0.8 → 동일·별도 강체 |
+| 별도 캐스터 kg / 마찰 | 0.005000 / 0.01 → 차체에 합침 | 0.005000 / 0.01 → 차체에 합침 |
+| 고정 벽 kg / 마찰 | 2.000000 / 1 → 동일 | 2.000000 / 1 → 동일 |
+| 총 강체 수 (고정 벽 포함) | 5 → 4 | 5 → 4 |
+
+| 진단 항목 | 옛 차 전 → 병합 후보 | 키트 차 전 → 병합 후보 |
+|---|---:|---:|
+| VM 종료 s | 3.166667 → 3.200000 | 14.133333 → 2.566667 |
+| 성공 관측 s | 3.750000 → 3.833333 | 없음 → 없음 |
+| 벽 간격 m | 0.07448924 → 0.07216859 | 0.07365817 → 0 |
+| 최대 부품 속도 m/s | 0.00530863 → 0.00158729 | 0.06228759 → 0.00043388 |
+| 벽 접촉 | 0 → 0 | 0 → 1 |
+| 마지막 1초 캐스터 매핑 강체 속도 범위 m/s | 0.00527552..0.00529727 → 0.00001659..0.00690994 | 0.06186525..0.06450592 → 0.00014093..0.00099647 |
+| 마지막 1초 매핑 강체의 바닥 접촉 ticks | 60/60 → 60/60 | 60/60 → 60/60 |
+| 판정 | success → success | running/success=false → running/success=false |
+
+키트의 속도 조건은 좋아졌지만 간격·무접촉 조건이 깨졌어요. 진단 종료 시 `running`은
+평가기의 terminal failure가 아니라 관측 기한에 성공하지 못한 상태예요. 세 답지 합격 조건은
+여전히 미달성이에요. 마찰·질량·관절 제거 중 하나만이 벽 접촉의 단독 원인이라고 단정하지 않아요.
+
+### 옛 차 수치와 마찰 영향
+
+아래는 같은 Windows native/60 Hz fixture의 수정 전과 병합 후보 대상 실행이에요.
+`robot_car_check`의 ANSWER_CODE 전진은 옛 차의 실제 주행 거리이며 Stage 결승선 min_x와는
+다른 관측이에요. 실제 세 Stage 답지는 별도 검사 출력에 보존해요.
+
+| 기존 검사/관측 | 수정 전 | 병합 후보 |
+|---|---:|---:|
+| robot_car 전진 x / 옆방향 z m | 1.099930 / 0.095095 | 1.094726 / −0.005115 |
+| robot_car 초기 sonar cm | 110.364938 | 110.698259 |
+| robot_car 제동 sonar cm | 6.868312 | 7.460327 |
+| robot_car 반대 모터 회전 rad | 2.534585 | 2.687431 |
+| parts_pack 10° 최고 차체 y m | 0.08335 | 0.08354 |
+| parts_pack 10° 마지막 차체 (x,y,z) m | (0.744531, 0.053803, −0.009493) | (1.728772, 0.016507, −0.014749) |
+| parts_pack 20° 최고 차체 y m | 0.19357 | 0.57630 |
+| parts_pack 20° 마지막 차체 (x,y,z) m | (0.492602, 0.027157, 0.756859) | (0.457928, 0.576300, −0.469719) |
+| 컵 진입 직후 공 (x,y,z) m / count | (0.700475, 0.019424, −0.000154) / 1 | (0.700775, 0.019621, −0.000064) / 1 |
+| Stop 후 공 (x,y,z) m / count | (0.776458, 0.019442, −0.000859) / 1 | (0.704645, 0.018999, −0.000519) / 0 |
+| parts_pack_environment assertion | 21 checks / 0 failures | 21 checks / 1 failure |
+| agent_camera_rest idle drift m | 0.001175330 | 0.000615256 |
+| agent_camera_rest assertions | 6 / 0 failures | 6 / 0 failures |
+| camera_evaluator drive_stop assertions | 22 / 0 failures | 22 / 0 failures |
+
+기존에 실패 이력이 있던 두 카메라 검사는 이번 수정 전·후에는 모두 PASS예요.
+컵은 직접 배치 count=1, chassis_overlap=1, chassis_only=0을 그대로 유지하지만,
+실제 밀기 후 정착에서는 `ball remains contained after Stop`이 새로 실패했어요.
+경사로 판정은 통과해도 궤적은 크게 달라졌어요. 특히 20°의 최고 높이를 정착 안정성으로
+해석하지 않아요. 차체 전체의 낮은 마찰·병합 질량/관절 변화가 함께 적용된 대조이며
+마찰 단독 효과를 분리해 측정한 것은 아니에요.
+
+옛 차의 고정 난수 벽 거리에서도 sensor 3/3 PASS, timer 0/3 PASS는 유지했어요.
+모든 경우 벽 접촉 0이며, 벽 간격과 최대 부품 속도는 다음처럼 바뀌었어요.
+
+| wall x m / 코드 | 전 간격 m / 속도 m/s | 후보 간격 m / 속도 m/s | 성공 전 → 후보 |
+|---|---|---|---|
+| 0.53331 / sensor | 0.0722265 / 0.0051020 | 0.0692855 / 0.0003946 | true → true |
+| 0.76341 / sensor | 0.0687317 / 0.0051171 | 0.0692690 / 0.0117355 | true → true |
+| 1.03416 / sensor | 0.0655022 / 0.0053366 | 0.0708927 / 0.0004578 | true → true |
+| 0.53331 / timer | 0.0393549 / 0.0050936 | 0.0450250 / 0.0060416 | false → false |
+| 0.76341 / timer | 0.2694481 / 0.0050936 | 0.2751181 / 0.0060416 | false → false |
+| 1.03416 / timer | 0.5402057 / 0.0050936 | 0.5458758 / 0.0060416 | false → false |
+
+### 세 스테이지 답지와 기각
+
+대상 `kit_robot_runtime_check`의 실제 후보 관측이에요. 기존 답지 코드는 모두 그대로예요.
+
+| 과제 | 관측 | 성공 |
+|---|---|---|
+| 깃발 | max_height 0.19333975 m / 1초 유지 | true |
+| 결승선 | min_x 0.50925595 m | true |
+| 벽 앞 정지 | 간격 0 m / 최대 부품 속도 0.00039574 m/s / 접촉 1 | false |
+
+**합격 조건 미달성이므로 병합 후보를 기각해요.** 위 표는 앞의 독립 진단과 다른 실행의
+관측 창이며 수치를 섞지 않아요. 목표를 바꾸거나 답지·형상·전역 물리를 조정하지 않았어요.
+대상과 전체 검사가 끝난 뒤 두 flag 변경을 시작 소스로 복원했어요. 최종 앱은 병합 전 상태이고
+해결됐다고 보고하지 않아요. 최종 커밋은 진단 계측과 측정/인계 문서뿐이에요.
+
+ADR 0040 초안은 준비했으나 채택하지 않고 폐기했어요. 브리프 5항의 실패 분기인
+“변환 변경은 되돌리고, 측정값만 커밋”을 적용하며 새 accepted ADR이나 확장 주석을
+남기지 않아요. ADR 0003의 기존 고정 관절/병합 허용과 0037의 기능/환경 계약은 유지해요.
+INDEX는 기존 내용과 같고, ARCHITECTURE/FLOWS/DATA_MODEL의 설명·도식도 최종 변환이
+변하지 않아서 유지해요. `--review execution-flow`는 이 대조 검토를 기록해요.
+
+독립 Astra는 전후 JSON·후보 patch·표·대상 결과에서 수치/해석의 차단 결함을 찾지 못했어요.
+[검수 범위와 한계](evidence/modular_build_m2c_2026-11-05/review.md)에 최종 전체 검사와
+복원/커밋은 그 검수 시점에 미관측이었음을 적었어요. 후속 증거는 총괄의 실제 출력이에요.
+사용자 문구·번역·비용 변경은 없어요. Web·추가 시각 승인·게시·푸시는 하지 않았어요.
+
+
+### M2c 실제 검사 출력과 최종 소스
+
+아래 대상·전체는 **병합 후보**의 검사이며 최종 채택 앱의 통과 주장으로 쓰지 않아요.
+시작 HEAD `55ac0d2` + [두 줄 후보 patch](evidence/modular_build_m2c_2026-11-05/candidate.patch)가
+검사 소스예요. [SHA-256 manifest](evidence/modular_build_m2c_2026-11-05/source-manifest.json)에
+후보/복원 소스를 구분했어요. 네이티브 Windows / Godot `4.7.2.stable.official.ed1daf0bf`,
+GodotPhysics3D, 60 Hz이며 카메라 렌더 검사는 GL Compatibility / RTX 4060 / driver 610.88이에요.
+검증기는 임시 APPDATA/LOCALAPPDATA와 mock HTTP를 사용하고 실제 유료 모델 호출은 없어요.
+
+```powershell
+python tools/ci/verify.py --godot "$env:GODOT" --match '^(kit_robot_runtime|stage_own_build|game_flow|stage_authoring|robot_car|sonar_stage|parts_pack_.*|stage_contract|parts_tray|agent_camera_.*|camera_evaluator_.*|construction_kit|humanoid.*)_check' --output build/verification-m2c-target
+$env:PYTHONUTF8='1'
+python tools/ci/verify.py --godot "$env:GODOT" --output build/verification-m2c-full
+```
+
+대상 **41종 / 5 FAIL**, 전체 **121종 / 7 FAIL**이에요. 전체 실패는
+`game_flow_check`, `kit_robot_runtime_check`, `stage_authoring_check`, `stage_own_build_check`,
+`parts_pack_environment_check`, `tests-motion_mcp_check.py`, `tools-rl_lab-test_rl_lab.py`예요.
+앞의 네 종은 벽 답지/성공 증명, 환경 검사는 새 공 밀기 회귀이고 마지막 두 종은 각각
+`ModuleNotFoundError: No module named 'mcp'` / `'mujoco'`예요. 의존성을 새로 설치하지 않았어요.
+실패를 skip이나 expected-failure로 바꾸지 않았어요.
+
+변경 전 옛 차 24종은 24 PASS이고, 대상/전체와 대조한 새 실패는 환경 검사 한 종이에요.
+`agent_camera_rest_check`, `camera_evaluator_lifecycle_check-drive_stop`은 수정 전·대상·전체
+모두 PASS예요. 두 flag를 복원한 뒤 아래 검사도 **4/4 PASS**이고,
+`parts_pack_environment_check`의 기존 21/0과 `robot_car_check`의 14/0을 회복했어요.
+
+```powershell
+python tools/ci/verify.py --godot "$env:GODOT" --match '^(import|scene-load|robot_car_check|parts_pack_environment_check)$' --output build/verification-m2c-restored
+git diff --exit-code 55ac0d2 -- src presets assets project.godot tools/godot
+```
+
+마지막 diff는 출력 없이 통과했어요. 전체 121종을 복원 뒤 다시 실행하지는 않았고,
+원래 키트 벽 실패가 해결됐다고 하지 않아요. 최종 남은 변경은 진단 계측·근거·상태 문서예요.
+소유한 검증 프로세스는 정상 종료했고 Python PID 32392와 관측 자식 31924가 남지 않음을
+확인했어요. 임시 사용자 디렉터리·mock 서버는 기존 검증기 finally 경로로 정리됐어요.
+
+공통 instruction-health는 기존 junction `WinError 448` 33건으로 실패했고 실제 원본에서
+sustainable-workflow·agent-handoff를 읽었어요. 환경 지침은 고치지 않았어요.
+첫 문서 check는 후보 생성기의 data-model 검토 필요와 입구 252줄을 감지했어요.
+최종 생성기 복원과 STATUS의 기존 문단 갱신으로 원인을 해소했어요. 문서 도구 unittest는 10/0이에요.
+최종 `maintain.py --write`, `--check`, `--review execution-flow`와 후속 `--check`가 모두
+통과했고 `git diff --check`도 통과했어요. INDEX·CODE_MAP·context는 내용 변경이 없어서
+생성 과정의 줄바꿈 차이만 복원했어요.
+
+다음 블록은 실제 콘솔의 PASS/FAIL·최종 집계 줄만 추출했어요. 실패 상세·명령·exit code를
+포함한 [대상 원문](evidence/modular_build_m2c_2026-11-05/target-console.log),
+[전체 원문](evidence/modular_build_m2c_2026-11-05/full-console.log),
+[복원 후 원문](evidence/modular_build_m2c_2026-11-05/restored-console.log)과 JSON은 따로 보존해요.
+
+
+target:
+
+```text
+PASS agent_camera_loop_check (3.9s)
+PASS agent_camera_loop_check-rendered (12.1s)
+PASS agent_camera_rest_check (14.5s)
+PASS camera_evaluator_lifecycle_check-normal_stop (5.4s)
+PASS camera_evaluator_lifecycle_check-drive_stop (12.7s)
+PASS camera_evaluator_lifecycle_check-teardown (5.4s)
+PASS camera_evaluator_lifecycle_check-mode_off (5.4s)
+PASS camera_evaluator_lifecycle_check-app_free (5.0s)
+PASS camera_evaluator_lifecycle_check-rebuild (5.3s)
+PASS camera_evaluator_lifecycle_check-new_episode (6.4s)
+PASS camera_evaluator_lifecycle_check-driving_stop (5.6s)
+PASS camera_evaluator_lifecycle_check-driving_rebuild (5.4s)
+PASS camera_evaluator_lifecycle_check-driving_app_free (5.0s)
+PASS camera_evaluator_lifecycle_check-driving_new_episode (6.6s)
+PASS camera_evaluator_lifecycle_check-driving_teardown (5.3s)
+PASS camera_evaluator_lifecycle_check-driving_mode_off (5.3s)
+PASS construction_kit_check (1.0s)
+FAIL game_flow_check (26.5s)
+PASS humanoid_contract_check (0.3s)
+PASS humanoid_motion_check-walk (1.4s)
+PASS humanoid_motion_check-backward (1.4s)
+PASS humanoid_motion_check-pick (1.4s)
+PASS humanoid_motion_check-run (1.4s)
+PASS humanoid_motion_check-walk-reverse-links (1.4s)
+PASS humanoid_motion_check-run-reverse-links (1.4s)
+PASS humanoid_motion_check-run-settle-frames=181 (1.5s)
+PASS humanoid_ui_check (4.5s)
+PASS humanoid_ui_check-modular (5.0s)
+FAIL kit_robot_runtime_check (9.3s)
+PASS parts_pack_button_check (0.5s)
+FAIL parts_pack_environment_check (1.5s)
+FAIL ball remains contained after Stop
+PASS parts_pack_gears_check (1.8s)
+PASS parts_pack_inventory_check (4.1s)
+PASS parts_pack_led_check (0.4s)
+PASS parts_pack_line_check (0.7s)
+PASS parts_tray_check (2.8s)
+PASS robot_car_check (0.7s)
+PASS sonar_stage_check (16.2s)
+FAIL stage_authoring_check (18.4s)
+PASS stage_contract_check (15.4s)
+FAIL stage_own_build_check (38.8s)
+41 checks; 5 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2c-20261105\repo\build\verification-m2c-target\SUMMARY.md
+```
+
+
+full:
+
+```text
+PASS import (2.7s)
+PASS scene-load (0.5s)
+PASS agent_camera_loop_check (4.0s)
+PASS agent_camera_loop_check-rendered (11.9s)
+PASS agent_camera_rest_check (14.5s)
+PASS agent_goal_ui_check (4.1s)
+PASS agent_goal_ui_check-rendered (11.4s)
+PASS app_controller_check (3.8s)
+PASS assembly_snap_check (0.3s)
+PASS authoring_ui_check (4.2s)
+PASS biped_app_check (13.5s)
+PASS biped_board_clearance_check (1.5s)
+PASS biped_motion_check (1.9s)
+PASS blender_camera_check (0.3s)
+PASS blender_edit_check (0.4s)
+PASS block_program_check (3.9s)
+PASS bridge_stop_owner_check (5.4s)
+PASS browser_evidence_check (4.3s)
+PASS camera_evaluator_lifecycle_check-normal_stop (5.4s)
+PASS camera_evaluator_lifecycle_check-drive_stop (13.9s)
+PASS camera_evaluator_lifecycle_check-teardown (5.2s)
+PASS camera_evaluator_lifecycle_check-mode_off (5.3s)
+PASS camera_evaluator_lifecycle_check-app_free (5.0s)
+PASS camera_evaluator_lifecycle_check-rebuild (5.3s)
+PASS camera_evaluator_lifecycle_check-new_episode (6.4s)
+PASS camera_evaluator_lifecycle_check-driving_stop (5.5s)
+PASS camera_evaluator_lifecycle_check-driving_rebuild (5.3s)
+PASS camera_evaluator_lifecycle_check-driving_app_free (5.1s)
+PASS camera_evaluator_lifecycle_check-driving_new_episode (6.4s)
+PASS camera_evaluator_lifecycle_check-driving_teardown (5.5s)
+PASS camera_evaluator_lifecycle_check-driving_mode_off (5.4s)
+PASS construction_kit_check (1.1s)
+PASS construction_kit_motion_check (6.9s)
+PASS construction_kit_store_check (2.8s)
+PASS construction_kit_ui_check (4.4s)
+PASS control_flow_check (4.1s)
+PASS core_authoring_check (4.6s)
+PASS device_kit_ports_check (0.5s)
+PASS flag_mission_check (3.9s)
+FAIL game_flow_check (26.5s)
+PASS humanoid_contract_check (0.3s)
+PASS humanoid_motion_check-walk (1.4s)
+PASS humanoid_motion_check-backward (1.4s)
+PASS humanoid_motion_check-pick (1.4s)
+PASS humanoid_motion_check-run (1.4s)
+PASS humanoid_motion_check-walk-reverse-links (1.4s)
+PASS humanoid_motion_check-run-reverse-links (1.4s)
+PASS humanoid_motion_check-run-settle-frames=181 (1.4s)
+PASS humanoid_ui_check (4.5s)
+PASS humanoid_ui_check-modular (5.0s)
+PASS interface_preferences_check (6.2s)
+PASS keyboard_navigation_check (4.0s)
+FAIL kit_robot_runtime_check (9.1s)
+PASS learned_app_check (4.1s)
+PASS learned_policy_check (3.7s)
+PASS learned_tracking_check (4.7s)
+PASS learner_language_check (0.3s)
+PASS localization_check (4.6s)
+PASS manual_control_check (0.4s)
+PASS material_assets_check (0.6s)
+PASS mesh_assets_check (0.6s)
+PASS modular_humanoid_check-walk (0.6s)
+PASS modular_humanoid_check-pick (0.6s)
+PASS modular_humanoid_check-pick-reverse-links (0.7s)
+PASS modular_pickup_parallel_check (3.0s)
+PASS motion_lab_check (9.4s)
+PASS motion_lab_ui_check (6.5s)
+PASS parts_freedom_blocks_check (0.3s)
+PASS parts_freedom_mechanics_check (5.2s)
+PASS parts_freedom_runtime_check (0.5s)
+PASS parts_freedom_workshop_check (5.3s)
+PASS parts_pack_button_check (0.5s)
+FAIL parts_pack_environment_check (1.5s)
+FAIL ball remains contained after Stop
+PASS parts_pack_gears_check (1.8s)
+PASS parts_pack_inventory_check (4.1s)
+PASS parts_pack_led_check (0.4s)
+PASS parts_pack_line_check (0.7s)
+PASS parts_tray_check (2.9s)
+PASS pickup_bridge_ui_check (8.5s)
+PASS pickup_lab_ui_check (7.1s)
+PASS pickup_store_check (6.1s)
+PASS pickup_trial_check (6.7s)
+PASS port_indicators_check (0.4s)
+PASS project_store_check (5.6s)
+PASS relative_code_check (0.5s)
+PASS robot_car_check (0.8s)
+PASS run_mode_check (0.4s)
+PASS scene_workshop_ui_check (20.0s)
+PASS servo_torque_budget_check (0.3s)
+PASS snap_build_check (0.4s)
+PASS snap_build_input_check (4.3s)
+PASS sonar_stage_check (16.2s)
+FAIL stage_authoring_check (18.2s)
+PASS stage_contract_check (15.3s)
+FAIL stage_own_build_check (37.6s)
+PASS stage_ui_check (4.0s)
+PASS tutorial_ui_check (4.3s)
+PASS viewport_framing_check (5.2s)
+PASS workshop_compact_check (19.9s)
+PASS workshop_emphasis_check (10.1s)
+PASS workshop_goal_observation_check (14.1s)
+PASS workshop_goal_space_check (18.0s)
+PASS workshop_presentation_check (14.5s)
+PASS workshop_road_check (0.3s)
+PASS workshop_run_label_check (4.5s)
+PASS workshop_ui_check (4.3s)
+PASS yaw_biped_check (0.6s)
+PASS tests-camera_experiment_check.py (0.1s)
+PASS tests-desktop_client_check.py (0.8s)
+PASS tests-desktop_session_check.py (0.2s)
+FAIL tests-motion_mcp_check.py (0.1s)
+PASS tests-test_ci_verify.py (1.4s)
+PASS tests-test_desktop_package.py (0.1s)
+PASS tests-test_operator_doctor.py (0.1s)
+PASS tests-test_operator_release.py (0.2s)
+PASS tests-test_pickup_bridge.py (1.7s)
+PASS tests-test_release_documents.py (18.6s)
+PASS tools-docs-test_maintain.py (0.3s)
+PASS tools-motion_lab-test_races.py (1.2s)
+PASS tools-motion_lab-test_service.py (1.8s)
+FAIL tools-rl_lab-test_rl_lab.py (0.1s)
+121 checks; 7 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2c-20261105\repo\build\verification-m2c-full\SUMMARY.md
+```
+
+
+restored:
+
+```text
+PASS import (2.9s)
+PASS scene-load (0.5s)
+PASS parts_pack_environment_check (1.6s)
+PASS robot_car_check (0.8s)
+4 checks; 0 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2c-20261105\repo\build\verification-m2c-restored\SUMMARY.md
+```

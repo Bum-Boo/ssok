@@ -60,10 +60,12 @@ func _run() -> void:
 			for other: int in graph.parts.size():
 				if run.bodies[other] == body:
 					members.append("%d:%s" % [other, graph.parts[other].part_def.id])
-			clusters.append({"members": members, "mass_kg": body.mass, "frozen": body.freeze})
+			clusters.append({"members": members, "mass_kg": body.mass, "frozen": body.freeze,
+				"friction": body.physics_material_override.friction if body.physics_material_override != null else 1.0})
 		var summary: Dictionary = {"name": name, "clusters": clusters, "mass_ratio": run.bodies[0].mass / run.bodies[caster].mass,
 			"caster_center": _vec(graph.parts[caster].transform.origin), "wheel_axis": _vec(graph.parts[wheel].transform.origin),
-			"caster_minus_axis_y_m": graph.parts[caster].transform.origin.y - graph.parts[wheel].transform.origin.y}
+			"caster_minus_axis_y_m": graph.parts[caster].transform.origin.y - graph.parts[wheel].transform.origin.y,
+			"caster_shares_carrier_body": run.bodies[caster] == run.bodies[0]}
 		for link: Dictionary in graph.links:
 			var caster_port: StringName
 			if link.a_part == caster:
