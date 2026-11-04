@@ -49,10 +49,10 @@ bolted to kit beams, and the stage answers depend on `car_chassis` named slots.
 
 ## Consequences
 
-Ball casters weigh 20 g, the range of small real ball casters. With the original 5 g caster the
-kit car's caster kept a residual 0.06 m/s jitter and failed the wall stop; at 20 g all three kit
-answers pass. The 10 s `agent_camera_rest_check` drift (about 0.0027 m against 0.002 m) already
-failed on Linux CI before this change; its tolerance is a separate, platform-sensitive item.
+Until a kit car passes the wall stage without changing the legacy car's checks, the wall-brake
+answer alone temporarily uses `RobotCarPreset`. With the 5 g ball caster the kit car keeps a
+residual caster jitter (about 0.06 m/s); a 20 g caster passed all three kit answers but made the
+legacy car miss its camera settle budgets on Linux CI, so it was not kept.
 
 Saved graphs that use legacy parts still load and run. Tests that counted tray buttons or relied on
 the floor-grid spawn change. New placement logic is exposed as testable `AssemblyMode` calls so
