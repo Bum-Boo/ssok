@@ -1,0 +1,13 @@
+python : test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.t
+est_documentation_links_survive_packaging_and_extraction) ... ok
+At line:2 char:146
++ ... ONUTF8='1'; python -m unittest tests.test_release_documents -v *> ../ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_documentat...raction) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+----------------------------------------------------------------------
+Ran 1 test in 18.376s
+
+OK
