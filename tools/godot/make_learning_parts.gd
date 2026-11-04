@@ -28,7 +28,7 @@ func _init() -> void:
 	chassis.ports.append(_port(&"sensor_mount", Port.Kind.MECH, Vector3(0.070, 0.060, 0), Vector3.RIGHT, &"base_mount", [&"sensor_mount"]))
 	chassis.ports.append(_port(&"caster_mount", Port.Kind.MECH, Vector3(0.055, -0.004, 0), Vector3.DOWN, &"base_mount", [&"caster_mount"]))
 	_save(chassis)
-	var caster := _box(&"ball_caster", "Ball Caster", Vector3.ONE * 0.024, 0.005, Color(0.6, 0.6, 0.65))
+	var caster := _box(&"ball_caster", "Ball Caster", Vector3.ONE * 0.024, 0.020, Color(0.6, 0.6, 0.65))
 	caster.caster_radius = 0.012
 	caster.merge_fixed_connections = false
 	caster.ports.append(_port(&"mount", Port.Kind.MECH, Vector3(0, 0.0015, 0), Vector3.UP, &"caster_mount", [&"base_mount"]))
