@@ -1691,3 +1691,98 @@ FAILED (errors=1)
 브랜치 `feat/modular-build-20261105`는 이 벽 답지 임시 예외와 기준선 두 환경 실패를 포함해
 통합 담당자가 회수할 로컬 후보예요. 푸시·병합·배포하지 않았어요.
 Web과 실사용자 조립 검증은 미실행이며 원래 키트 벽 정지 해결은 후속 과제로 남아요.
+
+## M2e — B20 재측정과 새 문서 실패에 따른 원복 (2026-11-05)
+
+### 계약·결정·최종 상태
+
+작업실 `C:/Users/Hojun/agent-jobs/ssok-M2e-20261105/repo`, 브랜치
+`feat/modular-build-20261105`, 시작 `1a86a5355221a1a66d7261920c8492dc6a891776` clean이에요.
+상위 `brief.md`는 B20을 채택하되 카메라 정착 외 새 실패가 있으면 시작 소스로 원복하고
+측정만 남기도록 지정했어요. 허용 범위는 키트 차 프리셋·캐스터 생성기/리소스·벽 답지 예외·
+해당 검사와 문서이며, 총괄 Codex가 구현·계측·원복·문서·커밋을 소유해요. 푸시하지 않아요.
+
+**B20을 채택하지 않았어요.** 후보의 세 답지는 성공했지만 전체 검사에서 새 문서 패키징
+UTF-8 오류가 발생했어요. 브리프의 중단 조건대로 프리셋·생성기/캐스터·StageCatalog·트레이 검사·
+ADR 0039·STAGE_CONTRACTS·FLOWS·DATA_MODEL·계약 해시를 시작 소스로 복원했어요.
+최종 앱은 M2d의 원래 키트 형상·5 g 캐스터·벽 답지 임시 옛 차 예외를 그대로 유지해요.
+판정/드리프트 기준·BRAKE_CODE/ANSWER_CODE·전역 물리·변환·workflows·M1은 변경하지 않았어요.
+
+### 후보와 채택 근거
+
+브리프는 M2d B20의 10초 드리프트 실패가 Linux CI r3 이전 기준선 약 0.00277 m와 같은
+플랫폼 민감 항목이므로 새 캐스터 결함으로 보지 않는다는 결정이에요. Linux 수치는 사용자 제공
+기준선이며 이번 Windows 실행으로 Linux를 재검증하지 않았어요. 0.002 m 허용치는 그대로예요.
+
+후보 `kit_car.gd`는 M2d의 `rejected-b15.patch` 형상과 같은 blob
+`0220dbe0053dfd655cb1fbd138bcf922426d6e55`였어요. 60×40 mm 판, 140 mm 가로 빔,
+60 mm 캐스터 빔·20 mm 스페이서·꺾쇠, 판에 직접 연결한 보드/드라이버, 65 mm 바퀴를 썼어요.
+캐스터는 축 전방 67.5 mm·아래 21 mm이고 센서 메쉬가 최전방이에요. 차체 솔버 질량은 M2d
+진단의 220.12 g이며 옛 차와 질량/COM이 같다는 뜻은 아니에요. 생성기를 실제 실행해 캐스터를
+20 g으로 생성하고 벽 author_solution·트레이 예외를 제거했으나, 이 변경은 모두 원복했어요.
+고정 병합·마찰을 바꾸지 않았고 20 g은 공유 카탈로그를 쓰는 옛 차에도 적용된 후보였어요.
+
+독립 gpt-6.1-sol은 후보 형상 blob·20 g 입력/출력·예외 제거·금지 범위 보존을 읽기 검토해
+정확성/명시 요구사항 위반을 찾지 못했어요. 검사 실행이나 최종 문서 인코딩 검토는 하지 않았어요.
+준비 근거는 clean Git 소스, M2d 패치/진단 읽기, native Godot import·생성기 exit 0이에요.
+전역 instruction-health의 기존 junction 신뢰 오류 33건은 미해결이며 필요한 스킬은 원본에서 읽었어요.
+
+### 이번 후보의 실제 세 답지와 드리프트
+
+대상 `kit_robot_runtime_check` 94항목/0실패이며 세 답지 모두 success=true예요.
+아래는 이번 후보 실행 수치이고, 원복한 최종 소스의 새 측정이나 릴리스 검증이 아니에요.
+
+| 답지 | 실제 관측 | 후보 결과 |
+|---|---|---|
+| 깃발 | 최고 높이 0.193339750170708 m, 1.0초 유지 | PASS |
+| 결승선 | 모든 부품 min_x 0.502621114253998 m | PASS |
+| 벽 앞 정지 | 간격 0.0687557458877563 m, 최대 속도 0.0045882030390203 m/s, 접촉 0 | PASS |
+
+| 카메라 정착 | 10초 드리프트 m | 기준 m | 판정/출처 |
+|---|---:|---:|---|
+| M2e Windows 대상/전체 | 0.00272093876265 | 0.002 | FAIL, 이번 실제 검사 |
+| M2d B20 Windows probe | 0.00272093876265 | 0.002 | FAIL, 이전 기록 |
+| Linux r3 이전 기준선 | 0.00277 | 0.002 | FAIL, 브리프 제공·이번 미실행 |
+
+### 실제 검사 출력·새 실패·원복
+
+대상 30종은 **29 PASS / 1 FAIL(exit 1)**, 이어 실행한 전체 121종은
+**117 PASS / 4 FAIL(exit 1)**이에요. 전체 실패는 허용된 카메라 정착, 기존 mcp/mujoco 누락,
+새 `tests-test_release_documents.py` UTF-8 디코딩 오류예요. 후보 import·scene-load는 통과했어요.
+
+```powershell
+& "$env:GODOT" --headless --path . --script tools/godot/make_learning_parts.gd
+python tools/ci/verify.py --godot "$env:GODOT" --match '^(kit_robot_runtime|stage_own_build|game_flow|stage_authoring|robot_car|sonar_stage|parts_pack_.*|stage_contract|parts_tray|agent_camera_.*|camera_evaluator_.*)_check' --output build/verification-m2e-target
+$env:PYTHONUTF8='1'
+python tools/ci/verify.py --godot "$env:GODOT" --output build/verification-m2e-full
+```
+
+전체 검사 뒤 프로세스의 기존 PYTHONUTF8 값을 복원했어요. 실제 출력 발췌:
+
+```text
+30 checks; 1 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2e-20261105\repo\build\verification-m2e-target\SUMMARY.md
+121 checks; 4 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2e-20261105\repo\build\verification-m2e-full\SUMMARY.md
+idle_drift_m=0.00272093876265 delta=(-0.000977, -0.000141, 0.002536)
+agent_camera_rest_check: 6 checks, 1 failures
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xa1 in position 63: invalid start byte
+```
+
+새 오류의 원인은 총괄이 대상 SUMMARY.md를 CP949 바이트 그대로 근거 폴더의 Markdown으로
+복사한 실수예요. 원본 `build/verification-m2e-target/SUMMARY.md`에서 같은 byte/offset 오류를
+직접 재현했어요. 전체 검사의 PYTHONUTF8 설정은 이미 저장한 파일의 인코딩을 바꾸지 않아요.
+이것은 근거 보존 오류이며 B20 물리 회귀의 증거가 아니에요. 그래도 브리프의 “다른 새 실패”
+조건을 적용해 채택을 멈췄어요. 원래 CP949 바이트와 실제 실패 로그를 보존하고, 전달할 Markdown은
+UTF-8/LF로 바로잡았어요. 실패를 지우거나 후보 전체 통과로 바꾸지 않아요.
+
+전체 콘솔·결과표·JSON·세 답지 로그·미채택 패치·후보/원복 소스 해시는
+[M2e 근거](evidence/modular_build_m2e_2026-11-05/README.md)에 있어요.
+최종 앱 소스는 시작 커밋과 같고 측정·상태 문서만 남겨요. 원복 후 전체 앱 검사는 재실행하지
+않았으며 후보 결과를 최종 소스 통과로 표현하지 않아요. Web·실사용자 조립·배포도 미실행이에요.
+저장/물리 계약이 같아 기존 도식과 ADR을 유지하고 사용자 문구·번역·비용 변경은 없어요.
+후속 채택에는 보존한 패치, UTF-8 근거 보존, 새 검증이 필요해요. 사람의 통합·푸시는 별도예요.
+
+원복·근거 인코딩 수정 뒤 `python -m unittest tests.test_release_documents -v`는
+1개/0실패(exit 0)로 통과했어요. 원래 전체 배치의 새 실패를 소급해서 통과 처리하지 않아요.
+`maintain.py --write`, `--check` 및 문서 도구 unittest 10개도 통과했어요.
+독립 검토자는 최종 앱 diff가 시작 커밋과 비어 있음, 29/1·117/4 결과와 실제 측정값,
+원본 CP949 ZIP의 바이트/해시 보존과 브리프 중단 조건 준수를 확인했어요.
