@@ -204,6 +204,12 @@ func observe_graph() -> void:
 	_refresh_text()
 
 
+## Direct practice entry must not depend on a legacy arm having been loaded earlier.
+func begin_practice() -> void:
+	if _phase == &"Intro" and _chart != null and _chart.is_inside_tree():
+		_chart.send_event(&"begin")
+
+
 func on_run_mode_changed(running: bool) -> void:
 	if not running:
 		_tree.interrupt()

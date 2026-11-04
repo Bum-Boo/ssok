@@ -67,6 +67,7 @@ var program_tabs: TabContainer
 var part_search: LineEdit
 var part_category: OptionButton
 var part_buttons: Array[Button] = []
+var _part_catalog: Array[PartDef] = []
 var delete_button: Button
 var _workspace_state: Label
 var _side_panel: PanelContainer
@@ -760,7 +761,10 @@ func _build_palette() -> void:
 	scroll.add_child(parts_box)
 	# Keep guidance at the top of the tray list without reducing its compact viewport.
 	parts_box.add_child(placement_hint)
-	for definition: PartDef in PartTray.definitions(_load_part_defs()):
+	# Hidden definitions used to stay loaded through their palette buttons. Keep those
+	# references so legacy snapshot validation does not reload their meshes every frame.
+	_part_catalog = _load_part_defs()
+	for definition: PartDef in PartTray.definitions(_part_catalog):
 		var category: int = _part_category(definition)
 		var icon_name: String = ["box", "box", "cog", "cpu", "box", "box"][category]
 		var button := SsokTheme.button(definition.display_name, icon_name)
@@ -1680,6 +1684,7 @@ func _practice_flag_arm() -> void:
 	graph.links.remove_at(1)
 	graph.parts[2].transform.origin = Vector3(-0.13, 0.11, 0)
 	_load_preset(graph, ServoArmPreset.microbit_code(), "Connect the loose arm, then wire its servo to a board pin.")
+	flag_mission.begin_practice()
 	flag_mission.visible = not _scene_ui
 	program_tabs.current_tab = 2
 
