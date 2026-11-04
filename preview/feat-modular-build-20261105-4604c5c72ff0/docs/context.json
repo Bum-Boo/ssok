@@ -39,7 +39,9 @@
     "docs/WORK_SUMMARY_A5.md",
     "docs/WORK_SUMMARY_D2.md",
     "docs/evidence/own_build_d2_2026-10-22/README.md",
-    "docs/WORK_SUMMARY_M1.md"
+    "docs/WORK_SUMMARY_M1.md",
+    "docs/WORK_SUMMARY_M2.md",
+    "docs/evidence/modular_build_m2_2026-11-05/README.md"
   ],
   "routes": {
     "assembly": {
@@ -54,7 +56,9 @@
         "src/assembly/port_indicators.gd",
         "tests/snap_build_check.gd",
         "tests/snap_build_input_check.gd",
-        "tests/port_indicators_check.gd"
+        "tests/port_indicators_check.gd",
+        "src/core/part_tray.gd",
+        "tests/parts_tray_check.gd"
       ],
       "adrs": [
         "0002",
@@ -122,7 +126,11 @@
       ],
       "sources": [
         "src/runtime/run_mode.gd",
-        "src/runtime/servo_drive.gd"
+        "src/runtime/servo_drive.gd",
+        "presets/kit_car.gd",
+        "presets/kit_flag_arm.gd",
+        "tests/kit_robot_runtime_check.gd",
+        "tests/stage_own_build_check.gd"
       ],
       "adrs": [
         "0003",
@@ -290,7 +298,9 @@
         "src/ui/workbench_surface.gd",
         "src/ui/stage_hud.gd",
         "src/screens/stage_select_screen.gd",
-        "src/ui/workshop_framing.gd"
+        "src/ui/workshop_framing.gd",
+        "src/core/part_tray.gd",
+        "tests/parts_tray_check.gd"
       ],
       "adrs": [
         "0025",
@@ -356,7 +366,8 @@
     "src/ui/flag_mission.gd": {
       "methods": [
         "_build_chart",
-        "_observed_flag_raised"
+        "_observed_flag_raised",
+        "begin_practice"
       ],
       "class": "FlagMission"
     },
@@ -446,6 +457,26 @@
         "bolt_count",
         "set_run_mode"
       ]
+    },
+    "src/core/part_tray.gd": {
+      "class": "PartTray",
+      "methods": [
+        "ids",
+        "category_for",
+        "definitions"
+      ]
+    },
+    "presets/kit_car.gd": {
+      "class": "KitCarPreset",
+      "methods": [
+        "build"
+      ]
+    },
+    "presets/kit_flag_arm.gd": {
+      "class": "KitFlagArmPreset",
+      "methods": [
+        "build"
+      ]
     }
   },
   "contracts": {
@@ -458,13 +489,16 @@
         "src/core/project_store.gd": "87b443ce5e3a48ee2ade5348f1bb3c0f8503c96d35f751a6525aec475b19e4ae",
         "src/runtime/motion_snapshot.gd": "deaaabc1e4072335bbe3c9125ab775f6efb8da601c0050dee9236bd6723fa803",
         "src/core/stage_definition.gd": "238f0c946762f7136f757cf25e6dc9d607e7bfc9913ee015478fde62c723fc43",
-        "src/core/board_profile.gd": "15e06c1157d9183d62abb29426c99c874df387cce2f2850d7707ee6a5cc91e96"
+        "src/core/board_profile.gd": "15e06c1157d9183d62abb29426c99c874df387cce2f2850d7707ee6a5cc91e96",
+        "assets/construction_kit/catalog.json": "b96268101489143829944dd3b4a59e9a25f04b5e0eb68ec4964aae795c82607b",
+        "tools/godot/make_part_defs.gd": "4c63c734d503d69ddb2613b80ad9da81654a51249fcb122497d3ba6d25090d37",
+        "tools/godot/make_learning_parts.gd": "121a8e965505a51b34f3e9e283855d6266990f712be21c8cf9a88b1b93555adb"
       }
     },
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "6c6691d442a801c67ed5ef947761ca0dc3f280c34e57a71c950fa95e9bc983d7",
+        "scenes/main.gd": "54e57f9a9baecd3aba6359d072e113ec19b6a7a36729089abe6adf868ec5c5fb",
         "src/runtime/mini_runtime.gd": "ac4d6c41534d0713b7c8fcf31ef89e0f4849b15a08dc08e9d5adbe6fca709546",
         "src/runtime/run_mode.gd": "5fc8240c4fbe9d19f525b5274f3bf70297a3f7b21de10134c7ea59da0f33b10e",
         "src/ui/block_program_panel.gd": "be2f4753dff6e630aa50a914153cbee7b23582e5dd680b562ac9c2cbe1e4e5a7",
@@ -474,13 +508,18 @@
         "src/ui/stage_panel.gd": "578b0b0a6f64605bfb51a68bdd58c3a4f30471d8731e44880abb0044f6e8455b",
         "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
         "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
-        "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c"
+        "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c",
+        "src/core/part_tray.gd": "a2da4837aeab6e4571c2dc3a8c5877077c98a836951d7adbbb6c91c67fa7d1d5",
+        "src/core/stage_catalog.gd": "d2c1b93e83b7ffbb1435e6a10b750c1b544255bfde2fa4f68fa9a5f42c5af4de",
+        "src/core/stage_levels.gd": "e22244454331e82e7ec98588a172793571593c228ef6d40a59a83b589654e919",
+        "presets/kit_car.gd": "36e06c75cc4871b615d0b130a6c3d3e469328535998f78239dee51e65b50ebcc",
+        "presets/kit_flag_arm.gd": "976da15063a6c9f83045b2cb0de9e897bd14b5e1d1eaadfa8909dfcb339b7d35"
       }
     },
     "flag-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "src/ui/flag_mission.gd": "f5e118c1aa5d98ae38106cad6eb4124dee30e126c48541c2ffefd366b042ad12"
+        "src/ui/flag_mission.gd": "be77d2a376c412c29c1ab489b4b69b19459f978a519a5abd9d15030b90024130"
       }
     }
   }

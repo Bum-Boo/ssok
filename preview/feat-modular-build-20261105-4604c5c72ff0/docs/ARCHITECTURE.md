@@ -175,8 +175,8 @@ GPT 가중치 훈련·자율적인 임의 코드 실행·손가락 마찰 파지
 ### 실물 기반 모듈 (issue #9 보강, 치수는 공식 도면 기준)
 
 `tools/godot/make_part_defs.gd`가 이 표의 원본이고 `assets/parts/*.tres`를 재생성한다. 메쉬는
-`tools/blender/make_parts.py`(Blender 5.2.1), 검증은 `tools/blender/check_obj.py`. 팔레트(`scenes/main.gd`)는
-`assets/parts/*.tres`를 스캔하므로 파츠 파일만 추가하면 버튼이 생긴다.
+`tools/blender/make_parts.py`(Blender 5.2.1), 검증은 `tools/blender/check_obj.py`. 전체 카탈로그는
+리소스를 스캔하지만 현재 팔레트(`scenes/main.gd`)는 ADR 0039의 `PartTray` 허용 목록만 노출한다.
 
 | 파츠 | 실물 / 출처 | 포트 | kind | 위치 / 법선 | tag | accepts |
 |---|---|---|---|---|---|---|

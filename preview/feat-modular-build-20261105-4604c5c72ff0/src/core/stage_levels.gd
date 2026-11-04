@@ -57,17 +57,39 @@ static func next_after(id: String) -> Dictionary:
 	return {}
 
 
-## The catalog arm is assembled upright, so servo 0 degrees already meets the goal. The flag
-## answer loads with the arm lying toward +Z instead: write(0) keeps it down and write(90)
-## raises it (measured 2026-09-30: tip 8.9 cm vs 16.5 cm).
+## Lower the output-side mechanism around its graph-authored shaft, preserving holes.
 static func starting_graph(level: Dictionary, stage: Dictionary) -> ConnectionGraph:
 	var graph: ConnectionGraph = ProjectStore.graph_from(stage.author_solution)
-	if level.get("lower_arm", false):
-		var pivot: Vector3 = Vector3(0.0115, 0.09, 0)
-		for part: Dictionary in graph.parts:
-			if part.part_def.id in [&"arm_link", &"flag"]:
-				var turn := Transform3D(Basis(Vector3.RIGHT, PI / 2.0), Vector3.ZERO)
-				part.transform = Transform3D.IDENTITY.translated(pivot) * turn * Transform3D.IDENTITY.translated(-pivot) * part.transform
+	if not level.get("lower_arm", false):
+		return graph
+	for link: Dictionary in graph.links:
+		var port: Port = RunMode._port(graph.parts[link.a_part].part_def, link.a_port)
+		if not port.rotates:
+			continue
+		var pivot: Vector3 = graph.parts[link.a_part].transform * port.local_position
+		var axis: Vector3 = graph.parts[link.a_part].transform.basis * port.local_normal
+		var moving: Array[int] = [link.b_part]
+		var cursor: int = 0
+		while cursor < moving.size():
+			var part: int = moving[cursor]
+			cursor += 1
+			for connection: Dictionary in graph.links:
+				var other: int = -1
+				if connection.a_part == part:
+					other = connection.b_part
+				elif connection.b_part == part:
+					other = connection.a_part
+				if other < 0 or other == link.a_part or other in moving:
+					continue
+				if RunMode._port(graph.parts[part].part_def, connection.a_port if connection.a_part == part else connection.b_port).kind == Port.Kind.MECH:
+					moving.append(other)
+		# Kit torque actuators turn the connected arm in the positive port direction;
+		# legacy ideal servos use the opposite hinge convention.
+		var lower_angle: float = -PI / 2.0 if graph.parts[link.a_part].part_def.actuator_drives_connected_body else PI / 2.0
+		var turn := Transform3D(Basis(axis.normalized(), lower_angle), pivot)
+		for part: int in moving:
+			graph.parts[part].transform = turn * Transform3D.IDENTITY.translated(-pivot) * graph.parts[part].transform
+		break
 	return graph
 
 

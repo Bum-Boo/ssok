@@ -14,7 +14,7 @@ ssok/
   src/
     assembly/  (4 GDScript files)
     blocks/  (1 GDScript files)
-    core/  (11 GDScript files)
+    core/  (12 GDScript files)
     profiles/  (1 GDScript files)
     runtime/  (26 GDScript files)
     screens/  (5 GDScript files)
@@ -74,6 +74,8 @@ ssok/
 | [presets/construction_kit_humanoid.gd](../../presets/construction_kit_humanoid.gd) | ConstructionKitHumanoidPreset |
 | [presets/humanoid.gd](../../presets/humanoid.gd) | HumanoidPreset |
 | [presets/humanoid_motion.gd](../../presets/humanoid_motion.gd) | HumanoidMotion |
+| [presets/kit_car.gd](../../presets/kit_car.gd) | KitCarPreset |
+| [presets/kit_flag_arm.gd](../../presets/kit_flag_arm.gd) | KitFlagArmPreset |
 | [presets/modular_humanoid.gd](../../presets/modular_humanoid.gd) | ModularHumanoidPreset |
 | [presets/robot_car.gd](../../presets/robot_car.gd) | RobotCarPreset |
 | [presets/servo_arm.gd](../../presets/servo_arm.gd) | ServoArmPreset |
@@ -89,6 +91,7 @@ ssok/
 | [src/core/board_profile.gd](../../src/core/board_profile.gd) | BoardProfile |
 | [src/core/connection_graph.gd](../../src/core/connection_graph.gd) | ConnectionGraph |
 | [src/core/part_def.gd](../../src/core/part_def.gd) | PartDef |
+| [src/core/part_tray.gd](../../src/core/part_tray.gd) | PartTray |
 | [src/core/port.gd](../../src/core/port.gd) | Port |
 | [src/core/project_store.gd](../../src/core/project_store.gd) | ProjectStore |
 | [src/core/stage_catalog.gd](../../src/core/stage_catalog.gd) | StageCatalog |
