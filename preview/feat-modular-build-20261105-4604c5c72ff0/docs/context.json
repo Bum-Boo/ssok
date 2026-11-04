@@ -38,22 +38,29 @@
     "docs/WORK_SUMMARY_A4.md",
     "docs/WORK_SUMMARY_A5.md",
     "docs/WORK_SUMMARY_D2.md",
-    "docs/evidence/own_build_d2_2026-10-22/README.md"
+    "docs/evidence/own_build_d2_2026-10-22/README.md",
+    "docs/WORK_SUMMARY_M1.md"
   ],
   "routes": {
     "assembly": {
       "docs": [
         "docs/DATA_MODEL.md",
-        "docs/AUTHORING.md"
+        "docs/AUTHORING.md",
+        "docs/design/modular-build.md"
       ],
       "sources": [
         "src/assembly/assembly_mode.gd",
-        "src/ui/wiring_panel.gd"
+        "src/ui/wiring_panel.gd",
+        "src/assembly/port_indicators.gd",
+        "tests/snap_build_check.gd",
+        "tests/snap_build_input_check.gd",
+        "tests/port_indicators_check.gd"
       ],
       "adrs": [
         "0002",
         "0007",
-        "0022"
+        "0022",
+        "0039"
       ],
       "watch": [
         "src/assembly/*",
@@ -359,7 +366,10 @@
         "_on_mode_toggled",
         "_on_stop_pressed",
         "_prepare_project_document",
-        "_load_project"
+        "_load_project",
+        "_on_palette_pressed",
+        "_update_placement_ray",
+        "_refresh_port_indicators"
       ]
     },
     "src/ui/interface_preferences.gd": {
@@ -412,6 +422,30 @@
         "leave",
         "cancel"
       ]
+    },
+    "src/assembly/assembly_mode.gd": {
+      "class": "AssemblyMode",
+      "methods": [
+        "begin_place",
+        "begin_move",
+        "update_place_ray",
+        "rotate_place",
+        "cycle_anchor",
+        "flip_place",
+        "commit_place",
+        "cancel_place",
+        "placement_state",
+        "align_port_transform"
+      ]
+    },
+    "src/assembly/port_indicators.gd": {
+      "class": "PortIndicators",
+      "methods": [
+        "refresh",
+        "ring_count",
+        "bolt_count",
+        "set_run_mode"
+      ]
     }
   },
   "contracts": {
@@ -430,7 +464,7 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "7c348da29258edaacaece3654c5369bda5d6fb2c888aa4386f33e1eb5bf07103",
+        "scenes/main.gd": "6c6691d442a801c67ed5ef947761ca0dc3f280c34e57a71c950fa95e9bc983d7",
         "src/runtime/mini_runtime.gd": "ac4d6c41534d0713b7c8fcf31ef89e0f4849b15a08dc08e9d5adbe6fca709546",
         "src/runtime/run_mode.gd": "5fc8240c4fbe9d19f525b5274f3bf70297a3f7b21de10134c7ea59da0f33b10e",
         "src/ui/block_program_panel.gd": "be2f4753dff6e630aa50a914153cbee7b23582e5dd680b562ac9c2cbe1e4e5a7",

@@ -76,3 +76,11 @@ inventory 전체를 명시적으로 검사해요. 네 언어·두 테마·확대
 실제 GL 글리프/클리핑 검수와 구분하며 [작업 D](WORK_SUMMARY_D.md)에 남겨요.
 
 D-2는 Environment(환경/环境/環境) 항목을 functional_messages inventory와 세 PO에 함께 추가해요.
+
+## M1 구멍 끼우기 안내
+
+`tools/localization/modular_build_messages.json`은 구멍 끼우기 상태, 트레이 안내와
+기본 조작 튜토리얼의 영어 원문 및 ko/ja/zh_CN 번역을 담아요. G 이동 안내를 끼우기 안내로 바꾸고,
+`localization_check`에서 새 inventory의 원문과 자리표시자를 명시적으로 확인해요.
+G를 이용한 기존 수치 편집은 [고급 조작](CONTROLS.md)에 남겨요.
+실제 화면의 글리프와 잘림 검수 결과는 [M1 작업 요약](WORK_SUMMARY_M1.md)에 기록해요.

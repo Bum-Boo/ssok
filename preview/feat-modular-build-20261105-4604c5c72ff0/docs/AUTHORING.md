@@ -5,6 +5,19 @@ explicit starter examples. Inline block argument controls still derive from the 
 Run preserves the selected programming tab and pending-draft conflict checks. See
 [ADR 0030](adr/0030-scene-first-workshop-guidance.md).
 
+## Attach parts by their holes
+
+Press a tray part to pick it up. Drag it onto a compatible empty hole and release, or click the
+tray once and click the scene to attach. The translucent preview follows the cursor even while
+the tray owns the pointer. R or the wheel rotates by 90 degrees, Shift+R reverses rotation,
+Tab changes the anchor and F flips to the opposite face of the same hole. Empty space places
+the part on the floor grid without links. Right click or Esc cancels.
+
+Drag an existing part more than 4 px to attach it again. Its wires stay connected; cancellation
+restores its original pose and mechanical links. All coincident compatible holes attach together,
+and one Undo restores the whole operation. Blocked previews cannot commit. The advanced G/R
+numeric editing path remains available. See [Controls](CONTROLS.md) and [ADR 0039](adr/0039-hole-targeted-snap-building.md).
+
 ## Preserve an assembly
 
 Open **Projects** or press **Ctrl/Cmd+S**. Give the project a name and select **Save a snapshot**.
@@ -37,7 +50,7 @@ use **Disconnect wire** before reassigning a motor. Both operations support Ctrl
 These shortcuts work while buttons have focus; focused code and text fields retain their own undo.
 Connecting a wire preserves every part's position and rotation. Moving a part retains its wires
 while detaching mechanical mounts; deleting it removes all incident links. Cancel and undo restore
-the graph together. Wiring controls are disabled during a transform or run mode.
+the graph together. Wiring controls are disabled during placement, a transform or run mode.
 
 Wires are logical connections: cable geometry, length and tension are not simulated.
 

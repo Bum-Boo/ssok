@@ -16,6 +16,7 @@ var navigation_enabled: bool = true:
 		navigation_enabled = value
 		if not value:
 			_stop_navigation()
+var placement_active_provider: Callable
 var bounds_provider: Callable
 var scene_bounds_provider: Callable
 var framing_rect_provider: Callable
@@ -164,7 +165,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					get_viewport().gui_release_focus()
 				handled = true
 			MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN:
-				if button.pressed and get_viewport().gui_get_hovered_control() == null:
+				if button.pressed and get_viewport().gui_get_hovered_control() == null and not _placement_active():
 					var direction: float = -1.0 if button.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0
 					_zoom(direction * zoom_step * maxf(button.factor, 1.0))
 					handled = true
@@ -187,6 +188,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _handle_key(event: InputEventKey) -> bool:
+	if _placement_active():
+		return false
 	if event.alt_pressed or event.meta_pressed or event.shift_pressed:
 		return false
 	var key: Key = event.keycode if event.keycode != KEY_NONE else event.physical_keycode
@@ -317,3 +320,7 @@ func _viewport_aspect() -> float:
 
 func _stop_navigation() -> void:
 	_navigating = false
+
+
+func _placement_active() -> bool:
+	return placement_active_provider.is_valid() and bool(placement_active_provider.call())

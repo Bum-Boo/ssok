@@ -59,7 +59,10 @@ var settings: SettingsPanel
 var settings_button: Button
 var _settings_manual_enabled: bool = false
 var language_picker: OptionButton
-var _spawn_count := 0
+var _palette_drag: bool = false
+var _palette_dragged: bool = false
+var _palette_press_position: Vector2 = Vector2.ZERO
+var _port_indicators: PortIndicators
 var program_tabs: TabContainer
 var part_search: LineEdit
 var part_category: OptionButton
@@ -202,8 +205,19 @@ func _ready() -> void:
 	navigation.bounds_provider = _selection_bounds
 	navigation.scene_bounds_provider = _scene_bounds
 	assembly.status_changed.connect(_set_status)
+	assembly.placement_status_changed.connect(func(message: String, arguments: Array, translated_arguments: Array[int]) -> void:
+		_set_status(message, false, arguments, translated_arguments))
 	assembly.transform_active_changed.connect(func(active: bool) -> void: navigation.navigation_enabled = not active)
-	assembly.graph_changed.connect(func() -> void: _mark_ports(assembly))
+	navigation.placement_active_provider = func() -> bool: return assembly.placement_active
+	_port_indicators = PortIndicators.new()
+	add_child(_port_indicators)
+	assembly.graph_changed.connect(func() -> void:
+		_colorize(assembly)
+		_refresh_port_indicators())
+	assembly.selection_changed.connect(func(_part: PartNode) -> void: _refresh_port_indicators())
+	assembly.placement_changed.connect(func() -> void:
+		_refresh_port_indicators()
+		_refresh_workspace())
 
 	run_mode = RunMode.new()
 	add_child(run_mode)
@@ -262,7 +276,7 @@ func _ready() -> void:
 	SsokTheme.remember(self)
 	_adapt_layout()
 	_refresh_control_ui()
-	_set_status("Edit mode - select a part, then G to move or R to rotate; connections snap at ports")
+	_set_status("Drag a part onto a hole to attach it")
 	get_viewport().gui_release_focus()
 	_apply_session()
 	if session.get("mode", "") in ["stage", "lab"]:
@@ -271,6 +285,11 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	# A tray button owns GUI input until release; placement still follows the pointer.
+	if assembly.placement_active:
+		_update_placement_ray()
+	elif assembly.transform_active:
+		_refresh_port_indicators()
 	_refresh_manual_status()
 	_follow_running_robot()
 	if _scene_ui and _guide_source != code_edit.text:
@@ -711,6 +730,11 @@ func _build_palette() -> void:
 	title.text = "Parts library"
 	title.label_settings = SsokTheme.title_settings()
 	box.add_child(title)
+	var placement_hint := Label.new()
+	placement_hint.name = "PlacementHint"
+	placement_hint.text = "Drag a part onto a hole to attach it"
+	placement_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	placement_hint.label_settings = SsokTheme.dim_settings()
 	part_search = LineEdit.new()
 	part_search.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	part_search.placeholder_text = tr("Search parts...")
@@ -734,6 +758,8 @@ func _build_palette() -> void:
 	parts_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	parts_box.add_theme_constant_override("separation", 3)
 	scroll.add_child(parts_box)
+	# Keep guidance at the top of the tray list without reducing its compact viewport.
+	parts_box.add_child(placement_hint)
 	for definition: PartDef in _load_part_defs():
 		var category: int = _part_category(definition)
 		var icon_name: String = ["box", "box", "cog", "cpu", "box", "box"][category]
@@ -744,7 +770,7 @@ func _build_palette() -> void:
 		button.tooltip_text = definition.display_name
 		button.set_meta("part_definition", definition)
 		button.set_meta("category", category)
-		button.pressed.connect(_on_palette_pressed.bind(definition))
+		button.button_down.connect(_begin_palette_drag.bind(definition))
 		parts_box.add_child(button)
 		part_buttons.append(button)
 	_no_parts = Label.new()
@@ -972,20 +998,15 @@ func _refresh_workspace() -> void:
 		runtime.sleep_scale = graph_profile.sleep_unit_seconds
 	if _empty_panel != null:
 		_empty_panel.visible = _show_empty_card()
-	var can_edit: bool = not mode_button.button_pressed and not assembly.transform_active and assembly.selected_part != null
+	var can_edit: bool = not mode_button.button_pressed and not assembly.transform_active and not assembly.placement_active and assembly.selected_part != null
 	if delete_button != null:
 		delete_button.disabled = not can_edit
 	for button: Button in _transform_buttons:
 		button.disabled = not can_edit
-	for part: PartNode in assembly._part_nodes:
-		if String(part.part_def.id).begins_with("kit_"):
-			var hints: MultiMeshInstance3D = part.get_node_or_null("PortHints") as MultiMeshInstance3D
-			if hints != null:
-				hints.visible = part == assembly.selected_part or assembly.transform_active
 
 
 func _begin_toolbar_transform(kind: StringName) -> void:
-	if not mode_button.button_pressed and assembly.selected_part != null:
+	if not mode_button.button_pressed and not assembly.placement_active and assembly.selected_part != null:
 		get_viewport().gui_release_focus()
 		assembly.begin_transform(kind)
 
@@ -1006,22 +1027,50 @@ func _load_part_defs() -> Array[PartDef]:
 
 func _on_palette_pressed(definition: PartDef) -> void:
 	_ensure_assembly_mode()
-	var column := _spawn_count % 4
-	var row := _spawn_count / 4
-	_spawn_count += 1
-	var position := Vector3(-0.1 + 0.07 * column, ServoArmPreset.FLOOR_TOP + 0.03, 0.08 + 0.07 * row)
-	var part := assembly.spawn_part(definition, Transform3D(Basis.IDENTITY, position))
-	if part == null:
+	if assembly.begin_place(definition):
+		_update_placement_ray()
+		get_viewport().gui_release_focus()
+
+
+func _begin_palette_drag(definition: PartDef) -> void:
+	_on_palette_pressed(definition)
+	_palette_drag = assembly.placement_active
+	_palette_dragged = false
+	_palette_press_position = get_viewport().get_mouse_position()
+
+
+func _update_placement_ray() -> void:
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	if camera == null:
 		return
-	_colorize(part)
-	_mark_ports(part)
-	assembly.select_part(part)
-	_set_status("Added %s - G to move, R to rotate, Enter to confirm", false, [definition.display_name], [0])
-	get_viewport().gui_release_focus()
+	var mouse: Vector2 = get_viewport().get_mouse_position()
+	assembly.update_place_ray(camera.project_ray_origin(mouse), camera.project_ray_normal(mouse))
+
+
+func _finish_palette_drag(position: Vector2) -> void:
+	_palette_drag = false
+	if not assembly.placement_active:
+		return
+	# A short tray click picks up the part for the next viewport click.
+	if not _palette_dragged and position.distance_to(_palette_press_position) < 4.0:
+		return
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	if library.visible and library.get_global_rect().has_point(position):
+		assembly.cancel_place()
+	elif get_viewport().gui_get_hovered_control() == null:
+		_update_placement_ray()
+		assembly.commit_place()
+
+
+func _refresh_port_indicators() -> void:
+	if _port_indicators == null:
+		return
+	var selected: int = assembly.selected_part.graph_index if is_instance_valid(assembly.selected_part) else -1
+	_port_indicators.refresh(assembly.graph, selected, assembly.placement_state(), run_mode != null and run_mode.is_built())
 
 
 func _on_delete_pressed() -> void:
-	if mode_button.button_pressed or assembly.transform_active:
+	if mode_button.button_pressed or assembly.transform_active or assembly.placement_active:
 		_set_status("Return to edit mode and finish the current transform before deleting")
 		return
 	if assembly.remove_selected():
@@ -1053,7 +1102,7 @@ func _on_humanoid_pressed() -> void:
 
 func _on_modular_pressed() -> void:
 	var graph: ConnectionGraph = ConstructionKitHumanoidPreset.build()
-	_load_preset(graph, ConstructionKitHumanoidPreset.answer_code(graph), "Construction-kit humanoid loaded. Each beam, plate, bracket and connector is a separate part. Select a part to inspect its holes; G moves it.")
+	_load_preset(graph, ConstructionKitHumanoidPreset.answer_code(graph), "Construction-kit humanoid loaded. Select a part to inspect its holes.")
 	part_category.select(4)
 	_filter_parts()
 	control_source.select(CONTROL_MANUAL)
@@ -1080,7 +1129,7 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 						link.b_part -= 1
 	assembly.load_graph(graph)
 	_colorize(assembly)
-	_mark_ports(assembly)
+	_refresh_port_indicators()
 	code_edit.text = code
 	var profile: BoardProfile = BoardProfile.new()
 	for part: Dictionary in graph.parts:
@@ -1109,9 +1158,14 @@ func _ensure_assembly_mode() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if _palette_drag and event is InputEventMouseMotion and event.position.distance_to(_palette_press_position) > 4.0:
+		_palette_dragged = true
+	if _palette_drag and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		_finish_palette_drag(event.position)
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB \
 			and not event.is_command_or_control_pressed() and not event.alt_pressed \
-			and get_viewport().gui_get_focus_owner() == null \
+			and get_viewport().gui_get_focus_owner() == null and not assembly.placement_active \
 			and not (projects.visible or tutorial.visible or motion_lab.visible or pickup_lab.visible or _replace_dialog.visible or _delete_dialog.visible):
 		projects_button.grab_focus()
 		get_viewport().set_input_as_handled()
@@ -1147,7 +1201,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_on_stop_pressed()
 			get_viewport().set_input_as_handled()
 		return
-	if assembly.transform_active:
+	if assembly.transform_active or assembly.placement_active:
 		return
 	if key_event.keycode == KEY_DELETE:
 		_on_delete_pressed()
@@ -1163,9 +1217,12 @@ func _on_mode_toggled(run: bool) -> void:
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
+	assembly.cancel_place()
+	_palette_drag = false
 	assembly.cancel_transform()
 	if run:
 		run_mode.build(assembly.graph)
+		_port_indicators.set_run_mode(run_mode)
 		_colorize(run_mode)
 		assembly.visible = false
 		assembly.process_mode = Node.PROCESS_MODE_DISABLED
@@ -1181,11 +1238,13 @@ func _on_mode_toggled(run: bool) -> void:
 		_follow_body = null
 		manual_controller.configure(null)
 		motion_program.configure(null, null)
+		_port_indicators.set_run_mode(null)
 		run_mode.teardown()
 		assembly.visible = true
 		assembly.process_mode = Node.PROCESS_MODE_INHERIT
-		_set_status("Edit mode - G move / R rotate / X,Y,Z constrain / Esc cancel")
+		_set_status("Drag a part onto a hole to attach it")
 	_refresh_control_ui()
+	_refresh_port_indicators()
 	_guide_dirty = true
 	if _scene_ui:
 		_guide_phase = -1
@@ -1274,6 +1333,8 @@ func _open_motion_lab() -> void:
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
+	assembly.cancel_place()
+	_palette_drag = false
 	assembly.cancel_transform()
 	assembly.process_mode = Node.PROCESS_MODE_DISABLED
 	navigation.navigation_enabled = false
@@ -1299,6 +1360,8 @@ func _open_tutorial() -> void:
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
+	assembly.cancel_place()
+	_palette_drag = false
 	assembly.cancel_transform()
 	assembly.process_mode = Node.PROCESS_MODE_DISABLED
 	navigation.navigation_enabled = false
@@ -1347,6 +1410,8 @@ func _apply_preferences() -> void:
 	SsokTheme.remember(self)
 	SsokTheme.configure(dark, Preferences.values.text_scale, Preferences.values.code_scale)
 	_apply_scene_appearance()
+	_port_indicators.apply_theme()
+	_refresh_port_indicators()
 	_ui_root.theme.merge_with(SsokTheme.build())
 	SsokTheme.adapt(self)
 	_guide_dirty = true
@@ -1360,6 +1425,8 @@ func _open_settings() -> void:
 		return
 	_settings_manual_enabled = manual_controller.is_enabled()
 	manual_controller.set_enabled(false)
+	assembly.cancel_place()
+	_palette_drag = false
 	assembly.cancel_transform()
 	assembly.process_mode = Node.PROCESS_MODE_DISABLED
 	navigation.navigation_enabled = false
@@ -1383,6 +1450,8 @@ func _open_projects() -> void:
 	runtime.stop()
 	manual_controller.set_enabled(false)
 	motion_program.set_enabled(false)
+	assembly.cancel_place()
+	_palette_drag = false
 	assembly.cancel_transform()
 	assembly.process_mode = Node.PROCESS_MODE_DISABLED
 	navigation.navigation_enabled = false
@@ -1490,7 +1559,7 @@ func _refresh_control_ui() -> void:
 		wiring_panel.refresh_actions()
 	if _help_label != null:
 		var camera_help: String = "MMB orbit · Shift+MMB pan · wheel zoom · Numpad 1/3/7 views · Numpad . frame"
-		var edit_help: String = "LMB select · G move / R rotate · X/Y/Z axis · number: mm / degrees · Enter/LMB confirm · Esc/RMB cancel · Ctrl+Z undo"
+		var edit_help: String = "Line up a hole and click to attach. R rotates, Tab picks another hole."
 		var run_help: String = "W/S forward/back · A/D turn · left stick · Space/gamepad A brake · Esc stop input"
 		if motion_program is HumanoidMotion:
 			run_help = "Humanoid loaded. W/S walk, Shift sprint trial, E pick up or release. A/D turning is not supported yet."
@@ -1520,7 +1589,7 @@ func _refresh_manual_status() -> void:
 		return
 	_movement_instructions.visible = true
 	if not mode_button.button_pressed:
-		_manual_status.text = "Choose a control source, then enter Run mode.\nPart dimensions are fixed; G uses mm and R uses degrees."
+		_manual_status.text = "Place it on the floor, or move it over a part to attach."
 	elif control_source.selected == CONTROL_CODE:
 		_manual_status.text = "Code owns the motors. Keyboard/gamepad control is off."
 	elif not motion_program.is_supported():
@@ -1599,42 +1668,6 @@ func _dress_scene() -> void:
 	floor_mesh.material_override = floor_material
 	WorkbenchSurface.decorate(floor_mesh)
 	_apply_scene_appearance()
-
-
-## Batch the per-hole hints so a kit with hundreds of attachment points stays usable.
-static func _mark_ports(root: Node) -> void:
-	var material := StandardMaterial3D.new()
-	material.albedo_color = Color(1.0, 0.85, 0.2, 0.55)
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.emission_enabled = true
-	material.emission = Color(1.0, 0.8, 0.1)
-	var sphere := SphereMesh.new()
-	sphere.radius = 0.0025
-	sphere.height = 0.005
-	sphere.radial_segments = 8
-	sphere.rings = 4
-	var groups: Dictionary = {}
-	for marker in root.find_children("*", "Marker3D", true, false):
-		if marker.has_meta(&"ssok_port_marker"):
-			continue
-		marker.set_meta(&"ssok_port_marker", true)
-		var part: Node3D = marker.get_parent() as Node3D
-		if not groups.has(part):
-			groups[part] = []
-		groups[part].append(marker.transform)
-	for part: Node3D in groups:
-		var hints := MultiMeshInstance3D.new()
-		hints.name = "PortHints"
-		hints.visible = not (part is PartNode and String(part.part_def.id).begins_with("kit_"))
-		var multi := MultiMesh.new()
-		multi.transform_format = MultiMesh.TRANSFORM_3D
-		multi.mesh = sphere
-		multi.instance_count = groups[part].size()
-		for index: int in range(multi.instance_count):
-			multi.set_instance_transform(index, groups[part][index])
-		hints.multimesh = multi
-		hints.material_override = material
-		part.add_child(hints)
 
 
 ## Fallback tint for placeholder meshes that ship without materials.
