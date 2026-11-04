@@ -27,7 +27,7 @@ VM 종료 tick848의 전 1초~후 2초(tick788..968)를 남겨요. 성공으로 
 초기 실험은 VM 종료 후 1.5초까지이며 `final`/`order`는 2초까지예요.
 피치는 초기 전진 방향 +X가 수평면에서 올라가는 각도로 정의해요.
 
-각 JSON의 `trace`는 CSV 경로·SHA-256·샘플 수·구간을, `tail_1s`는 마지막 60개 샘플의
+각 JSON의 `trace`는 CSV 경로·LF 정규화 SHA-256(`sha256_lf`)·샘플 수·구간을, `tail_1s`는 마지막 60개 샘플의
 요약을 담아요. 판정 `result`는 성공 후 동결되므로 옛 차의 마지막 CSV 값과 다를 수 있어요.
 별도 원본 JSON을 그대로 보존하는 대신 속도/접촉 샘플만 CSV로 분리했어요.
 
@@ -56,3 +56,10 @@ VM 종료 tick848의 전 1초~후 2초(tick788..968)를 남겨요. 성공으로 
 
 독립 Astra 검토는 진단의 동일 조건·군집·질량비·벡터 크기·기록 창에서 차단 결함을
 발견하지 못했어요. 검토는 실행 검사나 해결안 승인과 구분해요. CSV 해시는 총괄이 확인해요.
+
+## Verification
+
+- [Target results](target-summary.md)
+- [Full results](full-summary.md)
+- [Exact target output](target-console.log)
+- [Exact full output](full-console.log)
