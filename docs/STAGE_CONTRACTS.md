@@ -65,6 +65,19 @@ observes all parts rather than one upright chassis. Wall success observes enviro
 stationary hold and persistent actual contact history rather than requiring a sonar sensor.
 See [ADR 0036](adr/0036-own-build-stages-and-aggregate-goals.md) and [work D](WORK_SUMMARY_D.md).
 
+### Kit answers and curated tray (2026-11-05)
+
+ADR 0039 replaces the full-catalog tray and chassis/arm answer composition. Lab and all three
+stages share the ordered 48-part `PartTray` allowlist. A nonempty `level.parts` further restricts
+that list; hidden parts remain in the snapshot catalog for legacy projects and presets.
+`KitCarPreset` builds its chassis from kit plates/beams and attaches the two TT motors, wheels,
+caster, micro:bit, driver and sonar with mechanical graph links. The original car and braking
+programs retain their pin/channel wiring and +X travel. `KitFlagArmPreset` connects a weighted
+kit plate base, servo, kit beam and hole-mounted flag; its original `Servo(pin0)` program remains.
+Answer loading lowers the moving arm about the new graph output shaft, without changing stage
+metrics, limits, physics parameters or runtime conversion. Legacy presets and camera checks
+remain available. Source-specific measurements and test output are in [work M2](WORK_SUMMARY_M2.md).
+
 D-2 adds `cup_count` only for v2, `part_id="*"`, `target_index=-1`. It observes
 `RunMode.cup_object_count()`: unique movable bodies with `environment_role="object"` wholly
 inside any cup, independent of SKU and cup orientation. Cups and robot/structural bodies are

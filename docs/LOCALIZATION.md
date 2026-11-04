@@ -84,3 +84,11 @@ D-2는 Environment(환경/环境/環境) 항목을 functional_messages inventory
 `localization_check`에서 새 inventory의 원문과 자리표시자를 명시적으로 확인해요.
 G를 이용한 기존 수치 편집은 [고급 조작](CONTROLS.md)에 남겨요.
 실제 화면의 글리프와 잘림 검수 결과는 [M1 작업 요약](WORK_SUMMARY_M1.md)에 기록해요.
+
+## M2 부품 트레이
+
+`modular_build_messages.json`의 All/Motion/Sensors와 `construction_messages.json`의
+Beam/Plate 크기 이름을 영어·한국어·일본어·중국어 간체와 세 PO에서 함께 맞췄어요.
+`parts_tray_check`는 명세 탭/순서와 실제 언어별 렌더 캡처를 지원해요.
+짧은 이름으로 고정 폭에서 치수를 보여 주며 M1 트레이 안내는 유지해요.
+네 언어·두 테마·두 크기의 실제 GL 결과는 [M2 작업 요약](WORK_SUMMARY_M2.md)에 있어요.
