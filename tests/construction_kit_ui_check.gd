@@ -16,7 +16,7 @@ func _run() -> void:
 	await process_frame
 	_main.modular_button.pressed.emit()
 	_check(_main.motion_program is KitHumanoidMotion, "new starter selects graph-derived construction-kit control")
-	_check(_main.part_category.selected == 4, "new starter exposes elementary kit rather than legacy prefab catalog")
+	_check(_main.part_category.selected == 1, "new starter exposes elementary kit rather than legacy prefab catalog")
 	var graph: ConnectionGraph = _main.assembly.graph
 	var snapshot: String = MotionSnapshot.fingerprint(MotionSnapshot.encode(graph))
 	var humanoid_ids: Dictionary = _ids(graph)
@@ -57,8 +57,8 @@ func _run() -> void:
 		for button: Button in _main.part_buttons:
 			if button.visible:
 				visible_count += 1
-				_check(String((button.get_meta("part_definition") as PartDef).id).begins_with("kit_"), "construction category has only kit components")
-		_check(visible_count == JSON.parse_string(FileAccess.get_file_as_string("res://assets/construction_kit/catalog.json")).parts.size(), "every declared elementary catalog SKU is reachable")
+				_check(String((button.get_meta("part_definition") as PartDef).id).begins_with("kit_"), "structure category has only elementary kit components")
+		_check(visible_count == PartTray.STRUCTURE.size(), "every allowed structural kit part is reachable")
 		await _capture(locale + "-humanoid")
 		root.size = Vector2i(1152, 648)
 		await process_frame

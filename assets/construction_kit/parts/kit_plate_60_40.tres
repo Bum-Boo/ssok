@@ -103,7 +103,7 @@ accepts = Array[StringName]([&"kit_m4"])
 [resource]
 script = ExtResource("3_gr6e2")
 id = &"kit_plate_60_40"
-display_name = "Perforated plate 60 × 40 mm"
+display_name = "Plate 60 × 40 mm"
 mesh = ExtResource("1_kkagr")
 ports = Array[ExtResource("2_difru")]([SubResource("Resource_2sjkk"), SubResource("Resource_a8ggu"), SubResource("Resource_juqbf"), SubResource("Resource_1221d"), SubResource("Resource_befwi"), SubResource("Resource_lnllc"), SubResource("Resource_qww6u"), SubResource("Resource_pvd71"), SubResource("Resource_qb6wi"), SubResource("Resource_200fn"), SubResource("Resource_wly7a"), SubResource("Resource_biw3t")])
 mass_kg = 0.02592
@@ -111,3 +111,4 @@ actuator_min_deg = -140.0
 actuator_max_deg = 140.0
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.03, -0.02, -0.002, 0.06, 0.04, 0.004)])
+collision_points = PackedVector3Array()

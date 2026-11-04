@@ -199,7 +199,7 @@ accepts = Array[StringName]([&"kit_m4"])
 [resource]
 script = ExtResource("3_qiy34")
 id = &"kit_beam_240"
-display_name = "Perforated beam 240 mm"
+display_name = "Beam 240 mm"
 mesh = ExtResource("1_qlj3s")
 ports = Array[ExtResource("2_j0cwu")]([SubResource("Resource_6otgx"), SubResource("Resource_hkan7"), SubResource("Resource_a12wj"), SubResource("Resource_qvrn4"), SubResource("Resource_5v7el"), SubResource("Resource_3j7ma"), SubResource("Resource_fok84"), SubResource("Resource_fdcf6"), SubResource("Resource_5icd1"), SubResource("Resource_a18um"), SubResource("Resource_6npoj"), SubResource("Resource_531st"), SubResource("Resource_8tpei"), SubResource("Resource_7e5cn"), SubResource("Resource_whrh0"), SubResource("Resource_vloy1"), SubResource("Resource_d0hw8"), SubResource("Resource_pv1td"), SubResource("Resource_cj7ts"), SubResource("Resource_22lmo"), SubResource("Resource_phet2"), SubResource("Resource_yp4jm"), SubResource("Resource_32b1q"), SubResource("Resource_bwq3a")])
 mass_kg = 0.05184
@@ -207,3 +207,4 @@ actuator_min_deg = -140.0
 actuator_max_deg = 140.0
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.01, -0.12, -0.002, 0.02, 0.24, 0.004)])
+collision_points = PackedVector3Array()

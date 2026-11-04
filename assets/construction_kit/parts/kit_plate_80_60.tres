@@ -199,7 +199,7 @@ accepts = Array[StringName]([&"kit_m4"])
 [resource]
 script = ExtResource("3_xfpc1")
 id = &"kit_plate_80_60"
-display_name = "Perforated plate 80 × 60 mm"
+display_name = "Plate 80 × 60 mm"
 mesh = ExtResource("1_en4ts")
 ports = Array[ExtResource("2_b2pnt")]([SubResource("Resource_at5g7"), SubResource("Resource_kw3p3"), SubResource("Resource_fu1mv"), SubResource("Resource_abg03"), SubResource("Resource_kc5l4"), SubResource("Resource_lmtbm"), SubResource("Resource_unc8e"), SubResource("Resource_6fyou"), SubResource("Resource_h4p5p"), SubResource("Resource_1bq5u"), SubResource("Resource_045es"), SubResource("Resource_s11vv"), SubResource("Resource_c7t0m"), SubResource("Resource_xg0u8"), SubResource("Resource_fjr1b"), SubResource("Resource_u6eqx"), SubResource("Resource_ik3a5"), SubResource("Resource_pccho"), SubResource("Resource_ct0xy"), SubResource("Resource_u4ql5"), SubResource("Resource_3dfdv"), SubResource("Resource_16xjw"), SubResource("Resource_swh3q"), SubResource("Resource_q4io0")])
 mass_kg = 0.05184
@@ -207,3 +207,4 @@ actuator_min_deg = -140.0
 actuator_max_deg = 140.0
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.04, -0.03, -0.002, 0.08, 0.06, 0.004)])
+collision_points = PackedVector3Array()

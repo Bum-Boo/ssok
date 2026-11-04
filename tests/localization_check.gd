@@ -35,6 +35,9 @@ func _run() -> void:
 	var translated_arguments: Array[int] = [0]
 	_main._set_status("Moving %s. Pick a hole to attach it again.", false, ["Foot"], translated_arguments)
 	var original_policy: Dictionary = panel.best.policy.duplicate()
+	for button: Button in _main.part_buttons:
+		var definition: PartDef = button.get_meta("part_definition")
+		_check(PartTray.category_for(definition.id) > 0, "localized tray only uses allowed ids")
 	var keys: PackedStringArray = (load("res://assets/locales/ko.po") as Translation).get_message_list()
 	var pickup_messages: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/pickup_messages.json"))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/construction_messages.json")))

@@ -391,7 +391,7 @@ accepts = Array[StringName]([&"kit_m4"])
 [resource]
 script = ExtResource("3_6j5t5")
 id = &"kit_plate_160_60"
-display_name = "Perforated plate 160 × 60 mm"
+display_name = "Plate 160 × 60 mm"
 mesh = ExtResource("1_w2gh7")
 ports = Array[ExtResource("2_pgd62")]([SubResource("Resource_m5sb1"), SubResource("Resource_1w536"), SubResource("Resource_vivtw"), SubResource("Resource_11bqm"), SubResource("Resource_2sxrs"), SubResource("Resource_l0u78"), SubResource("Resource_1hf2s"), SubResource("Resource_g74cu"), SubResource("Resource_8fjwf"), SubResource("Resource_3efal"), SubResource("Resource_f40ss"), SubResource("Resource_6te8e"), SubResource("Resource_sw7ce"), SubResource("Resource_ag5f3"), SubResource("Resource_2ou34"), SubResource("Resource_r425w"), SubResource("Resource_cfh3n"), SubResource("Resource_xdtcg"), SubResource("Resource_iibie"), SubResource("Resource_lpxmg"), SubResource("Resource_rswiu"), SubResource("Resource_23qbk"), SubResource("Resource_isssw"), SubResource("Resource_mirn3"), SubResource("Resource_sdk12"), SubResource("Resource_nmhsj"), SubResource("Resource_ngd5m"), SubResource("Resource_m72c5"), SubResource("Resource_mhbpe"), SubResource("Resource_1ivj8"), SubResource("Resource_mp8xd"), SubResource("Resource_mfjsx"), SubResource("Resource_sjnd0"), SubResource("Resource_ex4hc"), SubResource("Resource_ynh1b"), SubResource("Resource_isfdj"), SubResource("Resource_rmaby"), SubResource("Resource_76jhs"), SubResource("Resource_ol2hp"), SubResource("Resource_rj2e4"), SubResource("Resource_3eoym"), SubResource("Resource_l00w7"), SubResource("Resource_0lmhx"), SubResource("Resource_tii34"), SubResource("Resource_ueqqk"), SubResource("Resource_sswh2"), SubResource("Resource_7je67"), SubResource("Resource_mcwxi")])
 mass_kg = 0.10368
@@ -399,3 +399,4 @@ actuator_min_deg = -140.0
 actuator_max_deg = 140.0
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.08, -0.03, -0.002, 0.16, 0.06, 0.004)])
+collision_points = PackedVector3Array()

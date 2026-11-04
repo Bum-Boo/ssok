@@ -16,6 +16,7 @@ func _run() -> void:
 	var inventory: Dictionary = {}
 	for button: Button in main.part_buttons:
 		inventory[String((button.get_meta("part_definition") as PartDef).id)] = button
+	_check(inventory.size() == PartTray.ids().size(), "Lab inventory follows curated tray")
 	for id: String in IDS:
 		_check(inventory.has(id), "palette includes " + id)
 		for locale: String in ["en", "ko", "ja", "zh_CN"]:

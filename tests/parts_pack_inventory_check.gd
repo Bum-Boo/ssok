@@ -18,16 +18,15 @@ func _run() -> void:
 		inventory[String((button.get_meta("part_definition") as PartDef).id)] = button
 	for id: String in IDS:
 		_check(inventory.has(id), "actual tray exposes " + id)
-	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/construction_kit/catalog.json"))
 	for locale: String in ["en", "ko", "ja", "zh_CN"]:
 		SsokLocale.select_locale(locale, false)
 		await process_frame
-		main.part_category.select(4)
+		main.part_category.select(0)
 		main._filter_parts()
 		var visible: int = 0
 		for button: Button in main.part_buttons:
 			visible += int(button.visible)
-		_check(visible == catalog.parts.size(), "all declared kit stock reaches existing filter in " + locale)
+		_check(visible == PartTray.ids().size(), "all declared kit stock reaches existing filter in " + locale)
 		for id: String in IDS:
 			if not inventory.has(id):
 				continue
@@ -43,11 +42,11 @@ func _run() -> void:
 		if locale != "en":
 			var pack: Translation = load("res://assets/locales/" + locale + ".po")
 			_check(not pack.get_message("Environment").is_empty(), "environment category translated in " + locale)
-		for category: int in [1, 3, 5]:
+		for category: int in range(1, PartTray.TABS.size()):
 			main.part_category.select(category)
 			main._filter_parts()
 			for id: String in IDS:
-				var expected: int = 5 if id.begins_with("kit_env_") else (3 if id in ["kit_line_sensor", "kit_contact_button", "kit_led"] else 1)
+				var expected: int = PartTray.category_for(StringName(id))
 				_check(inventory[id].visible == (category == expected), "category membership " + locale + ": " + id)
 	main.part_category.select(0)
 	main._filter_parts()

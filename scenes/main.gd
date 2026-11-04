@@ -743,7 +743,7 @@ func _build_palette() -> void:
 	part_search.text_changed.connect(func(_query: String) -> void: _filter_parts())
 	box.add_child(part_search)
 	part_category = OptionButton.new()
-	for category: String in ["All parts", "Structure", "Actuators", "Electronics", "Construction kit", "Environment"]:
+	for category: String in PartTray.TABS:
 		part_category.add_item(category)
 	part_category.focus_mode = Control.FOCUS_ALL
 	part_category.item_selected.connect(func(_index: int) -> void: _filter_parts())
@@ -760,7 +760,7 @@ func _build_palette() -> void:
 	scroll.add_child(parts_box)
 	# Keep guidance at the top of the tray list without reducing its compact viewport.
 	parts_box.add_child(placement_hint)
-	for definition: PartDef in _load_part_defs():
+	for definition: PartDef in PartTray.definitions(_load_part_defs()):
 		var category: int = _part_category(definition)
 		var icon_name: String = ["box", "box", "cog", "cpu", "box", "box"][category]
 		var button := SsokTheme.button(definition.display_name, icon_name)
@@ -953,18 +953,7 @@ func _camera_framing_rect() -> Rect2:
 
 
 func _part_category(definition: PartDef) -> int:
-	if definition.surface_marker or not definition.environment_role.is_empty():
-		return 5
-	if definition.device_kind in ["LineSensor", "Button", "LED"]:
-		return 3
-	if not definition.board_profile_id.is_empty() or definition.id in [&"motor_driver", &"tb6612_driver"]:
-		return 3
-	var id: String = String(definition.resource_path.get_file().get_basename())
-	if id in ["servo", "tt_motor"] or definition.actuator_torque_nm > 0.0:
-		return 2
-	if id in ["arduino_uno", "board", "hc_sr04", "learning_hc_sr04", "humanoid_board", "modular_controller", "kit_controller", "kit_controller_16", "kit_optical_sensor"]:
-		return 3
-	return 1
+	return PartTray.category_for(definition.id)
 
 
 func _filter_parts() -> void:
@@ -976,9 +965,9 @@ func _filter_parts() -> void:
 		var definition: PartDef = button.get_meta("part_definition")
 		var matches: bool = query.is_empty() or query in definition.display_name.to_lower() or query in tr(definition.display_name).to_lower() or query in definition.resource_path.get_file()
 		var category_matches: bool = part_category.selected == 0 or part_category.selected == button.get_meta("category")
-		if part_category.selected == 4:
-			category_matches = String(definition.id).begins_with("kit_")
-		button.visible = matches and category_matches
+		var allowed: Array = session.get("level", {}).get("parts", []) if session.get("mode") == "stage" else []
+		var stage_matches: bool = allowed.is_empty() or String(definition.id) in allowed
+		button.visible = matches and category_matches and stage_matches
 		count += int(button.visible)
 	_no_parts.visible = count == 0
 
@@ -1103,7 +1092,7 @@ func _on_humanoid_pressed() -> void:
 func _on_modular_pressed() -> void:
 	var graph: ConnectionGraph = ConstructionKitHumanoidPreset.build()
 	_load_preset(graph, ConstructionKitHumanoidPreset.answer_code(graph), "Construction-kit humanoid loaded. Select a part to inspect its holes.")
-	part_category.select(4)
+	part_category.select(1)
 	_filter_parts()
 	control_source.select(CONTROL_MANUAL)
 	program_tabs.current_tab = 1
@@ -1111,7 +1100,7 @@ func _on_modular_pressed() -> void:
 
 func _on_kit_bridge_pressed() -> void:
 	_load_preset(ConstructionKitHumanoidPreset.build_bridge(), "", "Kit bridge loaded: the same beams, plates and fasteners, assembled into a different structure.")
-	part_category.select(4)
+	part_category.select(1)
 	_filter_parts()
 
 
@@ -1759,11 +1748,8 @@ func _enter_stage(level: Dictionary) -> void:
 	(_side_panel.find_child("ProgramTitle", true, false) as Control).visible = false
 	_install_level(level.scene)
 	var library: Control = _ui_root.get_node("PartsLibrary") as Control
-	var allowed: Array = level.get("parts", [])
 	library.visible = true
-	for button: Button in part_buttons:
-		var definition: PartDef = button.get_meta("part_definition")
-		button.visible = allowed.is_empty() or String(definition.id) in allowed
+	_filter_parts()
 	flag_mission.show_visual = false
 	if level.id == "wall-brake":
 		_level.install_wall(0.8)
@@ -1903,8 +1889,7 @@ func _setup_scene_ui() -> void:
 		content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		content.custom_minimum_size.y = 300
 
-	for part_button: Button in part_buttons:
-		part_button.show()
+	_filter_parts()
 	flag_mission.visible = false
 	_empty_panel.visible = false
 	_help_panel.visible = false

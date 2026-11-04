@@ -18,9 +18,10 @@ const UI_MESSAGES: Array[String] = [
 	"Start with a biped",
 	"Parts library",
 	"Search parts...",
-	"All parts",
+	"All",
 	"Structure",
-	"Actuators",
+	"Motion",
+	"Sensors",
 	"Electronics",
 	"Environment",
 	"No matching parts",
@@ -43,8 +44,8 @@ func _run() -> void:
 	await process_frame
 	_check(_main._empty_panel.visible, "empty assembly has a starting point")
 	_check(_main.delete_button.disabled, "delete unavailable without selection")
-	var catalog_count: int = MotionSnapshot._catalog().size()
-	_check(_main.part_buttons.size() == catalog_count, "all catalogs present including micro:bit and learning hardware")
+	var catalog_count: int = PartTray.ids().size()
+	_check(_main.part_buttons.size() == catalog_count, "curated tray includes every specified elementary part")
 	for locale: String in ["ko", "zh_CN", "ja", "en"]:
 		SsokLocale.select_locale(locale, false)
 		if locale != "en":
@@ -69,10 +70,10 @@ func _run() -> void:
 		_main.part_search.text = ""
 		_main.part_category.select(2)
 		_main.part_category.item_selected.emit(2)
-		_check(_visible_parts() == 15, "actuator filter includes the torque micro servo")
+		_check(_visible_parts() == PartTray.MOTION.size(), "motion filter includes every specified actuator and transmission")
 		_main.part_category.select(3)
 		_main.part_category.item_selected.emit(3)
-		_check(_visible_parts() == 15, "electronics filter includes micro:bit, both motor drivers and three signal devices")
+		_check(_visible_parts() == PartTray.ELECTRONICS.size(), "electronics filter includes boards, drivers and LED")
 		_main.part_category.select(0)
 		_main._filter_parts()
 		_check(_visible_parts() == catalog_count and not _main._no_parts.visible, "filters restore full catalog")

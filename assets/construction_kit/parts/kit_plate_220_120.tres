@@ -487,7 +487,7 @@ accepts = Array[StringName]([&"kit_m4"])
 [resource]
 script = ExtResource("3_dgaqh")
 id = &"kit_plate_220_120"
-display_name = "Perforated plate 220 × 120 mm"
+display_name = "Plate 220 × 120 mm"
 mesh = ExtResource("1_3c1x7")
 ports = Array[ExtResource("2_kidif")]([SubResource("Resource_a6f26"), SubResource("Resource_5l453"), SubResource("Resource_dto2m"), SubResource("Resource_rs83y"), SubResource("Resource_wybhe"), SubResource("Resource_3cmoo"), SubResource("Resource_65k08"), SubResource("Resource_x5fmh"), SubResource("Resource_1bw3a"), SubResource("Resource_rh4yh"), SubResource("Resource_j4lnx"), SubResource("Resource_10hqw"), SubResource("Resource_kpsa6"), SubResource("Resource_gj4te"), SubResource("Resource_chy55"), SubResource("Resource_xx6cm"), SubResource("Resource_jhm13"), SubResource("Resource_jtit5"), SubResource("Resource_ps76j"), SubResource("Resource_pj0oa"), SubResource("Resource_hfjki"), SubResource("Resource_doo8d"), SubResource("Resource_au7g8"), SubResource("Resource_aslon"), SubResource("Resource_117pb"), SubResource("Resource_reu8f"), SubResource("Resource_lw844"), SubResource("Resource_ipllq"), SubResource("Resource_t77g3"), SubResource("Resource_8ip8k"), SubResource("Resource_y0sjw"), SubResource("Resource_pqw6k"), SubResource("Resource_5s7kd"), SubResource("Resource_pmurt"), SubResource("Resource_mc1uu"), SubResource("Resource_qlc4f"), SubResource("Resource_2fxjd"), SubResource("Resource_hp4i0"), SubResource("Resource_uheqf"), SubResource("Resource_msvtw"), SubResource("Resource_1ockv"), SubResource("Resource_r012r"), SubResource("Resource_i78df"), SubResource("Resource_pdfyt"), SubResource("Resource_4uky3"), SubResource("Resource_tlu3j"), SubResource("Resource_7d73f"), SubResource("Resource_lcl2x"), SubResource("Resource_8bycv"), SubResource("Resource_j6ncm"), SubResource("Resource_5182x"), SubResource("Resource_6c8pb"), SubResource("Resource_v6xg4"), SubResource("Resource_poouj"), SubResource("Resource_xtwjr"), SubResource("Resource_giwcj"), SubResource("Resource_t67io"), SubResource("Resource_aqa4q"), SubResource("Resource_taxps"), SubResource("Resource_wxhfb")])
 mass_kg = 0.28512
@@ -495,3 +495,4 @@ actuator_min_deg = -140.0
 actuator_max_deg = 140.0
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.11, -0.06, -0.002, 0.22, 0.12, 0.004)])
+collision_points = PackedVector3Array()

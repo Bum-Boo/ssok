@@ -100,7 +100,7 @@ accepts = Array[StringName]([&"kit_m4"])
 [resource]
 script = ExtResource("3_n7gar")
 id = &"kit_angle_bracket"
-display_name = "Angle bracket 60 × 40 mm"
+display_name = "L bracket 60 × 40 mm"
 mesh = ExtResource("1_ceulj")
 ports = Array[ExtResource("2_q4i24")]([SubResource("Resource_owu7b"), SubResource("Resource_dipxr"), SubResource("Resource_v2jwf"), SubResource("Resource_pknad"), SubResource("Resource_sia27"), SubResource("Resource_uwe1b"), SubResource("Resource_lj5ne"), SubResource("Resource_17tgu"), SubResource("Resource_0l20n"), SubResource("Resource_t0yin"), SubResource("Resource_dmdie"), SubResource("Resource_s12cs")])
 mass_kg = 0.045
@@ -108,3 +108,4 @@ actuator_min_deg = -140.0
 actuator_max_deg = 140.0
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.03, -0.02, -0.02, 0.06, 0.004, 0.04), AABB(-0.03, -0.02, -0.02, 0.06, 0.04, 0.004)])
+collision_points = PackedVector3Array()
