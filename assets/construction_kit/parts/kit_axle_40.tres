@@ -10,7 +10,7 @@ id = &"front"
 local_position = Vector3(0, 0, 0.02)
 local_normal = Vector3(0, 0, 1)
 tag = &"kit_axle_8"
-accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8", &"motor_shaft"])
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8", &"motor_shaft", &"servo_output"])
 
 [sub_resource type="Resource" id="Resource_wsg4d"]
 script = ExtResource("2_biwaj")
@@ -18,7 +18,7 @@ id = &"back"
 local_position = Vector3(0, 0, -0.02)
 local_normal = Vector3(0, 0, -1)
 tag = &"kit_axle_8"
-accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8", &"motor_shaft"])
+accepts = Array[StringName]([&"kit_axle_8", &"kit_shaft_8", &"motor_shaft", &"servo_output"])
 
 [sub_resource type="Resource" id="Resource_4l4of"]
 script = ExtResource("2_biwaj")

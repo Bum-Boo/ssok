@@ -1,5 +1,6 @@
 extends SceneTree
 
+const DevicePorts = preload("res://tools/godot/make_part_defs.gd")
 const PartMaterials = preload("res://tools/godot/part_materials.gd")
 
 func _init() -> void:
@@ -43,7 +44,7 @@ func _init() -> void:
 	var motor: PartDef = load("res://assets/parts/tt_motor.tres")
 	motor.dc_motor = true
 	motor.merge_fixed_connections = true
-	if motor.ports.size() == 3:
+	if not motor.ports.any(func(port: Port) -> bool: return port.id == &"power"):
 		motor.ports.append(_port(&"power", Port.Kind.ELEC, Vector3(0.03, 0, 0), Vector3.RIGHT, &"motor_power", [&"driver_output"]))
 	_save(motor)
 	var sensor: PartDef = load("res://assets/parts/hc_sr04.tres")
@@ -122,4 +123,5 @@ func _port(id: StringName, kind: Port.Kind, position: Vector3, normal: Vector3, 
 
 
 func _save(definition: PartDef) -> void:
+	DevicePorts.append_kit_holes(definition)
 	assert(ResourceSaver.save(definition, "res://assets/parts/%s.tres" % definition.id) == OK)

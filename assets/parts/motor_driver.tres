@@ -60,11 +60,72 @@ local_normal = Vector3(0, -1, 0)
 tag = &"board_mount"
 accepts = Array[StringName]([&"base_mount"])
 
+[sub_resource type="Resource" id="Port_kit_h0_front"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h0_front"
+local_position = Vector3(-0.01, 0.004, -0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h0_back"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h0_back"
+local_position = Vector3(-0.01, -0.004, -0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_front"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h1_front"
+local_position = Vector3(0.01, 0.004, -0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_back"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h1_back"
+local_position = Vector3(0.01, -0.004, -0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h2_front"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h2_front"
+local_position = Vector3(-0.01, 0.004, 0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h2_back"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h2_back"
+local_position = Vector3(-0.01, -0.004, 0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h3_front"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h3_front"
+local_position = Vector3(0.01, 0.004, 0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h3_back"]
+script = ExtResource("2_b3hwb")
+id = &"kit_h3_back"
+local_position = Vector3(0.01, -0.004, 0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
 [resource]
 script = ExtResource("3_u7xo7")
 id = &"motor_driver"
 display_name = "Motor Driver V2 (DRV8833)"
 mesh = ExtResource("1_soyuj")
-ports = Array[ExtResource("2_b3hwb")]([SubResource("Resource_sye8i"), SubResource("Resource_dtws5"), SubResource("Resource_p36af"), SubResource("Resource_tba5u"), SubResource("Resource_1lf3q"), SubResource("Resource_vt3fl"), SubResource("Resource_uso3d")])
+ports = Array[ExtResource("2_b3hwb")]([SubResource("Resource_sye8i"), SubResource("Resource_dtws5"), SubResource("Resource_p36af"), SubResource("Resource_tba5u"), SubResource("Resource_1lf3q"), SubResource("Resource_vt3fl"), SubResource("Resource_uso3d"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back"), SubResource("Port_kit_h2_front"), SubResource("Port_kit_h2_back"), SubResource("Port_kit_h3_front"), SubResource("Port_kit_h3_back")])
 mass_kg = 0.01
 merge_fixed_connections = true
+collision_points = PackedVector3Array()

@@ -60,12 +60,73 @@ local_normal = Vector3(0, -1, 0)
 tag = &"board_mount"
 accepts = Array[StringName]([&"base_mount"])
 
+[sub_resource type="Resource" id="Port_kit_h0_front"]
+script = ExtResource("2_k82ly")
+id = &"kit_h0_front"
+local_position = Vector3(-0.01, 0.0025, -0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h0_back"]
+script = ExtResource("2_k82ly")
+id = &"kit_h0_back"
+local_position = Vector3(-0.01, -0.0025, -0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_front"]
+script = ExtResource("2_k82ly")
+id = &"kit_h1_front"
+local_position = Vector3(0.01, 0.0025, -0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_back"]
+script = ExtResource("2_k82ly")
+id = &"kit_h1_back"
+local_position = Vector3(0.01, -0.0025, -0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h2_front"]
+script = ExtResource("2_k82ly")
+id = &"kit_h2_front"
+local_position = Vector3(-0.01, 0.0025, 0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h2_back"]
+script = ExtResource("2_k82ly")
+id = &"kit_h2_back"
+local_position = Vector3(-0.01, -0.0025, 0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h3_front"]
+script = ExtResource("2_k82ly")
+id = &"kit_h3_front"
+local_position = Vector3(0.01, 0.0025, 0.01)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h3_back"]
+script = ExtResource("2_k82ly")
+id = &"kit_h3_back"
+local_position = Vector3(0.01, -0.0025, 0.01)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
 [resource]
 script = ExtResource("3_757gd")
 id = &"microbit"
 display_name = "micro:bit V2"
 mesh = ExtResource("1_khws5")
-ports = Array[ExtResource("2_k82ly")]([SubResource("Resource_2olt7"), SubResource("Resource_diqvw"), SubResource("Resource_qgevi"), SubResource("Resource_nuumw"), SubResource("Resource_5rb8w"), SubResource("Resource_rdxfb"), SubResource("Resource_ogius")])
+ports = Array[ExtResource("2_k82ly")]([SubResource("Resource_2olt7"), SubResource("Resource_diqvw"), SubResource("Resource_qgevi"), SubResource("Resource_nuumw"), SubResource("Resource_5rb8w"), SubResource("Resource_rdxfb"), SubResource("Resource_ogius"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back"), SubResource("Port_kit_h2_front"), SubResource("Port_kit_h2_back"), SubResource("Port_kit_h3_front"), SubResource("Port_kit_h3_back")])
 mass_kg = 0.015
 merge_fixed_connections = true
 board_profile_id = "microbit"
+collision_points = PackedVector3Array()

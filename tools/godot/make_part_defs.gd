@@ -28,9 +28,17 @@ var _parts: Dictionary = {
 			{"id": &"mount_bottom", "kind": MECH, "position": Vector3(0, -0.015, 0), "normal": Vector3.DOWN,
 				"tag": &"servo_mount", "accepts": [&"base_mount"]},
 			{"id": &"output_shaft", "kind": MECH, "position": Vector3(0.0115, 0.005, 0), "normal": Vector3.RIGHT,
-				"tag": &"servo_output", "accepts": [&"arm_mount"], "rotates": true},
+				"tag": &"servo_output", "accepts": [&"arm_mount", &"kit_axle_8"], "rotates": true},
 			{"id": &"signal_pin", "kind": ELEC, "position": Vector3(-0.0115, 0, 0), "normal": Vector3.LEFT,
 				"tag": &"pwm_signal", "accepts": [&"board_digital_pwm"]},
+		],
+	},
+	&"flag": {
+		"display_name": "Task flag",
+		"mass_kg": 0.001,
+		"ports": [
+			{"id": &"mount", "kind": MECH, "position": Vector3(-0.0125, -0.01, 0), "normal": Vector3.DOWN,
+				"tag": &"servo_mount", "accepts": [&"base_mount"]},
 		],
 	},
 	&"arm_link": {
@@ -65,9 +73,9 @@ var _parts: Dictionary = {
 		"mass_kg": 0.03,
 		"ports": [
 			{"id": &"shaft_left", "kind": MECH, "position": Vector3(-0.024, 0, -0.009), "normal": Vector3(0, 0, -1),
-				"tag": &"motor_shaft", "accepts": [&"wheel_hub"], "rotates": true},
+				"tag": &"motor_shaft", "accepts": [&"wheel_hub", &"kit_axle_8"], "rotates": true},
 			{"id": &"shaft_right", "kind": MECH, "position": Vector3(-0.024, 0, 0.009), "normal": Vector3(0, 0, 1),
-				"tag": &"motor_shaft", "accepts": [&"wheel_hub"], "rotates": true},
+				"tag": &"motor_shaft", "accepts": [&"wheel_hub", &"kit_axle_8"], "rotates": true},
 			{"id": &"mount", "kind": MECH, "position": Vector3(-0.0165, -0.011, 0), "normal": Vector3.DOWN,
 				"tag": &"motor_mount", "accepts": [&"base_mount"]},
 		],
@@ -186,8 +194,11 @@ static func _uno_pins() -> Array:
 
 
 func _init() -> void:
+	var selected := OS.get_cmdline_user_args()
 	var failed := false
 	for id: StringName in _parts:
+		if not selected.is_empty() and String(id) not in selected:
+			continue
 		var spec: Dictionary = _parts[id]
 		var def := PartDef.new()
 		def.id = id
@@ -204,6 +215,7 @@ func _init() -> void:
 			port.accepts.assign(port_spec["accepts"])
 			port.rotates = port_spec.get("rotates", false)
 			def.ports.append(port)
+		append_kit_holes(def)
 		def.mesh = PartMaterials.load_mesh(id)
 		if def.mesh == null:
 			failed = true
@@ -213,3 +225,41 @@ func _init() -> void:
 		print("%s: save=%d ports=%d mesh=%s" % [id, err, def.ports.size(), def.mesh != null])
 		failed = failed or err != OK
 	quit(1 if failed else 0)
+
+
+## The mounting plane follows each existing device envelope. Hole centers use the
+## same 20 mm pitch as the kit; front/back normals point out of the mounting faces.
+static func append_kit_holes(definition: PartDef) -> void:
+	var centers: Array[Vector3] = []
+	var normal := Vector3.UP
+	var half_thickness: float
+	match definition.id:
+		&"microbit", &"arduino_uno", &"motor_driver", &"tb6612_driver":
+			centers.assign([Vector3(-0.01, 0, -0.01), Vector3(0.01, 0, -0.01), Vector3(-0.01, 0, 0.01), Vector3(0.01, 0, 0.01)])
+			half_thickness = 0.0025 if definition.id == &"microbit" else 0.0008 if definition.id == &"arduino_uno" else 0.004
+		&"tt_motor":
+			centers.assign([Vector3(-0.0165, 0, 0), Vector3(0.0035, 0, 0)])
+			half_thickness = 0.011
+		&"servo", &"ball_caster":
+			centers.assign([Vector3(-0.01, 0, 0), Vector3(0.01, 0, 0)])
+			half_thickness = 0.015 if definition.id == &"servo" else 0.012
+		&"hc_sr04", &"flag":
+			centers.assign([Vector3(-0.01, 0, 0), Vector3(0.01, 0, 0)])
+			normal = Vector3.BACK
+			half_thickness = 0.0008 if definition.id == &"hc_sr04" else 0.0005
+		_:
+			return
+	for index: int in centers.size():
+		for front: bool in [true, false]:
+			var id := StringName("kit_h%d_%s" % [index, "front" if front else "back"])
+			# Learning generators can apply this helper to an already generated def.
+			if definition.ports.any(func(port: Port) -> bool: return port.id == id):
+				continue
+			var port := Port.new()
+			port.id = id
+			port.resource_scene_unique_id = "Port_%s" % id
+			port.local_normal = normal if front else -normal
+			port.local_position = centers[index] + port.local_normal * half_thickness
+			port.tag = &"kit_m4"
+			port.accepts = [&"kit_m4"]
+			definition.ports.append(port)

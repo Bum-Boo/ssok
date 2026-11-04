@@ -30,11 +30,44 @@ local_normal = Vector3(0, -1, 0)
 tag = &"digital_io"
 accepts = Array[StringName]([&"board_digital", &"board_digital_pwm"])
 
+[sub_resource type="Resource" id="Port_kit_h0_front"]
+script = ExtResource("2_ccjwb")
+id = &"kit_h0_front"
+local_position = Vector3(-0.01, 0, 0.0008)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h0_back"]
+script = ExtResource("2_ccjwb")
+id = &"kit_h0_back"
+local_position = Vector3(-0.01, 0, -0.0008)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_front"]
+script = ExtResource("2_ccjwb")
+id = &"kit_h1_front"
+local_position = Vector3(0.01, 0, 0.0008)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_back"]
+script = ExtResource("2_ccjwb")
+id = &"kit_h1_back"
+local_position = Vector3(0.01, 0, -0.0008)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
 [resource]
 script = ExtResource("3_rgp2a")
 id = &"hc_sr04"
 display_name = "HC-SR04 Ultrasonic"
 mesh = ExtResource("1_jbcnd")
-ports = Array[ExtResource("2_ccjwb")]([SubResource("Port_mount"), SubResource("Port_trig_pin"), SubResource("Port_echo_pin")])
+ports = Array[ExtResource("2_ccjwb")]([SubResource("Port_mount"), SubResource("Port_trig_pin"), SubResource("Port_echo_pin"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back")])
 mass_kg = 0.009
 merge_fixed_connections = true
+collision_points = PackedVector3Array()

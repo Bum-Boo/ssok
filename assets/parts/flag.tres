@@ -1,22 +1,54 @@
 [gd_resource type="Resource" script_class="PartDef" format=3]
 
-[ext_resource type="Script" path="res://src/core/part_def.gd" id="1"]
-[ext_resource type="Script" path="res://src/core/port.gd" id="2"]
+[ext_resource type="ArrayMesh" path="res://assets/meshes/flag.res" id="1_alimu"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_ssn0q"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_5vwdw"]
 
-[ext_resource type="ArrayMesh" path="res://assets/meshes/flag.res" id="3"]
-
-[sub_resource type="Resource" id="Mount"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="Port_mount"]
+script = ExtResource("2_ssn0q")
 id = &"mount"
 local_position = Vector3(-0.0125, -0.01, 0)
 local_normal = Vector3(0, -1, 0)
 tag = &"servo_mount"
 accepts = Array[StringName]([&"base_mount"])
 
+[sub_resource type="Resource" id="Port_kit_h0_front"]
+script = ExtResource("2_ssn0q")
+id = &"kit_h0_front"
+local_position = Vector3(-0.01, 0, 0.0005)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h0_back"]
+script = ExtResource("2_ssn0q")
+id = &"kit_h0_back"
+local_position = Vector3(-0.01, 0, -0.0005)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_front"]
+script = ExtResource("2_ssn0q")
+id = &"kit_h1_front"
+local_position = Vector3(0.01, 0, 0.0005)
+local_normal = Vector3(0, 0, 1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_back"]
+script = ExtResource("2_ssn0q")
+id = &"kit_h1_back"
+local_position = Vector3(0.01, 0, -0.0005)
+local_normal = Vector3(0, 0, -1)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
 [resource]
-script = ExtResource("1")
+script = ExtResource("3_5vwdw")
 id = &"flag"
 display_name = "Task flag"
-mesh = ExtResource("3")
-ports = Array[ExtResource("2")]([SubResource("Mount")])
+mesh = ExtResource("1_alimu")
+ports = Array[ExtResource("2_ssn0q")]([SubResource("Port_mount"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back")])
 mass_kg = 0.001
+collision_points = PackedVector3Array()
