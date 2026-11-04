@@ -47,6 +47,6 @@ id = &"ball_caster"
 display_name = "Ball Caster"
 mesh = ExtResource("1_n5esp")
 ports = Array[ExtResource("2_bjxci")]([SubResource("Resource_312gd"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back")])
-mass_kg = 0.02
+mass_kg = 0.005
 caster_radius = 0.012
 collision_points = PackedVector3Array()
