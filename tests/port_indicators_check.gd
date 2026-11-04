@@ -175,7 +175,7 @@ func _screenshots(graph: ConnectionGraph) -> void:
 	fixture.add_child(environment)
 	var indicators := PortIndicators.new()
 	fixture.add_child(indicators)
-	DirAccess.make_dir_recursive_absolute("res://build/m1-port-visuals")
+	DirAccess.make_dir_recursive_absolute("user://port_indicators_previews")
 	for dark: bool in [true, false]:
 		SsokTheme.configure(dark, 1.0, 1.0)
 		environment.environment.background_color = SsokTheme.BG
@@ -184,7 +184,7 @@ func _screenshots(graph: ConnectionGraph) -> void:
 		indicators.refresh(graph, -1, {"active": true, "target_part": 0, "target_port": graph.parts[0].part_def.ports[-2].id})
 		await process_frame
 		await RenderingServer.frame_post_draw
-		var path: String = "res://build/m1-port-visuals/%s.png" % ("dark" if dark else "light")
+		var path: String = "user://port_indicators_previews/%s.png" % ("dark" if dark else "light")
 		_check(viewport.get_texture().get_image().save_png(path) == OK, "rendered indicator evidence saved")
 	viewport.queue_free()
 	SsokTheme.configure(true, 1.0, 1.0)

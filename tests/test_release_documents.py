@@ -28,7 +28,7 @@ class ReleaseDocumentsTest(unittest.TestCase):
             missing = []
             links_checked = 0
             for document in extracted.rglob("*.md"):
-                for match in re.finditer(r"\]\((<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)", document.read_text()):
+                for match in re.finditer(r"\]\((<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)", document.read_text(encoding="utf-8")):
                     destination = urlsplit(match.group(1).strip("<>"))
                     if destination.scheme or destination.netloc or not destination.path:
                         continue

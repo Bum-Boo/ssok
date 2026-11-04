@@ -40,6 +40,7 @@ DOCUMENTATION_REFERENCES = (
     "scenes/main.gd",
     "src/assembly/assembly_mode.gd",
     "src/assembly/part_node.gd",
+    "src/assembly/port_indicators.gd",
     "src/assembly/transform_gizmo.gd",
     "src/blocks/servo_program.gd",
     "src/core/app_controller.gd",

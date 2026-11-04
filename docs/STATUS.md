@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-11-05 작업 M1 로컬 후보: 구멍 대상 고스트·다중 연결·다시 끼우기·링/볼트와 네 언어 안내를 구현했어요. 대상14검사 PASS예요. 전체 검사·실제 GL 근거·제한은 [M1 요약](WORK_SUMMARY_M1.md)에 있어요. M2 트레이/전자 구멍/답지와 통합·배포는 남아요.
+
 2026-10-22 작업 D-3 로컬 후보: 현재 라우터 Stage/Lab의 브라우저 앵커와 종료 기한을 복구하고 컵 관측을 자유 환경 물체로 제한했어요. 115 suites 89 PASS/26 환경 FAIL로 D-2 통과 집합을 유지했어요. Web export는 DNS/템플릿·소켓 제약, Windows 실기는 미검증이에요. [원인·실측·인계](WORK_SUMMARY_D3.md).
 
 2026-10-22 작업 D-2 통합 후보: D의 빈 작업대에 B-2 기능 부품 12종과 C 브랜치 미리보기 워크플로를 병합했어요. 전체 카탈로그는 93종이며 Environment/Electronics 필터와 컵 전체 대상 지표를 연결했어요. 현재 검사·환경 제한·통합 checkpoint는 [작업 D-2](WORK_SUMMARY_D2.md)에서 확인해요. push·미리보기 게시·공개 플레이 확인은 통합 담당자 후속이에요.
@@ -52,9 +54,7 @@
 앱/목표/물리/패키지 변경0, 기존AI 이미지9/9·물리0/9 유지.
 [진단·실패·한계·인계](evidence/agent_camera_2026-10-10/completion/verified-r2/physical-compatibility-r3/README.md).
 
-2026-10-11 Windows 안정화 검토 초안 r2: 고정 카메라 이미지9/9·독립 물리0/9(14cm 기준 유지).
-Windows full81/0·실제POSIX3/0, clean4exports/6hashes, 같은Web5/5·실제설치17/0을 통과했어요.
-패키지 소스f31f8d5/version0.3.1-camera-r2;426입력 동일. 최종 문서 후속과 앱 패키지를 구분해요.
+2026-10-11 Windows 안정화 검토 초안 r2: 고정 카메라 이미지9/9·독립 물리0/9(14cm 기준 유지). Windows full81/0·실제POSIX3/0, clean4exports/6hashes, 같은Web5/5·실제설치17/0을 통과했어요. 패키지 소스f31f8d5/version0.3.1-camera-r2;426입력 동일. 최종 문서 후속과 앱 패키지를 구분해요.
 Settings 잘림은 Opus 속성2개 수정/독립리뷰, Astra16화면·80설정·16키보드·실시간4언어 검증 통과.
 최종 패키지10화면 Astra 검수와 최신Fable 기능리뷰/실제fetch·rebase(up-to-date4eb059f)도 통과했어요.
 첫81/5·Web4/5·dirty export·설치 집계 실패는 보존했고 통합/공개하지 않았어요. 물리0/9·Mac실기기·
