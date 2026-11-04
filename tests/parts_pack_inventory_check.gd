@@ -53,7 +53,11 @@ func _run() -> void:
 	main._filter_parts()
 	for id: String in IDS:
 		if inventory.has(id):
-			inventory[id].pressed.emit()
+			inventory[id].button_down.emit()
+			_check(main.assembly.placement_active, "tray button starts placement for " + id)
+			var index: int = main.assembly.graph.parts.size()
+			main.assembly.update_place_ray(Vector3(float(index) * 0.5, 1, 0), Vector3.DOWN)
+			_check(main.assembly.commit_place() == 0, "tray part commits independently on floor: " + id)
 	_check(main.assembly.graph.parts.size() == IDS.size(), "every new tray button adds its graph part")
 	var document: Dictionary = ProjectStore.document("Parts pack", main.assembly.graph, "stop()")
 	_check(not document.is_empty() and ProjectStore.graph_from(document) != null, "all new stock shares normal project serialization")

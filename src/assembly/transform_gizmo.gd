@@ -35,7 +35,7 @@ func _ready() -> void:
 func set_enabled(enabled: bool) -> void:
 	visible = enabled
 	for handle in _handles:
-		handle.collision_layer = 1 if enabled else 0
+		handle.collision_layer = 2 if enabled else 0
 
 
 func _axis_basis(axis: Vector3) -> Basis:

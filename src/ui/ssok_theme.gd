@@ -14,13 +14,14 @@ static var BORDER: Color = Color("303b49")
 
 
 static var ERROR: Color = Color("ff9292")
+static var SHAFT: Color = Color("e6bb84")
 static var ui_scale: float = 1.0
 static var code_scale: float = 1.0
 static var dark: bool = true
 
 
 static func palette() -> Dictionary:
-	return {"BG": BG, "BG_RAISED": BG_RAISED, "BG_SUNKEN": BG_SUNKEN, "ACCENT": ACCENT, "ACCENT_DOWN": ACCENT_DOWN, "TEXT": TEXT, "TEXT_DIM": TEXT_DIM, "BORDER": BORDER, "ERROR": ERROR}
+	return {"BG": BG, "BG_RAISED": BG_RAISED, "BG_SUNKEN": BG_SUNKEN, "ACCENT": ACCENT, "ACCENT_DOWN": ACCENT_DOWN, "TEXT": TEXT, "TEXT_DIM": TEXT_DIM, "BORDER": BORDER, "ERROR": ERROR, "SHAFT": SHAFT}
 
 
 static func configure(use_dark: bool, text_scale: float, source_scale: float) -> void:
@@ -36,6 +37,7 @@ static func configure(use_dark: bool, text_scale: float, source_scale: float) ->
 	TEXT_DIM = Color("a3afbe" if dark else "4c5b6b")
 	BORDER = Color("303b49" if dark else "9aabbc")
 	ERROR = Color("ff9292" if dark else "a51d36")
+	SHAFT = Color("e6bb84" if dark else "895214")
 
 
 static func font_size(base: int) -> int:

@@ -5,6 +5,8 @@ var part_def: PartDef
 var graph_index: int = -1
 
 var _port_markers: Dictionary[StringName, Marker3D] = {}
+var _mesh_instance: MeshInstance3D
+var _preview_material: StandardMaterial3D
 
 
 func setup(definition: PartDef, index: int) -> void:
@@ -15,6 +17,7 @@ func setup(definition: PartDef, index: int) -> void:
 	var mesh_instance := MeshInstance3D.new()
 	mesh_instance.mesh = part_def.mesh
 	add_child(mesh_instance)
+	_mesh_instance = mesh_instance
 
 	for port: Port in part_def.ports:
 		var marker := Marker3D.new()
@@ -26,13 +29,40 @@ func setup(definition: PartDef, index: int) -> void:
 
 	var body := StaticBody3D.new()
 	body.set_meta(&"part_node", self)
-	var collision_shape := CollisionShape3D.new()
-	var box_shape := BoxShape3D.new()
-	box_shape.size = part_def.mesh.get_aabb().size
-	collision_shape.position = part_def.mesh.get_aabb().get_center()
-	collision_shape.shape = box_shape
-	body.add_child(collision_shape)
+	body.collision_layer = 1
+	body.collision_mask = 0
+	var bounds: Array[AABB] = part_def.collision_boxes
+	if bounds.is_empty() and part_def.mesh != null:
+		bounds = [part_def.mesh.get_aabb()]
+	for box: AABB in bounds:
+		var collision_shape := CollisionShape3D.new()
+		var box_shape := BoxShape3D.new()
+		box_shape.size = box.size
+		collision_shape.position = box.get_center()
+		collision_shape.shape = box_shape
+		body.add_child(collision_shape)
 	add_child(body)
+
+
+## A transient ghost never changes the shared catalog mesh or its materials.
+func set_placement_preview(blocked: bool) -> void:
+	if _preview_material == null:
+		_preview_material = StandardMaterial3D.new()
+		_preview_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		_preview_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var tint: Color = SsokTheme.ERROR if blocked else SsokTheme.ACCENT
+	_preview_material.albedo_color = Color(tint, 0.45)
+	_mesh_instance.material_override = _preview_material
+	for child: Node in get_children():
+		if child is StaticBody3D:
+			child.collision_layer = 0
+
+
+func clear_placement_preview() -> void:
+	_mesh_instance.material_override = null
+	for child: Node in get_children():
+		if child is StaticBody3D:
+			child.collision_layer = 1
 
 
 func get_port(port_id: StringName) -> Port:

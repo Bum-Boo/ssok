@@ -2601,3 +2601,45 @@ msgstr "環境: カップ"
 
 msgid "Environment"
 msgstr "環境"
+
+msgid "Drag a part onto a hole to attach it"
+msgstr "部品を穴へドラッグして取り付けましょう"
+
+msgid "Line up a hole and click to attach. R rotates, Tab picks another hole."
+msgstr "穴を合わせてクリックすると取り付けられます。R で回転し、Tab で別の穴を選びます。"
+
+msgid "Place it on the floor, or move it over a part to attach."
+msgstr "床に置くか、別の部品の上へ動かして取り付けましょう。"
+
+msgid "This spot is blocked. Try another hole."
+msgstr "ここには取り付けられません。別の穴を試しましょう。"
+
+msgid "This part has no matching hole here. Try the floor or another part."
+msgstr "この部品には合う穴がありません。床か別の部品に置きましょう。"
+
+msgid "Attached at %d holes."
+msgstr "%d か所の穴に取り付けました。"
+
+msgid "Placed on the floor."
+msgstr "床に置きました。"
+
+msgid "Moving %s. Pick a hole to attach it again."
+msgstr "%s を移動しています。穴を選んで取り付け直しましょう。"
+
+msgid "Placement cancelled."
+msgstr "取り付けをキャンセルしました。"
+
+msgid "Place and turn parts"
+msgstr "部品を取り付けて回す"
+
+msgid "Start in Lab with an empty workbench. Drag a plate from the tray onto the floor, then drag a beam onto one of its holes. The same 20 mm-pitch beams, plates and brackets can form many different structures."
+msgstr "Lab の空の作業台で始めましょう。トレイからプレートを床へドラッグし、梁をプレートの穴へドラッグします。同じ 20 mm 穴ピッチの梁、プレート、ブラケットから、さまざまな構造を作れます。"
+
+msgid "In edit mode, find a part in the tray and drag it onto a hole. You can also click a tray part, then click the 3D view to place it. A preview shows where it will attach.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot."
+msgstr "編集モードでトレイの部品を見つけ、穴へドラッグしましょう。トレイの部品をクリックしてから 3D ビューをクリックして置くこともできます。取り付け位置はプレビューで確認できます。\n\n機械接続は部品を固定します。電気接続はサーボとボードのピンをつなぎます。コードでは実際に配線したピンを使いましょう。"
+
+msgid "While placing, R or the wheel turns the part by 90 degrees. Shift + R turns the other way. Tab picks another anchor hole; F flips to the other face. Click to attach. Esc or right-click cancels.\n\nDrag a placed part to attach it somewhere else. Cancelling restores its original position and connections."
+msgstr "取り付け中は R またはホイールで部品を 90 度ずつ回します。Shift + R で逆方向に回します。Tab で別の基準穴を選び、F で反対の面に切り替えます。クリックで取り付け、Esc または右クリックでキャンセルします。\n\n置いた部品をドラッグして別の場所に取り付け直せます。キャンセルすると元の位置と接続に戻ります。"
+
+msgid "Construction-kit humanoid loaded. Select a part to inspect its holes."
+msgstr "組立キットのヒューマノイドを読み込みました。部品を選んで穴を確認しましょう。"

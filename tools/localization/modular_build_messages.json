@@ -1,0 +1,86 @@
+[
+  {
+    "en": "Drag a part onto a hole to attach it",
+    "ko": "부품을 끌어다 구멍에 끼워요",
+    "ja": "部品を穴へドラッグして取り付けましょう",
+    "zh_CN": "将零件拖到孔位上进行安装"
+  },
+  {
+    "en": "Line up a hole and click to attach. R rotates, Tab picks another hole.",
+    "ko": "구멍에 맞춰 클릭하면 붙어요. R로 돌리고 Tab으로 다른 구멍을 골라요.",
+    "ja": "穴を合わせてクリックすると取り付けられます。R で回転し、Tab で別の穴を選びます。",
+    "zh_CN": "对准孔位并点击即可安装。R 旋转，Tab 选择其他孔位。"
+  },
+  {
+    "en": "Place it on the floor, or move it over a part to attach.",
+    "ko": "바닥에 놓거나 다른 부품 위로 가져가 붙여요.",
+    "ja": "床に置くか、別の部品の上へ動かして取り付けましょう。",
+    "zh_CN": "将其放在地面上，或移到其他零件上进行安装。"
+  },
+  {
+    "en": "This spot is blocked. Try another hole.",
+    "ko": "여기는 막혀 있어요. 다른 구멍에 대 보세요.",
+    "ja": "ここには取り付けられません。別の穴を試しましょう。",
+    "zh_CN": "此处被挡住了。请尝试其他孔位。"
+  },
+  {
+    "en": "This part has no matching hole here. Try the floor or another part.",
+    "ko": "이 부품에는 맞는 구멍이 없어요. 바닥이나 다른 부품에 놓아요.",
+    "ja": "この部品には合う穴がありません。床か別の部品に置きましょう。",
+    "zh_CN": "此零件在这里没有匹配的孔位。请尝试地面或其他零件。"
+  },
+  {
+    "en": "Attached at %d holes.",
+    "ko": "구멍 %d곳에 붙였어요.",
+    "ja": "%d か所の穴に取り付けました。",
+    "zh_CN": "已在 %d 个孔位上安装。"
+  },
+  {
+    "en": "Placed on the floor.",
+    "ko": "바닥에 놓았어요.",
+    "ja": "床に置きました。",
+    "zh_CN": "已放在地面上。"
+  },
+  {
+    "en": "Moving %s. Pick a hole to attach it again.",
+    "ko": "%s 옮기는 중이에요. 구멍을 골라 다시 붙여요.",
+    "ja": "%s を移動しています。穴を選んで取り付け直しましょう。",
+    "zh_CN": "正在移动 %s。选择孔位重新安装。"
+  },
+  {
+    "en": "Placement cancelled.",
+    "ko": "끼우기를 그만뒀어요.",
+    "ja": "取り付けをキャンセルしました。",
+    "zh_CN": "已取消安装。"
+  },
+  {
+    "en": "Place and turn parts",
+    "ko": "부품 끼우고 돌리기",
+    "ja": "部品を取り付けて回す",
+    "zh_CN": "安装与旋转零件"
+  },
+  {
+    "en": "Start in Lab with an empty workbench. Drag a plate from the tray onto the floor, then drag a beam onto one of its holes. The same 20 mm-pitch beams, plates and brackets can form many different structures.",
+    "ko": "Lab의 빈 작업대에서 시작해요. 트레이에서 판을 끌어 바닥에 놓고, 빔을 판 구멍에 끼워요. 구멍 간격이 20 mm인 같은 빔, 판, 브래킷으로 여러 구조를 만들 수 있어요.",
+    "ja": "Lab の空の作業台で始めましょう。トレイからプレートを床へドラッグし、梁をプレートの穴へドラッグします。同じ 20 mm 穴ピッチの梁、プレート、ブラケットから、さまざまな構造を作れます。",
+    "zh_CN": "从 Lab 的空工作台开始。将托盘中的板拖到地面，再将梁拖到板的孔位上。相同的 20 mm 孔距梁、板和支架可以组成多种结构。"
+  },
+  {
+    "en": "In edit mode, find a part in the tray and drag it onto a hole. You can also click a tray part, then click the 3D view to place it. A preview shows where it will attach.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot.",
+    "ko": "편집 모드에서 트레이의 부품을 찾아 구멍에 끌어다 끼워요. 트레이의 부품을 클릭한 뒤 3D 화면을 클릭해서 놓아도 돼요. 붙을 자리는 미리보기로 보여요.\n\n기계 연결은 부품을 고정해요. 전기 연결은 서보와 보드 핀을 이어요. 코드는 로봇에 실제로 배선한 핀을 사용해야 해요.",
+    "ja": "編集モードでトレイの部品を見つけ、穴へドラッグしましょう。トレイの部品をクリックしてから 3D ビューをクリックして置くこともできます。取り付け位置はプレビューで確認できます。\n\n機械接続は部品を固定します。電気接続はサーボとボードのピンをつなぎます。コードでは実際に配線したピンを使いましょう。",
+    "zh_CN": "在编辑模式下找到托盘中的零件，将其拖到孔位上。也可以先点击托盘零件，再点击 3D 视图放置。预览会显示安装位置。\n\n机械连接固定零件。电气连接将舵机映射到开发板引脚；代码必须使用机器人实际接线的引脚。"
+  },
+  {
+    "en": "While placing, R or the wheel turns the part by 90 degrees. Shift + R turns the other way. Tab picks another anchor hole; F flips to the other face. Click to attach. Esc or right-click cancels.\n\nDrag a placed part to attach it somewhere else. Cancelling restores its original position and connections.",
+    "ko": "끼우는 동안 R이나 휠로 부품을 90도씩 돌려요. Shift + R은 반대로 돌려요. Tab으로 다른 앵커 구멍을 고르고 F로 반대 면을 골라요. 클릭하면 붙고 Esc나 오른쪽 클릭으로 취소해요.\n\n놓인 부품을 끌어 다른 곳에 다시 끼울 수 있어요. 취소하면 원래 위치와 연결로 돌아가요.",
+    "ja": "取り付け中は R またはホイールで部品を 90 度ずつ回します。Shift + R で逆方向に回します。Tab で別の基準穴を選び、F で反対の面に切り替えます。クリックで取り付け、Esc または右クリックでキャンセルします。\n\n置いた部品をドラッグして別の場所に取り付け直せます。キャンセルすると元の位置と接続に戻ります。",
+    "zh_CN": "安装时，R 或滚轮可将零件旋转 90 度。Shift + R 反向旋转。Tab 选择其他锚点孔，F 切换到另一面。点击安装，Esc 或右键取消。\n\n拖动已放置的零件可重新安装到其他位置。取消会恢复原来的位置和连接。"
+  },
+  {
+    "en": "Construction-kit humanoid loaded. Select a part to inspect its holes.",
+    "ko": "조립 키트 휴머노이드를 불러왔어요. 부품을 선택해 구멍을 살펴봐요.",
+    "ja": "組立キットのヒューマノイドを読み込みました。部品を選んで穴を確認しましょう。",
+    "zh_CN": "已加载拼装套件类人机器人。选中零件可查看孔位。"
+  }
+]

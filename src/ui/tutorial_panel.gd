@@ -7,7 +7,7 @@ const STEPS: Array[Dictionary] = [
 	{
 		"title": "Build with interchangeable parts",
 		"icon": "box",
-		"body": "Choose Answer: construction-kit humanoid or Answer: kit bridge. Both use the same 20 mm-pitch beams, plates, brackets and connectors. Select one part, move it with G and snap a matching hole to another part. The Blender file includes a parts tray, assembled examples and an exploded view; no torso or limb is one joined frame.",
+		"body": "Start in Lab with an empty workbench. Drag a plate from the tray onto the floor, then drag a beam onto one of its holes. The same 20 mm-pitch beams, plates and brackets can form many different structures.",
 		"hint": "The kit uses ssok's own virtual dimensions, not a certified commercial standard. Motors are complete units; structural beams, plates and covers remain separate.",
 	},
 	{
@@ -19,13 +19,13 @@ const STEPS: Array[Dictionary] = [
 	{
 		"title": "Add and connect parts",
 		"icon": "cpu",
-		"body": "In edit mode, search the Parts library or use its category filter, then click a part to add it. Select it in the 3D view and press G to move it near a compatible yellow port. Confirm to snap.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot.",
+		"body": "In edit mode, find a part in the tray and drag it onto a hole. You can also click a tray part, then click the 3D view to place it. A preview shows where it will attach.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot.",
 		"hint": "Ctrl + Z undoes an addition, deletion or transform. Selection alone does not disconnect parts.",
 	},
 	{
-		"title": "Edit with familiar shortcuts",
+		"title": "Place and turn parts",
 		"icon": "move",
-		"body": "Select a part, then press G to move or R to rotate. Press X, Y or Z to constrain the world axis. Type a distance in millimetres or an angle in degrees.\n\nTry G, X, 10, Enter to move 10 mm. Enter confirms; Esc cancels and restores connections. This is object editing, not Blender mesh or vertex editing.",
+		"body": "While placing, R or the wheel turns the part by 90 degrees. Shift + R turns the other way. Tab picks another anchor hole; F flips to the other face. Click to attach. Esc or right-click cancels.\n\nDrag a placed part to attach it somewhere else. Cancelling restores its original position and connections.",
 		"hint": "Use Frame robot to fit the view. Part scaling is not supported; the vertical axis is Y.",
 	},
 	{

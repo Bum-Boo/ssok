@@ -30,9 +30,9 @@ func _run() -> void:
 			break
 	_check(beam != null, "robot exposes individual beam objects")
 	if beam != null:
-		_check(not (beam.get_node("PortHints") as MultiMeshInstance3D).visible, "unselected kit shows actual drilled holes without overlay caps")
+		_check(_main._port_indicators.ring_count() == 0, "unselected kit shows actual drilled holes without overlay caps")
 		_main.assembly.select_part(beam)
-		_check((beam.get_node("PortHints") as MultiMeshInstance3D).visible, "selection reveals batched per-hole attachment hints")
+		_check(_main._port_indicators.ring_count() == _free_ports(graph, beam.graph_index) and _main._port_indicators.ring_count() > 0, "selection reveals batched per-hole attachment hints")
 		root.gui_release_focus()
 		var before: Transform3D = beam.global_transform
 		var beam_index: int = beam.graph_index
@@ -123,3 +123,17 @@ func _check(condition: bool, message: String) -> void:
 	if not condition:
 		_failures += 1
 		push_error("FAIL " + message)
+
+
+func _free_ports(graph: ConnectionGraph, part_index: int) -> int:
+	var result: int = 0
+	for port: Port in graph.parts[part_index].part_def.ports:
+		if port.kind == Port.Kind.ELEC:
+			continue
+		var occupied: bool = false
+		for link: Dictionary in graph.links:
+			if (link.a_part == part_index and link.a_port == port.id) or (link.b_part == part_index and link.b_port == port.id):
+				occupied = true
+				break
+		result += int(not occupied)
+	return result

@@ -33,7 +33,7 @@ func _run() -> void:
 	panel._show_best()
 	panel._status("%s | evaluations: %d | API calls: %s | tokens: %s%s", ["COMPLETED", 1, "0", "0", ""], [0])
 	var translated_arguments: Array[int] = [0]
-	_main._set_status("Added %s - G to move, R to rotate, Enter to confirm", false, ["Foot"], translated_arguments)
+	_main._set_status("Moving %s. Pick a hole to attach it again.", false, ["Foot"], translated_arguments)
 	var original_policy: Dictionary = panel.best.policy.duplicate()
 	var keys: PackedStringArray = (load("res://assets/locales/ko.po") as Translation).get_message_list()
 	var pickup_messages: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/pickup_messages.json"))
@@ -49,6 +49,7 @@ func _run() -> void:
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/workshop_guide_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/functional_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/own_build_messages.json")))
+	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/modular_build_messages.json")))
 	_check(keys.size() >= 189, "complete translation inventory")
 	for locale: String in SsokLocale.LOCALES:
 		_check(SsokLocale.select_locale(locale, false) == OK, "switch " + locale)

@@ -2601,3 +2601,45 @@ msgstr "环境：杯子"
 
 msgid "Environment"
 msgstr "环境"
+
+msgid "Drag a part onto a hole to attach it"
+msgstr "将零件拖到孔位上进行安装"
+
+msgid "Line up a hole and click to attach. R rotates, Tab picks another hole."
+msgstr "对准孔位并点击即可安装。R 旋转，Tab 选择其他孔位。"
+
+msgid "Place it on the floor, or move it over a part to attach."
+msgstr "将其放在地面上，或移到其他零件上进行安装。"
+
+msgid "This spot is blocked. Try another hole."
+msgstr "此处被挡住了。请尝试其他孔位。"
+
+msgid "This part has no matching hole here. Try the floor or another part."
+msgstr "此零件在这里没有匹配的孔位。请尝试地面或其他零件。"
+
+msgid "Attached at %d holes."
+msgstr "已在 %d 个孔位上安装。"
+
+msgid "Placed on the floor."
+msgstr "已放在地面上。"
+
+msgid "Moving %s. Pick a hole to attach it again."
+msgstr "正在移动 %s。选择孔位重新安装。"
+
+msgid "Placement cancelled."
+msgstr "已取消安装。"
+
+msgid "Place and turn parts"
+msgstr "安装与旋转零件"
+
+msgid "Start in Lab with an empty workbench. Drag a plate from the tray onto the floor, then drag a beam onto one of its holes. The same 20 mm-pitch beams, plates and brackets can form many different structures."
+msgstr "从 Lab 的空工作台开始。将托盘中的板拖到地面，再将梁拖到板的孔位上。相同的 20 mm 孔距梁、板和支架可以组成多种结构。"
+
+msgid "In edit mode, find a part in the tray and drag it onto a hole. You can also click a tray part, then click the 3D view to place it. A preview shows where it will attach.\n\nMechanical connections hold parts together. Electrical connections map servos to board pins; code must use the pins actually wired in your robot."
+msgstr "在编辑模式下找到托盘中的零件，将其拖到孔位上。也可以先点击托盘零件，再点击 3D 视图放置。预览会显示安装位置。\n\n机械连接固定零件。电气连接将舵机映射到开发板引脚；代码必须使用机器人实际接线的引脚。"
+
+msgid "While placing, R or the wheel turns the part by 90 degrees. Shift + R turns the other way. Tab picks another anchor hole; F flips to the other face. Click to attach. Esc or right-click cancels.\n\nDrag a placed part to attach it somewhere else. Cancelling restores its original position and connections."
+msgstr "安装时，R 或滚轮可将零件旋转 90 度。Shift + R 反向旋转。Tab 选择其他锚点孔，F 切换到另一面。点击安装，Esc 或右键取消。\n\n拖动已放置的零件可重新安装到其他位置。取消会恢复原来的位置和连接。"
+
+msgid "Construction-kit humanoid loaded. Select a part to inspect its holes."
+msgstr "已加载拼装套件类人机器人。选中零件可查看孔位。"
