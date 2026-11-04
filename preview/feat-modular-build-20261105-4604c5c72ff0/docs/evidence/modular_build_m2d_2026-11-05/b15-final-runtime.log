@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+KIT_RUNTIME_MEASUREMENTS {"drive_dx_m":0.935021928395145,"left_pin":0,"moved_wall_cm":93.5410857200623,"right_pin":12,"sonar_cm":73.5429108142853,"sonar_pins":[1,2]}
+KIT_STAGE_RESULT raise-flag {"elapsed_seconds":1.2,"execution_id":2,"expired":false,"measurements":[{"held_seconds":1.0,"met":true,"metric":"max_height","part_index":-1,"state":"valid","value":0.193339750170708}],"reason":"","status":"success","success":true,"wall_contact":false}
+KIT_STAGE_RESULT finish-line {"elapsed_seconds":1.5,"execution_id":2,"expired":false,"measurements":[{"held_seconds":0.0166666666666667,"met":true,"metric":"min_x","part_index":-1,"state":"valid","value":0.504574537277222}],"reason":"","status":"success","success":true,"wall_contact":false}
+KIT_STAGE_RESULT wall-brake {"elapsed_seconds":4.11666666666666,"execution_id":2,"expired":false,"measurements":[{"held_seconds":0.700000000000001,"met":true,"metric":"wall_distance","part_index":-1,"state":"valid","value":0.0666391253471375},{"held_seconds":0.3,"met":true,"metric":"robot_speed","part_index":-1,"state":"valid","value":0.008333470672369},{"held_seconds":4.11666666666666,"met":true,"metric":"wall_contact","part_index":-1,"state":"valid","value":0.0}],"reason":"","status":"success","success":true,"wall_contact":false}
+kit_robot_runtime_check: 101 checks, 0 failures

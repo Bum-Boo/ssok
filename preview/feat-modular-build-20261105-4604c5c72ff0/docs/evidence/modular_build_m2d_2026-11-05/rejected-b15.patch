@@ -1,0 +1,118 @@
+diff --git a/assets/parts/ball_caster.tres b/assets/parts/ball_caster.tres
+index 613051d..bc6eb06 100644
+--- a/assets/parts/ball_caster.tres
++++ b/assets/parts/ball_caster.tres
+@@ -47,6 +47,6 @@ id = &"ball_caster"
+ display_name = "Ball Caster"
+ mesh = ExtResource("1_n5esp")
+ ports = Array[ExtResource("2_bjxci")]([SubResource("Resource_312gd"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back")])
+-mass_kg = 0.005
++mass_kg = 0.015
+ caster_radius = 0.012
+ collision_points = PackedVector3Array()
+diff --git a/presets/kit_car.gd b/presets/kit_car.gd
+index 034a414..0220dbe 100644
+--- a/presets/kit_car.gd
++++ b/presets/kit_car.gd
+@@ -8,34 +8,26 @@ const FLAT: Basis = Basis(Vector3.BACK, Vector3.RIGHT, Vector3.UP)
+ static func build(wall_x: float = 0.0) -> ConnectionGraph:
+ 	var graph := ConnectionGraph.new()
+ 	var deck_basis := Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP)
+-	var deck: int = _add(graph, "kit_plate_220_120", Vector3(0, 0.078, 0), deck_basis)
++	var deck: int = _add(graph, "kit_plate_60_40", Vector3(0, 0.105, -0.01), deck_basis)
+ 	var motors: Array[int] = []
+-	var rails: Array[int] = []
++	var axle_beam: int = _attach(graph, deck, "h0_back", "kit_beam_140", "h3_front", deck_basis)
+ 	for side: int in 2:
+-		var z: float = -0.05 if side == 0 else 0.05
+-		var rail: int = _attach(graph, deck, _hole(graph, deck, Vector3(-0.1, -z, 0.002)), "kit_beam_140", "h0_back", FLAT)
+-		rails.append(rail)
+-		var motor: int = _attach(graph, rail, "h3_front", "tt_motor", "kit_h0_back")
+-		_link(graph, rail, "h4_front", motor, "kit_h1_back")
++		var motor: int = _attach(graph, axle_beam, "h6_back" if side == 0 else "h0_back", "tt_motor", "kit_h0_front")
+ 		motors.append(motor)
+-		_attach(graph, motor, "shaft_left" if side == 0 else "shaft_right", "kit_wheel_90", "hub", Basis(Vector3.UP, PI) if side == 0 else Basis.IDENTITY)
+-	var board_rail: int = _attach(graph, rails[0], "h2_front", "kit_beam_100", "h4_back", deck_basis)
+-	var driver_rail: int = _attach(graph, rails[1], "h6_front", "kit_beam_100", "h0_back", deck_basis)
+-	var board: int = _attach(graph, board_rail, "h2_front", "microbit", "kit_h0_back")
+-	var driver: int = _attach(graph, driver_rail, "h2_front", "motor_driver", "kit_h0_back")
+-	var caster_spacer: int = _attach(graph, deck, _hole(graph, deck, Vector3(0.1, 0.01, -0.002)), "kit_spacer_20", "bore_front", deck_basis)
+-	_attach(graph, caster_spacer, "bore_back", "ball_caster", "kit_h1_front")
+-	var bracket: int = _attach(graph, deck, _hole(graph, deck, Vector3(0.1, -0.01, 0.002)), "kit_angle_bracket", "base_2_back", Basis(Vector3.UP, PI / 2.0))
+-	var sonar: int = _attach(graph, bracket, "upright_3_front", "hc_sr04", "kit_h0_back", Basis(Vector3.UP, PI / 2.0))
++		_attach(graph, motor, "shaft_left" if side == 0 else "shaft_right", "wheel_65", "hub", Basis(Vector3.UP, PI) if side == 0 else Basis.IDENTITY)
++	var board: int = _attach(graph, deck, "h2_front", "microbit", "kit_h0_back")
++	var driver: int = _attach(graph, deck, "h0_front", "motor_driver", "kit_h3_back", Basis(Vector3.UP, PI / 2.0))
++	var caster_beam: int = _attach(graph, deck, "h4_back", "kit_beam_60", "h1_front", FLAT)
++	var caster_spacer: int = _attach(graph, caster_beam, "h2_back", "kit_spacer_20", "bore_front", deck_basis)
++	_attach(graph, caster_spacer, "bore_back", "ball_caster", "kit_h0_front", Basis(Vector3.UP, PI / 2.0))
++	var bracket: int = _attach(graph, deck, "h5_front", "kit_angle_bracket", "base_4_back", Basis(Vector3.UP, -PI / 2.0))
++	var sonar: int = _attach(graph, bracket, "upright_3_back", "hc_sr04", "kit_h0_back", Basis(Vector3.UP, PI / 2.0))
+ 	for pin: int in [0, 8, 12, 16]:
+ 		_link(graph, board, "pin_%d" % pin, driver, "input_%d" % pin)
+ 	_link(graph, driver, "motor_1", motors[0], "power")
+ 	_link(graph, driver, "motor_2", motors[1], "power")
+ 	_link(graph, board, "pin_1", sonar, "trig_pin")
+ 	_link(graph, board, "pin_2", sonar, "echo_pin")
+-	# Begin above the table so the offset caster settles without initial penetration.
+-	for part: Dictionary in graph.parts:
+-		part.transform.origin.y += 0.02
+ 	if wall_x > 0:
+ 		_add(graph, "stage_wall", Vector3(wall_x, 0.15, 0))
+ 	return graph
+diff --git a/tests/kit_robot_runtime_check.gd b/tests/kit_robot_runtime_check.gd
+index f94b5ae..2b55559 100644
+--- a/tests/kit_robot_runtime_check.gd
++++ b/tests/kit_robot_runtime_check.gd
+@@ -46,6 +46,7 @@ func _graph_checks(graph: ConnectionGraph) -> void:
+ func _run() -> void:
+ 	_graph_checks(KitCarPreset.build())
+ 	_graph_checks(KitFlagArmPreset.build())
++	_car_geometry_checks()
+ 	var world := Node3D.new()
+ 	root.add_child(world)
+ 	var floor_body := StaticBody3D.new()
+@@ -113,3 +114,30 @@ func _run() -> void:
+ 	await process_frame
+ 	print("kit_robot_runtime_check: %d checks, %d failures" % [checks, failures])
+ 	quit(1 if failures else 0)
++
++
++func _car_geometry_checks() -> void:
++	var graph: ConnectionGraph = KitCarPreset.build()
++	var wheels: Array[Vector3] = []
++	var caster := Vector3.ZERO
++	var sonar_max_x: float = -INF
++	var robot_max_x: float = -INF
++	for part: Dictionary in graph.parts:
++		var definition: PartDef = part.part_def
++		if definition.wheel_radius > 0:
++			_check(definition.id == &"wheel_65", "kit car uses the legacy TT wheel hub and 65 mm wheel")
++			wheels.append(part.transform.origin)
++		if definition.id == &"ball_caster":
++			caster = part.transform.origin
++		for corner: int in 8:
++			var point: Vector3 = part.transform * definition.mesh.get_aabb().get_endpoint(corner)
++			robot_max_x = maxf(robot_max_x, point.x)
++			if definition.id == &"hc_sr04":
++				sonar_max_x = maxf(sonar_max_x, point.x)
++	_check(wheels.size() == 2, "kit car has two drive wheels")
++	if wheels.size() != 2:
++		return
++	_check(absf(caster.x - wheels[0].x - 0.0665) <= 0.003, "caster lead matches legacy within 3 mm")
++	_check(absf(caster.y - wheels[0].y + 0.0205) <= 0.003, "caster sphere height matches legacy within 3 mm")
++	_check(absf(absf(wheels[0].z - wheels[1].z) - 0.164) < 0.0001, "kit car retains legacy wheel track")
++	_check(absf(sonar_max_x - robot_max_x) < 0.0001, "sonar is the foremost robot bound")
+diff --git a/tools/godot/make_learning_parts.gd b/tools/godot/make_learning_parts.gd
+index fb091a0..0a4f876 100644
+--- a/tools/godot/make_learning_parts.gd
++++ b/tools/godot/make_learning_parts.gd
+@@ -28,7 +28,7 @@ func _init() -> void:
+ 	chassis.ports.append(_port(&"sensor_mount", Port.Kind.MECH, Vector3(0.070, 0.060, 0), Vector3.RIGHT, &"base_mount", [&"sensor_mount"]))
+ 	chassis.ports.append(_port(&"caster_mount", Port.Kind.MECH, Vector3(0.055, -0.004, 0), Vector3.DOWN, &"base_mount", [&"caster_mount"]))
+ 	_save(chassis)
+-	var caster := _box(&"ball_caster", "Ball Caster", Vector3.ONE * 0.024, 0.005, Color(0.6, 0.6, 0.65))
++	var caster := _box(&"ball_caster", "Ball Caster", Vector3.ONE * 0.024, 0.015, Color(0.6, 0.6, 0.65))
+ 	caster.caster_radius = 0.012
+ 	caster.merge_fixed_connections = false
+ 	caster.ports.append(_port(&"mount", Port.Kind.MECH, Vector3(0, 0.0015, 0), Vector3.UP, &"caster_mount", [&"base_mount"]))

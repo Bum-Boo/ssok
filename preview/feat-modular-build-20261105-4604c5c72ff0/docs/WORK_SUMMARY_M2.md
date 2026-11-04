@@ -1207,3 +1207,487 @@ PASS parts_pack_environment_check (1.6s)
 PASS robot_car_check (0.8s)
 4 checks; 0 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2c-20261105\repo\build\verification-m2c-restored\SUMMARY.md
 ```
+
+
+## M2d — 형상·질량 대조와 벽 답지 임시 예외 (2026-11-05)
+
+작업 계약: 시작 `b7f417620624befc34b93168661786441111969f`, 격리 작업실
+`C:/Users/Hojun/agent-jobs/ssok-M2d-20261105/repo`, 브랜치 `feat/modular-build-20261105`.
+상위 `brief.md`의 실행 범위로 A 형상 → B 15/20 g → 필요한 경우 벽 예외 순서예요.
+합격은 실제 세 답지 통과와 옛 차 관련 새 실패 없음이며 로컬 커밋까지 하고 푸시하지 않아요.
+총괄은 구현·계측·검증·문서, 독립 일꾼은 읽기 전용 기하 조언과 Astra 검수를 맡았어요.
+허용 파일은 키트 차 프리셋, 캐스터 생성기/리소스, 해당 검사·진단과 문서예요.
+Windows native Godot 4.7.2 import/진단과 Python 검증기의 실제 실행을 도구 준비 근거로 삼았어요.
+기존 상위 task와 다른 작업실을 보존하고 별도 M2d 소유권을 사용했어요.
+
+### 채택한 안과 범위
+
+**브리프 3항의 벽 답지 임시 예외를 채택해요.** A는 벽 정지에 실패했고,
+B15/B20은 세 답지를 통과했지만 옛 차 카메라 정착 검사에서 새 실패가 생겨 기각했어요.
+벽의 `author_solution`만 `RobotCarPreset.build(0.8)`과 기존 `BRAKE_CODE`로 교체해요.
+깃발·결승선은 원래 키트 답지이며 원래 키트 `scene` 문서와 48종 트레이를 보존해요.
+`parts_tray_check`는 벽 답지 전체 fingerprint, 숨긴 부품이 `car_chassis` 하나뿐임,
+원래 코드, 키트 scene fingerprint 보존을 명시적으로 확인해요. 다른 답지는 트레이 부품만 써요.
+ADR 0039 Consequences에 사용자가 지정한 임시 예외 한 줄을 추가했어요.
+
+최종 키트 형상·캐스터 5 g·생성기를 시작 소스로 복원했어요. 앱 변경은 벽 답지 선택뿐이에요.
+`BRAKE_CODE`/`ANSWER_CODE`, 판정 지표/기준, 전역 물리, `run_mode.gd` 변환,
+병합 설정, workflows, M1 조작과 의존성은 바꾸지 않았어요.
+
+### 기각한 A/B 형상과 수치
+
+아래는 최종 앱이 아닌 **기각한 실험 형상**이에요. 60×40 mm 판, 140 mm 가로 빔과
+60 mm 캐스터 빔, 20 mm 스페이서와 꺾쇠를 사용했어요. 바퀴는 `wheel_65`이고
+보드·드라이버는 판에 직접 연결했어요. 캐스터를 Y축으로 90° 돌려 구멍 피치에서 원하는
+전후 거리를 얻고 빔 중앙 구멍에 체결해 센서보다 짧게 했어요.
+15/20 g은 생성기를 거쳐 `.tres`에 반영했으며 고정 병합은 시도하지 않았어요.
+후보 패치와 실제 출력은 [M2d 근거](evidence/modular_build_m2d_2026-11-05/README.md)에 있어요.
+
+| 조립/솔버 항목 | 옛 차 | 이전 키트 차(M2c 이력) | A/B 최종 후보 |
+|---|---:|---:|---:|
+| 차체 솔버 질량 g | 174.00 | 539.80 | 220.12 |
+| 바퀴 지름 mm / 각 질량 g | 65 / 30 | 90 / 55 | 65 / 30 |
+| 좌우 바퀴 중심 간격 mm | 164 | 별도 대조 미실행 | 164 |
+| 캐스터 전방 거리(축 기준) mm | 66.5 | 137.5 | 67.5 |
+| 캐스터 높이(축 기준) mm | −20.5 | −51 | −21 |
+| 차체 COM(축 기준 X,Y,Z) mm | 19.62,−5.70,0 | 별도 대조 미실행 | 32.23,16.69,−10.26 |
+| 센서 메쉬 앞면 / 로봇 max_x mm | 84.1 / 84.1 | 별도 대조 미실행 | 54.1 / 54.1 |
+| 센서 광선 시작 x mm | 82.8 | 별도 대조 미실행 | 52.8 |
+
+차체는 옛 차보다 26.5% 무겁고 질량 중심도 전방 12.61 mm·높이 22.39 mm·옆방향 −10.26 mm
+차이가 남아요. 질량/무게 중심이 같다고 보고하지 않아요. 센서 메쉬가 가장 앞이지만
+기존 감지 원점은 그 앞면보다 1.3 mm 안쪽이므로 측정 거리와 외형 간격이 정확히 같아졌다고
+주장하지 않아요. 기존 센서 리소스·광선 규칙을 바꾸지 않은 한계예요.
+
+진단 조건은 바닥 윗면 y=0.05 m, 벽 x=0.8 m, 60 Hz, 생성 직후 동일 `BRAKE_CODE`,
+VM 종료 뒤 2초까지 관측이에요. 속도는 기존 evaluator의 모든 부품 중 최대 선속도예요.
+간격 5–10 cm·속도 ≤0.015 m/s를 0.3초 유지·접촉 없음 기준을 그대로 사용해요.
+모든 A/B 행은 같은 최종 후보 형상이고 캐스터 질량만 달라요. 초기 탐색 배치는 합산하지 않아요.
+
+| 안 / 차 | 캐스터 g | 차체:캐스터 질량비 | 벽 간격 m | 최대 속도 m/s | 접촉 | 벽 결과 | 마지막 피치 ° |
+|---|---:|---:|---:|---:|---:|---|---:|
+| A / 옛 차 | 5 | 34.80 | 0.074489236 | 0.005308629 | 0 | PASS | −0.7566 |
+| A / 키트 | 5 | 44.02 | 0.086226761 | 0.054729391 | 0 | FAIL | −19.1279 |
+| B15 / 옛 차 | 15 | 11.60 | 0.070027947 | 0.006868911 | 0 | PASS | −0.6745 |
+| B15 / 키트 | 15 | 14.67 | 0.066379368 | 0.008370611 | 0 | PASS | −1.2352 |
+| B20 / 옛 차 | 20 | 8.70 | 0.069130063 | 0.000651914 | 0 | PASS | −0.7264 |
+| B20 / 키트 | 20 | 11.01 | 0.063098133 | 0.004575098 | 0 | PASS | −0.4493 |
+
+아래는 별도 runtime 실행의 세 과제 수치이며 진단 종료 수치와 섞지 않아요.
+
+| 안 | 깃발 최고 높이 m / 유지 | 결승선 min_x m | 벽 간격 m / 속도 m/s / 접촉 | 세 답지 |
+|---|---|---:|---|---|
+| A5 | 0.19333975 / 1초 | 0.50148910 | 0.08678132 / 0.05453517 / 0 | FAIL |
+| B15 | 0.19333975 / 1초 | 0.50457454 | 0.06663913 / 0.00833347 / 0 | PASS |
+| B20 | 0.19333975 / 1초 | 0.50262111 | 0.06875575 / 0.00458820 / 0 | PASS |
+
+A는 초기 sonar 401/범위 밖 두 항목과 벽 정지가 실패했어요. 15 g에서는 벽을 20 cm 옮기면
+73.5429→93.5411 cm, 기존 주행 코드로 +X 0.9350 m 이동했어요. B15 추가 진단에서 옛 차와
+키트 결승선도 동일 `ANSWER_CODE`로 각각 min_x 0.50645196/0.50457454 m로 통과했어요.
+깃발 프리셋은 바꾸지 않았으며 모든 질량에서 깃발 관측은 같았어요.
+솔버 군집·질량·마찰·COM·초기 형상과 60 Hz 캐스터 시계열을 JSON에 보존했어요.
+질량 증가와 작은 구속 몸체의 안정화를 관측했지만 솔버 내부의 단독 원인은 확정하지 않아요.
+
+### 기각 근거와 검토
+
+B15 대상 검사는 30종 중 29 PASS / 1 FAIL(exit 1)이고 새 실패는 `agent_camera_rest_check`예요.
+10초 드리프트 0.00268117291853 m가 기존 0.002 m 기준을 넘었으므로 기각했어요.
+B20은 생성기를 거친 20 g 리소스로 세 답지 통과를 측정했어요. 별도 카메라 정착 probe는
+캐스터 Resource를 강한 참조로 보관하고 0.020 kg를 확인한 뒤 원래 검사 코드를 상속해
+실행했으며 드리프트 0.00272093876265 m로 실패했어요. 20 g도 기각해 전체 20 g 검사는
+실행하지 않았어요. 첫 probe는 강한 참조가 없어 15 g을 다시 로드했으므로 20 g 근거에서 제외했어요.
+B15 전체 검사는 기각 확인 뒤 소유한 exec stdin에 Ctrl-C로 협력 중단했어요. 미완주 콘솔/부분
+results를 보존하고 전체 통과로 쓰지 않아요. 프로세스 잔류가 없음을 확인한 뒤 최종 배치를 시작했어요.
+
+독립 Astra는 실제 GL 두 장과 후보 소스/계측을 검토했어요. 후보의 브래킷 밑판 겹침은
+1.5 mm로 기존 2 mm 허용 이내이고, 보드/드라이버는 면 접촉이에요. 최종 fallback 검수에서
+`StageDefinition.create()` 인수 변경이 `scene`도 바꾸는 것을 찾아 첫 배치를 협력 중단했어요.
+원래 키트 scene으로 생성한 뒤 author_solution만 교체하고 scene fingerprint 검사도 추가해
+새 최종 배치를 실행했어요. 후보·중단 배치를 최종 결과에 합산하지 않아요.
+
+저장/물리 계약이 같아 DATA_MODEL·ARCHITECTURE 도식은 유지하고 FLOWS/STAGE_CONTRACTS의
+답지 예외를 보완했어요. 사용자 문구·네 언어·비용 변경은 없어요. Web·실사용자 구멍 조립 재현·
+배포는 미검증이에요. 기존 전역 instruction-health의 스킬 링크 마운트 33오류는 환경을 고치지 않고
+기록했으며 필요한 스킬 원본을 확인해 사용했어요.
+
+### 실제 검사 출력과 인계
+
+최종 대상은 **30종 / 30 PASS / 0 FAIL(exit 0)**예요. 같은 소스의 별도 런타임은
+106개 항목 모두 통과했고, 깃발 0.19333975 m/1초, 결승선 min_x 0.50151682 m,
+벽 간격 0.06943625 m·최대 속도 0.00510959 m/s·접촉 0으로 세 답지가 통과했어요.
+옛 차 카메라 드리프트는 0.00117532955 m로 기준 0.002 m 이내예요.
+원래 키트 벽 로봇을 해결한 것은 아니며 벽의 임시 옛 답지로 완료 기준을 충족하는 범위예요.
+
+```powershell
+python tools/ci/verify.py --godot "$env:GODOT" --match '^(kit_robot_runtime|stage_own_build|game_flow|stage_authoring|robot_car|sonar_stage|parts_pack_.*|stage_contract|parts_tray|agent_camera_.*|camera_evaluator_.*)_check' --output build/verification-m2d-final-target
+$env:PYTHONUTF8='1'
+python tools/ci/verify.py --godot "$env:GODOT" --output build/verification-m2d-final-full
+```
+
+Final target console (verbatim):
+
+```text
+RUN  agent_camera_loop_check
+PASS agent_camera_loop_check (4.2s)
+RUN  agent_camera_loop_check-rendered
+PASS agent_camera_loop_check-rendered (10.9s)
+RUN  agent_camera_rest_check
+PASS agent_camera_rest_check (15.0s)
+RUN  camera_evaluator_lifecycle_check-normal_stop
+PASS camera_evaluator_lifecycle_check-normal_stop (6.0s)
+RUN  camera_evaluator_lifecycle_check-drive_stop
+PASS camera_evaluator_lifecycle_check-drive_stop (12.2s)
+RUN  camera_evaluator_lifecycle_check-teardown
+PASS camera_evaluator_lifecycle_check-teardown (5.4s)
+RUN  camera_evaluator_lifecycle_check-mode_off
+PASS camera_evaluator_lifecycle_check-mode_off (5.5s)
+RUN  camera_evaluator_lifecycle_check-app_free
+PASS camera_evaluator_lifecycle_check-app_free (5.2s)
+RUN  camera_evaluator_lifecycle_check-rebuild
+PASS camera_evaluator_lifecycle_check-rebuild (5.6s)
+RUN  camera_evaluator_lifecycle_check-new_episode
+PASS camera_evaluator_lifecycle_check-new_episode (6.5s)
+RUN  camera_evaluator_lifecycle_check-driving_stop
+PASS camera_evaluator_lifecycle_check-driving_stop (5.7s)
+RUN  camera_evaluator_lifecycle_check-driving_rebuild
+PASS camera_evaluator_lifecycle_check-driving_rebuild (5.6s)
+RUN  camera_evaluator_lifecycle_check-driving_app_free
+PASS camera_evaluator_lifecycle_check-driving_app_free (5.3s)
+RUN  camera_evaluator_lifecycle_check-driving_new_episode
+PASS camera_evaluator_lifecycle_check-driving_new_episode (6.6s)
+RUN  camera_evaluator_lifecycle_check-driving_teardown
+PASS camera_evaluator_lifecycle_check-driving_teardown (5.5s)
+RUN  camera_evaluator_lifecycle_check-driving_mode_off
+PASS camera_evaluator_lifecycle_check-driving_mode_off (5.5s)
+RUN  game_flow_check
+PASS game_flow_check (26.9s)
+RUN  kit_robot_runtime_check
+PASS kit_robot_runtime_check (9.9s)
+RUN  parts_pack_button_check
+PASS parts_pack_button_check (0.5s)
+RUN  parts_pack_environment_check
+PASS parts_pack_environment_check (1.5s)
+RUN  parts_pack_gears_check
+PASS parts_pack_gears_check (1.7s)
+RUN  parts_pack_inventory_check
+PASS parts_pack_inventory_check (4.3s)
+RUN  parts_pack_led_check
+PASS parts_pack_led_check (0.4s)
+RUN  parts_pack_line_check
+PASS parts_pack_line_check (0.7s)
+RUN  parts_tray_check
+PASS parts_tray_check (3.1s)
+RUN  robot_car_check
+PASS robot_car_check (0.7s)
+RUN  sonar_stage_check
+PASS sonar_stage_check (17.8s)
+RUN  stage_authoring_check
+PASS stage_authoring_check (10.0s)
+RUN  stage_contract_check
+PASS stage_contract_check (15.8s)
+RUN  stage_own_build_check
+PASS stage_own_build_check (39.4s)
+30 checks; 0 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2d-20261105\repo\build\verification-m2d-final-target\SUMMARY.md
+```
+
+
+최종 전체는 **121종 / 119 PASS / 2 FAIL(exit 1)**이에요. 기존 환경 실패인
+`tests-motion_mcp_check.py`의 `mcp`, `tools-rl_lab-test_rl_lab.py`의 `mujoco` 누락만 남았어요.
+새 의존성을 설치하거나 실패를 숨기지 않았어요. import·scene-load·번역을 포함한 앱 검사와
+세 답지·옛 차·부품 팩·카메라 관련 검사는 모두 통과했어요.
+대상→전체 동안 앱/검사 소스 SHA256이 변하지 않았음을 확인했고, 시작 HEAD와 최종 소스 해시는
+[source.json](evidence/modular_build_m2d_2026-11-05/source.json)에 보존해요.
+
+전체 콘솔 원문:
+
+```text
+RUN  import
+PASS import (2.7s)
+RUN  scene-load
+PASS scene-load (0.5s)
+RUN  agent_camera_loop_check
+PASS agent_camera_loop_check (4.2s)
+RUN  agent_camera_loop_check-rendered
+PASS agent_camera_loop_check-rendered (10.9s)
+RUN  agent_camera_rest_check
+PASS agent_camera_rest_check (14.7s)
+RUN  agent_goal_ui_check
+PASS agent_goal_ui_check (4.4s)
+RUN  agent_goal_ui_check-rendered
+PASS agent_goal_ui_check-rendered (11.7s)
+RUN  app_controller_check
+PASS app_controller_check (4.4s)
+RUN  assembly_snap_check
+PASS assembly_snap_check (0.4s)
+RUN  authoring_ui_check
+PASS authoring_ui_check (4.5s)
+RUN  biped_app_check
+PASS biped_app_check (14.7s)
+RUN  biped_board_clearance_check
+PASS biped_board_clearance_check (1.6s)
+RUN  biped_motion_check
+PASS biped_motion_check (1.9s)
+RUN  blender_camera_check
+PASS blender_camera_check (0.3s)
+RUN  blender_edit_check
+PASS blender_edit_check (0.4s)
+RUN  block_program_check
+PASS block_program_check (4.3s)
+RUN  bridge_stop_owner_check
+PASS bridge_stop_owner_check (5.6s)
+RUN  browser_evidence_check
+PASS browser_evidence_check (4.4s)
+RUN  camera_evaluator_lifecycle_check-normal_stop
+PASS camera_evaluator_lifecycle_check-normal_stop (5.7s)
+RUN  camera_evaluator_lifecycle_check-drive_stop
+PASS camera_evaluator_lifecycle_check-drive_stop (11.9s)
+RUN  camera_evaluator_lifecycle_check-teardown
+PASS camera_evaluator_lifecycle_check-teardown (5.6s)
+RUN  camera_evaluator_lifecycle_check-mode_off
+PASS camera_evaluator_lifecycle_check-mode_off (5.6s)
+RUN  camera_evaluator_lifecycle_check-app_free
+PASS camera_evaluator_lifecycle_check-app_free (5.2s)
+RUN  camera_evaluator_lifecycle_check-rebuild
+PASS camera_evaluator_lifecycle_check-rebuild (5.5s)
+RUN  camera_evaluator_lifecycle_check-new_episode
+PASS camera_evaluator_lifecycle_check-new_episode (6.6s)
+RUN  camera_evaluator_lifecycle_check-driving_stop
+PASS camera_evaluator_lifecycle_check-driving_stop (5.6s)
+RUN  camera_evaluator_lifecycle_check-driving_rebuild
+PASS camera_evaluator_lifecycle_check-driving_rebuild (5.7s)
+RUN  camera_evaluator_lifecycle_check-driving_app_free
+PASS camera_evaluator_lifecycle_check-driving_app_free (5.4s)
+RUN  camera_evaluator_lifecycle_check-driving_new_episode
+PASS camera_evaluator_lifecycle_check-driving_new_episode (6.6s)
+RUN  camera_evaluator_lifecycle_check-driving_teardown
+PASS camera_evaluator_lifecycle_check-driving_teardown (5.7s)
+RUN  camera_evaluator_lifecycle_check-driving_mode_off
+PASS camera_evaluator_lifecycle_check-driving_mode_off (5.5s)
+RUN  construction_kit_check
+PASS construction_kit_check (1.1s)
+RUN  construction_kit_motion_check
+PASS construction_kit_motion_check (7.3s)
+RUN  construction_kit_store_check
+PASS construction_kit_store_check (2.8s)
+RUN  construction_kit_ui_check
+PASS construction_kit_ui_check (4.7s)
+RUN  control_flow_check
+PASS control_flow_check (4.1s)
+RUN  core_authoring_check
+PASS core_authoring_check (4.8s)
+RUN  device_kit_ports_check
+PASS device_kit_ports_check (0.5s)
+RUN  flag_mission_check
+PASS flag_mission_check (4.2s)
+RUN  game_flow_check
+PASS game_flow_check (27.0s)
+RUN  humanoid_contract_check
+PASS humanoid_contract_check (0.4s)
+RUN  humanoid_motion_check-walk
+PASS humanoid_motion_check-walk (1.4s)
+RUN  humanoid_motion_check-backward
+PASS humanoid_motion_check-backward (1.5s)
+RUN  humanoid_motion_check-pick
+PASS humanoid_motion_check-pick (1.5s)
+RUN  humanoid_motion_check-run
+PASS humanoid_motion_check-run (1.5s)
+RUN  humanoid_motion_check-walk-reverse-links
+PASS humanoid_motion_check-walk-reverse-links (1.4s)
+RUN  humanoid_motion_check-run-reverse-links
+PASS humanoid_motion_check-run-reverse-links (1.5s)
+RUN  humanoid_motion_check-run-settle-frames=181
+PASS humanoid_motion_check-run-settle-frames=181 (1.5s)
+RUN  humanoid_ui_check
+PASS humanoid_ui_check (4.8s)
+RUN  humanoid_ui_check-modular
+PASS humanoid_ui_check-modular (5.3s)
+RUN  interface_preferences_check
+PASS interface_preferences_check (6.3s)
+RUN  keyboard_navigation_check
+PASS keyboard_navigation_check (4.2s)
+RUN  kit_robot_runtime_check
+PASS kit_robot_runtime_check (9.8s)
+RUN  learned_app_check
+PASS learned_app_check (4.3s)
+RUN  learned_policy_check
+PASS learned_policy_check (3.6s)
+RUN  learned_tracking_check
+PASS learned_tracking_check (4.8s)
+RUN  learner_language_check
+PASS learner_language_check (0.3s)
+RUN  localization_check
+PASS localization_check (5.0s)
+RUN  manual_control_check
+PASS manual_control_check (0.4s)
+RUN  material_assets_check
+PASS material_assets_check (0.6s)
+RUN  mesh_assets_check
+PASS mesh_assets_check (0.6s)
+RUN  modular_humanoid_check-walk
+PASS modular_humanoid_check-walk (0.6s)
+RUN  modular_humanoid_check-pick
+PASS modular_humanoid_check-pick (0.6s)
+RUN  modular_humanoid_check-pick-reverse-links
+PASS modular_humanoid_check-pick-reverse-links (0.6s)
+RUN  modular_pickup_parallel_check
+PASS modular_pickup_parallel_check (3.0s)
+RUN  motion_lab_check
+PASS motion_lab_check (9.4s)
+RUN  motion_lab_ui_check
+PASS motion_lab_ui_check (6.9s)
+RUN  parts_freedom_blocks_check
+PASS parts_freedom_blocks_check (0.3s)
+RUN  parts_freedom_mechanics_check
+PASS parts_freedom_mechanics_check (5.3s)
+RUN  parts_freedom_runtime_check
+PASS parts_freedom_runtime_check (0.5s)
+RUN  parts_freedom_workshop_check
+PASS parts_freedom_workshop_check (5.5s)
+RUN  parts_pack_button_check
+PASS parts_pack_button_check (0.5s)
+RUN  parts_pack_environment_check
+PASS parts_pack_environment_check (1.5s)
+RUN  parts_pack_gears_check
+PASS parts_pack_gears_check (1.7s)
+RUN  parts_pack_inventory_check
+PASS parts_pack_inventory_check (4.4s)
+RUN  parts_pack_led_check
+PASS parts_pack_led_check (0.4s)
+RUN  parts_pack_line_check
+PASS parts_pack_line_check (0.5s)
+RUN  parts_tray_check
+PASS parts_tray_check (3.1s)
+RUN  pickup_bridge_ui_check
+PASS pickup_bridge_ui_check (8.9s)
+RUN  pickup_lab_ui_check
+PASS pickup_lab_ui_check (7.4s)
+RUN  pickup_store_check
+PASS pickup_store_check (6.6s)
+RUN  pickup_trial_check
+PASS pickup_trial_check (6.7s)
+RUN  port_indicators_check
+PASS port_indicators_check (0.4s)
+RUN  project_store_check
+PASS project_store_check (6.0s)
+RUN  relative_code_check
+PASS relative_code_check (0.5s)
+RUN  robot_car_check
+PASS robot_car_check (0.7s)
+RUN  run_mode_check
+PASS run_mode_check (0.4s)
+RUN  scene_workshop_ui_check
+PASS scene_workshop_ui_check (20.9s)
+RUN  servo_torque_budget_check
+PASS servo_torque_budget_check (0.3s)
+RUN  snap_build_check
+PASS snap_build_check (0.4s)
+RUN  snap_build_input_check
+PASS snap_build_input_check (4.5s)
+RUN  sonar_stage_check
+PASS sonar_stage_check (17.9s)
+RUN  stage_authoring_check
+PASS stage_authoring_check (9.6s)
+RUN  stage_contract_check
+PASS stage_contract_check (15.9s)
+RUN  stage_own_build_check
+PASS stage_own_build_check (39.0s)
+RUN  stage_ui_check
+PASS stage_ui_check (4.6s)
+RUN  tutorial_ui_check
+PASS tutorial_ui_check (4.5s)
+RUN  viewport_framing_check
+PASS viewport_framing_check (5.4s)
+RUN  workshop_compact_check
+PASS workshop_compact_check (20.8s)
+RUN  workshop_emphasis_check
+PASS workshop_emphasis_check (10.5s)
+RUN  workshop_goal_observation_check
+PASS workshop_goal_observation_check (15.2s)
+RUN  workshop_goal_space_check
+PASS workshop_goal_space_check (18.8s)
+RUN  workshop_presentation_check
+PASS workshop_presentation_check (15.3s)
+RUN  workshop_road_check
+PASS workshop_road_check (0.3s)
+RUN  workshop_run_label_check
+PASS workshop_run_label_check (4.9s)
+RUN  workshop_ui_check
+PASS workshop_ui_check (4.7s)
+RUN  yaw_biped_check
+PASS yaw_biped_check (0.5s)
+RUN  tests-camera_experiment_check.py
+PASS tests-camera_experiment_check.py (0.1s)
+RUN  tests-desktop_client_check.py
+PASS tests-desktop_client_check.py (0.8s)
+RUN  tests-desktop_session_check.py
+PASS tests-desktop_session_check.py (0.2s)
+RUN  tests-motion_mcp_check.py
+FAIL tests-motion_mcp_check.py (0.1s)
+motion_mcp_check (unittest.loader._FailedTest.motion_mcp_check) ... ERROR
+
+======================================================================
+ERROR: motion_mcp_check (unittest.loader._FailedTest.motion_mcp_check)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: motion_mcp_check
+Traceback (most recent call last):
+  File "C:\Users\Hojun\AppData\Local\Programs\Python\Python313\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Hojun\agent-jobs\ssok-M2d-20261105\repo\tests\motion_mcp_check.py", line 16, in <module>
+    from mcp import Client, StdioServerParameters
+ModuleNotFoundError: No module named 'mcp'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+
+RUN  tests-test_ci_verify.py
+PASS tests-test_ci_verify.py (1.4s)
+RUN  tests-test_desktop_package.py
+PASS tests-test_desktop_package.py (0.1s)
+RUN  tests-test_operator_doctor.py
+PASS tests-test_operator_doctor.py (0.1s)
+RUN  tests-test_operator_release.py
+PASS tests-test_operator_release.py (0.2s)
+RUN  tests-test_pickup_bridge.py
+PASS tests-test_pickup_bridge.py (1.7s)
+RUN  tests-test_release_documents.py
+PASS tests-test_release_documents.py (18.5s)
+RUN  tools-docs-test_maintain.py
+PASS tools-docs-test_maintain.py (0.2s)
+RUN  tools-motion_lab-test_races.py
+PASS tools-motion_lab-test_races.py (1.2s)
+RUN  tools-motion_lab-test_service.py
+PASS tools-motion_lab-test_service.py (1.8s)
+RUN  tools-rl_lab-test_rl_lab.py
+FAIL tools-rl_lab-test_rl_lab.py (0.1s)
+test_rl_lab (unittest.loader._FailedTest.test_rl_lab) ... ERROR
+
+======================================================================
+ERROR: test_rl_lab (unittest.loader._FailedTest.test_rl_lab)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_rl_lab
+Traceback (most recent call last):
+  File "C:\Users\Hojun\AppData\Local\Programs\Python\Python313\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "C:\Users\Hojun\agent-jobs\ssok-M2d-20261105\repo\tools\rl_lab\test_rl_lab.py", line 10, in <module>
+    import mujoco
+ModuleNotFoundError: No module named 'mujoco'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+
+121 checks; 2 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2d-20261105\repo\build\verification-m2d-final-full\SUMMARY.md
+```
+
+`maintain.py --write`, `--check`와 문서 도구 unittest 10개가 통과했어요.
+저장/물리 도식은 계약이 같아 유지했으며 실행 흐름의 답지 예외를 검토했어요.
+생산용 키트 형상·생성기·캐스터·런타임·전역 물리·M1·workflows는 시작 커밋과 같아요.
+문서 UTF-8 쓰기 오류는 복구했고 새 M2d 절의 한국어와 실제 출력을 재확인했어요.
+브랜치 `feat/modular-build-20261105`는 이 벽 답지 임시 예외와 기준선 두 환경 실패를 포함해
+통합 담당자가 회수할 로컬 후보예요. 푸시·병합·배포하지 않았어요.
+Web과 실사용자 조립 검증은 미실행이며 원래 키트 벽 정지 해결은 후속 과제로 남아요.
