@@ -1,6 +1,6 @@
 # 0036 — Start stages empty and evaluate learner builds against the environment
 
-- Status: accepted
+- Status: accepted; the full-catalog stage tray, chassis/arm-based answer robots and the arm-tip flag mount partially superseded by [0039](0039-hole-targeted-snap-building.md)
 - Date: 2026-10-22
 - Implements: owner's work D decision: assemble, wire and program a personal robot from an empty workbench.
 - Partially supersedes: [0028](0028-game-screen-flow-and-stage-levels.md), only preloaded stage robots/code, hidden assembly tools, graph-owned built-in wall and clear-only progress storage.
