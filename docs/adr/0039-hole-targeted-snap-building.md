@@ -49,7 +49,10 @@ bolted to kit beams, and the stage answers depend on `car_chassis` named slots.
 
 ## Consequences
 
-벽 답지는 키트 차가 통과할 때까지 임시로 옛 차를 쓴다.
+Until a kit car passes the wall stage without changing the legacy car's checks, the wall-brake
+answer alone temporarily uses `RobotCarPreset`. With the 5 g ball caster the kit car keeps a
+residual caster jitter (about 0.06 m/s); a 20 g caster passed all three kit answers but made the
+legacy car miss its camera settle budgets on Linux CI, so it was not kept.
 
 Saved graphs that use legacy parts still load and run. Tests that counted tray buttons or relied on
 the floor-grid spawn change. New placement logic is exposed as testable `AssemblyMode` calls so
