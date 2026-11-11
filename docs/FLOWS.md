@@ -36,7 +36,9 @@ flowchart TD
     Owner --> Build[필요하면 그래프에서 물리 생성]
     Build --> Validate[전체 배선까지 검사]
     Validate -->|오류| Error[failed 신호 / 모터 명령 미전송]
-    Validate -->|통과| Goal[Stage 대상 검사와 실행 문맥 고정]
+    Validate -->|통과| Power{전기 단계 1: 보드에 전원이 오는가?}
+    Power -->|아니오| PowerError[전원 문제 표시 / 프로그램 미시작]
+    Power -->|예 또는 단계 0| Goal[Stage 대상 검사와 실행 문맥 고정]
     Goal -->|거부| Error
     Goal -->|통과| Execute[bounded VM: 서보·모터·센서·조건·반복]
     Execute --> Complete[finished 신호]
@@ -45,6 +47,13 @@ flowchart TD
 ```
 
 `scenes/main.gd`가 실행 버튼과 제어권을 조정하고 `MiniRuntime`이 명령을 해석해요. 코드 종료와 임무 성공은 다른 사건이에요. Stop은 VM을 중단하고 DC 모터를 정지하고 LED를 끄며 서보의 마지막 목표를 유지해요. 진행 중 Stage 시도는 cancelled로 기록해요. 물리 정지나 초기 자세 복원으로 해석하지 않아요. 편집 모드 복귀는 `RunMode.teardown()` 뒤 원본 그래프를 다시 보여줘요.
+
+전기 단계는 `RunMode.power_tier`예요([ADR 0040](adr/0040-tier-1-electrical-power.md)). 자유 제작은 단계 1이고,
+스테이지는 레벨의 `power_tier`(기본 0), 배터리가 없는 예제·저장본은 전원 부품을 넣기 전까지 단계 0이에요.
+실행 모드에 들어갈 때 `PowerNet`이 전원 케이블을 따라 각 부품에 전원이 오는지 계산해요. 전원이 없는
+모터와 서보는 명령을 무시해요. Run을 누르면 고칠 순서대로 첫 문제(배터리 없음, 스위치 꺼짐, 전원 미연결,
+앞 부품에 전원 없음)를 보여 주고, 보드에 전원이 없으면 프로그램을 시작하지 않아요. 배선 탭의 배터리
+스위치를 실행 중에 끄면 프로그램을 멈추고 모터를 정지해요. 단계 0은 이전과 같이 항상 전원이 있는 것으로 봐요.
 
 VM은 틱당 128개 연산과 실행 전체 10,000회 루프 진입, 시뮬레이션/실시간 각 60초를
 제한해요. `for range`의 경계는 진입할 때 한 번만 계산하고 리스트를 만들지 않아요.
