@@ -85,6 +85,12 @@ M2는 아홉 기존 장치에 20 mm 간격의 `kit_m4` 양면 포트를 추가�
 
 B-2의 `gear_ratio`는 하우징과 두 회전자 사이의 수동 구속을 선언해요. 축 포트에 연결한
 고정 부품은 해당 회전자 몸체를 공유하고, 조립 그래프의 부품 ID·질량·배선은 유지해요.
+전원은 [ADR 0040](adr/0040-tier-1-electrical-power.md)을 따라요. `PartDef.power_source_voltage`가 0보다 크면 전원 부품이고,
+`needs_power`가 참인 부품은 `power_in` 포트가 켜진 전원까지 이어져야 동작해요. 전원 케이블은 `power_source`
+태그 포트와 `power_sink` 태그 포트를 잇는 ELEC 링크 하나이며 저장 형식은 기존 링크와 같아요. 보드와 드라이버는
+`power_out` 포트로 전원을 넘겨요. 배터리 홀더 정의와 메시는 `assets/power/`에 있고 카탈로그 탐색 폴더에 포함돼요.
+키트 부품의 `power_in`은 `assets/construction_kit/catalog.json`의 포트 목록에도 있어요. 스위치 상태는 저장하지 않아요.
+
 `device_kind`는 한 신호선 장치의 종류(LineSensor/Button/LED)를 구분하며 기존 ELEC 포트를
 사용해요. 잘못된 종류·중복 핀은 주소로 해석하지 않아요. `surface_marker`는 물리 장애물이
 아닌 바닥 표시, `sphere_radius/collision_points`는 구·볼록 충돌을 선언해요.

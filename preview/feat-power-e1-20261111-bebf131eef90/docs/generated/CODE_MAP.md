@@ -16,7 +16,7 @@ ssok/
     blocks/  (1 GDScript files)
     core/  (12 GDScript files)
     profiles/  (1 GDScript files)
-    runtime/  (26 GDScript files)
+    runtime/  (27 GDScript files)
     screens/  (5 GDScript files)
     ui/  (23 GDScript files)
   presets/
@@ -35,6 +35,7 @@ ssok/
     modular_humanoid/
     parts/
     policies/
+    power/
   addons/
     beehave/
     godot_state_charts/
@@ -47,6 +48,7 @@ ssok/
     docs/
     godot/
     localization/
+    lookdev/
     motion_lab/
     release/
     rl_lab/
@@ -120,6 +122,7 @@ ssok/
 | [src/runtime/pickup_policy.gd](../../src/runtime/pickup_policy.gd) | PickupPolicy |
 | [src/runtime/pickup_scenario_store.gd](../../src/runtime/pickup_scenario_store.gd) | PickupScenarioStore |
 | [src/runtime/pickup_trial.gd](../../src/runtime/pickup_trial.gd) | PickupTrial |
+| [src/runtime/power_net.gd](../../src/runtime/power_net.gd) | PowerNet |
 | [src/runtime/robot_motion_program.gd](../../src/runtime/robot_motion_program.gd) | RobotMotionProgram |
 | [src/runtime/run_mode.gd](../../src/runtime/run_mode.gd) | RunMode |
 | [src/runtime/servo_drive.gd](../../src/runtime/servo_drive.gd) | ServoDrive |
