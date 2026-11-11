@@ -60,11 +60,20 @@ local_normal = Vector3(0, -1, 0)
 tag = &"kit_m4"
 accepts = Array[StringName]([&"kit_m4"])
 
+[sub_resource type="Resource" id="Port_power_in"]
+script = ExtResource("2_q2ydj")
+id = &"power_in"
+kind = 1
+local_position = Vector3(0, 0, -0.012)
+tag = &"power_sink"
+accepts = Array[StringName]([&"power_source"])
+
 [resource]
 script = ExtResource("3_7qlrw")
 id = &"servo"
 display_name = "Servo Motor"
 mesh = ExtResource("1_3oht8")
-ports = Array[ExtResource("2_q2ydj")]([SubResource("Port_mount_bottom"), SubResource("Port_output_shaft"), SubResource("Port_signal_pin"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back")])
+ports = Array[ExtResource("2_q2ydj")]([SubResource("Port_mount_bottom"), SubResource("Port_output_shaft"), SubResource("Port_signal_pin"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back"), SubResource("Port_power_in")])
 mass_kg = 0.02
 collision_points = PackedVector3Array()
+needs_power = true

@@ -86,12 +86,20 @@ local_normal = Vector3(-1, 0, 0)
 tag = &"kit_m4"
 accepts = Array[StringName]([&"kit_m4"])
 
+[sub_resource type="Resource" id="Port_power_in"]
+script = ExtResource("2_uwy5g")
+id = &"power_in"
+kind = 1
+local_position = Vector3(0.006, 0, -0.026)
+tag = &"power_sink"
+accepts = Array[StringName]([&"power_source"])
+
 [resource]
 script = ExtResource("3_qb8mt")
 id = &"kit_motor_35"
 display_name = "Servo motor 35 Nm"
 mesh = ExtResource("1_gdu0w")
-ports = Array[ExtResource("2_uwy5g")]([SubResource("Resource_6xodg"), SubResource("Resource_qg7ef"), SubResource("Resource_viyrc"), SubResource("Resource_v0v87"), SubResource("Resource_tr1do"), SubResource("Resource_cxpeu"), SubResource("Resource_v025l"), SubResource("Resource_irqjs"), SubResource("Resource_7tqpo"), SubResource("Resource_vogcn")])
+ports = Array[ExtResource("2_uwy5g")]([SubResource("Resource_6xodg"), SubResource("Resource_qg7ef"), SubResource("Resource_viyrc"), SubResource("Resource_v0v87"), SubResource("Resource_tr1do"), SubResource("Resource_cxpeu"), SubResource("Resource_v025l"), SubResource("Resource_irqjs"), SubResource("Resource_7tqpo"), SubResource("Resource_vogcn"), SubResource("Port_power_in")])
 mass_kg = 0.65
 actuator_torque_nm = 35.0
 actuator_min_deg = -140.0
@@ -99,3 +107,4 @@ actuator_max_deg = 140.0
 actuator_drives_connected_body = true
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.034, -0.035, -0.035, 0.075, 0.07, 0.07)])
+needs_power = true

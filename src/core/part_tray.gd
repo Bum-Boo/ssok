@@ -5,7 +5,7 @@ extends RefCounted
 const TABS: Array[String] = ["All", "Structure", "Motion", "Electronics", "Sensors", "Environment"]
 const STRUCTURE: Array[String] = ["kit_beam_60", "kit_beam_100", "kit_beam_140", "kit_beam_180", "kit_beam_240", "kit_beam_260", "kit_plate_60_40", "kit_plate_60_60", "kit_plate_80_60", "kit_plate_120_80", "kit_plate_160_60", "kit_plate_220_120", "kit_angle_bracket", "kit_u_bracket_large", "kit_u_bracket_small", "kit_spacer_20", "kit_coupler_8", "kit_rubber_pad", "kit_weight_100", "kit_weight_300"]
 const MOTION: Array[String] = ["kit_motor_12", "kit_motor_35", "tt_motor", "servo", "kit_passive_hinge", "kit_gear_2", "kit_gear_3", "kit_axle_40", "kit_wheel_40", "kit_wheel_90", "wheel_65", "ball_caster"]
-const ELECTRONICS: Array[String] = ["microbit", "arduino_uno", "motor_driver", "tb6612_driver", "kit_led"]
+const ELECTRONICS: Array[String] = ["battery_holder_4aa", "microbit", "arduino_uno", "motor_driver", "tb6612_driver", "kit_led"]
 const SENSORS: Array[String] = ["hc_sr04", "kit_line_sensor", "kit_contact_button"]
 const ENVIRONMENT: Array[String] = ["kit_env_ramp_10", "kit_env_ramp_20", "kit_env_ball", "kit_env_cup", "kit_env_line_straight", "kit_env_line_corner", "stage_wall", "flag"]
 

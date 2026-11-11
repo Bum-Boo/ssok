@@ -10603,6 +10603,24 @@
             "kit_m4"
           ],
           "hole_id": "mount_3"
+        },
+        {
+          "id": "power_in",
+          "position": [
+            0.006,
+            0,
+            -0.026
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "tag": "power_sink",
+          "accepts": [
+            "power_source"
+          ],
+          "kind": "ELEC"
         }
       ],
       "collision_boxes": [
@@ -10886,6 +10904,24 @@
             "kit_m4"
           ],
           "hole_id": "mount_3"
+        },
+        {
+          "id": "power_in",
+          "position": [
+            0.006,
+            0,
+            -0.026
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "tag": "power_sink",
+          "accepts": [
+            "power_source"
+          ],
+          "kind": "ELEC"
         }
       ],
       "collision_boxes": [
@@ -14412,6 +14448,24 @@
           "accepts": [
             "base_mount"
           ]
+        },
+        {
+          "id": "power_in",
+          "position": [
+            0,
+            0.01,
+            0
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "tag": "power_sink",
+          "accepts": [
+            "power_source"
+          ],
+          "kind": "ELEC"
         }
       ],
       "collision_boxes": [

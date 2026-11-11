@@ -120,12 +120,29 @@ local_normal = Vector3(0, -1, 0)
 tag = &"kit_m4"
 accepts = Array[StringName]([&"kit_m4"])
 
+[sub_resource type="Resource" id="Port_power_in"]
+script = ExtResource("2_oipbl")
+id = &"power_in"
+kind = 1
+local_position = Vector3(0, 0.004, -0.014)
+tag = &"power_sink"
+accepts = Array[StringName]([&"power_source"])
+
+[sub_resource type="Resource" id="Port_power_out"]
+script = ExtResource("2_oipbl")
+id = &"power_out"
+kind = 1
+local_position = Vector3(0.01, 0.004, 0.014)
+tag = &"power_source"
+accepts = Array[StringName]([&"power_sink"])
+
 [resource]
 script = ExtResource("3_xudqx")
 id = &"tb6612_driver"
 display_name = "Motor Driver (TB6612FNG)"
 mesh = ExtResource("1_fnwqp")
-ports = Array[ExtResource("2_oipbl")]([SubResource("Resource_285wu"), SubResource("Resource_ido3a"), SubResource("Resource_8307s"), SubResource("Resource_wje1y"), SubResource("Resource_k824d"), SubResource("Resource_sj2a7"), SubResource("Resource_86pvj"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back"), SubResource("Port_kit_h2_front"), SubResource("Port_kit_h2_back"), SubResource("Port_kit_h3_front"), SubResource("Port_kit_h3_back")])
+ports = Array[ExtResource("2_oipbl")]([SubResource("Resource_285wu"), SubResource("Resource_ido3a"), SubResource("Resource_8307s"), SubResource("Resource_wje1y"), SubResource("Resource_k824d"), SubResource("Resource_sj2a7"), SubResource("Resource_86pvj"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back"), SubResource("Port_kit_h2_front"), SubResource("Port_kit_h2_back"), SubResource("Port_kit_h3_front"), SubResource("Port_kit_h3_back"), SubResource("Port_power_in"), SubResource("Port_power_out")])
 mass_kg = 0.01
 merge_fixed_connections = true
 collision_points = PackedVector3Array()
+needs_power = true

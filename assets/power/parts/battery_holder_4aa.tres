@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="PartDef" format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/power/meshes/battery_holder_4aa.res" id="1_mesh"]
+[ext_resource type="Script" path="res://src/core/port.gd" id="2_port"]
+[ext_resource type="Script" path="res://src/core/part_def.gd" id="3_def"]
+
+[sub_resource type="Resource" id="Port_power_out"]
+script = ExtResource("2_port")
+id = &"power_out"
+kind = 1
+local_position = Vector3(0.031, 0, -0.012)
+tag = &"power_source"
+accepts = Array[StringName]([&"power_sink"])
+
+[sub_resource type="Resource" id="Port_kit_h0_front"]
+script = ExtResource("2_port")
+id = &"kit_h0_front"
+local_position = Vector3(-0.02, 0.008, -0.02)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h0_back"]
+script = ExtResource("2_port")
+id = &"kit_h0_back"
+local_position = Vector3(-0.02, -0.008, -0.02)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_front"]
+script = ExtResource("2_port")
+id = &"kit_h1_front"
+local_position = Vector3(0.02, 0.008, -0.02)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h1_back"]
+script = ExtResource("2_port")
+id = &"kit_h1_back"
+local_position = Vector3(0.02, -0.008, -0.02)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h2_front"]
+script = ExtResource("2_port")
+id = &"kit_h2_front"
+local_position = Vector3(-0.02, 0.008, 0.02)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h2_back"]
+script = ExtResource("2_port")
+id = &"kit_h2_back"
+local_position = Vector3(-0.02, -0.008, 0.02)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h3_front"]
+script = ExtResource("2_port")
+id = &"kit_h3_front"
+local_position = Vector3(0.02, 0.008, 0.02)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[sub_resource type="Resource" id="Port_kit_h3_back"]
+script = ExtResource("2_port")
+id = &"kit_h3_back"
+local_position = Vector3(0.02, -0.008, 0.02)
+local_normal = Vector3(0, -1, 0)
+tag = &"kit_m4"
+accepts = Array[StringName]([&"kit_m4"])
+
+[resource]
+script = ExtResource("3_def")
+id = &"battery_holder_4aa"
+display_name = "Battery Holder 4xAA (switch)"
+mesh = ExtResource("1_mesh")
+ports = Array[ExtResource("2_port")]([SubResource("Port_power_out"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back"), SubResource("Port_kit_h2_front"), SubResource("Port_kit_h2_back"), SubResource("Port_kit_h3_front"), SubResource("Port_kit_h3_back")])
+mass_kg = 0.115
+merge_fixed_connections = true
+collision_boxes = Array[AABB]([AABB(-0.031, -0.008, -0.029, 0.062, 0.016, 0.058)])
+power_source_voltage = 6.0
+collision_points = PackedVector3Array()

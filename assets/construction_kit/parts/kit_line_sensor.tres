@@ -53,14 +53,23 @@ local_normal = Vector3(-1, 0, 0)
 tag = &"sensor_mount"
 accepts = Array[StringName]([&"base_mount"])
 
+[sub_resource type="Resource" id="Port_power_in"]
+script = ExtResource("2_hp8fi")
+id = &"power_in"
+kind = 1
+local_position = Vector3(0, 0.01, 0)
+tag = &"power_sink"
+accepts = Array[StringName]([&"power_source"])
+
 [resource]
 script = ExtResource("3_ab0qg")
 id = &"kit_line_sensor"
 display_name = "Reflectance line sensor"
 mesh = ExtResource("1_nrh15")
-ports = Array[ExtResource("2_hp8fi")]([SubResource("Resource_2ynyq"), SubResource("Resource_eso8m"), SubResource("Resource_jp0fo"), SubResource("Resource_62n5n"), SubResource("Resource_ufkhe"), SubResource("Resource_0c328")])
+ports = Array[ExtResource("2_hp8fi")]([SubResource("Resource_2ynyq"), SubResource("Resource_eso8m"), SubResource("Resource_jp0fo"), SubResource("Resource_62n5n"), SubResource("Resource_ufkhe"), SubResource("Resource_0c328"), SubResource("Port_power_in")])
 mass_kg = 0.035
 merge_fixed_connections = true
 collision_boxes = Array[AABB]([AABB(-0.020000001, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(-0.008, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(-0.012, -0.01, -0.002, 0.004, 0.008, 0.004), AABB(-0.012, 0.0019999999, -0.002, 0.004, 0.008, 0.004), AABB(0, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(0.012, -0.01, -0.002, 0.008, 0.02, 0.004), AABB(0.007999999, -0.01, -0.002, 0.004, 0.008, 0.004), AABB(0.007999999, 0.0019999999, -0.002, 0.004, 0.008, 0.004), AABB(-0.008, 0.006000001, -0.006, 0.016, 0.02, 0.012), AABB(-0.008, -0.015000001, -0.007, 0.016, 0.006, 0.014), AABB(-0.02, 0.023, -0.002, 0.04, 0.004, 0.004), AABB(0.014, 0, -0.002, 0.004, 0.025, 0.004)])
 device_kind = "LineSensor"
 collision_points = PackedVector3Array()
+needs_power = true

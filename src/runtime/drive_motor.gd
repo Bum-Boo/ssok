@@ -11,6 +11,8 @@ var voltage_drop: float = 0.3
 var rated_voltage: float = 6.0
 var duty: float = 0.0
 var braking: bool = false
+## False while the electrical model finds no power at the driver; the shaft then turns freely.
+var supply_ok: bool = true
 var measured_rad_s: float = 0.0
 var applied_torque_nm: float = 0.0
 
@@ -34,7 +36,7 @@ func backward(speed: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not is_instance_valid(housing) or not is_instance_valid(wheel):
+	if not is_instance_valid(housing) or not is_instance_valid(wheel) or not supply_ok:
 		return
 	var axis: Vector3 = (housing.global_basis * axis_local).normalized()
 	measured_rad_s = (wheel.angular_velocity - housing.angular_velocity).dot(axis)

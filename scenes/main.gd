@@ -80,6 +80,9 @@ var projects_button: Button
 var project_title: String = "My robot"
 var blocks: BlockProgramPanel
 var wiring_panel: WiringPanel
+## Lab examples and saved builds made before batteries existed keep running unpowered.
+var _power_free_preset: bool = false
+var _power_on: bool = true
 var examples_menu: MenuButton
 var _starter_controls: Array[Control] = []
 var _parts_scroll: ScrollContainer
@@ -539,6 +542,7 @@ func _build_ui() -> void:
 	wiring_panel.name = "Wiring"
 	wiring_panel.assembly = assembly
 	wiring_panel.can_edit = func() -> bool: return not mode_button.button_pressed
+	wiring_panel.power_toggled.connect(_on_power_toggled)
 	program_tabs.add_child(wiring_panel)
 	stages = StagePanel.new()
 	stages.name = "Stages"
@@ -1006,7 +1010,7 @@ func _begin_toolbar_transform(kind: StringName) -> void:
 
 func _load_part_defs() -> Array[PartDef]:
 	var definitions: Array[PartDef] = []
-	for directory: String in [PARTS_DIR, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/", YawBipedPreset.CATALOG]:
+	for directory: String in [PARTS_DIR, HumanoidPreset.CATALOG, "res://assets/modular_humanoid/parts/", "res://assets/construction_kit/parts/", "res://assets/power/parts/", YawBipedPreset.CATALOG]:
 		var names: PackedStringArray = ResourceLoader.list_directory(directory)
 		names.sort()
 		for file_name: String in names:
@@ -1121,6 +1125,7 @@ func _load_preset(graph: ConnectionGraph, code: String, message: String) -> void
 					if link.b_part > index:
 						link.b_part -= 1
 	assembly.load_graph(graph)
+	_power_free_preset = not graph.parts.is_empty() and not _has_power_source(graph)
 	_colorize(assembly)
 	_refresh_port_indicators()
 	code_edit.text = code
@@ -1214,6 +1219,8 @@ func _on_mode_toggled(run: bool) -> void:
 	_palette_drag = false
 	assembly.cancel_transform()
 	if run:
+		run_mode.power_tier = _power_tier()
+		run_mode.power_on = _power_on
 		run_mode.build(assembly.graph)
 		_port_indicators.set_run_mode(run_mode)
 		_colorize(run_mode)
@@ -1264,12 +1271,69 @@ func _on_run_pressed() -> void:
 	if not validation.is_empty():
 		_show_code_failure(validation.line, runtime._translated_error(validation), int(validation.get("column", 1)))
 		return
+	if _report_power():
+		runtime.stop()
+		_refresh_control_ui()
+		return
 	if not stages.on_run():
 		runtime.stop()
 		_refresh_control_ui()
 		return
 	runtime.run(code_edit.text)
 	_refresh_control_ui()
+
+
+static func _has_power_source(graph: ConnectionGraph) -> bool:
+	for part: Dictionary in graph.parts:
+		if part.part_def.power_source_voltage > 0.0:
+			return true
+	return false
+
+
+## Stages declare their electrical tier. Free building requires power, except for a
+## loaded example or saved build that has no battery at all.
+func _power_tier() -> int:
+	var mode: String = session.get("mode", "")
+	if mode == "stage":
+		return int(session.get("level", {}).get("power_tier", 0))
+	if mode != "lab":
+		return 0
+	return 0 if _power_free_preset and not _has_power_source(assembly.graph) else 1
+
+
+## Shows the first power problem. Returns true when the program cannot start at all.
+func _report_power() -> bool:
+	var problems: Array[Dictionary] = run_mode.power_problems()
+	if problems.is_empty():
+		return false
+	var problem: Dictionary = problems[0]
+	var label: String = ""
+	if problem.part >= 0:
+		label = assembly.graph.parts[problem.part].part_def.display_name
+	match problem.code:
+		PowerNet.NO_SOURCE:
+			_set_status("There is no battery. Add a battery holder and connect it to the board.", true)
+		PowerNet.SWITCH_OFF:
+			_set_status("The battery switch is off. Turn it on in the Wiring tab.", true)
+		PowerNet.NOT_CONNECTED:
+			_set_status("%s has no power. Connect its power port to the battery or to a powered part.", true, [label], [0])
+		_:
+			_set_status("%s gets no power because the part feeding it has none.", true, [label], [0])
+	var board: int = PowerNet.board_part(assembly.graph)
+	return board >= 0 and not run_mode.part_powered(board)
+
+
+func _on_power_toggled(on: bool) -> void:
+	_power_on = on
+	if not run_mode.is_built():
+		return
+	run_mode.power_on = on
+	run_mode.refresh_power()
+	if not on and run_mode.power_tier >= 1:
+		runtime.stop()
+		run_mode.stop_motors()
+		_report_power()
+		_refresh_control_ui()
 
 
 func _show_code_failure(line: int, message: String, column: int) -> void:

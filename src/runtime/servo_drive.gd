@@ -14,6 +14,8 @@ var joint: HingeJoint3D
 var target_deg: float = 0.0
 var current_deg: float = 0.0
 var powered: bool = false
+## False while the electrical model finds no power at the servo; commands are then ignored.
+var supply_ok: bool = true
 var torque_limit_nm: float = 0.0
 var relative_min_deg: float = -90.0
 var relative_max_deg: float = 90.0
@@ -56,7 +58,7 @@ func write_relative(angle_deg: float) -> void:
 
 
 func _set_target(angle_deg: float) -> void:
-	if not is_finite(angle_deg):
+	if not is_finite(angle_deg) or not supply_ok:
 		return
 	target_deg = clampf(angle_deg, relative_min_deg, relative_max_deg) if torque_limit_nm > 0.0 else angle_deg
 	if not powered:

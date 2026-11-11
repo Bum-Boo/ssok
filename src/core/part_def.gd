@@ -28,6 +28,12 @@ extends Resource
 @export var wheel_width: float = 0.0
 @export var rolling_friction: float = 0.8
 
+## Electrical power (docs/design/ssok-redesign-20261111.md, tier 1).
+## A source feeds its downstream parts; a part that needs power only works while
+## its power_in port leads back to a switched-on source.
+@export var power_source_voltage: float = 0.0
+@export var needs_power: bool = false
+
 @export var caster_radius: float = 0.0
 ## Passive bearings constrain motion without creating an addressable servo.
 @export var passive_hinge: bool = false

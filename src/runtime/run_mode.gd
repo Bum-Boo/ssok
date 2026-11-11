@@ -18,6 +18,10 @@ var buttons: Dictionary = {}
 var leds: Dictionary = {}
 var _part_visuals: Dictionary = {}
 var _graph: ConnectionGraph
+## 0 keeps the original always-powered behaviour; 1 requires a connected, switched-on source.
+var power_tier: int = 0
+var power_on: bool = true
+var power: Dictionary = {}
 var _body_offsets: Array[Transform3D] = []
 
 
@@ -71,6 +75,26 @@ func build(graph: ConnectionGraph) -> void:
 			leds[part] = led
 	for link: Dictionary in graph.links:
 		_make_joint(link)
+	refresh_power()
+
+
+## Re-evaluates power for the built robot, for example after the switch is flipped.
+func refresh_power() -> void:
+	power = PowerNet.evaluate(_graph, power_on) if power_tier >= 1 and _graph != null else {}
+	for part: int in servos:
+		servos[part].supply_ok = part_powered(part)
+	for part: int in motors:
+		motors[part].supply_ok = part_powered(part)
+
+
+func part_powered(part: int) -> bool:
+	return power.is_empty() or part < 0 or part >= power.powered.size() or power.powered[part]
+
+
+func power_problems() -> Array[Dictionary]:
+	var problems: Array[Dictionary] = []
+	problems.assign(power.get("problems", []))
+	return problems
 
 
 func teardown() -> void:

@@ -1,11 +1,15 @@
 class_name WiringPanel
 extends ScrollContainer
 
+## Emitted when the learner flips the battery switch.
+signal power_toggled(on: bool)
+
 var assembly: AssemblyMode
 var can_edit: Callable
 var source_choice: OptionButton
 var pin_choice: OptionButton
 var connect_button: Button
+var power_switch: CheckButton
 var connections: VBoxContainer
 var sources: Array[Dictionary] = []
 var pins: Array[Dictionary] = []
@@ -45,6 +49,11 @@ func _ready() -> void:
 	connect_button = SsokTheme.button("Connect wire", "cpu")
 	connect_button.pressed.connect(_connect_wire)
 	content.add_child(connect_button)
+	power_switch = CheckButton.new()
+	power_switch.text = "Battery switch on"
+	power_switch.button_pressed = true
+	power_switch.toggled.connect(func(on: bool) -> void: power_toggled.emit(on))
+	content.add_child(power_switch)
 	content.add_child(HSeparator.new())
 	connections = VBoxContainer.new()
 	content.add_child(connections)
@@ -68,10 +77,13 @@ func refresh() -> void:
 	var selected: Dictionary = sources[source_choice.selected] if source_choice.selected >= 0 and source_choice.selected < sources.size() else {}
 	sources.clear()
 	source_choice.clear()
-	for index: int in assembly.graph.parts.size():
-		var definition: PartDef = assembly.graph.parts[index].part_def
-		for port: Port in definition.ports:
-			if port.kind == Port.Kind.ELEC and Wiring.pin_number(port) < 0:
+	# Signal ports come first, then power ports, so signal wiring keeps its place.
+	for power: bool in [false, true]:
+		for index: int in assembly.graph.parts.size():
+			var definition: PartDef = assembly.graph.parts[index].part_def
+			for port: Port in definition.ports:
+				if port.kind != Port.Kind.ELEC or Wiring.pin_number(port) >= 0 or is_power_port(port) != power:
+					continue
 				var endpoint: Dictionary = {"part": index, "port": port.id}
 				sources.append(endpoint)
 				source_choice.add_item(_endpoint_label(endpoint))
@@ -99,6 +111,16 @@ func refresh() -> void:
 		row.add_child(button)
 	_empty.visible = sources.is_empty() or pins.is_empty()
 	refresh_actions()
+
+
+static func is_power_port(port: Port) -> bool:
+	return port.tag in [&"power_source", &"power_sink"]
+
+
+## Wiring choices that carry a signal, without the power cables.
+func signal_sources() -> Array[Dictionary]:
+	return sources.filter(func(endpoint: Dictionary) -> bool:
+		return not is_power_port(Wiring._find_port(assembly.graph.parts[endpoint.part].part_def, endpoint.port)))
 
 
 func _refresh_pins() -> void:
@@ -144,6 +166,11 @@ func refresh_actions() -> void:
 		var pin: Dictionary = pins[pin_choice.selected]
 		available = not assembly._is_port_linked(source.part, source.port) and not assembly._is_port_linked(pin.part, pin.port)
 	connect_button.disabled = not _editable or not available
+	var has_battery: bool = false
+	for part: Dictionary in assembly.graph.parts:
+		if part.part_def.power_source_voltage > 0.0:
+			has_battery = true
+	power_switch.visible = has_battery
 	for row: Node in connections.get_children():
 		for child: Node in row.get_children():
 			if child is Button:
