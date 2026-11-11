@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: FAIL arrow keys select the Blocks tab
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/keyboard_navigation_check.gd:124)
+       [1] _run (res://tests/keyboard_navigation_check.gd:48)
+       [2] _key (res://tests/keyboard_navigation_check.gd:99)
+ERROR: FAIL Tab reaches Apply blocks to code
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/keyboard_navigation_check.gd:124)
+       [1] _run (res://tests/keyboard_navigation_check.gd:51)
+       [2] _tab_until (res://tests/keyboard_navigation_check.gd:107)
+       [3] _key (res://tests/keyboard_navigation_check.gd:99)
+keyboard_navigation_check: 23 checks, 2 failures

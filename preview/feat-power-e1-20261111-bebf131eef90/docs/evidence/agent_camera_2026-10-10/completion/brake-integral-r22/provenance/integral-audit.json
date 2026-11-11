@@ -1,0 +1,438 @@
+{
+  "baseline_reused_not_rerun": true,
+  "baseline_evidence": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\combined",
+  "baseline_summary": {
+    "case": "combined",
+    "floor_pixels": [
+      117,
+      67,
+      49,
+      21,
+      22
+    ],
+    "last_floor_pixels": 22,
+    "final_gap_m": 0.139617308974266,
+    "last_image_gap_m": 0.140603601932526,
+    "stop_delta_from_last_frame_mm": -0.9862929582599989,
+    "actual_motor_counts": [
+      [
+        30,
+        30
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    "physical": true,
+    "last_image": false,
+    "combined": false,
+    "bridge_observation_and_matched_context_stop": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "source426_unchanged": true
+  },
+  "candidate_summary": {
+    "case": "integral",
+    "floor_pixels": [
+      117,
+      67,
+      49,
+      22,
+      22
+    ],
+    "last_floor_pixels": 22,
+    "final_gap_m": 0.139091894030571,
+    "last_image_gap_m": 0.140087306499481,
+    "stop_delta_from_last_frame_mm": -0.9954124689099952,
+    "actual_motor_counts": [
+      [
+        30,
+        30
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    "physical": true,
+    "last_image": false,
+    "combined": false,
+    "bridge_observation_and_matched_context_stop": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "source426_unchanged": true
+  },
+  "candidate_native_receipt": {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "build/ai-loop-evidence/completion/brake-integral-r22/callback_probe.gd",
+      "--",
+      "--ssok-agent-bridge",
+      "--case",
+      "integral",
+      "--output",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\integral"
+    ],
+    "exit_code": 0,
+    "seconds": 16.47876319999341,
+    "timed_out": false,
+    "failure": null,
+    "source426_unchanged": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "token_persisted": false,
+    "caller_process_environment_restored": true
+  },
+  "candidate_evaluation": {
+    "final": {
+      "angular_speed": 0.00570958945900202,
+      "gap_x": 0.139091894030571,
+      "linear_speed": 0.00175390520598739,
+      "linear_velocity": [
+        0.00172445632051677,
+        0.00021299446234479,
+        0.00023888728173915
+      ],
+      "motors": [
+        {
+          "duty": 0.0,
+          "speed": 0.0447758696973324
+        },
+        {
+          "duty": 0.0,
+          "speed": 0.0608915686607361
+        }
+      ],
+      "position": [
+        0.115403287112713,
+        0.0670828446745873,
+        0.00201258272863925
+      ],
+      "rotation": [
+        -0.00045179881271906,
+        0.0103601990267634,
+        -0.0169828310608864
+      ],
+      "wheel_speed": 0.0655760169029236,
+      "x": 0.115403287112713
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.0045287823304534,
+      "gap_x": 0.176429063081741,
+      "linear_speed": 0.00070288294227793,
+      "linear_velocity": [
+        -0.00061010057106614,
+        0.00019991982844658,
+        0.0002861009852495
+      ],
+      "motors": [
+        {
+          "duty": -0.00275510610349255,
+          "speed": -0.0219458881765604
+        },
+        {
+          "duty": -0.00445745404643094,
+          "speed": -0.0173975080251694
+        }
+      ],
+      "position": [
+        0.0782023891806602,
+        0.0670323148369789,
+        0.00111253198701888
+      ],
+      "rotation": [
+        -0.00105627393350005,
+        -0.00726666254922748,
+        -0.0159647185355425
+      ],
+      "wheel_speed": 0.0176742505282164,
+      "x": 0.0782023891806602
+    },
+    "minimum_gap_x": 0.13231997191906,
+    "rest_ticks": 74.0,
+    "samples": 369.0,
+    "schema": 1.0,
+    "stopped_state": "stopped",
+    "travel_x": 0.0372008979320526,
+    "valid": true,
+    "wall_contact": false
+  },
+  "last_camera_physics": {
+    "gap_x": 0.140087306499481,
+    "angular_speed": 0.00434950087219477,
+    "linear_speed": 0.000475716136861593,
+    "wheel_speed": 0.00676314532756805,
+    "position": [
+      0.114679262042046,
+      0.0669016242027283,
+      0.00180780363734812
+    ],
+    "rotation": [
+      -0.000995400594547391,
+      0.00866530649363995,
+      -0.0135719198733568
+    ],
+    "linear_velocity": [
+      -0.000303254782920703,
+      0.000199920439627022,
+      0.000307203823467717
+    ],
+    "motors": [
+      {
+        "duty": -0.00210849065343305,
+        "speed": -0.0105243967846036
+      },
+      {
+        "duty": -0.00458623452517589,
+        "speed": -0.0110124461352825
+      }
+    ]
+  },
+  "bridge_stop": {
+    "observation": {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 528,
+      "control_generation": 1,
+      "draw_frame": 506,
+      "episode_id": "3a63ed4862f7947326a7108a",
+      "frame_id": 6,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 528,
+      "revision": 3,
+      "robot_instance_id": "1365497615735",
+      "settle_confirmed_tick": 528,
+      "sha256": "483a4f55cde12374e8937e6412655e86c441d8bb609be9dbed602cf6457f3968",
+      "width": 640
+    },
+    "stop_result": {
+      "state": "stopped",
+      "revision": 3,
+      "control_generation": 2,
+      "episode_id": "3a63ed4862f7947326a7108a",
+      "frame_id": 6,
+      "owner_revoked": true,
+      "stop_scope": "matched_context"
+    },
+    "observation_return_to_stop_ack_ms": 41.65229998761788,
+    "scope": "Existing authenticated desktop protocol; no model decision, pixel/physical input or global Stop"
+  },
+  "latch_audit": [
+    {
+      "body_integral_values": [
+        0.0,
+        0.0
+      ],
+      "bound": true,
+      "frame_id": 1,
+      "reason": "frame_ready",
+      "reference": [
+        -0.000922037637792528,
+        -0.00108355842530727,
+        -0.00485826656222343,
+        0.999987185001373
+      ],
+      "rotation": "(-0.001855, -0.002158, -0.009715)",
+      "tick": 41
+    },
+    {
+      "body_integral_values": [
+        0.00148845174893116,
+        0.00148845174893116
+      ],
+      "bound": true,
+      "frame_id": 2,
+      "reason": "frame_ready",
+      "reference": [
+        -0.000987227656878531,
+        -0.00140269985422492,
+        -0.00528546562418342,
+        0.999984562397003
+      ],
+      "rotation": "(-0.001989, -0.002795, -0.010568)",
+      "tick": 53
+    },
+    {
+      "body_integral_values": [],
+      "bound": false,
+      "frame_id": 2,
+      "reason": "accepted_forward",
+      "reference": [
+        -0.000987227656878531,
+        -0.00140269985422492,
+        -0.00528546562418342,
+        0.999984562397003
+      ],
+      "rotation": "(-0.002, -0.002846, -0.010639)",
+      "tick": 54
+    },
+    {
+      "body_integral_values": [],
+      "bound": true,
+      "frame_id": 2,
+      "reason": "brake_entry",
+      "reference": [
+        -0.000711761822458357,
+        -0.00441191717982292,
+        -0.00611985940486193,
+        0.999971270561218
+      ],
+      "rotation": "(-0.001477, -0.008815, -0.012233)",
+      "tick": 83
+    },
+    {
+      "body_integral_values": [
+        0.0598646307167656,
+        0.0598646307167656
+      ],
+      "bound": true,
+      "frame_id": 3,
+      "reason": "frame_ready",
+      "reference": [
+        -0.000427659339038655,
+        -0.00351506331935525,
+        -0.00841687526553869,
+        0.999958336353302
+      ],
+      "rotation": "(-0.000914, -0.007023, -0.016831)",
+      "tick": 217
+    },
+    {
+      "body_integral_values": [],
+      "bound": false,
+      "frame_id": 3,
+      "reason": "accepted_forward",
+      "reference": [
+        -0.000427659339038655,
+        -0.00351506331935525,
+        -0.00841687526553869,
+        0.999958336353302
+      ],
+      "rotation": "(-0.000903, -0.007005, -0.016903)",
+      "tick": 218
+    },
+    {
+      "body_integral_values": [],
+      "bound": true,
+      "frame_id": 3,
+      "reason": "brake_entry",
+      "reference": [
+        -0.000362482998752967,
+        -0.00430938228964806,
+        -0.00791460555046797,
+        0.999959349632263
+      ],
+      "rotation": "(-0.000793, -0.008613, -0.015826)",
+      "tick": 227
+    },
+    {
+      "body_integral_values": [
+        -0.0562472221528879,
+        -0.0562472221528879
+      ],
+      "bound": true,
+      "frame_id": 4,
+      "reason": "frame_ready",
+      "reference": [
+        0.00127451762091368,
+        -0.00382034806534648,
+        -0.00641579087823629,
+        0.999971330165863
+      ],
+      "rotation": "(0.0025, -0.007657, -0.012841)",
+      "tick": 354
+    },
+    {
+      "body_integral_values": [],
+      "bound": false,
+      "frame_id": 4,
+      "reason": "accepted_forward",
+      "reference": [
+        0.00127451762091368,
+        -0.00382034806534648,
+        -0.00641579087823629,
+        0.999971330165863
+      ],
+      "rotation": "(0.002501, -0.007696, -0.012909)",
+      "tick": 355
+    },
+    {
+      "body_integral_values": [],
+      "bound": true,
+      "frame_id": 4,
+      "reason": "brake_entry",
+      "reference": [
+        0.000814158236607909,
+        0.00420233607292175,
+        -0.00615857262164354,
+        0.999971866607666
+      ],
+      "rotation": "(0.00168, 0.008395, -0.01231)",
+      "tick": 366
+    },
+    {
+      "body_integral_values": [
+        0.0958165679204588,
+        0.0958165679204588
+      ],
+      "bound": true,
+      "frame_id": 5,
+      "reason": "frame_ready",
+      "reference": [
+        -0.00119856419041753,
+        0.00352973164990544,
+        -0.00851440522819757,
+        0.999956846237183
+      ],
+      "rotation": "(-0.002337, 0.00708, -0.017037)",
+      "tick": 481
+    },
+    {
+      "body_integral_values": [
+        0.0351927980528369,
+        0.0351927980528369
+      ],
+      "bound": true,
+      "frame_id": 6,
+      "reason": "frame_ready",
+      "reference": [
+        -0.000527085096109658,
+        0.0043291631154716,
+        -0.00678368750959635,
+        0.999967455863953
+      ],
+      "rotation": "(-0.000995, 0.008665, -0.013572)",
+      "tick": 528
+    }
+  ],
+  "policy_verification": {
+    "unchanged_combined_frame_brake_reference_code": true,
+    "six_capture_reference_updates": true,
+    "three_actual_brake_entry_reference_updates": true,
+    "forward_integral_reset_observed": true,
+    "body_integral_nonzero_observed": true,
+    "largest_recorded_body_integral": 0.0958165679204588,
+    "cancel_reset_in_code_not_extra_trial": true
+  },
+  "physical_fields_computed_by_native_evaluator": true,
+  "external_metric_extraction_and_png_classifier_after_stop_native_exit": true,
+  "evaluator_final_condition": "(stopped_ticks>=30 and rest_ticks>=12) or stopped_ticks>=120;132 is fixture readback delay",
+  "model_calls": 0,
+  "production_applied": false
+}

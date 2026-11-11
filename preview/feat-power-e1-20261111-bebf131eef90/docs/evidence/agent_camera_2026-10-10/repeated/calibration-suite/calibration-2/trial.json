@@ -1,0 +1,47 @@
+{
+  "mode": "live",
+  "wall_x": 0.5,
+  "actor": {
+    "status": "deterministic_fixture",
+    "completed_actions": 3,
+    "observations": 4,
+    "final_reobserved": true,
+    "stop_confirmed": true
+  },
+  "evaluation": {
+    "final": {
+      "angular_speed": 0.0116542195901275,
+      "gap_x": 0.09489706158638,
+      "linear_speed": 0.00164530798792839,
+      "wheel_speed": 0.077333115041256,
+      "x": 0.309354543685913
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.0277371350675821,
+      "gap_x": 0.404712080955505,
+      "linear_speed": 0.00554260145872831,
+      "wheel_speed": 0.742974877357483,
+      "x": 0.000575765734538436
+    },
+    "minimum_gap_x": 0.09489706158638,
+    "rest_ticks": 87,
+    "samples": 362,
+    "schema": 1,
+    "stopped_state": "stopped",
+    "travel_x": 0.308778777951375,
+    "valid": true,
+    "wall_contact": false
+  },
+  "score": {
+    "success": true,
+    "checks": {
+      "valid_evaluation": true,
+      "forward_progress": true,
+      "gap_in_target": true,
+      "no_contact": true,
+      "rest_after_stop": true,
+      "action_reobservation_stop": true
+    }
+  }
+}

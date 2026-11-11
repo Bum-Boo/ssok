@@ -1,0 +1,57 @@
+{
+  "mode": "live",
+  "wall_x": 0.5,
+  "actor": {
+    "status": "cli_exited",
+    "cli_exit": 0,
+    "stop_confirmed": true,
+    "observations": 5,
+    "completed_actions": 4,
+    "final_reobserved": true,
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "usage": {
+      "input_tokens": 124161,
+      "cached_input_tokens": 107776,
+      "output_tokens": 561
+    },
+    "goal_success": "not certified; inspect camera/action evidence",
+    "runner_exit": 0
+  },
+  "evaluation": {
+    "final": {
+      "angular_speed": 0.0116654448211193,
+      "gap_x": 0.136442065238953,
+      "linear_speed": 0.00164165091700852,
+      "wheel_speed": 0.0772623643279076,
+      "x": 0.26727095246315
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.00702588493004441,
+      "gap_x": 0.404578469693661,
+      "linear_speed": 0.00128793891053647,
+      "wheel_speed": 0.0547213964164257,
+      "x": 0.000614381046034396
+    },
+    "minimum_gap_x": 0.136442065238953,
+    "rest_ticks": 70,
+    "samples": 3228,
+    "schema": 1,
+    "stopped_state": "stopped",
+    "travel_x": 0.266656571417116,
+    "valid": true,
+    "wall_contact": false
+  },
+  "score": {
+    "success": true,
+    "checks": {
+      "valid_evaluation": true,
+      "forward_progress": true,
+      "gap_in_target": true,
+      "no_contact": true,
+      "rest_after_stop": true,
+      "action_reobservation_stop": true
+    }
+  }
+}

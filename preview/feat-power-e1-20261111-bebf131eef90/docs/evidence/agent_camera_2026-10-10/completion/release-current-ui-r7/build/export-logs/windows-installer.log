@@ -1,0 +1,27 @@
+MakeNSIS v3.08-3+deb12u1 - Copyright 1999-2021 Contributors
+See the file COPYING for license details.
+Credits can be found in the Users Manual.
+
+Command line defined: "PAYLOAD=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/windows"
+Command line defined: "OUTPUT=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/ssok-0.3.1-projects-r7-windows-x86_64-setup.exe"
+Command line defined: "APP_VERSION=0.3.1-projects-r7"
+Command line defined: "UNINSTALL_FILES=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/export-logs/windows-uninstall.nsh"
+Processing script file: "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/release/windows/installer.nsi" (UTF8)
+
+Processed 1 file, writing output (x86-unicode):
+
+Output: "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/projects-release-clean-r7/ssok-0.3.1-projects-r7-windows-x86_64-setup.exe"
+Install: 4 pages (256 bytes), 1 section (4120 bytes), 5399 instructions (151172 bytes), 2180 strings (156600 bytes), 4 language tables (1176 bytes).
+Uninstall: 3 pages (256 bytes), 1 section (4120 bytes), 5263 instructions (147364 bytes), 5281 strings (925026 bytes), 4 language tables (1128 bytes).
+Datablock optimizer saved 18045 KiB (~5.4%).
+
+Using zlib (compress whole) compression.
+
+EXE header size:              111104 / 93184 bytes
+Install code:                          (311740 bytes)
+Install data:                          (320623726 bytes)
+Uninstall code+data:                   (1160748 bytes)
+Compressed data:           219841786 / 322096214 bytes
+CRC (0x9E9061E4):                  4 / 4 bytes
+
+Total size:                219952894 / 322189402 bytes (68.2%)

@@ -1,0 +1,102 @@
+[
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/title.png",
+    "sha256": "9046587941788af3794c868f3ca9a3f2e9e58f5858917a70e4c86723fe1b9c08",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Complete readable title screen with four main actions, descriptions, language and Settings.",
+    "public_copy": "runtime/after/title.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/projects.png",
+    "sha256": "a7bba7e1a49035053858b00959f16666090eaf3a5c98f4b8c6fb09ec46d837f8",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Projects dialog fits. Storage/export warning, valid-blocks notice, snapshot/export controls, empty saved-project explanation, preservation footer and Close are readable. Background shows 0 parts / 0 connections.",
+    "public_copy": "runtime/after/projects.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/import-confirm.png",
+    "sha256": "4964a2fbb2f308c9f6dcbb4a5695b3f218a2eb46b68c8ca3a8f5e20801230ad0",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Replacement-of-assembly-and-code warning and snapshot advice fully visible. OK, Cancel and close icon readable. Modal intentionally covers underlying import content.",
+    "public_copy": "runtime/after/import-confirm.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/car-imported.png",
+    "sha256": "fd808bff6dd41dac312338ff6e4189591cd38dabd3726e39d333f11b0dbeff16",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Workshop visibly contains car and wall; 10 parts / 16 connections, Learner code and Run code shown. Footer states Project opened. Code runs only when you press Run code.",
+    "public_copy": "runtime/after/car-imported.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/ai-enter-no-dispatch.png",
+    "sha256": "360d96aeb02594f96887a59476a32d1d4e9b7911fdd45da46ba4fbcffe99d51b",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "AI tab shows Status Off, operator not connected, disabled Run with AI and No frame yet. Goal shows only visible tail 'only3 ticks once, observe again, then stop.' Full goal is not visible. Disclosure is legible.",
+    "public_copy": "runtime/after/ai-enter-no-dispatch.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/ai-connected-before-run.png",
+    "sha256": "555ffc1141b735e3c91a3482efdfd188fbf783ca29eb267901328621967672a9",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "AI tab shows Status Off, AI operator: connected, enabled-looking Run with AI and No frame yet. This is a visible connected state, not independent proof of no dispatch.",
+    "public_copy": "runtime/after/ai-connected-before-run.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/ai-running.png",
+    "sha256": "758b7299e8df3d7748b9fd425edb94b0ff92cb3c2c679e59b2a342699cdeb64d",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Status Ready, highlighted top play control, disabled-looking Run with AI, Running the goal. Stop is always available message and populated camera preview visible. Stop is readable. Tooltip overlaps scene/panel boundary. Full action trace is outside visible area.",
+    "public_copy": "runtime/after/ai-running.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/ai-stopped.png",
+    "sha256": "d672f75f67560094bf423dbcb73dc2304b6b41c0f63c49e2a1d6fc427ecc5c8a",
+    "dimensions": [
+      1400,
+      950
+    ],
+    "observation": "Status Stopped and Goal run stopped visible. Camera preview populated. Footer states Input stopped - servos hold their last targets; return to edit mode to reset the robot. Tooltip remains; full action trace not visible.",
+    "public_copy": "runtime/after/ai-stopped.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/actor/camera/observation-1.png",
+    "sha256": "2be25aa8ad10f2b8d35152ddd76e3d64e66400d2e6214ab950dbc9c0c229c3cc",
+    "dimensions": [
+      640,
+      480
+    ],
+    "observation": "Full sensor PNG: blue sky, beige floor, central gray wall and blue/gray lower-side robot geometry. Wall approximately x147–497, y165–283. Center remains unobstructed by robot geometry.",
+    "public_copy": "runtime/after/actor/camera/observation-1.png"
+  },
+  {
+    "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/operator-archive-r12/after/actor/camera/observation-2.png",
+    "sha256": "06291fb44ecb759807b5d68feb91ccfd84771187d3d6b3c7e72fb247ed96912f",
+    "dimensions": [
+      640,
+      480
+    ],
+    "observation": "Full sensor PNG: same broad composition. Wall approximately x145–496, y165–283, with subtly different edge slope compared with observation-1. Small leftward edge difference is visible; no physical or causal inference.",
+    "public_copy": "runtime/after/actor/camera/observation-2.png"
+  }
+]

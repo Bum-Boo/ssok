@@ -1,0 +1,965 @@
+{
+  "source_commit": "3fe5882432bb8870bf11757c0b0cdff225872e3a",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "source_files": 1268,
+  "source_manifest_sha256": "547f461c5b30431971b3adfe60fe0f9b10175047ae88c7c60a8eec9326654eec",
+  "source_mismatches": 0,
+  "checks": 115,
+  "passed": 89,
+  "failures": 26,
+  "comparison": {
+    "D2_passed_suites_retained": 89,
+    "D2_environment_failures_unchanged": [
+      "agent_camera_loop_check-rendered",
+      "agent_camera_rest_check",
+      "agent_goal_ui_check-rendered",
+      "bridge_stop_owner_check",
+      "camera_evaluator_lifecycle_check-app_free",
+      "camera_evaluator_lifecycle_check-drive_stop",
+      "camera_evaluator_lifecycle_check-driving_app_free",
+      "camera_evaluator_lifecycle_check-driving_mode_off",
+      "camera_evaluator_lifecycle_check-driving_new_episode",
+      "camera_evaluator_lifecycle_check-driving_rebuild",
+      "camera_evaluator_lifecycle_check-driving_stop",
+      "camera_evaluator_lifecycle_check-driving_teardown",
+      "camera_evaluator_lifecycle_check-mode_off",
+      "camera_evaluator_lifecycle_check-new_episode",
+      "camera_evaluator_lifecycle_check-normal_stop",
+      "camera_evaluator_lifecycle_check-rebuild",
+      "camera_evaluator_lifecycle_check-teardown",
+      "import",
+      "motion_lab_ui_check",
+      "tests-desktop_client_check.py",
+      "tests-desktop_session_check.py",
+      "tests-motion_mcp_check.py",
+      "tests-test_pickup_bridge.py",
+      "tools-motion_lab-test_races.py",
+      "tools-motion_lab-test_service.py",
+      "tools-rl_lab-test_rl_lab.py"
+    ],
+    "new_failures": [],
+    "plan_names_match": true
+  },
+  "results": [
+    {
+      "name": "import",
+      "passed": false,
+      "exit_code": 0,
+      "seconds": 3.824,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "agent_camera_loop_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.918,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "agent_camera_loop_check-rendered",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "agent_camera_rest_check",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "agent_goal_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.219,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "agent_goal_ui_check-rendered",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "app_controller_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.968,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "assembly_snap_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.265,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "authoring_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.118,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "biped_app_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 8.533,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "biped_board_clearance_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.715,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "biped_motion_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.624,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "blender_camera_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.265,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "blender_edit_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.264,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "block_program_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.918,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "bridge_stop_owner_check",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "browser_evidence_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.569,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-normal_stop",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-drive_stop",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-teardown",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-mode_off",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-app_free",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-rebuild",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-new_episode",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_stop",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_rebuild",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_app_free",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_new_episode",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_teardown",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "camera_evaluator_lifecycle_check-driving_mode_off",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "construction_kit_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.715,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "construction_kit_motion_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.331,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "construction_kit_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.818,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "construction_kit_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.67,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "control_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.818,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "core_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.319,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "flag_mission_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.018,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "game_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 12.543,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_contract_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.264,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-walk",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.467,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-backward",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.468,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-pick",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.467,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-run",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.467,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-walk-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.467,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-run-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.467,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_motion_check-run-settle-frames=181",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.467,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.871,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "humanoid_ui_check-modular",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.522,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "interface_preferences_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.524,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "keyboard_navigation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.018,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "learned_app_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.62,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "learned_policy_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.568,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "learned_tracking_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.918,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "learner_language_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.264,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.569,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "manual_control_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "material_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "mesh_assets_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.515,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "modular_humanoid_check-walk",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.267,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "modular_humanoid_check-pick",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.367,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "modular_humanoid_check-pick-reverse-links",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.267,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "modular_pickup_parallel_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.67,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "motion_lab_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.376,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "motion_lab_ui_check",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 2.019,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "parts_freedom_blocks_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.264,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_freedom_mechanics_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.62,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_freedom_runtime_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_freedom_workshop_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.171,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_pack_button_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.515,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_pack_environment_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.166,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_pack_gears_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.016,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_pack_inventory_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.118,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_pack_led_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "parts_pack_line_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.916,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "pickup_bridge_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.219,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "pickup_lab_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.33,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "pickup_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.469,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "pickup_trial_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 4.724,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "project_store_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.569,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "relative_code_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.465,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "robot_car_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.016,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "run_mode_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "scene_workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 12.742,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "servo_torque_budget_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.364,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "sonar_stage_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.581,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "stage_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.025,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "stage_contract_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.679,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "stage_own_build_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 18.104,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "stage_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.119,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tutorial_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.419,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "viewport_framing_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.222,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_compact_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 12.994,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_emphasis_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 8.634,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_goal_observation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 9.485,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_goal_space_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 16.35,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_presentation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.431,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_road_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.264,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_run_label_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.419,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "workshop_ui_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.47,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "yaw_biped_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.365,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tests-camera_experiment_check.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tests-desktop_client_check.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "tests-desktop_session_check.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "tests-motion_mcp_check.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "tests-test_ci_verify.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.167,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tests-test_desktop_package.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tests-test_operator_doctor.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tests-test_operator_release.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tests-test_pickup_bridge.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "tests-test_release_documents.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 5.976,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tools-docs-test_maintain.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": false
+    },
+    {
+      "name": "tools-motion_lab-test_races.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "tools-motion_lab-test_service.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.114,
+      "timeout": false,
+      "engine_error": true
+    },
+    {
+      "name": "tools-rl_lab-test_rl_lab.py",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 0.064,
+      "timeout": false,
+      "engine_error": true
+    }
+  ]
+}

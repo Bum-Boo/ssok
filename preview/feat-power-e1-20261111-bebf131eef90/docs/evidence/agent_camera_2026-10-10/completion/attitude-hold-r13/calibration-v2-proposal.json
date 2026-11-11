@@ -1,0 +1,36 @@
+{
+  "status": "proposal_only_not_adopted_not_run",
+  "old_frozen_plan_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "old_image_target": [
+    24,
+    38
+  ],
+  "candidate_image_target": [
+    12,
+    20
+  ],
+  "candidate_goal": "Approach the wall using only the robot camera. At the horizontal center of the480-pixel-high image, aim to leave a narrow beige floor strip about2.5–4.2% of the image height (roughly12–20pixels) between the wall base and the bottom edge, then stop before contact. The bottom corners can contain robot parts; judge the center floor strip. Reobserve after every short step. Prefer shorter steps near the wall; stop if uncertain. Do not claim a physical distance or collision-free success from the images.",
+  "unchanged_physical_criteria": {
+    "minimum_travel": 0.03,
+    "minimum_gap": 0.04,
+    "maximum_gap": 0.14
+  },
+  "unchanged_layouts": [
+    0.35,
+    0.5,
+    0.6
+  ],
+  "proposed_repeats": 3,
+  "limits": {
+    "cli_launches": 3,
+    "steps_per_run": 8,
+    "images_per_run": 9,
+    "seconds_per_run": 180
+  },
+  "why": "Existing same-source r8 deterministic30/10/13 ended18px/13.800904cm three times. Current r13 stock23px/14.106308cm and motor-attitude24px/14.079912cm fail the simultaneous old predicate. These are points, not proof of global incompatibility or calibration reliability.",
+  "next_if_selected": "Versioned separate camera-only actual3layouts x3AI trials and blind controls, original9image/0physical and failures retained; physical thresholds and app unchanged.",
+  "existing_reference": "docs/evidence/agent_camera_2026-10-10/completion/control-feedback-r8/README.md",
+  "product_adoption_requires_user_decision": true,
+  "physical_guarantee_from_image": false,
+  "original_goal_complete": false
+}

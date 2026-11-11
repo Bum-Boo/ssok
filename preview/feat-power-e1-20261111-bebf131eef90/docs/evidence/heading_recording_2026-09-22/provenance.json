@@ -1,0 +1,116 @@
+{
+  "application_source_commit": "d986f6aa20e0adccd78413b5d107d41fd711bb2e",
+  "source_snapshot": "483 exact committed files; unchanged capture script; no application overlays.",
+  "policy_sha256": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+  "capture_job": "20260922-172427-ssok-heading-framed-recording-fdc9e3fd",
+  "first_capture_job": "20260922-171419-ssok-heading-committed-capture-d72422c4",
+  "jobs_status": "completed exit0, fetched, resources released",
+  "render_device": "Mesa llvmpipe CPU",
+  "requested_window_resolution": [
+    1600,
+    940
+  ],
+  "actual_movie_resolution": [
+    1152,
+    648
+  ],
+  "actual_still_resolution": [
+    1600,
+    900
+  ],
+  "first_actual_still_resolution": [
+    1600,
+    940
+  ],
+  "resolution_note": "The plan expected a1600x940 output, but the MovieWriter retained the project1152x648 viewport. The second live viewport/still is1600x900 and the footer is complete. Observed sizes override inferred command-line dimensions.",
+  "first_capture_metrics_exactly_equal": true,
+  "raw_avi_sha256": {
+    "first": "5eff3e2a9a99290716c1db52ab1ff0f6de24ed5e3dfe7aa975918c0c1925d7d4",
+    "framed": "bacfd808b2e76af845564d25513c23ce79234f417bef115a40391da4554f272f"
+  },
+  "media": {
+    "learned-walk.gif": {
+      "sha256": "e119feb046807f6b5fc31a9119b1ce9544f354b148a68655e0827cbcc226a10f",
+      "bytes": 4841256,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 540,
+            "r_frame_rate": "10/1",
+            "nb_frames": "146"
+          }
+        ],
+        "format": {
+          "duration": "14.600000"
+        }
+      }
+    },
+    "learned-walk.mp4": {
+      "sha256": "9c633a09a157cbac87bcb81d7cc34b30bf10506639427c0d48e7b1e988a9a7a1",
+      "bytes": 2565361,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1152,
+            "height": 648,
+            "r_frame_rate": "30/1",
+            "nb_frames": "437"
+          }
+        ],
+        "format": {
+          "duration": "14.566667"
+        }
+      }
+    },
+    "learned-walk.png": {
+      "sha256": "53961a710e1c7ff6ab242fd44b8946fc85b964221da7735d598064da6e1f04a7",
+      "bytes": 261760,
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 1600,
+            "height": 900,
+            "r_frame_rate": "25/1"
+          }
+        ],
+        "format": {}
+      }
+    }
+  },
+  "visual_review": {
+    "sample_seconds": [
+      1,
+      7,
+      13.5
+    ],
+    "full_robot_and_footer_visible": true,
+    "normal_playback_speed": true
+  },
+  "known_warnings": [
+    "Could not set V-Sync mode on this graphics driver; fixed30fps movie recording still completed."
+  ],
+  "artifact_sha256": {
+    "capture.log": "94a1875e5d8f859f29af8d7de222a6deec059f0ca0a0a5553422a7ac99c2e709",
+    "capture_learned_app.gd.txt": "6116355cceeb1d654b3278078ff62f89e24818a45cf55f0f4cb5fbf9c25873c5",
+    "first-window-crop/capture.log": "48c273e345a8edd30520ab823d0d82090c09c4a03027d0c2cbd2f72c113b6ea0",
+    "first-window-crop/learned.json": "60c4c1f84ca32e8fec650453e6fd73e54efb5b3196f06cac7b4968b835f63080",
+    "first-window-crop/plan.json": "dd83cf04bcd64626454a4c21e88a219a69b647fca9cd4d191e8dd76e6ea7935d",
+    "first-window-crop/run.py.txt": "19b15574e5b012d705759286a126ee59885a2be24585bd19b09b83d5b0b9cc35",
+    "first-window-crop/sample-1.png": "a567a7e574ee412fcce9e40dffc51b722c22909fc20cd11df1e6a8fd9c55207a",
+    "first-window-crop/sha256.json": "64e1cb1ba75c4b8f734fb3a0af38af143ecfc436b105aa32c9ff94c6d239d6e2",
+    "first-window-crop/source-sha256.json": "cd089cab6aeedc554e5cf4077d817e492b6d92e094bd455007c12182203d0125",
+    "import.log": "adb33ede06c84502f3b25f4ecc6c4e6b11891e69816c4e3b949f8e975c02c1ec",
+    "learned.json": "60c4c1f84ca32e8fec650453e6fd73e54efb5b3196f06cac7b4968b835f63080",
+    "plan.json": "5487ecc2463e024497dfd805c07a0d154c66c3e157cce3bf4a0cb81a087e3268",
+    "run.py.txt": "dcabdcefcb2289b1d9380e84a0789e018207a196f439f333f8eee1dfc7e121ab",
+    "sha256.json": "b60a1da8af78e81db6e8b298380bab147d1ecdd6269ba05194d2554767293a5b",
+    "source-sha256.json": "cd089cab6aeedc554e5cf4077d817e492b6d92e094bd455007c12182203d0125"
+  }
+}

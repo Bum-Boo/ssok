@@ -1,0 +1,341 @@
+{
+  "scope": "Named synthetic runtime, isolated evaluator outputs and debug fixtures only. Excludes private plan/state, provider transcripts, auth/config, shader caches and isolated engine appdata logs.",
+  "files": [
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\receipt.json",
+      "output": "runtime/stock/receipt.json",
+      "bytes": 616,
+      "sha256": "27d7d8d1c1a1ec57c92dffbea7b3f06749bc3e0d5f2be96dff988a2e0f3112fe"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\plan.json",
+      "output": "runtime/stock/plan.json",
+      "bytes": 46352,
+      "sha256": "522c14a1858fb1bda4b629016f5539e6063f9a7b9ba1ef9a425ee69742e13dda"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\result.json",
+      "output": "runtime/stock/result.json",
+      "bytes": 76807,
+      "sha256": "548389949b8dbf10f8d5d7ef8a5dbcc089a2ac0e06e9b7ef333800c5b2f97ae1"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\measured.json",
+      "output": "runtime/stock/measured.json",
+      "bytes": 113148,
+      "sha256": "fa6d9acf62b1f48dd24d3d5d0cf3497809ee0a85f4e31f82b3c364e74d5c5a65"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\summary.json",
+      "output": "runtime/stock/summary.json",
+      "bytes": 1487,
+      "sha256": "28ade8c35329b1a5b66e5e0db072357e81d4f8de9e9210f3dd77ecb405d63438"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\godot.log",
+      "output": "runtime/stock/godot.log",
+      "bytes": 237,
+      "sha256": "4945c16ed20f01742d06d9659de8f56f4ba0691b4569748d0bb26849762626ec"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\idle-1.png",
+      "output": "runtime/stock/idle-1.png",
+      "bytes": 116756,
+      "sha256": "b357cb143b38a9bbb91490988463556a1b89c653043423ce365e05e2249f71bc"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\idle-2.png",
+      "output": "runtime/stock/idle-2.png",
+      "bytes": 102129,
+      "sha256": "f7ec5d2d70a86dc09b1a6e1a38dc194d24de211b38c54df6020143700629ce0e"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\idle-3.png",
+      "output": "runtime/stock/idle-3.png",
+      "bytes": 126254,
+      "sha256": "acb0ad5f2de1166a1bc0f9be2a517bd637bb7d0b6e61d74cb9b5bce4904f9584"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\idle-4.png",
+      "output": "runtime/stock/idle-4.png",
+      "bytes": 124496,
+      "sha256": "c737be3e64520456970cdf96c4d2ac5ac615d620d433114ad85270821f55fd5c"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\initial.png",
+      "output": "runtime/stock/initial.png",
+      "bytes": 37807,
+      "sha256": "e6bd166b6aac1d6be260784b7e33fbf98279993fc88835705efbcc3f0c2ea25a"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\post-1.png",
+      "output": "runtime/stock/post-1.png",
+      "bytes": 47543,
+      "sha256": "0b6a81b0d593c9efc4c94993ba9d027046d683fbce902f0f6126a15b973cb37d"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\post-2.png",
+      "output": "runtime/stock/post-2.png",
+      "bytes": 72973,
+      "sha256": "2320e0e0d75118a346332269415bb9daa635dbe748e4f290cca66d8bd8250b62"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\post-3.png",
+      "output": "runtime/stock/post-3.png",
+      "bytes": 123931,
+      "sha256": "2e18888227b90c8bad9a556b352df619cef6f95e3761ead2e29637afae3454ef"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\user-data\\Godot\\app_userdata\\ssok\\camera-calibration.jsonl",
+      "output": "runtime/stock/camera-calibration.jsonl",
+      "bytes": 24625,
+      "sha256": "6916a5dd5dc58f3109a287182873e50a75923d77a5d2d27c192499a46184bc9e"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\stock\\user-data\\Godot\\app_userdata\\ssok\\camera-evaluation.json",
+      "output": "runtime/stock/camera-evaluation.json",
+      "bytes": 1564,
+      "sha256": "d4de3a2e88ea2e3d3d4c5dc440a15574c96723032d5127deb831b690d52dbcc4"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\receipt.json",
+      "output": "runtime/attitude-hold-v2/receipt.json",
+      "bytes": 635,
+      "sha256": "c5f9acdcd625d9ac05056a05cfaa0fdfeb94462a1090c7d842bbb9eaaf3f5622"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\plan.json",
+      "output": "runtime/attitude-hold-v2/plan.json",
+      "bytes": 46471,
+      "sha256": "b390ecd3553bf198729317af213c530c1ca8b41dd1818c87a15f15f62bd61620"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\result.json",
+      "output": "runtime/attitude-hold-v2/result.json",
+      "bytes": 76731,
+      "sha256": "7d24e8f59cd04677ec6787cc43efd9ac39e4aa0a1e5941381c1649ceb324a3a7"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\measured.json",
+      "output": "runtime/attitude-hold-v2/measured.json",
+      "bytes": 113075,
+      "sha256": "33b9f6cae865a8d6b71f5f03b9624cb228c4d3011c912774db60765c6b0035ca"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\summary.json",
+      "output": "runtime/attitude-hold-v2/summary.json",
+      "bytes": 1489,
+      "sha256": "d2e4b2a5184bb45cc5c59332b14623106e2a4113b3c793ee252902a8eea180e1"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\godot.log",
+      "output": "runtime/attitude-hold-v2/godot.log",
+      "bytes": 245,
+      "sha256": "2dbe7f07d007a4cde8206bc0bcbacc6af6a22e4d0b55a101f8631fe5c91bdf44"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\idle-1.png",
+      "output": "runtime/attitude-hold-v2/idle-1.png",
+      "bytes": 116161,
+      "sha256": "2d9ef7a1e93aaec1322b06d15e38796b8437ae7556ac48290aa72d1ba85e4478"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\idle-2.png",
+      "output": "runtime/attitude-hold-v2/idle-2.png",
+      "bytes": 119244,
+      "sha256": "41b58abc819fc2aa339ce7f14583bdf5519452e97d5c8c74ff5b0f226a7b29fc"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\idle-3.png",
+      "output": "runtime/attitude-hold-v2/idle-3.png",
+      "bytes": 121554,
+      "sha256": "bbb8a2617649750be7c7681956e2cc07c36c6eefcf55fc853936f121c060eb46"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\idle-4.png",
+      "output": "runtime/attitude-hold-v2/idle-4.png",
+      "bytes": 121042,
+      "sha256": "1d24e4dc2e1dc112b3b6a80a15ddfe7e418c5582b5d98f21ce2cc51faee75d1a"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\initial.png",
+      "output": "runtime/attitude-hold-v2/initial.png",
+      "bytes": 37801,
+      "sha256": "67214b3a5adb63d70c7ec44df82462a9eede7ebedc852e4d15aab709bb40e5f9"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\post-1.png",
+      "output": "runtime/attitude-hold-v2/post-1.png",
+      "bytes": 47365,
+      "sha256": "9c6bf9ca6a600f08da730386216a121508e5e732cf72a2bf892eb926a99f2fd9"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\post-2.png",
+      "output": "runtime/attitude-hold-v2/post-2.png",
+      "bytes": 74900,
+      "sha256": "74498d5880c017da42838e519dc57de2252f4b32b826f7a35b7300d62b9f8a17"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\post-3.png",
+      "output": "runtime/attitude-hold-v2/post-3.png",
+      "bytes": 126876,
+      "sha256": "33d3e20a6eb161fdf1705d2dd63deb18de7cb6c70cd2c401f4b1847f8212d67e"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\user-data\\Godot\\app_userdata\\ssok\\camera-calibration.jsonl",
+      "output": "runtime/attitude-hold-v2/camera-calibration.jsonl",
+      "bytes": 24552,
+      "sha256": "b4e92b7571b0e52995e934c7f4f9a9e05283ed7012c7e2ba19b7be03532d4653"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold-v2\\user-data\\Godot\\app_userdata\\ssok\\camera-evaluation.json",
+      "output": "runtime/attitude-hold-v2/camera-evaluation.json",
+      "bytes": 1562,
+      "sha256": "bef0b0e766990d7d233a060fe698de2f8369121bfac910def58f97be0adbeb5b"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold\\receipt.json",
+      "output": "runtime/failed-compile/receipt.json",
+      "bytes": 630,
+      "sha256": "7625d598c86431aa7b6316d63ff9dade0dcb8ea2fd776fbf4bcc5141f3ef2c5e"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold\\plan.json",
+      "output": "runtime/failed-compile/plan.json",
+      "bytes": 46468,
+      "sha256": "b7d20a58482a810953912cb2a8aeb93c34f95fe60012bc4f8cdb404bc7198c06"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude-hold\\godot.log",
+      "output": "runtime/failed-compile/godot.log",
+      "bytes": 1274,
+      "sha256": "5141268c8a8a883cf01d03a70af079be55475307ea9b8e3c23fa39b143c9f8fe"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\attitude_loop.gd",
+      "output": "debug-fixtures/attitude_loop.gd",
+      "bytes": 1927,
+      "sha256": "6d463ed7fe2f83e9c09a01fb526b6bd181258ac294be5f490fbcb843589918d0"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\callback_probe.gd",
+      "output": "debug-fixtures/callback_probe.gd",
+      "bytes": 6214,
+      "sha256": "faac1320fbbb6d2e22e35a1f523c70e988ca1eee8a5fd6234b193e52d8c118a5"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\callback_sampler.gd",
+      "output": "debug-fixtures/callback_sampler.gd",
+      "bytes": 2922,
+      "sha256": "2e5a945ba92f2f5198d8f940ed9321a01d23c196f0fe59c57f2e5ab4a8568d5e"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\motor_callback.gd",
+      "output": "debug-fixtures/motor_callback.gd",
+      "bytes": 669,
+      "sha256": "f6dd8b69e86ec4952888fce94b773853ad7e2b0484888ca28a0a4d8d3fe987b5"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\baseline-inputs.json",
+      "output": "provenance/baseline-inputs.json",
+      "bytes": 697,
+      "sha256": "0f1d0dc5289dd080d544a6551e11498f619fb44c8c5e7c28757279178d0ae39a"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\candidate-inputs.json",
+      "output": "provenance/candidate-inputs.json",
+      "bytes": 446,
+      "sha256": "29cd93dde5467e24ee86182d1dbc5e02e59659becb6472d1d2a1054ab7da3fa1"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\candidate-v2-inputs.json",
+      "output": "provenance/candidate-v2-inputs.json",
+      "bytes": 633,
+      "sha256": "ccf0753e39ca4ffa1925ecbf97143cddb86f082ecde3be23d568cb90c17daeb0"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\hypotheses.json",
+      "output": "provenance/hypotheses.json",
+      "bytes": 716,
+      "sha256": "48e0912b469f6721d70849d7859cbf341e0e0a93a4a83af36784281e7decbcb5"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\recovery.json",
+      "output": "provenance/recovery.json",
+      "bytes": 474,
+      "sha256": "892af5fec615b685b73ee31fdb6f72c141508081b2b62e274a7ee48db5250009"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\prototype-check-only.log",
+      "output": "provenance/prototype-check-only.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\astra-inspection.json",
+      "output": "provenance/astra-inspection.json",
+      "bytes": 5856,
+      "sha256": "f13fdbe69e0d2ce69cdc9fcfa8717b6858597019388f9beadb29a02024587dc0"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\callback_probe.before-load-guard.gd",
+      "output": "provenance/callback_probe.before-load-guard.gd",
+      "bytes": 6085,
+      "sha256": "d25b43f08212b03c3ddc4a620f5000be8c84b46a2dc177b8f85c57608305b130"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\runner.before-candidate.py",
+      "output": "provenance/runner.before-candidate.py",
+      "bytes": 5375,
+      "sha256": "9802f62cf248797c33ef4a9c15e0e922fddbeb6cb6d3e2926f098f93a807f993"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\failed-prototype-inputs\\attitude_loop.gd",
+      "output": "failed-prototype-inputs/attitude_loop.gd",
+      "bytes": 1912,
+      "sha256": "5ca7fc35550d5a5e9c3fbedfba5f18f9b2beb0850b25b73fac9f13573eba9623"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\failed-prototype-inputs\\ssok-control-r13-attitude.py",
+      "output": "failed-prototype-inputs/ssok-control-r13-attitude.py",
+      "bytes": 5312,
+      "sha256": "cfc8b797647b96181ab01c83134085acf9a2d673edb344c903b4b30908b4e0c7"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\failed-prototype-inputs\\ssok-control-r13-run.py",
+      "output": "failed-prototype-inputs/ssok-control-r13-run.py",
+      "bytes": 5440,
+      "sha256": "4053cba70869af88c1659caf7a4a7311040a0e71f83c6b7cd1c1f5d286be56e4"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-control-r13-run.py",
+      "output": "drivers/ssok-control-r13-run.py",
+      "bytes": 5440,
+      "sha256": "4053cba70869af88c1659caf7a4a7311040a0e71f83c6b7cd1c1f5d286be56e4"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-control-r13-v2.py",
+      "output": "drivers/ssok-control-r13-v2.py",
+      "bytes": 5417,
+      "sha256": "40f3ed34004f98e88cf3710bb74990a81e01637a73f4206bad622888689e6414"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\docs\\evidence\\agent_camera_2026-10-10\\repeated\\refined-visual-goal\\plan.json",
+      "output": "frozen-goal.json",
+      "bytes": 2511,
+      "sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-hold-r13\\calibration-v2-proposal.json",
+      "output": "calibration-v2-proposal.json",
+      "bytes": 1794,
+      "sha256": "134243c5f4977aa599e0ce3b6db11c5c7dc2d3e0cbcbca12f0f9b89fba05bcc3"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\attitude-hold-r13\\curation-recovery.json",
+      "output": "provenance/curation-recovery.json",
+      "bytes": 446,
+      "sha256": "114fc5daa00f5bbb9ca8f895cc6057ec908621d45a6ef90145513b3a4d9fccf0"
+    }
+  ]
+}

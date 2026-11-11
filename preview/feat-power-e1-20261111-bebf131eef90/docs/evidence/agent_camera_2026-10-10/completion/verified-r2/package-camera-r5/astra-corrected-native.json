@@ -1,0 +1,128 @@
+{
+  "actual_model": "gpt-6-astra",
+  "method": "All nine actual files viewed with view_image at original resolution. Dimensions and SHA256 measured through bounded read-only file access.",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/car-imported.png",
+      "sha256": "fd808bff6dd41dac312338ff6e4189591cd38dabd3726e39d333f11b0dbeff16",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Car and wall visible; 10 parts / 16 connections; Projects dialog closed. Blocks selected. Bottom: Project opened. Code runs only when you press Run code."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/ai-before-enable.png",
+      "sha256": "b5b958d58fcdbca3940d76ae6b29c0328ea245980e33a2638b5ac6738a5f3018",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "AI tab selected; Status Off. Enable visible, Capture and Forward gray. Camera area says No frame yet. Capture to see the robot camera. AI operator: not connected. Car visible."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/ai-ready.png",
+      "sha256": "1c72a2cc791009a02b3cf4854271622fdbf2e66ced978997b46caee2c159a32f",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "AI tab selected; Status Ready. Enable gray; Capture and Forward visible in enabled styling. Camera preview populated with sky, wall, beige ground and side structures. Tooltip over scene reads Mount the virtual camera on the current robot."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/ai-after-native.png",
+      "sha256": "23affcb6f53c24c06dad2bfb1d48e188785f0a3e6300a6ea9f567a06f4111520",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Status Ready; Forward outlined; tooltip reads Drive forward 20 ticks, then stop. Car screen position differs from ready frame. Preview wall appears wider than ready frame. AI operator: not connected remains visible."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/ai-after-bridge.png",
+      "sha256": "24055f6e3c11766318dbff436cd801a5f2a914f4205c5d9f3841e9b57288e29c",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Status Ready; car screen position and preview wall differ slightly from after-native. AI operator: not connected remains visible; no claim about developer bridge connectivity follows from that label."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/ai-stopped.png",
+      "sha256": "f1ecea69851e4a4c30fe76c264d61fc4cae70cb0a2622a71501f6955f34999a1",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Status Stopped; Stop outlined, tooltip Stop the robot now. Enable restored, Capture and Forward gray. Preview retained. Bottom Input stopped - servos hold their last targets; return to edit mode to reset the robot."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/camera-before.png",
+      "sha256": "ba1ad2276da0ce9534ea1437e96eb68f921fe01028c5ec8c273fe8383e4e6fc4",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Original camera image: sky above centered gray wall, beige ground below, robot structures at outer sides. Wall approximately spans x144..494 and top y166."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/camera-after-native.png",
+      "sha256": "47b2b0a3888fef3931502c92921da98b7645d93cc9163e6f12f4b7a6142ab8e5",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Actual image differs from before: gray wall spans a wider screen region, approximately x134..508, with upper edge near y158. Central wall and ground unobscured."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/corrected-native/camera-after-bridge.png",
+      "sha256": "66fe54a55a41ae76a5e482bba80e0cd8a8af49e4a0911af87849741c14277cba",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Actual image differs slightly again: gray wall approximately x131..511, upper edge near y157..158; slight edge slope. Central wall and ground unobscured."
+    }
+  ],
+  "AI_control_positions_approximate": {
+    "AI_tab_center": [
+      1261,
+      198
+    ],
+    "Stop_bounds_xyxy": [
+      1060,
+      231,
+      1140,
+      269
+    ],
+    "Enable_bounds_xyxy": [
+      1060,
+      277,
+      1156,
+      315
+    ],
+    "Capture_bounds_xyxy": [
+      1160,
+      277,
+      1256,
+      315
+    ],
+    "Forward_bounds_xyxy": [
+      1260,
+      277,
+      1356,
+      315
+    ],
+    "uncertainty_px": 2
+  },
+  "verdict": "Car presence, selected AI panel, Off/Ready/Stopped display sequence, populated camera preview and differences between three actual camera frames are visually supported.",
+  "scope_limits": [
+    "Screenshots establish visible states, not click execution, physical movement/distance/contact, pixel-goal success, billing or test pass.",
+    "No inference about native/bridge execution correctness or number of ticks.",
+    "No inference about normal close, process exit code or cause of coordinator assertion failure.",
+    "AI operator not connected is observed UI text, not an independent transport diagnosis.",
+    "Package/source identities and runtime results supplied by coordinator are not verified by this inspection.",
+    "Approximate camera wall bounds are visual descriptions only, not calibrated measurements."
+  ],
+  "read_failures": []
+}

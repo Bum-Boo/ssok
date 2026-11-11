@@ -1,0 +1,15 @@
+test_behavior_change_requires_explicit_review_even_after_generation (tools.docs.test_maintain.DocumentationCheckTest.test_behavior_change_requires_explicit_review_even_after_generation) ... ok
+test_class_and_method_rename_are_not_hidden_by_review (tools.docs.test_maintain.DocumentationCheckTest.test_class_and_method_rename_are_not_hidden_by_review) ... ok
+test_entry_budget_and_adr_partial_status_preserved (tools.docs.test_maintain.DocumentationCheckTest.test_entry_budget_and_adr_partial_status_preserved) ... ok
+test_generated_map_detects_new_source (tools.docs.test_maintain.DocumentationCheckTest.test_generated_map_detects_new_source) ... ok
+test_local_links_checked_but_examples_and_urls_ignored (tools.docs.test_maintain.DocumentationCheckTest.test_local_links_checked_but_examples_and_urls_ignored) ... ok
+test_outside_repository_links_and_registry_paths_rejected (tools.docs.test_maintain.DocumentationCheckTest.test_outside_repository_links_and_registry_paths_rejected) ... ok
+test_removed_source_reports_both_routes_and_links (tools.docs.test_maintain.DocumentationCheckTest.test_removed_source_reports_both_routes_and_links) ... ok
+test_route_is_compact_and_resolves_adr_file (tools.docs.test_maintain.DocumentationCheckTest.test_route_is_compact_and_resolves_adr_file) ... ok
+test_unknown_contract_does_not_partially_mutate_registry (tools.docs.test_maintain.DocumentationCheckTest.test_unknown_contract_does_not_partially_mutate_registry) ... ok
+test_valid_registry_and_deterministic_maps (tools.docs.test_maintain.DocumentationCheckTest.test_valid_registry_and_deterministic_maps) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.109s
+
+OK

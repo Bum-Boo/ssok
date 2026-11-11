@@ -1,0 +1,42 @@
+{
+  "requested_model": "gpt-6-astra",
+  "actual_model": "gpt-6-astra",
+  "method": "All three actual PNGs viewed at original resolution with view_image; bounded file SHA256/dimensions measured.",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-draft-recovered-authoring/01-saved.png",
+      "sha256": "ca6a9a9bd8cf02b973f0103c957196ee82da2b1353391c4640bfd7fb4470f51b",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Projects Saved tab open; Browser saved biped row visible. Header 11 parts / 13 connections. No confirmation overlay. Save a snapshot, Export project and Close fully visible/unobscured. Bottom panel message Project saved. Your previous snapshots are still available."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-draft-recovered-authoring/02-replace-confirmation.png",
+      "sha256": "ad2d1053fe83c6404e0814dba2f9d1a787ee62e3e3a75216b3411ec73509ceba",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Replace-current-assembly-and-code confirmation visible, readable light palette. Cancel at left, OK at right. Approximate OK bounds [764,497,800,535], center [782,516]; Cancel bounds [599,497,659,535], center [629,516]. Confirmation outer bounds about [490,368,910,547]. Save mostly visible but right edge abuts overlay; Export project occluded by confirmation. Close remains visible below/right. Header 0 parts / 0 connections."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/browser-draft-recovered-authoring/03-reopened.png",
+      "sha256": "e8ea537747aba379a66f2e71f17f980670079fa50b9f492a9f854ff3e0cc6866",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Replace confirmation is still visibly open, same OK/Cancel positions and readable warning. Filename does not establish reopening completion. Export remains covered; Close visible. Save text/icon visible with right edge adjacent to modal. Header remains 0 parts / 0 connections."
+    }
+  ],
+  "finding": "Confirmation is present in both 02 and 03; dismissal is not visually demonstrated. OK appears on right at approximately [782,516], not native-left-button ordering from earlier screenshots.",
+  "anchor_uncertainty_pixels": 2,
+  "scope_limits": [
+    "No inference of actual click delivery, process state, functionality, export/download success or failure cause.",
+    "Headless-anchor generation suspicion not independently verified.",
+    "No source edits, browser operations, model/provider calls, design changes, delegation or publication."
+  ],
+  "read_failures": []
+}

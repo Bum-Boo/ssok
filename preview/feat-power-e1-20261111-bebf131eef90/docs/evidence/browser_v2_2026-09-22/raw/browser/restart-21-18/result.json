@@ -1,0 +1,429 @@
+{
+  "case": {
+    "name": "restart-21-18",
+    "settle": 60,
+    "warmup": 21,
+    "pause": 18
+  },
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "description": "Bundled actual application at 60 Hz"
+    },
+    {
+      "passed": true,
+      "description": "Exact graph fingerprint"
+    },
+    {
+      "passed": true,
+      "description": "Exact version-aware runtime fingerprint"
+    },
+    {
+      "passed": true,
+      "description": "Warmup early release remains explicitly recorded"
+    },
+    {
+      "passed": true,
+      "description": "Warmup remains finite, upright and above the app height limit"
+    },
+    {
+      "passed": true,
+      "description": "Completed measurement stays immutable"
+    },
+    {
+      "passed": true,
+      "description": "Exactly 720 physics intervals / 12 seconds"
+    },
+    {
+      "passed": true,
+      "description": "Finite complete trajectory"
+    },
+    {
+      "passed": true,
+      "description": "At least 0.30 m forward"
+    },
+    {
+      "passed": true,
+      "description": "At most 0.10 m lateral"
+    },
+    {
+      "passed": true,
+      "description": "At most 30 degrees heading drift"
+    },
+    {
+      "passed": true,
+      "description": "App uprightness and height thresholds throughout walking"
+    },
+    {
+      "passed": true,
+      "description": "Both feet have airborne frames"
+    },
+    {
+      "passed": true,
+      "description": "Both actual collision soles clear 0.5 mm"
+    },
+    {
+      "passed": true,
+      "description": "Released command for 90 physics intervals"
+    },
+    {
+      "passed": true,
+      "description": "Finite and upright 1.5 seconds after release"
+    },
+    {
+      "passed": true,
+      "description": "Authored graph remains unchanged"
+    },
+    {
+      "passed": true,
+      "description": "Runtime configuration remains unchanged"
+    },
+    {
+      "passed": true,
+      "description": "Authored graph remains unchanged"
+    },
+    {
+      "passed": true,
+      "description": "Runtime configuration remains unchanged"
+    },
+    {
+      "passed": true,
+      "description": "First episode is preserved without rewriting its outcome"
+    },
+    {
+      "passed": true,
+      "description": "No browser or engine errors"
+    }
+  ],
+  "errors": [],
+  "browser": "153.0.8010.12",
+  "url": "http://127.0.0.1:46241/?ssok_verify=1",
+  "stage": "complete",
+  "initial": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "command_frames": 0,
+    "engine": "4.7.2-stable (official)",
+    "episode": 0,
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "observer_variant": "probe-multiple-command-episodes-v1",
+    "physics_frame": 108,
+    "physics_hz": 60,
+    "policy_fingerprint": "e3de204ce74e93ce38bdca4342224b402bd1cc6508832998024e805938433cd8",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "previous_episodes": [],
+    "ready": true,
+    "released_frames": 67,
+    "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "schema": 1,
+    "settle_frames": 66,
+    "walk_frames": 0
+  },
+  "warmup_before_release": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      1
+    ],
+    "command_frames": 30,
+    "engine": "4.7.2-stable (official)",
+    "episode": 1,
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "observer_variant": "probe-multiple-command-episodes-v1",
+    "physics_frame": 150,
+    "physics_hz": 60,
+    "policy_fingerprint": "e3de204ce74e93ce38bdca4342224b402bd1cc6508832998024e805938433cd8",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "previous_episodes": [],
+    "ready": true,
+    "released_frames": 0,
+    "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "schema": 1,
+    "settle_frames": 79,
+    "started_at_physics_frame": 121,
+    "walk_frames": 29
+  },
+  "warmup": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "command_frames": 0,
+    "engine": "4.7.2-stable (official)",
+    "episode": 1,
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "observer_variant": "probe-multiple-command-episodes-v1",
+    "physics_frame": 174,
+    "physics_hz": 60,
+    "policy_fingerprint": "e3de204ce74e93ce38bdca4342224b402bd1cc6508832998024e805938433cd8",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "previous_episodes": [],
+    "ready": true,
+    "released_frames": 14,
+    "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "schema": 1,
+    "settle_frames": 79,
+    "started_at_physics_frame": 121,
+    "walk": {
+      "failure": "command_released_before_horizon",
+      "finished_at_physics_frame": 161,
+      "finite": true,
+      "foot_air_frames": [
+        0,
+        15
+      ],
+      "forward": 0.0182529278099537,
+      "frames": 39,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": -0.00601543113589287,
+      "maximum_foot_clearance_m": [
+        0.000331965088844297,
+        0.00793879181146621
+      ],
+      "minimum_height": 0.129671630263329,
+      "minimum_upright": 0.991624116897583,
+      "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+      "seconds": 0.65,
+      "yaw_degrees": -11.8061066313194
+    },
+    "walk_frames": 39
+  },
+  "before_restart": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "command_frames": 0,
+    "engine": "4.7.2-stable (official)",
+    "episode": 1,
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "observer_variant": "probe-multiple-command-episodes-v1",
+    "physics_frame": 198,
+    "physics_hz": 60,
+    "policy_fingerprint": "e3de204ce74e93ce38bdca4342224b402bd1cc6508832998024e805938433cd8",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "previous_episodes": [],
+    "ready": true,
+    "released_frames": 38,
+    "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "schema": 1,
+    "settle_frames": 79,
+    "started_at_physics_frame": 121,
+    "walk": {
+      "failure": "command_released_before_horizon",
+      "finished_at_physics_frame": 161,
+      "finite": true,
+      "foot_air_frames": [
+        0,
+        15
+      ],
+      "forward": 0.0182529278099537,
+      "frames": 39,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": -0.00601543113589287,
+      "maximum_foot_clearance_m": [
+        0.000331965088844297,
+        0.00793879181146621
+      ],
+      "minimum_height": 0.129671630263329,
+      "minimum_upright": 0.991624116897583,
+      "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+      "seconds": 0.65,
+      "yaw_degrees": -11.8061066313194
+    },
+    "walk_frames": 39
+  },
+  "before_stop": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      1
+    ],
+    "command_frames": 728,
+    "engine": "4.7.2-stable (official)",
+    "episode": 2,
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "observer_variant": "probe-multiple-command-episodes-v1",
+    "physics_frame": 936,
+    "physics_hz": 60,
+    "policy_fingerprint": "e3de204ce74e93ce38bdca4342224b402bd1cc6508832998024e805938433cd8",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "previous_episodes": [
+      {
+        "episode": 1,
+        "started_at_physics_frame": 121,
+        "walk": {
+          "failure": "command_released_before_horizon",
+          "finished_at_physics_frame": 161,
+          "finite": true,
+          "foot_air_frames": [
+            0,
+            15
+          ],
+          "forward": 0.0182529278099537,
+          "frames": 39,
+          "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+          "lateral": -0.00601543113589287,
+          "maximum_foot_clearance_m": [
+            0.000331965088844297,
+            0.00793879181146621
+          ],
+          "minimum_height": 0.129671630263329,
+          "minimum_upright": 0.991624116897583,
+          "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+          "seconds": 0.65,
+          "yaw_degrees": -11.8061066313194
+        }
+      }
+    ],
+    "ready": true,
+    "released_frames": 0,
+    "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "schema": 1,
+    "settle_frames": 79,
+    "started_at_physics_frame": 209,
+    "walk": {
+      "failure": "",
+      "finished_at_physics_frame": 929,
+      "finite": true,
+      "foot_air_frames": [
+        165,
+        275
+      ],
+      "forward": 0.438102006912231,
+      "frames": 720,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": 0.0192521810531616,
+      "maximum_foot_clearance_m": [
+        0.00533751845359802,
+        0.0124120980501175
+      ],
+      "minimum_height": 0.128988084197044,
+      "minimum_upright": 0.964359104633331,
+      "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+      "seconds": 12,
+      "yaw_degrees": -10.8177611829456
+    },
+    "walk_frames": 720
+  },
+  "measurement": {
+    "bundled_policy": true,
+    "command": [
+      0,
+      0
+    ],
+    "command_frames": 0,
+    "engine": "4.7.2-stable (official)",
+    "episode": 2,
+    "foot_part_indices": [
+      4,
+      8
+    ],
+    "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "observer_variant": "probe-multiple-command-episodes-v1",
+    "physics_frame": 1050,
+    "physics_hz": 60,
+    "policy_fingerprint": "e3de204ce74e93ce38bdca4342224b402bd1cc6508832998024e805938433cd8",
+    "policy_graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+    "policy_runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "previous_episodes": [
+      {
+        "episode": 1,
+        "started_at_physics_frame": 121,
+        "walk": {
+          "failure": "command_released_before_horizon",
+          "finished_at_physics_frame": 161,
+          "finite": true,
+          "foot_air_frames": [
+            0,
+            15
+          ],
+          "forward": 0.0182529278099537,
+          "frames": 39,
+          "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+          "lateral": -0.00601543113589287,
+          "maximum_foot_clearance_m": [
+            0.000331965088844297,
+            0.00793879181146621
+          ],
+          "minimum_height": 0.129671630263329,
+          "minimum_upright": 0.991624116897583,
+          "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+          "seconds": 0.65,
+          "yaw_degrees": -11.8061066313194
+        }
+      }
+    ],
+    "ready": true,
+    "released_frames": 104,
+    "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+    "schema": 1,
+    "settle_frames": 79,
+    "started_at_physics_frame": 209,
+    "stop": {
+      "command": [
+        0,
+        0
+      ],
+      "finite": true,
+      "frames": 90,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+      "upright": 0.999855935573578
+    },
+    "walk": {
+      "failure": "",
+      "finished_at_physics_frame": 929,
+      "finite": true,
+      "foot_air_frames": [
+        165,
+        275
+      ],
+      "forward": 0.438102006912231,
+      "frames": 720,
+      "graph_fingerprint": "c1920876e4044891aef8a9db6dafc91f665711f0070e3ed590066762a2b024d7",
+      "lateral": 0.0192521810531616,
+      "maximum_foot_clearance_m": [
+        0.00533751845359802,
+        0.0124120980501175
+      ],
+      "minimum_height": 0.128988084197044,
+      "minimum_upright": 0.964359104633331,
+      "runtime_fingerprint": "2776bf01402ee7ecd11b70cdf471eb2e995704f0b4a0413ab6cd9e85387b62b7",
+      "seconds": 12,
+      "yaw_degrees": -10.8177611829456
+    },
+    "walk_frames": 720
+  }
+}

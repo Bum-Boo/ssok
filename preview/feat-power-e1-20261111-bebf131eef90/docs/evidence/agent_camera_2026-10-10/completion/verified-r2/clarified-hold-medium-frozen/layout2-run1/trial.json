@@ -1,0 +1,110 @@
+{
+  "mode": "frozen",
+  "wall_x": 0.5,
+  "actor": {
+    "status": "cli_exited",
+    "cli_exit": 0,
+    "stop_confirmed": true,
+    "owner_revocation_confirmed": true,
+    "stop_scope": "context_replaced",
+    "final_desktop_state": "stopped",
+    "observations": 2,
+    "completed_actions": 1,
+    "final_reobserved": true,
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "usage": {
+      "input_tokens": 87060,
+      "cached_input_tokens": 75520,
+      "output_tokens": 444
+    },
+    "goal_success": "not certified; inspect camera/action evidence",
+    "runner_exit": 0
+  },
+  "evaluation": {
+    "final": {
+      "angular_speed": 0.0122287143021822,
+      "gap_x": 0.327556863427162,
+      "linear_speed": 0.00184539507608861,
+      "linear_velocity": [
+        0.00182024203240871,
+        0.000274381076451391,
+        -0.000130064334371127
+      ],
+      "motors": [
+        {
+          "duty": 0.0,
+          "speed": 0.0204093717038631
+        },
+        {
+          "duty": 0.0,
+          "speed": 0.0783679261803627
+        }
+      ],
+      "position": [
+        0.0774773061275482,
+        0.0667820647358894,
+        0.000144842051668093
+      ],
+      "rotation": [
+        -0.00224770186468959,
+        0.00381332589313388,
+        -0.0112366313114762
+      ],
+      "wheel_speed": 0.0840729996562004,
+      "x": 0.0774773061275482
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.00507602142170072,
+      "gap_x": 0.405061312019825,
+      "linear_speed": 0.000562061788514256,
+      "linear_velocity": [
+        0.000452495674835518,
+        0.0002016468642978,
+        -0.000265517708612606
+      ],
+      "motors": [
+        {
+          "duty": -0.00307405940868193,
+          "speed": 0.0195451434701681
+        },
+        {
+          "duty": -0.00197870629025905,
+          "speed": 0.00682741170749068
+        }
+      ],
+      "position": [
+        0.00028575977194123,
+        0.0665635392069817,
+        -3.59586483682506e-05
+      ],
+      "rotation": [
+        -0.000259223132161424,
+        -0.00168610888067633,
+        -0.00739122368395329
+      ],
+      "wheel_speed": 0.0239954497665167,
+      "x": 0.00028575977194123
+    },
+    "minimum_gap_x": 0.317718461155891,
+    "rest_ticks": 12,
+    "samples": 1640,
+    "schema": 1,
+    "stopped_state": "stopped",
+    "travel_x": 0.077191546355607,
+    "valid": true,
+    "wall_contact": false
+  },
+  "score": {
+    "success": false,
+    "checks": {
+      "valid_evaluation": true,
+      "forward_progress": true,
+      "gap_in_target": false,
+      "no_contact": true,
+      "rest_after_stop": true,
+      "action_reobservation_stop": true
+    }
+  }
+}

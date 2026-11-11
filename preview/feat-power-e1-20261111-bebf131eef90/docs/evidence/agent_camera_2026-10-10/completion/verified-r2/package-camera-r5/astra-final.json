@@ -1,0 +1,70 @@
+{
+  "actual_model": "gpt-6-astra",
+  "method": "All six actual immutable PNGs opened using view_image at original resolution; bounded read-only SHA256 and dimensions measured.",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/final-native-focus-retry/car-imported.png",
+      "sha256": "fd808bff6dd41dac312338ff6e4189591cd38dabd3726e39d333f11b0dbeff16",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Car and wall visible, 10 parts / 16 connections. Projects dialog closed, Blocks selected. Bottom: Project opened. Code runs only when you press Run code."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/final-native-focus-retry/ai-ready.png",
+      "sha256": "34e7139031c18157c13c64500bf5ec79b8efc475411f7141831d4209b7bcd096",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "AI tab selected, Status Ready. Stop visible, Enable gray, Capture and Forward in enabled styling. Camera preview populated. AI operator: not connected visible. Tooltip overlaps scene near controls but does not conceal status."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/final-native-focus-retry/ai-stopped.png",
+      "sha256": "59cc175e510ae1a336df9b89105195647b472de77f682b17a9a1b414b2ac5c50",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "AI selected, Status Stopped. Stop outlined; Enable restored; Capture and Forward gray. Camera preview retained with visibly different wall framing from ready. Bottom Input stopped - servos hold their last targets; return to edit mode to reset the robot."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/final-native-focus-retry/camera-before.png",
+      "sha256": "40332036049f984b2a63da517d3eb94e826e5573535bea61624740884267c6df",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Sky, beige ground, central gray wall and robot side structures visible. Wall spans approximately x144..494, upper edge near y166; central view unobscured."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/final-native-focus-retry/camera-after-native.png",
+      "sha256": "84c4b6c6790b8990afbcc44a2591b5f0339de7a1030607b2bf8d8da0d7f0a85e",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Actual view differs from before: wall is wider and upper edge higher in image, approximately x134..508 and y158; central view unobscured."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/final-native-focus-retry/camera-after-bridge.png",
+      "sha256": "38f2b525dd6ef6eb8b1657726611c800d493a2682b0b17e34a6539304fd9d0a6",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Actual view differs from after-native: wall framing shifts left and is slightly wider, approximately x120..500 with upper edge near y158..160; central view unobscured."
+    }
+  ],
+  "verdict": "PASS for bounded visual confirmation of car presence, AI Ready and Stopped display states, populated preview and differing actual camera frames.",
+  "scope_limits": [
+    "No physical goal, distance, contact, pixel-goal, runtime execution or process exit certification.",
+    "No inference of click sequence, action ticks, transport correctness or billing from screenshots.",
+    "Coordinator-reported 11 checks, driver success and ExitCode0 are separate runtime evidence, not independently verified here.",
+    "AI operator not connected is displayed text only, not a diagnosis of developer bridge connectivity.",
+    "Approximate wall bounds describe visible framing only.",
+    "No image/source edits, design changes or delegation."
+  ],
+  "read_failures": []
+}

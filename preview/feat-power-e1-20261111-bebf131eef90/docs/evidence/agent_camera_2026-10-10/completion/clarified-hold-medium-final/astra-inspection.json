@@ -1,0 +1,127 @@
+{
+  "observer": "native gpt-6-astra / camera_precision_inspection",
+  "method": "view_image all9actual original640x480 PNGs",
+  "independence": "Separate inspector tools/inputs from actor, same model family; not provider-diverse replication",
+  "image_nominal_success": 9,
+  "uncertainty": "one24px result at lower bound +/-1px",
+  "physical_certificate": false,
+  "records": [
+    {
+      "file": "layout1-run1/actor/camera/observation-5.png",
+      "sha256": "f49b07af114757e7ac35bbb21bc2c6a8cec4dbec0af23f372870f82b6f79a505",
+      "center_y": 453,
+      "floor_px": 27,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        458,
+        449
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout1-run2/actor/camera/observation-4.png",
+      "sha256": "a3fe3f03388de238236dfd8fea4d8451664f10f2249f4848c0ce85b77ab706ce",
+      "center_y": 448,
+      "floor_px": 32,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        446,
+        450
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout1-run3/actor/camera/observation-4.png",
+      "sha256": "4d466a9e28ddbea51e056298c46546b4c2b06e5f83d27d50b582ea4fa353dc96",
+      "center_y": 456,
+      "floor_px": 24,
+      "uncertainty_px": 1,
+      "goal": "nominal pass at lower edge",
+      "edge_y_at_x80_x560": [
+        457,
+        454
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout2-run1/actor/camera/observation-6.png",
+      "sha256": "983785e1a3c2fbee950037e21c363e53006b03a0b044462873169da1486e5835",
+      "center_y": 444,
+      "floor_px": 36,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        444,
+        445
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout2-run2/actor/camera/observation-6.png",
+      "sha256": "ffdb8d7ef120cc206108867e91b34fac1a027a1245eab3a98197170edcbd0f2a",
+      "center_y": 443,
+      "floor_px": 37,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        446,
+        440
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout2-run3/actor/camera/observation-6.png",
+      "sha256": "520ddbbb34e6c85a193227067d9fc292782c0e9000a3b374d59b7dd945eca2e6",
+      "center_y": 445,
+      "floor_px": 35,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        446,
+        444
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout3-run1/actor/camera/observation-7.png",
+      "sha256": "f01a2e660bce0cd257c9c202950b93fdade87e74dcb653eca530b71e31aa1d35",
+      "center_y": 443,
+      "floor_px": 37,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        441,
+        445
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout3-run2/actor/camera/observation-8.png",
+      "sha256": "edf4a0a7df08cc9805b51ae1833dcd5ae8a94645783e775b2c93e4c2cf779210",
+      "center_y": 443,
+      "floor_px": 37,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        447,
+        439
+      ],
+      "center_occluded": false
+    },
+    {
+      "file": "layout3-run3/actor/camera/observation-8.png",
+      "sha256": "1029b71a6910c39946ff83822b288f3b8feb6d6f9a85ecd4d86fcb78e3ed78db",
+      "center_y": 443,
+      "floor_px": 37,
+      "uncertainty_px": 1,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        447,
+        439
+      ],
+      "center_occluded": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "installer",
+  "passed": false,
+  "exit_code": 1,
+  "seconds": 46.186,
+  "timeout": false,
+  "engine_error": false,
+  "log": "installer.log",
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-Sta",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\verify_installer.ps1",
+    "-Installer",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\camera-release-draft-3e75cea\\ssok-0.3.1-camera-draft-windows-x86_64-setup.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\native-installer-preliminary",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\layout-native-routes\\browser-layout.json"
+  ]
+}

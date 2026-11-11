@@ -1,0 +1,43 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\verify_installer.ps1",
+    "-Installer",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\ssok-0.3.1-projects-r7-windows-x86_64-setup.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\windows-installer-serial",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\export-logs\\browser-layout.json"
+  ],
+  "exit_code": 0,
+  "seconds": 48.98,
+  "version": "0.3.1-projects-r7",
+  "commit": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "installer_sha256": "b8e88c60dbb18a1b743c48ac096e5d190435ec8fade70e48190500d8905e5ad9",
+  "checks": 17,
+  "failures": 0,
+  "installed_exact_export_bytes": {
+    "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+    "ssok.pck": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535"
+  },
+  "expected_bytes": {
+    "ssok.exe": {
+      "size": 109157888,
+      "sha256": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb"
+    },
+    "ssok.pck": {
+      "size": 29308868,
+      "sha256": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535"
+    }
+  },
+  "registration_remaining": {
+    "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\ssok": false,
+    "Software\\Bum-Boo\\ssok": false
+  },
+  "user_added_file_preserved": true
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "label": "initial",
+    "png": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\control-feedback-r8-minimal-two-step\\replay-near-30-22\\initial.png",
+    "sha256": "8f9d7b8efa21e075b30206fad2839e8df0c14f8fb17332b7477c579f3c2be1ac",
+    "pixels": {
+      "boundary_y": 364,
+      "floor_pixels": 116,
+      "column_range": [
+        364,
+        364
+      ],
+      "image_target": false,
+      "uncertainty_pixels": 1,
+      "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+    },
+    "capture_metadata": {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 56,
+      "control_generation": 1,
+      "draw_frame": 41,
+      "episode_id": "cb8abc9e350a4fe0d24a5468",
+      "frame_id": 2,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 56,
+      "revision": 3,
+      "robot_instance_id": "1364574868852",
+      "settle_confirmed_tick": 56,
+      "sha256": "8f9d7b8efa21e075b30206fad2839e8df0c14f8fb17332b7477c579f3c2be1ac",
+      "width": 640
+    },
+    "capture_physics": {
+      "gap_x": 0.254854626953602,
+      "linear_speed": 0.000461913004983217,
+      "angular_speed": 0.00488143647089601,
+      "wheel_speed": 0.0184534341096878,
+      "position": [
+        0.000392098794691265,
+        0.0666305273771286,
+        -0.000115916162030771
+      ],
+      "rotation": [
+        -0.000461217015981674,
+        -0.00238578533753753,
+        -0.00861261785030365
+      ],
+      "linear_velocity": [
+        0.000313630822347477,
+        0.000201095885131508,
+        -0.000273056328296661
+      ],
+      "motors": [
+        {
+          "duty": -0.00344463718362385,
+          "speed": 0.0140106780454516
+        },
+        {
+          "duty": -0.00197964128100284,
+          "speed": 0.00343755073845387
+        }
+      ]
+    },
+    "pairing": "Original frame_ready callback matched by PNG SHA and actual physics tick; not later coroutine-return sample."
+  },
+  {
+    "label": "post-1",
+    "png": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\control-feedback-r8-minimal-two-step\\replay-near-30-22\\post-1.png",
+    "sha256": "d05eb9bac1e722fc9b0ab223a4b9d1bf67b643ceecb4898287af7937669654d5",
+    "pixels": {
+      "boundary_y": 412,
+      "floor_pixels": 68,
+      "column_range": [
+        412,
+        412
+      ],
+      "image_target": false,
+      "uncertainty_pixels": 1,
+      "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+    },
+    "capture_metadata": {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 239,
+      "control_generation": 1,
+      "draw_frame": 223,
+      "episode_id": "cb8abc9e350a4fe0d24a5468",
+      "frame_id": 3,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 239,
+      "revision": 3,
+      "robot_instance_id": "1364574868852",
+      "settle_confirmed_tick": 239,
+      "sha256": "d05eb9bac1e722fc9b0ab223a4b9d1bf67b643ceecb4898287af7937669654d5",
+      "width": 640
+    },
+    "capture_physics": {
+      "gap_x": 0.177680924534798,
+      "linear_speed": 0.000620864680968225,
+      "angular_speed": 0.0044925413094461,
+      "wheel_speed": 0.0144025590270758,
+      "position": [
+        0.0770124793052673,
+        0.0670786872506142,
+        0.000283763161860406
+      ],
+      "rotation": [
+        -0.000761274655815214,
+        0.00185125868301839,
+        -0.0168161485344172
+      ],
+      "linear_velocity": [
+        -0.000509323785081506,
+        0.000200690337806009,
+        0.000292891869321465
+      ],
+      "motors": [
+        {
+          "duty": -0.00269123780975739,
+          "speed": -0.018661355599761
+        },
+        {
+          "duty": -0.00449184957980954,
+          "speed": -0.0147009380161762
+        }
+      ]
+    },
+    "pairing": "Original frame_ready callback matched by PNG SHA and actual physics tick; not later coroutine-return sample."
+  },
+  {
+    "label": "post-2",
+    "png": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\control-feedback-r8-minimal-two-step\\replay-near-30-22\\post-2.png",
+    "sha256": "f8fb265337013812945ae26bfa0e62417474a827948602dade17213ea94069cd",
+    "pixels": {
+      "boundary_y": 479,
+      "floor_pixels": 1,
+      "column_range": [
+        479,
+        479
+      ],
+      "image_target": false,
+      "uncertainty_pixels": 1,
+      "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+    },
+    "capture_metadata": {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 406,
+      "control_generation": 1,
+      "draw_frame": 389,
+      "episode_id": "cb8abc9e350a4fe0d24a5468",
+      "frame_id": 4,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 406,
+      "revision": 3,
+      "robot_instance_id": "1364574868852",
+      "settle_confirmed_tick": 406,
+      "sha256": "f8fb265337013812945ae26bfa0e62417474a827948602dade17213ea94069cd",
+      "width": 640
+    },
+    "capture_physics": {
+      "gap_x": 0.126390039920807,
+      "linear_speed": 0.000559469335712492,
+      "angular_speed": 0.00411952380090952,
+      "wheel_speed": 0.0165619514882565,
+      "position": [
+        0.128328427672386,
+        0.0670735016465187,
+        0.000226300835493021
+      ],
+      "rotation": [
+        0.00229848525486887,
+        -0.00191670772619545,
+        -0.0164324473589659
+      ],
+      "linear_velocity": [
+        -0.0005193289835006,
+        0.000188699486898258,
+        -8.77260827110149e-05
+      ],
+      "motors": [
+        {
+          "duty": -0.00461712478846313,
+          "speed": -0.0157619547098875
+        },
+        {
+          "duty": -0.00241970631480216,
+          "speed": -0.0205991007387638
+        }
+      ]
+    },
+    "pairing": "Original frame_ready callback matched by PNG SHA and actual physics tick; not later coroutine-return sample."
+  },
+  {
+    "label": "final-idle",
+    "png": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\control-feedback-r8-minimal-two-step\\replay-near-30-22\\final-idle.png",
+    "sha256": "969cce6247075a28bc475b3d8c46279cfe553216152cc6cc678557e2ffb0cd56",
+    "pixels": {
+      "boundary_y": 479,
+      "floor_pixels": 1,
+      "column_range": [
+        479,
+        479
+      ],
+      "image_target": false,
+      "uncertainty_pixels": 1,
+      "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+    },
+    "capture_metadata": {
+      "camera_id": "virtual-front-camera",
+      "capture_requested_tick": 633,
+      "control_generation": 1,
+      "draw_frame": 614,
+      "episode_id": "cb8abc9e350a4fe0d24a5468",
+      "frame_id": 5,
+      "height": 480,
+      "interpolation_enabled": false,
+      "part_id": 0,
+      "physics_tick": 633,
+      "revision": 3,
+      "robot_instance_id": "1364574868852",
+      "settle_confirmed_tick": 633,
+      "sha256": "969cce6247075a28bc475b3d8c46279cfe553216152cc6cc678557e2ffb0cd56",
+      "width": 640
+    },
+    "capture_physics": {
+      "gap_x": 0.126603931188583,
+      "linear_speed": 0.000274613819783553,
+      "angular_speed": 0.00421752175316215,
+      "wheel_speed": 0.0108244400471449,
+      "position": [
+        0.128097862005234,
+        0.0670475587248802,
+        3.73288639821112e-05
+      ],
+      "rotation": [
+        0.00369317224249244,
+        -0.00412768172100186,
+        -0.0159694720059633
+      ],
+      "linear_velocity": [
+        0.000185491662705317,
+        0.000189651182154194,
+        -7.09790328983217e-05
+      ],
+      "motors": [
+        {
+          "duty": -0.00398488194534246,
+          "speed": 0.00669873459264636
+        },
+        {
+          "duty": -0.00140232090752881,
+          "speed": 9.06958885025233e-05
+        }
+      ]
+    },
+    "pairing": "Original frame_ready callback matched by PNG SHA and actual physics tick; not later coroutine-return sample."
+  }
+]

@@ -1,0 +1,579 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":1,"peak_measured_nm":0.250000096857548,"physics_hz":60,"priority":1}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":1,"peak_measured_nm":0.250000096857548,"physics_hz":60,"priority":1}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":1,"peak_measured_nm":0.75000062584877,"physics_hz":60,"priority":3}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":1,"peak_measured_nm":0.75000062584877,"physics_hz":60,"priority":3}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":16,"peak_measured_nm":4.0000019967556,"physics_hz":60,"priority":1}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":16,"peak_measured_nm":4.0000019967556,"physics_hz":60,"priority":1}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":16,"peak_measured_nm":12.0001602172852,"physics_hz":60,"priority":3}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":16,"peak_measured_nm":12.0001602172852,"physics_hz":60,"priority":3}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":64,"peak_measured_nm":16.0002136230469,"physics_hz":60,"priority":1}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":64,"peak_measured_nm":16.0002136230469,"physics_hz":60,"priority":1}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":64,"peak_measured_nm":48.000465631485,"physics_hz":60,"priority":3}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":64,"peak_measured_nm":48.000465631485,"physics_hz":60,"priority":3}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":64,"peak_measured_nm":32.0004272460938,"physics_hz":30,"priority":2}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":64,"peak_measured_nm":32.0004272460938,"physics_hz":30,"priority":2}
+SERVO_TORQUE {"declared_nm":0.25,"direction":-1.0,"iterations":64,"peak_measured_nm":32.0004272460938,"physics_hz":120,"priority":2}
+SERVO_TORQUE {"declared_nm":0.25,"direction":1.0,"iterations":64,"peak_measured_nm":32.0004272460938,"physics_hz":120,"priority":2}
+servo_torque_budget_check: 385 checks, 112 failures
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: a saturated free rotor receives its declared torque
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:75)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)
+ERROR: motor impulse stays within the whole-step torque budget
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/servo_torque_budget_check.gd:88)
+       [1] _check_rotor (res://tests/servo_torque_budget_check.gd:74)

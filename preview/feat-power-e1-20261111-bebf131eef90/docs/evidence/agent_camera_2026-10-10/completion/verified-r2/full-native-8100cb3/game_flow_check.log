@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CHECK ok   app opens on the title screen
+CHECK ok   play opens the stage list
+CHECK ok   every playable stage has a card
+CHECK ok   a loading screen appears before the level
+CHECK ok   the stage opens a workshop in stage mode
+CHECK ok   the stage level replaces the default floor
+CHECK ok   a prebuilt stage hides the parts library
+CHECK ok   stage mode hides projects, AI lab and the physics toggle
+CHECK ok   stage mode hides example robots
+CHECK ok   the old flag panel is replaced by the stage HUD
+CHECK ok   stage mode hides challenge authoring and manual control tabs
+CHECK ok   the flag stage starts on blocks
+CHECK ok   the mission briefing opens first
+CHECK ok   the starter program is loaded
+CHECK ok   start closes the briefing
+CHECK ok   stage focus layout hides the header, footer and edit tools
+CHECK ok   the program panel uses the freed top space
+CHECK ok   camera framing starts below the goal card
+CHECK ok   while an attempt runs the run button resets the robot
+RESULT { "status": "not_met", "reason": "program_finished", "execution_id": 3, "success": false, "expired": false, "elapsed_seconds": 4.49999999999999, "measurements": [{ "metric": "height", "part_index": 2, "value": 0.08910454064608, "state": "valid", "held_seconds": 0.0, "met": false }], "wall_contact": false } measurements=[{ "metric": "height", "part_index": 2, "value": 0.08910454064608, "state": "valid", "held_seconds": 0.0, "met": false }]
+CHECK ok   starter program ends as not met
+CHECK ok   a finished program is reported without waiting 60 s: program_finished
+CHECK ok   an unmet attempt is not recorded
+CHECK ok   try again returns to edit mode
+RESULT { "status": "success", "reason": "", "execution_id": 4, "success": true, "expired": false, "elapsed_seconds": 1.06666666666667, "measurements": [{ "metric": "height", "part_index": 2, "value": 0.16494339704514, "state": "valid", "held_seconds": 1.0, "met": true }], "wall_contact": false } measurements=[{ "metric": "height", "part_index": 2, "value": 0.16494339704514, "state": "valid", "held_seconds": 1.0, "met": true }]
+CHECK ok   raising the arm clears the stage from observed physics
+CHECK ok   the clear is recorded
+CHECK ok   a next stage is offered
+CHECK ok   next loads the finish-line level
+RESULT { "status": "not_met", "reason": "program_finished", "execution_id": 3, "success": false, "expired": false, "elapsed_seconds": 2.0, "measurements": [{ "metric": "x", "part_index": 0, "value": 0.21279674768448, "state": "valid", "held_seconds": 0.0, "met": false }, { "metric": "upright", "part_index": 0, "value": 0.99986189603806, "state": "valid", "held_seconds": 2.0, "met": true }], "wall_contact": false } measurements=[{ "metric": "x", "part_index": 0, "value": 0.21279674768448, "state": "valid", "held_seconds": 0.0, "met": false }, { "metric": "upright", "part_index": 0, "value": 0.99986189603806, "state": "valid", "held_seconds": 2.0, "met": true }]
+CHECK ok   the short starter drive does not reach the finish line
+RESULT { "status": "success", "reason": "", "execution_id": 4, "success": true, "expired": false, "elapsed_seconds": 1.3, "measurements": [{ "metric": "x", "part_index": 0, "value": 0.50652575492859, "state": "valid", "held_seconds": 0.01666666666667, "met": true }, { "metric": "upright", "part_index": 0, "value": 0.99992853403091, "state": "valid", "held_seconds": 1.3, "met": true }], "wall_contact": false } measurements=[{ "metric": "x", "part_index": 0, "value": 0.50652575492859, "state": "valid", "held_seconds": 0.01666666666667, "met": true }, { "metric": "upright", "part_index": 0, "value": 0.99992853403091, "state": "valid", "held_seconds": 1.3, "met": true }]
+CHECK ok   a longer drive crosses the finish line
+CHECK ok   stage list returns to the map
+CHECK ok   wall-brake level loads from the map
+RESULT { "status": "success", "reason": "", "execution_id": 3, "success": true, "expired": false, "elapsed_seconds": 3.81666666666666, "measurements": [{ "metric": "sonar_distance", "part_index": 8, "value": 7.16188997030258, "state": "valid", "held_seconds": 0.65, "met": true }, { "metric": "speed", "part_index": 0, "value": 0.00161830079742, "state": "valid", "held_seconds": 0.3, "met": true }, { "metric": "wall_contact", "part_index": 0, "value": 0.0, "state": "valid", "held_seconds": 3.81666666666666, "met": true }], "wall_contact": false } measurements=[{ "metric": "sonar_distance", "part_index": 8, "value": 7.16188997030258, "state": "valid", "held_seconds": 0.65, "met": true }, { "metric": "speed", "part_index": 0, "value": 0.00161830079742, "state": "valid", "held_seconds": 0.3, "met": true }, { "metric": "wall_contact", "part_index": 0, "value": 0.0, "state": "valid", "held_seconds": 3.81666666666666, "met": true }]
+CHECK ok   the sensor loop stops in the zone
+CHECK ok   leaving a stage returns to the stage list
+CHECK ok   free building opens a lab workshop
+CHECK ok   lab keeps the full library and default floor
+CHECK ok   lab keeps authoring but not the stage picker
+CHECK ok   lab hides example robots and the AI lab
+CHECK ok   lab shows no flag mission
+CHECK ok   an unchanged lab exits straight to the title
+CHECK ok   examples open their own list
+CHECK ok   an example loads its robot
+CHECK ok   a non-flag example shows no flag visual
+CHECK ok   examples hide challenge authoring
+game_flow_check: 43 checks, 0 failures

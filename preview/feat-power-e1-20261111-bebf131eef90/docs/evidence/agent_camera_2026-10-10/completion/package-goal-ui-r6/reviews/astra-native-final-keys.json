@@ -1,0 +1,55 @@
+{
+  "requested_model": "gpt-6-astra",
+  "actual_model": "gpt-6-astra",
+  "route": "native worker",
+  "method": "All four specified original PNGs actually opened with view_image at original resolution; dimensions/SHA256 read from those files.",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/native-final-keys-select-compact/focused-open.png",
+      "sha256": "57f90deca3f209bd7b19a07fcf1bebd1a6852e82aa0a0859549a44d32bb7faf1",
+      "dimensions": [
+        960,
+        640
+      ],
+      "observations": "Open selected has a complete visible focus outline and full label/icon, approximately [46,418,276,476]. Delete snapshot and fixed Close also fully visible. Projects title, X and footer message fit. No confirmation overlay. Saved list visible; body scrolled."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/native-final-keys-select-compact/focused-delete.png",
+      "sha256": "b53b2cc7aac78ae3587b334e4bb4ca061ad3a6f8cd96fd1090b254e0c0dd1262",
+      "dimensions": [
+        960,
+        640
+      ],
+      "observations": "Delete snapshot has complete visible focus outline and full label/icon, approximately [284,418,539,476]. Open selected and fixed Close also fully visible; no overlap with focused control/footer. A dark tooltip containing snapshot name/timestamp overlays the list near y357..407 and runs to the right viewport edge; it does not cover the focused action or footer."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/native-final-keys-select-compact/focused-Close.png",
+      "sha256": "40503fb7dc283161a6452a6e48a058c8c95e40fcccb38410ddcd0e4f10a6a298",
+      "dimensions": [
+        960,
+        640
+      ],
+      "observations": "Fixed Close has complete visible focus outline and full label, approximately [839,484,926,542]. Open selected, Delete snapshot, title and footer message visible without clipping. The same snapshot tooltip overlaps list text and reaches right viewport edge, not the focused Close or footer."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/native-final-keys-select-large/focused-open.png",
+      "sha256": "4f4c49f911774a9c7a6d53fd6c23f3803c44c5ae32d9e4bef909297e393b4c77",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Open selected has complete visible focus outline and full label/icon, approximately [350,621,488,660]. Delete snapshot, Projects title/X, footer message and Close fit without overlap. No tooltip or confirmation overlay obstructs target."
+    }
+  ],
+  "verdict": "PASS for bounded focused-control visibility: Open, Delete and fixed Close are fully visible and readable in compact captures, and Open is fully visible/readable in large capture.",
+  "incidental_issue": "Compact focused-delete and focused-Close screenshots include a snapshot tooltip over list text extending to the right viewport edge. No target-action/footer occlusion.",
+  "coordinator_supplied_source_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "scope_limits": [
+    "Source UI captures, not immutable package verification.",
+    "Stills cannot certify actual OS Escape/Tab/Enter/Down delivery, focus traversal sequence, activation, scroll behavior or numerical runtime check counts; separate receipts cover those.",
+    "Earlier failed Transfer TextEdit reverse-Tab driver not evaluated or counted as passing.",
+    "Bounds approximate from visual inspection, +/-2 pixels.",
+    "No source/image changes, new design authorship, provider/model invocation, delegation or publication."
+  ],
+  "read_failures": []
+}

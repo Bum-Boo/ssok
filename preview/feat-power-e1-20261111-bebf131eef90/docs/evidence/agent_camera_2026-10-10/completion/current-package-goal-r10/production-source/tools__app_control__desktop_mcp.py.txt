@@ -1,0 +1,179 @@
+"""Optional stdio MCP adapter for the open, rendered ssok desktop app.
+
+Run ``python -m tools.app_control.desktop_mcp`` from the repository root.
+Use the existing optional tools/motion_lab/requirements-mcp.txt environment.
+SSOK_AGENT_TOKEN stays in the operator environment; stdout is MCP protocol only.
+The default tools describe, observe and stop. --allow-actions additionally exposes a
+bounded drive_step. This never launches Godot, a headless runner or a provider.
+"""
+
+import argparse
+import json
+from pathlib import Path
+import sys
+from typing import Annotated, Any, Literal
+
+from .desktop_client import DEFAULT_PORT, MAX_TIMEOUT, DesktopClient, DesktopError
+from .desktop_session import DesktopGoalSession
+
+
+def create_server(client: DesktopClient, *, allow_actions: bool = False) -> Any:
+    """Load the optional official SDK only when an MCP server is requested."""
+    try:
+        from mcp.server import MCPServer
+        from mcp.server.mcpserver.exceptions import ToolError
+        from mcp.server.mcpserver.utilities.types import Image
+        from mcp.types import CallToolResult, TextContent, ToolAnnotations
+        from pydantic import Field
+    except ImportError:
+        raise DesktopError("Optional MCP SDK is unavailable; use the stdlib desktop CLI or the existing MCP environment.") from None
+
+    server = MCPServer(
+        "ssok-rendered-desktop",
+        version="0.1.0",
+        instructions=(
+            "Tools control the operator's open rendered desktop session, not an isolated headless run. "
+            "Use only the robot camera image to choose a bounded action; never request scene coordinates, "
+            "stage answers, arbitrary code or credentials. Observe again after each step. "
+            "Stop releases agent control. Actions require operator --allow-actions and local app opt-in. "
+            "No tool calls a model/provider or silently retries."
+        ),
+        log_level="WARNING",
+    )
+
+    def invoke(method: str, *args: Any, **kwargs: Any) -> Any:
+        try:
+            return getattr(client, method)(*args, **kwargs)
+        except DesktopError as exc:
+            raise ToolError(str(exc)) from None
+        except Exception:
+            raise ToolError("Desktop request failed; inspect operator-side diagnostics.") from None
+
+    read_only = ToolAnnotations(read_only_hint=True, destructive_hint=False,
+                                idempotent_hint=True, open_world_hint=False)
+
+    @server.tool(annotations=read_only)
+    def describe() -> dict[str, Any]:
+        """Read loop state and frame context, without graph, source, coordinates or evaluator results."""
+        return invoke("describe")
+
+    @server.tool(annotations=ToolAnnotations(read_only_hint=True, destructive_hint=False,
+                                           idempotent_hint=False, open_world_hint=False))
+    def observe() -> CallToolResult:
+        """Wait for measured settling and a rendered robot camera PNG; return its verified image and metadata."""
+        observation = invoke("observe", invoke("describe"))
+        return CallToolResult(content=[
+            TextContent(type="text", text=json.dumps(observation.metadata, allow_nan=False)),
+            Image(data=observation.png, format="png").to_image_content(),
+        ])
+
+    @server.tool(annotations=ToolAnnotations(read_only_hint=False, destructive_hint=False,
+                                           idempotent_hint=True, open_world_hint=False))
+    def stop() -> dict[str, Any]:
+        """Release agent control immediately; always available without a current frame or action capability."""
+        return invoke("stop")
+
+    if allow_actions:
+        EpisodeId = Annotated[str, Field(strict=True, min_length=1, max_length=256)]
+        FrameId = Annotated[str, Field(strict=True, min_length=1, max_length=256)] | Annotated[int, Field(strict=True, ge=0)]
+        Revision = Annotated[int, Field(strict=True, ge=0)]
+        Ticks = Annotated[int, Field(strict=True, ge=1, le=30)]
+
+        @server.tool(annotations=ToolAnnotations(read_only_hint=False, destructive_hint=False,
+                                               idempotent_hint=False, open_world_hint=False))
+        def drive_step(episode_id: EpisodeId, frame_id: FrameId, revision: Revision, control_generation: Revision,
+                       ticks: Ticks, action: Literal["forward", "brake"] = "forward") -> dict[str, Any]:
+            """Consume one current camera frame; drive for 1–30 physics ticks, brake and wait for measured settling."""
+            return invoke("drive_step", frame_id, revision, control_generation, ticks, action, episode_id=episode_id)
+
+    return server
+
+
+def create_goal_server(session: DesktopGoalSession) -> Any:
+    """Direct agent tools bind every decision to the image actually returned by this session."""
+    try:
+        from mcp.server import MCPServer
+        from mcp.server.mcpserver.exceptions import ToolError
+        from mcp.server.mcpserver.utilities.types import Image
+        from mcp.types import CallToolResult, TextContent, ToolAnnotations
+    except ImportError:
+        raise DesktopError("Optional MCP SDK is unavailable; use the existing MCP environment.") from None
+
+    server = MCPServer("ssok-camera-goal", version="0.1.0", log_level="WARNING",
+                       instructions="Observe the robot PNG, decide using its SHA and a short public summary, "
+                       "observe after each action, then stop. No scene coordinates, evaluator, code, credentials or retries.")
+
+    def invoke(name: str, *args: Any) -> Any:
+        try:
+            return getattr(session, name)(*args)
+        except DesktopError as exc:
+            session.record("request_error", {"operation": name, "error": str(exc)[:240]})
+            raise ToolError(str(exc)) from None
+        except Exception as exc:
+            session.record("request_error", {"operation": name, "error_type": type(exc).__name__})
+            raise ToolError("Goal request failed; session ended. Use local Stop if needed.") from None
+
+    @server.tool(annotations=ToolAnnotations(read_only_hint=True, destructive_hint=False,
+                                           idempotent_hint=False, open_world_hint=False))
+    def observe() -> CallToolResult:
+        """Return a verified 640×480 robot camera PNG and its context; observe once before each decision."""
+        observation = invoke("observe")
+        return CallToolResult(content=[TextContent(type="text", text=json.dumps(observation.metadata, allow_nan=False)),
+                                       Image(data=observation.png, format="png").to_image_content()])
+
+    @server.tool(annotations=ToolAnnotations(read_only_hint=False, destructive_hint=False,
+                                           idempotent_hint=False, open_world_hint=False))
+    def decide(frame_sha256: str, summary: str, action: Literal["forward", "brake"], ticks: int) -> dict[str, Any]:
+        """Report a <=240-character public visual summary and current PNG SHA; execute 1–30 ticks then brake/settle. Observe next."""
+        return invoke("decide", frame_sha256, summary, action, ticks)
+
+    @server.tool(annotations=ToolAnnotations(read_only_hint=False, destructive_hint=False,
+                                           idempotent_hint=True, open_world_hint=False))
+    def stop() -> dict[str, Any]:
+        """End this goal permanently and release robot control; also use for uncertainty or exhausted budget."""
+        return invoke("stop")
+
+    return server
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=DEFAULT_PORT)
+    parser.add_argument("--timeout", type=float, default=MAX_TIMEOUT)
+    parser.add_argument("--allow-actions", action="store_true", help="Expose only bounded drive_step; app opt-in still required")
+    parser.add_argument("--goal-output", type=Path, help="Opt into a bounded camera goal session; must be a new directory")
+    parser.add_argument("--max-steps", type=int, default=4)
+    parser.add_argument("--max-observations", type=int, default=5)
+    parser.add_argument("--seconds", type=int, default=240)
+    parser.add_argument("--expected-context", type=json.loads, help="Public claimed episode/revision/generation; first observe must match")
+    parser.add_argument("--experiment-image", choices=("blank", "frozen"), help="Developer-only image ablation; records real and delivered PNGs separately")
+    args = parser.parse_args(argv)
+    try:
+        client = DesktopClient(args.host, args.port, args.timeout)
+        if args.goal_output:
+            if not args.allow_actions:
+                raise DesktopError("Goal mode requires explicit --allow-actions.")
+            session = DesktopGoalSession(client, args.goal_output, max_steps=args.max_steps,
+                                         max_observations=args.max_observations, seconds=args.seconds,
+                                         expected_context=args.expected_context)
+            if args.experiment_image:
+                from .experiment_session import ExperimentSession
+                session = ExperimentSession(session, args.experiment_image)
+            try:
+                create_goal_server(session).run(transport="stdio")
+            finally:
+                if not session.closed.is_set():
+                    session.stop("mcp_disconnected")
+        else:
+            if args.experiment_image or args.expected_context is not None:
+                raise DesktopError("Image controls require an explicit goal session.")
+            create_server(client, allow_actions=args.allow_actions).run(transport="stdio")
+        return 0
+    except DesktopError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

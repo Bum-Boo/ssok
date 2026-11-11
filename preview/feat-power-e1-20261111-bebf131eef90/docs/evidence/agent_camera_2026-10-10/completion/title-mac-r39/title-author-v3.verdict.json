@@ -1,0 +1,38 @@
+{
+  "verdict": "draft_ready",
+  "replacements": [
+    {
+      "file": "src/screens/title_screen.gd",
+      "before": "var settings: SettingsPanel\n",
+      "after": "var settings: SettingsPanel\nvar logo: TextureRect\nvar menu: VBoxContainer\n"
+    },
+    {
+      "file": "src/screens/title_screen.gd",
+      "before": "\tvar logo := TextureRect.new()\n",
+      "after": "\tlogo = TextureRect.new()\n"
+    },
+    {
+      "file": "src/screens/title_screen.gd",
+      "before": "\tvar menu := VBoxContainer.new()\n",
+      "after": "\tmenu = VBoxContainer.new()\n"
+    },
+    {
+      "file": "src/screens/title_screen.gd",
+      "before": "\tplay_button.focus_entered.connect(_show_logo_with_play)\n\tplay_button.grab_focus.call_deferred()\n\n\n## Focusing Play (startup, Tab or a return from Settings) can leave follow_focus scrolled past the logo;\n## return to the top while Play still fits.\nfunc _show_logo_with_play() -> void:\n\tawait get_tree().process_frame\n\tif not is_inside_tree() or not play_button.has_focus():\n\t\treturn\n",
+      "after": "\tplay_button.focus_entered.connect(_on_next_frame.bind(_show_logo_with_play))\n\tplay_button.grab_focus.call_deferred()\n\tcontent.minimum_size_changed.connect(_on_next_frame.bind(_fit_to_viewport))\n\tget_viewport().size_changed.connect(_on_next_frame.bind(_fit_to_viewport))\n\t_on_next_frame(_fit_to_viewport)\n\n\n## Runs `callback` once on the next frame, after layout has settled. The one-shot connection\n## is dropped with this screen, so nothing resumes on a freed Title.\nfunc _on_next_frame(callback: Callable) -> void:\n\tif is_inside_tree() and not get_tree().process_frame.is_connected(callback):\n\t\tget_tree().process_frame.connect(callback, CONNECT_ONE_SHOT)\n\n\n## Short windows tighten the spacing, then shrink the logo (88..150) so the logo and footer fit\n## without scrolling. Larger windows keep the defaults; enlarged text still scrolls.\nfunc _fit_to_viewport() -> void:\n\tif not is_inside_tree():\n\t\treturn\n\tvar content_gaps: int = content.get_child_count() - 1\n\tvar menu_gaps: int = menu.get_child_count() - 1\n\t# Height without the logo or gaps, so the result does not depend on the previous fit.\n\tvar gaps: float = content_gaps * content.get_theme_constant(\"separation\") + menu_gaps * menu.get_theme_constant(\"separation\")\n\tvar bare: float = content.get_combined_minimum_size().y - logo.custom_minimum_size.y - gaps\n\tvar available: float = get_viewport_rect().size.y - 64.0 - 2.0\n\tvar content_separation: int = 18\n\tvar menu_separation: int = 12\n\tvar logo_height: float = 150.0\n\tif bare + content_gaps * content_separation + menu_gaps * menu_separation + logo_height > available:\n\t\tcontent_separation = 12\n\t\tmenu_separation = 8\n\t\tlogo_height = floorf(clampf(available - bare - content_gaps * content_separation - menu_gaps * menu_separation, 88.0, 150.0))\n\tif content.get_theme_constant(\"separation\") != content_separation:\n\t\tcontent.add_theme_constant_override(\"separation\", content_separation)\n\tif menu.get_theme_constant(\"separation\") != menu_separation:\n\t\tmenu.add_theme_constant_override(\"separation\", menu_separation)\n\tif logo.custom_minimum_size.y != logo_height:\n\t\tlogo.custom_minimum_size.y = logo_height\n\n\n## Focusing Play (startup, Tab or a return from Settings) can leave follow_focus scrolled past the logo;\n## return to the top while Play still fits.\nfunc _show_logo_with_play() -> void:\n\tif not is_inside_tree() or not play_button.has_focus():\n\t\treturn\n"
+    }
+  ],
+  "reason": "The root cause is geometric. Default content is 644 px (en/ko/zh_CN) or 667 px (ja), plus 64 px of margins, against a 648 px page. No scroll offset can show both the logo and the footer at that size, so Title must get shorter at short viewports. _fit_to_viewport works from 'bare' height: the content minimum minus the logo's own height and all current gaps (3 content gaps, 7 menu gaps). Because bare does not depend on the previous fit, refits converge. A refit triggered by the fit's own minimum_size_changed recomputes the same values and applies nothing. If the default layout (18/12/150) fits within viewport-64-2, the defaults are restored, so 1400x950 and 1400x942 are unchanged. Otherwise the separations become 12/8 and the logo is clamped to 88..150. EXPAND_IGNORE_SIZE with KEEP_ASPECT_CENTERED scales the whole artwork, so the logo shrinks instead of being cropped. Expected heights at 1152x648 are about 134 px for en/ko/zh_CN and 111 px for ja, giving a total of about 646 px, which is at or under 648, with the footer fully visible. Under enlarged text the logo reaches the 88 px floor and the rest scrolls as before. The existing Play guard and follow_focus are kept. No nodes, text, fonts, colors, assets, hierarchy or actions change, and menu_screen.gd is untouched. All scheduling uses one-shot process_frame connections to methods on this Title instead of await, so Godot drops them automatically when the Title is freed, and both callbacks guard is_inside_tree() for the removed-but-not-yet-freed window during router _replace. This also removes the v2 coroutine-resume-on-freed risk. Refit triggers: initial build, viewport size_changed, and content.minimum_size_changed. The last one covers live locale wrapping, width-driven rewrap and late label settling. No Preferences callback is added because the router already rebuilds Title on preference changes.",
+  "required_checks": [
+    "Confirm all four 'before' spans match the source being patched byte for byte. The supplied text has sha256 5f813490…, but the assignment references v2 6b601e74; reconcile which file is the base before applying.",
+    "Run the 16-case GL matrix (en/ko/zh_CN/ja × light/dark × 1152x648 and 1400x950) on Arch and Mac, plus Mac 1400x942. At 1152x648, check that: the logo rect has y >= 0, height is between 88 and 150, and the full artwork is in frame; content separation is 12 and menu separation is 8; the LanguagePicker and SettingsButton global rects are fully inside the viewport; scroll_max <= page and scroll_vertical is 0. At the larger sizes, check that the logo is 150 and separations are 18/12, identical to v2.",
+    "Have Astra inspect the actual images of the new 1152x648 captures: footer labels readable in all four locales, ja two-line caption not clipped, logo complete.",
+    "Run text_scale 1.3, 1.5 and 2.0 at 1152x648. Check that the logo is at 88, Play is focused and fully visible, Tab and Shift+Tab reach LanguagePicker and SettingsButton with follow_focus bringing each into view, and wheel and scrollbar position persists while a non-Play control has focus.",
+    "On the open Title, switch locale live en→ja→en and resize the window 648↔950. Geometry should refit each time, with no frame-to-frame oscillation, growing scroll_max, or repeated minimum_size_changed churn after settle.",
+    "Press Enter on Play immediately at startup, within the first frame, and also do an immediate locale or preference rebuild. There should be no 'resumed on freed instance' errors, no errors from a freed or removed Title, and stages_requested should emit.",
+    "Open Settings and press Esc. Focus should return to SettingsButton and it should be visible. After returning to Play with Tab, the logo should be visible at scroll 0 when Play fits.",
+    "Re-run keyboard_navigation, interface_preferences, game_flow, localization, control_flow and workshop_ui checks with 0 engine errors.",
+    "Regenerate the Mac original-package 1152x648 Title capture and confirm the logo is not top-clipped and the footer is visible."
+  ],
+  "blockers": []
+}

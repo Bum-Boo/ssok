@@ -1,0 +1,35 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\native-wall-clipboard-probe\\run.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\native-wall-clipboard-probe",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\export-logs\\browser-layout.json"
+  ],
+  "exit_code": 1,
+  "seconds": 20.917243500007316,
+  "timed_out": false,
+  "checks": [
+    {
+      "name": "Actual native Code editor readback matches intended wall-brake program",
+      "passed": true
+    },
+    {
+      "name": "Native title/map/code input clears wall-brake from actual stage evaluation",
+      "passed": true
+    }
+  ],
+  "original_native_helper_sha256": "91802e81b4698f1be9e0618f08defd523645390faa7e2686ee710bb75caca0b6",
+  "canonical_helper_unchanged": true,
+  "package_pck_sha256": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535",
+  "browser_clipboard_gates_finished_before_probe": true,
+  "scope": "One actual native wall-brake stage; intended code verified by resetting clipboard sentinel then actual app Ctrl+C, existing physical threshold unchanged."
+}

@@ -1,0 +1,46 @@
+{
+  "inputs": [
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r10-native.ps1",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\current-package-goal-r10\\native-driver-inputs\\ssok-package-goal-r10-native.ps1",
+      "sha256": "11c3fe2d78b2487d740562b542b126f48bd9046ac56ff317bc80657eeb8ca922"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r10-run.py",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\current-package-goal-r10\\native-driver-inputs\\ssok-package-goal-r10-run.py",
+      "sha256": "578af6676f607f0bfad6ce35f8104a9b98d4baaf9c1b3159a7ef85801fd9dc97"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-package-goal-r10-inspect.py",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\current-package-goal-r10\\native-driver-inputs\\ssok-package-goal-r10-inspect.py",
+      "sha256": "abf381c4dd03cd534b04fcef6a47700be0214e5ae7d57b30dfc2297da0f12e71"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\current-package-goal-r10\\layout.json",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\current-package-goal-r10\\native-driver-inputs\\layout.json",
+      "sha256": "7a39208926f1671de1a82546881a357ad716dc7cc07ed5d41f4351222dcdee85"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\current-package-goal-r10\\project.json",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\current-package-goal-r10\\native-driver-inputs\\project.json",
+      "sha256": "e7bbbdbddb215ac4b942a1ab5d1499a35b4e10d4eb796adee967c2c832f6b8ed"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\native_ui.ps1",
+      "backup": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\current-package-goal-r10\\native-driver-inputs\\native_ui.ps1",
+      "sha256": "91802e81b4698f1be9e0618f08defd523645390faa7e2686ee710bb75caca0b6"
+    }
+  ],
+  "package": {
+    "app": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+    "version": "0.3.1-projects-r7",
+    "exact_export_and_installer_bytes": {
+      "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+      "ssok.pck": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535"
+    },
+    "current_source_head": "1c3da58e771bab814c134f78cf7ad14d90a70eeb",
+    "operator_external_developer_tool": true
+  },
+  "source426_unchanged": true
+}

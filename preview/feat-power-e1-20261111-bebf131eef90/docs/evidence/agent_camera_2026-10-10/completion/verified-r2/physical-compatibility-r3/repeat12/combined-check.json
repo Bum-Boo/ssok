@@ -1,0 +1,15 @@
+{
+  "image": true,
+  "physical": false,
+  "physical_checks": {
+    "valid": true,
+    "travel": true,
+    "gap": false,
+    "no_contact": true,
+    "rest": true
+  },
+  "gap_m": 0.140857681632042,
+  "final_floor_pixels": 26,
+  "both": false,
+  "scope": "Exact deterministic replay, no model success claim"
+}

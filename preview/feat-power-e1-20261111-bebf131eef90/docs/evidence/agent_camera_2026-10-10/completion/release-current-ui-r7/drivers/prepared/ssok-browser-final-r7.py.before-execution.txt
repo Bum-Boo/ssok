@@ -1,0 +1,69 @@
+"""Existing five browser gates on the current clean r7 export, sequentially."""
+from pathlib import Path
+import hashlib
+import json
+import os
+import signal
+import subprocess
+import sys
+import time
+
+root = Path('/mnt/c/Users/Hojun/Projects/ssok-ai-loop')
+release = root / 'build/projects-release-clean-r7'
+output = root / 'build/ai-loop-evidence/completion/release-current-ui-r7/browser'
+metadata = json.loads((release / 'release.json').read_text())
+assert metadata['commit'] == 'fa868ca07cdd9d2b8edb27cbab89cd00263c851f'
+assert metadata['version'] == '0.3.1-projects-r7'
+assert not metadata['dirty_worktree'] and not metadata['source_changed_during_build']
+assert os.name == 'posix'
+output.mkdir(parents=True, exist_ok=False)
+names = ['smoke', 'authoring', 'physics', 'learning', 'settings']
+sources = [root / f'tools/ci/browser_{name}.py' for name in names]
+sources += [release / 'export-logs/browser-layout.json']
+sources += sorted((release / 'web').glob('index.*'))
+
+
+def digest(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+before = {str(path.relative_to(root)): digest(path) for path in sources if path.is_file()}
+results = []
+for name in names:
+    command = [sys.executable, str(root / f'tools/ci/browser_{name}.py'),
+               '--directory', str(release / 'web'), '--output', str(output / name)]
+    started = time.monotonic()
+    print(f'BEGIN final browser {name}', flush=True)
+    timed_out = False
+    with (output / f'{name}.log').open('wb') as log:
+        process = subprocess.Popen(command, cwd=root, stdout=log, stderr=subprocess.STDOUT,
+                                   start_new_session=True)
+        try:
+            code = process.wait(timeout=600)
+        except subprocess.TimeoutExpired:
+            timed_out = True
+            os.killpg(process.pid, signal.SIGTERM)
+            try:
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL)
+                process.wait()
+            code = 124
+    result_path = output / name / 'result.json'
+    actual = json.loads(result_path.read_text()) if result_path.is_file() else {}
+    results.append(dict(name=name, command=command, exit_code=code, timeout=timed_out,
+                        seconds=round(time.monotonic() - started, 3),
+                        passed=code == 0 and actual.get('passed') is True,
+                        result=str(result_path.relative_to(output))))
+    receipt = dict(scope='Existing five actual browser gates on exact current clean r7 bytes; no publication',
+                   commit=metadata['commit'], version=metadata['version'],
+                   build_dirty=False, build_source_changed=False,
+                   source_sha256=before, results=results,
+                   failures=sum(not item['passed'] for item in results))
+    (output / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+    print(json.dumps(results[-1]), flush=True)
+after = {str(path.relative_to(root)): digest(path) for path in sources if path.is_file()}
+receipt['source_changed'] = before != after
+(output / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+raise SystemExit(1 if receipt['failures'] or receipt['source_changed'] else 0)

@@ -1,0 +1,23 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 1,
+  "failures": 0,
+  "results": [
+    {
+      "name": "tools-docs-test_maintain.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.671,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tools-docs-test_maintain.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tools/docs/test_maintain.py",
+        "-v"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "label": "session",
+    "command": [
+      "/home/bumboo/Projects/ssok-camera-optics-r37/build/venv-r37/bin/python",
+      "-m",
+      "unittest",
+      "tests.desktop_session_check"
+    ],
+    "exit": 0,
+    "log_sha256": "c638b279a97a6551e72aace97ea2e627d8ad300dab5fd69f417014d6f30d066e",
+    "tail": "{\"status\": \"runner_failed\", \"cli_exit\": null, \"stop_confirmed\": false, \"owner_revocation_confirmed\": true, \"stop_scope\": \"context_replaced\", \"final_desktop_state\": \"ready\", \"observations\": 0, \"completed_actions\": 0, \"final_reobserved\": false, \"requested_model\": \"gpt-6-astra\", \"resolved_model\": \"CLI JSON does not attest model identity\", \"usage\": {}, \"goal_success\": \"not certified; inspect camera/action evidence\"}\n{\"status\": \"runner_failed\", \"cli_exit\": null, \"stop_confirmed\": false, \"owner_revocation_confirmed\": false, \"stop_scope\": \"unbound\", \"final_desktop_state\": \"not_observed\", \"observations\": 0, \"completed_actions\": 0, \"final_reobserved\": false, \"requested_model\": \"gpt-6-astra\", \"resolved_model\": \"CLI JSON does not attest model identity\", \"usage\": {}, \"goal_success\": \"not certified; inspect camera/action evidence\"}\n........................Frame context is stale; observe the current desktop session again.\n.This runner requires the existing Codex ChatGPT login; API-key fallback is disabled.\n.\n----------------------------------------------------------------------\nRan 26 tests in 0.993s\n\nOK\n"
+  },
+  {
+    "label": "client",
+    "command": [
+      "/home/bumboo/Projects/ssok-camera-optics-r37/build/venv-r37/bin/python",
+      "-m",
+      "unittest",
+      "tests.desktop_client_check"
+    ],
+    "exit": 0,
+    "log_sha256": "b367305937d196c0c2e8979e106d62d157ce0ecbb2f56b677bb39b71c52b28ab",
+    "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 1.190s\n\nOK\n"
+  },
+  {
+    "label": "operator",
+    "command": [
+      "/home/bumboo/Projects/ssok-camera-optics-r37/build/venv-r37/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_operator_doctor",
+      "tests.test_operator_release"
+    ],
+    "exit": 0,
+    "log_sha256": "4c5588a567331b41c167e7b0322d345caf84ccc08f92fa683139b8ea52163487",
+    "tail": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.029s\n\nOK\n"
+  },
+  {
+    "label": "docs-tests",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/docs",
+      "-p",
+      "test_*.py"
+    ],
+    "exit": 0,
+    "log_sha256": "fb6f76994c6a616dd603233e98a16878de350a28414f7c7ae0cd03b7f3359a7c",
+    "tail": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.046s\n\nOK\n"
+  }
+]

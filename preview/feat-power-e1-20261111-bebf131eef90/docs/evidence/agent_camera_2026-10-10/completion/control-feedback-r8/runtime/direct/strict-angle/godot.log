@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 591.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+ERROR: DEBUG-r8: Initial ready/capture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://build/ai-loop-evidence/completion/control-feedback-r8/probe.gd:47)
+       [1] _run (res://build/ai-loop-evidence/completion/control-feedback-r8/probe.gd:95)
+       [2] _ready_camera (res://build/ai-loop-evidence/completion/control-feedback-r8/probe.gd:21)

@@ -1,0 +1,35 @@
+{
+  "ready": true,
+  "checks": [
+    {
+      "id": "python",
+      "passed": true,
+      "detail": "Python3.11 or newer is required.",
+      "remedy": ""
+    },
+    {
+      "id": "source",
+      "passed": true,
+      "detail": "Operator archive identity or checkout root is available.",
+      "remedy": ""
+    },
+    {
+      "id": "mcp",
+      "passed": true,
+      "detail": "Pinned MCP2.2.0 server is available.",
+      "remedy": ""
+    },
+    {
+      "id": "codex",
+      "passed": true,
+      "detail": "Codex CLI must be available on PATH.",
+      "remedy": ""
+    },
+    {
+      "id": "login",
+      "passed": true,
+      "detail": "Existing Codex ChatGPT login is available.",
+      "remedy": ""
+    }
+  ]
+}

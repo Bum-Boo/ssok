@@ -1,0 +1,545 @@
+{
+  "baseline": [
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 93
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.004731, 0.0029, -0.033515) yaw=-0.1506 minimum_height=0.1248 upright=0.9991",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.008221, 0.002508, -0.012621) yaw=0.2785 minimum_height=0.1268 upright=0.9996",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.003446, 0.002746, -0.011461) yaw=-0.0719 minimum_height=0.1247 upright=0.9985",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 114
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(0.000461, 0.000322, -0.029905) yaw=0.0571 minimum_height=0.1229 upright=0.9987",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002127, -0.001512, -0.01242) yaw=0.2966 minimum_height=0.1267 upright=0.9969",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.004643, -0.000107, -0.015094) yaw=-0.2541 minimum_height=0.1250 upright=0.9999",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 181
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001441, 0.000275, -0.028669) yaw=0.2338 minimum_height=0.1253 upright=0.9990",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.002171, -0.000072, -0.017469) yaw=0.3594 minimum_height=0.1253 upright=0.9998",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.000989, -0.000174, -0.017224) yaw=-0.1803 minimum_height=0.1233 upright=0.9993",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 586
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(0.007091, 0.00014, -0.023971) yaw=-0.1471 minimum_height=0.1236 upright=0.9990",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002727, -0.000485, 0.001273) yaw=0.0604 minimum_height=0.1274 upright=0.9977",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006936, 0.000347, -0.001239) yaw=-0.2198 minimum_height=0.1238 upright=0.9989",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 97,
+        "command": 1
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.020265 lateral=-0.004211 yaw=-0.100349 min_height=0.124718 stopped_up=0.997887",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 257,
+        "command": 1
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.027709 lateral=-0.001395 yaw=-0.091693 min_height=0.124303 stopped_up=0.998378",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 120,
+        "command": 2
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.013099 lateral=-0.000161 yaw=0.444059 min_height=0.118827 stopped_up=0.997221",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 0,
+        "command": 0,
+        "warmup": 6,
+        "pause": 6
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=0 forward=0.114519 lateral=-0.006592 yaw=-0.376207 min_height=0.120316 stopped_up=0.999441",
+        "biped_app_check: 742 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 60,
+        "command": 0,
+        "warmup": 21,
+        "pause": 18
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=60 forward=0.091440 lateral=-0.006042 yaw=-0.306004 min_height=0.119683 stopped_up=0.996870",
+        "biped_app_check: 769 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 120,
+        "command": 0,
+        "warmup": 90,
+        "pause": 60
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=120 forward=0.106122 lateral=-0.034622 yaw=-0.483228 min_height=0.119873 stopped_up=0.998200",
+        "biped_app_check: 880 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 180,
+        "command": 0,
+        "warmup": 222,
+        "pause": 180
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=180 forward=0.112908 lateral=-0.033162 yaw=-0.441485 min_height=0.120734 stopped_up=0.990602",
+        "biped_app_check: 1132 checks, 0 failures"
+      ],
+      "errors": []
+    }
+  ],
+  "no_added_pd": [
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 93
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.039837, 0.000272, 0.106855) yaw=-0.4713 minimum_height=0.1196 upright=0.9972",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001299, 0.000021, -0.028916) yaw=-0.1331 minimum_height=0.1248 upright=0.9973",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.007018, 0.00241, -0.011866) yaw=0.2726 minimum_height=0.1268 upright=0.9994",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.003367, 0.002925, -0.012136) yaw=-0.0701 minimum_height=0.1247 upright=0.9990",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1278 upright=0.9943",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9976",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9978",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 114
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.022434, -0.000257, 0.082665) yaw=-0.3351 minimum_height=0.1204 upright=0.9988",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.000264, 0.000274, -0.035202) yaw=0.0174 minimum_height=0.1229 upright=0.9999",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(0.00175, -0.000421, -0.014006) yaw=0.2788 minimum_height=0.1267 upright=0.9990",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.003339, -0.000332, -0.015302) yaw=-0.2583 minimum_height=0.1250 upright=0.9997",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1278 upright=0.9943",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9976",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9978",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 181
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.03801, -0.00361, 0.111334) yaw=-0.3727 minimum_height=0.1201 upright=0.9956",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(0.001065, -0.001533, -0.027909) yaw=0.2438 minimum_height=0.1253 upright=0.9971",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.000688, -0.00024, -0.014347) yaw=0.3737 minimum_height=0.1253 upright=0.9975",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.00101, 0.000351, -0.017026) yaw=-0.2166 minimum_height=0.1233 upright=0.9989",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1278 upright=0.9943",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9976",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9978",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 586
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.039626, -0.000183, 0.075661) yaw=-0.2389 minimum_height=0.1204 upright=0.9999",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(0.009399, -0.002474, -0.015707) yaw=-0.0300 minimum_height=0.1236 upright=0.9961",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002015, -0.000093, 0.002626) yaw=0.0343 minimum_height=0.1274 upright=0.9975",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006393, -0.000689, -0.000775) yaw=-0.2447 minimum_height=0.1238 upright=0.9974",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1278 upright=0.9943",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9976",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9978",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 97,
+        "command": 1
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.024503 lateral=-0.004418 yaw=-0.169732 min_height=0.124718 stopped_up=0.997814",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 257,
+        "command": 1
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.028390 lateral=-0.000358 yaw=-0.097957 min_height=0.124303 stopped_up=0.998521",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 120,
+        "command": 2
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.026891 lateral=-0.007293 yaw=0.538898 min_height=0.118827 stopped_up=0.998710",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 0,
+        "command": 0,
+        "warmup": 6,
+        "pause": 6
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=0 forward=0.122166 lateral=-0.039858 yaw=-0.424232 min_height=0.120174 stopped_up=0.998521",
+        "biped_app_check: 742 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 60,
+        "command": 0,
+        "warmup": 21,
+        "pause": 18
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=60 forward=0.098831 lateral=-0.022199 yaw=-0.316480 min_height=0.120471 stopped_up=0.998288",
+        "biped_app_check: 769 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 120,
+        "command": 0,
+        "warmup": 90,
+        "pause": 60
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=120 forward=0.090940 lateral=-0.028736 yaw=-0.310676 min_height=0.120821 stopped_up=0.996253",
+        "biped_app_check: 880 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 180,
+        "command": 0,
+        "warmup": 222,
+        "pause": 180
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=180 forward=0.092497 lateral=-0.001778 yaw=-0.277967 min_height=0.120829 stopped_up=0.999688",
+        "biped_app_check: 1132 checks, 0 failures"
+      ],
+      "errors": []
+    }
+  ],
+  "continuous_pd": [
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 93
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033868, 0.002731, 0.1112) yaw=-0.5378 minimum_height=0.1196 upright=0.9983",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.004981, 0.00262, -0.027399) yaw=-0.1132 minimum_height=0.1248 upright=0.9969",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.00776, 0.002938, -0.009903) yaw=0.2586 minimum_height=0.1268 upright=0.9991",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.003461, 0.002779, -0.011409) yaw=-0.0711 minimum_height=0.1247 upright=0.9985",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1302 upright=0.9965",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1305 upright=0.9975",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1315 upright=0.9975",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 114
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.022646, -0.000233, 0.082671) yaw=-0.3362 minimum_height=0.1204 upright=0.9987",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(0.000434, 0.000322, -0.030109) yaw=0.0560 minimum_height=0.1229 upright=0.9988",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.000247, 0.000167, -0.012253) yaw=0.2653 minimum_height=0.1267 upright=0.9990",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.00338, -0.000329, -0.015203) yaw=-0.2571 minimum_height=0.1250 upright=0.9997",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1302 upright=0.9965",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1305 upright=0.9975",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1315 upright=0.9975",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 181
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.034968, -0.002434, 0.112992) yaw=-0.4202 minimum_height=0.1201 upright=0.9964",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001764, 0.000329, -0.028504) yaw=0.1965 minimum_height=0.1253 upright=0.9986",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(0.003676, -0.002011, -0.017188) yaw=0.3709 minimum_height=0.1253 upright=0.9972",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.000038, -0.000031, -0.015783) yaw=-0.1805 minimum_height=0.1233 upright=0.9988",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1302 upright=0.9965",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1305 upright=0.9975",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1315 upright=0.9975",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "motion",
+        "settle": 586
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+        "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.046844, -0.00355, 0.069547) yaw=-0.3167 minimum_height=0.1204 upright=0.9950",
+        "BIPED_GAIT command=(0.0, -1.0) displacement=(0.003049, -0.00129, -0.017196) yaw=-0.0942 minimum_height=0.1236 upright=0.9959",
+        "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002632, -0.000383, 0.001633) yaw=0.0476 minimum_height=0.1274 upright=0.9977",
+        "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006498, -0.000256, -0.000404) yaw=-0.2223 minimum_height=0.1238 upright=0.9981",
+        "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1302 upright=0.9965",
+        "BIPED_STARTUP command=(0.0, -1.0) height=0.1305 upright=0.9975",
+        "BIPED_STARTUP command=(0.0, 0.0) height=0.1315 upright=0.9975",
+        "biped_motion_check: PASS"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 97,
+        "command": 1
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.021209 lateral=-0.003886 yaw=-0.074311 min_height=0.124718 stopped_up=0.997945",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 257,
+        "command": 1
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.028771 lateral=-0.000840 yaw=-0.054816 min_height=0.124303 stopped_up=0.999863",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "app",
+        "settle": 120,
+        "command": 2
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.017654 lateral=-0.001615 yaw=0.393019 min_height=0.118827 stopped_up=0.999840",
+        "biped_app_check: 730 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 0,
+        "command": 0,
+        "warmup": 6,
+        "pause": 6
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=0 forward=0.109073 lateral=-0.019979 yaw=-0.442922 min_height=0.120337 stopped_up=0.999001",
+        "biped_app_check: 742 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 60,
+        "command": 0,
+        "warmup": 21,
+        "pause": 18
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=60 forward=0.090677 lateral=-0.018469 yaw=-0.201401 min_height=0.120221 stopped_up=0.997186",
+        "biped_app_check: 769 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 120,
+        "command": 0,
+        "warmup": 90,
+        "pause": 60
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=120 forward=0.087305 lateral=-0.039466 yaw=-0.556560 min_height=0.120080 stopped_up=0.995829",
+        "biped_app_check: 880 checks, 0 failures"
+      ],
+      "errors": []
+    },
+    {
+      "case": {
+        "kind": "restart",
+        "settle": 180,
+        "command": 0,
+        "warmup": 222,
+        "pause": 180
+      },
+      "exit_code": 0,
+      "metrics": [
+        "BIPED_APP command=(0.0, 1.0) settle=180 forward=0.100229 lateral=-0.007990 yaw=-0.204583 min_height=0.120473 stopped_up=0.996998",
+        "biped_app_check: 1132 checks, 0 failures"
+      ],
+      "errors": []
+    }
+  ]
+}

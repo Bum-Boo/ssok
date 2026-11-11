@@ -1,0 +1,15 @@
+from pathlib import Path
+import hashlib,json,os,subprocess,time
+r=Path('C:/Users/Hojun/Projects/ssok-ai-loop');e=r/'build/ai-loop-evidence/completion/release-current-ui-r7';out=e/'native-encoding-recovery';out.mkdir(exist_ok=False)
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();read=lambda p:json.loads(p.read_text())
+original=read(e/'native-full/results.json');before=read(e/'native-full-receipt.json');inputs=read(e/'source-before.json')['files'];failures=[x['name'] for x in original['results'] if not x['passed']]
+expected=['tests-test_release_documents.py','tools-rl_lab-test_rl_lab.py'];assert sorted(failures)==expected and original['checks']==81 and original['failures']==2 and before['source426_unchanged'] and before['git_clean']
+assert all(sha(r/n)==h for n,h in inputs.items())
+python=str(r/'build/venv-native/Scripts/python.exe');engine=str(r/'build/toolchain-windows/Godot_v4.7.2-stable_win64.exe');command=[python,'-X','utf8','tools/ci/verify.py','--godot',engine,'--python',python,'--output',str(out),'--match',r'^(tests-test_release_documents\.py|tools-rl_lab-test_rl_lab\.py)$']
+env=os.environ.copy();env['PYTHONUTF8']='1';env.pop('SSOK_AGENT_TOKEN',None);started=time.monotonic()
+with (e/'native-encoding-recovery.log').open('wb') as log:x=subprocess.run(command,cwd=r,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=180)
+recovered=read(out/'results.json');receipt={'command':command,'exit_code':x.returncode,'seconds':time.monotonic()-started,'process_local_pythonutf8':'1 (inherited by child Python; parent -X utf8 alone was insufficient)','checks':recovered['checks'],'failures':recovered['failures'],'source426_unchanged':all(sha(r/n)==h for n,h in inputs.items()),'git_clean':not subprocess.check_output(['git','status','--porcelain'],cwd=r),'original_full_failure_receipt':str(e/'native-full-receipt.json'),'published':False}
+(e/'native-encoding-recovery-receipt.json').write_bytes((json.dumps(receipt,indent=2)+'\n').encode());print(json.dumps(receipt),flush=True)
+assert x.returncode==0 and recovered['checks']==2 and recovered['failures']==0 and sorted(x['name'] for x in recovered['results'])==expected and receipt['source426_unchanged'] and receipt['git_clean']
+gate={'exit_code':0,'checks':81,'failures':0,'initial_full_checks':81,'initial_full_failures':2,'initial_full_passes_retained':79,'scoped_recovery_checks':2,'scoped_recovery_failures':0,'source426_unchanged':True,'git_clean':True,'head':before['head'],'scope':'79 original passing checks plus2 encoding-only recovery checks; not a new81/0 full invocation. Original failures preserved, no app/test/runtime threshold changes.'}
+(e/'native-gate-final.json').write_bytes((json.dumps(gate,indent=2)+'\n').encode());print(json.dumps(gate))

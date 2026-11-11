@@ -1,0 +1,209 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 10,
+  "failures": 0,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.586,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.767,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "agent_camera_loop_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.188,
+      "timeout": false,
+      "engine_error": false,
+      "log": "agent_camera_loop_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/agent_camera_loop_check.gd"
+      ]
+    },
+    {
+      "name": "app_controller_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 15.797,
+      "timeout": false,
+      "engine_error": false,
+      "log": "app_controller_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/app_controller_check.gd"
+      ]
+    },
+    {
+      "name": "game_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 83.094,
+      "timeout": false,
+      "engine_error": false,
+      "log": "game_flow_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/game_flow_check.gd"
+      ]
+    },
+    {
+      "name": "learner_language_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.675,
+      "timeout": false,
+      "engine_error": false,
+      "log": "learner_language_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/learner_language_check.gd"
+      ]
+    },
+    {
+      "name": "localization_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 16.391,
+      "timeout": false,
+      "engine_error": false,
+      "log": "localization_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/localization_check.gd"
+      ]
+    },
+    {
+      "name": "manual_control_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.566,
+      "timeout": false,
+      "engine_error": false,
+      "log": "manual_control_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/manual_control_check.gd"
+      ]
+    },
+    {
+      "name": "robot_car_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.017,
+      "timeout": false,
+      "engine_error": false,
+      "log": "robot_car_check.log",
+      "command": [
+        "/home/bumboo/.local/bin/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-ai-loop/tests/robot_car_check.gd"
+      ]
+    },
+    {
+      "name": "tests-desktop_client_check.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.417,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-desktop_client_check.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/desktop_client_check.py",
+        "-v"
+      ]
+    }
+  ]
+}

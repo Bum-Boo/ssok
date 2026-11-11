@@ -1,0 +1,9 @@
+{"status": "runner_failed", "cli_exit": null, "stop_confirmed": false, "owner_revocation_confirmed": true, "stop_scope": "context_replaced", "final_desktop_state": "ready", "observations": 0, "completed_actions": 0, "final_reobserved": false, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {}, "goal_success": "not certified; inspect camera/action evidence"}
+{"status": "runner_failed", "cli_exit": null, "stop_confirmed": false, "owner_revocation_confirmed": false, "stop_scope": "unbound", "final_desktop_state": "not_observed", "observations": 0, "completed_actions": 0, "final_reobserved": false, "requested_model": "gpt-6-astra", "resolved_model": "CLI JSON does not attest model identity", "usage": {}, "goal_success": "not certified; inspect camera/action evidence"}
+......................................................Frame context is stale; observe the current desktop session again.
+.This runner requires the existing Codex ChatGPT login; API-key fallback is disabled.
+........
+----------------------------------------------------------------------
+Ran 63 tests in 2.883s
+
+OK

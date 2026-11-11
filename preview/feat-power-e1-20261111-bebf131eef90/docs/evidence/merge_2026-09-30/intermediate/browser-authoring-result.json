@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:36117/",
+  "passed": false,
+  "checks": [
+    "Real user:// project persisted to browser IndexedDB",
+    "Reload, open confirmation and exported JSON preserve graph and learner code",
+    "Actual clipboard paste, import confirmation and re-export preserve the shared project",
+    "Malformed/incompatible project import leaves the current project unchanged"
+  ],
+  "stage": "Click export",
+  "failure": "AssertionError: Added/edited sleep block was not applied to learner code"
+}

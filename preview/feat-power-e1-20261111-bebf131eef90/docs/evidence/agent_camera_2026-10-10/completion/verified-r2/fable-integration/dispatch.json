@@ -1,0 +1,22 @@
+{
+  "requested_model": "fable",
+  "scope": "actual bounded fetch/rebase on clean feature branch + latest packaging/verifier functional review",
+  "before_head": "3e75ceab0c5a422b3b2e4630d05f7b0f73372eec",
+  "source_sha256": {
+    "AGENTS.md": "7ba808ee54ba9f3c718f61a4cecf777da9d7c3375d0461e7d4fef8d3aa64e07b",
+    "CLAUDE-REVIEW.md": "ca293e61222a951852c75e68e0f669cd5e028cfaa983326f44d9f063091236f4",
+    "tools/ci/verify.py": "3d8aca7d6cb710c6fa2abb26adb483a78cccd4d8ecd4dd04702622571b0572ae",
+    "tools/ci/build.py": "fed80e94c55b12f4a0d8ab414e7922a2e27f7e6ddc82a86ae0bc66995f727205",
+    "tests/test_release_documents.py": "d14d30d4af328382e8c87f5d922494bb9ddd7d8174380bbe9239fd4794c8edf6",
+    "tests/test_ci_verify.py": "da169110fd66a7e6f060c7fbaaf1f89112e72d83e1d3b3f87acc791b985acdeb"
+  },
+  "allowed_tools": [
+    "Bash(git status *)",
+    "Bash(git branch --show-current)",
+    "Bash(git rev-parse *)",
+    "Bash(git fetch origin main)",
+    "Bash(git rebase origin/main)",
+    "Bash(git cherry -v origin/main)"
+  ],
+  "timeout_seconds": 240
+}

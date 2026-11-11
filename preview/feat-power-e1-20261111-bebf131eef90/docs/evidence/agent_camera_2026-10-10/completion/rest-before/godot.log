@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 591.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+idle_drift_m=0.01530581526458
+ERROR: Ready camera drifts at most 2mm over 10 seconds
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/agent_camera_rest_check.gd:17)
+       [1] _run (res://tests/agent_camera_rest_check.gd:61)
+agent_camera_rest_check: 6 checks, 1 failures

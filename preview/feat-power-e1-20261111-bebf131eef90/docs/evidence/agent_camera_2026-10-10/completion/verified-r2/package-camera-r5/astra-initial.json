@@ -1,0 +1,114 @@
+{
+  "actual_model": "gpt-6-astra",
+  "method": "All five specified actual PNGs viewed using view_image original resolution; bounded read-only SHA256 and dimensions checked.",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/title.png",
+      "sha256": "9046587941788af3794c868f3ca9a3f2e9e58f5858917a70e4c86723fe1b9c08",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Title menu visible with Open my project; full Settings label. Open my project bounds approximately [510,657,890,709]."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/projects.png",
+      "sha256": "e968429f2c7990fc8f84c624e188ddf3c01555359e242b0df7f941b421e20a61",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Projects dialog open, Saved projects selected, no saved projects message. Header 0 parts / 0 connections. Blocks selected behind dialog; AI tab label visible at approximately [1261,198]."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/import-confirm.png",
+      "sha256": "6bd0861a2c8b14b55814c0d08773c4a39940eb68449f9d0aace5b2a4daa3640c",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Confirm project action dialog over Projects import/export. Replace current assembly and code prompt visible in dark text on dark gray background; low contrast. OK center approximately [588,498], Cancel [798,498]. JSON text region visible behind. Header remains 0 parts / 0 connections."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/car-imported.png",
+      "sha256": "e46eb94aa9c084d010a0f5072c279e2e80839c2705b5ebeca19e0081bb0d60a6",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Projects import/export dialog remains open. No car visible; header 0 parts / 0 connections. Blocks selected behind dialog. AI label visible but not selected. No Enable, Forward or AI Stop controls visible."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-camera-r5/ai-before-enable.png",
+      "sha256": "e46eb94aa9c084d010a0f5072c279e2e80839c2705b5ebeca19e0081bb0d60a6",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Byte-identical to car-imported.png. Projects import/export dialog remains open; header 0 parts / 0 connections. No car or active AI panel visible."
+    }
+  ],
+  "anchors": {
+    "AI_tab": [
+      1261.5,
+      198
+    ],
+    "AI_tab_observation": "Visible label agrees approximately with supplied anchor, but Blocks is selected.",
+    "Enable": [
+      1108,
+      296
+    ],
+    "Enable_observation": "No Enable control visible at supplied anchor; right program panel content is Blocks.",
+    "Forward": [
+      1308,
+      296
+    ],
+    "Forward_observation": "No Forward control visible at supplied anchor; area belongs to Blocks content.",
+    "Stop": [
+      1100,
+      250
+    ],
+    "Stop_observation": "No AI Stop control visible at supplied anchor; Blocks introductory text is present.",
+    "coordinate_uncertainty_pixels": 3
+  },
+  "incidental_issues": [
+    "Projects buttons visibly truncate labels, including Expo, Impo and Delet in applicable frames.",
+    "Import confirmation body text has low contrast on dark gray panel."
+  ],
+  "verdict": "Title and Projects/import-confirmation states observed. Car presence and AI Enable/Forward/Stop panel state not demonstrated by these frames.",
+  "scope_limits": [
+    "Screenshots are state observations, not proof of click sequence, import success, runtime test pass, physical behavior, billing or transport.",
+    "Source and executable identity supplied by coordinator, not independently attested here.",
+    "No source/image changes, design proposals or delegation."
+  ],
+  "read_failures": [],
+  "import_confirmation_anchor_correction": {
+    "source": "Previously actually viewed import-confirm.png in this inspection",
+    "OK_button_bounds_xyxy": [
+      570,
+      479,
+      606,
+      518
+    ],
+    "OK_button_center": [
+      588,
+      498
+    ],
+    "Cancel_button_bounds_xyxy": [
+      768,
+      479,
+      829,
+      518
+    ],
+    "Cancel_button_center": [
+      798,
+      498
+    ],
+    "uncertainty_pixels": 2,
+    "supplied_prior_anchor": [
+      810,
+      484
+    ],
+    "observation": "The supplied prior anchor falls within the visible Cancel button, not OK. This is a coordinate observation only; screenshot does not prove which control was clicked."
+  }
+}

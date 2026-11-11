@@ -1,0 +1,1765 @@
+[
+  {
+    "index": 0,
+    "parameters": [
+      "motion",
+      93,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.004731, 0.0029, -0.033515) yaw=-0.1506 minimum_height=0.1248 upright=0.9991",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.001512, 0.000193, -0.016059) yaw=0.3502 minimum_height=0.1262 upright=0.9973",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.001954, -0.002734, -0.012981) yaw=-0.2654 minimum_height=0.1231 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 1,
+    "parameters": [
+      "motion",
+      114,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 1,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.000461, 0.000322, -0.029905) yaw=0.0571 minimum_height=0.1229 upright=0.9987",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002577, -0.100649, 0.131199) yaw=-0.0882 minimum_height=0.0174 upright=0.1694",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.003443, -0.000093, -0.010146) yaw=-0.1797 minimum_height=0.1228 upright=0.9989",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: FAIL"
+    ],
+    "errors": [
+      "ERROR: gait must remain standing throughout movement",
+      "ERROR: gait must finish standing",
+      "ERROR: gait must finish upright",
+      "ERROR: turn command must produce signed physical yaw"
+    ]
+  },
+  {
+    "index": 2,
+    "parameters": [
+      "motion",
+      181,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 1,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001441, 0.000275, -0.028669) yaw=0.2338 minimum_height=0.1253 upright=0.9990",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.002427, -0.000396, -0.019693) yaw=0.3810 minimum_height=0.1262 upright=0.9989",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.001797, -0.000234, -0.008958) yaw=-0.0244 minimum_height=0.1236 upright=0.9971",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: FAIL"
+    ],
+    "errors": [
+      "ERROR: turn command must produce signed physical yaw"
+    ]
+  },
+  {
+    "index": 3,
+    "parameters": [
+      "motion",
+      586,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.007091, 0.00014, -0.023971) yaw=-0.1471 minimum_height=0.1236 upright=0.9990",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.002455, -0.005223, -0.026244) yaw=0.4433 minimum_height=0.1231 upright=0.9994",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.002596, -0.000073, -0.006581) yaw=-0.2281 minimum_height=0.1255 upright=0.9992",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 4,
+    "parameters": [
+      "motion",
+      600,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.021178, -0.000196, -0.011353) yaw=-0.3745 minimum_height=0.1265 upright=0.9991",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.056862, -0.003172, 0.101929) yaw=-0.3287 minimum_height=0.1198 upright=0.9947",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.009952, 0.000706, -0.022778) yaw=0.1639 minimum_height=0.1248 upright=0.9991",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.007768, 0.000439, -0.014577) yaw=0.3733 minimum_height=0.1249 upright=0.9992",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.010889, 0.000465, -0.012323) yaw=-0.1169 minimum_height=0.1227 upright=0.9999",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1306 upright=0.9976",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9991",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 5,
+    "parameters": [
+      "motion",
+      30,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.00259, -0.00209, -0.022635) yaw=-0.4262 minimum_height=0.1255 upright=0.9975",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(0.011562, 0.000114, 0.097245) yaw=0.1322 minimum_height=0.1204 upright=0.9981",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001029, 0.000448, -0.017491) yaw=0.0271 minimum_height=0.1249 upright=0.9986",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.006027, -0.000509, -0.027247) yaw=0.5857 minimum_height=0.1258 upright=0.9991",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.00296, 0.000234, -0.006402) yaw=-0.0383 minimum_height=0.1246 upright=0.9986",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 6,
+    "parameters": [
+      "motion",
+      241,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.024152, 0.002838, -0.019566) yaw=-0.5086 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.032789, 0.002944, 0.098963) yaw=-0.5511 minimum_height=0.1209 upright=0.9988",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.008215, 0.002825, -0.025589) yaw=-0.0496 minimum_height=0.1232 upright=0.9999",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.007893, 0.00291, -0.004262) yaw=0.1013 minimum_height=0.1270 upright=0.9976",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006224, 0.002155, -0.00779) yaw=-0.1618 minimum_height=0.1249 upright=0.9981",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1306 upright=0.9976",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9991",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 7,
+    "parameters": [
+      "motion",
+      300,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.008394, -0.003758, -0.016892) yaw=-0.4478 minimum_height=0.1269 upright=0.9928",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.028807, -0.000938, 0.076006) yaw=0.0141 minimum_height=0.1197 upright=0.9986",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.018155, -0.002536, -0.025512) yaw=-0.1371 minimum_height=0.1244 upright=0.9982",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.007987, -0.000098, -0.023477) yaw=0.5939 minimum_height=0.1260 upright=0.9984",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.009926, -0.000007, -0.013521) yaw=-0.3156 minimum_height=0.1248 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1306 upright=0.9976",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9991",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 8,
+    "parameters": [
+      "app",
+      97,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.020265 lateral=-0.004211 yaw=-0.100349 min_height=0.124718 stopped_up=0.997887",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 9,
+    "parameters": [
+      "app",
+      257,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.027709 lateral=-0.001395 yaw=-0.091693 min_height=0.124303 stopped_up=0.998378",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 10,
+    "parameters": [
+      "app",
+      120,
+      2
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.021746 lateral=-0.003253 yaw=0.322215 min_height=0.126642 stopped_up=0.998253",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 11,
+    "parameters": [
+      "app",
+      180,
+      3
+    ],
+    "profile": [
+      -10,
+      0.15,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(-1.0, 0.0) settle=180 forward=-0.010730 lateral=0.005934 yaw=-0.177201 min_height=0.125695 stopped_up=0.998708",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 12,
+    "parameters": [
+      "motion",
+      93,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.004731, 0.0029, -0.033515) yaw=-0.1506 minimum_height=0.1248 upright=0.9991",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.008221, 0.002508, -0.012621) yaw=0.2785 minimum_height=0.1268 upright=0.9996",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.003446, 0.002746, -0.011461) yaw=-0.0719 minimum_height=0.1247 upright=0.9985",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 13,
+    "parameters": [
+      "motion",
+      114,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.000461, 0.000322, -0.029905) yaw=0.0571 minimum_height=0.1229 upright=0.9987",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002127, -0.001512, -0.01242) yaw=0.2966 minimum_height=0.1267 upright=0.9969",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.004643, -0.000107, -0.015094) yaw=-0.2541 minimum_height=0.1250 upright=0.9999",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 14,
+    "parameters": [
+      "motion",
+      181,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001441, 0.000275, -0.028669) yaw=0.2338 minimum_height=0.1253 upright=0.9990",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.002171, -0.000072, -0.017469) yaw=0.3594 minimum_height=0.1253 upright=0.9998",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.000989, -0.000174, -0.017224) yaw=-0.1803 minimum_height=0.1233 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 15,
+    "parameters": [
+      "motion",
+      586,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.007091, 0.00014, -0.023971) yaw=-0.1471 minimum_height=0.1236 upright=0.9990",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002727, -0.000485, 0.001273) yaw=0.0604 minimum_height=0.1274 upright=0.9977",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006936, 0.000347, -0.001239) yaw=-0.2198 minimum_height=0.1238 upright=0.9989",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 16,
+    "parameters": [
+      "motion",
+      600,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.021178, -0.000196, -0.011353) yaw=-0.3745 minimum_height=0.1265 upright=0.9991",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.056862, -0.003172, 0.101929) yaw=-0.3287 minimum_height=0.1198 upright=0.9947",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.009952, 0.000706, -0.022778) yaw=0.1639 minimum_height=0.1248 upright=0.9991",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.0035, -0.000992, -0.019644) yaw=0.5586 minimum_height=0.1248 upright=0.9974",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.011564, 0.000642, -0.006823) yaw=-0.1485 minimum_height=0.1257 upright=0.9986",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1306 upright=0.9976",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9991",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 17,
+    "parameters": [
+      "motion",
+      30,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.00259, -0.00209, -0.022635) yaw=-0.4262 minimum_height=0.1255 upright=0.9975",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(0.011562, 0.000114, 0.097245) yaw=0.1322 minimum_height=0.1204 upright=0.9981",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001029, 0.000448, -0.017491) yaw=0.0271 minimum_height=0.1249 upright=0.9986",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.001439, 0.000058, -0.013487) yaw=0.3776 minimum_height=0.1267 upright=0.9976",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.003473, -0.000162, -0.01583) yaw=-0.3557 minimum_height=0.1243 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1307 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1309 upright=0.9970",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 18,
+    "parameters": [
+      "motion",
+      241,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.024152, 0.002838, -0.019566) yaw=-0.5086 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.032789, 0.002944, 0.098963) yaw=-0.5511 minimum_height=0.1209 upright=0.9988",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.008215, 0.002825, -0.025589) yaw=-0.0496 minimum_height=0.1232 upright=0.9999",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002525, 0.003182, -0.013349) yaw=0.2621 minimum_height=0.1241 upright=0.9986",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.015395, 0.000692, -0.005425) yaw=-0.1849 minimum_height=0.1255 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1306 upright=0.9976",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9991",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 19,
+    "parameters": [
+      "motion",
+      300,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.008394, -0.003758, -0.016892) yaw=-0.4478 minimum_height=0.1269 upright=0.9928",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.028807, -0.000938, 0.076006) yaw=0.0141 minimum_height=0.1197 upright=0.9986",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.018155, -0.002536, -0.025512) yaw=-0.1371 minimum_height=0.1244 upright=0.9982",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.001982, -0.000191, -0.008887) yaw=0.1807 minimum_height=0.1263 upright=0.9988",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006678, -0.00013, -0.009553) yaw=-0.1900 minimum_height=0.1256 upright=0.9994",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1306 upright=0.9976",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1282 upright=0.9991",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 20,
+    "parameters": [
+      "app",
+      97,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.020265 lateral=-0.004211 yaw=-0.100349 min_height=0.124718 stopped_up=0.997887",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 21,
+    "parameters": [
+      "app",
+      257,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.027709 lateral=-0.001395 yaw=-0.091693 min_height=0.124303 stopped_up=0.998378",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 22,
+    "parameters": [
+      "app",
+      120,
+      2
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.013099 lateral=-0.000161 yaw=0.444059 min_height=0.118827 stopped_up=0.997221",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 23,
+    "parameters": [
+      "app",
+      180,
+      3
+    ],
+    "profile": [
+      -60,
+      0.08,
+      2
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(-1.0, 0.0) settle=180 forward=-0.015226 lateral=0.006475 yaw=-0.306483 min_height=0.124925 stopped_up=0.997996",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 24,
+    "parameters": [
+      "motion",
+      93,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 1,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001219, 0.002837, -0.011947) yaw=-0.0289 minimum_height=0.1248 upright=0.9993",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.009046, 0.002895, -0.010812) yaw=0.3476 minimum_height=0.1269 upright=0.9982",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.001823, 0.002709, -0.008748) yaw=-0.0131 minimum_height=0.1249 upright=0.9978",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: FAIL"
+    ],
+    "errors": [
+      "ERROR: turn command must produce signed physical yaw"
+    ]
+  },
+  {
+    "index": 25,
+    "parameters": [
+      "motion",
+      114,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.012025, 0.000504, -0.032294) yaw=0.1924 minimum_height=0.1222 upright=0.9985",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002733, -0.001583, -0.011513) yaw=0.2509 minimum_height=0.1270 upright=0.9968",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.002976, 0.000353, -0.019993) yaw=-0.1326 minimum_height=0.1270 upright=0.9983",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 26,
+    "parameters": [
+      "motion",
+      181,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.003475, 0.000215, -0.028365) yaw=-0.2559 minimum_height=0.1240 upright=0.9984",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.000359, -0.000304, -0.005578) yaw=0.2764 minimum_height=0.1267 upright=0.9977",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.002395, 0.00001, -0.020783) yaw=-0.3800 minimum_height=0.1221 upright=0.9994",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 27,
+    "parameters": [
+      "motion",
+      586,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.014524, 0.000406, -0.018444) yaw=-0.0882 minimum_height=0.1248 upright=0.9986",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.00142, -0.000154, -0.00696) yaw=0.2460 minimum_height=0.1267 upright=0.9981",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.005327, 0.000202, -0.009875) yaw=-0.1747 minimum_height=0.1240 upright=0.9985",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 28,
+    "parameters": [
+      "motion",
+      600,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.021178, -0.000196, -0.011353) yaw=-0.3745 minimum_height=0.1265 upright=0.9991",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.056862, -0.003172, 0.101929) yaw=-0.3287 minimum_height=0.1198 upright=0.9947",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.016585, -0.003197, -0.02191) yaw=-0.0487 minimum_height=0.1259 upright=0.9962",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.013269, -0.001902, -0.012681) yaw=0.4048 minimum_height=0.1239 upright=0.9963",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.012186, 0.000854, -0.004538) yaw=-0.2411 minimum_height=0.1263 upright=0.9991",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1314 upright=0.9982",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 29,
+    "parameters": [
+      "motion",
+      30,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.00259, -0.00209, -0.022635) yaw=-0.4262 minimum_height=0.1255 upright=0.9975",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(0.011562, 0.000114, 0.097245) yaw=0.1322 minimum_height=0.1204 upright=0.9981",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.002485, 0.000354, -0.031438) yaw=0.1418 minimum_height=0.1258 upright=0.9986",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002987, -0.000331, -0.005512) yaw=0.1340 minimum_height=0.1271 upright=0.9981",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.011757, 0.000067, -0.019533) yaw=-0.4025 minimum_height=0.1237 upright=0.9991",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 30,
+    "parameters": [
+      "motion",
+      241,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.024152, 0.002838, -0.019566) yaw=-0.5086 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.032789, 0.002944, 0.098963) yaw=-0.5511 minimum_height=0.1209 upright=0.9988",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.010478, 0.002987, -0.027624) yaw=-0.1419 minimum_height=0.1248 upright=0.9989",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.006753, 0.00249, -0.011193) yaw=0.1887 minimum_height=0.1266 upright=0.9971",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.010207, 0.003253, -0.00881) yaw=-0.2803 minimum_height=0.1275 upright=0.9983",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1314 upright=0.9982",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 31,
+    "parameters": [
+      "motion",
+      300,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.008394, -0.003758, -0.016892) yaw=-0.4478 minimum_height=0.1269 upright=0.9928",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.028807, -0.000938, 0.076006) yaw=0.0141 minimum_height=0.1197 upright=0.9986",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.00735, -0.000362, -0.021625) yaw=-0.0614 minimum_height=0.1258 upright=0.9975",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.001453, -0.00019, -0.02385) yaw=0.3556 minimum_height=0.1235 upright=1.0000",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.011457, -0.000241, -0.01762) yaw=-0.4193 minimum_height=0.1261 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1314 upright=0.9982",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 32,
+    "parameters": [
+      "app",
+      97,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.019158 lateral=-0.007088 yaw=0.104213 min_height=0.122508 stopped_up=0.999041",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 33,
+    "parameters": [
+      "app",
+      257,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.022869 lateral=0.004050 yaw=-0.238544 min_height=0.125796 stopped_up=0.998492",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 34,
+    "parameters": [
+      "app",
+      120,
+      2
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.012714 lateral=-0.002490 yaw=0.272765 min_height=0.126616 stopped_up=0.998038",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 35,
+    "parameters": [
+      "app",
+      180,
+      3
+    ],
+    "profile": [
+      -10,
+      0.15,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(-1.0, 0.0) settle=180 forward=-0.021142 lateral=0.002850 yaw=-0.081643 min_height=0.126249 stopped_up=0.999792",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 36,
+    "parameters": [
+      "motion",
+      93,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.001219, 0.002837, -0.011947) yaw=-0.0289 minimum_height=0.1248 upright=0.9993",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.004113, 0.001672, -0.008332) yaw=0.3070 minimum_height=0.1237 upright=0.9954",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.008229, 0.002107, 0.000724) yaw=-0.1228 minimum_height=0.1242 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 37,
+    "parameters": [
+      "motion",
+      114,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.012025, 0.000504, -0.032294) yaw=0.1924 minimum_height=0.1222 upright=0.9985",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.000099, 0.000045, -0.012851) yaw=0.2130 minimum_height=0.1270 upright=0.9992",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.002514, 0.000374, -0.018755) yaw=-0.1920 minimum_height=0.1246 upright=0.9983",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 38,
+    "parameters": [
+      "motion",
+      181,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.003475, 0.000215, -0.028365) yaw=-0.2559 minimum_height=0.1240 upright=0.9984",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.001573, -0.000086, -0.009982) yaw=0.2778 minimum_height=0.1271 upright=0.9985",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.003759, 0.000075, -0.0141) yaw=-0.3382 minimum_height=0.1237 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 39,
+    "parameters": [
+      "motion",
+      586,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.014524, 0.000406, -0.018444) yaw=-0.0882 minimum_height=0.1248 upright=0.9986",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.001472, 0.000036, 0.000799) yaw=0.1186 minimum_height=0.1265 upright=0.9986",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.003132, -0.002297, -0.014791) yaw=-0.4350 minimum_height=0.1245 upright=0.9955",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 40,
+    "parameters": [
+      "motion",
+      600,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.021178, -0.000196, -0.011353) yaw=-0.3745 minimum_height=0.1265 upright=0.9991",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.056862, -0.003172, 0.101929) yaw=-0.3287 minimum_height=0.1198 upright=0.9947",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.016585, -0.003197, -0.02191) yaw=-0.0487 minimum_height=0.1259 upright=0.9962",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.005234, -0.000994, -0.012945) yaw=0.1055 minimum_height=0.1240 upright=0.9977",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.00945, 0.000533, -0.007414) yaw=-0.2509 minimum_height=0.1267 upright=0.9992",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1314 upright=0.9982",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 41,
+    "parameters": [
+      "motion",
+      30,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.00259, -0.00209, -0.022635) yaw=-0.4262 minimum_height=0.1255 upright=0.9975",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(0.011562, 0.000114, 0.097245) yaw=0.1322 minimum_height=0.1204 upright=0.9981",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.002485, 0.000354, -0.031438) yaw=0.1418 minimum_height=0.1258 upright=0.9986",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.000396, -0.001585, -0.012221) yaw=0.3108 minimum_height=0.1262 upright=0.9972",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.003609, -0.001334, -0.014773) yaw=-0.2248 minimum_height=0.1260 upright=0.9974",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9979",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 42,
+    "parameters": [
+      "motion",
+      241,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.024152, 0.002838, -0.019566) yaw=-0.5086 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.032789, 0.002944, 0.098963) yaw=-0.5511 minimum_height=0.1209 upright=0.9988",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.010478, 0.002987, -0.027624) yaw=-0.1419 minimum_height=0.1248 upright=0.9989",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.014562, 0.000147, -0.007322) yaw=0.1900 minimum_height=0.1269 upright=0.9963",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.013458, 0.00306, -0.008143) yaw=-0.3571 minimum_height=0.1261 upright=0.9981",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1314 upright=0.9982",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 43,
+    "parameters": [
+      "motion",
+      300,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.008394, -0.003758, -0.016892) yaw=-0.4478 minimum_height=0.1269 upright=0.9928",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.028807, -0.000938, 0.076006) yaw=0.0141 minimum_height=0.1197 upright=0.9986",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.00735, -0.000362, -0.021625) yaw=-0.0614 minimum_height=0.1258 upright=0.9975",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.005651, -0.002173, -0.005783) yaw=0.2305 minimum_height=0.1261 upright=0.9959",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.010754, -0.000023, -0.011186) yaw=-0.2573 minimum_height=0.1240 upright=0.9992",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1308 upright=0.9990",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1314 upright=0.9982",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 44,
+    "parameters": [
+      "app",
+      97,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.019158 lateral=-0.007088 yaw=0.104213 min_height=0.122508 stopped_up=0.999041",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 45,
+    "parameters": [
+      "app",
+      257,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.022869 lateral=0.004050 yaw=-0.238544 min_height=0.125796 stopped_up=0.998492",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 46,
+    "parameters": [
+      "app",
+      120,
+      2
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.018634 lateral=-0.013335 yaw=0.233888 min_height=0.126523 stopped_up=0.998069",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 47,
+    "parameters": [
+      "app",
+      180,
+      3
+    ],
+    "profile": [
+      -60,
+      0.08,
+      3
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(-1.0, 0.0) settle=180 forward=-0.015020 lateral=0.007898 yaw=-0.130989 min_height=0.126684 stopped_up=0.997129",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 48,
+    "parameters": [
+      "motion",
+      93,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 1,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.007063, 0.001914, -0.024973) yaw=0.0117 minimum_height=0.1233 upright=0.9976",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.018474, 0.002543, -0.011641) yaw=-0.0801 minimum_height=0.1162 upright=0.9974",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.004692, 0.002997, -0.015235) yaw=-0.1886 minimum_height=0.1267 upright=0.9988",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: FAIL"
+    ],
+    "errors": [
+      "ERROR: turn command must produce signed physical yaw"
+    ]
+  },
+  {
+    "index": 49,
+    "parameters": [
+      "motion",
+      114,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.000531, 0.000196, -0.022628) yaw=0.1179 minimum_height=0.1245 upright=0.9982",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.000126, 0.000072, -0.011123) yaw=0.2366 minimum_height=0.1269 upright=0.9988",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.000097, -0.000348, -0.026662) yaw=-0.2882 minimum_height=0.1237 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 50,
+    "parameters": [
+      "motion",
+      181,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.002849, -0.000293, -0.017105) yaw=0.0538 minimum_height=0.1231 upright=0.9997",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.003942, 0.000005, -0.008732) yaw=0.2105 minimum_height=0.1265 upright=0.9980",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.000522, -0.001472, -0.014855) yaw=-0.2271 minimum_height=0.1257 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 51,
+    "parameters": [
+      "motion",
+      586,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.009908, 0.00029, -0.022234) yaw=0.0056 minimum_height=0.1232 upright=0.9985",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.003597, -0.000159, -0.01302) yaw=0.2170 minimum_height=0.1243 upright=0.9969",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.01715, -0.002827, -0.006332) yaw=-0.3654 minimum_height=0.1267 upright=0.9966",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 52,
+    "parameters": [
+      "motion",
+      600,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.021178, -0.000196, -0.011353) yaw=-0.3745 minimum_height=0.1265 upright=0.9991",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.056862, -0.003172, 0.101929) yaw=-0.3287 minimum_height=0.1198 upright=0.9947",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.010881, 0.000825, -0.026092) yaw=0.0684 minimum_height=0.1258 upright=0.9985",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.003948, 0.000468, -0.008413) yaw=0.2638 minimum_height=0.1273 upright=0.9981",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.006279, 0.000362, -0.010017) yaw=-0.0504 minimum_height=0.1275 upright=0.9994",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1310 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9975",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 53,
+    "parameters": [
+      "motion",
+      30,
+      0
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.00259, -0.00209, -0.022635) yaw=-0.4262 minimum_height=0.1255 upright=0.9975",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(0.011562, 0.000114, 0.097245) yaw=0.1322 minimum_height=0.1204 upright=0.9981",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.002056, 0.000298, -0.015714) yaw=0.2120 minimum_height=0.1232 upright=0.9990",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.002703, -0.003861, -0.024946) yaw=0.0622 minimum_height=0.1248 upright=0.9999",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.011224, -0.002891, -0.017214) yaw=-0.1694 minimum_height=0.1271 upright=0.9955",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 54,
+    "parameters": [
+      "motion",
+      241,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.024152, 0.002838, -0.019566) yaw=-0.5086 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.032789, 0.002944, 0.098963) yaw=-0.5511 minimum_height=0.1209 upright=0.9988",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.007916, 0.003017, -0.022373) yaw=0.0699 minimum_height=0.1247 upright=0.9995",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.005999, 0.00307, -0.011447) yaw=0.1927 minimum_height=0.1268 upright=0.9994",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.01522, 0.00314, -0.012206) yaw=-0.3306 minimum_height=0.1252 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1310 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9975",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 55,
+    "parameters": [
+      "motion",
+      300,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.008394, -0.003758, -0.016892) yaw=-0.4478 minimum_height=0.1269 upright=0.9928",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.028807, -0.000938, 0.076006) yaw=0.0141 minimum_height=0.1197 upright=0.9986",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.002526, -0.000823, -0.011765) yaw=0.0205 minimum_height=0.1257 upright=0.9974",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.004562, -0.000202, -0.005008) yaw=0.1814 minimum_height=0.1261 upright=0.9983",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.009927, -0.00012, -0.013796) yaw=-0.3852 minimum_height=0.1257 upright=0.9977",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1310 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9975",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 56,
+    "parameters": [
+      "app",
+      97,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.031938 lateral=-0.012219 yaw=0.086599 min_height=0.125098 stopped_up=0.998049",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 57,
+    "parameters": [
+      "app",
+      257,
+      1
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.032264 lateral=0.001531 yaw=-0.122562 min_height=0.125265 stopped_up=0.999264",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 58,
+    "parameters": [
+      "app",
+      120,
+      2
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.022670 lateral=-0.000782 yaw=0.155726 min_height=0.123721 stopped_up=0.997105",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 59,
+    "parameters": [
+      "app",
+      180,
+      3
+    ],
+    "profile": [
+      -10,
+      0.15,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(-1.0, 0.0) settle=180 forward=-0.012441 lateral=-0.006430 yaw=-0.206013 min_height=0.123570 stopped_up=0.992129",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 60,
+    "parameters": [
+      "motion",
+      93,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(-0.000628, 0.002601, -0.015027) yaw=-0.3093 minimum_height=0.1251 upright=0.9987",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.033837, -0.000341, 0.096236) yaw=-0.6366 minimum_height=0.1196 upright=0.9964",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.007063, 0.001914, -0.024973) yaw=0.0117 minimum_height=0.1233 upright=0.9976",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.007583, 0.002171, -0.015334) yaw=0.4715 minimum_height=0.1241 upright=0.9981",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.003682, 0.002769, -0.019624) yaw=-0.0926 minimum_height=0.1236 upright=1.0000",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 61,
+    "parameters": [
+      "motion",
+      114,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.005028, -0.000005, -0.022026) yaw=-0.2736 minimum_height=0.1230 upright=0.9989",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.024483, -0.001545, 0.081119) yaw=-0.3334 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.000531, 0.000196, -0.022628) yaw=0.1179 minimum_height=0.1245 upright=0.9982",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(-0.008171, -0.001569, -0.021405) yaw=0.3658 minimum_height=0.1262 upright=0.9967",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.004043, 0.000303, -0.017489) yaw=-0.2672 minimum_height=0.1266 upright=0.9986",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 62,
+    "parameters": [
+      "motion",
+      181,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.004973, -0.000039, -0.020708) yaw=-0.2495 minimum_height=0.1230 upright=0.9993",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.025465, -0.000164, 0.104318) yaw=-0.4643 minimum_height=0.1201 upright=0.9999",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.002849, -0.000293, -0.017105) yaw=0.0538 minimum_height=0.1231 upright=0.9997",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002398, -0.001772, -0.0066) yaw=0.1644 minimum_height=0.1274 upright=0.9966",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.001153, -0.001491, -0.021382) yaw=-0.3949 minimum_height=0.1253 upright=0.9981",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 63,
+    "parameters": [
+      "motion",
+      586,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.010522, 0.00001, -0.01339) yaw=-0.1619 minimum_height=0.1230 upright=0.9983",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.038298, -0.000092, 0.075394) yaw=-0.1963 minimum_height=0.1204 upright=0.9984",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.009908, 0.00029, -0.022234) yaw=0.0056 minimum_height=0.1232 upright=0.9985",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.006245, -0.00191, -0.00763) yaw=0.2277 minimum_height=0.1270 upright=0.9964",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.007468, -0.005187, -0.018687) yaw=-0.0858 minimum_height=0.1262 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 64,
+    "parameters": [
+      "motion",
+      600,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.021178, -0.000196, -0.011353) yaw=-0.3745 minimum_height=0.1265 upright=0.9991",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.056862, -0.003172, 0.101929) yaw=-0.3287 minimum_height=0.1198 upright=0.9947",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.010881, 0.000825, -0.026092) yaw=0.0684 minimum_height=0.1258 upright=0.9985",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.003385, 0.000409, -0.014374) yaw=0.3054 minimum_height=0.1274 upright=0.9995",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.010063, 0.000067, -0.015647) yaw=-0.2573 minimum_height=0.1270 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1310 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9975",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 65,
+    "parameters": [
+      "motion",
+      30,
+      0
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.00259, -0.00209, -0.022635) yaw=-0.4262 minimum_height=0.1255 upright=0.9975",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(0.011562, 0.000114, 0.097245) yaw=0.1322 minimum_height=0.1204 upright=0.9981",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(-0.002056, 0.000298, -0.015714) yaw=0.2120 minimum_height=0.1232 upright=0.9990",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.002564, -0.00266, -0.010706) yaw=0.2989 minimum_height=0.1247 upright=0.9965",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(-0.000477, -0.001345, -0.0138) yaw=-0.1921 minimum_height=0.1270 upright=0.9979",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1285 upright=0.9582",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9998",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1311 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1316 upright=0.9987",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 66,
+    "parameters": [
+      "motion",
+      241,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.024152, 0.002838, -0.019566) yaw=-0.5086 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.032789, 0.002944, 0.098963) yaw=-0.5511 minimum_height=0.1209 upright=0.9988",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.007916, 0.003017, -0.022373) yaw=0.0699 minimum_height=0.1247 upright=0.9995",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.014614, 0.000459, -0.003296) yaw=0.1040 minimum_height=0.1269 upright=0.9981",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.008086, 0.002723, -0.005854) yaw=-0.2537 minimum_height=0.1269 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1310 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9975",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 67,
+    "parameters": [
+      "motion",
+      300,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_GAIT command=(0.0, 0.0) displacement=(0.008394, -0.003758, -0.016892) yaw=-0.4478 minimum_height=0.1269 upright=0.9928",
+      "BIPED_GAIT command=(0.0, 1.0) displacement=(-0.028807, -0.000938, 0.076006) yaw=0.0141 minimum_height=0.1197 upright=0.9986",
+      "BIPED_GAIT command=(0.0, -1.0) displacement=(0.002526, -0.000823, -0.011765) yaw=0.0205 minimum_height=0.1257 upright=0.9974",
+      "BIPED_GAIT command=(1.0, 0.0) displacement=(0.000337, 0.00016, -0.010182) yaw=0.1536 minimum_height=0.1262 upright=0.9986",
+      "BIPED_GAIT command=(-1.0, 0.0) displacement=(0.007856, 0.000017, -0.01583) yaw=-0.5450 minimum_height=0.1265 upright=0.9984",
+      "BIPED_STARTUP command=(0.0, 1.0) height=0.1265 upright=0.9471",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1313 upright=0.9995",
+      "BIPED_STARTUP command=(0.0, -1.0) height=0.1310 upright=0.9993",
+      "BIPED_STARTUP command=(0.0, 0.0) height=0.1289 upright=0.9975",
+      "biped_motion_check: PASS"
+    ],
+    "errors": []
+  },
+  {
+    "index": 68,
+    "parameters": [
+      "app",
+      97,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=97 forward=-0.031938 lateral=-0.012219 yaw=0.086599 min_height=0.125098 stopped_up=0.998049",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 69,
+    "parameters": [
+      "app",
+      257,
+      1
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(0.0, -1.0) settle=257 forward=-0.032264 lateral=0.001531 yaw=-0.122562 min_height=0.125265 stopped_up=0.999264",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 70,
+    "parameters": [
+      "app",
+      120,
+      2
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(1.0, 0.0) settle=120 forward=-0.008805 lateral=0.001758 yaw=0.193427 min_height=0.127164 stopped_up=0.996370",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  },
+  {
+    "index": 71,
+    "parameters": [
+      "app",
+      180,
+      3
+    ],
+    "profile": [
+      -60,
+      0.08,
+      4
+    ],
+    "code": 0,
+    "metrics": [
+      "BIPED_APP command=(-1.0, 0.0) settle=180 forward=-0.020543 lateral=0.004415 yaw=-0.311777 min_height=0.126594 stopped_up=0.999704",
+      "biped_app_check: 730 checks, 0 failures"
+    ],
+    "errors": []
+  }
+]
