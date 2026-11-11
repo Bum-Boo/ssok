@@ -83,6 +83,7 @@ DOCUMENTATION_REFERENCES = (
     "src/runtime/pickup_policy.gd",
     "src/runtime/pickup_scenario_store.gd",
     "src/runtime/pickup_trial.gd",
+    "src/runtime/power_net.gd",
     "src/runtime/robot_motion_program.gd",
     "src/runtime/run_mode.gd",
     "src/runtime/servo_drive.gd",
