@@ -1,7 +1,0 @@
-extends "res://tests/agent_camera_rest_check.gd"
-var held_caster: PartDef
-func _initialize() -> void:
- held_caster=load("res://assets/parts/ball_caster.tres")
- held_caster.mass_kg=.020
- print("M2D_PROBE_CASTER_MASS ", held_caster.mass_kg)
- super._initialize()

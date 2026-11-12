@@ -1,9 +1,0 @@
-RUN  import
-PASS import (2.9s)
-RUN  scene-load
-PASS scene-load (0.5s)
-RUN  parts_pack_environment_check
-PASS parts_pack_environment_check (1.6s)
-RUN  robot_car_check
-PASS robot_car_check (0.8s)
-4 checks; 0 failures. Results: C:\Users\Hojun\agent-jobs\ssok-M2c-20261105\repo\build\verification-m2c-restored\SUMMARY.md
