@@ -18,7 +18,7 @@ ssok/
     profiles/  (1 GDScript files)
     runtime/  (27 GDScript files)
     screens/  (5 GDScript files)
-    ui/  (23 GDScript files)
+    ui/  (22 GDScript files)
   presets/
   assets/
     blender/
@@ -36,6 +36,7 @@ ssok/
     parts/
     policies/
     power/
+    stages/
   addons/
     beehave/
     godot_state_charts/
@@ -148,7 +149,6 @@ ssok/
 | [src/ui/ssok_locale.gd](../../src/ui/ssok_locale.gd) | SsokLocale |
 | [src/ui/ssok_theme.gd](../../src/ui/ssok_theme.gd) | SsokTheme |
 | [src/ui/stage_goal_display.gd](../../src/ui/stage_goal_display.gd) | StageGoalDisplay |
-| [src/ui/stage_goal_preview.gd](../../src/ui/stage_goal_preview.gd) | StageGoalPreview |
 | [src/ui/stage_hud.gd](../../src/ui/stage_hud.gd) | StageHud |
 | [src/ui/stage_panel.gd](../../src/ui/stage_panel.gd) | StagePanel |
 | [src/ui/tutorial_panel.gd](../../src/ui/tutorial_panel.gd) | TutorialPanel |

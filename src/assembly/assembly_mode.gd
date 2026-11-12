@@ -769,6 +769,20 @@ func begin_move(part: PartNode) -> bool:
 	return true
 
 
+## Orientation in which a flat part lies on the bench: its thinnest side points up.
+static func resting_basis(definition: PartDef) -> Basis:
+	if definition.mesh == null:
+		return Basis.IDENTITY
+	var size: Vector3 = definition.mesh.get_aabb().size
+	var thinnest: int = size.min_axis_index()
+	var others: Array[float] = [size.x, size.y, size.z]
+	others.remove_at(thinnest)
+	# Only clearly flat parts are turned; blocks, motors and boards keep their authored pose.
+	if thinnest == Vector3.AXIS_Y or size[thinnest] > 0.5 * minf(others[0], others[1]):
+		return Basis.IDENTITY
+	return Basis(Vector3.RIGHT, -PI * 0.5) if thinnest == Vector3.AXIS_Z else Basis(Vector3.BACK, PI * 0.5)
+
+
 func _start_place(definition: PartDef, moving: PartNode) -> void:
 	var source := moving.global_transform if moving != null else Transform3D.IDENTITY
 	_place = {"definition": definition, "moving": moving, "before": _snapshot(),
@@ -816,6 +830,8 @@ func update_place_ray(origin: Vector3, direction: Vector3) -> void:
 			_place.reason = "Place it on the floor, or move it over a part to attach."
 		else:
 			var pose: Transform3D = _place.source
+			if _place.moving == null:
+				pose.basis = resting_basis(definition)
 			pose.basis = Basis(Vector3.UP, _place.twist * PI * 0.5) * pose.basis
 			var bounds: AABB = Transform3D(pose.basis, Vector3.ZERO) * definition.mesh.get_aabb()
 			pose.origin = Vector3(snappedf(floor_point.x, 0.01), ServoArmPreset.FLOOR_TOP - bounds.position.y, snappedf(floor_point.z, 0.01))

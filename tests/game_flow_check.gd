@@ -150,7 +150,9 @@ func _run() -> void:
 	_check(main != null and main.session.mode == "lab", "free building opens a lab workshop")
 	if main != null:
 		_check(main._ui_root.get_node("PartsLibrary").visible and main.get_node_or_null("Floor") != null, "lab keeps the full library and default floor")
-		_check(not main.stages._picker.visible and not main.program_tabs.is_tab_hidden(4), "lab keeps authoring but not the stage picker")
+		_check(not main.stages._picker.visible and main.program_tabs.is_tab_hidden(4), "lab starts with the everyday tabs and no stage picker")
+		main._reveal_tab("Stages")
+		_check(not main.program_tabs.is_tab_hidden(4) and main.program_tabs.current_tab == 4 and main._side_panel.visible, "lab keeps authoring, opened from Help")
 		_check(not main.motion_lab_button.visible and not main.examples_menu.visible, "lab hides example robots and the AI lab")
 		_check(not main.flag_mission.visible and not main._empty_panel.visible, "lab shows no flag mission")
 		await _shot("10_lab")

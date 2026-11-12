@@ -245,7 +245,8 @@ func _native_routes() -> void:
 	# Use the same Help example action to populate wiring and blocks for their anchors.
 	lab._load_example_id(0)
 	await _settle()
-	lab.stage_hud.phase_requested.emit(2)
+	# Stage authoring opens from Help in free building; the browser gate needs its tab on screen.
+	lab._reveal_tab("Stages")
 	lab.program_tabs.current_tab = 0
 	await _settle()
 	_point("lab_code_editor", lab.code_edit)

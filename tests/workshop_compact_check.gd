@@ -78,7 +78,7 @@ func _run() -> void:
 							main._toggle_overlay(panel)
 						await _settle()
 						var rect: Rect2 = panel.get_global_rect()
-						_check(rect.size.y <= root.size.y * 0.6 + 1, context + " editor capped at 60% " + str(rect))
+						_check(rect.end.y <= root.size.y + 1 and rect.position.y >= main.stage_hud.goal_card.get_global_rect().end.y, context + " editor docks between strip and window bottom " + str(rect))
 						_check(not rect.intersects(strip), context + " editor does not overlap strip")
 						_check(Rect2(Vector2.ZERO, root.size).encloses(rect), context + " editor inside viewport")
 						_check(panel.get_node("OverlayScroll").size.y > 80, context + " editor scroll viewport visible")

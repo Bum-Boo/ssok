@@ -69,7 +69,7 @@ func _run() -> void:
 		_check(not main._side_panel.visible, "program overlay can collapse")
 		main.code_edit.text = "invalid???"
 		await _settle()
-		_check(main._guide_phase == 2 and main._side_panel.visible, "invalid source reopens programming without graph edits")
+		_check(main._guide_phase == 2 and not main._side_panel.visible, "invalid source marks the code step without moving panels")
 		main.code_edit.text = StageLevels.stage_definition(level).author_solution.source
 		main.blocks.reset_source(main.code_edit.text)
 		await _settle()
@@ -98,9 +98,11 @@ func _run() -> void:
 				_prefs.changed.emit()
 				await _settle()
 				_check(Rect2(Vector2.ZERO, root.size).encloses(main.stage_hud.goal_card.get_global_rect()), "strip fits " + locale + appearance)
+				main._ui_root.get_node("PartsLibrary").hide()
+				main._side_panel.hide()
 				main.stage_hud.parts_requested.emit()
 				main.stage_hud.program_requested.emit()
-				_check(not main._ui_root.get_node("PartsLibrary").visible and main._side_panel.visible, "only one manually opened overlay")
+				_check(main._ui_root.get_node("PartsLibrary").visible and main._side_panel.visible, "a wide window keeps the tray and the program open together")
 				main.program_tabs.current_tab = 2
 				await _settle()
 				for card: Control in main.blocks.rows.get_children():

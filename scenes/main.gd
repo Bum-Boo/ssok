@@ -15,6 +15,8 @@ const PART_COLORS := {
 }
 
 const PARTS_DIR := "res://assets/parts"
+## Window width from which the parts tray and the program panel fit side by side.
+const WIDE_LAYOUT: float = 1280.0
 const CONTROL_MANUAL: int = 0
 const CONTROL_CODE: int = 1
 
@@ -102,6 +104,14 @@ var _framing_dirty: bool = true
 var _framing_area: Rect2
 var goal_display: StageGoalDisplay
 var _guide_phase: int = -1
+## The checklist opens a panel once; afterwards panels change only when the learner asks.
+var _guide_opened: bool = false
+var _framing_viewport: Vector2 = Vector2.ZERO
+var _panels_before_run: Array[bool] = []
+## Scene-only view: every panel hidden so the robot can simply be watched.
+var _cinema: bool = false
+var _cinema_button: Button
+var _panels_before_cinema: Array[bool] = []
 var _guide_dirty: bool = true
 var _scene_ui: bool = false
 var _guide_draft: String = ""
@@ -306,10 +316,14 @@ func _process(_delta: float) -> void:
 			_guide_dirty = true
 	if _scene_ui and _guide_dirty:
 		_refresh_guide()
+	# The camera is framed on load and on window resize, never because a part or panel moved.
 	if _scene_ui and _auto_frame and not run_mode.is_built():
-		var area: Rect2 = _camera_framing_rect()
-		if _framing_dirty or area != _framing_area:
+		if _framing_dirty or get_viewport().get_visible_rect().size != _framing_viewport:
 			_frame_workshop()
+		elif _camera_framing_rect() != _framing_area:
+			_framing_area = _camera_framing_rect()
+			if _interest_hidden():
+				_frame_workshop()
 	if goal_display != null:
 		var observed: Array[Dictionary] = []
 		if run_mode.is_built():
@@ -940,9 +954,24 @@ func _workshop_bounds() -> AABB:
 	return WorkshopFraming.interest_bounds(assembly.graph, _level, session.get("level", {}).get("id", ""))
 
 
+## True when a panel now covers part of what the learner is working on.
+func _interest_hidden() -> bool:
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	var bounds: AABB = _workshop_bounds() if session.get("mode", "") == "stage" else assembly.get_scene_bounds()
+	if camera == null or assembly.graph.parts.is_empty() and session.get("mode", "") != "stage":
+		return false
+	var area: Rect2 = _camera_framing_rect()
+	for index: int in 8:
+		var point: Vector3 = bounds.get_endpoint(index)
+		if camera.is_position_behind(point) or not area.has_point(camera.unproject_position(point)):
+			return true
+	return false
+
+
 func _frame_workshop() -> void:
 	navigation.frame_bounds(_workshop_bounds())
 	_framing_area = _camera_framing_rect()
+	_framing_viewport = get_viewport().get_visible_rect().size
 	_framing_dirty = false
 
 
@@ -1194,12 +1223,21 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			get_viewport().gui_release_focus()
 			get_viewport().set_input_as_handled()
 		return
+	var plain: bool = not key_event.is_command_or_control_pressed() and not key_event.alt_pressed and not key_event.shift_pressed
+	if _scene_ui and plain and (key_event.keycode == KEY_H or (_cinema and key_event.keycode == KEY_ESCAPE)):
+		_set_cinema(not _cinema)
+		get_viewport().set_input_as_handled()
+		return
 	if mode_button.button_pressed:
 		if key_event.keycode == KEY_ESCAPE:
 			_on_stop_pressed()
 			get_viewport().set_input_as_handled()
 		return
 	if assembly.transform_active or assembly.placement_active:
+		return
+	if _scene_ui and plain and not _cinema and key_event.keycode in [KEY_T, KEY_N]:
+		_toggle_overlay(_ui_root.get_node("PartsLibrary") if key_event.keycode == KEY_T else _side_panel)
+		get_viewport().set_input_as_handled()
 		return
 	if key_event.keycode == KEY_DELETE:
 		_on_delete_pressed()
@@ -1247,7 +1285,7 @@ func _on_mode_toggled(run: bool) -> void:
 	_refresh_port_indicators()
 	_guide_dirty = true
 	if _scene_ui:
-		_guide_phase = -1
+		_panels_for_run(run)
 	get_viewport().gui_release_focus()
 
 
@@ -1342,6 +1380,13 @@ func _show_code_failure(line: int, message: String, column: int) -> void:
 		code_edit.set_line_background_color(index, Color(0.6, 0.15, 0.1, 0.5) if index == line - 1 else Color.TRANSPARENT)
 	code_edit.set_caret_line(clampi(line - 1, 0, code_edit.get_line_count() - 1))
 	code_edit.set_caret_column(maxi(0, column - 1))
+	if _scene_ui and not _cinema:
+		_side_panel.show()
+		if program_tabs.get_current_tab_control().name not in ["Blocks", "Code"]:
+			program_tabs.current_tab = 2
+		if get_viewport().get_visible_rect().size.x < WIDE_LAYOUT:
+			(_ui_root.get_node("PartsLibrary") as Control).hide()
+		_layout_scene_ui()
 	blocks.highlight_line(line)
 
 
@@ -1862,7 +1907,8 @@ func _enter_stage(level: Dictionary) -> void:
 func _enter_lab() -> void:
 	motion_lab_button.visible = false
 	stages.set_lab_only(true)
-	_set_tabs(["Blocks", "Code", "Wiring", "Controls", "Stages", "AI"])
+	# Building, wiring and programming are the everyday tabs; the rest open from Help.
+	_set_tabs(["Blocks", "Code", "Wiring"])
 	_set_status("Free building: add parts from the library, wire them, then program your robot.")
 	if session.get("open_projects", false):
 		_open_projects.call_deferred()
@@ -1973,7 +2019,7 @@ func _setup_scene_ui() -> void:
 		stage_hud.exit_pressed.connect(_request_exit)
 	stage_hud.goal_card.resized.connect(func() -> void: _position_scene_panels.call_deferred())
 	stage_hud.run_requested.connect(_on_run_button_pressed)
-	stage_hud.phase_requested.connect(_open_guide_phase)
+	stage_hud.phase_requested.connect(_on_phase_chip)
 	stage_hud.parts_requested.connect(func() -> void: _toggle_overlay(_ui_root.get_node("PartsLibrary")))
 	stage_hud.program_requested.connect(func() -> void: _toggle_overlay(_side_panel))
 	_help_menu = MenuButton.new()
@@ -1988,6 +2034,11 @@ func _setup_scene_ui() -> void:
 	example_popup.id_pressed.connect(_load_example_id)
 	if session.get("mode") != "stage":
 		popup.add_submenu_node_item("Load an example", example_popup)
+	if session.get("mode") == "lab":
+		popup.add_separator()
+		popup.add_item("Controls", 10)
+		popup.add_item("Stages", 11)
+		popup.add_item("AI", 12)
 	else:
 		example_popup.free()
 		popup.set_item_disabled(3, true)
@@ -2004,10 +2055,20 @@ func _setup_scene_ui() -> void:
 	run_button.hide()
 	_side_panel.hide()
 	(_ui_root.get_node("PartsLibrary") as Control).hide()
-	assembly.graph_changed.connect(func() -> void:
-		_guide_dirty = true
-		_framing_dirty = true)
+	assembly.graph_changed.connect(func() -> void: _guide_dirty = true)
 	code_edit.text_changed.connect(func() -> void: _guide_dirty = true)
+	_cinema_button = SsokTheme.button("Hide panels", "maximize")
+	_cinema_button.name = "CinemaButton"
+	_cinema_button.tooltip_text = "Hide panels"
+	_cinema_button.focus_mode = Control.FOCUS_NONE
+	_cinema_button.clip_text = false
+	_cinema_button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	_cinema_button.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	_cinema_button.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_cinema_button.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	_cinema_button.offset_bottom = -12
+	_cinema_button.pressed.connect(func() -> void: _set_cinema(not _cinema))
+	_ui_root.add_child(_cinema_button)
 	_layout_scene_ui()
 	# Start with the scene unobstructed, then open only the relevant tool.
 	_refresh_guide.call_deferred()
@@ -2025,7 +2086,46 @@ func _refresh_guide() -> void:
 	stage_hud.run_action.tooltip_text = stage_hud.run_action.text
 	if state.current != _guide_phase:
 		_guide_phase = state.current
-		_open_guide_phase(_guide_phase)
+		if not _guide_opened:
+			_guide_opened = true
+			_open_guide_phase(_guide_phase)
+
+
+## A step chip toggles the panel for that step: parts, wiring, or program.
+func _on_phase_chip(index: int) -> void:
+	if _cinema:
+		return
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	if index == 0:
+		_toggle_overlay(library)
+		return
+	if index == 3:
+		library.hide()
+		_side_panel.hide()
+		_layout_scene_ui()
+		return
+	var wiring: bool = index == 1
+	var current: String = String(program_tabs.get_current_tab_control().name)
+	if _side_panel.visible and wiring == (current == "Wiring") and current in ["Wiring", "Blocks", "Code"]:
+		_toggle_overlay(_side_panel)
+		return
+	if not _side_panel.visible:
+		_toggle_overlay(_side_panel)
+	if wiring:
+		program_tabs.current_tab = 3
+	elif current not in ["Blocks", "Code"]:
+		program_tabs.current_tab = 2
+	_layout_scene_ui()
+
+
+## Tabs kept out of the bar (controls guide, stage authoring, AI) open from the Help menu.
+func _reveal_tab(tab_name: String) -> void:
+	for index: int in program_tabs.get_tab_count():
+		if String(program_tabs.get_tab_control(index).name) == tab_name:
+			program_tabs.set_tab_hidden(index, false)
+			program_tabs.current_tab = index
+	if not _side_panel.visible:
+		_toggle_overlay(_side_panel)
 
 
 func _open_guide_phase(index: int) -> void:
@@ -2041,19 +2141,59 @@ func _open_guide_phase(index: int) -> void:
 
 func _toggle_overlay(panel: Control) -> void:
 	panel.visible = not panel.visible
-	if panel.visible:
+	# A narrow window has room for one panel; a wide one keeps tray and program side by side.
+	if panel.visible and get_viewport().get_visible_rect().size.x < WIDE_LAYOUT:
 		var other: Control = _side_panel if panel != _side_panel else _ui_root.get_node("PartsLibrary")
 		other.hide()
 	_layout_scene_ui()
 
 
+func _panels_for_run(run: bool) -> void:
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	if run:
+		if _panels_before_run.is_empty():
+			_panels_before_run = [library.visible, _side_panel.visible]
+		library.hide()
+		_side_panel.hide()
+	elif _panels_before_run.size() == 2:
+		library.visible = _panels_before_run[0]
+		_side_panel.visible = _panels_before_run[1]
+		_panels_before_run = []
+	_layout_scene_ui()
+
+
+func _set_cinema(on: bool) -> void:
+	if on == _cinema or stage_hud == null:
+		return
+	_cinema = on
+	var library: Control = _ui_root.get_node("PartsLibrary")
+	var tools: Control = _ui_root.get_node("ViewportTools")
+	if on:
+		_panels_before_cinema = [library.visible, _side_panel.visible, tools.visible]
+		for panel: Control in [library, _side_panel, tools]:
+			panel.hide()
+	else:
+		library.visible = _panels_before_cinema[0]
+		_side_panel.visible = _panels_before_cinema[1]
+		tools.visible = _panels_before_cinema[2]
+	stage_hud.visible = not on
+	_cinema_button.text = "Show panels" if on else "Hide panels"
+	_cinema_button.tooltip_text = _cinema_button.text
+	_cinema_button.reset_size()
+	_layout_scene_ui()
+
+
 func _layout_scene_ui() -> void:
+	if not is_inside_tree() or stage_hud == null:
+		return
 	var size: Vector2 = get_viewport().get_visible_rect().size
 	stage_hud.layout(Rect2(12, 12, size.x - 24, 0))
 	_position_scene_panels()
 
 
 func _position_scene_panels() -> void:
+	if not is_inside_tree():
+		return
 	var size: Vector2 = get_viewport().get_visible_rect().size
 	var top: float = stage_hud.goal_card.get_global_rect().end.y + 12.0
 	var library: Control = _ui_root.get_node("PartsLibrary")
@@ -2061,7 +2201,7 @@ func _position_scene_panels() -> void:
 	var tools: Control = _ui_root.get_node("ViewportTools")
 	if tools.visible:
 		tools.position = Vector2(_left_edge() + 12.0, top)
-	var height: float = minf(size.y * 0.6, size.y - top - 12)
+	var height: float = size.y - top - 12
 	library.offset_bottom = top + height - size.y
 	_side_panel.offset_top = top
 	_side_panel.offset_bottom = top + height - size.y
@@ -2080,6 +2220,12 @@ func _on_help_selected(index: int) -> void:
 			_open_projects()
 		3:
 			_request_starter(_practice_flag_arm)
+		10:
+			_reveal_tab("Controls")
+		11:
+			_reveal_tab("Stages")
+		12:
+			_reveal_tab("AI")
 
 
 func _build_stage_actions() -> void:

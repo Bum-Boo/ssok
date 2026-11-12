@@ -106,7 +106,8 @@ func _build_goal_card() -> void:
 	hint_button.name = "HintButton"
 	hint_button.tooltip_text = level.get("hint", "")
 	top.add_child(hint_button)
-	for entry: Array in [["Parts library", "box", parts_requested], ["Robot program", "code-xml", program_requested], ["Help", "book-open", help_requested]]:
+	# The step chips open the parts tray and the program panel, so the bar keeps only Help.
+	for entry: Array in [["Help", "book-open", help_requested]]:
 		var action: Button = SsokTheme.button(entry[0], entry[1])
 		action.clip_text = false
 		action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING

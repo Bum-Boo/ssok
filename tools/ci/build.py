@@ -104,7 +104,6 @@ DOCUMENTATION_REFERENCES = (
     "src/ui/ssok_locale.gd",
     "src/ui/ssok_theme.gd",
     "src/ui/stage_goal_display.gd",
-    "src/ui/stage_goal_preview.gd",
     "src/ui/workbench_surface.gd",
     "src/ui/workshop_framing.gd",
     "src/ui/workshop_guide.gd",
