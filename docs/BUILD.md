@@ -259,6 +259,7 @@ a successful public deployment: open the final URL anonymously and run the brows
 
 Push a `feat/**` or `ci/**` branch containing `.github/workflows/preview.yml` to export Web only.
 The workflow summary links to `https://bum-boo.github.io/ssok/preview/<branch-slug>/`.
+A preview is built with the commit id as its version and leaves out `docs/evidence` to stay within the Pages size limit.
 Slugs replace non-alphanumeric runs in the lowercase branch with `-` and keep up to 80 characters,
 then append `-` and the first 12 SHA-256 hex characters of the original name; pushes replace that preview.
 Rerun the latest branch run with **Actions → Preview ssok on the web → Re-run all jobs**;

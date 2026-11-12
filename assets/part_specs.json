@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "note": "Real products behind tray parts and their ratings. Only values read on the cited page on 2026-11-11 are listed (docs/design/ssok-redesign-20261111.md). Row labels are translation keys; values are numbers and units.",
+  "parts": {
+    "arduino_uno": {
+      "product": "Arduino Uno R3",
+      "rows": [["Input voltage", "6–20 V"], ["PWM pins", "6"], ["Analog inputs", "6"]],
+      "source": "docs.arduino.cc"
+    },
+    "microbit": {
+      "product": "BBC micro:bit V2",
+      "rows": [["Supply voltage", "1.7–3.6 V"], ["Logic level", "3.3 V"], ["Power for accessories", "190 mA"]],
+      "source": "tech.microbit.org"
+    },
+    "motor_driver": {
+      "product": "TI DRV8833",
+      "rows": [["Motor supply", "2.7–10.8 V"], ["Continuous current", "1.2 A"], ["Peak current", "2 A"]],
+      "source": "ti.com, pololu.com"
+    },
+    "tb6612_driver": {
+      "product": "Toshiba TB6612FNG",
+      "rows": [["Motor supply", "4.5–13.5 V"], ["Logic supply", "2.7–5.5 V"], ["Continuous current", "1 A"], ["Peak current", "3 A"]],
+      "source": "pololu.com"
+    },
+    "tt_motor": {
+      "product": "TT gear motor 1:48",
+      "rows": [["Supply voltage", "3–6 V"], ["No-load current", "≈150 mA"], ["Stall current", "1.5 A (6 V)"], ["No-load speed", "≈250 RPM (6 V)"]],
+      "source": "adafruit.com"
+    },
+    "servo": {
+      "product": "SG90 micro servo",
+      "rows": [],
+      "source": ""
+    },
+    "hc_sr04": {
+      "product": "HC-SR04",
+      "rows": [["Supply voltage", "5 V"], ["Current", "15 mA"], ["Range", "2 cm – 4 m"]],
+      "source": "sparkfun.com"
+    },
+    "kit_line_sensor": {
+      "product": "TCRT5000",
+      "rows": [["Forward voltage", "1.25 V"], ["Maximum LED current", "60 mA"]],
+      "source": "vishay.com"
+    },
+    "kit_led": {
+      "product": "5 mm LED",
+      "rows": [["Forward voltage", "2.0 V"], ["Current", "20 mA"]],
+      "source": "sparkfun.com"
+    },
+    "battery_holder_4aa": {
+      "product": "4 × AA",
+      "rows": [["Nominal voltage", "6 V"]],
+      "source": ""
+    },
+    "wheel_65": {
+      "product": "65 mm",
+      "rows": [],
+      "source": ""
+    }
+  }
+}

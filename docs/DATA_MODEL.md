@@ -91,6 +91,9 @@ B-2의 `gear_ratio`는 하우징과 두 회전자 사이의 수동 구속을 선
 `power_out` 포트로 전원을 넘겨요. 배터리 홀더 정의와 메시는 `assets/power/`에 있고 카탈로그 탐색 폴더에 포함돼요.
 키트 부품의 `power_in`은 `assets/construction_kit/catalog.json`의 포트 목록에도 있어요. 스위치 상태는 저장하지 않아요.
 
+`assets/part_specs.json`은 부품 id별 실제 제품명과 정격(인용한 페이지에서 읽은 값만)을 담고, `assets/part_thumbnails/<id>.png`는
+`tools/godot/make_part_thumbnails.gd`가 메시에서 만든 생성 파일이에요. 둘 다 표시용이며 저장 형식과 그래프에는 들어가지 않아요.
+
 `device_kind`는 한 신호선 장치의 종류(LineSensor/Button/LED)를 구분하며 기존 ELEC 포트를
 사용해요. 잘못된 종류·중복 핀은 주소로 해석하지 않아요. `surface_marker`는 물리 장애물이
 아닌 바닥 표시, `sphere_radius/collision_points`는 구·볼록 충돌을 선언해요.

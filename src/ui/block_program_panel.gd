@@ -34,6 +34,7 @@ func _ready() -> void:
 	content.add_child(read_button)
 	rows = VBoxContainer.new()
 	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	rows.add_theme_constant_override("separation", 10)
 	content.add_child(rows)
 	var add_row := HBoxContainer.new()
 	content.add_child(add_row)
@@ -62,6 +63,17 @@ func _ready() -> void:
 	_read_confirmation.dialog_text = "Replace unapplied blocks with the current code?"
 	_read_confirmation.confirmed.connect(func() -> void: source_requested.emit())
 	add_child(_read_confirmation)
+
+
+## Colour bar of a block: what kind of thing it does.
+static func kind_color_of(op: String) -> Color:
+	if op in ["while", "if", "elif", "else", "for", "break", "sleep"]:
+		return SsokTheme.SHAFT
+	if op in ["button_pressed", "line_value", "line_dark", "distance", "sensor_value", "variable"]:
+		return Color("3d7dd8")
+	if op in ["servo", "led", "button", "line_sensor", "motor", "motor_pair", "sonar"]:
+		return SsokTheme.TEXT_DIM
+	return SsokTheme.ACCENT
 
 
 func has_draft() -> bool:
@@ -121,20 +133,26 @@ func _rebuild() -> void:
 		var card := VBoxContainer.new()
 		rows.add_child(card)
 		card.set_meta("source_line", index + 1)
-		# Execution feedback must not tint the learner's inputs or resemble a primary action.
+		# Each block is a filled card with a colour bar for its kind. Execution feedback is an
+		# outline, so it never tints the learner's inputs or resembles a primary action.
+		var kind_color: Color = kind_color_of(item.op)
 		card.draw.connect(func() -> void:
+			var area := Rect2(Vector2(float(int(item.get("indent", 0)) * 4), -3.0), Vector2(card.size.x - float(int(item.get("indent", 0)) * 4), card.size.y + 6.0))
+			card.draw_rect(area, SsokTheme.BG_RAISED)
+			card.draw_rect(Rect2(area.position, Vector2(5.0, area.size.y)), kind_color)
 			if card.get_meta("executing", false):
-				card.draw_rect(Rect2(Vector2.ZERO, card.size), SsokTheme.ACCENT, false, 2.0))
+				card.draw_rect(area, SsokTheme.ACCENT, false, 2.0))
 		var heading := HFlowContainer.new()
 		card.add_child(heading)
 		var label := Label.new()
 		var indent := Control.new()
-		indent.custom_minimum_size.x = int(item.get("indent", 0)) * 4
+		indent.custom_minimum_size.x = int(item.get("indent", 0)) * 4 + 12
 		heading.add_child(indent)
 		label.text = {"sonar": "Link sensor", "motor_on": "Drive motor"}.get(item.op, profile.operation(item.op).label)
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		heading.add_child(label)
-		var remove_button: Button = SsokTheme.button("Remove")
+		var remove_button: Button = SsokTheme.button("", "trash")
+		remove_button.theme_type_variation = &"QuietButton"
 		remove_button.tooltip_text = "Remove block"
 		remove_button.pressed.connect(func() -> void:
 			instructions.remove_at(index)

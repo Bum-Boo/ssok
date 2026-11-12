@@ -40,6 +40,8 @@ func _run() -> void:
 	main.session = {"mode": "lab"}
 	root.add_child(main)
 	await _settle()
+	main.part_card.show_part(load("res://assets/parts/tt_motor.tres"))
+	await _settle()
 	await _capture("1-empty")
 
 	# Drop a plate on the bench: it should lie flat, the tray stays, the camera stays.
@@ -61,6 +63,14 @@ func _run() -> void:
 	print("panels: after N tray=", main._ui_root.get_node("PartsLibrary").visible, " side=", main._side_panel.visible)
 	await _capture("3-both-panels")
 
+	# The same view in the dark theme: parts must stay readable.
+	prefs.values.appearance = "dark"
+	prefs.changed.emit()
+	await _settle(16)
+	await _capture("5-dark")
+	prefs.values.appearance = "light"
+	prefs.changed.emit()
+	await _settle(16)
 	_key(main, KEY_H)
 	await _settle()
 	await _capture("4-cinema")

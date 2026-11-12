@@ -98,6 +98,7 @@ DOCUMENTATION_REFERENCES = (
     "src/ui/fly_camera.gd",
     "src/ui/interface_preferences.gd",
     "src/ui/motion_lab_panel.gd",
+    "src/ui/part_card.gd",
     "src/ui/pickup_lab_panel.gd",
     "src/ui/project_panel.gd",
     "src/ui/settings_panel.gd",
@@ -144,7 +145,7 @@ def execute(command: list[str], log: Path, *, cwd: Path = PROJECT, env=None, tim
         raise SystemExit(f"Build failed; see {log}")
 
 
-def copy_notices(destination: Path) -> None:
+def copy_notices(destination: Path, with_evidence: bool = True) -> None:
     notices = destination / "licenses"
     notices.mkdir(exist_ok=True)
     sources = {
@@ -161,7 +162,10 @@ def copy_notices(destination: Path) -> None:
         shutil.copy2(source, notices / name)
     for name in ("LICENSE", "THIRD_PARTY_NOTICES.md", "README.md"):
         shutil.copy2(PROJECT / name, destination / name)
-    shutil.copytree(PROJECT / "docs", destination / "docs", ignore=shutil.ignore_patterns("*.tmp", "*.bak"))
+    # Branch previews leave out docs/evidence (about 230 MB of captures and logs): four site
+    # copies with it exceed the 1 GB limit of GitHub Pages. Releases keep it.
+    skipped = ["*.tmp", "*.bak"] + ([] if with_evidence else ["evidence"])
+    shutil.copytree(PROJECT / "docs", destination / "docs", ignore=shutil.ignore_patterns(*skipped))
     for name in DOCUMENTATION_REFERENCES:
         target = destination / name
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -220,7 +224,8 @@ def main() -> None:
             audit_macos(destination / "ssok.app", logs / "macos-bundle.json")
         elif platform == "Windows":
             audit_windows(destination / filename, logs / "windows-binary.json")
-        copy_notices(destination)
+        # The preview workflow passes the commit id as the version; releases pass a version number.
+        copy_notices(destination, with_evidence=re.fullmatch(r"[0-9a-f]{40}", args.version) is None)
         if platform == "Web":
             (destination / ".nojekyll").touch()
             html = (destination / filename).read_text()

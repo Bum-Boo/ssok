@@ -101,7 +101,7 @@ func _run() -> void:
 					_panel_heading(main._side_panel, "Robot program", context)
 					_panel_heading(main._side_panel, "Python-style servo program", context)
 					_panel_heading(main._side_panel, "Build a program with blocks", context)
-					_panel_heading(main._side_panel, "Connect a motor to a board pin", context)
+					_panel_heading(main._side_panel, "Connect what still needs a wire", context)
 					_panel_heading(main._side_panel, "Move your robot", context)
 					_panel_heading(main._side_panel, "Stages and free building", context)
 					_panel_heading(main._ui_root.get_node("PartsLibrary"), "Parts library", context)

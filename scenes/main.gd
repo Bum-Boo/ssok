@@ -71,6 +71,10 @@ var part_category: OptionButton
 var part_buttons: Array[Button] = []
 var _part_catalog: Array[PartDef] = []
 var delete_button: Button
+## Describes the tray part under the pointer: picture, real product and ratings.
+var part_card: PartCard
+## category index -> [header Label, HFlowContainer of that category's tiles]
+var _tray_sections: Dictionary = {}
 var _workspace_state: Label
 var _side_panel: PanelContainer
 var _empty_panel: PanelContainer
@@ -743,7 +747,7 @@ func _build_palette() -> void:
 	panel.set_anchors_and_offsets_preset(Control.PRESET_LEFT_WIDE)
 	panel.offset_left = 12
 	panel.offset_top = 86
-	panel.offset_right = 248
+	panel.offset_right = 304
 	panel.offset_bottom = -58
 	_ui_root.add_child(panel)
 	var box := VBoxContainer.new()
@@ -788,15 +792,42 @@ func _build_palette() -> void:
 	for definition: PartDef in PartTray.definitions(_part_catalog):
 		var category: int = _part_category(definition)
 		var icon_name: String = ["box", "box", "cog", "cpu", "box", "box"][category]
+		if not _tray_sections.has(category):
+			var header := Label.new()
+			header.text = PartTray.TABS[category]
+			header.theme_type_variation = &"SectionLabel"
+			parts_box.add_child(header)
+			var flow := HFlowContainer.new()
+			flow.add_theme_constant_override("h_separation", 6)
+			flow.add_theme_constant_override("v_separation", 6)
+			parts_box.add_child(flow)
+			_tray_sections[category] = [header, flow]
 		var button := SsokTheme.button(definition.display_name, icon_name)
-		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		# A picture of the real mesh replaces the generic icon wherever one has been rendered.
+		var picture: Texture2D = PartCard.thumbnail(definition.id)
+		if picture != null:
+			button.icon = picture
+			button.add_theme_constant_override("icon_max_width", 48)
+			# Pictures keep their own colours. Pure white is a palette colour that the theme
+			# would swap for a dark one in the dark appearance, turning every picture black.
+			for state: String in ["icon_normal_color", "icon_hover_color", "icon_pressed_color", "icon_focus_color", "icon_disabled_color"]:
+				button.add_theme_color_override(state, Color(0.996, 0.996, 0.996))
+		button.mouse_entered.connect(func() -> void: part_card.show_part(definition))
+		button.focus_entered.connect(func() -> void: part_card.show_part(definition))
+		# A tile: picture above, name below. The card under the tray gives the full name.
+		button.custom_minimum_size = Vector2(80, 78)
+		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
+		button.alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.clip_text = true
+		button.add_theme_font_size_override("font_size", SsokTheme.font_size(12))
 		button.theme_type_variation = &"QuietButton"
 		button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		button.tooltip_text = definition.display_name
 		button.set_meta("part_definition", definition)
 		button.set_meta("category", category)
 		button.button_down.connect(_begin_palette_drag.bind(definition))
-		parts_box.add_child(button)
+		(_tray_sections[category][1] as Control).add_child(button)
 		part_buttons.append(button)
 	_no_parts = Label.new()
 	_no_parts.text = "No matching parts"
@@ -844,6 +875,9 @@ func _build_palette() -> void:
 	learned_biped_button.pressed.connect(func() -> void: _request_starter(_on_learned_biped_pressed))
 	box.add_child(learned_biped_button)
 	_starter_controls = [answer_button, biped_button, humanoid_button, modular_button, kit_bridge_button, learned_biped_button]
+	part_card = PartCard.new()
+	part_card.name = "PartCard"
+	box.add_child(part_card)
 	delete_button = SsokTheme.button("Delete selected", "trash")
 	delete_button.theme_type_variation = &"QuietButton"
 	delete_button.pressed.connect(_on_delete_pressed)
@@ -1010,6 +1044,13 @@ func _filter_parts() -> void:
 		button.visible = matches and category_matches and stage_matches
 		count += int(button.visible)
 	_no_parts.visible = count == 0
+	# A category with nothing to show hides its heading too.
+	for section: Array in _tray_sections.values():
+		var any: bool = false
+		for tile: Node in (section[1] as Control).get_children():
+			any = any or (tile as Control).visible
+		(section[0] as Control).visible = any
+		(section[1] as Control).visible = any
 
 
 func _refresh_workspace() -> void:

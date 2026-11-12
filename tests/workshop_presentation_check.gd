@@ -54,7 +54,9 @@ func _run() -> void:
 
 		_prefs.values.appearance = "dark"
 		_prefs.changed.emit()
-		_check(sky.sky_top_color.get_luminance() < 0.1 and sky.ground_bottom_color.get_luminance() < 0.1, "dark scene background switches immediately")
+		var dark_env: Environment = main._workbench_environment
+		_check(dark_env.background_mode == Environment.BG_COLOR and dark_env.background_color.get_luminance() < 0.1, "dark scene background switches immediately")
+		_check(sky.sky_top_color.get_luminance() > 0.25, "the dark theme keeps a lit sky for metal parts to reflect")
 		_check(ground.material_override.albedo_color.get_luminance() < 0.3 and grid.material_override.albedo_color.get_luminance() < 0.4, "dark mat and grid switch immediately")
 		_check(scene_env.fog_light_color.get_luminance() < 0.2, "dark fog color switches immediately")
 		_prefs.values.appearance = "light"

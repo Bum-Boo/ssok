@@ -76,8 +76,13 @@ static func apply_theme(root: Node, dark: bool) -> void:
 
 static func apply_environment(env: Environment, dark: bool) -> void:
 	var sky: ProceduralSkyMaterial = env.sky.sky_material
-	sky.sky_top_color = Color("101923") if dark else Color(0.78, 0.88, 0.91)
-	sky.sky_horizon_color = Color("253341") if dark else Color(0.84, 0.89, 0.95)
+	# Metal parts mirror the sky. A dark sky turned every plate and beam black, so the dark
+	# theme draws a plain dark background and keeps a dim neutral sky for reflections only.
+	env.background_mode = Environment.BG_COLOR if dark else Environment.BG_SKY
+	env.background_color = Color("101923")
+	env.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
+	sky.sky_top_color = Color("8b98a8") if dark else Color(0.78, 0.88, 0.91)
+	sky.sky_horizon_color = Color("a7b2bf") if dark else Color(0.84, 0.89, 0.95)
 	sky.ground_horizon_color = sky.sky_horizon_color
-	sky.ground_bottom_color = Color("101818") if dark else Color(0.78, 0.84, 0.84)
+	sky.ground_bottom_color = Color("6c7886") if dark else Color(0.78, 0.84, 0.84)
 	env.fog_light_color = Color("253341") if dark else Color(0.84, 0.89, 0.95)

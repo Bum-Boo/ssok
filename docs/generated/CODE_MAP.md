@@ -18,7 +18,7 @@ ssok/
     profiles/  (1 GDScript files)
     runtime/  (27 GDScript files)
     screens/  (5 GDScript files)
-    ui/  (22 GDScript files)
+    ui/  (23 GDScript files)
   presets/
   assets/
     blender/
@@ -33,6 +33,7 @@ ssok/
     materials/
     meshes/
     modular_humanoid/
+    part_thumbnails/
     parts/
     policies/
     power/
@@ -143,6 +144,7 @@ ssok/
 | [src/ui/fly_camera.gd](../../src/ui/fly_camera.gd) | FlyCamera |
 | [src/ui/interface_preferences.gd](../../src/ui/interface_preferences.gd) | InterfacePreferences |
 | [src/ui/motion_lab_panel.gd](../../src/ui/motion_lab_panel.gd) | MotionLabPanel |
+| [src/ui/part_card.gd](../../src/ui/part_card.gd) | PartCard |
 | [src/ui/pickup_lab_panel.gd](../../src/ui/pickup_lab_panel.gd) | PickupLabPanel |
 | [src/ui/project_panel.gd](../../src/ui/project_panel.gd) | ProjectPanel |
 | [src/ui/settings_panel.gd](../../src/ui/settings_panel.gd) | SettingsPanel |
