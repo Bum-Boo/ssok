@@ -18,9 +18,10 @@ func _run() -> void:
 	var assembly: AssemblyMode = main.assembly
 	var panel: WiringPanel = main.wiring_panel
 	var before: Array[Dictionary] = assembly.graph.parts.duplicate(true)
-	_check(panel.signal_sources().size() == 1 and panel.pins.size() == 2, "wiring choices derive from the current graph")
+	_check(panel.signal_sources().is_empty() and panel.pins.is_empty(), "a fully wired robot has nothing left to wire")
 	var disconnect: Button = panel.connections.get_child(0).get_child(1)
 	disconnect.pressed.emit()
+	_check(panel.signal_sources().size() == 1 and panel.pins.size() == 2, "wiring choices derive from the current graph")
 	_check(assembly.graph.links.size() == 2 and Wiring.pin_map(assembly.graph).is_empty(), "disconnect changes only electrical connectivity")
 	panel.pin_choice.select(1)
 	panel.pin_choice.item_selected.emit(1)
@@ -123,7 +124,7 @@ func _run() -> void:
 		SsokLocale.select_locale(locale, false)
 		await process_frame
 		_check(main.program_tabs.get_tab_title(3) == tr("Wiring"), "wiring tab translates in " + locale)
-		_check(panel.signal_sources().size() == 1 and panel.pins.size() == 2 and Wiring.pin_map(assembly.graph).has(10), "language switch retains wiring choices and graph")
+		_check(panel.signal_sources().is_empty() and Wiring.pin_map(assembly.graph).has(10), "language switch retains wiring choices and graph")
 		if "--screenshots" in OS.get_cmdline_user_args() and DisplayServer.get_name() != "headless":
 			for size: Vector2i in [Vector2i(1440, 900), Vector2i(960, 640)]:
 				root.size = size

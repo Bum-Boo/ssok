@@ -41,4 +41,8 @@ small schematic diagrams.
 - `StageGoalPreview` is removed. The parts and program signals of `StageHud` stay for callers.
 - Checks that encoded the old rules were updated: the 60% cap, the single overlay on wide windows,
   the automatic reopening of the program panel while typing, and the always-visible Stages tab.
-- The wiring tab is still a pair of drop-down lists; a per-part list is the next step.
+- The wiring tab reads as a to-do list: its first menu holds only the ports that still need a
+  wire, signal before power, with learner-facing port names ("Power", "Pin 0") instead of ids.
+  Every wire is one line with a disconnect button, and from electrical tier 1 the tab names the
+  parts that still have no power. Power ports are offered only from tier 1. The two menus and the
+  connect button keep their place for the browser checks.

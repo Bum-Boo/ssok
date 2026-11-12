@@ -47,8 +47,7 @@ func _run() -> void:
 	main._load_preset(graph, RobotCarPreset.ANSWER_CODE, "")
 	await _settle()
 	main.navigation.frame_bounds(main.assembly.get_scene_bounds())
-	main.stage_hud.program_requested.emit()
-	main.program_tabs.current_tab = 3
+	main._on_phase_chip(1)
 	await _settle(20)
 	await _capture("1-battery-unwired")
 

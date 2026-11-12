@@ -85,6 +85,8 @@ var wiring_panel: WiringPanel
 ## Lab examples and saved builds made before batteries existed keep running unpowered.
 var _power_free_preset: bool = false
 var _power_on: bool = true
+## A power problem is on screen; rewiring clears it instead of waiting for the next Run.
+var _power_notice: bool = false
 var examples_menu: MenuButton
 var _starter_controls: Array[Control] = []
 var _parts_scroll: ScrollContainer
@@ -557,6 +559,7 @@ func _build_ui() -> void:
 	wiring_panel.assembly = assembly
 	wiring_panel.can_edit = func() -> bool: return not mode_button.button_pressed
 	wiring_panel.power_toggled.connect(_on_power_toggled)
+	wiring_panel.power_tier = _power_tier
 	program_tabs.add_child(wiring_panel)
 	stages = StagePanel.new()
 	stages.name = "Stages"
@@ -1345,6 +1348,7 @@ func _report_power() -> bool:
 	if problems.is_empty():
 		return false
 	var problem: Dictionary = problems[0]
+	_power_notice = true
 	var label: String = ""
 	if problem.part >= 0:
 		label = assembly.graph.parts[problem.part].part_def.display_name
@@ -2055,7 +2059,11 @@ func _setup_scene_ui() -> void:
 	run_button.hide()
 	_side_panel.hide()
 	(_ui_root.get_node("PartsLibrary") as Control).hide()
-	assembly.graph_changed.connect(func() -> void: _guide_dirty = true)
+	assembly.graph_changed.connect(func() -> void:
+		_guide_dirty = true
+		if _power_notice:
+			_power_notice = false
+			stage_hud.show_problem(""))
 	code_edit.text_changed.connect(func() -> void: _guide_dirty = true)
 	_cinema_button = SsokTheme.button("Hide panels", "maximize")
 	_cinema_button.name = "CinemaButton"
