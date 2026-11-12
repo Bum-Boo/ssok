@@ -1,0 +1,21 @@
+{
+  "provider": "OpenAI",
+  "requested_model": "gpt-6-astra",
+  "auth": "existing Codex ChatGPT login",
+  "experiment_image": "blank",
+  "sent_data": [
+    "goal",
+    "robot camera PNG",
+    "public frame context",
+    "concise visual summaries",
+    "tool results"
+  ],
+  "limits": {
+    "cli_launches": 1,
+    "steps": 8,
+    "observations": 9,
+    "seconds": 300
+  },
+  "model_request_count": "not exposed by CLI; action/image limits are not a billing cap",
+  "source_head": "4eb059f6432bebbbc8db94896cac56cbb8bb2927"
+}

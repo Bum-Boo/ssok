@@ -1,0 +1,59 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "result": "Integration procedure is complete. Upstream main is still at the base commit, so the rebase was a verified no-op and the branch remains one commit ahead with no conflicts. Nothing was merged, pushed or reset.\n\nSource review of the two latest edits, from the supplied text only. I did not run the suite, the packaging test or Godot.\n\n**Edit 1, Dummy audio in verify.py.** No blocker. The flag is applied in the shared base command, so headless and rendered checks both inherit it, which matches the stated intent of avoiding real WSL ALSA device errors tripping the engine-error regex. Limits:\n- The import check builds its own command and does not pass the audio flag. If the editor import path also opens ALSA on that WSL host, that one check could still log an ALSA error and fail on the engine-error regex. This is a residual risk to confirm with an actual run, not a code defect.\n- No test in test_ci_verify.py asserts the audio driver selection, so a future regression would be silent.\n- Choosing Dummy audio means the functional gate attests nothing about audio behavior. That is consistent with the inline comment.\n\n**Edit 2, documentation references in build.py.** No blocker for the link test. CLAUDE-REVIEW.md and the four new app sources are added to the list copied into every platform payload, which is what the reported ten missing links to zero pass required. Limits and one review item for the human:\n- CLAUDE-REVIEW.md will now ship inside the public release ZIPs. It contains local machine paths, a personal backup location, session identifiers and agent-task names. AGENTS.md forbids private transcripts in onboarding documents. This is a product and privacy judgment for the human before any publication, not a source error.\n- Every added path must exist at build time or copy2 raises. The claimed one-of-one test pass covers this for the current tree, but the list is hand-maintained and will break the build if any file is renamed.\n- The link test only follows markdown links, so plain-text paths in CLAUDE-REVIEW.md are not validated.\n- Hashes in the HASHES block were supplied, not recomputed by me, since only the listed git commands were permitted.\n\n```json\n{\n  \"resolved_model_if_exposed\": \"claude-fable-5-1\",\n  \"functional_verdict\": \"source-review pass for the two latest edits; no blockers; functional and release gates remain pending\",\n  \"blockers\": [],\n  \"limits\": [\n    \"verify.py import check does not receive --audio-driver Dummy; residual ALSA risk on that one check is unverified\",\n    \"no unit test asserts Dummy audio selection\",\n    \"CLAUDE-REVIEW.md now ships in release payloads and contains local paths/session identifiers; human decision before publication\",\n    \"DOCUMENTATION_REFERENCES is hand-maintained; any missing file raises during copy_notices\",\n    \"supplied hashes not recomputed; no suite, packaging test or Godot run by this reviewer\"\n  ],\n  \"actual_commands\": [\n    {\"command\": \"git status --porcelain\", \"result\": \"(empty, clean)\"},\n    {\"command\": \"git branch --show-current\", \"result\": \"feat/32-robot-camera-loop\"},\n    {\"command\": \"git rev-parse HEAD\", \"result\": \"3e75ceab0c5a422b3b2e4630d05f7b0f73372eec\"},\n    {\"command\": \"git fetch origin main\", \"result\": \"branch main -> FETCH_HEAD\"},\n    {\"command\": \"git rebase origin/main\", \"result\": \"Current branch feat/32-robot-camera-loop is up to date.\"},\n    {\"command\": \"git status --porcelain\", \"result\": \"(empty, clean)\"},\n    {\"command\": \"git rev-parse HEAD\", \"result\": \"3e75ceab0c5a422b3b2e4630d05f7b0f73372eec\"},\n    {\"command\": \"git rev-parse origin/main\", \"result\": \"4eb059f6432bebbbc8db94896cac56cbb8bb2927\"},\n    {\"command\": \"git cherry -v origin/main\", \"result\": \"+ 3e75ceab0c5a422b3b2e4630d05f7b0f73372eec Add bounded robot camera control and goal operator\"}\n  ],\n  \"before_HEAD\": \"3e75ceab0c5a422b3b2e4630d05f7b0f73372eec\",\n  \"after_HEAD\": \"3e75ceab0c5a422b3b2e4630d05f7b0f73372eec\",\n  \"upstream_HEAD\": \"4eb059f6432bebbbc8db94896cac56cbb8bb2927\",\n  \"rebase_completed\": true,\n  \"rebase_note\": \"no-op; upstream main unchanged at base, no conflicts, one commit ahead\",\n  \"remaining_gates\": [\n    \"full release gate (tools/ci/verify.py full inventory) unrun on this source\",\n    \"actual Web/Linux/Windows/macOS package build and extraction on this source\",\n    \"physical goal precision (0/9 physical) is a known open issue, not release success\",\n    \"human decision on shipping CLAUDE-REVIEW.md in release payloads\",\n    \"user publication approval and human merge; no push or merge performed\"\n  ]\n}\n```",
+  "modelUsage": {
+    "claude-fable-5-1": {
+      "inputTokens": 194,
+      "outputTokens": 3345,
+      "cacheReadInputTokens": 158548,
+      "cacheCreationInputTokens": 27622,
+      "webSearchRequests": 0,
+      "costUSD": 0.761267,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 800,
+      "canonicalModel": "claude-fable-5-1",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 194,
+    "cache_creation_input_tokens": 27622,
+    "cache_read_input_tokens": 158548,
+    "output_tokens": 3345,
+    "output_tokens_details": {
+      "thinking_tokens": 800
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 27622,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 32,
+        "output_tokens": 1718,
+        "cache_read_input_tokens": 26904,
+        "cache_creation_input_tokens": 718,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 718
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "permission_denials": [],
+  "total_cost_usd": 0.761267,
+  "exit_code": 0
+}

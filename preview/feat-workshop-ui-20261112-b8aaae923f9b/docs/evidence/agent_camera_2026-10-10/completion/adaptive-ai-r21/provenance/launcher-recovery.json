@@ -1,0 +1,38 @@
+{
+  "failure_stage": "Godot check-only before native scene and provider launch",
+  "exit_code": 1,
+  "error": "SceneTree parent signature _process(float)->bool did not match void override",
+  "native_started": false,
+  "provider_launches": 0,
+  "preregistered_plan_preserved": true,
+  "changes": [
+    "Use parent-compatible bool callback with false return",
+    "Wait for runner-terminal marker inside own user:// before normal native exit after132-frame readback"
+  ],
+  "resume_scope": "Only unexecuted preflight/native/actor steps; no reset, new goal, criterion or controller change",
+  "before_files": [
+    "driver.before-signature.py",
+    "launcher.before-signature.gd",
+    "preflight.before-signature.log",
+    "inputs.before-signature.json"
+  ],
+  "corrected_preflight_exit": 0,
+  "actual_native_exit": 0,
+  "actual_actor_exit": 0,
+  "actual_cli_launches": 1,
+  "resume_setup_failures": [
+    {
+      "stage": "PowerShell parsing of a mechanical Python edit",
+      "writes": 0,
+      "native_launches": 0,
+      "actor_launches": 0
+    },
+    {
+      "stage": "Dependent --resume invocation before guard edit was applied",
+      "error": "FileExistsError on existing backup directory",
+      "native_launches": 0,
+      "actor_launches": 0
+    }
+  ],
+  "final_recovery": "ASCII-only literal PowerShell here-string transform, Python compile check, hash-guarded resume of unexecuted native/actor steps"
+}

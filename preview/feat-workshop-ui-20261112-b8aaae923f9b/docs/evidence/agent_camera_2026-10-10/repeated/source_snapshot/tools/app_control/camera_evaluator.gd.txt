@@ -1,0 +1,98 @@
+extends Node
+
+## Developer-only observer. Metrics stay in user:// and never enter the agent bridge.
+var app: Node3D
+var robot: Array[RigidBody3D] = []
+var wall: RigidBody3D
+var started: bool = false
+var finished: bool = false
+var wall_contact: bool = false
+var initial: Dictionary = {}
+var minimum_gap: float = INF
+var rest_ticks: int = 0
+var stopped_ticks: int = 0
+var samples: int = 0
+var invalid: bool = false
+
+
+func _ready() -> void:
+	process_physics_priority = 100
+	for index: int in app.run_mode.bodies.size():
+		var body: RigidBody3D = app.run_mode.bodies[index]
+		if app.assembly.graph.parts[index].part_def.resource_path.get_file().get_basename() == "stage_wall":
+			wall = body
+		elif not robot.has(body):
+			robot.append(body)
+	for body: RigidBody3D in robot:
+		body.max_contacts_reported = 64
+		body.contact_monitor = true
+		body.body_entered.connect(_on_body_entered)
+	if wall == null or robot.is_empty():
+		invalid = true
+
+
+func _on_body_entered(body: Node) -> void:
+	if body == wall:
+		wall_contact = true
+
+
+func _x_bounds(body: RigidBody3D) -> Vector2:
+	var bounds: Vector2 = Vector2(INF, -INF)
+	for child: Node in body.get_children():
+		if not child is CollisionShape3D or child.disabled:
+			continue
+		var shape: Shape3D = child.shape
+		var transform: Transform3D = child.global_transform
+		var extent: float = 0.0
+		if shape is BoxShape3D:
+			var half: Vector3 = shape.size * 0.5
+			extent = absf(transform.basis.x.x) * half.x + absf(transform.basis.y.x) * half.y + absf(transform.basis.z.x) * half.z
+		elif shape is SphereShape3D:
+			extent = shape.radius * Vector3(transform.basis.x.x, transform.basis.y.x, transform.basis.z.x).length()
+		elif shape is CylinderShape3D:
+			extent = absf(transform.basis.y.x) * shape.height * 0.5 + shape.radius * sqrt(transform.basis.x.x * transform.basis.x.x + transform.basis.z.x * transform.basis.z.x)
+		else:
+			invalid = true
+			continue
+		bounds.x = minf(bounds.x, transform.origin.x - extent)
+		bounds.y = maxf(bounds.y, transform.origin.x + extent)
+	return bounds
+
+
+func _snapshot() -> Dictionary:
+	var front_x: float = -INF
+	for body: RigidBody3D in robot:
+		front_x = maxf(front_x, _x_bounds(body).y)
+		for other: Node3D in body.get_colliding_bodies():
+			if other == wall:
+				wall_contact = true
+	var chassis: RigidBody3D = app.run_mode.bodies[0]
+	var wheel_speed: float = maxf(app.run_mode.bodies[3].angular_velocity.length(), app.run_mode.bodies[4].angular_velocity.length())
+	return {"x": chassis.global_position.x, "gap_x": _x_bounds(wall).x - front_x,
+		"linear_speed": chassis.linear_velocity.length(), "angular_speed": chassis.angular_velocity.length(), "wheel_speed": wheel_speed}
+
+
+func _physics_process(_delta: float) -> void:
+	if finished or invalid:
+		return
+	if not started:
+		if app.agent_loop.state != "ready":
+			return
+		initial = _snapshot()
+		started = true
+	var current: Dictionary = _snapshot()
+	samples += 1
+	minimum_gap = minf(minimum_gap, current.gap_x)
+	var resting: bool = current.linear_speed <= 0.015 and current.angular_speed <= 0.1 and current.wheel_speed <= 0.5
+	rest_ticks = rest_ticks + 1 if resting else 0
+	if not app.agent_loop.enabled:
+		stopped_ticks += 1
+		if (stopped_ticks >= 30 and rest_ticks >= 12) or stopped_ticks >= 120:
+			finished = true
+			var result: Dictionary = {"schema": 1, "valid": not invalid, "initial": initial, "final": current,
+				"travel_x": current.x - initial.x, "minimum_gap_x": minimum_gap, "wall_contact": wall_contact,
+				"rest_ticks": rest_ticks, "samples": samples, "stopped_state": app.agent_loop.state,
+				"gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture"}
+			var file: FileAccess = FileAccess.open("user://camera-evaluation.json", FileAccess.WRITE)
+			if file != null:
+				file.store_string(JSON.stringify(result, "\t") + "\n")

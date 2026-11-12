@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+GRIP close_angle=24.9541 weight_y=-7.0404
+FAIL fingers physically contact the 100 g weight
+WEIGHT [X: (-0.60996, -0.746528, 0.265789), Y: (0.787973, -0.53586, 0.303238), Z: (-0.08395, 0.394398, 0.915097), O: (0.118644, -7.040434, 0.000143)]
+FINGER [X: (0.906646, 0.421891, -0.000392), Y: (-0.421891, 0.906646, 0.000615), Z: (0.000615, -0.000392, 1.0), O: (-0.03503, 0.229955, -0.000006)] contacts=[]
+FINGER [X: (0.99121, -0.132299, 0.0), Y: (0.132299, 0.99121, 0.0), Z: (-0.0, -0.0, 1.0), O: (0.034977, 0.229978, 0.000002)] contacts=[]
+PAIR phase=0.306955114007 torque=-0.0003054731739 w=(0.023538, 0.036909, 0.012033) outw=(0.000132, 0.000038, -0.25879)
+GRIP lifted=-69.63133 held_y=-76.67176 angle=24.8773
+FAIL 100 g weight lifted 6 cm and held by friction for one second
+FAIL Stop holds current angle and grip
+GRIP released_y=-204.49722 angle=-0.0711
+parts_pack_gripper_check: 7 checks, 3 failures

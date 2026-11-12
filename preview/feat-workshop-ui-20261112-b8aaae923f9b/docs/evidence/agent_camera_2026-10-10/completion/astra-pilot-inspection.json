@@ -1,0 +1,193 @@
+{
+  "observer": "native gpt-6-astra / camera_precision_inspection",
+  "method": "view_image actual original PNGs, separate from actor",
+  "dimensions": [
+    640,
+    480
+  ],
+  "uncertainty_px": 1,
+  "goal_floor_px_inclusive": [
+    24,
+    38
+  ],
+  "occlusion": "center x312..328 unobscured; robot at outer edges",
+  "scope": "No physical gap/contact certificate or causal PI inference",
+  "records": [
+    {
+      "file": "clarified-hold-low-pilot/layout1-run1/actor/camera/observation-7.png",
+      "sha256": "0e03b634906d095e42ddd5182f422b6c8423727fca958ef368c583352f019bee",
+      "center_y": 442,
+      "floor_px": 38,
+      "goal": "nominal_pass_at_upper_limit",
+      "edge_y_at_x80_x560": [
+        441,
+        443
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 442,
+        "floor_pixels": 38,
+        "column_range": [
+          442,
+          442
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-low-pilot/layout2-run1/actor/camera/observation-7.png",
+      "sha256": "ea97bf0eee868ef9a7b8fec5754ecb757e52e7d92a3186986c4c309e69fbf8ff",
+      "center_y": 439,
+      "floor_px": 41,
+      "goal": "fail",
+      "edge_y_at_x80_x560": [
+        452,
+        425
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 439,
+        "floor_pixels": 41,
+        "column_range": [
+          438,
+          439
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-low-pilot/layout2-run1/actor/camera/observation-8.png",
+      "sha256": "8e875e11e9655f0d770a6881096303c53903b08812b8230cff325708b7b23a90",
+      "center_y": 435,
+      "floor_px": 45,
+      "goal": "fail",
+      "edge_y_at_x80_x560": [
+        449,
+        420
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 435,
+        "floor_pixels": 45,
+        "column_range": [
+          434,
+          435
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-low-pilot/layout3-run1/actor/camera/observation-8.png",
+      "sha256": "c07c5103094591f5454ef70ca07d72a3f514ffb089b5793d955046d5d3d2f7aa",
+      "center_y": 432,
+      "floor_px": 48,
+      "goal": "fail",
+      "edge_y_at_x80_x560": [
+        434,
+        429
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 432,
+        "floor_pixels": 48,
+        "column_range": [
+          431,
+          432
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-low-pilot/layout3-run1/actor/camera/observation-9.png",
+      "sha256": "db44f49de08b07e2d31622aa4ea7d7e98bd51ca158b3114047677b66f8d65f33",
+      "center_y": 435,
+      "floor_px": 45,
+      "goal": "fail",
+      "edge_y_at_x80_x560": [
+        436,
+        433
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 435,
+        "floor_pixels": 45,
+        "column_range": [
+          435,
+          435
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-medium-pilot/layout1-run1/actor/camera/observation-4.png",
+      "sha256": "cd21ae76074c095bd31325e23b9c2d4609eefc672ce6b4cec41f48ca49d94c12",
+      "center_y": 448,
+      "floor_px": 32,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        444,
+        451
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 448,
+        "floor_pixels": 32,
+        "column_range": [
+          448,
+          448
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-medium-pilot/layout2-run1/actor/camera/observation-6.png",
+      "sha256": "c52cdceb0d727d5808142dd4e76b452ab1bcac0ef9fe96dbd114a67853f53420",
+      "center_y": 443,
+      "floor_px": 37,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        449,
+        438
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 443,
+        "floor_pixels": 37,
+        "column_range": [
+          443,
+          444
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "file": "clarified-hold-medium-pilot/layout3-run1/actor/camera/observation-9.png",
+      "sha256": "aeeaa52947ce4389e02e4293571256fe2d79516cebdfc02cf343a0e16732ead7",
+      "center_y": 443,
+      "floor_px": 37,
+      "goal": "pass",
+      "edge_y_at_x80_x560": [
+        448,
+        438
+      ],
+      "independent_pixel_readback": {
+        "boundary_y": 443,
+        "floor_pixels": 37,
+        "column_range": [
+          443,
+          443
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    }
+  ]
+}

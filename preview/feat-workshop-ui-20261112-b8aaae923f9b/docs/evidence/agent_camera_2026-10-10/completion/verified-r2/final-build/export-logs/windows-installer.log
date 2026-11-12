@@ -1,0 +1,27 @@
+MakeNSIS v3.08-3+deb12u1 - Copyright 1999-2021 Contributors
+See the file COPYING for license details.
+Credits can be found in the Users Manual.
+
+Command line defined: "PAYLOAD=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-clean-r2/windows"
+Command line defined: "OUTPUT=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-clean-r2/ssok-0.3.1-camera-r2-windows-x86_64-setup.exe"
+Command line defined: "APP_VERSION=0.3.1-camera-r2"
+Command line defined: "UNINSTALL_FILES=/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-clean-r2/export-logs/windows-uninstall.nsh"
+Processing script file: "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/release/windows/installer.nsi" (UTF8)
+
+Processed 1 file, writing output (x86-unicode):
+
+Output: "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-clean-r2/ssok-0.3.1-camera-r2-windows-x86_64-setup.exe"
+Install: 4 pages (256 bytes), 1 section (4120 bytes), 4541 instructions (127148 bytes), 1805 strings (122630 bytes), 4 language tables (1176 bytes).
+Uninstall: 3 pages (256 bytes), 1 section (4120 bytes), 4405 instructions (123340 bytes), 4423 strings (724054 bytes), 4 language tables (1128 bytes).
+Datablock optimizer saved 6531 KiB (~2.3%).
+
+Using zlib (compress whole) compression.
+
+EXE header size:              111104 / 93184 bytes
+Install code:                          (253746 bytes)
+Install data:                          (283557743 bytes)
+Uninstall code+data:                   (935752 bytes)
+Compressed data:           186186899 / 284747241 bytes
+CRC (0xC45E54C9):                  4 / 4 bytes
+
+Total size:                186298007 / 284840429 bytes (65.4%)

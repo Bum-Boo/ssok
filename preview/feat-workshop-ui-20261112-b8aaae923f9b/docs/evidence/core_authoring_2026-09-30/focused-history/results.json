@@ -1,0 +1,91 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 4,
+  "failures": 0,
+  "results": [
+    {
+      "name": "blender_edit_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.666,
+      "timeout": false,
+      "engine_error": false,
+      "log": "blender_edit_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/blender_edit_check.gd"
+      ]
+    },
+    {
+      "name": "control_flow_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.518,
+      "timeout": false,
+      "engine_error": false,
+      "log": "control_flow_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/control_flow_check.gd"
+      ]
+    },
+    {
+      "name": "core_authoring_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.575,
+      "timeout": false,
+      "engine_error": false,
+      "log": "core_authoring_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/core_authoring_check.gd"
+      ]
+    },
+    {
+      "name": "keyboard_navigation_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.62,
+      "timeout": false,
+      "engine_error": false,
+      "log": "keyboard_navigation_check.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/toolchain/godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-core-hardening",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-core-hardening/tests/keyboard_navigation_check.gd"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "actual_model": "gpt-6-astra",
+  "role": "native visual inspector",
+  "method": "All six specified actual PNGs viewed at original resolution through view_image; bounded read-only SHA256 and dimensions measured.",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/ai-enter-no-dispatch.png",
+      "sha256": "360d96aeb02594f96887a59476a32d1d4e9b7911fdd45da46ba4fbcffe99d51b",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "AI tab selected. Status Off; AI operator: not connected; Run with AI gray. Goal field contains visible suffix only3 ticks once, observe again, then stop. Full goal prefix is outside visible field. Disclosure and limits appear above Run. Camera says No frame yet. Capture to see the robot camera."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/ai-connected-before-run.png",
+      "sha256": "555ffc1141b735e3c91a3482efdfd188fbf783ca29eb267901328621967672a9",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "AI operator: connected. Run with AI now uses enabled styling while Status remains Off. Same goal suffix, disclosure and limits visible above Run; no camera frame yet."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/ai-running.png",
+      "sha256": "0209ba9ec495391f74ffe37e28434ff733910bca3d39d056955d10095b850222",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Top status reads Ready, not Running. Separate text beneath Run says Running the goal. Stop is always available. Run, Enable, Capture and Forward appear gray; Stop remains visible. Goal suffix remains visible, camera preview populated. Bottom says Code control - press Run code; movement inputs are disabled. Tooltip partly overlaps the running-status area."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/ai-stopped.png",
+      "sha256": "2a59a03bc15a9f2c6cb0c9c084e229add3f1ceb379f2b72f5f54d4473f23f48f",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Top Status Stopped and lower Goal run stopped text visible. Enable restored; Capture, Forward and Run appear gray. Goal suffix retained, camera preview retained and differs slightly. Bottom Input stopped - servos hold their last targets; return to edit mode to reset the robot. Tooltip partly overlaps the lower status area."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/actor/camera/observation-1.png",
+      "sha256": "fe0310000e890bdadb65cdf002e741f61ace2ad525289da8646412d1381474f0",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Sky, central gray wall, beige ground and side robot structures visible. Wall approximately x148..499, upper edge y162; central view unobscured."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/actor/camera/observation-2.png",
+      "sha256": "8610fd7212977664c40354cea79201f603a74b89fcb1fcd5d17b62160830d54e",
+      "dimensions": [
+        640,
+        480
+      ],
+      "observations": "Actual image differs from observation-1: wall shifted slightly left, approximately x144..496, with subtle edge slope and lower edge position difference. Central view unobscured; no metric success assessed."
+    }
+  ],
+  "disclosure_observed": "Text above Run says the connected operator requests gpt-6-astra from OpenAI using existing Codex ChatGPT login; sent data lists goal, camera PNGs, public frame context, short summaries and tool results. Limits shown: up to 8 actions, 9 images and 300 seconds. Usage counts toward ChatGPT account with no fixed cost or model-request cap. These are observed UI statements, not independent provider/billing verification.",
+  "coordinator_supplied_goal_not_fully_visible": "Observe the camera, move forward only3 ticks once, observe again, then stop.",
+  "verdict": "PASS for narrow visible UI states: populated goal field and disclosure preceding Run, disconnected gray Run versus connected enabled styling, running-goal message, Stopped display, retained preview, and two differing actual camera images. Full raw goal cannot be confirmed from these horizontally scrolled field captures.",
+  "uncertainties": [
+    "Only goal suffix is visible in all UI captures; full raw goal requires separate input/control evidence.",
+    "Top status during running capture is Ready; running is stated in separate goal-run status text.",
+    "Tooltip overlaps portions of lower status text in running/stopped images."
+  ],
+  "scope_limits": [
+    "No inference of actual dispatch, Enter suppression, action count, tick count, successful task completion, physics goal, distance, contact, billing or process exit from screenshots.",
+    "The requested actor model and backend identity are not certified by this visual inspection; backend identity remains unverified per coordinator.",
+    "Owned package/control receipts are separate evidence and were not inspected here.",
+    "Approximate camera wall bounds describe framing only.",
+    "No app/source/image changes, new design decisions or delegation."
+  ],
+  "read_failures": []
+}

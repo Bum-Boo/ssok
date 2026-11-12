@@ -1,0 +1,27 @@
+{
+  "localization": {
+    "checks": 35986,
+    "failures": 0
+  },
+  "actual_gl_resize": {
+    "checks": 856,
+    "failures": 0,
+    "locales": [
+      "en",
+      "ko",
+      "zh_CN",
+      "ja"
+    ],
+    "scenarios": [
+      "open at648 then resize577",
+      "fresh open at577"
+    ],
+    "viewport_width": 1152
+  },
+  "source_sha256": {
+    "src/ui/motion_lab_panel.gd": "e3150145418403a104b576091491ea09eb86246522e3a7a8c3cd49043a1f140b",
+    "assets/locales/ko.po": "851e601fd79d3bb0441700924baa2685b7383a0c9a508dd01bcae155255c0a12",
+    "assets/locales/zh_CN.po": "8106d78f2343e6ac308a409aced6fc3f3ddfd213c630de702503a740fe1e7b4d",
+    "assets/locales/ja.po": "21ec23f699078f726447e9aceeba9e9835550216593f7fc4e350533d2a91918c"
+  }
+}

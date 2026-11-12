@@ -1,0 +1,22 @@
+{
+  "failure_stage": "Offline PNG classification after native and actor exited0",
+  "error": "ModuleNotFoundError: PIL in the isolated MCP actor Python3.14.7",
+  "native_receipt_sha256": "d3305200a2f6f32d0b1456f208228f67706e005d4c9178a236990973ecca9c98",
+  "executed_native_driver_copy": "driver.before-classifier.py",
+  "executed_native_driver_sha256": "bf33e69c9df18461c5ab348b54366e325b770092d00881b45d4740ab29d5c453",
+  "executed_native_inputs": "inputs.native-run.json",
+  "corrected_driver_sha256": "5a5daad4564a59cd4241a0b76eb7571d97b7c37fb7b5f63232da37c16414500a",
+  "reader_executable": "C:\\Users\\Hojun\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "reader_python": "3.13.3",
+  "pillow": "12.2.0",
+  "actual_offline_readback_exit": 1,
+  "exit_reason": "Original joint target FAIL, not reader failure",
+  "new_native_launches": 0,
+  "new_actor_launches": 0,
+  "automatic_retries": 0,
+  "fix": "Separate explicit Pillow reader; preflight reader dependency before a future model launch; --readback skips preparation, doctor, native and actor phases",
+  "global_install_or_config_change": false,
+  "actual_offline_driver_sha256": "f46b0ea5c784df8b8ce57248062b0a0c2669578a1ed2be727876bffc9ed61791",
+  "launcher_generator_preflight_exit": 0,
+  "launcher_generator_matches_executed_launcher_bytes": true
+}

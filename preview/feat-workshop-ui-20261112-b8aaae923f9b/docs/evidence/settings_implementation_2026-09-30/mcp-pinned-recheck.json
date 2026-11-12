@@ -1,0 +1,23 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 1,
+  "failures": 0,
+  "results": [
+    {
+      "name": "tests-motion_mcp_check.py",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 7.481,
+      "timeout": false,
+      "engine_error": false,
+      "log": "tests-motion_mcp_check.py.log",
+      "command": [
+        "/home/bumboo/Projects/ssok-release/build/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests/motion_mcp_check.py",
+        "-v"
+      ]
+    }
+  ]
+}

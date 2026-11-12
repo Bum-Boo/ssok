@@ -1,0 +1,236 @@
+[
+  {
+    "caster_center": [
+      0.0549999997019768,
+      0.0620000027120113,
+      0.0
+    ],
+    "caster_minus_axis_y_m": -0.0205000005662441,
+    "clusters": [
+      {
+        "frozen": false,
+        "mass_kg": 0.17399999499321,
+        "members": [
+          "0:car_chassis",
+          "1:tt_motor",
+          "2:tt_motor",
+          "5:microbit",
+          "6:motor_driver",
+          "8:hc_sr04"
+        ]
+      },
+      {
+        "frozen": false,
+        "mass_kg": 0.0299999993294477,
+        "members": [
+          "3:wheel_65"
+        ]
+      },
+      {
+        "frozen": false,
+        "mass_kg": 0.0299999993294477,
+        "members": [
+          "4:wheel_65"
+        ]
+      },
+      {
+        "frozen": false,
+        "mass_kg": 0.00499999988824129,
+        "members": [
+          "7:ball_caster"
+        ]
+      },
+      {
+        "frozen": true,
+        "mass_kg": 2.0,
+        "members": [
+          "9:stage_wall"
+        ]
+      }
+    ],
+    "mass_ratio": 34.7999997764826,
+    "name": "legacy",
+    "result": {
+      "elapsed_seconds": 3.76666666666666,
+      "execution_id": 2,
+      "expired": false,
+      "measurements": [
+        {
+          "held_seconds": 0.616666666666667,
+          "met": true,
+          "metric": "wall_distance",
+          "part_index": -1,
+          "state": "valid",
+          "value": 0.0744892358779907
+        },
+        {
+          "held_seconds": 0.3,
+          "met": true,
+          "metric": "robot_speed",
+          "part_index": -1,
+          "state": "valid",
+          "value": 0.00530862854793668
+        },
+        {
+          "held_seconds": 3.76666666666666,
+          "met": true,
+          "metric": "wall_contact",
+          "part_index": -1,
+          "state": "valid",
+          "value": 0.0
+        }
+      ],
+      "reason": "",
+      "status": "success",
+      "success": true,
+      "wall_contact": false
+    },
+    "stop_tick": 190,
+    "wheel_axis": [
+      -0.0115000009536743,
+      0.0825000032782555,
+      0.0820000022649765
+    ],
+    "trace": {
+      "path": "lever-legacy.csv",
+      "samples": 151,
+      "first_tick": 130,
+      "last_tick": 280,
+      "no_stop_note": "",
+      "sha256_lf": "04c0a4d168ca1fa7b86c01f70311b5307ad8d9d52125bc4058e41a295c2c4f4e"
+    },
+    "tail_1s": {
+      "pitch_deg_min": -0.628375930086818,
+      "pitch_deg_max": -0.381960058762493,
+      "caster_speed_min": 0.00526039348915219,
+      "caster_speed_max": 0.00547762354835868,
+      "caster_speed_last": 0.00528595363721251,
+      "angular_rad_s_last": [
+        0.000103576108813286,
+        0.00109285803046077,
+        -0.00448472052812576
+      ],
+      "floor_contact_samples": 60,
+      "total_samples": 60
+    }
+  },
+  {
+    "caster_center": [
+      0.0299999993294477,
+      0.0640000104904175,
+      -0.00999999977648258
+    ],
+    "caster_minus_axis_y_m": -0.0509999841451645,
+    "clusters": [
+      {
+        "frozen": false,
+        "mass_kg": 0.280600011348724,
+        "members": [
+          "0:kit_plate_120_80",
+          "1:kit_beam_60",
+          "2:tt_motor",
+          "4:kit_beam_60",
+          "5:tt_motor",
+          "7:microbit",
+          "8:motor_driver",
+          "9:kit_spacer_20",
+          "11:kit_angle_bracket",
+          "12:hc_sr04"
+        ]
+      },
+      {
+        "frozen": false,
+        "mass_kg": 0.0549999997019768,
+        "members": [
+          "3:kit_wheel_90"
+        ]
+      },
+      {
+        "frozen": false,
+        "mass_kg": 0.0549999997019768,
+        "members": [
+          "6:kit_wheel_90"
+        ]
+      },
+      {
+        "frozen": false,
+        "mass_kg": 0.00499999988824129,
+        "members": [
+          "10:ball_caster"
+        ]
+      },
+      {
+        "frozen": true,
+        "mass_kg": 2.0,
+        "members": [
+          "13:stage_wall"
+        ]
+      }
+    ],
+    "mass_ratio": 56.1200035241247,
+    "name": "kit",
+    "result": {
+      "elapsed_seconds": 20.0000000000001,
+      "execution_id": 2,
+      "expired": false,
+      "measurements": [
+        {
+          "held_seconds": 0.0,
+          "met": false,
+          "metric": "wall_distance",
+          "part_index": -1,
+          "state": "valid",
+          "value": 0.654293477535248
+        },
+        {
+          "held_seconds": 0.0,
+          "met": false,
+          "metric": "robot_speed",
+          "part_index": -1,
+          "state": "valid",
+          "value": 0.0616026371717453
+        },
+        {
+          "held_seconds": 20.0000000000001,
+          "met": true,
+          "metric": "wall_contact",
+          "part_index": -1,
+          "state": "valid",
+          "value": 0.0
+        }
+      ],
+      "reason": "",
+      "status": "running",
+      "success": false,
+      "wall_contact": false
+    },
+    "stop_tick": -1,
+    "wheel_axis": [
+      -0.0474999994039536,
+      0.114999994635582,
+      0.0489999949932098
+    ],
+    "trace": {
+      "path": "lever-kit.csv",
+      "samples": 120,
+      "first_tick": 1080,
+      "last_tick": 1199,
+      "no_stop_note": "Program did not stop within 20 s; final 2 s retained",
+      "sha256_lf": "266ea84c35610ed12958aaccfe0309419ea2d3cc15ddde8f683157b61b6253d7"
+    },
+    "tail_1s": {
+      "pitch_deg_min": -3.98700616699705,
+      "pitch_deg_max": -3.78122319777937,
+      "caster_speed_min": 0.0614902153611183,
+      "caster_speed_max": 0.0623334012925625,
+      "caster_speed_last": 0.0616026371717453,
+      "angular_rad_s_last": [
+        0.00522899627685547,
+        0.0158145800232887,
+        -0.00588703155517578
+      ],
+      "floor_contact_samples": 60,
+      "total_samples": 60
+    }
+  }
+]

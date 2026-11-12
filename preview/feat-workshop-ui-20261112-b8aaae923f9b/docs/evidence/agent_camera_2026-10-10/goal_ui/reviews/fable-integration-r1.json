@@ -1,0 +1,143 @@
+{
+  "exit_code": 0,
+  "is_error": false,
+  "modelUsage": {
+    "claude-fable-5-1": {
+      "inputTokens": 2,
+      "outputTokens": 6330,
+      "cacheReadInputTokens": 3313,
+      "cacheCreationInputTokens": 22694,
+      "webSearchRequests": 0,
+      "costUSD": 0.77122825,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 4249,
+      "canonicalModel": "claude-fable-5-1",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 22694,
+    "cache_read_input_tokens": 3313,
+    "output_tokens": 6330,
+    "output_tokens_details": {
+      "thinking_tokens": 4249
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22694,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 6330,
+        "cache_read_input_tokens": 3313,
+        "cache_creation_input_tokens": 22694,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 22694
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 0.77122825,
+  "requested_model": "fable",
+  "scope": "read-only source/design review; no runtime rerun by Claude",
+  "findings": {
+    "verdict": "needs_changes",
+    "scope": "Read-only review of the six listed files plus the app goal-submission excerpt. No tests run, no claims about the UI/import/localization/camera checks currently running, no reliability claim beyond what was stated (operator 1 action / 2 PNG / final re-observe Stop, CLI exit 0).",
+    "blocking": [
+      {
+        "id": "B1",
+        "area": "stale goal context",
+        "file": "tools/app_control/run_operator.py",
+        "function": "main",
+        "finding": "The job context (episode_id, control_generation, revision) is verified only in the parent before Popen. The child run_goal.py receives just --goal and checks only state == 'ready'. DesktopGoalSession binds its context on the first observe, which happens after Codex CLI startup. If the user presses Stop and re-enables between the parent check and the first observe, the inbox cancels the request (status 'Goal run stopped.') while the child runs the same goal against a new episode that the inbox never bound. The app then shows no running goal while actions are dispatched.",
+        "fix": "Pass the claimed job context to the child (e.g. --episode-id/--control-generation/--revision, or a JSON job file in --out) and have run_goal.py reject at startup, and desktop_mcp/DesktopGoalSession seed self.context from it so observe() asserts the first frame against the claimed job rather than adopting whatever episode is current. In run_goal.py main, compare client.describe() against the passed context in addition to state == 'ready'."
+      },
+      {
+        "id": "B2",
+        "area": "Stop/cancellation",
+        "file": "src/runtime/agent_goal_inbox.gd",
+        "function": "_on_loop_state",
+        "finding": "Cancellation of a claimed request on a loop state change is gated on _context_valid() becoming false. Whether a human Stop, a bridge-driven stop, or a fault bumps control_generation/revision, clears episode_id, or sets enabled=false lives in AgentCameraLoop, which is not in scope. If Stop only changes state, the inbox keeps busy()/claimed true and the panel shows 'Running the goal' until the operator process leaves or GOAL_LIMIT_MS (310 s) expires; a crashed operator never calls leave.",
+        "fix": "In _on_loop_state, cancel whenever busy() and loop.state is in ['stopped', 'fault'] or not loop.enabled, independent of _context_valid(). Keep the existing context check for other transitions. Add a rendered-goal check that submits, presses Stop without an operator leave, and asserts busy() is false immediately."
+      }
+    ],
+    "nonblocking": [
+      {
+        "id": "N1",
+        "area": "exclusive controller ownership",
+        "file": "src/runtime/agent_goal_inbox.gd",
+        "function": "connected / poll",
+        "note": "Once _claimed is true, connected() ignores the heartbeat, so a vanished operator holds exclusivity for up to 310 s. This is by design (run_goal does not poll operator_poll during the job) but the UI will report the operator as connected during that window. Consider a longer claimed TTL that the parent refreshes via operator_poll from a timer while run_goal runs, or document the 310 s hold."
+      },
+      {
+        "id": "N2",
+        "area": "operator capability separation",
+        "file": "tools/app_control/run_goal.py",
+        "function": "codex_command",
+        "note": "desktop_mcp.py is not in the review set. Separation holds only if it constructs DesktopClient with the default allow_operator=False and exposes exactly observe/decide/stop. Verify that file; the Codex enabled_tools list alone is not the enforcement boundary."
+      },
+      {
+        "id": "N3",
+        "area": "secrets/output",
+        "file": "tools/app_control/run_operator.py",
+        "function": "main",
+        "note": "The user goal text (up to 1000 chars) is passed as a command-line argument and is therefore visible in local process listings. Token leakage is blocked by submit(), but the goal itself is user data. Passing it via stdin or a file under --out would avoid argv exposure."
+      },
+      {
+        "id": "N4",
+        "area": "Stop/cancellation on Windows",
+        "file": "tools/app_control/run_goal.py",
+        "function": "main / end_process",
+        "note": "The SIGTERM handler never fires on Windows; end_process uses taskkill /F, so the child's finally (client.stop, result.json) does not run when the operator kills it. The operator calls client.stop() first, so the app is stopped, but result.json may be absent for operator-timeout cases. Acceptable for the draft; document it."
+      },
+      {
+        "id": "N5",
+        "area": "app submission excerpt",
+        "file": "app goal handler",
+        "function": "_on_agent_goal_requested",
+        "note": "_enable_agent() is called even when agent_loop is already enabled and in 'ready'. If _enable_agent resets episode_id/control_generation, the operator's pre-dispatch context check in run_operator still passes because submit() captures the post-enable values, so this is safe, but worth a comment or an explicit guard to make the intent clear."
+      },
+      {
+        "id": "N6",
+        "area": "no login/API fallback",
+        "file": "tools/app_control/run_goal.py",
+        "function": "main / codex_command",
+        "note": "OPENAI_API_KEY is removed, forced_login_method=chatgpt and request/stream retries are 0. No fallback path found. run_operator.py repeats the login-status check, which is redundant but harmless."
+      },
+      {
+        "id": "N7",
+        "area": "bounded one job",
+        "file": "tools/app_control/run_operator.py",
+        "function": "main",
+        "note": "Returns after a single Popen/wait; 345 s wait covers the 300 s child budget plus teardown. The historical navigation trials (live 0/9, frozen 0/3, blank 0/3) and the 2/3 exploratory visible-goal runs are not evidence of goal reliability and this review makes no such claim."
+      }
+    ]
+  },
+  "dispatch": {
+    "requested_model": "fable",
+    "scope": "independent functional integration review of new appgoal operator",
+    "timeout_seconds": 180,
+    "source_sha256": {
+      "src/runtime/agent_goal_inbox.gd": "72eec1d3ead6e054626a284dfcdd2768bdeffeaf6c61e3e14dd4b637f5ff58fc",
+      "src/runtime/agent_desktop_bridge.gd": "f81f1af6498443d600e8ecef48b0d7d09766758f8c941a9bcfe6147b3836165c",
+      "tools/app_control/run_operator.py": "95c40c685284b46ef97754857cc200adda173aef7c39ad551a26342b1a808f1f",
+      "tools/app_control/desktop_client.py": "903172f694e8febd252648250d35902d88b25be2d1e1fa1c0a7e2e1f1f4836b7",
+      "tools/app_control/run_goal.py": "b927f6f3799573b03e8067fbcb858cf93c7f6585a7b3be0c0ba952ce4deb3f7b",
+      "tools/app_control/desktop_session.py": "352301fbdd5e9921605b89ff5c5e881ce9865c6738d354ff78b1ef77e364f8cf"
+    }
+  }
+}

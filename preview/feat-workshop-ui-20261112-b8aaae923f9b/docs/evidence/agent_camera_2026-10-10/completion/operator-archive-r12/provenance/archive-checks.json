@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "name": "Archive identity works with no Git executable on PATH",
+      "passed": true
+    },
+    {
+      "name": "Foreground launcher without token refuses before app/model launch",
+      "passed": true
+    },
+    {
+      "name": "Actual dirty checkout refuses release archive",
+      "passed": true
+    },
+    {
+      "name": "Second clean package has byte-identical ZIP hash",
+      "passed": true
+    }
+  ],
+  "passed": 4,
+  "failed": 0,
+  "provider_calls": 0
+}

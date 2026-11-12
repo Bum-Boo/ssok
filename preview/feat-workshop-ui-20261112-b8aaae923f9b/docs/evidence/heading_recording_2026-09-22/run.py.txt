@@ -1,0 +1,54 @@
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+
+ROOT = Path(__file__).resolve().parent
+PROJECT = ROOT / 'project'
+OUT = ROOT / 'out'
+GODOT = '/home/hojun/.local/share/agent-remote/jobs/20260922-040405-ssok-godot-policy-923fd175/work/godot-bin'
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def execute(command, name, env):
+    result = subprocess.run(command, cwd=PROJECT, env=env, capture_output=True, text=True, timeout=600)
+    text = result.stdout + result.stderr
+    (OUT / name).write_text(text)
+    if result.returncode or re.search(r'^(?:ERROR|SCRIPT ERROR):', text, re.MULTILINE):
+        raise RuntimeError(f'{name}: exit {result.returncode}; raw log retained')
+
+def main():
+    shutil.copytree('/home/hojun/.local/share/agent-remote/jobs/20260922-171419-ssok-heading-committed-capture-d72422c4/work/project', PROJECT, ignore=shutil.ignore_patterns('.godot'))
+    OUT.mkdir()
+    plan = json.loads((ROOT / 'plan.json').read_text())
+    source = json.loads((ROOT / 'source-sha256.json').read_text())
+    assert all(digest(PROJECT / path) == sha for path, sha in source.items())
+    assert subprocess.check_output([GODOT, '--version'], text=True).strip() == plan['godot']
+    for name in ['plan.json', 'source-sha256.json', 'run.py']:
+        shutil.copy2(ROOT / name, OUT / name)
+    env = dict(os.environ, DISPLAY=':0', LIBGL_ALWAYS_SOFTWARE='1', OMP_NUM_THREADS='4', OPENBLAS_NUM_THREADS='4')
+    for key in ['XDG_DATA_HOME', 'XDG_CONFIG_HOME', 'XDG_CACHE_HOME']:
+        env[key] = str(ROOT / key.lower())
+    base = [GODOT, '--path', str(PROJECT)]
+    execute(base + ['--headless', '--editor', '--import', '--quit'], 'import.log', env)
+    execute(base + ['--resolution', '1600x940', '--display-driver', 'x11', '--rendering-method', 'gl_compatibility',
+                    '--audio-driver', 'Dummy', '--write-movie', str(OUT / 'learned-app.avi'),
+                    '--fixed-fps', '30', '--script', 'tools/godot/capture_learned_app.gd'],
+            'capture.log', env)
+    metrics = list((ROOT / 'xdg_data_home').rglob('learned-app.metrics.json'))
+    assert len(metrics) == 1, metrics
+    record = json.loads(metrics[0].read_text())
+    assert record['success'] and record['policy_sha256'] == plan['policy_sha256'], record
+    shutil.copy2(metrics[0], OUT / 'learned.json')
+    shutil.copy2(metrics[0].parent / 'learned-app.png', OUT / 'learned-app.png')
+    assert all(digest(PROJECT / path) == sha for path, sha in source.items())
+    (OUT / 'sha256.json').write_text(json.dumps({str(p.relative_to(OUT)): digest(p)
+                                               for p in sorted(OUT.rglob('*')) if p.is_file()}, indent=2)+'\n')
+    print(json.dumps(record), flush=True)
+
+if __name__ == '__main__':
+    main()

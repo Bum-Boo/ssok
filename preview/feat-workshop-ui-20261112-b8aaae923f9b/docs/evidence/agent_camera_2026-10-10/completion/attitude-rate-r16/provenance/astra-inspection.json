@@ -1,0 +1,103 @@
+{
+    "requested_role":  "Astra visual inspection",
+    "requested_model":  "gpt-6-astra",
+    "actual_serving_identity":  null,
+    "identity_limits":  "Coordinator-requested Astra role; serving/backend identity not independently exposed or attested.",
+    "viewed_count":  6,
+    "method":  "Exactly these six PNGs actually emitted and viewed at original resolution with view_image original. Center band x312–328; approximate zero-based wall-bottom y, floor gap=480-y. Visual uncertainty ±2 px from soft boundary and slight slope. SHA256 and dimensions read from these PNGs only.",
+    "viewed":  [
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-rate-r16/k32/post-3.png",
+                       "sha256":  "0a287b2bd290c837151f65ef684f744f2f331af3bf7e9c3e67c8efc77ff07667",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "wall_bottom_y_approx":  458,
+                       "floor_gap_px_approx":  22,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above narrow beige floor strip. Blue/gray lower-side geometry does not obstruct center band. Wall/floor boundary remains visible above bottom frame."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-rate-r16/k32/idle-4.png",
+                       "sha256":  "ae18006cde8b8c78dd82293aabf1f56c25428a1d817d8be7518a7d08b3f140c6",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "wall_bottom_y_approx":  455,
+                       "floor_gap_px_approx":  25,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above narrow beige floor strip. Blue/gray lower-side geometry does not obstruct center band. Wall/floor boundary remains visible above bottom frame."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-rate-r16/combined/post-3.png",
+                       "sha256":  "58e3da88a74a4f7a86e515c9c4b2c77744e04c68b759def7a05f33d5ca0587c7",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "wall_bottom_y_approx":  460,
+                       "floor_gap_px_approx":  20,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above narrow beige floor strip. Blue/gray lower-side geometry does not obstruct center band. Wall/floor boundary remains visible above bottom frame."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-rate-r16/combined/idle-4.png",
+                       "sha256":  "728c09c6360bafb5968ae2bb93731fea6892cdbe64b10128d2aa464b2fceeba5",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "wall_bottom_y_approx":  457,
+                       "floor_gap_px_approx":  23,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above narrow beige floor strip. Blue/gray lower-side geometry does not obstruct center band. Wall/floor boundary remains visible above bottom frame."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-rate-r16/variant18/combined/post-3.png",
+                       "sha256":  "ec49461b047631c87c7f54959fdf6b11c2d4a3808d585d9c768e8f55b4740fc3",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "wall_bottom_y_approx":  459,
+                       "floor_gap_px_approx":  21,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above narrow beige floor strip. Blue/gray lower-side geometry does not obstruct center band. Wall/floor boundary remains visible above bottom frame."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/attitude-rate-r16/variant18/combined/idle-4.png",
+                       "sha256":  "83186a5040f82dd2bad3dafd1700246e2566bf0450586533ae65133d261a51db",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "wall_bottom_y_approx":  459,
+                       "floor_gap_px_approx":  21,
+                       "uncertainty_px":  2,
+                       "central_obstruction":  false,
+                       "observations":  "Gray wall above narrow beige floor strip. Blue/gray lower-side geometry does not obstruct center band. Wall/floor boundary remains visible above bottom frame."
+                   }
+               ],
+    "findings":  {
+                     "k32":  "Gap approximately 22 px post-3 and 25 px idle-4; idle strip appears slightly taller (about 3 px image difference, each estimate ±2 px).",
+                     "combined":  "Gap approximately 20 px post-3 and 23 px idle-4; idle strip appears slightly taller (about 3 px image difference, each estimate ±2 px).",
+                     "variant18_combined":  "Gap approximately 21 px in both stills, with a slight downward-right boundary slope; no clear central-height difference at visual precision.",
+                     "scope":  "Image-coordinate comparisons only. All six central bands unobstructed; soft transition limits exact row choice."
+                 },
+    "provenance":  "Coordinator describes per-instance developer probes with production/camera/goal unchanged; no independent source or runtime verification.",
+    "unviewed_scope":  "No other images, physics/evaluator/source/private vault/provider files inspected.",
+    "limits":  [
+                   "No physical distance/motion, ticks, cause, runtime, goal-success or reliability inference.",
+                   "Selected still pairs cannot establish continuous jitter or stability.",
+                   "Visual estimates are not exact classifier measurements.",
+                   "No app/browser operation, delegation, repository/task/canonical changes.",
+                   "Only this authorized fresh result JSON written."
+               ]
+}

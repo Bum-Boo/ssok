@@ -1,0 +1,127 @@
+{
+    "requested_model":  "gpt-6-astra",
+    "resolved_model":  null,
+    "identity_limits":  "Coordinator explicitly assigned the Astra visual-inspection role. Independent backend/resolved-model introspection was unavailable; requested role is not an independently attested backend identity.",
+    "viewed_count":  6,
+    "method":  "All and only the six listed original 640x480 PNGs were actually emitted and viewed using view_image original. Center strip x=312–328 assessed visually. Approximate zero-based boundary_y; floor_height=480-boundary_y. Measurements have ±1 px visual uncertainty and are not classifier outputs.",
+    "provenance":  "Coordinator reports same runtime/camera source, unchanged camera mount/FOV/colors, internal per-instance holding angular feedback K0 to K16 only, and exactly applied requested 30/10/12 ticks. Not independently verified in this screenshot inspection.",
+    "viewed":  [
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/angular-feedback-r9/stock/post-3.png",
+                       "sha256":  "2e18888227b90c8bad9a556b352df619cef6f95e3761ead2e29637afae3454ef",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  458,
+                       "floor_height_px_approx":  22,
+                       "uncertainty_px":  1,
+                       "nominal_goal_px":  [
+                                               24,
+                                               38
+                                           ],
+                       "goal_observation":  "Visually below goal.",
+                       "observations":  "Gray wall above thin beige floor strip; center x=312–328 is unobstructed. Lower side robot geometry does not cover center measurement region."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/angular-feedback-r9/stock/idle-2.png",
+                       "sha256":  "f7ec5d2d70a86dc09b1a6e1a38dc194d24de211b38c54df6020143700629ce0e",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  454,
+                       "floor_height_px_approx":  26,
+                       "uncertainty_px":  1,
+                       "nominal_goal_px":  [
+                                               24,
+                                               38
+                                           ],
+                       "goal_observation":  "Visually within goal.",
+                       "observations":  "Gray wall above thin beige floor strip; center x=312–328 is unobstructed. Lower side robot geometry does not cover center measurement region."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/angular-feedback-r9/stock/idle-4.png",
+                       "sha256":  "c737be3e64520456970cdf96c4d2ac5ac615d620d433114ad85270821f55fd5c",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  457,
+                       "floor_height_px_approx":  23,
+                       "uncertainty_px":  1,
+                       "nominal_goal_px":  [
+                                               24,
+                                               38
+                                           ],
+                       "goal_observation":  "Borderline lower bound; uncertainty includes 24 px.",
+                       "observations":  "Gray wall above thin beige floor strip; center x=312–328 is unobstructed. Lower side robot geometry does not cover center measurement region."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/angular-feedback-r9/angular-k16/post-3.png",
+                       "sha256":  "6bc403fde3e004ccff0e90da0bbb99ef047ca25a8dd9b8e7eb31559dcec5ca65",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  459,
+                       "floor_height_px_approx":  21,
+                       "uncertainty_px":  1,
+                       "nominal_goal_px":  [
+                                               24,
+                                               38
+                                           ],
+                       "goal_observation":  "Visually below goal.",
+                       "observations":  "Gray wall above thin beige floor strip; center x=312–328 is unobstructed. Lower side robot geometry does not cover center measurement region."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/angular-feedback-r9/angular-k16/idle-2.png",
+                       "sha256":  "fc1da53bd2bfe0f884c7b09695908303336c80bf9455e3d47b1c12f5cc6e7023",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  460,
+                       "floor_height_px_approx":  20,
+                       "uncertainty_px":  1,
+                       "nominal_goal_px":  [
+                                               24,
+                                               38
+                                           ],
+                       "goal_observation":  "Visually below goal.",
+                       "observations":  "Gray wall above thin beige floor strip; center x=312–328 is unobstructed. Lower side robot geometry does not cover center measurement region."
+                   },
+                   {
+                       "path":  "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/angular-feedback-r9/angular-k16/idle-4.png",
+                       "sha256":  "30abc87fe3d1b3746dca52796ec285b7243ee347a66f2e34bacf29bff1543884",
+                       "dimensions":  [
+                                          640,
+                                          480
+                                      ],
+                       "boundary_y_approx":  459,
+                       "floor_height_px_approx":  21,
+                       "uncertainty_px":  1,
+                       "nominal_goal_px":  [
+                                               24,
+                                               38
+                                           ],
+                       "goal_observation":  "Visually below goal.",
+                       "observations":  "Gray wall above thin beige floor strip; center x=312–328 is unobstructed. Lower side robot geometry does not cover center measurement region."
+                   }
+               ],
+    "comparison":  {
+                       "stock":  "Approximate floor heights 22, 26, 23 px; sampled spread about 4 px.",
+                       "angular_k16":  "Approximate floor heights 21, 20, 21 px; sampled spread about 1 px.",
+                       "jitter_limit":  "K16 appears more consistent across these three selected stills. This is a sampled boundary-position comparison, not a continuous-motion jitter measurement or proof of cause.",
+                       "goal":  "Stock idle-2 is within nominal 24–38 px; stock idle-4 is threshold-borderline. All three K16 estimates and stock post-3 are below the nominal lower bound."
+                   },
+    "occlusion_and_clipping":  "Center measurement region is unobstructed in all six stills. Floor/wall boundary is visible above the bottom edge. Blue/gray robot geometry clips lower lateral regions; wall extends beyond the top frame.",
+    "limits":  [
+                   "Only six actual attachments were inspected; no claim to inspect eight or sixteen images.",
+                   "No physical-distance, causal or reliability inference.",
+                   "No developer physics measurements or exact classifier results were consulted.",
+                   "Not a new AI-navigation trial.",
+                   "No app/UI/style/design/source/runtime changes; only the authorized result JSON was created.",
+                   "Canonical plan/records and generated Arch task16 were not modified."
+               ]
+}

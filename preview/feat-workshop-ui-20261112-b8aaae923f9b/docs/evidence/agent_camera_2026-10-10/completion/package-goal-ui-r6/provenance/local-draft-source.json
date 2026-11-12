@@ -1,0 +1,14 @@
+{
+  "base_head": "28609ea4c4e9e2ccd7eb93e269439001d8f1708e",
+  "patch_sha256": "0d8b28945f965cc3d0ca19909488a45219ba164e3e8c3a2f06e27a48366e73b7",
+  "claude_authored": true,
+  "integration": "unique exact old/new hunk replay; original git apply check failed and preserved",
+  "changes": {
+    "src/ui/project_panel.gd": {
+      "before": "a38fa22ef45307735515477e5ac0048d0e251538f174973da945d36fe91c4c03",
+      "after": "9e3330debaba44cf7709c2f5f122458b5ea4d34b65fd92ede5a6f1ee9941dd30"
+    }
+  },
+  "actual_immutable_package_gate_preceded_change": true,
+  "review_and_publication_pending": true
+}

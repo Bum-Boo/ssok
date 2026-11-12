@@ -1,0 +1,62 @@
+{
+  "checkpoint": "2026-10-11T06:08:03+09:00",
+  "package_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "version": "0.3.1-projects-r7",
+  "clean_build": true,
+  "build_exports": 4,
+  "artifact_hashes_verified": 6,
+  "build_seconds": 1058.0605418170016,
+  "source426_unchanged_before_after_runtime": true,
+  "camera10_unchanged": true,
+  "project_panel_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "ci_layout_sha256": "506188f789e5eb03ebe5b7c05b0b98bbcd2698eea394b3e0f5a103d1d096d0d5",
+  "native_gate": {
+    "exit_code": 0,
+    "checks": 81,
+    "failures": 0,
+    "initial_full_checks": 81,
+    "initial_full_failures": 2,
+    "initial_full_passes_retained": 79,
+    "scoped_recovery_checks": 2,
+    "scoped_recovery_failures": 0,
+    "source426_unchanged": true,
+    "git_clean": true,
+    "head": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+    "scope": "79 original passing checks plus2 encoding-only recovery checks; not a new81/0 full invocation. Original failures preserved, no app/test/runtime threshold changes."
+  },
+  "browser_gates": 5,
+  "browser_failures": 0,
+  "windows_installer_initial": {
+    "checks": 10,
+    "failures": 1,
+    "exit_code": 1
+  },
+  "wall_diagnostic": {
+    "passing_assertions": 2,
+    "exit_code": 1,
+    "post_assertion_fixture_error": "Missing layout anchor game_stage_ after single-stage loop incorrectly iterated to a nonexistent next stage"
+  },
+  "windows_installer_serial": {
+    "checks": 17,
+    "failures": 0,
+    "exit_code": 0,
+    "installed_pe_pck_equal": true,
+    "user_file_preserved": true
+  },
+  "actual_packaged_projects": {
+    "checks": 6,
+    "failures": 0,
+    "exported_graph_source_format_version_equal": true,
+    "provider_calls": 0
+  },
+  "astra_actual_views": 17,
+  "existing_opus_review": "Unchanged r6 ProjectPanel; authored/revised and independent PASS",
+  "native_mac_tested": false,
+  "native_linux_gui_tested": false,
+  "linux_export_startup_resources_passed": true,
+  "frozen_image_goal": "9/9 nominal historical",
+  "frozen_independent_physical_goal": "0/9 historical unchanged",
+  "published": false,
+  "merged": false,
+  "global_goal_complete": false
+}

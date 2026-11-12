@@ -1,0 +1,107 @@
+{
+  "scope": "Existing five browser gates on first draft bytes; no clean-build claim; screenshots require independent visual review",
+  "commit": "3e75ceab0c5a422b3b2e4630d05f7b0f73372eec",
+  "build_dirty": true,
+  "build_source_changed": true,
+  "source_sha256": {
+    "tools/ci/browser_smoke.py": "1909634e4d5c5692de762c2efbc858c1436d7bc8f03a431227851cd1c5d8f38b",
+    "tools/ci/browser_authoring.py": "037f65e202028b516a873394bddbd0103b7c149985642850120a767606250c7b",
+    "tools/ci/browser_physics.py": "a3a079ceaf6b3c90866a2024d839e57d72e5142fc048a853eecc6c54746ab022",
+    "tools/ci/browser_learning.py": "4bbc424d44ebf3590679ff6ba643f071dcde1117773585f9e3c88ba9cbb5a98a",
+    "tools/ci/browser_settings.py": "db7530bc2c68c96b2a329108a2487ed462d19d70648f486445839f09fb1db46b",
+    "build/camera-release-draft-3e75cea/export-logs/browser-layout.json": "b89971b460798f72b70c3b55551c2a51093c004eeb4abfb6bab999f317e4553c",
+    "build/camera-release-draft-3e75cea/web/index.apple-touch-icon.png": "f32e02cf2bf20e001b6abffad467e88e04e2f87caca74be6e9814446f380a544",
+    "build/camera-release-draft-3e75cea/web/index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "build/camera-release-draft-3e75cea/web/index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "build/camera-release-draft-3e75cea/web/index.html": "f4d45ba9a133a15906b711cf68513bde0cdb1c3878d3b87919bbce71ce6f02a6",
+    "build/camera-release-draft-3e75cea/web/index.icon.png": "d88050ff76a991b8e660bf45025673066072b1b44c1ae654df384953539f7ef3",
+    "build/camera-release-draft-3e75cea/web/index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+    "build/camera-release-draft-3e75cea/web/index.pck": "749b54543e85ca6317f2c3106bfc644435f58385185287170cbea91772750628",
+    "build/camera-release-draft-3e75cea/web/index.png": "62858d1babe52b264efa3651c01f7ca1ad9796503bc2cb15f46864cd72ef505d",
+    "build/camera-release-draft-3e75cea/web/index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+  },
+  "results": [
+    {
+      "name": "smoke",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_smoke.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-draft-3e75cea/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-gates-3e75cea/smoke"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 45.602,
+      "passed": true,
+      "result": "smoke/result.json"
+    },
+    {
+      "name": "authoring",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_authoring.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-draft-3e75cea/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-gates-3e75cea/authoring"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 78.507,
+      "passed": true,
+      "result": "authoring/result.json"
+    },
+    {
+      "name": "physics",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_physics.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-draft-3e75cea/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-gates-3e75cea/physics"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 28.574,
+      "passed": true,
+      "result": "physics/result.json"
+    },
+    {
+      "name": "learning",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_learning.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-draft-3e75cea/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-gates-3e75cea/learning"
+      ],
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 61.764,
+      "passed": false,
+      "result": "learning/result.json"
+    },
+    {
+      "name": "settings",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/venv-linux/bin/python",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tools/ci/browser_settings.py",
+        "--directory",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/camera-release-draft-3e75cea/web",
+        "--output",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-gates-3e75cea/settings"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 57.182,
+      "passed": true,
+      "result": "settings/result.json"
+    }
+  ],
+  "failures": 1,
+  "source_changed": false
+}

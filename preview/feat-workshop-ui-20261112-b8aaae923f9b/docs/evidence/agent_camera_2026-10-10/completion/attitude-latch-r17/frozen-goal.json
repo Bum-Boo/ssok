@@ -1,0 +1,49 @@
+{
+  "scope": "exploratory clarified visual goal; separate from the original9live/6control runs",
+  "goal": "Approach the wall using only the robot camera. At the horizontal center of the480-pixel-high image, aim to leave a narrow beige floor strip about5–8% of the image height (roughly24–38pixels) between the wall base and the bottom edge, then stop before contact. The bottom corners can contain robot parts; judge the center floor strip. Reobserve after every short step. Prefer shorter steps near the wall; stop if uncertain. Do not claim a physical distance or collision-free success from the images.",
+  "layouts_wall_x_m": [
+    0.35,
+    0.5,
+    0.6
+  ],
+  "success_criteria": {
+    "minimum_travel": 0.03,
+    "minimum_gap": 0.04,
+    "maximum_gap": 0.14
+  },
+  "limits": {
+    "cli_launches": 3,
+    "steps_per_run": 8,
+    "images_per_run": 9,
+    "seconds_per_run": 180
+  },
+  "provider": "OpenAI / requested gpt-6-astra / existing Codex ChatGPT login",
+  "billing_limit": "No monetary/model-request cap exposed; no retries",
+  "sent_data": [
+    "goal",
+    "camera PNG",
+    "public frame context",
+    "visual summaries",
+    "tool results"
+  ],
+  "excluded_data": [
+    "layout distance",
+    "physical evaluator",
+    "graph",
+    "learner source",
+    "credentials"
+  ],
+  "source_sha256": {
+    "tools/app_control/refine_camera_goal.py": "4a892be1bf27ab2129d5fe5af53da07f2edaed5d5c6e3c0c3bb552bdc6f4149a",
+    "tools/app_control/run_goal.py": "b927f6f3799573b03e8067fbcb858cf93c7f6585a7b3be0c0ba952ce4deb3f7b",
+    "tools/app_control/desktop_mcp.py": "b2dd30abddf662ec8992d1b2ca9351cf4714ca99007e2a1303e7efc943f5611d",
+    "tools/app_control/desktop_session.py": "352301fbdd5e9921605b89ff5c5e881ce9865c6738d354ff78b1ef77e364f8cf",
+    "tools/app_control/desktop_client.py": "903172f694e8febd252648250d35902d88b25be2d1e1fa1c0a7e2e1f1f4836b7",
+    "tools/app_control/run_desktop.gd": "5185c07709875917c4b4b932fb3050b76fe80d808562b3a40b16a0ae419718d6",
+    "tools/app_control/camera_evaluator.gd": "f68d8f2031c9b5a10a67917743b763c2f0f5e1fde9843a27ec08ae0ace4a3b33",
+    "tools/app_control/camera_trial.py": "bdc34e41fe98834407942a96d070fd6eb1c39f0e1c292efb8b63de403a65f07c",
+    "src/runtime/agent_camera_loop.gd": "234b69fe85f8225054610f62ee3d1e039fd827bcf1723b4c36f8953bf588644b",
+    "src/runtime/agent_desktop_bridge.gd": "f81f1af6498443d600e8ecef48b0d7d09766758f8c941a9bcfe6147b3836165c",
+    "scenes/main.gd": "15530bfc7f1f574620764bfbd577673be2eafa2ddd292c1f3ada76aa878c9b68"
+  }
+}

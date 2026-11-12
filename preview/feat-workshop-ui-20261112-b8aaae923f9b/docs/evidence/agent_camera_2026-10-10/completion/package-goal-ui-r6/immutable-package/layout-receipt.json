@@ -1,0 +1,20 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/package-goal-ui-r6/layout.gd"
+  ],
+  "exit_code": 0,
+  "source_layout_only": true,
+  "sha256": {
+    "layout.gd": "d7388005d8269986d04bd83596f237daa4890161f2fa47deb6edd3839702b11c",
+    "layout.json": "9017b0bda6002c74e7ed44b246651aeb4427b9558f26d39e52b092cb7a3af039",
+    "layout-native.json": "f0f314133c73b16f72f5e5e5275b5f0fda597a1dfe8b3696a72cd5f1403bba77",
+    "project.json": "6b2ecb5d6245b755c50eaf826cfe5ff89ee40293100784c73fc0426134899709"
+  }
+}

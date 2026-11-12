@@ -1,0 +1,9 @@
+{
+  "failure": "Final STATUS helper assumed CRLF while actual original uses LF",
+  "first_repair_did_not_match_nonASCII_PowerShell_stdin": "Retried unchanged assertion; no status write occurred",
+  "recovery": "ASCII-only repair of escaped newline literals, resume only final STATUS section",
+  "raw_evidence_and_handoff_already_written": true,
+  "original_status_preserved": true,
+  "app_source_changed": false,
+  "frozen_goal_changed": false
+}

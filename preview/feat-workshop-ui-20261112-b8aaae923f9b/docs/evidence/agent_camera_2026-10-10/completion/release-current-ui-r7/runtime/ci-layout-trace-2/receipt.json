@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+    "--headless",
+    "--path",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+    "--quit-after",
+    "600",
+    "--language",
+    "en",
+    "--script",
+    "res://build/ai-loop-evidence/completion/release-current-ui-r7/ci-layout-trace-2/trace.gd",
+    "--",
+    "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/release-current-ui-r7/ci-layout-trace-2/browser-layout.json"
+  ],
+  "exit_code": 124,
+  "timed_out": true,
+  "seconds": 15.020481594998273,
+  "layout_file_exists": false,
+  "canonical_source_sha256": "506188f789e5eb03ebe5b7c05b0b98bbcd2698eea394b3e0f5a103d1d096d0d5",
+  "canonical_source_unchanged": true,
+  "instrumentation": "Targeted [DEBUG-r7-layout] stage boundaries; ignored diagnostic copy only."
+}

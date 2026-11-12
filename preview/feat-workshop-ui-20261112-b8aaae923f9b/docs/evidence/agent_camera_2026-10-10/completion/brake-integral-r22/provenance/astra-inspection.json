@@ -1,0 +1,83 @@
+{
+  "requested_role": "Astra visual inspection",
+  "requested_model": "gpt-6-astra",
+  "serving_model": null,
+  "identity_limits": "Serving backend identity unexposed; requested role only, no independent attestation.",
+  "viewed_count": 4,
+  "original_view_count": 4,
+  "method": "Computed SHA256 from file bytes and PNG-header dimensions before viewing. All four original images actually emitted/viewed using view_image original. Approximate zero-based wall/floor boundary at x320; floor span=480-y; ±2 px visual uncertainty.",
+  "viewed": [
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/combined/post-3.png",
+      "sha256": "8ae4e3f9cd884f5ccdbfd24664b446e1d5608c583d6bbcb6bf69f14ac29c1918",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 131062,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 459,
+      "floor_span_px_approx": 21,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above a narrow beige floor strip. Lower-side blue/gray geometry does not cover center. Soft boundary is visible above frame bottom; no central occlusion."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/initial-reference-r19/combined/bridge-observed.png",
+      "sha256": "969ae20e8331b37ef44573e169af15fc8b7a68e770bba5c93eb1b28ee68671c8",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 126585,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 459,
+      "floor_span_px_approx": 21,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above a narrow beige floor strip. Lower-side blue/gray geometry does not cover center. Soft boundary is visible above frame bottom; no central occlusion."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/brake-integral-r22/integral/post-3.png",
+      "sha256": "b62d5350d0d3a90d59ea251f99fa4b32cd2e20d3d3e26be0b9369f902c18e861",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 132362,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 458,
+      "floor_span_px_approx": 22,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above a narrow beige floor strip. Lower-side blue/gray geometry does not cover center. Soft boundary is visible above frame bottom; no central occlusion."
+    },
+    {
+      "path": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/brake-integral-r22/integral/bridge-observed.png",
+      "sha256": "483a4f55cde12374e8937e6412655e86c441d8bb609be9dbed602cf6457f3968",
+      "dimensions": [
+        640,
+        480
+      ],
+      "bytes": 130149,
+      "center_x": 320,
+      "wall_floor_boundary_y_approx": 459,
+      "floor_span_px_approx": 21,
+      "uncertainty_px": 2,
+      "center_unobstructed": true,
+      "observations": "Gray wall above a narrow beige floor strip. Lower-side blue/gray geometry does not cover center. Soft boundary is visible above frame bottom; no central occlusion."
+    }
+  ],
+  "findings": {
+    "r19_combined": "Floor span approximately 21 px in both images; no clear central difference at visual precision.",
+    "r22_integral": "Approximately 22 px post-3 and 21 px bridge-observed; one-pixel apparent difference lies within ±2 px uncertainty.",
+    "comparison": "All four center strips are visually similar. No robust difference distinguishable at the stated precision."
+  },
+  "unviewed_scope": "No evaluator/private/source records or other images inspected; only listed PNG bytes/headers read.",
+  "limitations": [
+    "Image-coordinate observations only; no physical distance, cause, timing, success or reliability inference.",
+    "No backend identity assertion.",
+    "Stills do not establish continuous jitter or intermediate behavior.",
+    "No models/tests/other-agent calls or source/state changes; only authorized fresh result JSON created."
+  ]
+}

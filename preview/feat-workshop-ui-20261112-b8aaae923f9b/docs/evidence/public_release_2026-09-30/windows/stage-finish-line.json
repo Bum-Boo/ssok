@@ -1,0 +1,554 @@
+{
+  "author_solution": {
+    "format": "ssok-project",
+    "graph": {
+      "links": [
+        {
+          "a_part": 0,
+          "a_port": "motor_left",
+          "b_part": 1,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0,
+          "a_port": "motor_right",
+          "b_part": 2,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 1,
+          "a_port": "shaft_left",
+          "b_part": 3,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 2,
+          "a_port": "shaft_right",
+          "b_part": 4,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 0,
+          "a_port": "board_mount",
+          "b_part": 5,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0,
+          "a_port": "driver_mount",
+          "b_part": 6,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0,
+          "a_port": "caster_mount",
+          "b_part": 7,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0,
+          "a_port": "sensor_mount",
+          "b_part": 8,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_0",
+          "b_part": 6,
+          "b_port": "input_0"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_8",
+          "b_part": 6,
+          "b_port": "input_8"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_12",
+          "b_part": 6,
+          "b_port": "input_12"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_16",
+          "b_part": 6,
+          "b_port": "input_16"
+        },
+        {
+          "a_part": 6,
+          "a_port": "motor_1",
+          "b_part": 1,
+          "b_port": "power"
+        },
+        {
+          "a_part": 6,
+          "a_port": "motor_2",
+          "b_part": 2,
+          "b_port": "power"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_1",
+          "b_part": 8,
+          "b_port": "trig_pin"
+        },
+        {
+          "a_part": 5,
+          "a_port": "pin_2",
+          "b_part": 8,
+          "b_port": "echo_pin"
+        }
+      ],
+      "parts": [
+        {
+          "id": "car_chassis",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.06750000268220901,
+            0.0
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            -0.05999999865889549
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            0.05999999865889549
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            -1.0,
+            0.0,
+            8.742277657347586e-08,
+            0.0,
+            1.0,
+            0.0,
+            -8.742277657347586e-08,
+            0.0,
+            -1.0,
+            -0.011500001884996891,
+            0.08250000327825546,
+            -0.0820000022649765
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.011500000953674316,
+            0.08250000327825546,
+            0.0820000022649765
+          ]
+        },
+        {
+          "id": "microbit",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.02500000037252903,
+            0.07400000095367432,
+            0.0
+          ]
+        },
+        {
+          "id": "motor_driver",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.03500000014901161,
+            0.0755000039935112,
+            0.0
+          ]
+        },
+        {
+          "id": "ball_caster",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.054999999701976776,
+            0.06200000271201134,
+            0.0
+          ]
+        },
+        {
+          "id": "hc_sr04",
+          "transform": [
+            -4.371138828673793e-08,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            -4.371138828673793e-08,
+            0.07079999893903732,
+            0.1274999976158142,
+            -3.496911094025279e-11
+          ]
+        }
+      ],
+      "version": 1
+    },
+    "saved_utc": "2026-09-30T11:24:22",
+    "source": "left = Motor(pin0)\nright = Motor(pin12)\nleft.motor_on(\"forward\", 55)\nright.motor_on(\"forward\", 55)\nsleep(3000)\nstop()\n",
+    "title": "Cross the finish line",
+    "version": 1
+  },
+  "constraints": {
+    "max_parts": 256.0,
+    "time_limit": 60.0
+  },
+  "format": "ssok-stage",
+  "id": "finish-line",
+  "rules": [
+    {
+      "hold_seconds": 0.0,
+      "max": 100.0,
+      "metric": "x",
+      "min": 0.5,
+      "part_id": "car_chassis",
+      "target_index": -1.0
+    },
+    {
+      "hold_seconds": 0.0,
+      "max": 1.0,
+      "metric": "upright",
+      "min": 0.95,
+      "part_id": "car_chassis",
+      "target_index": -1.0
+    }
+  ],
+  "scene": {
+    "format": "ssok-project",
+    "graph": {
+      "links": [
+        {
+          "a_part": 0.0,
+          "a_port": "motor_left",
+          "b_part": 1.0,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0.0,
+          "a_port": "motor_right",
+          "b_part": 2.0,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 1.0,
+          "a_port": "shaft_left",
+          "b_part": 3.0,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 2.0,
+          "a_port": "shaft_right",
+          "b_part": 4.0,
+          "b_port": "hub"
+        },
+        {
+          "a_part": 0.0,
+          "a_port": "board_mount",
+          "b_part": 5.0,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0.0,
+          "a_port": "driver_mount",
+          "b_part": 6.0,
+          "b_port": "mount_bottom"
+        },
+        {
+          "a_part": 0.0,
+          "a_port": "caster_mount",
+          "b_part": 7.0,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 0.0,
+          "a_port": "sensor_mount",
+          "b_part": 8.0,
+          "b_port": "mount"
+        },
+        {
+          "a_part": 5.0,
+          "a_port": "pin_0",
+          "b_part": 6.0,
+          "b_port": "input_0"
+        },
+        {
+          "a_part": 5.0,
+          "a_port": "pin_8",
+          "b_part": 6.0,
+          "b_port": "input_8"
+        },
+        {
+          "a_part": 5.0,
+          "a_port": "pin_12",
+          "b_part": 6.0,
+          "b_port": "input_12"
+        },
+        {
+          "a_part": 5.0,
+          "a_port": "pin_16",
+          "b_part": 6.0,
+          "b_port": "input_16"
+        },
+        {
+          "a_part": 6.0,
+          "a_port": "motor_1",
+          "b_part": 1.0,
+          "b_port": "power"
+        },
+        {
+          "a_part": 6.0,
+          "a_port": "motor_2",
+          "b_part": 2.0,
+          "b_port": "power"
+        },
+        {
+          "a_part": 5.0,
+          "a_port": "pin_1",
+          "b_part": 8.0,
+          "b_port": "trig_pin"
+        },
+        {
+          "a_part": 5.0,
+          "a_port": "pin_2",
+          "b_part": 8.0,
+          "b_port": "echo_pin"
+        }
+      ],
+      "parts": [
+        {
+          "id": "car_chassis",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.06750000268220901,
+            0.0
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            -0.05999999865889549
+          ]
+        },
+        {
+          "id": "tt_motor",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.01249999925494194,
+            0.08250000327825546,
+            0.05999999865889549
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            -1.0,
+            0.0,
+            8.742277657347587e-08,
+            0.0,
+            1.0,
+            0.0,
+            -8.742277657347587e-08,
+            0.0,
+            -1.0,
+            -0.01150000188499689,
+            0.08250000327825546,
+            -0.0820000022649765
+          ]
+        },
+        {
+          "id": "wheel_65",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.01150000095367431,
+            0.08250000327825546,
+            0.0820000022649765
+          ]
+        },
+        {
+          "id": "microbit",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.02500000037252903,
+            0.07400000095367432,
+            0.0
+          ]
+        },
+        {
+          "id": "motor_driver",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.03500000014901161,
+            0.0755000039935112,
+            0.0
+          ]
+        },
+        {
+          "id": "ball_caster",
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.05499999970197677,
+            0.06200000271201134,
+            0.0
+          ]
+        },
+        {
+          "id": "hc_sr04",
+          "transform": [
+            -4.3711388286737935e-08,
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            -4.3711388286737935e-08,
+            0.07079999893903732,
+            0.1274999976158142,
+            -3.496911094025279e-11
+          ]
+        }
+      ],
+      "version": 1.0
+    },
+    "saved_utc": "2026-09-30T11:23:34",
+    "source": "left = Motor(pin0)\nright = Motor(pin12)\nleft.motor_on(\"forward\", 55)\nright.motor_on(\"forward\", 55)\nsleep(3000)\nstop()\n",
+    "title": "Cross the finish line",
+    "version": 1.0
+  },
+  "title": "Cross the finish line",
+  "version": 2.0
+}

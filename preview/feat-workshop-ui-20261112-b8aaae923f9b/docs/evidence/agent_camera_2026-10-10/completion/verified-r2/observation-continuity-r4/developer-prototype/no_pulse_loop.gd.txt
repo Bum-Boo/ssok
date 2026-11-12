@@ -1,0 +1,13 @@
+extends "res://src/runtime/agent_camera_loop.gd"
+
+## DEBUG-r4: one variable, preserve existing holding command during ready->observe only.
+## Prototype only; forward/Stop/cancellation/settling limits and motor implementation unchanged.
+func _start_settle() -> void:
+	if state != "ready":
+		super._start_settle()
+		return
+	_stable = 0
+	_settle_elapsed = 0
+	state = "settling"
+	_deadline = Time.get_ticks_msec() + 10000
+	state_changed.emit(describe())

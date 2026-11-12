@@ -1,0 +1,11 @@
+{
+  "hypothesis_rank": 3,
+  "reason": "Post-controller duty0 and actual positive final-tick torque disagree; post-controller duty is not applied command. Observe exact production DriveMotor callback via read-only wrapper delegating super, preserving all motor fields. Expected counts must use applied_duty, not later duty. Original misleading trace retained. No actuator/control modification.",
+  "files": {
+    "callback_probe.gd": "7227a04c5544a2d7c8ca49c4b2e3837769c4ab545b9728bd862fab8b9749b860",
+    "callback_sampler.gd": "cb71076f2e332da3e0a54a44fb9016b436bf2871d45faf0df1b264abb2cd55b7",
+    "motor_callback.gd": "60dbe54e12a5a11c600e452dee76c125b8311a096386da4d8b804d62a4f6f85d",
+    "ssok-control-r8-callback.py": "b2cd489f2095df8fcb5b22469e645a38d8bd64063b6d72c94f891341fa9c631a"
+  },
+  "production_applied": false
+}

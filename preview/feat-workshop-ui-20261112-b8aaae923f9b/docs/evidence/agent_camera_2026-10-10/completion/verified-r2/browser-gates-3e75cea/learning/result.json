@@ -1,0 +1,283 @@
+{
+  "passed": false,
+  "checks": [
+    "flag: actual Web physics cleared declarative stage"
+  ],
+  "stages": [
+    {
+      "name": "flag",
+      "observation": {
+        "result": {
+          "failure": {},
+          "line": 5,
+          "motors": [],
+          "running": true,
+          "servos": [
+            {
+              "angle_deg": -0.352260816584472,
+              "part": 1,
+              "target_deg": 0
+            }
+          ],
+          "stage": {
+            "elapsed_seconds": 2.38333333333333,
+            "execution_id": 5,
+            "expired": false,
+            "measurements": [
+              {
+                "held_seconds": 1,
+                "met": true,
+                "metric": "height",
+                "part_index": 2,
+                "state": "valid",
+                "value": 0.164957612752914
+              }
+            ],
+            "reason": "",
+            "status": "success",
+            "success": true,
+            "wall_contact": false
+          },
+          "stage_id": "raise-flag",
+          "state": "running"
+        },
+        "scene": {
+          "board": "microbit",
+          "graph": {
+            "links": [
+              {
+                "a_part": 0,
+                "a_port": "mount_top",
+                "b_part": 1,
+                "b_port": "mount_bottom"
+              },
+              {
+                "a_part": 1,
+                "a_port": "output_shaft",
+                "b_part": 2,
+                "b_port": "mount_base"
+              },
+              {
+                "a_part": 1,
+                "a_port": "signal_pin",
+                "b_part": 3,
+                "b_port": "pin_0"
+              }
+            ],
+            "parts": [
+              {
+                "id": "base",
+                "transform": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0.0599999986588955,
+                  0
+                ]
+              },
+              {
+                "id": "servo",
+                "transform": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0.0850000008940697,
+                  0
+                ]
+              },
+              {
+                "id": "arm_link",
+                "transform": [
+                  0,
+                  0,
+                  -1,
+                  0,
+                  1,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0.016499999910593,
+                  0.125,
+                  0
+                ]
+              },
+              {
+                "id": "microbit",
+                "transform": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0.119999997317791,
+                  0.0524999983608723,
+                  0
+                ]
+              }
+            ],
+            "version": 1
+          },
+          "run_mode": true,
+          "source": "arm = Servo(pin0)\narm.write(90)\nsleep(1000)\narm.write(0)\nsleep(2000)\n"
+        }
+      }
+    }
+  ],
+  "url": "http://127.0.0.1:57547/?ssok_verify=1",
+  "browser": "153.0.8010.12",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "failure": "Page.wait_for_function: Timeout 30000ms exceeded.",
+  "last_observation": {
+    "result": {
+      "failure": {},
+      "line": 5,
+      "motors": [],
+      "running": false,
+      "servos": [
+        {
+          "angle_deg": -0.0157707150279944,
+          "part": 1,
+          "target_deg": 0
+        }
+      ],
+      "stage": {
+        "elapsed_seconds": 2.38333333333333,
+        "execution_id": 5,
+        "expired": false,
+        "measurements": [
+          {
+            "held_seconds": 1,
+            "met": true,
+            "metric": "height",
+            "part_index": 2,
+            "state": "valid",
+            "value": 0.164957612752914
+          }
+        ],
+        "reason": "",
+        "status": "success",
+        "success": true,
+        "wall_contact": false
+      },
+      "stage_id": "raise-flag",
+      "state": "finished"
+    },
+    "scene": {
+      "board": "microbit",
+      "graph": {
+        "links": [
+          {
+            "a_part": 0,
+            "a_port": "mount_top",
+            "b_part": 1,
+            "b_port": "mount_bottom"
+          },
+          {
+            "a_part": 1,
+            "a_port": "output_shaft",
+            "b_part": 2,
+            "b_port": "mount_base"
+          },
+          {
+            "a_part": 1,
+            "a_port": "signal_pin",
+            "b_part": 3,
+            "b_port": "pin_0"
+          }
+        ],
+        "parts": [
+          {
+            "id": "base",
+            "transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0.0599999986588955,
+              0
+            ]
+          },
+          {
+            "id": "servo",
+            "transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0.0850000008940697,
+              0
+            ]
+          },
+          {
+            "id": "arm_link",
+            "transform": [
+              0,
+              0,
+              -1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0.016499999910593,
+              0.125,
+              0
+            ]
+          },
+          {
+            "id": "microbit",
+            "transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0.119999997317791,
+              0.0524999983608723,
+              0
+            ]
+          }
+        ],
+        "version": 1
+      },
+      "run_mode": true,
+      "source": "arm = Servo(pin0)\narm.write(90)\nsleep(1000)\narm.write(0)\nsleep(2000)\n"
+    }
+  }
+}

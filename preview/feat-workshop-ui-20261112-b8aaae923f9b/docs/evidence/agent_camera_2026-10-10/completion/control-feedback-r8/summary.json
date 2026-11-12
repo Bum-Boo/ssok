@@ -1,0 +1,363 @@
+{
+  "checkpoint": "2026-10-11T06:41:11+09:00",
+  "source_head": "dd9c81494487e20e145e2ab9502daf1a36974770",
+  "immutable_package_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "package_version": "0.3.1-projects-r7",
+  "source426_unchanged": true,
+  "camera10_unchanged": true,
+  "frozen_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "diagnostic_runs": 14,
+  "model_navigation_calls": 0,
+  "cases": {
+    "baseline": {
+      "image": true,
+      "physical": false,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": false,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.140000700950623,
+      "final_floor_pixels": 25,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim"
+    },
+    "repeat": {
+      "image": false,
+      "physical": true,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": true,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.139928191900253,
+      "final_floor_pixels": 23,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim"
+    },
+    "minimal-two-step": {
+      "image": false,
+      "physical": true,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": true,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.126100540161133,
+      "final_floor_pixels": 1,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim"
+    },
+    "stock": {
+      "case": "stock",
+      "floor_pixels": [
+        23,
+        25,
+        27,
+        23,
+        23
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.9587258100509921,
+      "angular_rates": [
+        0.00459566479548812,
+        0.00448583764955401,
+        0.00446007447317243,
+        0.00628370884805918,
+        0.00459109246730804
+      ],
+      "final_gap_m": 0.141063079237938,
+      "stop_delta_from_last_frame_mm": -0.9298175573349832,
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "strict-angle": {
+      "failure": "Initial ready/capture",
+      "failure_state": {
+        "enabled": false,
+        "settle_elapsed": 240,
+        "stable_ticks": 0,
+        "state": "fault"
+      },
+      "ownership_revoked": true,
+      "native_exit_code": 1,
+      "physical_result_unavailable": true
+    },
+    "action-brake": {
+      "case": "action-brake",
+      "floor_pixels": [
+        24,
+        25,
+        22,
+        23,
+        22
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.7597059011459906,
+      "angular_rates": [
+        0.00484872236847878,
+        0.00460604764521122,
+        0.00693164160475135,
+        0.00464571733027697,
+        0.00456328922882676
+      ],
+      "final_gap_m": 0.140071198344231,
+      "stop_delta_from_last_frame_mm": -0.8563548326489812,
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "action-forward": {
+      "case": "action-forward",
+      "floor_pixels": [
+        24,
+        23,
+        24,
+        25,
+        22
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.7190555334090076,
+      "angular_rates": [
+        0.00497230654582381,
+        0.00490209693089128,
+        0.00460318382829428,
+        0.00484199915081263,
+        0.00475482037290931
+      ],
+      "final_gap_m": 0.140207678079605,
+      "stop_delta_from_last_frame_mm": -0.805735588074008,
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "tick-trace": {
+      "case": "tick-trace",
+      "floor_pixels": [
+        24,
+        23,
+        24,
+        25,
+        22
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.7190555334090076,
+      "angular_rates": [
+        0.00497230654582381,
+        0.00490209693089128,
+        0.00460318382829428,
+        0.00484199915081263,
+        0.00475482037290931
+      ],
+      "final_gap_m": 0.140207678079605,
+      "stop_delta_from_last_frame_mm": -0.805735588074008,
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "motor-callback-trace": {
+      "case": "motor-callback-trace",
+      "floor_pixels": [
+        24,
+        23,
+        24,
+        25,
+        22
+      ],
+      "pixel_span": 3,
+      "capture_gap_span_mm": 0.7190555334090076,
+      "angular_rates": [
+        0.00497230654582381,
+        0.00490209693089128,
+        0.00460318382829428,
+        0.00484199915081263,
+        0.00475482037290931
+      ],
+      "final_gap_m": 0.140207678079605,
+      "stop_delta_from_last_frame_mm": -0.805735588074008,
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "damping-p24": {
+      "failure": "Actual bounded motor action",
+      "failure_state": {
+        "enabled": false,
+        "settle_elapsed": 240,
+        "stable_ticks": 0,
+        "state": "fault"
+      },
+      "ownership_revoked": true,
+      "native_exit_code": 1,
+      "physical_result_unavailable": true
+    },
+    "damping-p4": {
+      "case": "damping-p4",
+      "floor_pixels": [
+        23,
+        25,
+        24,
+        26,
+        27
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.550821423530995,
+      "angular_rates": [
+        0.00407099770382047,
+        0.00453553721308708,
+        0.0046290154568851,
+        0.00448688818141818,
+        0.00450692744925618
+      ],
+      "final_gap_m": 0.14121513068676,
+      "stop_delta_from_last_frame_mm": -0.23853778839100226,
+      "physical": false,
+      "last_image": true,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "partition-13-a": {
+      "case": "partition-13-a",
+      "floor_pixels": [
+        19,
+        21,
+        22,
+        20,
+        18
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.4122108221049914,
+      "angular_rates": [
+        0.00454169325530529,
+        0.00441991025581956,
+        0.00448780925944448,
+        0.0052212942391634,
+        0.00477045122534037
+      ],
+      "final_gap_m": 0.138009041547775,
+      "stop_delta_from_last_frame_mm": -0.9621083736419955,
+      "physical": true,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "partition-13-b": {
+      "case": "partition-13-b",
+      "floor_pixels": [
+        19,
+        21,
+        22,
+        20,
+        18
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.4122108221049914,
+      "angular_rates": [
+        0.00454169325530529,
+        0.00441991025581956,
+        0.00448780925944448,
+        0.0052212942391634,
+        0.00477045122534037
+      ],
+      "final_gap_m": 0.138009041547775,
+      "stop_delta_from_last_frame_mm": -0.9621083736419955,
+      "physical": true,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    },
+    "partition-13-c": {
+      "case": "partition-13-c",
+      "floor_pixels": [
+        19,
+        21,
+        22,
+        20,
+        18
+      ],
+      "pixel_span": 4,
+      "capture_gap_span_mm": 0.4122108221049914,
+      "angular_rates": [
+        0.00454169325530529,
+        0.00441991025581956,
+        0.00448780925944448,
+        0.0052212942391634,
+        0.00477045122534037
+      ],
+      "final_gap_m": 0.138009041547775,
+      "stop_delta_from_last_frame_mm": -0.9621083736419955,
+      "physical": true,
+      "last_image": false,
+      "combined": false,
+      "source426_unchanged": true,
+      "production_applied": false
+    }
+  },
+  "actual_motor_counts": [
+    {
+      "requested_ticks": 30,
+      "actual_powered_callbacks_per_motor": [
+        30,
+        30
+      ]
+    },
+    {
+      "requested_ticks": 10,
+      "actual_powered_callbacks_per_motor": [
+        10,
+        10
+      ]
+    },
+    {
+      "requested_ticks": 12,
+      "actual_powered_callbacks_per_motor": [
+        12,
+        12
+      ]
+    },
+    {
+      "requested_ticks": 1,
+      "actual_powered_callbacks_per_motor": [
+        1,
+        1
+      ]
+    }
+  ],
+  "astra_actual_png_views": 12,
+  "astra_classifier_disagreement": "partition-13-a/idle-4 visual16±1 vs classifier18px; both fail24px, exact visual estimate disagreement retained",
+  "repair_applied": false,
+  "historical_ai_nominal_image": "9/9 unchanged",
+  "historical_ai_strict_physical": "0/9 unchanged",
+  "new_partition13_deterministic_replays": {
+    "fresh_runs": 3,
+    "physical_passes": 3,
+    "image_passes": 0,
+    "combined_passes": 0,
+    "same_fixture_only": true
+  },
+  "causation_proved": false,
+  "global_impossibility_proved": false,
+  "merged": false,
+  "published": false,
+  "global_goal_complete": false
+}

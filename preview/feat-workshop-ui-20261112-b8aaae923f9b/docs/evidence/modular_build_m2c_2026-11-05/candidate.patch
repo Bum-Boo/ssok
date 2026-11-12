@@ -1,0 +1,24 @@
+diff --git a/assets/parts/ball_caster.tres b/assets/parts/ball_caster.tres
+index 613051d..cb922de 100644
+--- a/assets/parts/ball_caster.tres
++++ b/assets/parts/ball_caster.tres
+@@ -48,5 +48,6 @@ display_name = "Ball Caster"
+ mesh = ExtResource("1_n5esp")
+ ports = Array[ExtResource("2_bjxci")]([SubResource("Resource_312gd"), SubResource("Port_kit_h0_front"), SubResource("Port_kit_h0_back"), SubResource("Port_kit_h1_front"), SubResource("Port_kit_h1_back")])
+ mass_kg = 0.005
++merge_fixed_connections = true
+ caster_radius = 0.012
+ collision_points = PackedVector3Array()
+diff --git a/tools/godot/make_learning_parts.gd b/tools/godot/make_learning_parts.gd
+index fb091a0..5a9f61c 100644
+--- a/tools/godot/make_learning_parts.gd
++++ b/tools/godot/make_learning_parts.gd
+@@ -30,7 +30,7 @@ func _init() -> void:
+ 	_save(chassis)
+ 	var caster := _box(&"ball_caster", "Ball Caster", Vector3.ONE * 0.024, 0.005, Color(0.6, 0.6, 0.65))
+ 	caster.caster_radius = 0.012
+-	caster.merge_fixed_connections = false
++	caster.merge_fixed_connections = true
+ 	caster.ports.append(_port(&"mount", Port.Kind.MECH, Vector3(0, 0.0015, 0), Vector3.UP, &"caster_mount", [&"base_mount"]))
+ 	_save(caster)
+ 	var wall := _box(&"stage_wall", "Stage Wall", Vector3(0.02, 0.2, 0.6), 2.0, Color(0.8, 0.55, 0.30))

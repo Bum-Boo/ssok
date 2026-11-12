@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\Hojun\Projects\ssok-ai-loop\tests\test_release_documents.py", line 40, in test_documentation_links_survive_packaging_and_extraction
+    self.assertEqual([], missing, "archive contains broken documentation links")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['docs\\BUILD.md -> ../tools/app_control/OPERATOR.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'docs\\BUILD.md -> ../tools/app_control/OPERATOR.md'
+
+- []
++ ['docs\\BUILD.md -> ../tools/app_control/OPERATOR.md'] : archive contains broken documentation links

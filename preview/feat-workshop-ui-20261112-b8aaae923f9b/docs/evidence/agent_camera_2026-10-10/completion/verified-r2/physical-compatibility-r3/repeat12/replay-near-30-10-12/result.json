@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "wall_x": 0.35,
+  "ticks": [
+    30,
+    10,
+    12
+  ],
+  "idle_seconds": 0.0,
+  "captures": [
+    {
+      "label": "initial",
+      "sha256": "e4a695a91e71163c3744391643bfe5840fbe24bf535bbe936ec08f567e23164a",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 62,
+        "control_generation": 1,
+        "draw_frame": 46,
+        "episode_id": "5ec1e50c08069e97b624f3ff",
+        "frame_id": 2,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 62,
+        "revision": 3,
+        "robot_instance_id": "1364088329573",
+        "settle_confirmed_tick": 62,
+        "sha256": "e4a695a91e71163c3744391643bfe5840fbe24bf535bbe936ec08f567e23164a",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 364,
+        "floor_pixels": 116,
+        "column_range": [
+          364,
+          364
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-1",
+      "sha256": "95ca5ad39d66d1837a71e968b34c062afa79b2332e1e192a677aad05af5ecb31",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 245,
+        "control_generation": 1,
+        "draw_frame": 228,
+        "episode_id": "5ec1e50c08069e97b624f3ff",
+        "frame_id": 3,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 245,
+        "revision": 3,
+        "robot_instance_id": "1364088329573",
+        "settle_confirmed_tick": 245,
+        "sha256": "95ca5ad39d66d1837a71e968b34c062afa79b2332e1e192a677aad05af5ecb31",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 412,
+        "floor_pixels": 68,
+        "column_range": [
+          412,
+          412
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-2",
+      "sha256": "48e284aeb4f193773b1e12676a354a26c7e4cd42dcfe7fe8ecbbf5f0ec7d04c8",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 385,
+        "control_generation": 1,
+        "draw_frame": 367,
+        "episode_id": "5ec1e50c08069e97b624f3ff",
+        "frame_id": 4,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 385,
+        "revision": 3,
+        "robot_instance_id": "1364088329573",
+        "settle_confirmed_tick": 385,
+        "sha256": "48e284aeb4f193773b1e12676a354a26c7e4cd42dcfe7fe8ecbbf5f0ec7d04c8",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 429,
+        "floor_pixels": 51,
+        "column_range": [
+          429,
+          429
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-3",
+      "sha256": "3cf241ba24af0bf89dc709a4b2583323d1323ff401a251ce9d2d9a1028eb7ce1",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 536,
+        "control_generation": 1,
+        "draw_frame": 517,
+        "episode_id": "5ec1e50c08069e97b624f3ff",
+        "frame_id": 5,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 536,
+        "revision": 3,
+        "robot_instance_id": "1364088329573",
+        "settle_confirmed_tick": 536,
+        "sha256": "3cf241ba24af0bf89dc709a4b2583323d1323ff401a251ce9d2d9a1028eb7ce1",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 457,
+        "floor_pixels": 23,
+        "column_range": [
+          456,
+          457
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "final-idle",
+      "sha256": "89f12818345ecbc4b9dddf0bf9b0f8e53ce02c2eb8e05a7d53573cd5ce87557e",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 684,
+        "control_generation": 1,
+        "draw_frame": 663,
+        "episode_id": "5ec1e50c08069e97b624f3ff",
+        "frame_id": 6,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 684,
+        "revision": 3,
+        "robot_instance_id": "1364088329573",
+        "settle_confirmed_tick": 684,
+        "sha256": "89f12818345ecbc4b9dddf0bf9b0f8e53ce02c2eb8e05a7d53573cd5ce87557e",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 454,
+        "floor_pixels": 26,
+        "column_range": [
+          454,
+          454
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    }
+  ],
+  "evaluation": {
+    "final": {
+      "angular_speed": 0.0122365541756153,
+      "gap_x": 0.140857681632042,
+      "linear_speed": 0.00184578169137239,
+      "linear_velocity": [
+        0.00181842222809792,
+        0.000274720514426008,
+        -0.000157413582201116
+      ],
+      "motors": [
+        {
+          "duty": 0.0,
+          "speed": 0.0203813016414642
+        },
+        {
+          "duty": 0.0,
+          "speed": 0.0783861353993416
+        }
+      ],
+      "position": [
+        0.11385490745306,
+        0.0667824074625969,
+        0.0007100377115421
+      ],
+      "rotation": [
+        -0.00224313139915466,
+        0.0188311617821455,
+        -0.0112432315945625
+      ],
+      "wheel_speed": 0.0840899795293808,
+      "x": 0.11385490745306
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.00507602142170072,
+      "gap_x": 0.255061306059361,
+      "linear_speed": 0.000562061788514256,
+      "linear_velocity": [
+        0.000452495674835518,
+        0.0002016468642978,
+        -0.000265517708612606
+      ],
+      "motors": [
+        {
+          "duty": -0.00307405940868193,
+          "speed": 0.0195451434701681
+        },
+        {
+          "duty": -0.00197870629025905,
+          "speed": 0.00682741170749068
+        }
+      ],
+      "position": [
+        0.00028575977194123,
+        0.0665635392069817,
+        -3.59586483682506e-05
+      ],
+      "rotation": [
+        -0.000259223132161424,
+        -0.00168610888067633,
+        -0.00739122368395329
+      ],
+      "wheel_speed": 0.0239954497665167,
+      "x": 0.00028575977194123
+    },
+    "minimum_gap_x": 0.13311368227005,
+    "rest_ticks": 12,
+    "samples": 693,
+    "schema": 1,
+    "stopped_state": "stopped",
+    "travel_x": 0.113569147681119,
+    "valid": true,
+    "wall_contact": false
+  },
+  "final_image_target": true
+}

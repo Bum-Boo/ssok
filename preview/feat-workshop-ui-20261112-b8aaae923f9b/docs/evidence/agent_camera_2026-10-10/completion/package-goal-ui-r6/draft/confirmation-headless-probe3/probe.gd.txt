@@ -1,0 +1,39 @@
+extends SceneTree
+func _initialize() -> void:
+	_run.call_deferred()
+func _run() -> void:
+	root.size = Vector2i(1400, 950)
+	root.gui_embed_subwindows = true
+	var main: Node3D = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(main)
+	for i: int in 8: await process_frame
+	main._on_answer_pressed()
+	main._open_projects()
+	var panel_size: Vector2i = root.size - 2 * main.projects.position
+	for i: int in 4: await process_frame
+	main.projects.size = panel_size
+	main.projects.save_current()
+	main.projects.library.select(0)
+	main.projects._refresh_actions()
+	main.projects.request_open()
+	var dialog: ConfirmationDialog = main.projects._confirmation
+	var request: Vector2i = root.size - 2 * dialog.position
+	for i: int in 4: await process_frame
+	var before: Dictionary = _state(dialog)
+	dialog.size = request
+	for i: int in 4: await process_frame
+	var width_fixed: Dictionary = _state(dialog)
+	dialog.popup_centered(Vector2i(request.x, 0))
+	var second_request: Vector2i = root.size - 2 * dialog.position
+	for i: int in 4: await process_frame
+	dialog.wrap_controls = false
+	dialog.min_size = Vector2i.ZERO
+	dialog.size = second_request
+	for i: int in 4: await process_frame
+	var result: Dictionary = {"width_fixed": width_fixed, "second_request": [second_request.x,second_request.y], "requested": [request.x, request.y], "before": before, "after": _state(dialog)}
+	var f: FileAccess = FileAccess.open("res://build/ai-loop-evidence/completion/package-goal-ui-r6/confirmation-headless-probe3/result.json", FileAccess.WRITE)
+	f.store_string(JSON.stringify(result));f.close()
+	main.free();quit()
+func _state(dialog: ConfirmationDialog) -> Dictionary:
+	var center: Vector2 = Vector2(dialog.position) + dialog.get_ok_button().get_global_rect().get_center()
+	return {"position": [dialog.position.x, dialog.position.y], "size": [dialog.size.x, dialog.size.y], "min_size": [dialog.min_size.x,dialog.min_size.y], "label_size": [dialog.get_label().size.x, dialog.get_label().size.y], "ok": [center.x, center.y]}

@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS 4 bodies, got 4
+PASS 1 servo drive, got 1
+PASS pin 9 resolves to the servo
+PASS pin 10 is empty
+PASS bodies + joints + drive, got 7
+PASS unpowered arm swung down under gravity (tip y=0.063)
+PASS arm at ~90 deg from up after write(90), got 90.6
+PASS servo stayed mounted (y=0.085)
+PASS teardown leaves no nodes
+run_mode_check: 0 failure(s)

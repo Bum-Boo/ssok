@@ -1,0 +1,78 @@
+{
+  "requested_model": "fable",
+  "models": [
+    "claude-fable-5-1"
+  ],
+  "input_sha256": "e6931aac37897523f3eaeb8f63ce9feccd07e6880baa8d1fd6c1fcf6d77c74c5",
+  "output_sha256": "57d893ba4b5a2c51ef01a73901bbe491d7a0bbc215eed254ad129f6becb9eb8f",
+  "permission_denials": [],
+  "verdict": {
+    "verdict": "pass",
+    "scope": "Bounded v2 fix only (always drain stdout after the poll loop) plus the new runner fixture and the 26-test session run; earlier v1 review stands. Review is read-only against the supplied source text, diff, and runtime tails; no tools, hashes, or live CLI were exercised.",
+    "findings": [
+      {
+        "id": "F1",
+        "severity": "info",
+        "area": "tools/app_control/run_goal.py:main",
+        "note": "The v1 race is real and the v2 fix closes it. In v1, every non-exit break (operator_or_app_stopped, context_changed, deadline) reached the receipt code with `stdout` unbound whenever the CLI had already exited between the 0.5s communicate timeout and `poll()`, raising UnboundLocalError that the except clause did not catch; the finally still ran Stop, but result.json and cli-events.json were never written and the traceback replaced the public receipt. v2 unconditionally calls communicate(timeout=5) after optional end_process, so stdout is always bound."
+      },
+      {
+        "id": "F2",
+        "severity": "info",
+        "area": "run_goal.py:main (cli_exited/cli_failed path)",
+        "note": "On the normal-exit break the fix now calls communicate a second time on an already-completed Popen. With CPython's real Popen this is safe: after the first full communicate, _fileobj2output (POSIX) / _stdout_buff (Windows) retain the accumulated chunks and the second call returns identical bytes with input=None. No output is lost or duplicated. The fixtures use SimpleNamespace processes, so this real-Popen property is reasoned, not tested (see limits)."
+      },
+      {
+        "id": "F3",
+        "severity": "info",
+        "area": "public_cli_events",
+        "note": "Top-level `{type:error,message}` and nested `{type:turn.failed,error:{message}}` from the 2026-10-11 non-interactive docs are now retained as bounded diagnostics, alongside legacy `item.type==error`. This is the exact class the r37 collector dropped. Non-string messages, list-valued `error`, non-dict `item`, non-string `type`, non-dict/non-JSON lines, and invalid UTF-8 all fall through to skip or to the fixed 'unspecified CLI diagnostic' marker without raising; nothing in the function can throw on attacker-shaped stdout, so malformed JSON cannot bypass the finally-scoped Stop. CLI non-zero exit stays `cli_failed` and main returns 1 regardless of parse outcome."
+      },
+      {
+        "id": "F4",
+        "severity": "info",
+        "area": "public_cli_events redaction order",
+        "note": "Redaction (exact token/goal, Bearer/sk-, key=value, UUID, URL/data URI, absolute POSIX/Windows paths, >=64-char base64-ish runs) runs before whitespace collapse and the 400-char truncation, so a secret prefix cannot survive the cut. All regexes are linear; no catastrophic backtracking. Non-error rows carry only allowlisted type/item_type/server/tool names; agent_message and reasoning text, item ids, arguments, and raw stderr never reach the row set or stderr print. Usage keeps only int-typed allowlisted keys (bool excluded)."
+      },
+      {
+        "id": "F5",
+        "severity": "low",
+        "area": "public_cli_events goal/token redaction",
+        "note": "Goal and token redaction is exact-substring only. A provider error that echoes the request body JSON-escaped (quotes as \\\", non-ASCII as \\uXXXX) or reflowed would evade the goal replace; the generic regexes would not catch it. This is consistent with the stated non-certification of universal redaction, but worth documenting as a known gap. Very short goals (e.g. 'Stop.') are over-redacted wherever they occur, which is harmless."
+      },
+      {
+        "id": "F6",
+        "severity": "low",
+        "area": "run_goal.py:main status precedence",
+        "note": "In the new race fixture the receipt reports status operator_or_app_stopped with cli_exit=1. The CLI failure is visible via cli_exit and the diagnostic row, but the status label does not say the CLI had already failed before the stop was observed. Acceptable for a diagnostics-only change; consider a combined marker later."
+      },
+      {
+        "id": "F7",
+        "severity": "low",
+        "area": "run_goal.py:main (pre-existing)",
+        "note": "cli-events.json row count is unbounded (one row per stdout line) and stdout is fully buffered in memory; each row is bounded but the file is not. Also, if the post-loop communicate(timeout=5) times out after end_process, SubprocessError turns the status into runner_failed, overwriting deadline/context_changed and dropping the diagnostics. Both are pre-existing and out of the bounded fix's scope."
+      },
+      {
+        "id": "F8",
+        "severity": "low",
+        "area": "tests/desktop_session_check.py",
+        "note": "The two runner fixtures patch subprocess.run/Popen and signal.signal module-wide for the duration of the context; fine under unittest serial execution. test_exit_during_context_poll reproduces the race precisely (timeout then stopped describe with no events file, process already polled finished), asserts receipt, diagnostic, scoped Stop and exit 1. The redaction fixture covers token, goal, sk-, Bearer, key=value, UUID, path, data URI, long base64 and truncation; the malformed fixture covers non-JSON, invalid UTF-8, null/list/int, non-string type, list-valued error, dict message and empty message. Test count: 18 GoalChecks (incl. MCP SDK test, not skipped per the log tail) + 4 RunnerCleanupChecks + 4 PublicCliDiagnosticChecks = 26, matching the log."
+      },
+      {
+        "id": "F9",
+        "severity": "medium",
+        "area": "docs acceptance",
+        "note": "The worktree git status at session start shows only run_goal.py and desktop_session_check.py modified; OPERATOR.md, STATUS.md, ADR 0029, CODE_MAP.md and CLAUDE-REVIEW.md are untouched and no docs diff was supplied. If any of those describe cli-events.json as containing only event types/tool names/usage (the v0 comment wording), they are now inaccurate: top-level error and turn.failed diagnostics are persisted and echoed to stderr. The docs tests passed but they do not prove the prose is current. Not a code blocker; it is the one open acceptance item I cannot confirm."
+      }
+    ],
+    "blockers": [],
+    "limits": [
+      "No tools were used: I could not compute or compare the sha256 values in contract/applied (152a54bb vs e383b2 before-hashes differ from the contract sources, consistent with v1 then v2 layering, but unverified). Review is against the inlined source text only.",
+      "The test command uses the r37 venv interpreter and no cwd was recorded; the 26-test count and the presence of public_cli_events in the imported module imply the r40 worktree was under test, but this is inferred, not observed.",
+      "Real Popen buffering (second communicate after completion, partial-write retention after a 0.5s timeout) is reasoned from CPython semantics; the fixtures mock communicate and never exercise pipes, the Codex binary, or a provider.",
+      "No live provider call or retry was made or reviewed; the r37 case-5 root cause remains uncertified, and no claim is made that the backend is resolved.",
+      "Redaction is not certified universal (see F5); raw stderr is intentionally dropped, so provider-side stderr-only diagnostics are still lost by design.",
+      "Docs content (F9) was not inspected; the earlier v1 review is unchanged and not re-derived here."
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-11T09:57:32+09:00",
+  "baseline_same_r18_control_bytes": true,
+  "files": {
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r19-run.py": "208b7c2282f404945dc6a95bbc6c6592f3b31c259203211f5bb53d40ef5e97f7",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\attitude-combined.gd": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\callback_probe.gd": "eb31edd3015520c0f66ca8f9e6cf5da13084dfb8bca36ee5f87855314ba02f17",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\callback_sampler.gd": "1fbd290f18cfc8bd5b1b62d07085aab6625aadcb98ce34934813db7ddc06bf61",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\motor_callback.gd": "3b4148a23352c604c910c82116b3dca620e5bafce171c45fce373d629407df1c"
+  },
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/initial-reference-r19/callback_probe.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "model_calls": 0,
+  "production_applied": false
+}

@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\task-tool-r24\\summary.json",
+      "output": "summary.json",
+      "sha256": "ed9879194d7ba9719be6c8c873ec79dd2522d2a7e065baf6aaa46e05bdefcbc7"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\task-tool-r24\\verification.json",
+      "output": "verification.json",
+      "sha256": "197d05fd92134412af0de85d0f5dc4219b93b19e3fb9bcb0d0edad77b01940ef"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\task-tool-r24\\original-regressions.json",
+      "output": "original-regressions.json",
+      "sha256": "73ab3abb21552e9922a7f2d15ceca7c31cdfc5882b2a0786e430529dd3552ab2"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\task-tool-r24\\original-regressions.log",
+      "output": "original-regressions.log",
+      "sha256": "edde773dc46642bf5eb7498731e65505ae14a416f896c87f0b974998c3b4a44d"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\task-tool-r24\\windows-entry-receipt.json",
+      "output": "windows-entry-receipt.json",
+      "sha256": "e0a76fef5cc6b870225ee22cc056726abfd56529ebf2d69fed93af860303ee43"
+    },
+    {
+      "source": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\task-tool-r24\\windows-environment-regressions.json",
+      "output": "windows-environment-regressions.json",
+      "sha256": "e84d09526b17f6fd8beab15d3e9c00b1b19a8ce1e86288ad10fc653dd26099d9"
+    }
+  ],
+  "excluded": [
+    "credential references/config",
+    "backup listing/settings",
+    "raw canonical or cloned task state/events",
+    "hook installers/live configs",
+    "other vault/user data"
+  ]
+}

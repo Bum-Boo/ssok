@@ -1,0 +1,39 @@
+{
+  "exit_code": 0,
+  "seconds": 56.76486559998011,
+  "timed_out": false,
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-operator-r14-native.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\native",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\native\\layout.json",
+    "-Python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-Fixture",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-setup-r14\\native\\project.json",
+    "-OperatorRoot",
+    "C:\\Users\\Hojun\\Projects\\ssok operator r14\\실행 준비"
+  ],
+  "original_source_changed": [
+    "tools/ci/build.py"
+  ],
+  "operator_source": "f2342f8890422b76f64c6f1a842140bc7c1f64c1",
+  "operator_zip_sha256": "734e273ed58f0a15ba6cc5ee2466f1c899912179e6d6ada5385a2c36c5ec7625",
+  "launcher_python_override": false,
+  "actor_python": "C:\\Users\\Hojun\\Projects\\ssok operator r14\\실행 준비\\.operator-venv\\Scripts\\python.exe",
+  "actor_python_version": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "developer_inspection_python_separate": true,
+  "package_files_unchanged": true,
+  "app_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "app_version": "0.3.1-projects-r7",
+  "global_goal_complete": false
+}

@@ -1,0 +1,8 @@
+Loading Web export
+Web observations ready
+Starting Web flag
+PASS Web flag: {'elapsed_seconds': 2.38333333333333, 'execution_id': 5, 'expired': False, 'measurements': [{'held_seconds': 1, 'met': True, 'metric': 'height', 'part_index': 2, 'state': 'valid', 'value': 0.164957612752914}], 'reason': '', 'status': 'success', 'success': True, 'wall_contact': False}
+Starting Web finish
+PASS Web finish: {'elapsed_seconds': 1.3, 'execution_id': 10, 'expired': False, 'measurements': [{'held_seconds': 0.0166666666666667, 'met': True, 'metric': 'x', 'part_index': 0, 'state': 'valid', 'value': 0.506462693214417}, {'held_seconds': 1.3, 'met': True, 'metric': 'upright', 'part_index': 0, 'state': 'valid', 'value': 0.99993097782135}], 'reason': '', 'status': 'success', 'success': True, 'wall_contact': False}
+Starting Web sonar
+PASS Web sonar: {'elapsed_seconds': 3.81666666666666, 'execution_id': 15, 'expired': False, 'measurements': [{'held_seconds': 0.65, 'met': True, 'metric': 'sonar_distance', 'part_index': 8, 'state': 'valid', 'value': 7.16255605220795}, {'held_seconds': 0.3, 'met': True, 'metric': 'speed', 'part_index': 0, 'state': 'valid', 'value': 0.00161832862067968}, {'held_seconds': 3.81666666666666, 'met': True, 'metric': 'wall_contact', 'part_index': 0, 'state': 'valid', 'value': 0}], 'reason': '', 'status': 'success', 'success': True, 'wall_contact': False}

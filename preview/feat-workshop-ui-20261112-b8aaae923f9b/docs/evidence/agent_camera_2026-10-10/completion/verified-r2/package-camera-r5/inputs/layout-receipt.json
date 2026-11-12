@@ -1,0 +1,19 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "build/ai-loop-evidence/completion/package-camera-r5/layout.gd"
+  ],
+  "exit_code": 0,
+  "source_layout_only": true,
+  "sha256": {
+    "layout.gd": "d087dbbfc5f145b4e38c7113c1040e7ad89fca0c9ae243c235ee88028d68852f",
+    "layout.json": "302398b17c95c18f719fdcf58f9515696634e7b008ae2c4336f2caa07ab7d683",
+    "project.json": "04b4364b9c93bbee607abd1a315f79d1e0d9acfcb47e0dbb935065a64aa36694"
+  }
+}

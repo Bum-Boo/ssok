@@ -1,0 +1,37 @@
+{
+  "second_failed_receipt": {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "build/ai-loop-evidence/completion/observation-stop-r18/callback_probe.gd",
+      "--",
+      "--ssok-agent-bridge",
+      "--case",
+      "k32",
+      "--output",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\observation-stop-r18\\k32-v2"
+    ],
+    "exit_code": 1,
+    "seconds": 80.26489549997495,
+    "timed_out": true,
+    "failure": "TimeoutError: Fixed observation checkpoint deadline",
+    "source426_unchanged": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "token_persisted": false,
+    "caller_process_environment_restored": true
+  },
+  "actual_physics_pngs": 0,
+  "cause_unconfirmed": true,
+  "single_recovery_variable": "Native stdout PIPE without reader -> isolated file sink, as existing camera_trial.py",
+  "whole_native_timeout_seconds": 90,
+  "readiness_seconds": 80,
+  "fresh_output": "k32-v3",
+  "physics_fixture_goal_control_changed": false,
+  "driver_before_sha256": "6f8bc66d3811f428da03a4575e6eff7667a55132dc43554fd53296269833f13d",
+  "driver_after_sha256": "84c05cb7f62766a2564587aa710c85b763b7cb577ff982197b85f0b830a4f737"
+}
