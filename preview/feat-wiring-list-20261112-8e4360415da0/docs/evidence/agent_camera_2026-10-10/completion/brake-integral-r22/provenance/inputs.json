@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-10-11T10:48:42+09:00",
+  "head": "6b3469997af49952938f55094df1a600fc23a123",
+  "baseline": {
+    "case": "combined",
+    "floor_pixels": [
+      117,
+      67,
+      49,
+      21,
+      22
+    ],
+    "last_floor_pixels": 22,
+    "final_gap_m": 0.139617308974266,
+    "last_image_gap_m": 0.140603601932526,
+    "stop_delta_from_last_frame_mm": -0.9862929582599989,
+    "actual_motor_counts": [
+      [
+        30,
+        30
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    "physical": true,
+    "last_image": false,
+    "combined": false,
+    "bridge_observation_and_matched_context_stop": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "source426_unchanged": true
+  },
+  "baseline_receipt": {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "build/ai-loop-evidence/completion/initial-reference-r19/callback_probe.gd",
+      "--",
+      "--ssok-agent-bridge",
+      "--case",
+      "combined",
+      "--output",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\initial-reference-r19\\combined"
+    ],
+    "exit_code": 0,
+    "seconds": 17.117561599996407,
+    "timed_out": false,
+    "failure": null,
+    "source426_unchanged": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "token_persisted": false,
+    "caller_process_environment_restored": true
+  },
+  "baseline_reused_not_rerun": true,
+  "baseline_fixture_bytes_identical": true,
+  "files": {
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r22-run.py": "0579b3074a10a591c26c9ccbff8673bdd19ba278b2d5c37a198759380602fdf8",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\attitude-combined.gd": "1a183a509ad61f311fe9c72b890d4cac6fed7ba4ece54a7ef038845b263e38a5",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\attitude-integral.gd": "a5e3ed00cb4cee237449f66e8c05e248d378380ab5e26c4004e87bc930df0769",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\callback_probe.gd": "88ce42eb9f24406bf7d28622e68dc4ac590e775c6e4d67b6b5545e6288686c0d",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\callback_sampler.gd": "da9616c6628442b7fb9f5df3dbc21aee7046d8b48ff8eb7e1c582632fe7a8340",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\brake-integral-r22\\motor_callback.gd": "f1bb0a216dfa78745871da05e3209c76644b798d543df22eaa357aa1736b8365"
+  },
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/brake-integral-r22/callback_probe.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "model_calls": 0,
+  "production_applied": false
+}

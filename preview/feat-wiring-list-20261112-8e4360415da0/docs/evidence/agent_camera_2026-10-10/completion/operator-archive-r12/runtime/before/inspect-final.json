@@ -1,0 +1,31 @@
+{
+  "actual_git_free_runner_failed_before_model_dispatch": true,
+  "provider_cli_launches": 0,
+  "state": {
+    "bridge_listening": true,
+    "can_step": false,
+    "control_generation": 2,
+    "enabled": false,
+    "episode_id": "5167bcbcd0654f21c8326d27",
+    "frame_id": 1,
+    "revision": 4,
+    "robot_supported": true,
+    "state": "stopped"
+  },
+  "actor_result": {
+    "status": "runner_failed",
+    "cli_exit": null,
+    "stop_confirmed": true,
+    "owner_revocation_confirmed": true,
+    "stop_scope": "matched_context",
+    "final_desktop_state": "stopped",
+    "observations": 0,
+    "completed_actions": 0,
+    "final_reobserved": false,
+    "requested_model": "gpt-6-astra",
+    "resolved_model": "CLI JSON does not attest model identity",
+    "usage": {},
+    "goal_success": "not certified; inspect camera/action evidence"
+  },
+  "git_failure_in_stderr": true
+}

@@ -1,0 +1,7 @@
+{
+  "original_check_exit": 2,
+  "observed_failure": "launcher-no-token.stderr line7 contains an original PowerShell-formatted blank line with space",
+  "raw_original_bytes_preserved": true,
+  "recovery": "Check authored handoff/status/README with cr-at-eol, then command-local raw-data blank-at-eof/blank-at-eol allowances; no global Git config or runtime change",
+  "fable_calls_before_recovery": 0
+}

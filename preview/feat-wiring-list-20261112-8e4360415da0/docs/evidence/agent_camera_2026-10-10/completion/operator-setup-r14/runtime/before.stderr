@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import mcp
+ModuleNotFoundError: No module named 'mcp'
+Install the pinned operator requirements in this Python environment first.
+At C:\Users\Hojun\Projects\ssok-ai-loop\tools\app_control\start-operator.ps1:16 char:32
++ ... DE -ne 0) { throw 'Install the pinned operator requirements in this P ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Install the pin...ironment first.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Install the pinned operator requirements in this Python environment first.
+ 

@@ -1,0 +1,52 @@
+Downloading cpython-3.14.7-linux-x86_64-gnu (download) (34.3MiB)
+ Downloaded cpython-3.14.7-linux-x86_64-gnu (download)
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source --editor --import --quit
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source --language en --script res://tools/ci/browser_layout.gd -- /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/export-logs/browser-layout.json
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source --export-release Web /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/web/index.html
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /tmp/ssok-pack-audit-rn7xc_xb --script /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source/tools/ci/check_export.gd -- /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/web/index.pck /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/export-logs/web-resources.json
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source --export-release Linux /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/linux/ssok.x86_64
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/linux/ssok.x86_64 --headless --quit-after 5
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /tmp/ssok-pack-audit-meycto_l --script /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source/tools/ci/check_export.gd -- /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/linux/ssok.pck /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/export-logs/linux-resources.json
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source --export-release Windows /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/windows/ssok.exe
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /tmp/ssok-pack-audit-gw_kx_hr --script /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source/tools/ci/check_export.gd -- /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/windows/ssok.pck /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/export-logs/windows-resources.json
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source --export-release macOS /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/macos/ssok.zip
+Running /home/hojun/.local/share/agent-remote/jobs/20260930-182408-ssok-desktop-native-v3-b32841c6/work/out/toolchain/godot --headless --path /tmp/ssok-pack-audit-l2h18y2r --script /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/source/tools/ci/check_export.gd -- /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/macos/ssok.app/Contents/Resources/ssok.pck /home/hojun/.local/share/agent-remote/jobs/20260930-192047-ssok-desktop-main-verified-5851e793/work/out/delivery/export-logs/macos-resources.json
+{
+  "version": "desktop-main-20260930",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "commit": "d7a0b54b77b6ce60e4953b0facae37586a597248",
+  "dirty_worktree": false,
+  "source_changed_during_build": false,
+  "artifacts": [
+    {
+      "file": "ssok-desktop-main-20260930-web.zip",
+      "sha256": "3a6a06ae9fd87deeb77622e10a9b8afd77592c55100e864380a3a17877ed431f",
+      "bytes": 84745777
+    },
+    {
+      "file": "ssok-desktop-main-20260930-linux-x86_64.zip",
+      "sha256": "c98229a730f9a7e0b845ba13461f7506111be1d094f6db3cba02624b6b68ea24",
+      "bytes": 102953099
+    },
+    {
+      "file": "ssok-desktop-main-20260930-windows-x86_64.zip",
+      "sha256": "7a89550bfb5664c2703f6b99c3ee1b2cb17e86f668b4e3cc3e6b8599e13d3709",
+      "bytes": 112580289
+    },
+    {
+      "file": "ssok-desktop-main-20260930-windows-x86_64-setup.exe",
+      "sha256": "286b4ac0d26d60f1b4a401ce55d23913a58df3b1c9e447936f2c7f9387a0fef7",
+      "bytes": 110048203
+    },
+    {
+      "file": "ssok-desktop-main-20260930-windows-x86_64-installer.zip",
+      "sha256": "95b8430ecbe67be56a74dc18222a49deb3a3fc83ac72fc6dd0ca8d69cbd98ad3",
+      "bytes": 109773912
+    },
+    {
+      "file": "ssok-desktop-main-20260930-macos-universal.zip",
+      "sha256": "7cf1a37bc9fd83e40c8678cf2d6a8d3cf0b8c8b7271df2b79555f02de91960d7",
+      "bytes": 135235648
+    }
+  ]
+}

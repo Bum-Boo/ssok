@@ -1,0 +1,13 @@
+{
+  "requested_model": "fable",
+  "scope": "actor medium prompt and UTF8 owner/budget review",
+  "source_sha256": {
+    "tools/app_control/run_goal.py": "5138294974740ade7e0c8c2179541c5f794fc875c31e709c1878135dd28b02d0",
+    "tools/app_control/camera_trial.py": "6612d0c57f920d2865fccd7fa78d99fd36ae2f8b72fc6a618ee7d167633b8018",
+    "tools/app_control/stabilize_camera_trials.py": "eb08d7f53d90e189a5a9bd9cb3bdd778d64e4ebc54437dbce2201e47cb5df80e",
+    "tools/app_control/desktop_session.py": "ceebbb9eb2e064c476b51e2dbe5dce6660bd9501142076dd1ada998a0a2c511d",
+    "tools/app_control/desktop_mcp.py": "1c9afbc636ff99ec550b36139e7347a15b7992e555f01b08c5780e10a15d043c",
+    "tests/camera_experiment_check.py": "fdde00d18f10b3a3dd601b2e1269bbaf342a8c475ec22b0aed73d8e42be9173b"
+  },
+  "timeout_seconds": 180
+}

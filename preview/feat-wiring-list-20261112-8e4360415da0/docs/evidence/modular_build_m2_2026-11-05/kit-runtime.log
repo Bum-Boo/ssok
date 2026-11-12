@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+KIT_RUNTIME_MEASUREMENTS {"drive_dx_m":0.853422910498921,"left_pin":0,"moved_wall_cm":89.2371535301209,"right_pin":12,"sonar_cm":69.2182421684265,"sonar_pins":[1,2]}
+KIT_STAGE_RESULT raise-flag {"elapsed_seconds":2.11666666666666,"execution_id":2,"expired":false,"measurements":[{"held_seconds":1.0,"met":true,"metric":"max_height","part_index":-1,"state":"valid","value":0.209737241268158}],"reason":"","status":"success","success":true,"wall_contact":false}
+KIT_STAGE_RESULT finish-line {"elapsed_seconds":1.95,"execution_id":2,"expired":false,"measurements":[{"held_seconds":0.0166666666666667,"met":true,"metric":"min_x","part_index":-1,"state":"valid","value":0.501516819000244}],"reason":"","status":"success","success":true,"wall_contact":false}
+KIT_STAGE_RESULT wall-brake {"elapsed_seconds":15.6333333333337,"execution_id":2,"expired":false,"measurements":[{"held_seconds":2.15,"met":true,"metric":"wall_distance","part_index":-1,"state":"valid","value":0.0733921527862549},{"held_seconds":0.0,"met":false,"metric":"robot_speed","part_index":-1,"state":"valid","value":0.0619057938456535},{"held_seconds":15.6333333333337,"met":true,"metric":"wall_contact","part_index":-1,"state":"valid","value":0.0}],"reason":"","status":"running","success":false,"wall_contact":false}
+KIT_STAGE_BODY_SPEEDS [{"id":"kit_plate_220_120","speed_m_s":0.000509700214024633},{"id":"kit_beam_140","speed_m_s":0.000509700214024633},{"id":"tt_motor","speed_m_s":0.000509700214024633},{"id":"kit_wheel_90","speed_m_s":0.000929278845433146},{"id":"kit_beam_140","speed_m_s":0.000509700214024633},{"id":"tt_motor","speed_m_s":0.000509700214024633},{"id":"kit_wheel_90","speed_m_s":0.000708147417753935},{"id":"kit_beam_100","speed_m_s":0.000509700214024633},{"id":"kit_beam_100","speed_m_s":0.000509700214024633},{"id":"microbit","speed_m_s":0.000509700214024633},{"id":"motor_driver","speed_m_s":0.000509700214024633},{"id":"kit_spacer_20","speed_m_s":0.000509700214024633},{"id":"ball_caster","speed_m_s":0.0619057938456535},{"id":"kit_angle_bracket","speed_m_s":0.000509700214024633},{"id":"hc_sr04","speed_m_s":0.000509700214024633},{"id":"stage_wall","speed_m_s":0.0}]
+ERROR: wall-brake unchanged answer physically clears kit stage
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/kit_robot_runtime_check.gd:15)
+       [1] _run (res://tests/kit_robot_runtime_check.gd:109)
+kit_robot_runtime_check: 106 checks, 1 failures

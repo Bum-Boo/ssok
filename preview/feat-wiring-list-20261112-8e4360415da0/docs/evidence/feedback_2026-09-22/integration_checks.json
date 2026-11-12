@@ -1,0 +1,20 @@
+{
+  "source": "Integrated release worktree before own checkpoint commit",
+  "policy_sha256": "9518b2f31040b1c6bd1d5328c0cc4015f100633683ed60bedaad289cf9387f76",
+  "checks": {
+    "godot_import": "exit0; no ERROR/Parse lines",
+    "scene_load": "exit0",
+    "learned_policy_check": "PASS,0failures",
+    "learned_tracking_check": "29checks,0failures",
+    "learned_app_check_settle83_restart": "737checks,0failures",
+    "packaged_evaluator_v1_v2_seed6101": "Both complete episode JSON results identical to original frozen evaluation"
+  },
+  "app_metrics": {
+    "forward_m": 0.42644,
+    "lateral_m": 0.03129,
+    "yaw_deg": -5.522,
+    "min_upright": 0.9575,
+    "minimum_height_m": 0.1289
+  },
+  "localization": "No new or changed user-facing strings; existing forward-only and original-assembly messages retained."
+}

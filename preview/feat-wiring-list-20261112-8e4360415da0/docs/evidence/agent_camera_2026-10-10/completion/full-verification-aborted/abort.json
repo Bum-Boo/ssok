@@ -1,0 +1,17 @@
+{
+  "status": "aborted_after_four_completed_checks",
+  "completed_checks": 4,
+  "completed_failures": 1,
+  "interrupted_check": "agent_camera_rest_check",
+  "reason": [
+    "Windows and WSL share localhost bridge port8127, conflicting with live trial",
+    "WSL has no ALSA hardware output"
+  ],
+  "observed": [
+    "bridge ERR_ALREADY_IN_USE22",
+    "audio ERR_CANT_OPEN",
+    "camera loop29checks5failures"
+  ],
+  "recovery": "Run native Windows full gate sequentially after live trials with Dummy audio; preserve all original failures",
+  "unverified_hypothesis": "Software renderer may have overrun the10second operation watchdog"
+}

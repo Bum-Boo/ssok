@@ -1,0 +1,26 @@
+from pathlib import Path
+import hashlib,json,os,shutil,subprocess,sys,time
+assert os.name=='posix'
+r=Path('/mnt/c/Users/Hojun/Projects/ssok-ai-loop');e=r/'build/ai-loop-evidence/completion/release-current-ui-r7';out=r/'build/projects-release-clean-r7'
+git=lambda *a:subprocess.check_output(['git',*a],cwd=r).decode().strip()
+def sha(p):
+    with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+head=git('rev-parse','HEAD');assert head=='fa868ca07cdd9d2b8edb27cbab89cd00263c851f' and not git('status','--porcelain')
+gate=json.loads((e/'native-gate-final.json').read_text());assert gate['exit_code']==0 and gate['failures']==0 and gate['source426_unchanged'] and gate['git_clean']
+inputs=json.loads((e/'source-before.json').read_text())['files'];assert all(sha(r/n)==h for n,h in inputs.items())
+assert not out.exists();out.mkdir();source=r/'build/toolchain-linux/user-data/godot/export_templates/4.7.2.stable';target=out/'isolated-data/godot/export_templates/4.7.2.stable';target.mkdir(parents=True)
+templates=[]
+for p in sorted(source.iterdir()):
+    if p.is_file():shutil.copy2(p,target/p.name);assert sha(p)==sha(target/p.name);templates.append({'file':p.name,'sha256':sha(p),'bytes':p.stat().st_size})
+assert len(templates)==10
+(e/'templates.json').write_bytes((json.dumps({'source':str(source),'copied_hash_matches':templates},indent=2)+'\n').encode())
+nsis=r/'build/camera-release-clean-r2/nsis-toolchain';environment=os.environ.copy();environment['NSISDIR']=str(nsis/'usr/share/nsis');environment['XDG_DATA_HOME']=str(out/'isolated-data');environment['XDG_CONFIG_HOME']=str(out/'isolated-config')
+command=[sys.executable,'tools/ci/build.py','--godot',str(r/'build/toolchain-linux/godot'),'--version','0.3.1-projects-r7','--output',str(out),'--makensis',str(nsis/'usr/bin/makensis')];started=time.monotonic()
+print('BEGIN four-platform clean current-UI export',flush=True)
+with (e/'build.log').open('wb') as log:x=subprocess.run(command,cwd=r,env=environment,stdout=log,stderr=subprocess.STDOUT,timeout=1800)
+receipt={'command':command,'exit_code':x.returncode,'seconds':time.monotonic()-started,'head':head,'source426_unchanged':all(sha(r/n)==h for n,h in inputs.items()),'git_clean':not git('status','--porcelain'),'published':False}
+(e/'build-receipt.json').write_bytes((json.dumps(receipt,indent=2)+'\n').encode());print(json.dumps(receipt),flush=True)
+assert x.returncode==0 and receipt['source426_unchanged'] and receipt['git_clean']
+metadata=json.loads((out/'release.json').read_text());assert metadata['commit']==head and not metadata['dirty_worktree'] and not metadata['source_changed_during_build'] and len(metadata['artifacts'])==6
+assert all(sha(out/x['file'])==x['sha256'] for x in metadata['artifacts'])
+print(json.dumps({'version':metadata['version'],'clean':True,'artifact_hashes':6,'mac_native_tested':False}),flush=True)

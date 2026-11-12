@@ -1,0 +1,5 @@
+RUN  import
+PASS import (3.7s)
+RUN  motion_lab_ui_check
+PASS motion_lab_ui_check (3.1s)
+2 checks; 0 failures. Results: /home/hojun/.local/share/agent-remote/jobs/20260930-115008-ssok-core-http-retry-3f116e2a/work/out/verification/SUMMARY.md

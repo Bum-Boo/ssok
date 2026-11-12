@@ -1,0 +1,444 @@
+{
+  "schema": 1,
+  "wall_x": 0.6,
+  "ticks": [
+    25,
+    25,
+    25,
+    15,
+    1
+  ],
+  "idle_seconds": 5.0,
+  "captures": [
+    {
+      "label": "initial",
+      "sha256": "d3b8c000b4730003dcb76dfd9d1159054358426654aa0fb57f3c8d89fae8928f",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 54,
+        "control_generation": 1,
+        "draw_frame": 39,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 2,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 54,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 54,
+        "sha256": "d3b8c000b4730003dcb76dfd9d1159054358426654aa0fb57f3c8d89fae8928f",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 300,
+        "floor_pixels": 180,
+        "column_range": [
+          300,
+          300
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "pre-1-idle",
+      "sha256": "3ce6be81afb347ccbaf551d81eee743eb1f3175d886a1dffc9b6dd310fc2724b",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 390,
+        "control_generation": 1,
+        "draw_frame": 373,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 3,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 390,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 390,
+        "sha256": "3ce6be81afb347ccbaf551d81eee743eb1f3175d886a1dffc9b6dd310fc2724b",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 301,
+        "floor_pixels": 179,
+        "column_range": [
+          301,
+          301
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-1",
+      "sha256": "a6a9518a2c8d3ec1e1b75b741cf60012889616f4acfbe40b1f8aac6a1916f8ee",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 475,
+        "control_generation": 1,
+        "draw_frame": 455,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 4,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 475,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 475,
+        "sha256": "a6a9518a2c8d3ec1e1b75b741cf60012889616f4acfbe40b1f8aac6a1916f8ee",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 312,
+        "floor_pixels": 168,
+        "column_range": [
+          312,
+          312
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "pre-2-idle",
+      "sha256": "8b1e39de8d6f97fbe7ee09e40a432a57ab47364a91cd6eb4bc290a082ccd0d6b",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 799,
+        "control_generation": 1,
+        "draw_frame": 778,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 5,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 799,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 799,
+        "sha256": "8b1e39de8d6f97fbe7ee09e40a432a57ab47364a91cd6eb4bc290a082ccd0d6b",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 314,
+        "floor_pixels": 166,
+        "column_range": [
+          314,
+          314
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-2",
+      "sha256": "583aaec8d0f7b58275895ae3586e33e82f8b6355501524859b2a6173675ef8c4",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 881,
+        "control_generation": 1,
+        "draw_frame": 857,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 6,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 881,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 881,
+        "sha256": "583aaec8d0f7b58275895ae3586e33e82f8b6355501524859b2a6173675ef8c4",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 335,
+        "floor_pixels": 145,
+        "column_range": [
+          335,
+          335
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "pre-3-idle",
+      "sha256": "cc173910deb18b3d51c4826910d511d7bd176c12b041d095cdd85d1ba6774e54",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 1203,
+        "control_generation": 1,
+        "draw_frame": 1178,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 7,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 1203,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 1203,
+        "sha256": "cc173910deb18b3d51c4826910d511d7bd176c12b041d095cdd85d1ba6774e54",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 339,
+        "floor_pixels": 141,
+        "column_range": [
+          339,
+          339
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-3",
+      "sha256": "e19a5b923d65022ea545f88f66f5e1aeae5bc10eeb606350388bca728236fba2",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 1289,
+        "control_generation": 1,
+        "draw_frame": 1264,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 8,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 1289,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 1289,
+        "sha256": "e19a5b923d65022ea545f88f66f5e1aeae5bc10eeb606350388bca728236fba2",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 376,
+        "floor_pixels": 104,
+        "column_range": [
+          376,
+          376
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "pre-4-idle",
+      "sha256": "e1b9db1552005efac774c4871b0e4ca952b2aed850c0ca3455dff0efdd65e771",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 1609,
+        "control_generation": 1,
+        "draw_frame": 1583,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 9,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 1609,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 1609,
+        "sha256": "e1b9db1552005efac774c4871b0e4ca952b2aed850c0ca3455dff0efdd65e771",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 381,
+        "floor_pixels": 99,
+        "column_range": [
+          381,
+          381
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-4",
+      "sha256": "26c3bf2f159fb482586fed7a6892bc9108fdf93ab8ac715a28e75509da120de5",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 1682,
+        "control_generation": 1,
+        "draw_frame": 1655,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 10,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 1682,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 1682,
+        "sha256": "26c3bf2f159fb482586fed7a6892bc9108fdf93ab8ac715a28e75509da120de5",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 424,
+        "floor_pixels": 56,
+        "column_range": [
+          424,
+          424
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "pre-5-idle",
+      "sha256": "b41cf2812b3a3e6e95d63462b2d60f29de47f557130c4ab3d5bfa32a81f9e389",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2007,
+        "control_generation": 1,
+        "draw_frame": 1977,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 11,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2007,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 2007,
+        "sha256": "b41cf2812b3a3e6e95d63462b2d60f29de47f557130c4ab3d5bfa32a81f9e389",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 435,
+        "floor_pixels": 45,
+        "column_range": [
+          435,
+          435
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "post-5",
+      "sha256": "f4d583d77c894d4faa4196168573fa3269302fe748fc6670a0259e3e7fdbec55",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2052,
+        "control_generation": 1,
+        "draw_frame": 2022,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 12,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2052,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 2052,
+        "sha256": "f4d583d77c894d4faa4196168573fa3269302fe748fc6670a0259e3e7fdbec55",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 438,
+        "floor_pixels": 42,
+        "column_range": [
+          437,
+          438
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    },
+    {
+      "label": "final-idle",
+      "sha256": "34ceca751c28a6eaaf5a11cc31a2b90922a6d0a95a31543f416994ada583f6fe",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 2209,
+        "control_generation": 1,
+        "draw_frame": 2176,
+        "episode_id": "bf65939034ded5941d7a67ab",
+        "frame_id": 13,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 2209,
+        "revision": 3,
+        "robot_instance_id": "1364205770087",
+        "settle_confirmed_tick": 2209,
+        "sha256": "34ceca751c28a6eaaf5a11cc31a2b90922a6d0a95a31543f416994ada583f6fe",
+        "width": 640
+      },
+      "pixels": {
+        "boundary_y": 444,
+        "floor_pixels": 36,
+        "column_range": [
+          444,
+          444
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      }
+    }
+  ],
+  "evaluation": {
+    "final": {
+      "angular_speed": 0.00576622039079666,
+      "gap_x": 0.147351771593094,
+      "linear_speed": 0.00174939481075853,
+      "position": [
+        0.356398969888687,
+        0.0671100094914436,
+        -0.00145954045001417
+      ],
+      "rotation": [
+        0.00200243340805173,
+        0.0453533120453358,
+        -0.0174802839756012
+      ],
+      "wheel_speed": 0.0657601729035378,
+      "x": 0.356398969888687
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.0277371350675821,
+      "gap_x": 0.504712104797363,
+      "linear_speed": 0.00554260145872831,
+      "position": [
+        0.000575765734538436,
+        0.0666194632649422,
+        3.83005681214854e-05
+      ],
+      "rotation": [
+        -0.000746400910429657,
+        -0.00100979767739773,
+        -0.00846358016133308
+      ],
+      "wheel_speed": 0.742974877357483,
+      "x": 0.000575765734538436
+    },
+    "minimum_gap_x": 0.147351771593094,
+    "rest_ticks": 54,
+    "samples": 2219,
+    "schema": 1,
+    "stopped_state": "stopped",
+    "travel_x": 0.355823204154149,
+    "valid": true,
+    "wall_contact": false
+  },
+  "final_image_target": true
+}

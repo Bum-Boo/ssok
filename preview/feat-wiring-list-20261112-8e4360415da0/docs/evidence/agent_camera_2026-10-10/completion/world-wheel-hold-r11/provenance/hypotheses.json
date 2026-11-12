@@ -1,0 +1,14 @@
+[
+  {
+    "rank": 1,
+    "prediction": "If relative wheel holding permits residual world wheel roll, changing only PI speed reference to world wheel axis rate should lower that residual and capture gap/pixel spans without timeout/contact/Stop regression."
+  },
+  {
+    "rank": 2,
+    "prediction": "If chassis/floor constraint drift dominates, wheel world rate may change but chassis pitch rate and pixel span will remain, or stricter holding will fail settling. A one-run gap improvement is not a causal fix."
+  },
+  {
+    "rank": 3,
+    "prediction": "If the discrete action boundary independently dominates, unchanged30/10/12 can still fail simultaneous original image/physical thresholds even if holding is steadier."
+  }
+]

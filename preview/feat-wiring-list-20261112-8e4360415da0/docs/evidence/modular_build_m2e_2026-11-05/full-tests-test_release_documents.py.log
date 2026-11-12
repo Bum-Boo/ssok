@@ -1,0 +1,22 @@
+test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction) ... ERROR
+
+======================================================================
+ERROR: test_documentation_links_survive_packaging_and_extraction (tests.test_release_documents.ReleaseDocumentsTest.test_documentation_links_survive_packaging_and_extraction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Hojun\agent-jobs\ssok-M2e-20261105\repo\tests\test_release_documents.py", line 31, in test_documentation_links_survive_packaging_and_extraction
+    for match in re.finditer(r"\]\((<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)", document.read_text(encoding="utf-8")):
+                                                                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hojun\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hojun\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 633, in read_text
+    return f.read()
+           ~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xa1 in position 63: invalid start byte
+
+----------------------------------------------------------------------
+Ran 1 test in 18.318s
+
+FAILED (errors=1)

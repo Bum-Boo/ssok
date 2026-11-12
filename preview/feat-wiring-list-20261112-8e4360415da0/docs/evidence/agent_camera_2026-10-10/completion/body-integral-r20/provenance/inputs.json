@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-10-11T10:14:08+09:00",
+  "head": "c1923a8062c92704e53c7372772c1965e5f92bfb",
+  "baseline_native_seconds": 16.578983499959577,
+  "baseline": {
+    "case": "initial",
+    "floor_pixels": [
+      117,
+      67,
+      48,
+      21,
+      23
+    ],
+    "last_floor_pixels": 23,
+    "final_gap_m": 0.138985395431519,
+    "last_image_gap_m": 0.138834774494171,
+    "stop_delta_from_last_frame_mm": 0.15062093734799498,
+    "actual_motor_counts": [
+      [
+        30,
+        30
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    "physical": true,
+    "last_image": false,
+    "combined": false,
+    "bridge_observation_and_matched_context_stop": true,
+    "model_calls": 0,
+    "production_applied": false,
+    "source426_unchanged": true
+  },
+  "baseline_reused_not_rerun": true,
+  "baseline_readonly_source_copy_git_previous_closeout": true,
+  "baseline_fixture_bytes_identical": true,
+  "files": {
+    "C:\\Users\\Hojun\\Projects\\ssok-control-r20-run.py": "bf07c36cf87496467860c232ea0cef0aa58e304c1a5ec90fd8915bb9e9a35dd0",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\body-integral-r20\\attitude-initial.gd": "1ec040e3f9a4a6509b7758a6e65e09f1973f5b2bcb58458f035e694454ce75b1",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\body-integral-r20\\attitude-integral.gd": "c429b758d864718572cec1b11cbe1bd63fbabb0e30f7e0d838f84a975d846312",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\body-integral-r20\\callback_probe.gd": "120bafa480ec4e99a303625f00b5299ea4f9879b99dfc0f81874b990ffb1d2a8",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\body-integral-r20\\callback_sampler.gd": "ec3f7657683167881ee08b31f02b3ecd3c76b8bb1affacb67cf080e41ca48c67",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\body-integral-r20\\motor_callback.gd": "991f67dad510957ac01737da8f9f72e4f3277a723875a85ea1b8068a9efa49ad"
+  },
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+    "--script",
+    "build/ai-loop-evidence/completion/body-integral-r20/callback_probe.gd",
+    "--check-only"
+  ],
+  "exit_code": 0,
+  "model_calls": 0,
+  "production_applied": false
+}

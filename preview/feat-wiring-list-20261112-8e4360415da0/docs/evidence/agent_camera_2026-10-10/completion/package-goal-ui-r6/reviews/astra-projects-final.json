@@ -1,0 +1,408 @@
+{
+  "actual_model": "gpt-6-astra",
+  "role": "native visual inspector",
+  "method": "All 32 specified actual PNGs viewed through view_image at original resolution in two batches; each file SHA256 and dimensions measured read-only.",
+  "coordinator_supplied_source_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-light-960x640-200-saved.png",
+      "sha256": "a64c94d1f77e80be60d12110bd528f77d88ffbb9c483332649a7a456267c2e95",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "en",
+      "theme": "light",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still. Upper body text is partially clipped at scroll viewport top in this captured scroll position.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-light-960x640-200-import-confirm.png",
+      "sha256": "cfe65e50980891c388cf5f3463a22c2aebe896cee1e69f82453c203dce44646e",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "en",
+      "theme": "light",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state. Warning wraps to two lines.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-light-1400x950-100-transfer.png",
+      "sha256": "c2de511ead88e85626a45466b3dcb3443de1bdb75623203bd5f9bde332d7ff85",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "en",
+      "theme": "light",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-light-1400x950-100-delete-confirm.png",
+      "sha256": "834db495e820c0c026c8d7591f083bda4508a399a5a825402c61e389d5f96231",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "en",
+      "theme": "light",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-dark-960x640-200-saved.png",
+      "sha256": "18cde77e461da5e13482c0e77a4326934721b3be33c83e93be8da3a03edf3969",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "en",
+      "theme": "dark",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still. Upper body text is partially clipped at scroll viewport top in this captured scroll position.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-dark-960x640-200-import-confirm.png",
+      "sha256": "780e331cae26df1b3cd88a0d6d8528812a56ef694b6c15aa063c15f87da2ca48",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "en",
+      "theme": "dark",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state. Warning wraps to two lines.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-dark-1400x950-100-transfer.png",
+      "sha256": "a8d26ed7c70865776112b66603a6b651d72f1a5ef53b1142d971bea27215c380",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "en",
+      "theme": "dark",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/en-dark-1400x950-100-delete-confirm.png",
+      "sha256": "30507f97ecc785a3a3f16e61bbddc4f84bbe7e8db2c4a5374fb721f8982c323b",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "en",
+      "theme": "dark",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-light-960x640-200-saved.png",
+      "sha256": "9ab9d2e07cc7be21ac1e8b1b93bf91f8ab6a972311b74bd7be619815d7734339",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ko",
+      "theme": "light",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still. Tab bottom borders clipped at body scroll boundary; label glyphs remain readable.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-light-960x640-200-import-confirm.png",
+      "sha256": "c3d67f46a5a4b696c9013f998364df2f1eec8f1f5818e45a8e235d6b56849982",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ko",
+      "theme": "light",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state. Warning wraps to two lines.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-light-1400x950-100-transfer.png",
+      "sha256": "ee9bbd7dad68557d0fda793fb9c4369c4babfc4e26066a946d158749d27970da",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ko",
+      "theme": "light",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-light-1400x950-100-delete-confirm.png",
+      "sha256": "6bf6bb34abc3f962715afa0f95209f7b95c8e69c434bf531ec2f422506a6f5b2",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ko",
+      "theme": "light",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-dark-960x640-200-saved.png",
+      "sha256": "0805693c01bb5432cff228151dbd35c351c884cfa9f79f09b90491c19ea59839",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ko",
+      "theme": "dark",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still. Tab bottom borders clipped at body scroll boundary; label glyphs remain readable.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-dark-960x640-200-import-confirm.png",
+      "sha256": "b5af12e3ad0586818f8b854df641f929a917abf73ead3fa28b35c9bd896b2458",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ko",
+      "theme": "dark",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state. Warning wraps to two lines.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-dark-1400x950-100-transfer.png",
+      "sha256": "30dfce6ea2f577055a0fb3faa157b8159ed38a85a60eb23e66cfc02359f50ccd",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ko",
+      "theme": "dark",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ko-dark-1400x950-100-delete-confirm.png",
+      "sha256": "b56dadb7c5b8dce05242d0b4beec9588e77f9693868efa60a7310b45289e35ef",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ko",
+      "theme": "dark",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-light-960x640-200-saved.png",
+      "sha256": "fa5c733f57714b3ba33c8b9fa1206fc90379ec6df04c181febc935826de41d3c",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "zh_CN",
+      "theme": "light",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-light-960x640-200-import-confirm.png",
+      "sha256": "ec34b96fc8a656ee6d0ef9ca4a07cfdd768441a52000cf84fa9447ec793c5d3f",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "zh_CN",
+      "theme": "light",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-light-1400x950-100-transfer.png",
+      "sha256": "578698c09259162d1f6d352e2deeb3d7881d669006f6ddef517951d247958eb7",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "zh_CN",
+      "theme": "light",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-light-1400x950-100-delete-confirm.png",
+      "sha256": "2509a2bc5e2dc524b03e48bb7a0b64d1d0d999d288e4bff13ccb7a1fd7d5319d",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "zh_CN",
+      "theme": "light",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-dark-960x640-200-saved.png",
+      "sha256": "87d095c73a759184ccfd25399855dbfc1cab364eaf16605f21d9d3f92aa49bc6",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "zh_CN",
+      "theme": "dark",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-dark-960x640-200-import-confirm.png",
+      "sha256": "2d6a38c5af668f80a26b35582b73d7344dfe8acb4c8edfa3a7e9c2c3962bc44f",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "zh_CN",
+      "theme": "dark",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-dark-1400x950-100-transfer.png",
+      "sha256": "4409d18ae99e73d8ca71952afba01fdeb29d98e4169cf33e5b6e52cb1d879ab7",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "zh_CN",
+      "theme": "dark",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/zh_CN-dark-1400x950-100-delete-confirm.png",
+      "sha256": "62184c9c4ae7480ed073befe94b5650d743bbfd3976de746079952a29681e338",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "zh_CN",
+      "theme": "dark",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-light-960x640-200-saved.png",
+      "sha256": "1e9bb99089929f1bf394b21063e4a623a0615df588b1af93e38692de2d1f99c5",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ja",
+      "theme": "light",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still. Upper body text is partially clipped at scroll viewport top in this captured scroll position. Footer wraps to two readable lines without overlapping Close.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-light-960x640-200-import-confirm.png",
+      "sha256": "5acfa4286bc3a311904291872a2899f1c85f81e4aafc2b9f5e8d028ae75fc493",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ja",
+      "theme": "light",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state. Warning wraps to two lines. Main footer also wraps to two lines and stays separate from Close.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-light-1400x950-100-transfer.png",
+      "sha256": "40487fe5ada598469a2f4a64b46b00ddfd95ff10e1b2d591a460228b34dc4c0b",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ja",
+      "theme": "light",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-light-1400x950-100-delete-confirm.png",
+      "sha256": "402b2286bd3340b5f6ddfcb0c9180770cc5cb877bed5f472b6d1cf3657c698b0",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ja",
+      "theme": "light",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Dark text on light panel, readable."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-dark-960x640-200-saved.png",
+      "sha256": "c05b047cef7f12f137ee7e058182bcd68212e625d4fabbdae51d79411441da50",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ja",
+      "theme": "dark",
+      "observations": "Saved tab selected with no confirmation overlay. Full visible save-snapshot and export-project labels, localized Projects title, close X, fixed footer and localized Close button fit in viewport. Saved-list lower content and open/delete actions are below current scroll viewport; not certified visible or reachable by this still. Upper body text is partially clipped at scroll viewport top in this captured scroll position. Footer wraps to two readable lines without overlapping Close.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-dark-960x640-200-import-confirm.png",
+      "sha256": "d7e5c5ea7d5009af17722afb0e298c521dbd31f02870e07099aa8e4c26b5d55a",
+      "dimensions": [
+        960,
+        640
+      ],
+      "locale": "ja",
+      "theme": "dark",
+      "observations": "Import confirmation overlays transfer view. Localized title, full replace-current-assembly/code warning, affirmative and Cancel buttons and X are readable and inside viewport. Main fixed footer and Close remain visible. Underlying scroll body is partially obscured or clipped as expected for this captured modal/scroll state. Warning wraps to two lines. Main footer also wraps to two lines and stays separate from Close.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-dark-1400x950-100-transfer.png",
+      "sha256": "3e043bfe00b41a6188f10b2b246c6c08fada3d25d042326e9de5219564ecbfe5",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ja",
+      "theme": "dark",
+      "observations": "Transfer tab selected without confirmation overlay. Full localized save/export, copy JSON and import-project button labels fit. Projects title, X, fixed footer and Close visible. JSON editor scrollbars and partial JSON content visible; no glyph boxes or visible label truncation in inspected panel.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/package-goal-ui-r6/projects-render-final/ja-dark-1400x950-100-delete-confirm.png",
+      "sha256": "b0c7d79b9044dc892bc8968b52204a49eeb756e7267bb7df5d00309e10929b46",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "locale": "ja",
+      "theme": "dark",
+      "observations": "Delete confirmation overlays Saved view. Localized title, full deletion warning and affirmative/Cancel button labels fit and are readable. Underlying open-selected/delete-snapshot labels, fixed footer and Close remain visible. No missing glyphs observed.",
+      "palette_observation": "Light text on dark panel, readable; previous pale-text/light-body mismatch absent."
+    }
+  ],
+  "verdict": "PASS for bounded visual scope: corrected visible labels, localized glyphs, Projects title/Close/footer containment, compact Saved views without stale confirmation overlay, and readable import/delete confirmation palettes across four locales and both themes.",
+  "issues_requiring_changes": [],
+  "observed_limits": [
+    "Compact Saved lower saved-list/open/delete actions are outside the captured body scroll viewport; still images cannot establish reachability or keyboard accessibility.",
+    "Some compact upper body text is clipped by current scroll position; fixed title and footer remain visible.",
+    "The Japanese compact footer wraps to two lines while Close remains fully visible.",
+    "Underlying workshop text or buttons sometimes show partial clipping outside the Projects panel; outside assigned Projects scope."
+  ],
+  "scope_limits": [
+    "These are scripted native source-harness captures, not packaged r2 verification.",
+    "80 cases/1181 checks/0 failures is coordinator-supplied runtime evidence, not used as substitute for visual viewing.",
+    "No independent certification of exact numeric contrast ratios, synthetic Escape routing, clicks, modal dismissal, keyboard navigation or scroll reachability.",
+    "No physical, provider, billing, model invocation or package runtime certification.",
+    "No source/image edits, design authorship, delegation or publication."
+  ],
+  "read_failures": []
+}

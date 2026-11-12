@@ -1,0 +1,138 @@
+{
+  "checkpoint": "2026-10-11T09:42:39+09:00",
+  "runtime_input_head": "d947208e8d9f23c367cde7629312c913c449d12a",
+  "original_source426_operator7_unchanged": true,
+  "app_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "app_version": "0.3.1-projects-r7",
+  "app_pe_pck_sha256": {
+    "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+    "ssok.pck": "cada9f5a3ab939fb96cff5a9095e42857c9cc8209d76009e35275d62792e8535"
+  },
+  "operator_r14_zip_sha256": "734e273ed58f0a15ba6cc5ee2466f1c899912179e6d6ada5385a2c36c5ec7625",
+  "frozen_goal_sha256": "d372505d199ce2e2ba4b12588487cafe9e722465b65171ca25fcbf8496f632a4",
+  "cases": {
+    "k32-double-observe": {
+      "case": "k32",
+      "floor_pixels": [
+        116,
+        67,
+        50,
+        23,
+        25,
+        26
+      ],
+      "last_floor_pixels": 26,
+      "final_gap_m": 0.14059767127037,
+      "last_image_gap_m": 0.141008824110031,
+      "stop_delta_from_last_frame_mm": -0.4111528396609776,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "physical": false,
+      "last_image": true,
+      "combined": false,
+      "bridge_observation_and_matched_context_stop": true,
+      "model_calls": 0,
+      "production_applied": false,
+      "source426_unchanged": true
+    },
+    "candidate-double-observe": {
+      "case": "combined",
+      "floor_pixels": [
+        117,
+        67,
+        49,
+        21,
+        24,
+        22
+      ],
+      "last_floor_pixels": 22,
+      "final_gap_m": 0.140055045485497,
+      "last_image_gap_m": 0.141031071543694,
+      "stop_delta_from_last_frame_mm": -0.9760260581969937,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "physical": false,
+      "last_image": false,
+      "combined": false,
+      "bridge_observation_and_matched_context_stop": true,
+      "model_calls": 0,
+      "production_applied": false,
+      "source426_unchanged": true
+    },
+    "candidate-single-observe": {
+      "case": "combined",
+      "floor_pixels": [
+        117,
+        67,
+        49,
+        21,
+        22
+      ],
+      "last_floor_pixels": 22,
+      "final_gap_m": 0.139617308974266,
+      "last_image_gap_m": 0.140603601932526,
+      "stop_delta_from_last_frame_mm": -0.9862929582599989,
+      "actual_motor_counts": [
+        [
+          30,
+          30
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "physical": true,
+      "last_image": false,
+      "combined": false,
+      "bridge_observation_and_matched_context_stop": true,
+      "model_calls": 0,
+      "production_applied": false,
+      "source426_unchanged": true
+    }
+  },
+  "successful_native_runs": 3,
+  "failed_startup_attempts": 2,
+  "joint_target_passes": 0,
+  "actual_matched_context_stop_receipts": 3,
+  "candidate_applied": false,
+  "conditional_two_repeats": "Not run: first single-observe candidate jointFAIL",
+  "pngs": 17,
+  "raw_files": 84,
+  "astra_actual_views": 6,
+  "inspection_serving_identity_attested": false,
+  "historical_ai_image": "9/9 unchanged",
+  "historical_ai_physical": "0/9 unchanged",
+  "model_calls_in_native_probes": 0,
+  "merged": false,
+  "published": false,
+  "global_goal_complete": false
+}

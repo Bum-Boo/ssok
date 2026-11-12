@@ -1,0 +1,43 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\verify_installer.ps1",
+    "-Installer",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\camera-release-clean-r2\\ssok-0.3.1-camera-r2-windows-x86_64-setup.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\native-installer-final-clean-r2",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\camera-release-clean-r2\\export-logs\\browser-layout.json"
+  ],
+  "exit_code": 0,
+  "seconds": 47.979,
+  "version": "0.3.1-camera-r2",
+  "commit": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+  "installer_sha256": "ebfde14e4b6b23e539bf08acb253dc9cfb3781e24ad4db441ed58c7fc55f4f06",
+  "checks": 17,
+  "failures": 0,
+  "installed_exact_export_bytes": {
+    "ssok.exe": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb",
+    "ssok.pck": "2d4c4143b201f3b4cb3315a811673ea182247a09a18d1cf5a30e049a17928fe3"
+  },
+  "expected_bytes": {
+    "ssok.exe": {
+      "size": 109157888,
+      "sha256": "7aee4fe55877f0b03c94a809f7223b6e22960b94fe276d9b0411d8c5bd9254fb"
+    },
+    "ssok.pck": {
+      "size": 29307284,
+      "sha256": "2d4c4143b201f3b4cb3315a811673ea182247a09a18d1cf5a30e049a17928fe3"
+    }
+  },
+  "registration_remaining": {
+    "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\ssok": false,
+    "Software\\Bum-Boo\\ssok": false
+  },
+  "user_added_file_preserved": true
+}

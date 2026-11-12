@@ -1,0 +1,28 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 1,
+  "failures": 0,
+  "results": [
+    {
+      "name": "interface_preferences_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 13.917,
+      "timeout": false,
+      "engine_error": false,
+      "log": "interface_preferences_check.log",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/bumboo/Projects/ssok-settings-20260930",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/home/bumboo/Projects/ssok-settings-20260930/tests/interface_preferences_check.gd"
+      ]
+    }
+  ]
+}

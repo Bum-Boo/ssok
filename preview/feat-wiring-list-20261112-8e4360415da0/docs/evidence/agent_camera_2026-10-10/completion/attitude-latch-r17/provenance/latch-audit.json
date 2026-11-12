@@ -1,0 +1,502 @@
+{
+  "current": {
+    "result_source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\k32\\result.json",
+    "result_sha256": "a7b8b1d3071fd3551e225f179e34b179e4d43773508bd9defe4307bda870d57f",
+    "frame_ready_events": 9,
+    "accepted_forward_bound": [
+      false,
+      false,
+      false
+    ],
+    "brake_entry_events": [],
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.00630233995616436,
+        "gap_x": 0.141135603189468,
+        "linear_speed": 0.00186800223309547,
+        "linear_velocity": [
+          0.00183760386426002,
+          0.00022767280461266,
+          -0.00024659553309902
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.066006988286972
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0467796064913273
+          }
+        ],
+        "position": [
+          0.11384990811348,
+          0.0668625086545944,
+          -0.0002229492238257
+        ],
+        "rotation": [
+          0.00109212857205421,
+          -0.00064896076219156,
+          -0.012957775965333
+        ],
+        "wheel_speed": 0.0710418447852135,
+        "x": 0.11384990811348
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00454585254192352,
+        "gap_x": 0.177704498171806,
+        "linear_speed": 0.0007868364918977,
+        "linear_velocity": [
+          -0.00070403842255473,
+          0.00019949211855419,
+          0.0002892134943977
+        ],
+        "motors": [
+          {
+            "duty": -0.00301015299061936,
+            "speed": -0.0251821465790272
+          },
+          {
+            "duty": -0.00458837651709716,
+            "speed": -0.020007124170661
+          }
+        ],
+        "position": [
+          0.0771411061286926,
+          0.0669550821185112,
+          0.00018679279310163
+        ],
+        "rotation": [
+          -0.00100920035038143,
+          0.00200638524256647,
+          -0.0145497499033809
+        ],
+        "wheel_speed": 0.0209252145141363,
+        "x": 0.0771411061286926
+      },
+      "minimum_gap_x": 0.133697316050529,
+      "rest_ticks": 16.0,
+      "samples": 477.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.036708801984787,
+      "valid": true,
+      "wall_contact": false
+    },
+    "last_five_observations": [
+      {
+        "label": "post-3",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.141031950712204
+      },
+      {
+        "label": "idle-1",
+        "floor_pixels": 25,
+        "gap_m_at_frame_callback": 0.141040429472923
+      },
+      {
+        "label": "idle-2",
+        "floor_pixels": 26,
+        "gap_m_at_frame_callback": 0.140918776392937
+      },
+      {
+        "label": "idle-3",
+        "floor_pixels": 25,
+        "gap_m_at_frame_callback": 0.141803443431854
+      },
+      {
+        "label": "idle-4",
+        "floor_pixels": 26,
+        "gap_m_at_frame_callback": 0.141377478837967
+      }
+    ],
+    "note": "Raw latch rotation strings are measured body rotation at each event, not a separate numeric quaternion setpoint receipt. No intermediate image is paired with an actual Stop; no joint pass inferred."
+  },
+  "prior-observation": {
+    "result_source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\prior\\result.json",
+    "result_sha256": "8b0fc44093136c9d53d3f1c73d6a37dc2756fcd19807e79a22ba653bb91cdedb",
+    "frame_ready_events": 9,
+    "accepted_forward_bound": [
+      true,
+      true,
+      true
+    ],
+    "brake_entry_events": [],
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.0113096321001649,
+        "gap_x": 0.141182884573936,
+        "linear_speed": 0.00165632483549416,
+        "linear_velocity": [
+          0.00164244417101145,
+          0.00019762547162827,
+          8.205681660911e-05
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0719252750277519
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0175103209912777
+          }
+        ],
+        "position": [
+          0.113585479557514,
+          0.0669131875038147,
+          0.00087275414261966
+        ],
+        "rotation": [
+          0.00261819781735539,
+          0.00842257961630821,
+          -0.0135919377207756
+        ],
+        "wheel_speed": 0.0768728330731392,
+        "x": 0.113585479557514
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00455683330073953,
+        "gap_x": 0.177372962236404,
+        "linear_speed": 0.00073333800537511,
+        "linear_velocity": [
+          -0.00064414786174893,
+          0.00019961029465775,
+          0.00028812128584832
+        ],
+        "motors": [
+          {
+            "duty": -0.00289798835540812,
+            "speed": -0.0234269294887781
+          },
+          {
+            "duty": -0.00444404016683496,
+            "speed": -0.0180389620363712
+          }
+        ],
+        "position": [
+          0.0774885043501854,
+          0.0669431537389755,
+          0.00017006539565045
+        ],
+        "rotation": [
+          -0.00104072818066925,
+          0.00197113119065762,
+          -0.0143306367099285
+        ],
+        "wheel_speed": 0.019178930670023,
+        "x": 0.0774885043501854
+      },
+      "minimum_gap_x": 0.132840022444725,
+      "rest_ticks": 48.0,
+      "samples": 554.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.0360969752073288,
+      "valid": true,
+      "wall_contact": false
+    },
+    "last_five_observations": [
+      {
+        "label": "post-3",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.141032949090004
+      },
+      {
+        "label": "idle-1",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.141475081443787
+      },
+      {
+        "label": "idle-2",
+        "floor_pixels": 25,
+        "gap_m_at_frame_callback": 0.141084000468254
+      },
+      {
+        "label": "idle-3",
+        "floor_pixels": 26,
+        "gap_m_at_frame_callback": 0.140783429145813
+      },
+      {
+        "label": "idle-4",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.141935974359512
+      }
+    ],
+    "note": "Raw latch rotation strings are measured body rotation at each event, not a separate numeric quaternion setpoint receipt. No intermediate image is paired with an actual Stop; no joint pass inferred."
+  },
+  "brake-entry": {
+    "result_source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\brake\\result.json",
+    "result_sha256": "1b9a94ec15534705654e5a7f60f962f8d7388e4b71604700c83bdcbe6c498306",
+    "frame_ready_events": 9,
+    "accepted_forward_bound": [
+      false,
+      false,
+      false
+    ],
+    "brake_entry_events": [
+      {
+        "bound": true,
+        "frame_id": 2,
+        "reason": "brake_entry",
+        "rotation": "(-0.000896, 0.001157, -0.010474)",
+        "tick": 80
+      },
+      {
+        "bound": true,
+        "frame_id": 3,
+        "reason": "brake_entry",
+        "rotation": "(-0.000767, 0.000669, -0.014258)",
+        "tick": 228
+      },
+      {
+        "bound": true,
+        "frame_id": 4,
+        "reason": "brake_entry",
+        "rotation": "(0.001695, 0.006599, -0.012163)",
+        "tick": 371
+      }
+    ],
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.0127968844026327,
+        "gap_x": 0.140710681676865,
+        "linear_speed": 0.00184537889435887,
+        "linear_velocity": [
+          0.00182102096732706,
+          0.00027082054293714,
+          -0.00012634115410037
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0187030006200075
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0793207958340645
+          }
+        ],
+        "position": [
+          0.114374868571758,
+          0.0667815580964088,
+          -0.00046208311687223
+        ],
+        "rotation": [
+          -0.00233831978403032,
+          -0.00151705485768616,
+          -0.0112208928912878
+        ],
+        "wheel_speed": 0.0853094309568405,
+        "x": 0.114374868571758
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00455805426463485,
+        "gap_x": 0.177519172430038,
+        "linear_speed": 0.00072531460318714,
+        "linear_velocity": [
+          -0.00063503463752567,
+          0.00019945316307712,
+          0.00028815059340558
+        ],
+        "motors": [
+          {
+            "duty": -0.00288545528302591,
+            "speed": -0.0231382641941309
+          },
+          {
+            "duty": -0.00443790321300425,
+            "speed": -0.0177703388035297
+          }
+        ],
+        "position": [
+          0.0773371830582619,
+          0.06694695353508,
+          0.00017523148562759
+        ],
+        "rotation": [
+          -0.0010304085444659,
+          0.00198612990789115,
+          -0.0144002698361874
+        ],
+        "wheel_speed": 0.0188876893371344,
+        "x": 0.0773371830582619
+      },
+      "minimum_gap_x": 0.133322387933731,
+      "rest_ticks": 12.0,
+      "samples": 510.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.0370376855134964,
+      "valid": true,
+      "wall_contact": false
+    },
+    "last_five_observations": [
+      {
+        "label": "post-3",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.141057416796684
+      },
+      {
+        "label": "idle-1",
+        "floor_pixels": 24,
+        "gap_m_at_frame_callback": 0.141066506505013
+      },
+      {
+        "label": "idle-2",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.141667827963829
+      },
+      {
+        "label": "idle-3",
+        "floor_pixels": 24,
+        "gap_m_at_frame_callback": 0.141309633851051
+      },
+      {
+        "label": "idle-4",
+        "floor_pixels": 26,
+        "gap_m_at_frame_callback": 0.141022220253944
+      }
+    ],
+    "note": "Raw latch rotation strings are measured body rotation at each event, not a separate numeric quaternion setpoint receipt. No intermediate image is paired with an actual Stop; no joint pass inferred."
+  },
+  "brake-entry-rate16": {
+    "result_source": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\attitude-latch-r17\\combo16\\brake\\result.json",
+    "result_sha256": "562d375ba351e96c31f62177df64ac4cc8c91106677f7b31a54bd20897917f39",
+    "frame_ready_events": 9,
+    "accepted_forward_bound": [
+      false,
+      false,
+      false
+    ],
+    "brake_entry_events": [
+      {
+        "bound": true,
+        "frame_id": 2,
+        "reason": "brake_entry",
+        "rotation": "(-0.001478, -0.008815, -0.012233)",
+        "tick": 83
+      },
+      {
+        "bound": true,
+        "frame_id": 3,
+        "reason": "brake_entry",
+        "rotation": "(-0.000711, -0.006537, -0.015063)",
+        "tick": 228
+      },
+      {
+        "bound": true,
+        "frame_id": 4,
+        "reason": "brake_entry",
+        "rotation": "(0.001115, -0.008941, -0.013131)",
+        "tick": 363
+      }
+    ],
+    "evaluation": {
+      "final": {
+        "angular_speed": 0.0112591153010726,
+        "gap_x": 0.13922506570816,
+        "linear_speed": 0.0016641536494717,
+        "linear_velocity": [
+          0.00164734222926199,
+          0.00019888847600668,
+          0.00012694297765847
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0720023214817047
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0179759319871664
+          }
+        ],
+        "position": [
+          0.115034118294716,
+          0.0671519115567207,
+          0.00170867855194956
+        ],
+        "rotation": [
+          0.00220783147960901,
+          -0.0184114221483469,
+          -0.0179640669375658
+        ],
+        "wheel_speed": 0.0769880264997482,
+        "x": 0.115034118294716
+      },
+      "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+      "initial": {
+        "angular_speed": 0.00448671262711287,
+        "gap_x": 0.176476880908012,
+        "linear_speed": 0.00074080633930862,
+        "linear_velocity": [
+          -0.00065211311448365,
+          0.00019970943685621,
+          0.00028923802892677
+        ],
+        "motors": [
+          {
+            "duty": -0.00277366425717868,
+            "speed": -0.0229389406740665
+          },
+          {
+            "duty": -0.00458452231747407,
+            "speed": -0.0191642306745052
+          }
+        ],
+        "position": [
+          0.0782533437013626,
+          0.0669907853007317,
+          0.00103923783171922
+        ],
+        "rotation": [
+          -0.00097443017875775,
+          -0.00515902461484075,
+          -0.0152035346254706
+        ],
+        "wheel_speed": 0.0186610259115696,
+        "x": 0.0782533437013626
+      },
+      "minimum_gap_x": 0.132699504494667,
+      "rest_ticks": 107.0,
+      "samples": 530.0,
+      "schema": 1.0,
+      "stopped_state": "stopped",
+      "travel_x": 0.0367807745933533,
+      "valid": true,
+      "wall_contact": false
+    },
+    "last_five_observations": [
+      {
+        "label": "post-3",
+        "floor_pixels": 21,
+        "gap_m_at_frame_callback": 0.140132606029511
+      },
+      {
+        "label": "idle-1",
+        "floor_pixels": 24,
+        "gap_m_at_frame_callback": 0.140104845166206
+      },
+      {
+        "label": "idle-2",
+        "floor_pixels": 24,
+        "gap_m_at_frame_callback": 0.14045038819313
+      },
+      {
+        "label": "idle-3",
+        "floor_pixels": 22,
+        "gap_m_at_frame_callback": 0.140772148966789
+      },
+      {
+        "label": "idle-4",
+        "floor_pixels": 23,
+        "gap_m_at_frame_callback": 0.140195265412331
+      }
+    ],
+    "note": "Raw latch rotation strings are measured body rotation at each event, not a separate numeric quaternion setpoint receipt. No intermediate image is paired with an actual Stop; no joint pass inferred."
+  }
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "tests.desktop_client_check",
+      "tests.desktop_session_check",
+      "tests.test_operator_release",
+      "tests.test_operator_doctor",
+      "tests.test_release_documents",
+      "-v"
+    ],
+    "exit_code": 0,
+    "log": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\operator-setup-r14\\check-0.log",
+    "sha256": "612c7a925052b715cf8ebf40e955b2b77ada303cb72c9b7d17cf40d6dccd99b0"
+  },
+  {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/docs",
+      "-p",
+      "test_*.py"
+    ],
+    "exit_code": 0,
+    "log": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\operator-setup-r14\\check-1.log",
+    "sha256": "dd3008eb10046a9322c06d4b29b14bd36db49dc3b8bc2ec70ce2a411e131743b"
+  },
+  {
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "tools/docs/maintain.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "log": "C:\\Users\\Hojun\\.agents\\backups\\ssok-completion-20261010\\operator-setup-r14\\check-2.log",
+    "sha256": "e4db20344b2e70e313045cecf5372a518a57f2913c4855b60366d3318f1fdc57"
+  }
+]

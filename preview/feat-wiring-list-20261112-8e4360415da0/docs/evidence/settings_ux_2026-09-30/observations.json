@@ -1,0 +1,68 @@
+{
+	"01-korean": {
+		"header_rect": "[P: (12.0, 12.0), S: (1576.0, 62.0)]",
+		"locale": "ko",
+		"picker_rect": "[P: (1472.0, 24.0), S: (104.0, 38.0)]",
+		"tab_titles": [
+			"코드",
+			"조종 안내",
+			"블록"
+		],
+		"viewport": "(1600, 1000)"
+	},
+	"02-english": {
+		"header_rect": "[P: (12.0, 12.0), S: (1576.0, 62.0)]",
+		"locale": "en",
+		"picker_rect": "[P: (1472.0, 24.0), S: (104.0, 38.0)]",
+		"tab_titles": [
+			"Code",
+			"Controls",
+			"Blocks"
+		],
+		"viewport": "(1600, 1000)"
+	},
+	"03-japanese": {
+		"header_rect": "[P: (12.0, 12.0), S: (1576.0, 62.0)]",
+		"locale": "ja",
+		"picker_rect": "[P: (1472.0, 24.0), S: (104.0, 38.0)]",
+		"tab_titles": [
+			"コード",
+			"操作ガイド",
+			"ブロック"
+		],
+		"viewport": "(1600, 1000)"
+	},
+	"04-chinese": {
+		"header_rect": "[P: (12.0, 12.0), S: (1576.0, 62.0)]",
+		"locale": "zh_CN",
+		"picker_rect": "[P: (1472.0, 24.0), S: (104.0, 38.0)]",
+		"tab_titles": [
+			"代码",
+			"操作指南",
+			"积木"
+		],
+		"viewport": "(1600, 1000)"
+	},
+	"04b-chinese-1024": {
+		"header_rect": "[P: (12.0, 12.0), S: (1000.0, 62.0)]",
+		"locale": "zh_CN",
+		"picker_rect": "[P: (896.0, 24.0), S: (104.0, 38.0)]",
+		"tab_titles": [
+			"代码",
+			"操作指南",
+			"积木"
+		],
+		"viewport": "(1024, 768)"
+	},
+	"embed_subwindows": true,
+	"focus_after": "none",
+	"focus_before": "/root/Main/@CanvasLayer@31/@Control@32/WorkspaceHeader/@HBoxContainer@44/LanguagePicker",
+	"saved_locale": "zh_CN",
+	"source": "4340fe2",
+	"startup_locale": "en",
+	"user_data": "/home/bumboo/Projects/ssok-settings-audit-20260930/build/settings-audit/data/godot/app_userdata/ssok",
+	"workspace_preserved_en": true,
+	"workspace_preserved_ja": true,
+	"workspace_preserved_zh": true,
+	"zh_TW_normalizes_to": "zh_CN"
+}

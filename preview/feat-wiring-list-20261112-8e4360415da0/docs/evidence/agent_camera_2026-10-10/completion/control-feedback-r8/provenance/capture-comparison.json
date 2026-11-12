@@ -1,0 +1,695 @@
+{
+  "baseline": {
+    "frames": [
+      {
+        "label": "initial",
+        "pixels": {
+          "boundary_y": 364,
+          "floor_pixels": 116,
+          "column_range": [
+            364,
+            364
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.254833593964577,
+          "linear_speed": 0.000454221823019907,
+          "angular_speed": 0.00486369384452701,
+          "wheel_speed": 0.017946632578969,
+          "position": [
+            0.000401518715079874,
+            0.0666384026408196,
+            -0.000125393562484533
+          ],
+          "rotation": [
+            -0.000485092110466212,
+            -0.00245952699333429,
+            -0.00875644106417894
+          ],
+          "linear_velocity": [
+            0.00030147610232234,
+            0.000201097078388557,
+            -0.000273842248134315
+          ],
+          "motors": [
+            {
+              "duty": -0.0034802873028093,
+              "speed": 0.0135029051452875
+            },
+            {
+              "duty": -0.00197655755212812,
+              "speed": 0.00315407407470047
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-1",
+        "pixels": {
+          "boundary_y": 412,
+          "floor_pixels": 68,
+          "column_range": [
+            412,
+            412
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.177675783634186,
+          "linear_speed": 0.000621147395577282,
+          "angular_speed": 0.00449375528842211,
+          "wheel_speed": 0.0144016975536942,
+          "position": [
+            0.0770138502120972,
+            0.0670822709798813,
+            0.000284566078335047
+          ],
+          "rotation": [
+            -0.000753044441808015,
+            0.00181886530481279,
+            -0.0168817844241858
+          ],
+          "linear_velocity": [
+            -0.000509671808686107,
+            0.000200629976461641,
+            0.00029292723047547
+          ],
+          "motors": [
+            {
+              "duty": -0.00268997120857237,
+              "speed": -0.0186628513038158
+            },
+            {
+              "duty": -0.00449484807679737,
+              "speed": -0.0147247305139899
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-2",
+        "pixels": {
+          "boundary_y": 430,
+          "floor_pixels": 50,
+          "column_range": [
+            430,
+            430
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.162836566567421,
+          "linear_speed": 0.000237215950619429,
+          "angular_speed": 0.00577466189861298,
+          "wheel_speed": 0.0159165766090155,
+          "position": [
+            0.0922514572739601,
+            0.0667951256036758,
+            0.000802031485363841
+          ],
+          "rotation": [
+            0.0026060133241117,
+            -0.001063417410478,
+            -0.0113386949524283
+          ],
+          "linear_velocity": [
+            0.000135086986119859,
+            0.000193795829545707,
+            -2.15892177948263e-05
+          ],
+          "motors": [
+            {
+              "duty": -0.00375615650586162,
+              "speed": 0.0112646846100688
+            },
+            {
+              "duty": -0.00203935665963218,
+              "speed": -0.0102488566190004
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-3",
+        "pixels": {
+          "boundary_y": 457,
+          "floor_pixels": 23,
+          "column_range": [
+            457,
+            457
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.141097024083138,
+          "linear_speed": 0.000385697901947424,
+          "angular_speed": 0.00427530473098159,
+          "wheel_speed": 0.0124178370460868,
+          "position": [
+            0.113525398075581,
+            0.066880039870739,
+            0.000758369395043701
+          ],
+          "rotation": [
+            -0.00232971180230379,
+            0.0176731776446104,
+            -0.0129011524841189
+          ],
+          "linear_velocity": [
+            -0.000322428677463904,
+            0.000189203303307295,
+            9.48932647588663e-05
+          ],
+          "motors": [
+            {
+              "duty": -0.00218098856446645,
+              "speed": -0.0164080001413822
+            },
+            {
+              "duty": -0.00442017759825104,
+              "speed": -0.00852424744516611
+            }
+          ]
+        }
+      },
+      {
+        "label": "final-idle",
+        "pixels": {
+          "boundary_y": 455,
+          "floor_pixels": 25,
+          "column_range": [
+            455,
+            455
+          ],
+          "image_target": true,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.141002088785172,
+          "linear_speed": 0.000368400913430378,
+          "angular_speed": 0.00447322009131312,
+          "wheel_speed": 0.00586579600349069,
+          "position": [
+            0.113316424190998,
+            0.0670793950557709,
+            0.00123390962835401
+          ],
+          "rotation": [
+            -0.000594677054323256,
+            0.0191884879022837,
+            -0.0168317034840584
+          ],
+          "linear_velocity": [
+            7.38833768991753e-05,
+            0.000203749164938927,
+            0.000297903956379741
+          ],
+          "motors": [
+            {
+              "duty": -0.00186553070108252,
+              "speed": -0.00047176142106764
+            },
+            {
+              "duty": -0.0041745991667267,
+              "speed": 0.0014141263673082
+            }
+          ]
+        }
+      }
+    ],
+    "final_gap_m": 0.140000700950623,
+    "stop_gap_delta_mm": -1.0013878345490057,
+    "combined": {
+      "image": true,
+      "physical": false,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": false,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.140000700950623,
+      "final_floor_pixels": 25,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim"
+    }
+  },
+  "repeat": {
+    "frames": [
+      {
+        "label": "initial",
+        "pixels": {
+          "boundary_y": 364,
+          "floor_pixels": 116,
+          "column_range": [
+            364,
+            364
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.254802860319614,
+          "linear_speed": 0.000444104400230572,
+          "angular_speed": 0.00486829597502947,
+          "wheel_speed": 0.0172231215983629,
+          "position": [
+            0.000414885143982247,
+            0.0666502192616463,
+            -0.000139676572871394
+          ],
+          "rotation": [
+            -0.000521315785590559,
+            -0.00256837555207312,
+            -0.00897218286991119
+          ],
+          "linear_velocity": [
+            0.000282186141703278,
+            0.00020208494970575,
+            -0.000277058454230428
+          ],
+          "motors": [
+            {
+              "duty": -0.00353218188810085,
+              "speed": 0.0127822253853083
+            },
+            {
+              "duty": -0.00202542270154663,
+              "speed": 0.003409328404814
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-1",
+        "pixels": {
+          "boundary_y": 412,
+          "floor_pixels": 68,
+          "column_range": [
+            412,
+            412
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.177660465240479,
+          "linear_speed": 0.000622469058725983,
+          "angular_speed": 0.00449036667123437,
+          "wheel_speed": 0.0144221717491746,
+          "position": [
+            0.07701775431633,
+            0.0670929998159409,
+            0.000286893686279655
+          ],
+          "rotation": [
+            -0.000727916893083602,
+            0.00172590592410415,
+            -0.0170784965157509
+          ],
+          "linear_velocity": [
+            -0.000511183345224708,
+            0.000200577458599582,
+            0.000293134740786627
+          ],
+          "motors": [
+            {
+              "duty": -0.00268431467066208,
+              "speed": -0.0186840575188398
+            },
+            {
+              "duty": -0.00450285302878667,
+              "speed": -0.0148108042776585
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-2",
+        "pixels": {
+          "boundary_y": 430,
+          "floor_pixels": 50,
+          "column_range": [
+            430,
+            430
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.162041947245598,
+          "linear_speed": 0.000543733651284128,
+          "angular_speed": 0.00453058863058686,
+          "wheel_speed": 0.0199720710515976,
+          "position": [
+            0.0928544998168945,
+            0.0669154301285744,
+            0.000569352647289634
+          ],
+          "rotation": [
+            -0.00255937781184912,
+            0.00283416034653783,
+            -0.0135480454191566
+          ],
+          "linear_velocity": [
+            -0.000503109593410045,
+            0.000189388534636237,
+            8.16026295069605e-05
+          ],
+          "motors": [
+            {
+              "duty": -0.00256483723448278,
+              "speed": -0.0239320583641529
+            },
+            {
+              "duty": -0.00449491625806937,
+              "speed": -0.0125915771350265
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-3",
+        "pixels": {
+          "boundary_y": 455,
+          "floor_pixels": 25,
+          "column_range": [
+            455,
+            455
+          ],
+          "image_target": true,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.140572607517242,
+          "linear_speed": 0.000610010756645352,
+          "angular_speed": 0.00453853560611606,
+          "wheel_speed": 0.0143819218501449,
+          "position": [
+            0.113868124783039,
+            0.0671249479055405,
+            0.00140373921021819
+          ],
+          "rotation": [
+            -0.000400808959966525,
+            -0.010690831579268,
+            -0.0176641680300236
+          ],
+          "linear_velocity": [
+            -0.000501410628203303,
+            0.000200733644305728,
+            0.000283560424577445
+          ],
+          "motors": [
+            {
+              "duty": -0.00271559267739456,
+              "speed": -0.0186364222317934
+            },
+            {
+              "duty": -0.00444137331043994,
+              "speed": -0.0138895465061069
+            }
+          ]
+        }
+      },
+      {
+        "label": "final-idle",
+        "pixels": {
+          "boundary_y": 457,
+          "floor_pixels": 23,
+          "column_range": [
+            457,
+            457
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.141335025429726,
+          "linear_speed": 0.00036659583565779,
+          "angular_speed": 0.00519327586516738,
+          "wheel_speed": 0.0145638389512897,
+          "position": [
+            0.113346830010414,
+            0.0668764412403107,
+            0.00194168137386441
+          ],
+          "rotation": [
+            0.00103216245770454,
+            -0.0140844881534576,
+            -0.0131136272102594
+          ],
+          "linear_velocity": [
+            0.000140679170726798,
+            0.000206464479560964,
+            -0.000268280244199559
+          ],
+          "motors": [
+            {
+              "duty": -0.00345485886541429,
+              "speed": 0.00989497732371092
+            },
+            {
+              "duty": -0.00241591529680108,
+              "speed": -0.00307051814161241
+            }
+          ]
+        }
+      }
+    ],
+    "final_gap_m": 0.139928191900253,
+    "stop_gap_delta_mm": -1.4068335294730172,
+    "combined": {
+      "image": false,
+      "physical": true,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": true,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.139928191900253,
+      "final_floor_pixels": 23,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim"
+    }
+  },
+  "minimal-two-step": {
+    "frames": [
+      {
+        "label": "initial",
+        "pixels": {
+          "boundary_y": 364,
+          "floor_pixels": 116,
+          "column_range": [
+            364,
+            364
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.254854626953602,
+          "linear_speed": 0.000461913004983217,
+          "angular_speed": 0.00488143647089601,
+          "wheel_speed": 0.0184534341096878,
+          "position": [
+            0.000392098794691265,
+            0.0666305273771286,
+            -0.000115916162030771
+          ],
+          "rotation": [
+            -0.000461217015981674,
+            -0.00238578533753753,
+            -0.00861261785030365
+          ],
+          "linear_velocity": [
+            0.000313630822347477,
+            0.000201095885131508,
+            -0.000273056328296661
+          ],
+          "motors": [
+            {
+              "duty": -0.00344463718362385,
+              "speed": 0.0140106780454516
+            },
+            {
+              "duty": -0.00197964128100284,
+              "speed": 0.00343755073845387
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-1",
+        "pixels": {
+          "boundary_y": 412,
+          "floor_pixels": 68,
+          "column_range": [
+            412,
+            412
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.177680924534798,
+          "linear_speed": 0.000620864680968225,
+          "angular_speed": 0.0044925413094461,
+          "wheel_speed": 0.0144025590270758,
+          "position": [
+            0.0770124793052673,
+            0.0670786872506142,
+            0.000283763161860406
+          ],
+          "rotation": [
+            -0.000761274655815214,
+            0.00185125868301839,
+            -0.0168161485344172
+          ],
+          "linear_velocity": [
+            -0.000509323785081506,
+            0.000200690337806009,
+            0.000292891869321465
+          ],
+          "motors": [
+            {
+              "duty": -0.00269123780975739,
+              "speed": -0.018661355599761
+            },
+            {
+              "duty": -0.00449184957980954,
+              "speed": -0.0147009380161762
+            }
+          ]
+        }
+      },
+      {
+        "label": "post-2",
+        "pixels": {
+          "boundary_y": 479,
+          "floor_pixels": 1,
+          "column_range": [
+            479,
+            479
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.126390039920807,
+          "linear_speed": 0.000559469335712492,
+          "angular_speed": 0.00411952380090952,
+          "wheel_speed": 0.0165619514882565,
+          "position": [
+            0.128328427672386,
+            0.0670735016465187,
+            0.000226300835493021
+          ],
+          "rotation": [
+            0.00229848525486887,
+            -0.00191670772619545,
+            -0.0164324473589659
+          ],
+          "linear_velocity": [
+            -0.0005193289835006,
+            0.000188699486898258,
+            -8.77260827110149e-05
+          ],
+          "motors": [
+            {
+              "duty": -0.00461712478846313,
+              "speed": -0.0157619547098875
+            },
+            {
+              "duty": -0.00241970631480216,
+              "speed": -0.0205991007387638
+            }
+          ]
+        }
+      },
+      {
+        "label": "final-idle",
+        "pixels": {
+          "boundary_y": 479,
+          "floor_pixels": 1,
+          "column_range": [
+            479,
+            479
+          ],
+          "image_target": false,
+          "uncertainty_pixels": 1,
+          "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+        },
+        "capture_physics": {
+          "gap_x": 0.126603931188583,
+          "linear_speed": 0.000274613819783553,
+          "angular_speed": 0.00421752175316215,
+          "wheel_speed": 0.0108244400471449,
+          "position": [
+            0.128097862005234,
+            0.0670475587248802,
+            3.73288639821112e-05
+          ],
+          "rotation": [
+            0.00369317224249244,
+            -0.00412768172100186,
+            -0.0159694720059633
+          ],
+          "linear_velocity": [
+            0.000185491662705317,
+            0.000189651182154194,
+            -7.09790328983217e-05
+          ],
+          "motors": [
+            {
+              "duty": -0.00398488194534246,
+              "speed": 0.00669873459264636
+            },
+            {
+              "duty": -0.00140232090752881,
+              "speed": 9.06958885025233e-05
+            }
+          ]
+        }
+      }
+    ],
+    "final_gap_m": 0.126100540161133,
+    "stop_gap_delta_mm": -0.5033910274500064,
+    "combined": {
+      "image": false,
+      "physical": true,
+      "physical_checks": {
+        "valid": true,
+        "travel": true,
+        "gap": true,
+        "no_contact": true,
+        "rest": true
+      },
+      "gap_m": 0.126100540161133,
+      "final_floor_pixels": 1,
+      "both": false,
+      "scope": "Exact deterministic replay, no model success claim"
+    }
+  }
+}

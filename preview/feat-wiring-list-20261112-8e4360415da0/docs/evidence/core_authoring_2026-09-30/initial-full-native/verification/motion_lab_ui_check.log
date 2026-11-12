@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS current biped has a stable snapshot fingerprint
+PASS opening the lab stops manual control
+PASS modal lab suspends code and viewport navigation
+PASS typing a goal cannot leave WASD movement active
+PASS unversioned bridge cannot start a search
+PASS different-program bridge is rejected before evaluation or paid proposals
+PASS applying while physics is running is rejected
+PASS same-graph edit-mode result applies explicitly
+PASS apply changes the existing WASD joint program
+PASS apply changes neither learner code nor assembly
+PASS changed graph invalidates the result immediately
+PASS changing the graph resets its applied policy to defaults
+PASS stale policy cannot be applied to a changed graph
+PASS restoring the exact assembly permits explicit reapplication
+PASS fallen result is rejected
+PASS nonfinite policy is rejected
+PASS bridge metrics must match the locally captured graph fingerprint
+PASS unversioned measurements cannot certify the current controller
+PASS a different controller family cannot supply eligible measurements
+PASS mismatched best rejects the response even when history matches
+PASS malformed best policy cannot hide behind valid history
+PASS malformed history metrics are rejected before rendering
+PASS result can be saved under user://
+PASS saved result excludes token, goal and model output text
+PASS saved measurements retain the controller identity
+PASS saved bounded policy loads without automatic application
+PASS loading alone does not change the active movement program
+PASS live API search requires explicit consent
+PASS live consent permits a valid search request without sending it
+PASS unencrypted non-loopback endpoint is rejected
+PASS loopback-looking external hostname is rejected
+PASS URL credentials are rejected
+PASS invalid TCP port is rejected
+PASS loopback IPv6 and HTTPS origins are accepted
+PASS OpenAI API key pasted in bridge field is rejected
+PASS failed HTTP connection is safe and leaves the lab disconnected
+PASS unavailable active search exposes explicit recovery without silently forgetting
+PASS disconnect requires acknowledgement that the remote search is not cancelled
+PASS confirmed forget permits new bridge credentials after a restart
+PASS lost start response blocks implicit paid retry
+PASS closing and reopening does not silently forget an unknown start
+PASS explicit recovery resets local state without sending a new search
+PASS HTTP fixture is explicitly a mock provider
+PASS native HTTP starts and polls an isolated Godot trial to completion
+PASS mock search records baseline and candidate without GPT calls
+PASS real HTTP trial returns the evaluated assembly fingerprint
+HTTP measured outcome: fallen=false finite=true score=10.0641621509567
+PASS full-precision graph transport preserves the stable biped baseline
+PASS real HTTP result is applied only if the measured gait stayed finite and upright
+PASS HTTP UI explains baseline and candidate scores, direction and falls
+PASS cancellation queued during start reaches the server
+PASS test begins with an in-flight status poll
+PASS cancellation preempts the in-flight poll
+PASS poll-preempting cancellation reaches the bridge
+PASS closing restores navigation without automatically resuming movement
+motion_lab_ui_check: 54 checks, 0 failures

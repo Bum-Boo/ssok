@@ -1,0 +1,17 @@
+{
+  "base_commit": "9cdd259",
+  "working_changes": [
+    "assets/policies/yaw_biped_bounded_v2.json",
+    "src/runtime/bundled_biped_motion.gd"
+  ],
+  "excluded": "Uncommitted fourteen-axis kit WIP is not part of this isolated checkout",
+  "hashes": {
+    "assets/policies/yaw_biped_bounded_v2.json": "d0b91edcee2bf2729ac1392ee3bc19547c9a38d48b96d1a54ea965f614fcf46b",
+    "src/runtime/bundled_biped_motion.gd": "69a414d11faf49ba4e7c673cf05312d0984d2975f446a79c83c7b8ad0c194b8a",
+    "src/runtime/servo_drive.gd": "3db647e0071b5c1dd63700b17bc215a5e015ea5ddae6960d13b63ba784d0df24",
+    "src/runtime/learned_biped_motion.gd": "b9c8b7ec0cd71c665bae657e4b7ae1979dd288ea59294598e08d535d69f8e235",
+    "src/runtime/kit_humanoid_motion.gd": "9c0974e2b75b09a61bf07dfd42d4301c4382a6951766abf6357bc0bd27d38d46",
+    "presets/humanoid_motion.gd": "1273c5c3f3339c81a74bfff1e7ad91276b1ba026e9abc3ec24c0fcad6fa6f1aa",
+    "src/runtime/pickup_policy.gd": "c449f25e012fcfb2b21b269d73428e790ea3da50391d8afe56e9cfc95704fe3d"
+  }
+}

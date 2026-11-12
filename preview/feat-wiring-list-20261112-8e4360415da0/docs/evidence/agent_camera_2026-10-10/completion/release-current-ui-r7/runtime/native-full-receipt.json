@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "tools/ci/verify.py",
+    "--godot",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+    "--python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "--output",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\release-current-ui-r7\\native-full"
+  ],
+  "exit_code": 1,
+  "seconds": 402.43522229994414,
+  "head": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "source426_unchanged": true,
+  "git_clean": true,
+  "checks": 81,
+  "failures": 2,
+  "provider": "mock; no live call",
+  "published": false
+}

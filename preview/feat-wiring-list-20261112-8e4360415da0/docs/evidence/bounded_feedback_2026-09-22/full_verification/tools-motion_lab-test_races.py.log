@@ -1,0 +1,13 @@
+test_cancel_before_godot_evaluation_never_launches_process (tools.motion_lab.test_races.CancellationWindowTests.test_cancel_before_godot_evaluation_never_launches_process) ... ok
+test_cancel_before_openai_proposal_never_opens_connection (tools.motion_lab.test_races.CancellationWindowTests.test_cancel_before_openai_proposal_never_opens_connection) ... ok
+test_cancel_during_api_body_encoding_never_opens_connection (tools.motion_lab.test_races.CancellationWindowTests.test_cancel_during_api_body_encoding_never_opens_connection) ... ok
+test_cancel_during_godot_payload_encoding_never_launches_process (tools.motion_lab.test_races.CancellationWindowTests.test_cancel_during_godot_payload_encoding_never_launches_process) ... ok
+test_cancel_during_history_copy_prevents_proposal_and_budget_use (tools.motion_lab.test_races.CancellationWindowTests.test_cancel_during_history_copy_prevents_proposal_and_budget_use) ... ok
+test_cancelled_mock_proposal_stops_without_candidate (tools.motion_lab.test_races.CancellationWindowTests.test_cancelled_mock_proposal_stops_without_candidate) ... ok
+test_eight_concurrent_http_starts_accept_exactly_one_job (tools.motion_lab.test_races.HTTPBoundaryTests.test_eight_concurrent_http_starts_accept_exactly_one_job) ... ok
+test_partial_headers_have_a_connection_timeout (tools.motion_lab.test_races.HTTPBoundaryTests.test_partial_headers_have_a_connection_timeout) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.078s
+
+OK

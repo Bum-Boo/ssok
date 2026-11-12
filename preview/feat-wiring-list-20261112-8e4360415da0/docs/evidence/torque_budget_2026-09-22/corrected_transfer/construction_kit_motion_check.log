@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+construction_kit_test_policy: {"crouch_height":0.2,"hand_height_offset":0.075,"hold_elbow_deg":-60.0,"hold_shoulder_deg":-35.0,"lift_seconds":2.5,"reach_seconds":2.0,"torso_lean_deg":25.0}
+construction_kit_parallel_metrics: {"cancelled":false,"contact_before_grasp":true,"engine_version":"4.7.2","fallen":false,"finite":true,"graph_fingerprint":"fba6ce380f2d81b57952406fd18999786628580aacbaa2319ee05a0e983256e5","grasped":true,"hold_seconds":1.0,"left_contact":false,"lift_m":0.476907134056091,"max_lift_m":0.477401256561279,"min_upright":0.9902064204216,"phase":"succeeded","physics_hz":60,"right_contact":false,"score":177.690713405609,"simulation_seconds":8.76666666666667,"success":true,"upright":0.997650504112244}
+construction_kit_parallel_metrics: {"cancelled":false,"contact_before_grasp":true,"engine_version":"4.7.2","fallen":false,"finite":true,"graph_fingerprint":"fba6ce380f2d81b57952406fd18999786628580aacbaa2319ee05a0e983256e5","grasped":true,"hold_seconds":1.0,"left_contact":false,"lift_m":0.476907134056091,"max_lift_m":0.477401256561279,"min_upright":0.9902064204216,"phase":"succeeded","physics_hz":60,"right_contact":false,"score":177.690713405609,"simulation_seconds":8.76666666666667,"success":true,"upright":0.997650504112244}
+construction_kit_perturbed_metrics: {"cancelled":false,"contact_before_grasp":true,"engine_version":"4.7.2","fallen":false,"finite":true,"graph_fingerprint":"ff46b6ebc68d6ca2c3823bea6601601f996f319e16d73bb8af46fbfcfec23c45","grasped":true,"hold_seconds":0.0,"left_contact":false,"lift_m":-0.0000307559967041016,"max_lift_m":0.455484420061111,"min_upright":0.479878276586533,"phase":"failed","physics_hz":60,"right_contact":false,"score":3.99391382932663,"simulation_seconds":15.0,"success":false,"upright":0.559622585773468}
+construction_kit_perturbed_metrics: {"cancelled":false,"contact_before_grasp":true,"engine_version":"4.7.2","fallen":false,"finite":true,"graph_fingerprint":"d26ff1955550aeefa9de03ea13022f85e5c5a35f51bee18153b5c074464c6b93","grasped":true,"hold_seconds":1.0,"left_contact":false,"lift_m":0.4748315513134,"max_lift_m":0.47659620642662,"min_upright":0.994693577289581,"phase":"succeeded","physics_hz":60,"right_contact":false,"score":177.48315513134,"simulation_seconds":8.73333333333333,"success":true,"upright":0.997704446315765}
+construction_kit_perturbed_metrics: {"cancelled":false,"contact_before_grasp":true,"engine_version":"4.7.2","fallen":false,"finite":true,"graph_fingerprint":"c8661789d9bccac9543559a0ea5dc7a31bc5e289c528b199dea25d36f2bb2860","grasped":true,"hold_seconds":1.0,"left_contact":false,"lift_m":0.478456974029541,"max_lift_m":0.480221331119537,"min_upright":0.990618646144867,"phase":"succeeded","physics_hz":60,"right_contact":false,"score":177.845697402954,"simulation_seconds":8.88333333333333,"success":true,"upright":0.99776691198349}
+construction_kit_perturbed_metrics: {"cancelled":false,"contact_before_grasp":true,"engine_version":"4.7.2","fallen":false,"finite":true,"graph_fingerprint":"9d3a0bbc7a622facb20593c83660c57b976002eb1b0c93bf5c0b85d61f80dc29","grasped":true,"hold_seconds":1.0,"left_contact":false,"lift_m":0.473642319440842,"max_lift_m":0.475344926118851,"min_upright":0.9944788813591,"phase":"succeeded","physics_hz":60,"right_contact":false,"score":177.364231944084,"simulation_seconds":8.76666666666667,"success":true,"upright":0.997677803039551}
+construction_kit_motion_metrics: lift=0.477 m hold=1.000 s min_upright=0.994 duration=5.817 s bilateral_contact=true
+construction_kit_motion_check: 275 checks, 2 failures
+ERROR: FAIL pickup withstands 5 mm lateral and 10 mm depth cargo offsets
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/construction_kit_motion_check.gd:260)
+       [1] _check_perturbed_pickups (res://tests/construction_kit_motion_check.gd:248)
+ERROR: FAIL perturbed pickup retains contact and uprightness requirements
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/construction_kit_motion_check.gd:260)
+       [1] _check_perturbed_pickups (res://tests/construction_kit_motion_check.gd:249)

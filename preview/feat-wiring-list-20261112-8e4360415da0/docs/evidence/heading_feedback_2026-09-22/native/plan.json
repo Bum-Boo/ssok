@@ -1,0 +1,123 @@
+{
+  "source_commit": "389f817deacbf62dfb3ff73dfa132301e4be7329",
+  "candidate_sha256": "4a48d9c3616293559662181bd6c7bdc558e5a921ff2347f38d0e7894c0100a2d",
+  "only_source_difference": "assets/policies/yaw_biped_bounded_v2.json",
+  "baseline_source_files": 486,
+  "workers": 4,
+  "cases": [
+    {
+      "name": "app-settle-0-fresh",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=0"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-0-restart",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=0",
+        "--restart"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-1-fresh",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=1"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-1-restart",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=1",
+        "--restart"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-60-fresh",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=60"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-60-restart",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=60",
+        "--restart"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-121-fresh",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=121"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-121-restart",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=121",
+        "--restart"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-180-fresh",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=180"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-180-restart",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=180",
+        "--restart"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-257-fresh",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=257"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "app-settle-257-restart",
+      "script": "tests/learned_app_check.gd",
+      "args": [
+        "--settle-frames=257",
+        "--restart"
+      ],
+      "expected_checks": 737
+    },
+    {
+      "name": "blender_camera_check",
+      "script": "tests/blender_camera_check.gd",
+      "args": []
+    },
+    {
+      "name": "viewport_framing_check",
+      "script": "tests/viewport_framing_check.gd",
+      "args": []
+    }
+  ],
+  "gate": "Original source assertions unchanged; each process exit0, no ERROR or SCRIPT ERROR, correct terminal suite summary; actual app 737checks0failures for each12 condition",
+  "scope": "Native headless actual main scene keyboard, walk12s, stop90, graph, camera and original separate ray-picking checks. No new training, timing choice, visual render or Web claim."
+}

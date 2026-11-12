@@ -1,0 +1,33 @@
+{
+  "head": "0b16d984096e00d4835bfb3ba6d48ad1b311e226",
+  "mode": "live",
+  "new_ai_trials": 1,
+  "wall_x": 0.35,
+  "actions": 4,
+  "observations": 5,
+  "latest_floor_pixels": 31,
+  "image_pass": true,
+  "final_gap_m": 0.145837739109993,
+  "physical": {
+    "success": false,
+    "checks": {
+      "valid_evaluation": true,
+      "forward_progress": true,
+      "gap_in_target": false,
+      "no_contact": true,
+      "rest_after_stop": true,
+      "action_reobservation_stop": true
+    }
+  },
+  "joint_pass": false,
+  "actor_status": "cli_exited",
+  "actor_exit": 0,
+  "native_exit": 0,
+  "actor_stop_confirmed": true,
+  "stop_scope": "context_replaced",
+  "requested_model": "gpt-6-astra",
+  "resolved_model": "CLI JSON does not attest model identity",
+  "model_request_count_not_attested": true,
+  "production_applied": false,
+  "global_goal_complete": false
+}

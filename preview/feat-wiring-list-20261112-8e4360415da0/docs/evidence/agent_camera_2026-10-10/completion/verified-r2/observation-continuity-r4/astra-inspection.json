@@ -1,0 +1,154 @@
+{
+  "actual_model": "gpt-6-astra",
+  "role": "native visual inspector",
+  "method": "All four actual PNGs viewed at original resolution via view_image, with read-only file SHA256 and RGB pixel measurement. Fixed floor rule R>=175 and R-G>=6 and R-B>=18, bottom-connected floor run.",
+  "coordinate_origin": "top-left",
+  "goal_floor_px_inclusive": [
+    24,
+    38
+  ],
+  "images": [
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/observation-continuity-r4/stock/idle-3.png",
+      "sha256": "f57d4310a2a0479b06251bcd9e3f175dc26e7df4a2514f447684be3b56132737",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "center_columns_inclusive": [
+        312,
+        328
+      ],
+      "boundary_y": 455,
+      "center_column_boundary_range": [
+        455,
+        455
+      ],
+      "floor_pixels": 25,
+      "uncertainty_pixels": 1,
+      "goal_verdict": "pass",
+      "occlusion": "Central band unobscured; robot structures obscure outer side margins.",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          455,
+          454
+        ],
+        "observation": "Continuous, nearly horizontal boundary with slight rise toward right."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/observation-continuity-r4/stock/idle-4.png",
+      "sha256": "229811098e0208483d48f684859a0d7ce679c8ab9fb15866696e15bb9fd524ac",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "center_columns_inclusive": [
+        312,
+        328
+      ],
+      "boundary_y": 458,
+      "center_column_boundary_range": [
+        458,
+        458
+      ],
+      "floor_pixels": 22,
+      "uncertainty_pixels": 1,
+      "goal_verdict": "fail",
+      "occlusion": "Central band unobscured; robot structures obscure outer side margins.",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          459,
+          458
+        ],
+        "observation": "Continuous, nearly horizontal boundary with slight rise toward right."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/observation-continuity-r4/no-pulse/idle-3.png",
+      "sha256": "6458157dd0a1fbdd1bfca5f346897170a82d6feed04e32f173ffa933afa8ea02",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "center_columns_inclusive": [
+        312,
+        328
+      ],
+      "boundary_y": 455,
+      "center_column_boundary_range": [
+        455,
+        455
+      ],
+      "floor_pixels": 25,
+      "uncertainty_pixels": 1,
+      "goal_verdict": "pass",
+      "occlusion": "Central band unobscured; robot structures obscure outer side margins.",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          454,
+          456
+        ],
+        "observation": "Continuous, nearly horizontal boundary with slight descent toward right."
+      }
+    },
+    {
+      "actual_viewed_file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/observation-continuity-r4/no-pulse/idle-4.png",
+      "sha256": "25173071e02249db0849def35761cba2365961859ebf225100548498aeae0312",
+      "dimensions": [
+        640,
+        480
+      ],
+      "center_x": 320,
+      "center_columns_inclusive": [
+        312,
+        328
+      ],
+      "boundary_y": 458,
+      "center_column_boundary_range": [
+        458,
+        458
+      ],
+      "floor_pixels": 22,
+      "uncertainty_pixels": 1,
+      "goal_verdict": "fail",
+      "occlusion": "Central band unobscured; robot structures obscure outer side margins.",
+      "wall_line": {
+        "edge_x": [
+          80,
+          560
+        ],
+        "edge_y": [
+          457,
+          459
+        ],
+        "observation": "Continuous, nearly horizontal boundary with slight descent toward right."
+      }
+    }
+  ],
+  "observed_variation": "Both listed pairs have a central floor estimate of 25 pixels in idle-3 and 22 pixels in idle-4. These are image observations only.",
+  "scope_limits": [
+    "Developer-only fixed camera goal evaluation; no actor input.",
+    "Approximately +/-1 pixel boundary uncertainty from color blending.",
+    "No physical distance, sensor, contact or physics-success inference.",
+    "No causal, incompatibility or improvement inference.",
+    "Fixture-specific palette, original resolution and unobstructed central columns; no generalization to changed image conditions.",
+    "No source or image modification, design decision or delegation."
+  ],
+  "failures": []
+}

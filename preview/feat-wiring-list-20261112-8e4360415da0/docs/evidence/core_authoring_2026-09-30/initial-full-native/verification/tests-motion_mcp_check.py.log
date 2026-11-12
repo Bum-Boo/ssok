@@ -1,0 +1,19 @@
+test_describe_makes_no_search (tests.motion_mcp_check.AdapterProtocolChecks.test_describe_makes_no_search) ... ok
+test_exact_tool_capabilities (tests.motion_mcp_check.AdapterProtocolChecks.test_exact_tool_capabilities) ... ok
+test_internal_exception_details_are_redacted (tests.motion_mcp_check.AdapterProtocolChecks.test_internal_exception_details_are_redacted) ... ok
+test_job_id_requires_bounded_string (tests.motion_mcp_check.AdapterProtocolChecks.test_job_id_requires_bounded_string) ... ok
+test_malformed_requests_never_reach_service (tests.motion_mcp_check.AdapterProtocolChecks.test_malformed_requests_never_reach_service) ... ok
+test_read_only_annotations (tests.motion_mcp_check.AdapterProtocolChecks.test_read_only_annotations) ... ok
+test_start_get_cancel (tests.motion_mcp_check.AdapterProtocolChecks.test_start_get_cancel) ... ok
+test_start_preserves_validated_data_and_offline_consent_default (tests.motion_mcp_check.AdapterProtocolChecks.test_start_preserves_validated_data_and_offline_consent_default) ... ok
+test_unknown_job_is_safe_error (tests.motion_mcp_check.AdapterProtocolChecks.test_unknown_job_is_safe_error) ... ok
+test_unknown_tool_is_not_executed (tests.motion_mcp_check.AdapterProtocolChecks.test_unknown_tool_is_not_executed) ... ok
+test_live_mode_without_key_fails_before_start (tests.motion_mcp_check.OperatorConfigurationChecks.test_live_mode_without_key_fails_before_start) ... ok
+test_stdio_current_protocol_and_tool_discovery (tests.motion_mcp_check.StdioProtocolChecks.test_stdio_current_protocol_and_tool_discovery) ... ok
+test_stdio_legacy_handshake (tests.motion_mcp_check.StdioProtocolChecks.test_stdio_legacy_handshake) ... ok
+test_stdio_real_service_start_and_cancel (tests.motion_mcp_check.StdioProtocolChecks.test_stdio_real_service_start_and_cancel) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 3.299s
+
+OK

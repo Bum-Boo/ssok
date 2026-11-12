@@ -1,0 +1,90 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": 4,
+  "failures": 1,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 16.195,
+      "timeout": false,
+      "engine_error": false,
+      "log": "import.log",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+        "--headless",
+        "--path",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+        "--editor",
+        "--import",
+        "--quit"
+      ]
+    },
+    {
+      "name": "scene-load",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 3.077,
+      "timeout": false,
+      "engine_error": false,
+      "log": "scene-load.log",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+        "--headless",
+        "--path",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--quit-after",
+        "5"
+      ]
+    },
+    {
+      "name": "agent_camera_loop_check",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 47.772,
+      "timeout": false,
+      "engine_error": false,
+      "log": "agent_camera_loop_check.log",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+        "--headless",
+        "--path",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tests/agent_camera_loop_check.gd"
+      ]
+    },
+    {
+      "name": "agent_camera_loop_check-rendered",
+      "passed": false,
+      "exit_code": 1,
+      "seconds": 122.139,
+      "timeout": false,
+      "engine_error": true,
+      "log": "agent_camera_loop_check-rendered.log",
+      "command": [
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/build/toolchain-linux/godot",
+        "--path",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop",
+        "--language",
+        "en",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "/mnt/c/Users/Hojun/Projects/ssok-ai-loop/tests/agent_camera_loop_check.gd",
+        "--",
+        "--ssok-agent-bridge",
+        "--screenshots"
+      ]
+    }
+  ]
+}

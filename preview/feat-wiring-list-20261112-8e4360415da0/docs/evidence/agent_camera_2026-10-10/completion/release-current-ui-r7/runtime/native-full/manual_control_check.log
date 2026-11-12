@@ -1,0 +1,63 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS configuration leaves manual input disabled
+PASS hardware discovery follows graph pin 10, not preset pin 9
+PASS channel identifies actual graph board and servo
+PASS visible channel label identifies its wired pin
+PASS input adapter never writes servo joints directly
+PASS unwired servo is excluded from hardware discovery
+PASS ambiguous numeric addresses never pick an arbitrary board
+PASS biped hardware discovery is sorted by actual wiring
+PASS W requests forward motion
+PASS motion signal delivers throttle before turn
+PASS W+D requests a bounded forward/right arc
+PASS D alone requests a right turn
+PASS releasing movement keys stops motion
+PASS S requests reverse motion
+PASS opposite throttle keys cancel
+PASS A requests a left turn
+PASS Space clears motion and sends an explicit brake command
+PASS brake never resumes a previously held direction
+PASS arrow keys share robot motion semantics
+PASS disabled adapter cannot send movement
+PASS reenabling never resumes previous held keys
+PASS editor or OS shortcuts do not issue movement
+PASS robot command strength is independent of input frame rate
+PASS gamepad deadzone rejects resting-stick noise
+PASS gamepad half-range beyond deadzone gives half turn command
+PASS first active controller owns gamepad input
+PASS another controller cannot overwrite the active stick
+PASS pushing gamepad stick up requests forward motion
+PASS gamepad diagonal movement is clamped to unit length
+PASS gamepad A brakes robot motion
+PASS brake requires both stick axes to return to neutral
+PASS pulling stick down requests reverse motion
+PASS hot unplug clears motion and controller ownership
+PASS replacement controller must neutralize after hot unplug
+PASS replacement controller works after neutral rearm
+PASS actual viewport dispatch routes unhandled W to robot motion
+PASS input release is cleared even when a text editor consumes events
+PASS actual GUI dispatch never leaks typed W into movement
+PASS test text editor actually owns GUI focus
+PASS text focus clears already held movement
+PASS typing a movement key does not control the robot
+PASS text focus blocks gamepad movement too
+PASS closing text editor never resumes stale movement
+PASS key autorepeat cannot revive movement after text focus
+PASS held stick must return to neutral after text focus
+PASS fresh neutralized stick works after text focus
+PASS application focus loss stops manual motion
+PASS application focus regain never resumes stale input
+PASS Shift requests sprint without moving a joint
+PASS Shift release stops sprint
+PASS E interacts once; auto-repeat cannot toggle grasp
+PASS focus loss clears sprint
+PASS typing cannot interact or sprint
+PASS gamepad B requests sprint
+PASS inactive gamepad cannot interact
+PASS active gamepad X interacts
+PASS gamepad disconnect clears sprint
+PASS disabled controls cannot release a box
+PASS leaving manual mode stops command output
+PASS hardware teardown disables stale manual input
+manual_control_check: 0 failure(s)

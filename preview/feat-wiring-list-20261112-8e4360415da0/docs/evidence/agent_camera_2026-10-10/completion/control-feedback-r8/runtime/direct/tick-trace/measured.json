@@ -1,0 +1,2723 @@
+{
+  "commands": [
+    {
+      "action": "forward",
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.0156584866344929,
+          "torque_nm": -0.000115634087548183
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.00437007751315832,
+          "torque_nm": -6.33714929790666e-05
+        }
+      ],
+      "requested_tick": 51,
+      "ticks": 30
+    },
+    {
+      "action": "forward",
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0200439505279064,
+          "torque_nm": -5.84029044812879e-05
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.015564477071166,
+          "torque_nm": -0.000113364435841005
+        }
+      ],
+      "requested_tick": 221,
+      "ticks": 10
+    },
+    {
+      "action": "forward",
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0154101904481649,
+          "torque_nm": -0.000117025673975598
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0222977865487337,
+          "torque_nm": -5.43154099238365e-05
+        }
+      ],
+      "requested_tick": 350,
+      "ticks": 12
+    },
+    {
+      "action": "forward",
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0153204342350364,
+          "torque_nm": -0.000117987851285832
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0213701445609331,
+          "torque_nm": -5.43672497958712e-05
+        }
+      ],
+      "requested_tick": 487,
+      "ticks": 1
+    }
+  ],
+  "evaluation": {
+    "final": {
+      "angular_speed": 0.0115553168579936,
+      "gap_x": 0.140207678079605,
+      "linear_speed": 0.00157725403551012,
+      "linear_velocity": [
+        0.00156140408944339,
+        0.0002030618925346,
+        -9.226709516951e-05
+      ],
+      "motors": [
+        {
+          "duty": 0.0,
+          "speed": 0.014067655429244
+        },
+        {
+          "duty": 0.0,
+          "speed": 0.0702129080891609
+        }
+      ],
+      "position": [
+        0.11470090597868,
+        0.0669005513191223,
+        -0.00091548997443169
+      ],
+      "rotation": [
+        -0.00207698065787554,
+        -0.0028022809419781,
+        -0.01336938329041
+      ],
+      "wheel_speed": 0.0750962048768997,
+      "x": 0.11470090597868
+    },
+    "gap_definition": "world-X support gap of actual collision primitives; valid for the fixed X-normal wall fixture",
+    "initial": {
+      "angular_speed": 0.00454735290259123,
+      "gap_x": 0.17771703004837,
+      "linear_speed": 0.00078690488589927,
+      "linear_velocity": [
+        -0.00070407061139121,
+        0.00019954594608862,
+        0.00028928407118655
+      ],
+      "motors": [
+        {
+          "duty": -0.00300980710859099,
+          "speed": -0.0251865349709988
+        },
+        {
+          "duty": -0.00458823280408977,
+          "speed": -0.0200066883116961
+        }
+      ],
+      "position": [
+        0.0771288573741913,
+        0.06695506721735,
+        0.00018636498134583
+      ],
+      "rotation": [
+        -0.00101013423409313,
+        0.00199470203369856,
+        -0.0145495515316725
+      ],
+      "wheel_speed": 0.0209281295537949,
+      "x": 0.0771288573741913
+    },
+    "minimum_gap_x": 0.133710965514183,
+    "rest_ticks": 23.0,
+    "samples": 558.0,
+    "schema": 1.0,
+    "stopped_state": "stopped",
+    "travel_x": 0.0375720486044884,
+    "valid": true,
+    "wall_contact": false
+  },
+  "frames": [
+    {
+      "capture_physics": {
+        "gap_x": 0.254920445382595,
+        "angular_speed": 0.0049416464753449,
+        "linear_speed": 0.000488502497319132,
+        "wheel_speed": 0.0200995709747076,
+        "position": [
+          0.000361308892024681,
+          0.0666069239377975,
+          -8.75569021445699e-05
+        ],
+        "rotation": [
+          -0.000389627326512709,
+          -0.00215541361831129,
+          -0.00818165671080351
+        ],
+        "linear_velocity": [
+          0.00035325501812622,
+          0.000201192378881387,
+          -0.000270863820333034
+        ],
+        "motors": [
+          {
+            "duty": -0.00333073824323947,
+            "speed": 0.0156584866344929
+          },
+          {
+            "duty": -0.00198597542189964,
+            "speed": 0.00437007751315832
+          }
+        ]
+      },
+      "label": "initial",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 50,
+        "control_generation": 1,
+        "draw_frame": 35,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 2,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 50,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 50,
+        "sha256": "e6bd166b6aac1d6be260784b7e33fbf98279993fc88835705efbcc3f0c2ea25a",
+        "width": 640
+      },
+      "png_sha256": "e6bd166b6aac1d6be260784b7e33fbf98279993fc88835705efbcc3f0c2ea25a",
+      "request_after_physics": {
+        "angular_speed": 0.00507602142170072,
+        "gap_x": 0.255061306059361,
+        "linear_speed": 0.000562061788514256,
+        "linear_velocity": [
+          0.000452495674835518,
+          0.0002016468642978,
+          -0.000265517708612606
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0198714882135391
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.00705817108973861
+          }
+        ],
+        "position": [
+          0.00028575977194123,
+          0.0665635392069817,
+          -3.59586483682506e-05
+        ],
+        "rotation": [
+          -0.000259223132161424,
+          -0.00168610888067633,
+          -0.00739122368395329
+        ],
+        "wheel_speed": 0.0239954497665167,
+        "x": 0.00028575977194123
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00507602142170072,
+        "gap_x": 0.255061306059361,
+        "linear_speed": 0.000562061788514256,
+        "linear_velocity": [
+          0.000452495674835518,
+          0.0002016468642978,
+          -0.000265517708612606
+        ],
+        "motors": [
+          {
+            "duty": -0.0030480466055645,
+            "speed": 0.0198714882135391
+          },
+          {
+            "duty": -0.0019789606096189,
+            "speed": 0.00705817108973861
+          }
+        ],
+        "position": [
+          0.00028575977194123,
+          0.0665635392069817,
+          -3.59586483682506e-05
+        ],
+        "rotation": [
+          -0.000259223132161424,
+          -0.00168610888067633,
+          -0.00739122368395329
+        ],
+        "wheel_speed": 0.0239954497665167,
+        "x": 0.00028575977194123
+      },
+      "pixels": {
+        "boundary_y": 364,
+        "floor_pixels": 116,
+        "column_range": [
+          364,
+          364
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00494327815249562,
+        "gap_x": 0.254909463226795,
+        "linear_speed": 0.000484540563775226,
+        "linear_velocity": [
+          0.000347898429026827,
+          0.000200962647795677,
+          -0.000270850985543802
+        ],
+        "motors": [
+          {
+            "duty": -0.00333073824323947,
+            "speed": 0.0156584866344929
+          },
+          {
+            "duty": -0.00198597542189964,
+            "speed": 0.00437007751315832
+          }
+        ],
+        "position": [
+          0.000366445892723277,
+          0.0666108652949333,
+          -9.22802064451389e-05
+        ],
+        "rotation": [
+          -0.000401575904106721,
+          -0.00219419645145535,
+          -0.00825334154069424
+        ],
+        "wheel_speed": 0.0198895484209061,
+        "x": 0.000366445892723277
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.177765980362892,
+        "angular_speed": 0.00450460659340024,
+        "linear_speed": 0.000651232025120407,
+        "wheel_speed": 0.0157994236797094,
+        "position": [
+          0.0770146995782852,
+          0.0670021176338196,
+          0.000244823255343363
+        ],
+        "rotation": [
+          -0.000868969014845788,
+          0.00225842278450727,
+          -0.0154126351699233
+        ],
+        "linear_velocity": [
+          -0.000547047588042915,
+          0.000200354988919571,
+          0.000291032600216568
+        ],
+        "motors": [
+          {
+            "duty": -0.00278222695862252,
+            "speed": -0.0200439505279064
+          },
+          {
+            "duty": -0.00447777146783966,
+            "speed": -0.015564477071166
+          }
+        ]
+      },
+      "label": "post-1",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 220,
+        "control_generation": 1,
+        "draw_frame": 202,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 3,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 220,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 220,
+        "sha256": "0b6a81b0d593c9efc4c94993ba9d027046d683fbce902f0f6126a15b973cb37d",
+        "width": 640
+      },
+      "png_sha256": "0b6a81b0d593c9efc4c94993ba9d027046d683fbce902f0f6126a15b973cb37d",
+      "request_after_physics": {
+        "angular_speed": 0.00454519083723426,
+        "gap_x": 0.177723720669746,
+        "linear_speed": 0.000771707331296057,
+        "linear_velocity": [
+          -0.00068702403223142,
+          0.000199528964003548,
+          0.000289341318421066
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": -0.0251865349709988
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.0200066883116961
+          }
+        ],
+        "position": [
+          0.0771167501807213,
+          0.066958986222744,
+          0.000191253842785954
+        ],
+        "rotation": [
+          -0.000998377683572471,
+          0.00201574992388487,
+          -0.0146213890984654
+        ],
+        "wheel_speed": 0.0203844085335732,
+        "x": 0.0771167501807213
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00454519083723426,
+        "gap_x": 0.177723720669746,
+        "linear_speed": 0.000771707331296057,
+        "linear_velocity": [
+          -0.00068702403223142,
+          0.000199528964003548,
+          0.000289341318421066
+        ],
+        "motors": [
+          {
+            "duty": -0.00300980710859099,
+            "speed": -0.0251865349709988
+          },
+          {
+            "duty": -0.00458823280408977,
+            "speed": -0.0200066883116961
+          }
+        ],
+        "position": [
+          0.0771167501807213,
+          0.066958986222744,
+          0.000191253842785954
+        ],
+        "rotation": [
+          -0.000998377683572471,
+          0.00201574992388487,
+          -0.0146213890984654
+        ],
+        "wheel_speed": 0.0203844085335732,
+        "x": 0.0771167501807213
+      },
+      "pixels": {
+        "boundary_y": 413,
+        "floor_pixels": 67,
+        "column_range": [
+          413,
+          413
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00451076589524746,
+        "gap_x": 0.177770152688026,
+        "linear_speed": 0.00063886190764606,
+        "linear_velocity": [
+          -0.000532348814886063,
+          0.000200277383555658,
+          0.000290926516754553
+        ],
+        "motors": [
+          {
+            "duty": -0.00278222695862252,
+            "speed": -0.0200439505279064
+          },
+          {
+            "duty": -0.00447777146783966,
+            "speed": -0.015564477071166
+          }
+        ],
+        "position": [
+          0.0770051702857018,
+          0.0670060515403748,
+          0.000249721633736044
+        ],
+        "rotation": [
+          -0.000857171311508864,
+          0.00227740802802145,
+          -0.0154844326898456
+        ],
+        "wheel_speed": 0.0153605844825506,
+        "x": 0.0770051702857018
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.162133529782295,
+        "angular_speed": 0.00465772487223148,
+        "linear_speed": 0.000675752409733832,
+        "wheel_speed": 0.0180115085095167,
+        "position": [
+          0.0928331166505814,
+          0.0668881386518478,
+          0.000158505790750496
+        ],
+        "rotation": [
+          0.00135653256438673,
+          0.000357464799890295,
+          -0.0133253103122115
+        ],
+        "linear_velocity": [
+          -0.000573269790038466,
+          0.000203256262466311,
+          -0.000294431578367949
+        ],
+        "motors": [
+          {
+            "duty": -0.00459729490134245,
+            "speed": -0.0154101904481649
+          },
+          {
+            "duty": -0.00273054479062558,
+            "speed": -0.0222977865487337
+          }
+        ]
+      },
+      "label": "post-2",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 349,
+        "control_generation": 1,
+        "draw_frame": 329,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 4,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 349,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 349,
+        "sha256": "2320e0e0d75118a346332269415bb9daa635dbe748e4f290cca66d8bd8250b62",
+        "width": 640
+      },
+      "png_sha256": "2320e0e0d75118a346332269415bb9daa635dbe748e4f290cca66d8bd8250b62",
+      "request_after_physics": {
+        "angular_speed": 0.00483193062245846,
+        "gap_x": 0.162074908614159,
+        "linear_speed": 0.000799127796199173,
+        "linear_velocity": [
+          -0.000715421279892325,
+          0.000210002850508317,
+          -0.000287535192910582
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": -0.0198059342801571
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.027784613892436
+          }
+        ],
+        "position": [
+          0.0929403603076935,
+          0.0668440610170364,
+          0.000213002451346256
+        ],
+        "rotation": [
+          0.00148427532985806,
+          0.000668558932375163,
+          -0.0125177744776011
+        ],
+        "wheel_speed": 0.0227937307208776,
+        "x": 0.0929403603076935
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00483193062245846,
+        "gap_x": 0.162074908614159,
+        "linear_speed": 0.000799127796199173,
+        "linear_velocity": [
+          -0.000715421279892325,
+          0.000210002850508317,
+          -0.000287535192910582
+        ],
+        "motors": [
+          {
+            "duty": -0.00470456934627146,
+            "speed": -0.0198059342801571
+          },
+          {
+            "duty": -0.00300807026525339,
+            "speed": -0.027784613892436
+          }
+        ],
+        "position": [
+          0.0929403603076935,
+          0.0668440610170364,
+          0.000213002451346256
+        ],
+        "rotation": [
+          0.00148427532985806,
+          0.000668558932375163,
+          -0.0125177744776011
+        ],
+        "wheel_speed": 0.0227937307208776,
+        "x": 0.0929403603076935
+      },
+      "pixels": {
+        "boundary_y": 430,
+        "floor_pixels": 50,
+        "column_range": [
+          430,
+          430
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00466335285454988,
+        "gap_x": 0.162139028310776,
+        "linear_speed": 0.000662588223349303,
+        "linear_velocity": [
+          -0.000557773688342422,
+          0.000202981580514461,
+          -0.000294465862680227
+        ],
+        "motors": [
+          {
+            "duty": -0.00459729490134245,
+            "speed": -0.0154101904481649
+          },
+          {
+            "duty": -0.00273054479062558,
+            "speed": -0.0222977865487337
+          }
+        ],
+        "position": [
+          0.0928231477737427,
+          0.0668921247124672,
+          0.00015350898320321
+        ],
+        "rotation": [
+          0.00134444097056985,
+          0.000333050993504003,
+          -0.013398134149611
+        ],
+        "wheel_speed": 0.0175339505076408,
+        "x": 0.0928231477737427
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.141060203313828,
+        "angular_speed": 0.00459566479548812,
+        "linear_speed": 0.000672640220727772,
+        "wheel_speed": 0.017134316265583,
+        "position": [
+          0.113838188350201,
+          0.0669226199388504,
+          -0.000143663797643967
+        ],
+        "rotation": [
+          0.00121979834511876,
+          0.00145869632251561,
+          -0.0139566361904144
+        ],
+        "linear_velocity": [
+          -0.000570760515984148,
+          0.000200972048332915,
+          -0.000293747376417741
+        ],
+        "motors": [
+          {
+            "duty": -0.00462456727229679,
+            "speed": -0.0153204342350364
+          },
+          {
+            "duty": -0.00268780017892519,
+            "speed": -0.0213701445609331
+          }
+        ]
+      },
+      "label": "post-3",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 486,
+        "control_generation": 1,
+        "draw_frame": 464,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 5,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 486,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 486,
+        "sha256": "2e18888227b90c8bad9a556b352df619cef6f95e3761ead2e29637afae3454ef",
+        "width": 640
+      },
+      "png_sha256": "2e18888227b90c8bad9a556b352df619cef6f95e3761ead2e29637afae3454ef",
+      "request_after_physics": {
+        "angular_speed": 0.00469634588807821,
+        "gap_x": 0.141003131866455,
+        "linear_speed": 0.000788406934589148,
+        "linear_velocity": [
+          -0.000703593657817692,
+          0.000202693350729533,
+          -0.000292329961666837
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": -0.0197092909365892
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.0270458217710257
+          }
+        ],
+        "position": [
+          0.113943628966808,
+          0.0668789893388748,
+          -8.90058145159855e-05
+        ],
+        "rotation": [
+          0.00135068094823509,
+          0.00175689160823822,
+          -0.0131569849327207
+        ],
+        "wheel_speed": 0.0221586935222149,
+        "x": 0.113943628966808
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00469634588807821,
+        "gap_x": 0.141003131866455,
+        "linear_speed": 0.000788406934589148,
+        "linear_velocity": [
+          -0.000703593657817692,
+          0.000202693350729533,
+          -0.000292329961666837
+        ],
+        "motors": [
+          {
+            "duty": -0.00472806573659181,
+            "speed": -0.0197092909365892
+          },
+          {
+            "duty": -0.00292135049402713,
+            "speed": -0.0270458217710257
+          }
+        ],
+        "position": [
+          0.113943628966808,
+          0.0668789893388748,
+          -8.90058145159855e-05
+        ],
+        "rotation": [
+          0.00135068094823509,
+          0.00175689160823822,
+          -0.0131569849327207
+        ],
+        "wheel_speed": 0.0221586935222149,
+        "x": 0.113943628966808
+      },
+      "pixels": {
+        "boundary_y": 457,
+        "floor_pixels": 23,
+        "column_range": [
+          457,
+          457
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00459643080830574,
+        "gap_x": 0.141065761446953,
+        "linear_speed": 0.000660654448438436,
+        "linear_velocity": [
+          -0.000557051214855164,
+          0.000200264534214512,
+          -0.000293346849502996
+        ],
+        "motors": [
+          {
+            "duty": -0.00462456727229679,
+            "speed": -0.0153204342350364
+          },
+          {
+            "duty": -0.00268780017892519,
+            "speed": -0.0213701445609331
+          }
+        ],
+        "position": [
+          0.113828241825104,
+          0.0669265538454056,
+          -0.000148644947330467
+        ],
+        "rotation": [
+          0.00120846380013973,
+          0.00143470882903785,
+          -0.014028531499207
+        ],
+        "wheel_speed": 0.0167293641716242,
+        "x": 0.113828241825104
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.140497118234634,
+        "angular_speed": 0.00497230654582381,
+        "linear_speed": 0.000197149987798184,
+        "wheel_speed": 0.0103076230734587,
+        "position": [
+          0.114137507975101,
+          0.0671100169420242,
+          -0.000224262301344424
+        ],
+        "rotation": [
+          0.00302330078557134,
+          -0.00362879340536892,
+          -0.0171058122068644
+        ],
+        "linear_velocity": [
+          3.46253873431124e-05,
+          0.000189159254659899,
+          -4.34508983744308e-05
+        ],
+        "motors": [
+          {
+            "duty": -0.00394098529933641,
+            "speed": 0.00584585405886173
+          },
+          {
+            "duty": -0.00199647355328004,
+            "speed": -0.00984631665050983
+          }
+        ]
+      },
+      "label": "post-4",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 562,
+        "control_generation": 1,
+        "draw_frame": 537,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 6,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 562,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 562,
+        "sha256": "435e84b3eabfe6203d6b0b04374c50d45ed70e491b4abe6811b5377f6a5c1518",
+        "width": 640
+      },
+      "png_sha256": "435e84b3eabfe6203d6b0b04374c50d45ed70e491b4abe6811b5377f6a5c1518",
+      "request_after_physics": {
+        "angular_speed": 0.00554954074323177,
+        "gap_x": 0.140577211976051,
+        "linear_speed": 0.000203887364477851,
+        "linear_velocity": [
+          5.80647720198613e-05,
+          0.000192822975805029,
+          -3.19035971187986e-05
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.00841510389000177
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.0118252476677299
+          }
+        ],
+        "position": [
+          0.11412301659584,
+          0.0670690760016441,
+          -0.000212948114494793
+        ],
+        "rotation": [
+          0.00301387091167271,
+          -0.0029856723267585,
+          -0.0163554772734642
+        ],
+        "wheel_speed": 0.0129088163375854,
+        "x": 0.11412301659584
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00554954074323177,
+        "gap_x": 0.140577211976051,
+        "linear_speed": 0.000203887364477851,
+        "linear_velocity": [
+          5.80647720198613e-05,
+          0.000192822975805029,
+          -3.19035971187986e-05
+        ],
+        "motors": [
+          {
+            "duty": -0.00384086091785381,
+            "speed": 0.00841510389000177
+          },
+          {
+            "duty": -0.00213836479062835,
+            "speed": -0.0118252476677299
+          }
+        ],
+        "position": [
+          0.11412301659584,
+          0.0670690760016441,
+          -0.000212948114494793
+        ],
+        "rotation": [
+          0.00301387091167271,
+          -0.0029856723267585,
+          -0.0163554772734642
+        ],
+        "wheel_speed": 0.0129088163375854,
+        "x": 0.11412301659584
+      },
+      "pixels": {
+        "boundary_y": 456,
+        "floor_pixels": 24,
+        "column_range": [
+          456,
+          456
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 1.67670917510986,
+        "gap_x": 0.141619727015495,
+        "linear_speed": 0.069924995303154,
+        "linear_velocity": [
+          0.00241619860753417,
+          -0.0659299492835999,
+          -0.0231712870299816
+        ],
+        "motors": [
+          {
+            "duty": -0.00394098529933641,
+            "speed": 0.00584585405886173
+          },
+          {
+            "duty": -0.00199647355328004,
+            "speed": -0.00984631665050983
+          }
+        ],
+        "position": [
+          0.11438649892807,
+          0.0658269673585892,
+          -0.000473020656500012
+        ],
+        "rotation": [
+          -0.0132612641900778,
+          -0.00547343259677291,
+          0.00553885800763965
+        ],
+        "wheel_speed": 1.08876061439514,
+        "x": 0.11438649892807
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.140780955553055,
+        "angular_speed": 0.00490209693089128,
+        "linear_speed": 0.000357788812834769,
+        "wheel_speed": 0.0111855696886778,
+        "position": [
+          0.114082932472229,
+          0.0669030100107193,
+          -0.00041827408131212
+        ],
+        "rotation": [
+          0.00163574621547014,
+          -0.00414083525538445,
+          -0.0135994665324688
+        ],
+        "linear_velocity": [
+          8.20789064164273e-05,
+          0.000203512245207094,
+          -0.000282592722214758
+        ],
+        "motors": [
+          {
+            "duty": -0.00370934034480403,
+            "speed": 0.00659776199609041
+          },
+          {
+            "duty": -0.0022764992325101,
+            "speed": -0.0035549933090806
+          }
+        ]
+      },
+      "label": "idle-1",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 604,
+        "control_generation": 1,
+        "draw_frame": 577,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 7,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 604,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 604,
+        "sha256": "7de1ab6e5394ef8e713d91b4c616b62d422eeb3fafdfb867ee86212580b4789e",
+        "width": 640
+      },
+      "png_sha256": "7de1ab6e5394ef8e713d91b4c616b62d422eeb3fafdfb867ee86212580b4789e",
+      "request_after_physics": {
+        "angular_speed": 0.00503961183130741,
+        "gap_x": 0.140868619084358,
+        "linear_speed": 0.000363060215022415,
+        "linear_velocity": [
+          0.000116150134999771,
+          0.000203251154744066,
+          -0.000277508253930137
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.00859295204281807
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.00311701162718236
+          }
+        ],
+        "position": [
+          0.114060059189796,
+          0.0668591782450676,
+          -0.000364912586519495
+        ],
+        "rotation": [
+          0.00176909391302615,
+          -0.00371262454427779,
+          -0.0127961728721857
+        ],
+        "wheel_speed": 0.0130787407979369,
+        "x": 0.114060059189796
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00503961183130741,
+        "gap_x": 0.140868619084358,
+        "linear_speed": 0.000363060215022415,
+        "linear_velocity": [
+          0.000116150134999771,
+          0.000203251154744066,
+          -0.000277508253930137
+        ],
+        "motors": [
+          {
+            "duty": -0.00355899029690772,
+            "speed": 0.00859295204281807
+          },
+          {
+            "duty": -0.00236329742854771,
+            "speed": -0.00311701162718236
+          }
+        ],
+        "position": [
+          0.114060059189796,
+          0.0668591782450676,
+          -0.000364912586519495
+        ],
+        "rotation": [
+          0.00176909391302615,
+          -0.00371262454427779,
+          -0.0127961728721857
+        ],
+        "wheel_speed": 0.0130787407979369,
+        "x": 0.114060059189796
+      },
+      "pixels": {
+        "boundary_y": 457,
+        "floor_pixels": 23,
+        "column_range": [
+          457,
+          458
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00490230554714799,
+        "gap_x": 0.140774458646774,
+        "linear_speed": 0.000357842422090471,
+        "linear_velocity": [
+          8.22975998744369e-05,
+          0.000203426563530229,
+          -0.000282658700598404
+        ],
+        "motors": [
+          {
+            "duty": -0.00370934034480403,
+            "speed": 0.00659776199609041
+          },
+          {
+            "duty": -0.0022764992325101,
+            "speed": -0.0035549933090806
+          }
+        ],
+        "position": [
+          0.114083632826805,
+          0.0669070035219193,
+          -0.000423163990490139
+        ],
+        "rotation": [
+          0.00162359024398029,
+          -0.00417587300762534,
+          -0.0136723285540938
+        ],
+        "wheel_speed": 0.0111586190760136,
+        "x": 0.114083632826805
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.140519499778748,
+        "angular_speed": 0.00460318382829428,
+        "linear_speed": 0.000355497380951419,
+        "wheel_speed": 0.00754642253741622,
+        "position": [
+          0.114107318222523,
+          0.0670688152313232,
+          -0.000624885899014771
+        ],
+        "rotation": [
+          0.00115176953841001,
+          -0.0054183341562748,
+          -0.0166377425193787
+        ],
+        "linear_velocity": [
+          2.70778946287464e-05,
+          0.000200431066332385,
+          -0.00029235688271001
+        ],
+        "motors": [
+          {
+            "duty": -0.00405131008569151,
+            "speed": 0.00305883237160742
+          },
+          {
+            "duty": -0.00202936701794776,
+            "speed": -0.00305529870092869
+          }
+        ]
+      },
+      "label": "idle-2",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 646,
+        "control_generation": 1,
+        "draw_frame": 617,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 8,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 646,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 646,
+        "sha256": "d4b1c9dcc2c8255caed9960afb58bf5d2db31366ee95afb09e46c8cbe815f6c1",
+        "width": 640
+      },
+      "png_sha256": "d4b1c9dcc2c8255caed9960afb58bf5d2db31366ee95afb09e46c8cbe815f6c1",
+      "request_after_physics": {
+        "angular_speed": 0.00467217387631536,
+        "gap_x": 0.140593111515045,
+        "linear_speed": 0.000354840711224824,
+        "linear_velocity": [
+          4.90351158077829e-05,
+          0.0002000700624194,
+          -0.000288928102236241
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.00434405170381069
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.00281305727548897
+          }
+        ],
+        "position": [
+          0.114094987511635,
+          0.0670255497097969,
+          -0.000570688222069293
+        ],
+        "rotation": [
+          0.00127545231953263,
+          -0.00510937115177512,
+          -0.0158443003892899
+        ],
+        "wheel_speed": 0.00879336707293987,
+        "x": 0.114094987511635
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00467217387631536,
+        "gap_x": 0.140593111515045,
+        "linear_speed": 0.000354840711224824,
+        "linear_velocity": [
+          4.90351158077829e-05,
+          0.0002000700624194,
+          -0.000288928102236241
+        ],
+        "motors": [
+          {
+            "duty": -0.00396096013952047,
+            "speed": 0.00434405170381069
+          },
+          {
+            "duty": -0.0020886520758116,
+            "speed": -0.00281305727548897
+          }
+        ],
+        "position": [
+          0.114094987511635,
+          0.0670255497097969,
+          -0.000570688222069293
+        ],
+        "rotation": [
+          0.00127545231953263,
+          -0.00510937115177512,
+          -0.0158443003892899
+        ],
+        "wheel_speed": 0.00879336707293987,
+        "x": 0.114094987511635
+      },
+      "pixels": {
+        "boundary_y": 456,
+        "floor_pixels": 24,
+        "column_range": [
+          456,
+          456
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00460641924291849,
+        "gap_x": 0.140514224767685,
+        "linear_speed": 0.000355621479684487,
+        "linear_velocity": [
+          2.81089396594325e-05,
+          0.000200459777261131,
+          -0.000292390817776322
+        ],
+        "motors": [
+          {
+            "duty": -0.00405131008569151,
+            "speed": 0.00305883237160742
+          },
+          {
+            "duty": -0.00202936701794776,
+            "speed": -0.00305529870092869
+          }
+        ],
+        "position": [
+          0.114107131958008,
+          0.0670727491378784,
+          -0.00062985869590193
+        ],
+        "rotation": [
+          0.00114050356205553,
+          -0.00544250290840864,
+          -0.0167097635567188
+        ],
+        "wheel_speed": 0.00758360046893358,
+        "x": 0.114107131958008
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.14029435813427,
+        "angular_speed": 0.00484199915081263,
+        "linear_speed": 0.000227163618546911,
+        "wheel_speed": 0.0119004426524043,
+        "position": [
+          0.11411314457655,
+          0.0672338455915451,
+          -0.000826662697363645
+        ],
+        "rotation": [
+          0.000675180286634713,
+          -0.0061775897629559,
+          -0.0195949003100395
+        ],
+        "linear_velocity": [
+          2.82740256807301e-06,
+          0.00019927357789129,
+          -0.000109019980300218
+        ],
+        "motors": [
+          {
+            "duty": -0.00335274054839586,
+            "speed": -0.00956619437783957
+          },
+          {
+            "duty": -0.00280133667262271,
+            "speed": 0.00887010525912046
+          }
+        ]
+      },
+      "label": "idle-3",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 688,
+        "control_generation": 1,
+        "draw_frame": 657,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 9,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 688,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 688,
+        "sha256": "f57d4310a2a0479b06251bcd9e3f175dc26e7df4a2514f447684be3b56132737",
+        "width": 640
+      },
+      "png_sha256": "f57d4310a2a0479b06251bcd9e3f175dc26e7df4a2514f447684be3b56132737",
+      "request_after_physics": {
+        "angular_speed": 0.00454790005460382,
+        "gap_x": 0.140355631709099,
+        "linear_speed": 0.000360482546966523,
+        "linear_velocity": [
+          3.23520762322005e-05,
+          0.000201036120415665,
+          -0.000297465099720284
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0023201263975352
+          },
+          {
+            "duty": 0.0,
+            "speed": -0.0022607569117099
+          }
+        ],
+        "position": [
+          0.114102780818939,
+          0.0671911314129829,
+          -0.00077968422556296
+        ],
+        "rotation": [
+          0.000801982707343996,
+          -0.00608638999983668,
+          -0.0188803970813751
+        ],
+        "wheel_speed": 0.006776153575629,
+        "x": 0.114102780818939
+      },
+      "request_before_physics": {
+        "angular_speed": 0.00454790005460382,
+        "gap_x": 0.140355631709099,
+        "linear_speed": 0.000360482546966523,
+        "linear_velocity": [
+          3.23520762322005e-05,
+          0.000201036120415665,
+          -0.000297465099720284
+        ],
+        "motors": [
+          {
+            "duty": -0.0042090793143337,
+            "speed": 0.0023201263975352
+          },
+          {
+            "duty": -0.00188362404028885,
+            "speed": -0.0022607569117099
+          }
+        ],
+        "position": [
+          0.114102780818939,
+          0.0671911314129829,
+          -0.00077968422556296
+        ],
+        "rotation": [
+          0.000801982707343996,
+          -0.00608638999983668,
+          -0.0188803970813751
+        ],
+        "wheel_speed": 0.006776153575629,
+        "x": 0.114102780818939
+      },
+      "pixels": {
+        "boundary_y": 455,
+        "floor_pixels": 25,
+        "column_range": [
+          455,
+          455
+        ],
+        "image_target": true,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00611282931640744,
+        "gap_x": 0.140293076634407,
+        "linear_speed": 0.000219163222936913,
+        "linear_velocity": [
+          -1.79361595655791e-05,
+          0.000186510107596405,
+          -0.000113687259727158
+        ],
+        "motors": [
+          {
+            "duty": -0.00335274054839586,
+            "speed": -0.00956619437783957
+          },
+          {
+            "duty": -0.00280133667262271,
+            "speed": 0.00887010525912046
+          }
+        ],
+        "position": [
+          0.114112310111523,
+          0.0672374293208122,
+          -0.000827788200695068
+        ],
+        "rotation": [
+          0.000666435284074396,
+          -0.00609414791688323,
+          -0.0196526404470205
+        ],
+        "wheel_speed": 0.0133248120546341,
+        "x": 0.114112310111523
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    },
+    {
+      "capture_physics": {
+        "gap_x": 0.141013413667679,
+        "angular_speed": 0.00475482037290931,
+        "linear_speed": 0.000367667904356495,
+        "wheel_speed": 0.0135710081085563,
+        "position": [
+          0.113963402807713,
+          0.0667883530259132,
+          -0.000833625555969775
+        ],
+        "rotation": [
+          -0.00195316760800779,
+          -0.00553399557247758,
+          -0.0114971995353699
+        ],
+        "linear_velocity": [
+          0.000159287752467208,
+          0.000193122439668514,
+          -0.000269278330961242
+        ],
+        "motors": [
+          {
+            "duty": -0.00365679077970951,
+            "speed": 0.00917728897184134
+          },
+          {
+            "duty": -0.00208309803553857,
+            "speed": -0.000176867833943106
+          }
+        ]
+      },
+      "label": "idle-4",
+      "metadata": {
+        "camera_id": "virtual-front-camera",
+        "capture_requested_tick": 735,
+        "control_generation": 1,
+        "draw_frame": 702,
+        "episode_id": "c574495b1ddcec32d565fc01",
+        "frame_id": 10,
+        "height": 480,
+        "interpolation_enabled": false,
+        "part_id": 0,
+        "physics_tick": 735,
+        "revision": 3,
+        "robot_instance_id": "1364574868852",
+        "settle_confirmed_tick": 735,
+        "sha256": "229811098e0208483d48f684859a0d7ce679c8ab9fb15866696e15bb9fd524ac",
+        "width": 640
+      },
+      "png_sha256": "229811098e0208483d48f684859a0d7ce679c8ab9fb15866696e15bb9fd524ac",
+      "request_after_physics": {
+        "angular_speed": 0.0191099308431149,
+        "gap_x": 0.141121968626976,
+        "linear_speed": 0.00154029810801148,
+        "linear_velocity": [
+          0.00137120147701353,
+          0.000701394164934754,
+          1.92546685866546e-05
+        ],
+        "motors": [
+          {
+            "duty": 0.0,
+            "speed": 0.0503752268850803
+          },
+          {
+            "duty": 0.0,
+            "speed": 0.0420157574117184
+          }
+        ],
+        "position": [
+          0.113925635814667,
+          0.0667261481285095,
+          -0.000814119644928724
+        ],
+        "rotation": [
+          -0.00199329876340926,
+          -0.00535334134474397,
+          -0.0105301383882761
+        ],
+        "wheel_speed": 0.0576567649841309,
+        "x": 0.113925635814667
+      },
+      "request_before_physics": {
+        "angular_speed": 0.0191099308431149,
+        "gap_x": 0.141121968626976,
+        "linear_speed": 0.00154029810801148,
+        "linear_velocity": [
+          0.00137120147701353,
+          0.000701394164934754,
+          1.92546685866546e-05
+        ],
+        "motors": [
+          {
+            "duty": -0.00666743020542587,
+            "speed": 0.0503752268850803
+          },
+          {
+            "duty": -0.00477703066340958,
+            "speed": 0.0420157574117184
+          }
+        ],
+        "position": [
+          0.113925635814667,
+          0.0667261481285095,
+          -0.000814119644928724
+        ],
+        "rotation": [
+          -0.00199329876340926,
+          -0.00535334134474397,
+          -0.0105301383882761
+        ],
+        "wheel_speed": 0.0576567649841309,
+        "x": 0.113925635814667
+      },
+      "pixels": {
+        "boundary_y": 458,
+        "floor_pixels": 22,
+        "column_range": [
+          458,
+          458
+        ],
+        "image_target": false,
+        "uncertainty_pixels": 1,
+        "scope": "fixed beige floor, unscaled camera, unobscured center; no physical inference"
+      },
+      "post_return_physics": {
+        "angular_speed": 0.00477228593081236,
+        "gap_x": 0.141005754470825,
+        "linear_speed": 0.000368959503248334,
+        "linear_velocity": [
+          0.000160099662025459,
+          0.000194597902009264,
+          -0.000269501149887219
+        ],
+        "motors": [
+          {
+            "duty": -0.00365679077970951,
+            "speed": 0.00917728897184134
+          },
+          {
+            "duty": -0.00208309803553857,
+            "speed": -0.000176867833943106
+          }
+        ],
+        "position": [
+          0.113965421915054,
+          0.0667921751737595,
+          -0.000838319421745837
+        ],
+        "rotation": [
+          -0.00196348736062646,
+          -0.00556955672800541,
+          -0.0115675237029791
+        ],
+        "wheel_speed": 0.0136173963546753,
+        "x": 0.113965421915054
+      },
+      "pairing": "Actual frame_ready callback by SHA/tick; camera pose was assigned at capture_requested_tick, callback physics may be later."
+    }
+  ],
+  "scope": "Developer-only per-instance variant; not production code or an AI trial.",
+  "seconds": 18.978,
+  "stop_confirmed": true,
+  "tape": [
+    30,
+    10,
+    12,
+    1
+  ],
+  "tick_rows": [
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.0154379699379206,
+          "torque_nm": 0.00731871520058721
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.00422892905771732,
+          "torque_nm": 0.00733194243960918
+        }
+      ],
+      "remaining": 29,
+      "state": "driving",
+      "tick": 51
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.841195225715637,
+          "torque_nm": 0.00634432056679496
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.896945536136627,
+          "torque_nm": 0.00627853516845672
+        }
+      ],
+      "remaining": 28,
+      "state": "driving",
+      "tick": 52
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 1.51501369476318,
+          "torque_nm": 0.00554921395974699
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 1.61929190158844,
+          "torque_nm": 0.0054261660420682
+        }
+      ],
+      "remaining": 27,
+      "state": "driving",
+      "tick": 53
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.10003089904785,
+          "torque_nm": 0.00485889379542947
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.22085762023926,
+          "torque_nm": 0.00471631746896864
+        }
+      ],
+      "remaining": 26,
+      "state": "driving",
+      "tick": 54
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.70348310470581,
+          "torque_nm": 0.00414682115319759
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.79075694084167,
+          "torque_nm": 0.0040438373214552
+        }
+      ],
+      "remaining": 25,
+      "state": "driving",
+      "tick": 55
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.23405241966248,
+          "torque_nm": 0.00352074773649602
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.27184557914734,
+          "torque_nm": 0.00347615178615471
+        }
+      ],
+      "remaining": 24,
+      "state": "driving",
+      "tick": 56
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.64991879463196,
+          "torque_nm": 0.00303002493753262
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.67888236045837,
+          "torque_nm": 0.00299584791550855
+        }
+      ],
+      "remaining": 23,
+      "state": "driving",
+      "tick": 57
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.00182199478149,
+          "torque_nm": 0.00261477921300354
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.01780605316162,
+          "torque_nm": 0.0025959180145662
+        }
+      ],
+      "remaining": 22,
+      "state": "driving",
+      "tick": 58
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.29040908813477,
+          "torque_nm": 0.00227424644516066
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.29471635818481,
+          "torque_nm": 0.00226916368921413
+        }
+      ],
+      "remaining": 21,
+      "state": "driving",
+      "tick": 59
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.5210394859314,
+          "torque_nm": 0.00200210244591529
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.65286207199097,
+          "torque_nm": 0.00184655170142444
+        }
+      ],
+      "remaining": 20,
+      "state": "driving",
+      "tick": 60
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.74178791046143,
+          "torque_nm": 0.00174161900717418
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.83526515960693,
+          "torque_nm": 0.00163131579628046
+        }
+      ],
+      "remaining": 19,
+      "state": "driving",
+      "tick": 61
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.93587875366211,
+          "torque_nm": 0.00151259168678664
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.97890329360962,
+          "torque_nm": 0.00146182281600374
+        }
+      ],
+      "remaining": 18,
+      "state": "driving",
+      "tick": 62
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.09678173065186,
+          "torque_nm": 0.00132272586097117
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.12262630462646,
+          "torque_nm": 0.00129222925307383
+        }
+      ],
+      "remaining": 17,
+      "state": "driving",
+      "tick": 63
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.2353138923645,
+          "torque_nm": 0.00115925775866928
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.24323225021362,
+          "torque_nm": 0.00114991418225987
+        }
+      ],
+      "remaining": 16,
+      "state": "driving",
+      "tick": 64
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.34614896774292,
+          "torque_nm": 0.00102847240898049
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.35669279098511,
+          "torque_nm": 0.00101603061529226
+        }
+      ],
+      "remaining": 15,
+      "state": "driving",
+      "tick": 65
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.44470834732056,
+          "torque_nm": 0.000912172301744307
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.44762325286865,
+          "torque_nm": 0.000908732642222713
+        }
+      ],
+      "remaining": 14,
+      "state": "driving",
+      "tick": 66
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.53410673141479,
+          "torque_nm": 0.000806682172834641
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.53512716293335,
+          "torque_nm": 0.000805478001356307
+        }
+      ],
+      "remaining": 13,
+      "state": "driving",
+      "tick": 67
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.60752391815186,
+          "torque_nm": 0.000720049863184463
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.60234260559082,
+          "torque_nm": 0.000726163758288285
+        }
+      ],
+      "remaining": 12,
+      "state": "driving",
+      "tick": 68
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.67007780075073,
+          "torque_nm": 0.000646236256752835
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.66946411132813,
+          "torque_nm": 0.000646960360815034
+        }
+      ],
+      "remaining": 11,
+      "state": "driving",
+      "tick": 69
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.71927785873413,
+          "torque_nm": 0.000588180168696919
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.72289180755615,
+          "torque_nm": 0.000583915662786504
+        }
+      ],
+      "remaining": 10,
+      "state": "driving",
+      "tick": 70
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.77139568328857,
+          "torque_nm": 0.000526681074461512
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.76435899734497,
+          "torque_nm": 0.000534984366045389
+        }
+      ],
+      "remaining": 9,
+      "state": "driving",
+      "tick": 71
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.81128263473511,
+          "torque_nm": 0.000479614461754546
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.80951976776123,
+          "torque_nm": 0.000481694682342655
+        }
+      ],
+      "remaining": 8,
+      "state": "driving",
+      "tick": 72
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.84273862838745,
+          "torque_nm": 0.000442496379364145
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.84315347671509,
+          "torque_nm": 0.000442006892163493
+        }
+      ],
+      "remaining": 7,
+      "state": "driving",
+      "tick": 73
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.86044597625732,
+          "torque_nm": 0.000421601768093016
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.88594818115234,
+          "torque_nm": 0.000391509183759685
+        }
+      ],
+      "remaining": 6,
+      "state": "driving",
+      "tick": 74
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.89501762390137,
+          "torque_nm": 0.000380807206745836
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.89667701721191,
+          "torque_nm": 0.000378849150921616
+        }
+      ],
+      "remaining": 5,
+      "state": "driving",
+      "tick": 75
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.91715812683105,
+          "torque_nm": 0.000354681402320134
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.91959524154663,
+          "torque_nm": 0.000351805632775125
+        }
+      ],
+      "remaining": 4,
+      "state": "driving",
+      "tick": 76
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.93310451507568,
+          "torque_nm": 0.00033586471112094
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.95299100875854,
+          "torque_nm": 0.000312398634892348
+        }
+      ],
+      "remaining": 3,
+      "state": "driving",
+      "tick": 77
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.95937728881836,
+          "torque_nm": 0.000304862793679694
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.94234848022461,
+          "torque_nm": 0.000324956772836137
+        }
+      ],
+      "remaining": 2,
+      "state": "driving",
+      "tick": 78
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 5.96486854553223,
+          "torque_nm": 0.000298383150519124
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 6.1391863822937,
+          "torque_nm": 9.2687957109243e-05
+        }
+      ],
+      "remaining": 1,
+      "state": "driving",
+      "tick": 79
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 0,
+      "motors": [
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": 6.00156545639038,
+          "torque_nm": 0.000255080711623726
+        },
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": 6.09649991989136,
+          "torque_nm": 0.000143057997660902
+        }
+      ],
+      "remaining": 0,
+      "state": "settling",
+      "tick": 80
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0196087118238211,
+          "torque_nm": 0.00736006977850064
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0151113551110029,
+          "torque_nm": 0.00735476176491472
+        }
+      ],
+      "remaining": 9,
+      "state": "driving",
+      "tick": 221
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.865316152572632,
+          "torque_nm": 0.00631585892062207
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.825776338577271,
+          "torque_nm": 0.0063625159317021
+        }
+      ],
+      "remaining": 8,
+      "state": "driving",
+      "tick": 222
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 1.58605968952179,
+          "torque_nm": 0.00546538017637312
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 1.50654923915863,
+          "torque_nm": 0.00555920255530076
+        }
+      ],
+      "remaining": 7,
+      "state": "driving",
+      "tick": 223
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.18831014633179,
+          "torque_nm": 0.00475472496244125
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.0959689617157,
+          "torque_nm": 0.00486368763114767
+        }
+      ],
+      "remaining": 6,
+      "state": "driving",
+      "tick": 224
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.76450300216675,
+          "torque_nm": 0.00407481601128717
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.69985365867615,
+          "torque_nm": 0.00415110226863414
+        }
+      ],
+      "remaining": 5,
+      "state": "driving",
+      "tick": 225
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.25186562538147,
+          "torque_nm": 0.00349972810970052
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.22989106178284,
+          "torque_nm": 0.00352565810737638
+        }
+      ],
+      "remaining": 4,
+      "state": "driving",
+      "tick": 226
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.65627193450928,
+          "torque_nm": 0.0030225286937291
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.65332126617432,
+          "torque_nm": 0.00302601048436111
+        }
+      ],
+      "remaining": 3,
+      "state": "driving",
+      "tick": 227
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.00068330764771,
+          "torque_nm": 0.002616123241336
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.00189542770386,
+          "torque_nm": 0.0026146929387396
+        }
+      ],
+      "remaining": 2,
+      "state": "driving",
+      "tick": 228
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.40237665176392,
+          "torque_nm": 0.00214212478703329
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.27395915985107,
+          "torque_nm": 0.00229365752603359
+        }
+      ],
+      "remaining": 1,
+      "state": "driving",
+      "tick": 229
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 1,
+      "motors": [
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": 4.5951714515686,
+          "torque_nm": 0.00191462663742536
+        },
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": 4.53546714782715,
+          "torque_nm": 0.00198507790908086
+        }
+      ],
+      "remaining": 0,
+      "state": "settling",
+      "tick": 230
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0149448327720165,
+          "torque_nm": 0.00735456763442284
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": -0.0218250826001167,
+          "torque_nm": 0.00736268746586361
+        }
+      ],
+      "remaining": 11,
+      "state": "driving",
+      "tick": 350
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.815876722335815,
+          "torque_nm": 0.00637419705804559
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 0.874970495700836,
+          "torque_nm": 0.00630446588015311
+        }
+      ],
+      "remaining": 10,
+      "state": "driving",
+      "tick": 351
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 1.49343359470367,
+          "torque_nm": 0.00557467811353341
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 1.59970414638519,
+          "torque_nm": 0.00544927923816473
+        }
+      ],
+      "remaining": 9,
+      "state": "driving",
+      "tick": 352
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.08140301704407,
+          "torque_nm": 0.00488087477741665
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.2036075592041,
+          "torque_nm": 0.00473667407174172
+        }
+      ],
+      "remaining": 8,
+      "state": "driving",
+      "tick": 353
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.68744945526123,
+          "torque_nm": 0.00416573923480893
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 2.77571749687195,
+          "torque_nm": 0.00406158352602489
+        }
+      ],
+      "remaining": 7,
+      "state": "driving",
+      "tick": 354
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.2206711769104,
+          "torque_nm": 0.00353653820510173
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.2596263885498,
+          "torque_nm": 0.00349057022034433
+        }
+      ],
+      "remaining": 6,
+      "state": "driving",
+      "tick": 355
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.6381824016571,
+          "torque_nm": 0.003043874851645
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.72659802436829,
+          "torque_nm": 0.00293954411415734
+        }
+      ],
+      "remaining": 5,
+      "state": "driving",
+      "tick": 356
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 3.99919462203979,
+          "torque_nm": 0.00261787969038242
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.03593063354492,
+          "torque_nm": 0.00257453136972971
+        }
+      ],
+      "remaining": 4,
+      "state": "driving",
+      "tick": 357
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.28520536422729,
+          "torque_nm": 0.00228038682105362
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.30559730529785,
+          "torque_nm": 0.00225632431679085
+        }
+      ],
+      "remaining": 3,
+      "state": "driving",
+      "tick": 358
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.52649354934692,
+          "torque_nm": 0.00199566645559836
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.6592116355896,
+          "torque_nm": 0.00183905889401695
+        }
+      ],
+      "remaining": 2,
+      "state": "driving",
+      "tick": 359
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.74422550201416,
+          "torque_nm": 0.00173874274783965
+        },
+        {
+          "duty": 0.25,
+          "priority": 0,
+          "speed_rad_s": 4.83818101882935,
+          "torque_nm": 0.00162787492430035
+        }
+      ],
+      "remaining": 1,
+      "state": "driving",
+      "tick": 360
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 2,
+      "motors": [
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": 4.94178199768066,
+          "torque_nm": 0.00150562571070146
+        },
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": 4.9821457862854,
+          "torque_nm": 0.00145799653238745
+        }
+      ],
+      "remaining": 0,
+      "state": "settling",
+      "tick": 361
+    },
+    {
+      "agent_priority": 0,
+      "command_index": 3,
+      "motors": [
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": -0.0149039467796683,
+          "torque_nm": 0.00735451825892796
+        },
+        {
+          "duty": 0.0,
+          "priority": 0,
+          "speed_rad_s": -0.0209654588252306,
+          "torque_nm": 0.00736167197788799
+        }
+      ],
+      "remaining": 0,
+      "state": "settling",
+      "tick": 487
+    }
+  ],
+  "variant": "tick-trace",
+  "wall_x": 0.35
+}

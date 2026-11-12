@@ -1,0 +1,12 @@
+{
+  "format": "ssok-project",
+  "graph": {
+    "links": [],
+    "parts": [],
+    "version": 1
+  },
+  "saved_utc": "2026-10-10T20:05:47",
+  "source": "from servo import Servo\n\narm = Servo(9)\narm.write(90)\nsleep(1)\narm.write(0)\nsleep(1)\narm.write(180)\n",
+  "title": "My robot",
+  "version": 1
+}

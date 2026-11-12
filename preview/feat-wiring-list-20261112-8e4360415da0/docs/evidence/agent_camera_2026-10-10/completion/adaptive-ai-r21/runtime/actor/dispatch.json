@@ -1,0 +1,26 @@
+{
+  "provider": "OpenAI",
+  "requested_model": "gpt-6-astra",
+  "auth": "existing Codex ChatGPT login",
+  "expected_context": {
+    "episode_id": "b30bdc8e4cbced6d7c8b0787",
+    "revision": 3,
+    "control_generation": 1
+  },
+  "experiment_image": "live",
+  "sent_data": [
+    "goal",
+    "robot camera PNG",
+    "public frame context",
+    "concise visual summaries",
+    "tool results"
+  ],
+  "limits": {
+    "cli_launches": 1,
+    "steps": 8,
+    "observations": 9,
+    "seconds": 180
+  },
+  "model_request_count": "not exposed by CLI; action/image limits are not a billing cap",
+  "source_head": "0b16d984096e00d4835bfb3ba6d48ad1b311e226"
+}

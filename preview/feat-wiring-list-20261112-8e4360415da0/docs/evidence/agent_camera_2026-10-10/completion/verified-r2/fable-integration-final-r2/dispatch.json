@@ -1,0 +1,26 @@
+{
+  "requested_model": "fable",
+  "before_head": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+  "source_sha256": {
+    "AGENTS.md": "7ba808ee54ba9f3c718f61a4cecf777da9d7c3375d0461e7d4fef8d3aa64e07b",
+    "tools/motion_lab/server.py": "23281cd2197b6064aa675fac389b8edb74e244be80b984215a097d9b7fd280ca",
+    "tools/motion_lab/test_service.py": "66a57d458b33c50a5bccaaec7ded9f4106f5c70413c060825f33f65886bde788",
+    "tests/agent_camera_loop_check.gd": "756dd6ef330312b99ecd2d18ea5f52ed2bc32a9ca82faa06362601febe9007d6",
+    "tests/agent_goal_ui_check.gd": "f5e2fe4e81b753bb6b626ddf932ff7366d341329ead22b6599143d4ff0262066",
+    "tests/test_desktop_package.py": "276f022f56ecfef021ca8cf986f437470deb6d854fc1ff9ab1da12aeed676d18",
+    "tools/ci/browser_layout.gd": "d27d626ee656964c8f6a4f16ec8a79b8cba8f50fc16b9b127d47fe2485de177d",
+    "tools/ci/browser_learning.py": "dc8ab6d82300ab7ac918001e7e466e32bc4f82b95e948746711510fe4af7bcf7",
+    "tools/ci/windows/native_ui.ps1": "91802e81b4698f1be9e0618f08defd523645390faa7e2686ee710bb75caca0b6",
+    "src/screens/title_screen.gd": "5f81349019953ebb8d96075ad6f056bef1e5e56ed74633efffaba761dda8c8c1"
+  },
+  "allowed_tools": [
+    "Bash(git status *)",
+    "Bash(git branch --show-current)",
+    "Bash(git rev-parse *)",
+    "Bash(git fetch origin main)",
+    "Bash(git rebase origin/main)",
+    "Bash(git cherry -v origin/main)"
+  ],
+  "timeout_seconds": 240,
+  "scope": "latest8nonvisual functional review and actual clean feature fetch/rebase; independent Title Opus review separate"
+}

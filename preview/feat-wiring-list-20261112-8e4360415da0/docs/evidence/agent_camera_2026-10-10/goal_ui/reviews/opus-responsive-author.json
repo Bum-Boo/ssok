@@ -1,0 +1,80 @@
+{
+  "exit_code": 0,
+  "is_error": false,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 2,
+      "outputTokens": 5569,
+      "cacheReadInputTokens": 1454,
+      "cacheCreationInputTokens": 16361,
+      "webSearchRequests": 0,
+      "costUSD": 0.2425668,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2920,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 16361,
+    "cache_read_input_tokens": 1454,
+    "output_tokens": 5569,
+    "output_tokens_details": {
+      "thinking_tokens": 2920
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16361,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 5569,
+        "cache_read_input_tokens": 1454,
+        "cache_creation_input_tokens": 16361,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 16361
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "total_cost_usd": 0.2425668,
+  "requested_model": "opus",
+  "scope": "read-only source/design review; no runtime rerun by Claude",
+  "findings": {
+    "patch": "--- a/src/ui/agent_trace_panel.gd\n+++ b/src/ui/agent_trace_panel.gd\n@@ -92,2 +92,3 @@\n \n-\tvar actions: HBoxContainer = HBoxContainer.new()\n+\t# Manual actions wrap onto more rows instead of clipping at large text sizes.\n+\tvar actions: HFlowContainer = HFlowContainer.new()\n \t_enable_button = _action_button(\"Enable\", \"Mount the virtual camera on the current robot.\", actions)\n@@ -102,24 +103,25 @@\n \tcontent.add_child(_section(\"Goal\"))\n-\tvar goal_row: HBoxContainer = HBoxContainer.new()\n+\t# Field, disclosure and Run stack at full width; provider, data and limits precede Run in scroll order.\n \t_goal_field = LineEdit.new()\n \t# Learner text stays raw; text_submitted is left unconnected so Enter never sends it.\n \t_goal_field.max_length = GOAL_MAX_CHARS\n \t_goal_field.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED\n \t_goal_field.size_flags_horizontal = Control.SIZE_EXPAND_FILL\n \t_goal_field.text_changed.connect(_on_goal_text_changed)\n-\tgoal_row.add_child(_goal_field)\n-\t_run_button = SsokTheme.button(\"Run with AI\")\n-\t_run_button.tooltip_text = \"Send this goal to the connected AI operator.\"\n-\t_run_button.pressed.connect(_on_run_pressed)\n-\tgoal_row.add_child(_run_button)\n-\tcontent.add_child(goal_row)\n-\t_goal_status_label = _dynamic_label()\n-\tcontent.add_child(_goal_status_label)\n-\t# Provider, data and limits sit beside Run so they are seen before the first request.\n+\tcontent.add_child(_goal_field)\n \tvar disclosure: Label = _dynamic_label(&\"SectionLabel\")\n-\tSsokLocale.bind(disclosure, \"Run with AI sends this goal to the connected operator, which requests %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short visual summaries and tool results.\", [GOAL_MODEL])\n+\tSsokLocale.bind(disclosure, \"Run with AI asks the connected operator to request %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short summaries and tool results.\", [GOAL_MODEL])\n \tcontent.add_child(disclosure)\n \tvar limits: Label = _dynamic_label(&\"SectionLabel\")\n-\tSsokLocale.bind(limits, \"Per run: up to %d actions, %d camera frames and %d seconds. Usage counts toward that ChatGPT account; the CLI sets no fixed cost or request cap.\", [GOAL_MAX_ACTIONS, GOAL_MAX_FRAMES, GOAL_TIME_LIMIT])\n+\tSsokLocale.bind(limits, \"Per run: up to %d actions, %d images and %d seconds. Usage counts toward that ChatGPT account, with no fixed cost or model-request cap.\", [GOAL_MAX_ACTIONS, GOAL_MAX_FRAMES, GOAL_TIME_LIMIT])\n \tcontent.add_child(limits)\n+\t_run_button = SsokTheme.button(\"Run with AI\")\n+\t_run_button.clip_text = false\n+\t_run_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL\n+\t_run_button.tooltip_text = \"Send this goal to the connected AI operator.\"\n+\t_run_button.pressed.connect(_on_run_pressed)\n+\tcontent.add_child(_run_button)\n+\t_goal_status_label = _dynamic_label()\n+\tcontent.add_child(_goal_status_label)\n \n@@ -405,6 +407,8 @@\n-func _action_button(text: String, tip: String, row: HBoxContainer) -> Button:\n+func _action_button(text: String, tip: String, row: Container) -> Button:\n \tvar control: Button = SsokTheme.button(text)\n \tcontrol.tooltip_text = tip\n+\t# Full labels set the minimum width so the flow row wraps rather than truncating.\n+\tcontrol.clip_text = false\n \tcontrol.size_flags_horizontal = Control.SIZE_EXPAND_FILL\n \trow.add_child(control)\n \treturn control\n",
+    "new_english_strings": [
+      {
+        "en": "Run with AI asks the connected operator to request %s from OpenAI with its existing Codex ChatGPT login. Sent: the goal, camera PNGs, public frame context, short summaries and tool results.",
+        "ko": "AI로 실행하면 연결된 운영자가 기존 Codex ChatGPT 로그인으로 OpenAI에 %s을(를) 요청합니다. 전송: 목표, 카메라 PNG, 공개 프레임 정보, 짧은 요약, 도구 결과.",
+        "zh_CN": "用 AI 运行会让已连接的操作程序使用其现有的 Codex ChatGPT 登录向 OpenAI 请求 %s。发送内容：目标、摄像头 PNG、公开帧信息、简短摘要和工具结果。",
+        "ja": "AIで実行すると、接続中のオペレーターが既存の Codex ChatGPT ログインで OpenAI に %s をリクエストします。送信内容: 目標、カメラ PNG、公開フレーム情報、短い要約、ツール結果。"
+      },
+      {
+        "en": "Per run: up to %d actions, %d images and %d seconds. Usage counts toward that ChatGPT account, with no fixed cost or model-request cap.",
+        "ko": "실행당 최대 동작 %d회, 이미지 %d장, %d초. 사용량은 해당 ChatGPT 계정에 포함되며 고정 비용이나 모델 요청 한도는 없습니다.",
+        "zh_CN": "每次运行：最多 %d 个动作、%d 张图像、%d 秒。用量计入该 ChatGPT 账户，没有固定费用或模型请求上限。",
+        "ja": "1回の実行: 最大 %d 回の操作、%d 枚の画像、%d 秒。使用量はその ChatGPT アカウントに計上され、固定費用やモデルリクエストの上限はありません。"
+      }
+    ],
+    "notes": "Goal block is now stacked: field, disclosure, limits, full-width Run (clip_text off), then status, so all provider/data/limit facts precede the single Run click in scroll order. The manual action row is an HFlowContainer with unclipped buttons, so it wraps at 200% instead of truncating. The old disclosure and limits English keys become unused and can be retired. Hunk 3 line numbers are estimated; apply with offset tolerance. Pinned Stop, 4:3 preview, raw goal, SHA disclaimer and theme usage are unchanged. Not visually verified: revised captures (all 24) are required before any pass claim, especially Run and action-row widths at compact 200%."
+  },
+  "dispatch": {
+    "requested_model": "opus",
+    "source_sha256": "91aca71035bf9a54415bc5244554c077a0b3ea308e6c8b3cd8104b03678ea84a",
+    "scope": "Astra-observed button clipping and disclosure order"
+  }
+}

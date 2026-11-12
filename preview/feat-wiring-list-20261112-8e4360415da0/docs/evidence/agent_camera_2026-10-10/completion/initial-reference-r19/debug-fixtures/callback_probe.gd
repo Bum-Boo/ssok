@@ -1,0 +1,153 @@
+extends SceneTree
+
+## DEBUG-r19: bounded existing real app/motor/capture, actual motor-tick count comparison.
+var app: Node3D
+var evaluator: Node
+var sampler: Node
+var output: String
+var variant: String
+var frames: Array[Dictionary] = []
+var started_ms: int
+
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+func _ready_camera() -> bool:
+	for tick: int in 600:
+		if app.agent_loop.state == "ready":
+			return true
+		if not app.agent_loop.enabled:
+			return false
+		await physics_frame
+	return false
+
+
+func _capture(label: String) -> bool:
+	var before: Dictionary = evaluator._snapshot()
+	var result: Dictionary = app.agent_loop.observe()
+	var requested: Dictionary = evaluator._snapshot()
+	if not result.get("pending", false) or not await _ready_camera():
+		push_error("DEBUG-r19 capture failed: " + label)
+		return false
+	var snapshot: Dictionary = evaluator._snapshot()
+	var meta: Dictionary = app.agent_loop.metadata.duplicate(true)
+	var file: FileAccess = FileAccess.open(output.path_join(label + ".png"), FileAccess.WRITE)
+	if file == null:
+		return false
+	file.store_buffer(app.agent_loop.png)
+	file.close()
+	frames.append({"label": label, "metadata": meta, "png_sha256": meta.sha256,
+		"request_before_physics": before, "request_after_physics": requested,
+		"capture_physics": snapshot})
+	return true
+
+
+func _fail(reason: String) -> void:
+	push_error("DEBUG-r19: " + reason)
+	var failure_state: Dictionary = {}
+	if app != null:
+		failure_state = {"state": app.agent_loop.state, "enabled": app.agent_loop.enabled,
+			"settle_elapsed": app.agent_loop._settle_elapsed, "stable_ticks": app.agent_loop._stable}
+		app.agent_loop.cancel("local_stop")
+	if not output.is_empty():
+		var file: FileAccess = FileAccess.open(output.path_join("result.json"), FileAccess.WRITE)
+		if file != null:
+			file.store_string(JSON.stringify({"variant": variant, "failure": reason,
+				"failure_state": failure_state, "frames": frames,
+				"stop_confirmed": app == null or not app.agent_loop.enabled,
+				"scope": "DEBUG-r19 rejected or failed bounded developer probe; not an applied repair."}, "\t") + "\n")
+	quit(1)
+
+
+func _run() -> void:
+	if DisplayServer.get_name() == "headless":
+		_fail("Rendered desktop required")
+		return
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	var case_index: int = args.find("--case")
+	var output_index: int = args.find("--output")
+	if case_index < 0 or output_index < 0:
+		_fail("Explicit case/output required")
+		return
+	variant = args[case_index + 1]
+	output = args[output_index + 1]
+	if variant not in ["combined", "initial"]:
+		_fail("Unknown case")
+		return
+	started_ms = Time.get_ticks_msec()
+	root.size = Vector2i(1600, 1000)
+	app = load("res://scenes/main.tscn").instantiate() as Node3D
+	root.add_child(app)
+	await process_frame
+	if variant != "stock":
+		var candidate: Script = load("res://build/ai-loop-evidence/completion/initial-reference-r19/attitude-" + variant + ".gd")
+		if candidate == null:
+			_fail("Prototype script failed to load before physics")
+			return
+		app.agent_loop.set_script(candidate)
+		app.agent_loop.app = app
+		app.agent_loop.controller = app.app_controller
+	app._load_preset(RobotCarPreset.build(0.35), RobotCarPreset.BRAKE_CODE, "")
+	app.control_source.select(app.CONTROL_CODE)
+	app.mode_button.button_pressed = true
+	app.agent_loop.begin()
+	evaluator = load("res://tools/app_control/camera_evaluator.gd").new()
+	evaluator.app = app
+	root.add_child(evaluator)
+	if not await _ready_camera() or not await _capture("initial"):
+		_fail("Initial ready/capture")
+		return
+	for motor: DriveMotor in app.agent_loop._channels:
+		var preserved: Dictionary = {}
+		for key: String in ["housing", "wheel", "axis_local", "stall_torque_nm", "no_load_rad_s", "supply_voltage", "voltage_drop", "rated_voltage", "duty", "braking", "measured_rad_s", "applied_torque_nm"]:
+			preserved[key] = motor.get(key)
+		motor.set_script(load("res://build/ai-loop-evidence/completion/initial-reference-r19/motor_callback.gd"))
+		for key: String in preserved:
+			motor.set(key, preserved[key])
+			assert(motor.get(key) == preserved[key], "DEBUG-r19 observer preserves motor state")
+	sampler = load("res://build/ai-loop-evidence/completion/initial-reference-r19/callback_sampler.gd").new()
+	sampler.app = app
+	root.add_child(sampler)
+	var tape: Array[int] = [30, 10, 12]
+	for index: int in tape.size():
+		var meta: Dictionary = app.agent_loop.metadata
+		var accepted: Dictionary = app.agent_loop.drive_step({"episode_id": meta.episode_id,
+			"frame_id": meta.frame_id, "revision": meta.revision,
+			"control_generation": meta.control_generation, "ticks": tape[index], "action": "forward"})
+		if not accepted.get("pending", false) or not await _ready_camera() or not await _capture("post-" + str(index + 1)):
+			_fail("Actual bounded motor action")
+			return
+	for index: int in 1:
+		for tick: int in 30:
+			await physics_frame
+	var stop_ready_file: FileAccess = FileAccess.open(output.path_join("stop-ready.json"), FileAccess.WRITE)
+	stop_ready_file.store_string(JSON.stringify({"metadata": app.agent_loop.metadata, "label": "bridge-idle-1-checkpoint", "bridge_listening": app.agent_bridge.is_listening()}) + "\n")
+	stop_ready_file.close()
+	for tick: int in 600:
+		if not app.agent_loop.enabled:
+			break
+		await physics_frame
+	if app.agent_loop.enabled:
+		_fail("External observation/context-bound Stop timeout")
+		return
+	for tick: int in 132:
+		await physics_frame
+	var evaluation_file: FileAccess = FileAccess.open("user://camera-evaluation.json", FileAccess.READ)
+	var evaluation: Variant = JSON.parse_string(evaluation_file.get_as_text()) if evaluation_file != null else null
+	if evaluation == null or app.agent_loop.enabled:
+		_fail("Independent final Stop evaluation")
+		return
+	var callback_rows: Array[Array] = []
+	for motor: DriveMotor in app.agent_loop._channels:
+		callback_rows.append(motor.get("debug_rows"))
+	var result_file: FileAccess = FileAccess.open(output.path_join("result.json"), FileAccess.WRITE)
+	result_file.store_string(JSON.stringify({"variant": variant, "tape": tape, "wall_x": 0.35,
+		"latch_audit": app.agent_loop.debug_latches, "frames": frames, "commands": sampler.commands, "tick_rows": sampler.rows, "frame_samples": sampler.frame_samples, "actual_motor_callbacks": callback_rows, "evaluation": evaluation, "stop_confirmed": not app.agent_loop.enabled,
+		"seconds": float(Time.get_ticks_msec() - started_ms) / 1000.0,
+		"scope": "Developer-only per-instance variant; not production code or an AI trial."}, "\t") + "\n")
+	result_file.close()
+	print("DEBUG-r19 completed variant=", variant, " frames=", frames.size(), " gap=", evaluation.final.gap_x)
+	app.free()
+	quit(0)

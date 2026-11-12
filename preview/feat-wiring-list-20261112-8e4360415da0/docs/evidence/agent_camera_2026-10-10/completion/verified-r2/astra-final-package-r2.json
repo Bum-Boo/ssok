@@ -1,0 +1,110 @@
+{
+  "observer": {
+    "actual_model": "gpt-6-astra",
+    "route": "native worker",
+    "independence_scope": "Separate inspector tools and inputs; no claim of different-model independence from actor."
+  },
+  "record_basis": "Previously completed actual view_image original-resolution inspection in this session; no new image inspection performed for this record.",
+  "verdict": "PASS",
+  "pass_scope": "Bounded visual checks of these ten final-package frames: full packaged default Settings label, readable native map and three success modals, browser three displayed success statuses and displayed Input stopped state.",
+  "images_viewed": [
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/native-installer-final-clean-r2/title.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Full Settings label and cog visible; language picker fits; centered footer, no clipping."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/native-installer-final-clean-r2/map.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Three readable stage cards, descriptions and Play controls; all show New in the captured state."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/native-installer-final-clean-r2/stage-raise-flag.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Stage cleared modal; readable Next stage, Try another way and Stage list."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/native-installer-final-clean-r2/stage-finish-line.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Stage cleared modal; all result controls readable and contained."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/native-installer-final-clean-r2/stage-wall-brake.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Stage cleared modal; Try another way and Stage list visible; no Next stage button."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-final-clean-r2/learning/flag-success.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Flag success message and bottom Challenge cleared status visible."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-final-clean-r2/learning/finish-success.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Bottom Challenge cleared status visible; vehicle and finish line are outside the visible scene content."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-final-clean-r2/learning/sonar-success.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "Bottom Challenge cleared status visible; vehicle partially occluded by wall."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-final-clean-r2/learning/loop-stopped.png",
+      "dimensions": [
+        1400,
+        950
+      ],
+      "observations": "while True: pass displayed; Stop button outlined; bottom Input stopped status visible."
+    },
+    {
+      "file": "C:/Users/Hojun/Projects/ssok-ai-loop/build/ai-loop-evidence/completion/browser-final-clean-r2/authoring/12-compact-workshop.png",
+      "dimensions": [
+        1152,
+        577
+      ],
+      "observations": "Wiring tab selected; pin selectors, Connect wire and Run code visible. Next catalog row partially clipped at scroll boundary. Central flag guidance occupies substantial scene space without covering wiring controls; Blocks content not shown."
+    }
+  ],
+  "read_failures": [],
+  "material_limitations": [
+    "Compact catalog next row clipped at scroll boundary; central guidance occupies scene space.",
+    "Browser finish success frame does not show vehicle or finish line.",
+    "Browser sonar vehicle partially occluded by wall.",
+    "Blocks scroll dimensions cannot be judged from Wiring screenshot."
+  ],
+  "scope_limits": [
+    "PNG observations confirm displayed states only; they do not independently attest physical success, contact, distance, persistence, runtime cancellation, executable/package identity, shutdown, uninstall preservation, clipboard or downloads.",
+    "Coordinator runtime results are separate evidence and were not independently verified by this visual review.",
+    "Earlier sixteen-image locale/theme/focus coverage remains separate; unchanged Title SHA was coordinator-reported, not independently hashed here.",
+    "Local draft only; no publication approval or publishing performed."
+  ],
+  "coordinator_supplied_identity_not_independently_verified": {
+    "package": "0.3.1-camera-r2",
+    "app_source": "f31f8d5ea7b6b3eaa48df9e6d50f60621eb3dfa4",
+    "title_sha256": "5f81349019953ebb8d96075ad6f056bef1e5e56ed74633efffaba761dda8c8c1"
+  }
+}

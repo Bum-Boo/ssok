@@ -1,0 +1,34 @@
+{
+  "source": "495e261b1eb237b7e3b6fde726caa17502a0c318",
+  "tool": "agent-browser 0.38.1",
+  "viewport": [
+    1400,
+    950
+  ],
+  "url": "http://127.0.0.1:48538/?ssok_verify=1",
+  "verified": [
+    "WebGL startup",
+    "opt-in preferences observer publishes defaults after ready",
+    "actual gear opens settings",
+    "actual Theme selector opens",
+    "light hovered pressed selector text readable in screenshot"
+  ],
+  "page_errors": 0,
+  "console_errors": 0,
+  "console": [
+    "Godot Engine v4.7.2.stable.official.ed1daf0bf",
+    "OpenGL ES 3.0 WebGL2 Compatibility",
+    "Emscripten4.0.20 single-threaded no GDExtension"
+  ],
+  "observed": {
+    "settings_open": true,
+    "locale": "en",
+    "dark": false,
+    "ui_font_size": 14,
+    "code_font_size": 15,
+    "program_panel_right": 1388,
+    "viewport_width": 1400
+  },
+  "screenshot": "web-menu-final.png",
+  "scope": "Targeted final build verification; full14 flow remains source81914b6."
+}

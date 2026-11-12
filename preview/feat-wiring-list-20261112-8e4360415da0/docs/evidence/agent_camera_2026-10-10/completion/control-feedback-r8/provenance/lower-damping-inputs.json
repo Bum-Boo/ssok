@@ -1,0 +1,10 @@
+{
+  "hypothesis_rank": 2,
+  "refinement": "P24 actually failed to settle after first forward30 within240ticks, so stronger velocity feedback is not an available fix. Counter-direction P8->4 tests noise-amplification sensitivity: predict lower residual relative-wheel/pose/pixel span without breaking unchanged12/240 rest gate. Only proportional gain changes, I16/torque/25%duty/actiontape/camera/goal/evaluator unchanged. Single bounded comparison, no gain sweep or production application.",
+  "files": {
+    "lower_damping_loop.gd": "4ca70de570ecc09c627038b9298dce0fa9acd55506bbb3a15d0c74d4639e6957",
+    "lower_damping_probe.gd": "16d5eea4040c34b8efae0c18612b0234a802b9681ab774c31896887bec71896a",
+    "ssok-control-r8-lower-damping.py": "7c449da3a5c3e07479d0b0720a76e1218302fa60a7e9acdec0ea3bc38062fc24"
+  },
+  "production_applied": false
+}

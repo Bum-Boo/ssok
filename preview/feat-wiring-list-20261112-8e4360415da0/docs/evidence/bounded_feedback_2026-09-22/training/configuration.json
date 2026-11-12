@@ -1,0 +1,119 @@
+{
+  "seed": 920220,
+  "iterations": 20,
+  "population": 20,
+  "train_cases_per_iteration": 4,
+  "workers": 3,
+  "validation": [
+    {
+      "group": "fresh_start",
+      "seed": 6101,
+      "settle_seconds": 3.6666666666666665,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6102,
+      "settle_seconds": 1.3166666666666667,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6110,
+      "settle_seconds": 0.06666666666666667,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6120,
+      "settle_seconds": 2.0166666666666666,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6140,
+      "settle_seconds": 3.533333333333333,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "fresh_start",
+      "seed": 6164,
+      "settle_seconds": 3.6333333333333333,
+      "initial_velocity_noise": 0.004
+    },
+    {
+      "group": "restart",
+      "seed": 6301,
+      "settle_seconds": 0.8166666666666667,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.1,
+      "restart_pause_seconds": 0.1
+    },
+    {
+      "group": "restart",
+      "seed": 6307,
+      "settle_seconds": 2.75,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.1,
+      "restart_pause_seconds": 1.0
+    },
+    {
+      "group": "restart",
+      "seed": 6308,
+      "settle_seconds": 3.5833333333333335,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.1,
+      "restart_pause_seconds": 3.0
+    },
+    {
+      "group": "restart",
+      "seed": 6327,
+      "settle_seconds": 3.05,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 0.9,
+      "restart_pause_seconds": 1.0
+    },
+    {
+      "group": "restart",
+      "seed": 6347,
+      "settle_seconds": 4.933333333333334,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 2.6,
+      "restart_pause_seconds": 1.0
+    },
+    {
+      "group": "restart",
+      "seed": 6364,
+      "settle_seconds": 4.6,
+      "initial_velocity_noise": 0.004,
+      "warmup_walk_seconds": 4.7,
+      "restart_pause_seconds": 3.0
+    }
+  ],
+  "initial_ankle_weights": [
+    0.8446849279196911,
+    0.10183780461582545,
+    0.06710958619117571
+  ],
+  "initial_sigma": [
+    0.3,
+    0.12,
+    0.12
+  ],
+  "sigma_floor": [
+    0.04,
+    0.015,
+    0.015
+  ],
+  "hip_feedback": [
+    0,
+    0,
+    0
+  ],
+  "candidate_bounds": [
+    -6,
+    6
+  ],
+  "score": "mean(old_feedback_reward)-200*falls/4-100*deployment_failures/4+0.25*min(old_feedback_reward)",
+  "purpose": "Development training in corrected physical torque model; held-out evaluation remains separate"
+}

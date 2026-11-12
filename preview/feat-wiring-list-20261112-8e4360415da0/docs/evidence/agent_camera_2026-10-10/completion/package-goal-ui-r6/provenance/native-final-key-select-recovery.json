@@ -1,0 +1,20 @@
+{
+  "cause": "OS Home in focused ItemList without a selected item did not select the first item; failure preserved.",
+  "recovery": "Send actual OS Down to select an item from unselected ItemList. App source and UI unchanged; all earlier failed outputs retained.",
+  "before_execution": true,
+  "source_sha256": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
+  "files": [
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\package-goal-ui-r6\\native-final-keys-select.gd",
+      "sha256": "10895369914c0ce97481325df694e539c69589e5d3833e25954beec9a0fa0f34"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-projects-r6-final-keys-select.ps1",
+      "sha256": "c114720f3d2911cb6c34f431e7ae8d45810ac9e266f3022610399a8777fcbe42"
+    },
+    {
+      "path": "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\tools\\ci\\windows\\native_ui.ps1",
+      "sha256": "91802e81b4698f1be9e0618f08defd523645390faa7e2686ee710bb75caca0b6"
+    }
+  ]
+}

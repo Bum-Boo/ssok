@@ -1,0 +1,115 @@
+[
+  {
+    "name": "import",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--import",
+      "--quit"
+    ],
+    "exit_code": 0,
+    "seconds": 3.189911299967207,
+    "passed": true
+  },
+  {
+    "name": "scene-load",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--quit"
+    ],
+    "exit_code": 0,
+    "seconds": 0.46245839999755844,
+    "passed": true
+  },
+  {
+    "name": "project-store",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "tests/project_store_check.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 6.2162357000052,
+    "passed": true
+  },
+  {
+    "name": "authoring-ui",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "tests/authoring_ui_check.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 5.279776600014884,
+    "passed": true
+  },
+  {
+    "name": "keyboard",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "tests/keyboard_navigation_check.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 5.733537600026466,
+    "passed": true
+  },
+  {
+    "name": "preferences",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "tests/interface_preferences_check.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 8.805293500015978,
+    "passed": true
+  },
+  {
+    "name": "localization",
+    "command": [
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\toolchain-windows\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Hojun\\Projects\\ssok-ai-loop",
+      "--audio-driver",
+      "Dummy",
+      "--language",
+      "en",
+      "--script",
+      "tests/localization_check.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 5.738431400037371,
+    "passed": true
+  }
+]

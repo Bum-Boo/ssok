@@ -1,0 +1,37 @@
+{
+  "exit_code": 0,
+  "seconds": 52.909105300030205,
+  "timed_out": false,
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-STA",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\Users\\Hojun\\Projects\\ssok-operator-r12-after-native.ps1",
+    "-App",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\projects-release-clean-r7\\windows\\ssok.exe",
+    "-Work",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-archive-r12\\after",
+    "-Layout",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-archive-r12\\after\\layout.json",
+    "-Python",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\venv-native\\Scripts\\python.exe",
+    "-Fixture",
+    "C:\\Users\\Hojun\\Projects\\ssok-ai-loop\\build\\ai-loop-evidence\\completion\\operator-archive-r12\\after\\project.json",
+    "-OperatorRoot",
+    "C:\\Users\\Hojun\\Projects\\ssok operator r12\\별도 도구"
+  ],
+  "original_source_changed": [
+    "tools/app_control/run_goal.py"
+  ],
+  "operator_archive_source": "e645d220d0c76a82ac83ce3d14c557d4b7920111",
+  "operator_archive_sha256": "2dce6682932332c52fa25cb05c2097c3ca6c176351116ec82e65d8e7ea38c739",
+  "actual_extracted_root": "C:\\Users\\Hojun\\Projects\\ssok operator r12\\별도 도구",
+  "package_files_unchanged": true,
+  "app_pe_pck_unchanged": true,
+  "app_source": "fa868ca07cdd9d2b8edb27cbab89cd00263c851f",
+  "app_version": "0.3.1-projects-r7",
+  "global_goal_complete": false
+}

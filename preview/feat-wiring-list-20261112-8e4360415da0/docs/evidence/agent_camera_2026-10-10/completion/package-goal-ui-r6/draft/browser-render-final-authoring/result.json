@@ -1,0 +1,9 @@
+{
+  "url": "http://127.0.0.1:57101/?ssok_workshop=1",
+  "passed": false,
+  "checks": [
+    "Real user:// project persisted to browser IndexedDB"
+  ],
+  "stage": "Click export",
+  "failure": "AssertionError: Open failed to restore the project title"
+}
