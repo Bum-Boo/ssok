@@ -1,11 +1,16 @@
 {
   "version": 1,
-  "note": "Real products behind tray parts and their ratings. Only values read on the cited page on 2026-11-11 are listed (docs/design/ssok-redesign-20261111.md). Row labels are translation keys; values are numbers and units.",
+  "note": "Rows use localized labels and literal values. E2 metadata records references, conditions and unverified fields. See docs/design/ssok-redesign-20261111.md.",
   "parts": {
     "arduino_uno": {
       "product": "Arduino Uno R3",
-      "rows": [["Input voltage", "6–20 V"], ["PWM pins", "6"], ["Analog inputs", "6"]],
-      "source": "docs.arduino.cc"
+      "rows": [["Input voltage", "6–20 V"], ["PWM pins", "6"], ["Analog inputs", "6"], ["Current per I/O pin", "20 mA"], ["3.3 V pin maximum current", "50 mA"]],
+      "source": "arduino.cc",
+      "e2": {
+        "reference": "https://store.arduino.cc/products/arduino-uno-rev3",
+        "unverified": ["5 V pin available current"],
+        "note": "Recommended VIN is 7–12 V. The 500 mA USB polyfuse threshold is for the USB path and does not specify the 5 V pin load budget."
+      }
     },
     "microbit": {
       "product": "BBC micro:bit V2",
@@ -28,14 +33,23 @@
       "source": "adafruit.com"
     },
     "servo": {
-      "product": "SG90 micro servo",
-      "rows": [],
-      "source": ""
+      "product": "TowerPro SG90 Analog",
+      "rows": [["Supply voltage", "4.8 V"]],
+      "source": "towerpro.com.tw",
+      "e2": {
+        "reference": "https://towerpro.com.tw/product/sg90-analog/",
+        "unverified": ["Operating current"]
+      }
     },
     "hc_sr04": {
       "product": "HC-SR04",
       "rows": [["Supply voltage", "5 V"], ["Current", "15 mA"], ["Range", "2 cm – 4 m"]],
-      "source": "sparkfun.com"
+      "source": "ELECFREAKS via SparkFun",
+      "e2": {
+        "reference": "https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf",
+        "echo_output": "TTL pulse",
+        "unverified": ["Echo output high voltage"]
+      }
     },
     "kit_line_sensor": {
       "product": "TCRT5000",
@@ -49,8 +63,28 @@
     },
     "battery_holder_4aa": {
       "product": "4 × AA",
-      "rows": [["Nominal voltage", "6 V"]],
-      "source": ""
+      "rows": [["Alkaline pack nominal voltage", "6 V"], ["NiMH pack nominal voltage", "4.8 V"]],
+      "source": "energizer.com",
+      "e2": {
+        "note": "Examples for four identical cells in series. Pack capacity in mAh equals cell capacity under the stated discharge conditions. Cell resistance excludes holder and contact resistance.",
+        "alkaline_cell": {
+          "model": "Energizer E91",
+          "reference": "https://data.energizer.com/pdfs/E91_Max_NA.pdf",
+          "nominal_voltage_v": 1.5,
+          "fresh_internal_resistance_mohm": [150, 300],
+          "capacity": "See discharge-current chart at 21 °C to 0.8 V. No single rated capacity is specified."
+        },
+        "nimh_cell": {
+          "model": "Energizer NH15-2450",
+          "reference": "https://data.energizer.com/pdfs/nh15-2450.pdf",
+          "nominal_voltage_v": 1.2,
+          "rated_capacity_mah": 2450,
+          "capacity_conditions": "490 mA continuous discharge to 1.0 V at 21 °C",
+          "charged_internal_resistance_mohm": 30,
+          "half_discharged_internal_resistance_mohm": 40,
+          "internal_resistance_tolerance_percent": 20
+        }
+      }
     },
     "wheel_65": {
       "product": "65 mm",

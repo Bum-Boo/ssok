@@ -161,10 +161,19 @@ E1부터 사용자가 직접 해 볼 수 있는 빌드로 전달합니다.
 
 남은 조사:
 
-- 우노의 핀당 전류와 5 V·3.3 V 핀 전류, SG90의 전압·전류, HC-SR04 에코 전압.
-- AA 알칼라인·니켈수소·18650의 용량과 내부 저항.
+- 우노 5 V 핀의 전원 방식별 가용 전류, SG90 Analog 동작 전류, HC-SR04 Echo의 수치 출력 전압.
+- 18650의 용량과 내부 저항. 팩과 셀 모델을 확인한 뒤 적용합니다.
 - 공식 아두이노 스타터 키트와 Elegoo 스타터 키트의 구성, 국내 판매처의 2WD 키트 구성. 접속 제한으로 열지 못했습니다.
 - Elegoo V4의 배터리 셀 구성. 페이지에는 7.4 V 팩과 "Cell Box"로만 나옵니다.
+
+### E2 정격 확인 (2026-11-26)
+
+- Uno R3의 I/O는 핀당 20 mA이며 3.3 V 핀의 최대 부하는 50 mA입니다. 500 mA는 USB 보호 퓨즈 설명에 나오는 수치입니다. [Arduino 공식 사양](https://store.arduino.cc/products/arduino-uno-rev3)
+- 서보 카드는 TowerPro SG90 Analog의 동작 전압 4.8 V를 씁니다. 제조사가 별도 Digital 모델 페이지에 남긴 전류 추정치는 Analog에 적용하지 않습니다. [SG90 Analog 사양](https://towerpro.com.tw/product/sg90-analog/)
+- ELECFREAKS 문서는 HC-SR04의 Echo를 TTL 펄스로 명시합니다. 수치 VOH는 미확인입니다. [HC-SR04 데이터시트](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
+- AA 4직렬의 공칭 전압은 E91 알칼라인 기준 6 V, NH15-2450 NiMH 기준 4.8 V입니다. E91은 새 셀 기준 150~300 mΩ이며 용량은 21 °C와 0.8 V 종지 조건의 방전 전류별 그래프로 제시됩니다. NH15-2450은 21 °C, 490 mA 연속 방전, 1.0 V 종지에서 2450 mAh입니다. 셀 내부 저항은 완충 30 mΩ, 절반 방전 40 mΩ이며 허용차는 ±20%입니다. [E91 데이터시트](https://data.energizer.com/pdfs/E91_Max_NA.pdf), [NH15-2450 데이터시트](https://data.energizer.com/pdfs/nh15-2450.pdf)
+
+카드는 공칭 전압 등 표시 행을 읽습니다. 배터리 시험 조건과 미확인 항목은 `assets/part_specs.json`의 E2 메타데이터에 기록했습니다. 전기 계산 연동은 후속 구현입니다.
 
 ## 9. 출처
 
