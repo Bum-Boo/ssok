@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-11-05 모듈형 조립(M1·M2): 구멍을 겨냥해 끼우는 조작, 48종 트레이, 키트 구멍이 있는 장치 9종이에요. 깃발과 결승선 답지는 키트 부품만 쓰고, 벽 앞 멈추기 답지는 볼 캐스터 떨림 때문에 임시로 옛 차를 써요(20 g 캐스터는 Linux 카메라 정착 검사 회귀로 되돌림). [ADR 0039](adr/0039-hole-targeted-snap-building.md), [작업 M1](WORK_SUMMARY_M1.md), [작업 M2](WORK_SUMMARY_M2.md), [백서](whitepaper/ssok-modular-construction.ko.md).
+2026-11-05 모듈형 조립(M1·M2): 구멍을 겨냥해 끼우는 조작, 48종 트레이, 키트 구멍이 있는 장치 9종이에요. 깃발·결승선·벽 앞 정지 답지는 키트 부품만 써요. 벽 답지는 소형 키트 차를 쓰고, 키트 구멍으로 고정한 캐스터에만 20 g 질량 보정을 적용해요. [ADR 0039](adr/0039-hole-targeted-snap-building.md), [작업 M1](WORK_SUMMARY_M1.md), [작업 M2](WORK_SUMMARY_M2.md), [백서](whitepaper/ssok-modular-construction.ko.md).
 
 2026-10-22 작업 D-3 로컬 후보: 현재 라우터 Stage/Lab의 브라우저 앵커와 종료 기한을 복구하고 컵 관측을 자유 환경 물체로 제한했어요. 115 suites 89 PASS/26 환경 FAIL로 D-2 통과 집합을 유지했어요. Web export는 DNS/템플릿·소켓 제약, Windows 실기는 미검증이에요. [원인·실측·인계](WORK_SUMMARY_D3.md).
 
