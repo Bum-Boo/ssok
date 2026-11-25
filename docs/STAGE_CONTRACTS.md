@@ -81,8 +81,12 @@ remain available. Source-specific measurements and test output are in [work M2](
 All three author solutions use curated tray parts, as checked by `parts_tray_check`.
 The wall answer uses the compact kit car with 65 mm wheels, the original `BRAKE_CODE`,
 and the same distance, speed, hold and contact rules. Run mode applies a minimum
-20 g solver mass to the caster on a fixed kit-hole connection. The legacy mount
-uses the catalog mass of 5 g. See [work M2](WORK_SUMMARY_M2.md) for the comparison.
+20 g solver mass to the caster on a fixed kit-hole connection, anchors that joint at the
+ball centre and replaces the ball's sliding friction with rolling resistance 0.01 that only
+opposes its motion. Undriven TT motors resist back-driving with gearbox friction (10% of stall
+torque). The legacy mount keeps the catalog mass of 5 g and its sliding sphere. See
+[work M2](WORK_SUMMARY_M2.md) for the comparison and the
+[integration record](evidence/integration_v1_2026-11-26/README.md) for the hold measurements.
 
 D-2 adds `cup_count` only for v2, `part_id="*"`, `target_index=-1`. It observes
 `RunMode.cup_object_count()`: unique movable bodies with `environment_role="object"` wholly

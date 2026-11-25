@@ -7,6 +7,9 @@ extends Node3D
 ## Parts that sit on the table and never move (frozen as static bodies).
 @export var anchored_part_ids: Array[StringName] = [&"base", &"board", &"arduino_uno", &"stage_wall", &"kit_env_line_straight", &"kit_env_line_corner", &"kit_env_ramp_10", &"kit_env_ramp_20", &"kit_env_cup"]
 
+## Rolling resistance of a kit-hole ball caster: the coefficient its sliding sphere used to have.
+const BALL_ROLLING_RESISTANCE: float = 0.01
+
 var bodies: Array[RigidBody3D] = []
 ## graph part index -> ServoDrive, for every part that owns a rotating port in a link.
 var servos: Dictionary = {}
@@ -23,6 +26,8 @@ var power_tier: int = 0
 var power_on: bool = true
 var power: Dictionary = {}
 var _body_offsets: Array[Transform3D] = []
+## Kit-hole caster balls, which roll instead of sliding (see _make_joint).
+var _rolling_balls: Array[RigidBody3D] = []
 
 
 func build(graph: ConnectionGraph) -> void:
@@ -111,11 +116,42 @@ func teardown() -> void:
 	leds.clear()
 	_part_visuals.clear()
 	_body_offsets.clear()
+	_rolling_balls.clear()
 	_graph = null
 
 
 func is_built() -> bool:
 	return _graph != null
+
+
+func _physics_process(_delta: float) -> void:
+	for ball: RigidBody3D in _rolling_balls:
+		if is_instance_valid(ball):
+			_apply_ball_rolling(ball)
+
+
+## Rolling resistance from the ball's last contact load. It opposes the ball's motion along
+## the surface and at most stops it, so it can neither push an idle car nor reverse it.
+func _apply_ball_rolling(ball: RigidBody3D) -> void:
+	var state: PhysicsDirectBodyState3D = PhysicsServer3D.body_get_direct_state(ball.get_rid())
+	if state == null:
+		return
+	var load: float = 0.0
+	var largest: float = 0.0
+	var normal: Vector3 = Vector3.UP
+	for contact: int in state.get_contact_count():
+		var contact_normal: Vector3 = state.get_contact_local_normal(contact)
+		var pressed: float = absf(state.get_contact_impulse(contact).dot(contact_normal))
+		load += pressed
+		if pressed > largest:
+			largest = pressed
+			normal = contact_normal if contact_normal.y >= 0.0 else -contact_normal
+	if load <= 0.0:
+		return
+	var rolling: Vector3 = ball.linear_velocity - normal * ball.linear_velocity.dot(normal)
+	var speed: float = rolling.length()
+	if speed > 0.0:
+		ball.apply_central_impulse(-rolling / speed * minf(BALL_ROLLING_RESISTANCE * load, ball.mass * speed))
 
 
 func part_global_transform(part: int) -> Transform3D:
@@ -322,13 +358,25 @@ func _make_joint(link: Dictionary) -> void:
 			add_child(drive)
 			servos[owner] = drive
 	else:
-		# The small standalone caster jitters under the kit chassis at 5 g.
-		# Apply the solver ballast only at kit holes so legacy mounts retain their dynamics.
+		# A ball caster carries its floor load through the ball centre, but its kit holes sit
+		# 10 mm beside the ball. Anchored at a hole, that load becomes a torque against the
+		# joint's angular lock: the 5 g caster jitters and a heavier one makes the car creep.
+		# Kit-hole casters therefore anchor at the ball centre, with a 20 g solver mass for the
+		# chassis-to-caster mass ratio. The real ball rolls: sliding friction under that
+		# joint-held contact ratchets an idle car forward, so the sphere slides freely and
+		# _apply_ball_rolling() resists only its motion. Legacy mounts sit above the ball and
+		# keep their catalog dynamics.
 		if a_port.tag == &"kit_m4" and b_port.tag == &"kit_m4":
-			if a_def.caster_radius > 0.0:
-				body_a.mass = maxf(body_a.mass, 0.020)
-			if b_def.caster_radius > 0.0:
-				body_b.mass = maxf(body_b.mass, 0.020)
+			for side: Array in [[a_def, body_a, a_transform], [b_def, body_b, b_transform]]:
+				if (side[0] as PartDef).caster_radius <= 0.0:
+					continue
+				var ball: RigidBody3D = side[1]
+				ball.mass = maxf(ball.mass, 0.020)
+				ball.physics_material_override = PhysicsMaterial.new()
+				ball.physics_material_override.friction = 0.0
+				if ball not in _rolling_balls:
+					_rolling_balls.append(ball)
+				anchor = (side[2] as Transform3D).origin
 		var fixed := Generic6DOFJoint3D.new()
 		add_child(fixed)
 		fixed.global_transform = Transform3D(Basis.IDENTITY, anchor)

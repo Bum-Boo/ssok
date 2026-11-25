@@ -52,7 +52,11 @@ bolted to kit beams, and the stage answers depend on `car_chassis` named slots.
 The temporary M2d legacy wall answer followed a Linux camera regression from raising
 the shared caster mass to 20 g. The compact kit car now supplies the wall answer.
 Run mode applies the 20 g minimum solver mass only at fixed kit-hole caster mounts.
-The legacy mount uses the 5 g catalog mass.
+The legacy mount uses the 5 g catalog mass. The integration of 2026-11-26 anchors those
+kit-hole joints at the ball centre (the holes sit 10 mm beside the ball, so a hole anchor turned the
+floor load into a torque against the joint), lets the ball slide freely and resists only its motion
+with rolling resistance 0.01, and gives undriven TT motors their gearbox friction. An idle or unpowered
+kit car then holds still; see the [integration record](../evidence/integration_v1_2026-11-26/README.md).
 
 Saved graphs that use legacy parts still load and run. Tests that counted tray buttons or relied on
 the floor-grid spawn change. New placement logic is exposed as testable `AssemblyMode` calls so
