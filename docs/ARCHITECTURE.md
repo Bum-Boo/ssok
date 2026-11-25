@@ -243,6 +243,15 @@ Godot은 외부 `StandardMaterial3D`와 128px 미세 노멀 맵 3장을 사용�
 UV 없는 기존 메쉬에 로컬 트라이플래너 매핑을 사용하며, 런타임 텍스처 생성이나 스레드는 없다.
 상세 워크플로는 `assets/materials/README.md` 참고.
 
+### 미니어처 공작실 부품 (2026-11-26)
+
+micro:bit, 모터 드라이버 두 종, 볼 캐스터와 깃발은 기존 PartDef를 읽어
+[`make_hardware_meshes.gd`](../tools/godot/make_hardware_meshes.gd)로 시각 메시를 구워요.
+[`make_functional_parts.gd`](../tools/godot/make_functional_parts.gd)는 같은 상세 메시 빌더로
+LED, 키트 휠 두 종과 기어 두 종을 만들고, 두 램프의 평면 사이에는 크리즈를 둬요.
+마운팅 구멍은 기존 `kit_m4` 포트 중심에 두고, 원본 메시의 AABB와 PartDef 설정을
+보존해요. 메시 교체 뒤에는 [트레이 썸네일](../tools/blender/README.md)도 같은 리소스에서 다시 렌더링해요.
+
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)
 - 라이선스

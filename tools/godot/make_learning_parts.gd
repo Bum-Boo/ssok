@@ -2,6 +2,7 @@ extends SceneTree
 
 const DevicePorts = preload("res://tools/godot/make_part_defs.gd")
 const PartMaterials = preload("res://tools/godot/part_materials.gd")
+const HardwareMeshes = preload("res://tools/godot/hardware_meshes.gd")
 
 func _init() -> void:
 	var microbit := _box(&"microbit", "micro:bit V2", Vector3(0.052, 0.005, 0.043), 0.015, Color(0.16, 0.20, 0.27))
@@ -63,13 +64,16 @@ func _box(id: StringName, label: String, size: Vector3, mass: float, color: Colo
 	result.display_name = label
 	result.mass_kg = mass
 	result.merge_fixed_connections = true
+	if String(id) in HardwareMeshes.LEGACY_IDS:
+		result.mesh = PartMaterials.load_mesh(id)
+		return result
 	var mesh := BoxMesh.new()
 	mesh.size = size
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
 	mesh.material = material
 	result.mesh = mesh
-	var material_name: String = "DetailGraphite" if id == &"microbit" else "BoardBody" if id in [&"motor_driver", &"tb6612_driver"] else "ChassisMetal" if id == &"car_chassis" else "Silver" if id == &"ball_caster" else "ArmBody"
+	var material_name: String = "ChassisMetal" if id == &"car_chassis" else "ArmBody"
 	_write_mesh_source(id, mesh, material_name)
 	var source_path: String = "res://assets/parts/%s.obj" % id
 	if FileAccess.file_exists(source_path + ".import"):

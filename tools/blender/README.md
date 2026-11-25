@@ -38,6 +38,22 @@ After generating:
 For a rendered overview, run `godot --path . -s tools/godot/mesh_preview.gd`.
 It saves images under `user://mesh_previews/`. This requires a graphical display.
 
+## Godot hardware meshes
+
+The micro:bit, two motor drivers, ball caster and flag use the procedural mesh source in
+[`hardware_meshes.gd`](../godot/hardware_meshes.gd). The LED, wheels and gear modules use the same
+source, with mounting centers and physical properties from the kit catalog. Both ramps use
+per-face normals on the catalog wedges.
+
+```sh
+godot --headless --path . -s tools/godot/make_hardware_meshes.gd
+godot --headless --path . -s tools/godot/make_functional_parts.gd -- kit_led kit_wheel_40 kit_wheel_90 kit_gear_2 kit_gear_3 kit_env_ramp_10 kit_env_ramp_20
+godot --path . --resolution 384x384 -s tools/godot/make_part_thumbnails.gd -- microbit motor_driver tb6612_driver ball_caster flag kit_led kit_wheel_40 kit_wheel_90 kit_gear_2 kit_gear_3 kit_env_ramp_10 kit_env_ramp_20
+```
+
+Supply part IDs after `--` to rebuild only those meshes or thumbnails. Thumbnails require a
+graphical display. Commit the baked mesh and its tray picture with any change to the source.
+
 ## Mesh organization
 
 - `make_parts.py`: original part geometry, axis conversion, OBJ export and optional asset library.

@@ -2,20 +2,24 @@ extends SceneTree
 
 ## Reproducible primitive meshes and mechanical interfaces from the shared kit catalog.
 const ROOT: String = "res://assets/construction_kit/"
+const HardwareMeshes = preload("res://tools/godot/hardware_meshes.gd")
 
 
 func _initialize() -> void:
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "catalog.json"))
+	var requested: PackedStringArray = OS.get_cmdline_user_args()
 	var generated: int = 0
 	for entry: Dictionary in catalog.parts:
 		if entry.geometry.type != "functional_v1":
+			continue
+		if not requested.is_empty() and entry.id not in requested:
 			continue
 		if write_definition(entry) != OK:
 			quit(1)
 			return
 		generated += 1
 	print("make_functional_parts: %d parts" % generated)
-	quit(0)
+	quit(0 if generated > 0 and (requested.is_empty() or generated == requested.size()) else 1)
 
 
 static func write_definition(entry: Dictionary) -> Error:
@@ -28,6 +32,8 @@ static func write_definition(entry: Dictionary) -> Error:
 			var triangles: Array[int] = [0,2,1,1,2,3,0,1,4,1,5,4,2,4,3,3,4,5,0,4,2,1,3,5]
 			var surface := SurfaceTool.new()
 			surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+			# The slope, base, back and sides meet on hard edges.
+			surface.set_smooth_group(-1)
 			for index: int in triangles:
 				surface.add_vertex(vertices[index] + _vector(component.position))
 			surface.generate_normals()
@@ -62,9 +68,6 @@ static func write_definition(entry: Dictionary) -> Error:
 		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 		mesh.surface_set_material(mesh.get_surface_count() - 1, load("res://assets/materials/" + component.get("material", "chassis_metal") + ".tres"))
 	mesh.resource_name = entry.id
-	if ResourceSaver.save(mesh, entry.mesh, ResourceSaver.FLAG_COMPRESS) != OK:
-		return FAILED
-	mesh.take_over_path(entry.mesh)
 	var definition := PartDef.new()
 	definition.id = entry.id
 	definition.display_name = entry.name
@@ -99,6 +102,15 @@ static func write_definition(entry: Dictionary) -> Error:
 			port.accepts.append(StringName(tag))
 		port.rotates = spec.get("rotates", false)
 		definition.ports.append(port)
+	if entry.id in HardwareMeshes.KIT_IDS:
+		var detail: ArrayMesh = HardwareMeshes.build(definition, mesh.get_aabb())
+		if detail == null:
+			return ERR_INVALID_DATA
+		mesh = detail
+		definition.mesh = mesh
+	if ResourceSaver.save(mesh, entry.mesh, ResourceSaver.FLAG_COMPRESS) != OK:
+		return FAILED
+	mesh.take_over_path(entry.mesh)
 	if ResourceSaver.save(definition, ROOT + "parts/" + entry.id + ".tres") != OK:
 		return FAILED
 	return OK

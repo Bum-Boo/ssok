@@ -72,12 +72,11 @@ The physical model and sonar cone/reflector simplifications are recorded in ADR 
 only a comparison in an isolated copy; production stays on GodotPhysics3D. Any exported build,
 user observation and remaining acceptance limit must be reported with its actual source identity.
 
-To regenerate part resources, run `tools/godot/make_learning_parts.gd` **after** the existing
-`tools/godot/make_part_defs.gd` generator. On a fresh checkout it writes the six envelope OBJ/MTL
-sources; import the project, then run it again to bind persistent ArrayMeshes and existing shared
-PBR materials. These are simplified hardware envelopes, not detailed CAD or calibrated devices.
-The second generator adds driver, collider and board-profile metadata; omitting it resets the
-augmented old parts. Regenerating an envelope's dimensions also requires regenerating its OBJ.
+To regenerate part definitions, run `tools/godot/make_learning_parts.gd` after
+`tools/godot/make_part_defs.gd`. The learning generator binds the existing baked hardware meshes
+and sets driver, collider and board-profile metadata. The
+[mesh workflow](../tools/blender/README.md#godot-hardware-meshes) lists the commands for regenerating
+the visual meshes and tray pictures.
 
 ## First-five-minute observation remains human work
 
