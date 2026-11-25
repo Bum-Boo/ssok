@@ -13,6 +13,7 @@ const SETTLE_LIMIT: int = 240
 const DECISION_TIMEOUT_MS: int = 60000
 const HOLD_P: float = 8.0
 const HOLD_I: float = 16.0
+const HOLD_POSITION_P: float = 1200.0 # Duty percent per meter of axle travel.
 var app: Node3D
 var controller: AppController
 var enabled: bool = false
@@ -38,6 +39,7 @@ var _step_pending: bool = false
 var _consumed: bool = true
 var _deadline: int = 0
 var _hold_integral: Dictionary = {}
+var _hold_positions: Dictionary[DriveMotor, Vector3] = {}
 var _forward_driving: bool = false
 
 
@@ -118,6 +120,8 @@ func drive_step(args: Dictionary) -> Dictionary:
 	state = "driving"
 	_forward_driving = args.action == "forward"
 	_hold_integral.clear()
+	if _forward_driving:
+		_hold_positions.clear()
 	_deadline = Time.get_ticks_msec() + 10000
 	for motor: DriveMotor in _channels:
 		if args.action == "forward":
@@ -150,6 +154,7 @@ func cancel(reason: String = "local_stop") -> void:
 	_capture_after_settle = false
 	_step_pending = false
 	_hold_integral.clear()
+	_hold_positions.clear()
 	_forward_driving = false
 	state = "stopped" if reason in ["local_stop", "new_session"] else "fault"
 	if _viewport != null:
@@ -185,6 +190,9 @@ func _physics_process(delta: float) -> void:
 		_settle_elapsed += 1
 		_stable = _stable + 1 if _at_rest() else 0
 		if _stable >= SETTLE_TICKS:
+			if _hold_positions.is_empty():
+				for motor: DriveMotor in _channels:
+					_hold_positions[motor] = motor.wheel.global_position
 			_settle_tick = Engine.get_physics_frames()
 			if _capture_after_settle:
 				state = "capturing"
@@ -228,14 +236,17 @@ func _brake() -> void:
 
 
 func _hold_brake(delta: float) -> void:
-	# Passive back-EMF braking permits slow roll during model latency. Use bounded
-	# wheel-speed feedback through the existing motors, never body/scene overrides.
+	# Relative wheel speed cannot detect all axle travel during a hold. Project each
+	# axle's displacement onto its rolling direction to correct creep and heading.
 	for motor: DriveMotor in _channels:
 		var axis: Vector3 = (motor.housing.global_basis * motor.axis_local).normalized()
 		var speed: float = (motor.wheel.angular_velocity - motor.housing.angular_velocity).dot(axis)
 		var integral: float = clampf(float(_hold_integral.get(motor, 0.0)) + speed * delta * HOLD_I, -25.0, 25.0)
 		_hold_integral[motor] = integral
-		var duty: float = clampf(-speed * HOLD_P - integral, -25.0, 25.0)
+		var position: Vector3 = motor.wheel.global_position
+		var reference: Vector3 = _hold_positions.get(motor, position)
+		var travel: float = (position - reference).dot(axis.cross(Vector3.UP).normalized())
+		var duty: float = clampf(-speed * HOLD_P - integral - travel * HOLD_POSITION_P, -25.0, 25.0)
 		motor.motor_on("reverse" if duty < 0.0 else "forward", absf(duty))
 
 

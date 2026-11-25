@@ -23,6 +23,12 @@ evaluation thresholds and the frozen pixel goal remain unchanged. Capture/ready 
 strictly stronger than the unchanged independent physical evaluator. This is a proposed control change,
 not a claim that passive braking or arbitrary robots are now motionless.
 
+A 2026-11-26 follow-up adds a position term to the same hold, because relative wheel speed does not
+detect all axle travel. When settling is confirmed, each wheel axle's position becomes the reference;
+travel projected on its rolling direction is opposed (1200% duty per meter) within the same 25% cap.
+The reference is retaken after each forward step, kept through brake steps and cleared by Stop or
+context revocation. Motors, torque limits and evaluator thresholds remain unchanged.
+
 Stop and control/mode/source/graph changes revoke the generation. Old or consumed frames cannot act. Local Stop requires no model/network; the decision watchdog is 60 seconds. The camera trace shows the same PNG bytes, concise supplied decision summary and actual tool/result events. A reported outgoing-image receipt validates the supplied hash; it cannot prove a provider's preprocessing or cognition.
 
 An opt-in desktop TCP listener binds 127.0.0.1:8127 only with `--ssok-agent-bridge` and a token of at least 32 characters in `SSOK_AGENT_TOKEN`. It uses bounded nonblocking NDJSON, one request per connection, authenticated observation/finite actions/Stop only. Web starts no listener. A pending disconnect cancels; there is no reconnect/resume. The Python CLI/MCP adapter is external developer tooling, distinct from the existing isolated headless runner and motion-lab trials.

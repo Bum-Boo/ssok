@@ -93,7 +93,9 @@ is `godot --path . --script tests/bridge_stop_owner_check.gd -- --ssok-agent-bri
 `drive_step` accepts exactly `episode_id`, `frame_id`, `revision`, `control_generation`, `ticks`
 (integer 1–30), and `action` (`forward` or `brake`). Forward uses fixed 25% duty through actual
 graph wiring. During settling/ready/capture and brake steps, bounded wheel-speed PI holding
-uses those same motors at at most 25% duty to oppose creep during model latency. It does not
+uses those same motors at at most 25% duty to oppose creep during model latency. It also opposes
+each axle's travel along its rolling direction from where the wheel stood when settling was
+confirmed; that reference is retaken after a forward step and kept through brake steps. It does not
 change motor torque, set body poses/velocities or read evaluator distance. Stop/context revocation
 clears holding and restores ordinary zero-duty braking. A frame is consumed once; another action
 needs a fresh observation. After the tick
