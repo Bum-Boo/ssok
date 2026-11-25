@@ -1,7 +1,8 @@
 extends SceneTree
 
-## Title -> stage list -> level load -> unmet starter -> observed clear -> next stage,
-## plus tool separation per session. Run with --fixed-fps 60 (as tools/ci/verify.py does).
+## Two-way title (ADR 0043): Play -> stage list -> level load -> unmet starter -> observed clear
+## -> next stage, and Free building -> Lab, whose Help menu holds projects, examples and the
+## experiments that stages never show. Run with --fixed-fps 60 (as tools/ci/verify.py does).
 ## `-- --screenshots` (without --headless) saves each screen to user://game_flow_previews.
 
 var checks: int = 0
@@ -48,8 +49,16 @@ func _run() -> void:
 	root.add_child(_app)
 	await _frames(3)
 	_check(_app.current_name == "title", "app opens on the title screen")
+	# Untyped like the rest of this script: naming menu classes here would compile them before autoloads.
+	var title: Node = _app.current
+	var ways_in: Array = title.menu.get_children().filter(func(node: Node) -> bool: return node is Button)
+	_check(ways_in == [title.play_button, title.lab_button], "the title offers exactly two ways in")
+	_check(title.play_button.text == "Play stages" and title.lab_button.text == "Free building", "the two ways in are play and free building")
+	_check(title.play_button.has_focus(), "play has the default focus")
+	_check(title.language_picker.is_visible_in_tree() and title.find_child("SettingsButton", true, false).is_visible_in_tree(), "language and settings stay on the title")
+	_check(not title.has_signal("examples_requested") and not title.has_signal("projects_requested"), "examples and projects left the title")
 	await _shot("01_title")
-	_app.current.play_button.pressed.emit()
+	title.play_button.pressed.emit()
 	await _frames(2)
 	_check(_app.current_name == "stages", "play opens the stage list")
 	var select: Node = _app.current
@@ -74,6 +83,12 @@ func _run() -> void:
 	_check(main.program_tabs.get_current_tab_control().name == "Blocks", "the flag stage starts on blocks")
 	_check(main.stage_hud != null and not main.stage_hud.briefing.visible, "the scene opens without a central briefing")
 	_check(main.code_edit.text.is_empty(), "the code editor starts empty")
+	var stage_help: PopupMenu = main._help_menu.get_popup()
+	var stage_submenus: int = 0
+	for index: int in stage_help.item_count:
+		stage_submenus += int(stage_help.get_item_submenu_node(index) != null)
+	_check(stage_submenus == 0 and stage_help.get_item_index(main.HELP_AI_CAMERA) < 0 and stage_help.get_item_index(main.HELP_MOTION_LAB) < 0, "stage help offers no examples or experiments")
+	_check(_tab_hidden(main, "AI") and not main.motion_lab_button.is_visible_in_tree(), "stage mode hides the AI camera and motion lab")
 	await _shot("04_briefing")
 	await _frames(2)
 	_check(not main.stage_hud.briefing.visible, "the scene remains unobstructed")
@@ -144,34 +159,67 @@ func _run() -> void:
 	_check(_app.current_name == "stages", "leaving a stage returns to the stage list")
 	_app.current.back_requested.emit()
 	await _frames(2)
-	_app.current.lab_requested.emit()
+	_check(_app.current_name == "title", "the stage list goes back to the title")
+	_app.current.lab_button.pressed.emit()
 	await _frames(6)
 	main = _app.current as Node3D
 	_check(main != null and main.session.mode == "lab", "free building opens a lab workshop")
 	if main != null:
 		_check(main._ui_root.get_node("PartsLibrary").visible and main.get_node_or_null("Floor") != null, "lab keeps the full library and default floor")
 		_check(not main.stages._picker.visible and main.program_tabs.is_tab_hidden(4), "lab starts with the everyday tabs and no stage picker")
-		main._reveal_tab("Stages")
+		_check(_tab_hidden(main, "AI") and not main.motion_lab_button.is_visible_in_tree(), "lab starts without the AI camera or motion lab on screen")
+		var help: PopupMenu = main._help_menu.get_popup()
+		var examples: PopupMenu = _submenu(help, "Load an example")
+		var experiments: PopupMenu = _submenu(help, "Experiments")
+		_check(help.get_item_index(main.HELP_PROJECTS) == 0, "saved projects open first from the Lab help menu")
+		_check(examples != null and examples.item_count == main.examples_menu.get_popup().item_count, "finished examples moved into the Lab help menu")
+		_check(experiments != null and experiments.get_item_index(main.HELP_AI_CAMERA) >= 0 and experiments.get_item_index(main.HELP_MOTION_LAB) >= 0, "the AI camera and motion lab sit under Experiments")
+		help.id_pressed.emit(main.HELP_PROJECTS)
+		await _frames(2)
+		_check(main.projects.visible, "projects open from the Lab help menu")
+		await _shot("10_lab_projects")
+		main.projects.close_panel()
+		await _frames(2)
+		help.id_pressed.emit(main.HELP_STAGES)
 		_check(not main.program_tabs.is_tab_hidden(4) and main.program_tabs.current_tab == 4 and main._side_panel.visible, "lab keeps authoring, opened from Help")
-		_check(not main.motion_lab_button.visible and not main.examples_menu.visible, "lab hides example robots and the AI lab")
+		experiments.id_pressed.emit(main.HELP_AI_CAMERA)
+		await _frames(1)
+		_check(not _tab_hidden(main, "AI") and main.program_tabs.get_current_tab_control().name == "AI", "the AI camera opens from Experiments")
+		_check(not main.examples_menu.visible, "lab keeps example robots out of the parts tray")
 		_check(not main.flag_mission.visible and not main._empty_panel.visible, "lab shows no flag mission")
-		await _shot("10_lab")
+		await _shot("11_lab")
 		main.exit_button.pressed.emit()
 		await _frames(2)
 	_check(_app.current_name == "title", "an unchanged lab exits straight to the title")
-	_app.current.examples_requested.emit()
-	await _frames(2)
-	_check(_app.current_name == "examples", "examples open their own list")
-	await _shot("11_examples")
-	_app.current.example_chosen.emit(1)
+	_app.current.lab_button.pressed.emit()
 	await _frames(6)
 	main = _app.current as Node3D
-	_check(main != null and main.session.mode == "example" and main.assembly.graph.parts.size() > 3, "an example loads its robot")
 	if main != null:
+		_submenu(main._help_menu.get_popup(), "Load an example").id_pressed.emit(1)
+		await _frames(6)
+		_check(main.session.mode == "lab" and main.assembly.graph.parts.size() > 3, "an example loads its robot inside the Lab")
 		_check(not main.flag_mission.get("_flag").visible, "a non-flag example shows no flag visual")
-		_check(main.program_tabs.is_tab_hidden(4), "examples hide challenge authoring")
-		await _shot("12_example")
+		await _shot("12_lab_example")
+		_submenu(main._help_menu.get_popup(), "Experiments").id_pressed.emit(main.HELP_MOTION_LAB)
+		await _frames(2)
+		_check(main.motion_lab.visible, "the AI motion lab opens from Experiments")
+		main.motion_lab.close_requested.emit()
+		await _frames(2)
 	await _finish()
+
+
+func _tab_hidden(main: Node3D, tab_name: String) -> bool:
+	for index: int in main.program_tabs.get_tab_count():
+		if String(main.program_tabs.get_tab_control(index).name) == tab_name:
+			return main.program_tabs.is_tab_hidden(index)
+	return true
+
+
+func _submenu(menu: PopupMenu, label: String) -> PopupMenu:
+	for index: int in menu.item_count:
+		if menu.get_item_text(index) == label:
+			return menu.get_item_submenu_node(index)
+	return null
 
 
 func _wait_result(main: Node3D, seconds: float) -> void:

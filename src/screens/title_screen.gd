@@ -1,12 +1,14 @@
 class_name TitleScreen
 extends MenuScreen
 
+## Two ways in, as in a game or simulator (ADR 0043): Play leads to the stage list, Free
+## building to the Lab, which also holds saved projects, finished examples and experiments.
+
 signal stages_requested
 signal lab_requested
-signal examples_requested
-signal projects_requested
 
 var play_button: Button
+var lab_button: Button
 var language_picker: OptionButton
 var settings: SettingsPanel
 var logo: TextureRect
@@ -29,9 +31,7 @@ func build() -> void:
 	content.add_child(menu)
 	play_button = _menu_button(menu, "Play stages", "flag", "Clear challenges one by one.", stages_requested)
 	primary(play_button)
-	_menu_button(menu, "Free building", "hammer", "Build anything with every part. You can turn it into a challenge.", lab_requested)
-	_menu_button(menu, "Explore examples", "sparkles", "Try finished robots: arms, walkers and humanoids.", examples_requested)
-	_menu_button(menu, "Open my project", "folder-open", "Continue a saved build.", projects_requested)
+	lab_button = _menu_button(menu, "Free building", "hammer", "Build anything with every part. Open saved projects and examples from Help.", lab_requested)
 	var footer := HBoxContainer.new()
 	footer.alignment = BoxContainer.ALIGNMENT_CENTER
 	footer.add_theme_constant_override("separation", 10)
