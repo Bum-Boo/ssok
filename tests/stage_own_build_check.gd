@@ -132,6 +132,9 @@ func _run() -> void:
 	_check(not judge.success, "moving robot cannot clear stop goal")
 	main.run_mode.teardown()
 	# Contact comes from the physics engine and remains latched after separation.
+	# Building run mode directly leaves the editor's picking colliders active; clear the
+	# alternate build at x = 0.8 so the block meets only the wall.
+	main._clear_stage_build()
 	main._level.install_wall(0.8)
 	block.parts[0].transform.origin = Vector3(0.79, 0.15, 0)
 	main.run_mode.build(block)

@@ -15,7 +15,7 @@ The stage map is a five-level beginner course, all at electrical tier 1:
 | 1 | light-on | board, LED, battery on a plate, no power cable | Wiring | battery, micro:bit, LED, plate | `led_lit` ≥ 0.5 for 1 s |
 | 2 | finish-line | kit car without sensor, no power cables | Wiring | motors, wheels, driver, frame parts | every part past x = 0.5 m |
 | 3 | raise-flag | lowered servo arm, no power cables | Blocks, Code, Wiring, Controls | servo motor, bracket, weight, flag | flag height |
-| 4 | wall-brake | sensor car, no power cables | Blocks, Code, Wiring, Controls | distance sensor, compact car | 5–10 cm from the wall, still |
+| 4 | wall-brake | compact sensor car, no power cables | Blocks, Code, Wiring, Controls | distance sensor, 60×40 plate, 60 mm beam, 65 mm wheels | 5–10 cm from the wall, still |
 | 5 | first-robot | empty workbench | Blocks, Code, Wiring, Controls | everything above | every part past x = 0.5 m |
 
 A semi-assembled start is the stage's answer graph with a battery holder mechanically stacked on
@@ -33,6 +33,9 @@ Workshop guidance counts wiring as done at tier 1 only when the power net report
 ## Consequences
 
 - Stage ids `raise-flag`, `finish-line`, `wall-brake` keep their saved progress. Level numbers change.
-- The wall-brake answer brakes at 12 cm and pauses 1.5 s: the heavier battery-carrying car coasts.
+- The wall-brake answer is the compact kit car restored under [0039](0039-hole-targeted-snap-building.md)
+  with a battery stacked on its motor driver and the unchanged `BRAKE_CODE`. Level 4 therefore unlocks
+  the 60×40 plate and 60 mm beam of that car; the legacy `car_chassis` is never offered. (Integration of
+  2026-11-26; the first draft of this record braked a battery-carrying legacy car at 12 cm instead.)
 - The Lab still starts empty with the full tray; imported stages are unaffected.
 - Intermediate and advanced courses (tiers 2–3) are later work (E4, E5).
