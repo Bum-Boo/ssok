@@ -23,7 +23,7 @@ func build() -> void:
 	content.add_child(grid)
 	var first_open: Button = null
 	for level: Dictionary in StageLevels.all():
-		var parts: Array = _picture_card(level.id)
+		var parts: Array = _picture_card(level.get("art", level.id))
 		var panel: PanelContainer = parts[0]
 		var box: VBoxContainer = parts[1]
 		panel.name = "Stage_" + level.id
@@ -42,7 +42,7 @@ func build() -> void:
 		var facts := HBoxContainer.new()
 		facts.add_theme_constant_override("separation", 8)
 		box.add_child(facts)
-		text(facts, ["Beginner", "Intermediate", "Advanced"][int(level.number) - 1], 14, true).autowrap_mode = TextServer.AUTOWRAP_OFF
+		text(facts, level.get("course", "Beginner"), 14, true).autowrap_mode = TextServer.AUTOWRAP_OFF
 		text(facts, level.topic, 14, true).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var goal: Label = text(box, level.goal, 15)
 		goal.size_flags_vertical = Control.SIZE_EXPAND_FILL

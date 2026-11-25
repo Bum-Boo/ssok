@@ -28,6 +28,9 @@ static func interest_bounds(graph: ConnectionGraph, level: Node3D, level_id: Str
 
 static func goal_anchor(level: Node3D, level_id: String) -> Vector3:
 	var names: Dictionary = {"raise-flag": "GoalLine", "finish-line": "ArchPostRight", "wall-brake": "StopZone"}
+	if not names.has(level_id):
+		# Levels without a ground marker (light-on) anchor the goal above the workbench.
+		return Vector3(0, 0.12, 0)
 	var marker: MeshInstance3D = level.get_node("Markers/" + names[level_id])
 	var bounds: AABB = marker.mesh.get_aabb()
 	return marker.global_transform * Vector3(bounds.get_center().x, bounds.get_center().y, bounds.end.z)

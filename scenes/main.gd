@@ -988,7 +988,7 @@ func _left_edge() -> float:
 
 
 func _workshop_bounds() -> AABB:
-	return WorkshopFraming.interest_bounds(assembly.graph, _level, session.get("level", {}).get("id", ""))
+	return WorkshopFraming.interest_bounds(assembly.graph, _level, session.get("level", {}).get("kind", session.get("level", {}).get("id", "")))
 
 
 ## True when a panel now covers part of what the learner is working on.
@@ -1910,15 +1910,27 @@ func _enter_stage(level: Dictionary) -> void:
 	library.visible = true
 	_filter_parts()
 	flag_mission.show_visual = false
-	if level.id == "wall-brake":
+	var kind: String = level.get("kind", level.id)
+	if kind == "wall-brake":
 		_level.install_wall(0.8)
 		stages.evaluator.environment_walls = _level.wall_bounds()
+	if kind == "light-on" and _level.has_node("Markers"):
+		(_level.get_node("Markers") as Node3D).visible = false
 	var saved: Dictionary = StageProgress.load_workspace(level.id)
 	_used_solution = saved.get("used_solution", false)
-	_load_preset(ProjectStore.graph_from(saved.project) if not saved.is_empty() else ConnectionGraph.new(), saved.project.source if not saved.is_empty() else "", "Look at the environment, choose parts and build a robot to solve the challenge.")
+	if not saved.is_empty():
+		_load_preset(ProjectStore.graph_from(saved.project), saved.project.source, "Look at the environment, choose parts and build a robot to solve the challenge.")
+	elif level.get("start", "empty") == "partial":
+		# Semi-assembled start: everything is built except the power cables.
+		_load_preset(StageLevels.starting_graph(level, stage, false), level.get("starter_code", ""), "The robot is almost ready. Connect the power in the Wiring tab.")
+	else:
+		_load_preset(ConnectionGraph.new(), level.get("starter_code", ""), "Look at the environment, choose parts and build a robot to solve the challenge.")
 	stages.load_goal(stage)
-	_set_tabs(["Blocks", "Code", "Wiring", "Controls"])
-	program_tabs.set_tab_hidden(3, false)
+	var tabs: Array = level.get("tabs", ["Blocks", "Code", "Wiring", "Controls"])
+	_set_tabs(tabs)
+	if not StageLevels.has_code(level):
+		# Wiring-only levels open straight onto the power checklist.
+		_reveal_tab("Wiring")
 	control_source.select(CONTROL_CODE)
 	stage_hud = StageHud.new()
 	stage_hud.theme = _ui_root.theme
@@ -1942,7 +1954,7 @@ func _enter_stage(level: Dictionary) -> void:
 	goal_display.area_provider = _camera_framing_rect
 	goal_display.summary_changed.connect(stage_hud.show_goal_summary)
 	goal_display.configure(level, stage)
-	goal_display.anchor = WorkshopFraming.goal_anchor(_level, level.id)
+	goal_display.anchor = WorkshopFraming.goal_anchor(_level, kind)
 	if _level != null:
 		navigation.set_view_angles(deg_to_rad(_level.view_yaw_degrees), deg_to_rad(_level.view_pitch_degrees))
 		_framing_dirty = true
@@ -2028,7 +2040,11 @@ func _on_stage_outcome(message: String) -> void:
 		var level_id: String = session.get("level", {}).get("id", "")
 		if StageProgress.mark_cleared(level_id, _used_solution) != OK:
 			_set_status("Stage cleared, but progress could not be saved.", true)
-		stage_hud.show_success("The goal was met in the physics run.")
+		var next: Dictionary = StageLevels.next_after(level_id)
+		if next.is_empty():
+			stage_hud.show_success("The goal was met in the physics run.")
+		else:
+			stage_hud.show_success("The goal was met in the physics run.", [], next.get("unlock_text", ""))
 	elif stages.evaluator.status in ["not_met", "indeterminate"]:
 		stage_hud.show_failure(message)
 
@@ -2129,7 +2145,7 @@ func _refresh_guide() -> void:
 	if blocks.has_draft():
 		var generated: Dictionary = ServoProgram.generate(blocks.instructions, blocks.profile)
 		source = generated.get("source", "") if not generated.has("error") and code_edit.text == blocks._source_at_load else ""
-	var state: Dictionary = WorkshopGuide.snapshot(assembly.graph, source, runtime, mode_button.button_pressed)
+	var state: Dictionary = WorkshopGuide.snapshot(assembly.graph, source, runtime, mode_button.button_pressed, _power_tier())
 	stage_hud.show_workflow(state)
 	stage_hud.run_action.text = "Reset robot" if mode_button.button_pressed else "Run"
 	stage_hud.run_action.tooltip_text = stage_hud.run_action.text

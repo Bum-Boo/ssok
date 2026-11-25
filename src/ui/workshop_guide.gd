@@ -6,9 +6,13 @@ const NAMES: Array[String] = ["Assemble", "Wire", "Code", "Run"]
 const HINTS: Array[String] = ["Place parts on the workbench.", "Connect the motors to board pins.", "Edit the blocks or code.", "Press “Run” and watch the goal marker."]
 
 
-static func snapshot(graph: ConnectionGraph, source: String, runtime: MiniRuntime, running: bool) -> Dictionary:
+static func snapshot(graph: ConnectionGraph, source: String, runtime: MiniRuntime, running: bool, power_tier: int = 0) -> Dictionary:
 	var assembled: bool = not graph.parts.is_empty()
 	var wired: bool = _motors_wired(graph)
+	if power_tier >= 1 and assembled:
+		# Tier 1: wiring is done only when every part leads back to the battery.
+		var powered: bool = PowerNet.evaluate(graph).problems.is_empty()
+		wired = powered and (wired or not _has_actuator(graph))
 	var valid: bool = not source.strip_edges().is_empty() and runtime.validate(source, false).is_empty()
 	var completed: Array[bool] = [assembled, wired, valid, running]
 	var current: int = 3
@@ -17,6 +21,16 @@ static func snapshot(graph: ConnectionGraph, source: String, runtime: MiniRuntim
 			current = index
 			break
 	return {"completed": completed, "current": current}
+
+
+static func _has_actuator(graph: ConnectionGraph) -> bool:
+	for part: Dictionary in graph.parts:
+		if part.part_def.dc_motor:
+			return true
+		for port: Port in part.part_def.ports:
+			if port.tag == &"pwm_signal":
+				return true
+	return false
 
 
 static func _motors_wired(graph: ConnectionGraph) -> bool:

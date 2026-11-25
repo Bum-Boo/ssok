@@ -1,6 +1,6 @@
 # 현재 방향과 문서 기준
 
-2026-11-05 모듈형 조립(M1·M2): 구멍을 겨냥해 끼우는 조작, 48종 트레이, 키트 구멍이 있는 장치 9종이에요. 깃발과 결승선 답지는 키트 부품만 쓰고, 벽 앞 멈추기 답지는 볼 캐스터 떨림 때문에 임시로 옛 차를 써요(20 g 캐스터는 Linux 카메라 정착 검사 회귀로 되돌림). [ADR 0039](adr/0039-hole-targeted-snap-building.md), [작업 M1](WORK_SUMMARY_M1.md), [작업 M2](WORK_SUMMARY_M2.md), [백서](whitepaper/ssok-modular-construction.ko.md).
+2026-11-26 E3 초급 과정(브랜치 `Aura-the-Guillotine/ssok-e3-beginner-stages`, 통합 전): 스테이지가 불 켜기 → 결승선 → 깃발 → 벽 앞 정지 → 첫 로봇 5단계가 됐어요. 1~4단계는 전원선만 빠진 반조립 상태로 시작하고, 1~2단계는 배선 탭만 보여요(코드는 숨겨진 채 실행). 트레이는 단계별로 누적 해금되고, 결과 카드에 다음 단계에서 열리는 것을 한 줄로 보여 줘요. 모두 전기 1단계예요. 결정은 [ADR 0043](adr/0043-beginner-course-progressive-unlocks.md) 2026-11-05 모듈형 조립(M1·M2): 구멍을 겨냥해 끼우는 조작, 48종 트레이, 키트 구멍이 있는 장치 9종이에요. 깃발과 결승선 답지는 키트 부품만 쓰고, 벽 앞 멈추기 답지는 볼 캐스터 떨림 때문에 임시로 옛 차를 써요(20 g 캐스터는 Linux 카메라 정착 검사 회귀로 되돌림). [ADR 0039](adr/0039-hole-targeted-snap-building.md), [작업 M1](WORK_SUMMARY_M1.md), [작업 M2](WORK_SUMMARY_M2.md), [백서](whitepaper/ssok-modular-construction.ko.md).
 
 2026-10-22 작업 D-3 로컬 후보: 현재 라우터 Stage/Lab의 브라우저 앵커와 종료 기한을 복구하고 컵 관측을 자유 환경 물체로 제한했어요. 115 suites 89 PASS/26 환경 FAIL로 D-2 통과 집합을 유지했어요. Web export는 DNS/템플릿·소켓 제약, Windows 실기는 미검증이에요. [원인·실측·인계](WORK_SUMMARY_D3.md).
 

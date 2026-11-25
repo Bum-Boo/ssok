@@ -43,18 +43,24 @@ func _run() -> void:
 	DirAccess.remove_absolute(StageProgress.path)
 	for level: Dictionary in StageLevels.all():
 		var main: Node3D = await _open(level)
-		_check(main.assembly.graph.parts.is_empty() and main.code_edit.text.is_empty(), level.id + " starts with empty graph and code")
-		_check(main._ui_root.get_node("PartsLibrary").visible and main.part_buttons.size() == PartTray.ids().size(), level.id + " curated kit tray including task flag")
+		# Beginner course: semi-assembled starts lack only power cables; level 5 is empty.
+		if level.get("start", "empty") == "partial":
+			_check(not main.assembly.graph.parts.is_empty() and main.code_edit.text == level.starter_code, level.id + " starts semi-assembled with its program")
+		else:
+			_check(main.assembly.graph.parts.is_empty() and main.code_edit.text.is_empty(), level.id + " starts with empty graph and code")
+		var offered: int = level.parts.filter(func(id: String) -> bool: return id in PartTray.ids()).size()
+		var shown: int = main.part_buttons.filter(func(button: Button) -> bool: return button.visible).size()
+		_check((main._ui_root.get_node("PartsLibrary").visible or level.get("start", "empty") == "partial") and shown == offered, level.id + " tray limited to the level's parts")
 		_check(main._ui_root.get_node("ViewportTools").visible, level.id + " edit tools available")
 		for tab: String in ["Code", "Blocks", "Wiring", "Controls"]:
 			var found: bool = false
 			for index: int in main.program_tabs.get_tab_count():
 				found = found or (main.program_tabs.get_tab_control(index).name == tab and not main.program_tabs.is_tab_hidden(index))
-			_check(found, level.id + " tab " + tab)
-		_check(main._guide_phase == 0, level.id + " assembly is first step")
+			_check(found == (tab in level.tabs), level.id + " tab " + tab)
+		_check(main._guide_phase == (1 if level.get("start", "empty") == "partial" else 0), level.id + " first open step")
 		# Load graph + source through the same assembly/project API, with no answer-use signal.
 		var stage: Dictionary = StageLevels.stage_definition(level)
-		main._load_preset(StageLevels.starting_graph(level, stage), stage.author_solution.source, "")
+		main._load_preset(StageLevels.starting_graph(level, stage, true), stage.author_solution.source, "")
 		main._on_run_pressed()
 		await _wait(main)
 		_check(main.stages.evaluator.success, level.id + " author graph and code physically clear")
@@ -84,7 +90,7 @@ func _run() -> void:
 	var main: Node3D = await _open(StageLevels.find("finish-line"))
 	main._clear_stage_build()
 	var stage: Dictionary = StageLevels.stage_definition(main.session.level)
-	main._load_preset(ProjectStore.graph_from(stage.author_solution), StageLevels.CAR_STARTER, "")
+	main._load_preset(StageLevels.starting_graph(main.session.level, stage, true), StageLevels.CAR_STARTER, "")
 	main._on_run_pressed()
 	await _wait(main)
 	_check(main.stages.evaluator.status == "not_met" and not main.stages.evaluator.success, "short drive fails whole-robot finish goal")

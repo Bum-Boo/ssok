@@ -46,7 +46,10 @@ func _run() -> void:
 	await process_frame
 	for level: Dictionary in StageLevels.all():
 		_verify_answer_parts(level)
-		var main: Node3D = await _open({"mode": "stage", "level": level})
+		# Course levels limit the tray (ADR 0043); the inventory itself is checked unrestricted.
+		var open_level: Dictionary = level.duplicate(true)
+		open_level.parts = []
+		var main: Node3D = await _open({"mode": "stage", "level": open_level})
 		_verify_tray(main, expected_all, level.id)
 		# A stage filter may restrict the allowlist but must never expose a legacy id.
 		main.session.level.parts = ["car_chassis", "kit_beam_60", "servo"]
@@ -78,7 +81,8 @@ func _verify_answer_parts(level: Dictionary) -> void:
 		var expected: Dictionary = MotionSnapshot.encode(RobotCarPreset.build(0.8))
 		_check(hidden == ["car_chassis"], "temporary wall answer has only the legacy chassis exception")
 		_check(MotionSnapshot.fingerprint(MotionSnapshot.encode(answer)) == MotionSnapshot.fingerprint(expected), "temporary exception is the exact legacy wall answer graph")
-		_check(stage.author_solution.source == RobotCarPreset.BRAKE_CODE, "temporary wall answer retains the original braking program")
+		# ADR 0043: the battery-carrying car brakes at 12 cm and pauses before the program ends.
+		_check(stage.author_solution.source.begins_with(RobotCarPreset.BRAKE_CODE.replace("> 10", "> 12")), "temporary wall answer keeps the braking program, braking earlier")
 		var scene: ConnectionGraph = ProjectStore.graph_from(stage.scene)
 		_check(MotionSnapshot.fingerprint(MotionSnapshot.encode(scene)) == MotionSnapshot.fingerprint(MotionSnapshot.encode(KitCarPreset.build(0.8))), "wall scene retains its original kit graph outside the answer exception")
 	else:
