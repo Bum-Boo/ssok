@@ -2,12 +2,12 @@ extends Node
 
 ## Screen router. Menus are separate 2D scenes; each stage loads a fresh workshop with its
 ## own level scene, so nothing from a previous stage or free build leaks into the next one.
+## The title offers two ways in (ADR 0043): stages, or the Lab with projects and examples.
 
 const WORKSHOP: String = "res://scenes/main.tscn"
 const SCREENS: Dictionary = {
 	"title": "res://scenes/screens/title.tscn",
 	"stages": "res://scenes/screens/stage_select.tscn",
-	"examples": "res://scenes/screens/examples.tscn",
 	"loading": "res://scenes/screens/loading.tscn",
 }
 
@@ -49,8 +49,6 @@ func show_title() -> void:
 	var screen: TitleScreen = _screen("title") as TitleScreen
 	screen.stages_requested.connect(show_stages)
 	screen.lab_requested.connect(start_workshop.bind({"mode": "lab"}))
-	screen.examples_requested.connect(show_examples)
-	screen.projects_requested.connect(start_workshop.bind({"mode": "lab", "open_projects": true}))
 	_replace(screen, "title")
 
 
@@ -60,13 +58,6 @@ func show_stages() -> void:
 	screen.stage_chosen.connect(start_stage)
 	screen.lab_requested.connect(start_workshop.bind({"mode": "lab"}))
 	_replace(screen, "stages")
-
-
-func show_examples() -> void:
-	var screen: ExamplesScreen = _screen("examples") as ExamplesScreen
-	screen.back_requested.connect(show_title)
-	screen.example_chosen.connect(func(index: int) -> void: start_workshop({"mode": "example", "example": index}))
-	_replace(screen, "examples")
 
 
 func start_stage(level_id: String) -> void:
@@ -88,7 +79,7 @@ func start_workshop(session: Dictionary) -> void:
 		return
 	var workshop: Node3D = (load(WORKSHOP) as PackedScene).instantiate() as Node3D
 	workshop.set("session", session)
-	var back_to: Callable = show_stages if session.mode == "stage" else (show_examples if session.mode == "example" else show_title)
+	var back_to: Callable = show_stages if session.mode == "stage" else show_title
 	workshop.connect("exit_requested", back_to)
 	workshop.connect("next_stage_requested", start_stage)
 	_replace(workshop, session.mode)
@@ -98,7 +89,7 @@ func _on_preferences_changed() -> void:
 	# Menus are rebuilt with the new theme; the workshop applies preferences itself.
 	if current is MenuScreen and current_name != "loading":
 		SsokTheme.configure(Preferences.dark_appearance(), Preferences.values.text_scale, Preferences.values.code_scale)
-		var rebuild: Dictionary = {"title": show_title, "stages": show_stages, "examples": show_examples}
+		var rebuild: Dictionary = {"title": show_title, "stages": show_stages}
 		if rebuild.has(current_name):
 			var settings_open: bool = current is TitleScreen and (current as TitleScreen).settings.visible
 			rebuild[current_name].call()

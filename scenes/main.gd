@@ -19,6 +19,15 @@ const PARTS_DIR := "res://assets/parts"
 const WIDE_LAYOUT: float = 1280.0
 const CONTROL_MANUAL: int = 0
 const CONTROL_CODE: int = 1
+## Help menu item ids. Experiments exist only in free building (ADR 0043).
+const HELP_TUTORIAL: int = 0
+const HELP_SETTINGS: int = 1
+const HELP_PROJECTS: int = 2
+const HELP_BUILD_ARM: int = 3
+const HELP_CONTROLS: int = 10
+const HELP_STAGES: int = 11
+const HELP_AI_CAMERA: int = 12
+const HELP_MOTION_LAB: int = 13
 
 var assembly: AssemblyMode
 var run_mode: RunMode
@@ -97,7 +106,7 @@ var _parts_scroll: ScrollContainer
 var _clean_workspace: String = ""
 var _pending_starter: Callable
 var _replace_dialog: ConfirmationDialog
-## Set by the app router before entering the tree: {"mode": "stage"|"lab"|"example", ...}.
+## Set by the app router before entering the tree: {"mode": "stage"|"lab", ...}.
 ## Empty keeps the full legacy workshop that tests and older entry points use.
 var session: Dictionary = {}
 var _used_solution: bool = false
@@ -1864,8 +1873,6 @@ func _apply_session() -> void:
 			_enter_stage(session.get("level", {}))
 		"lab":
 			_enter_lab()
-		"example":
-			_enter_example(int(session.get("example", 0)))
 	_adapt_layout.call_deferred()
 
 
@@ -1955,15 +1962,6 @@ func _enter_lab() -> void:
 	# Building, wiring and programming are the everyday tabs; the rest open from Help.
 	_set_tabs(["Blocks", "Code", "Wiring"])
 	_set_status("Free building: add parts from the library, wire them, then program your robot.")
-	if session.get("open_projects", false):
-		_open_projects.call_deferred()
-
-
-func _enter_example(index: int) -> void:
-	_set_tabs(["Controls", "Blocks", "Code", "Wiring"])
-	# A fresh workshop has nothing to lose, so load without the replace prompt.
-	_clean_workspace = _workspace_key()
-	_load_example_id(index)
 
 
 func _request_exit() -> void:
@@ -2071,22 +2069,30 @@ func _setup_scene_ui() -> void:
 	_help_menu.text = "Help"
 	_help_menu.name = "HelpMenu"
 	var popup: PopupMenu = _help_menu.get_popup()
-	for title: String in ["Tutorial", "Settings", "Projects", "Build this arm yourself"]:
-		popup.add_item(title)
-	var example_popup := PopupMenu.new()
-	for index: int in examples_menu.get_popup().item_count:
-		example_popup.add_item(examples_menu.get_popup().get_item_text(index))
-	example_popup.id_pressed.connect(_load_example_id)
-	if session.get("mode") != "stage":
-		popup.add_submenu_node_item("Load an example", example_popup)
 	if session.get("mode") == "lab":
+		# Free building holds saved projects, finished examples and the experiments (ADR 0043).
+		popup.add_item("Projects", HELP_PROJECTS)
+		var example_popup := PopupMenu.new()
+		example_popup.name = "Examples"
+		for index: int in examples_menu.get_popup().item_count:
+			example_popup.add_item(examples_menu.get_popup().get_item_text(index))
+		example_popup.id_pressed.connect(_load_example_id)
+		popup.add_submenu_node_item("Load an example", example_popup)
 		popup.add_separator()
-		popup.add_item("Controls", 10)
-		popup.add_item("Stages", 11)
-		popup.add_item("AI", 12)
+		for entry: Array in [["Tutorial", HELP_TUTORIAL], ["Build this arm yourself", HELP_BUILD_ARM], ["Controls", HELP_CONTROLS], ["Stages", HELP_STAGES], ["Settings", HELP_SETTINGS]]:
+			popup.add_item(entry[0], entry[1])
+		popup.add_separator()
+		var experiments := PopupMenu.new()
+		experiments.name = "Experiments"
+		experiments.add_item("AI camera", HELP_AI_CAMERA)
+		experiments.add_item("AI motion lab", HELP_MOTION_LAB)
+		experiments.id_pressed.connect(_on_help_selected)
+		popup.add_submenu_node_item("Experiments", experiments)
 	else:
-		example_popup.free()
-		popup.set_item_disabled(3, true)
+		# A stage keeps to its challenge: no examples and no experiments.
+		for entry: Array in [["Tutorial", HELP_TUTORIAL], ["Settings", HELP_SETTINGS], ["Projects", HELP_PROJECTS], ["Build this arm yourself", HELP_BUILD_ARM]]:
+			popup.add_item(entry[0], entry[1])
+		popup.set_item_disabled(popup.get_item_index(HELP_BUILD_ARM), true)
 	popup.id_pressed.connect(_on_help_selected)
 	stage_hud.help_requested.connect(func() -> void:
 		popup.position = Vector2i(stage_hud.goal_card.get_global_rect().end.x - 260, stage_hud.goal_card.get_global_rect().end.y)
@@ -2259,22 +2265,24 @@ func _position_scene_panels() -> void:
 	_side_panel.offset_right = -12
 
 
-func _on_help_selected(index: int) -> void:
-	match index:
-		0:
+func _on_help_selected(id: int) -> void:
+	match id:
+		HELP_TUTORIAL:
 			_open_tutorial()
-		1:
+		HELP_SETTINGS:
 			_open_settings()
-		2:
+		HELP_PROJECTS:
 			_open_projects()
-		3:
+		HELP_BUILD_ARM:
 			_request_starter(_practice_flag_arm)
-		10:
+		HELP_CONTROLS:
 			_reveal_tab("Controls")
-		11:
+		HELP_STAGES:
 			_reveal_tab("Stages")
-		12:
+		HELP_AI_CAMERA:
 			_reveal_tab("AI")
+		HELP_MOTION_LAB:
+			_open_motion_lab()
 
 
 func _build_stage_actions() -> void:

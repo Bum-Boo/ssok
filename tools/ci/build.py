@@ -58,7 +58,6 @@ DOCUMENTATION_REFERENCES = (
     "src/core/stage_levels.gd",
     "src/core/stage_progress.gd",
     "src/profiles/learner_program.gd",
-    "src/screens/examples_screen.gd",
     "src/screens/loading_screen.gd",
     "src/screens/menu_screen.gd",
     "src/screens/stage_select_screen.gd",

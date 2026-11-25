@@ -1,6 +1,6 @@
 # 0028 — Game screen flow, stage level scenes and per-mode tools
 
-- Status: accepted; partially superseded by [0030](0030-scene-first-workshop-guidance.md)
+- Status: accepted; partially superseded by [0030](0030-scene-first-workshop-guidance.md) and [0043](0043-two-way-title-and-lab-owned-extras.md)
 - Date: 2026-09-30
 - Implements: issue #43 and the owner's instruction of 2026-09-30 (stop #42, build level scenes,
   let 2D menu scenes choose what to do, and separate what each mode can do)
@@ -12,6 +12,10 @@
 > graph authority, stage outcomes and standalone legacy entry points remain accepted.
 
 > [0036](0036-own-build-stages-and-aggregate-goals.md) supersedes only built-in stage preload, hidden assembly tools, graph-owned wall and clear-only progress storage. Routing, scene generation and other decisions remain accepted.
+
+> [0043](0043-two-way-title-and-lab-owned-extras.md) (2026-11-26) supersedes only the examples
+> menu scene and the `example` session. The title offers Play stages and Free building; examples,
+> projects and experiments open from the Lab Help menu. Other decisions here remain accepted.
 
 ## Context
 

@@ -235,7 +235,7 @@
   },
   {
     "en": "Play stages",
-    "ko": "스테이지 도전하기",
+    "ko": "플레이",
     "zh_CN": "挑战关卡",
     "ja": "ステージに挑戦"
   },
@@ -247,39 +247,21 @@
   },
   {
     "en": "Free building",
-    "ko": "자유롭게 만들기",
+    "ko": "자유 제작",
     "zh_CN": "自由搭建",
     "ja": "自由に作る"
   },
   {
-    "en": "Build anything with every part. You can turn it into a challenge.",
-    "ko": "모든 부품으로 마음대로 만들어요. 만든 것을 과제로 바꿔도 돼요.",
-    "zh_CN": "用所有零件随意搭建，也可以把作品变成挑战。",
-    "ja": "すべての部品で自由に作れます。作品を課題にもできます。"
+    "en": "Build anything with every part. Open saved projects and examples from Help.",
+    "ko": "모든 부품으로 만들어요. 프로젝트와 예제는 도움에서 열어요.",
+    "zh_CN": "用所有零件随意搭建。项目和示例可在“帮助”中打开。",
+    "ja": "すべての部品で自由に作れます。保存したプロジェクトと作例は「ヘルプ」から開けます。"
   },
   {
-    "en": "Explore examples",
-    "ko": "예제 둘러보기",
-    "zh_CN": "浏览示例",
-    "ja": "作例を見る"
-  },
-  {
-    "en": "Try finished robots: arms, walkers and humanoids.",
-    "ko": "완성된 로봇을 움직여 봐요. 로봇 팔, 걷는 로봇, 사람형 로봇이 있어요.",
-    "zh_CN": "试试做好的机器人：机械臂、步行机器人和人形机器人。",
-    "ja": "完成したロボットを動かしてみよう。アーム、歩くロボット、人型ロボットがあります。"
-  },
-  {
-    "en": "Open my project",
-    "ko": "내 프로젝트 열기",
-    "zh_CN": "打开我的项目",
-    "ja": "マイプロジェクトを開く"
-  },
-  {
-    "en": "Continue a saved build.",
-    "ko": "저장해 둔 작품을 이어서 만들어요.",
-    "zh_CN": "继续搭建保存的作品。",
-    "ja": "保存した作品の続きを作ろう。"
+    "en": "AI camera",
+    "ko": "AI 카메라",
+    "zh_CN": "AI 摄像头",
+    "ja": "AI カメラ"
   },
   {
     "en": "Pick a stage. Each one has its own place, goal and robot.",
@@ -330,94 +312,10 @@
     "ja": "このステージはまだ準備中です。"
   },
   {
-    "en": "Examples",
-    "ko": "예제",
-    "zh_CN": "示例",
-    "ja": "作例"
-  },
-  {
-    "en": "Open a finished robot, run it, then change it.",
-    "ko": "완성된 로봇을 열어 움직여 보고 고쳐 봐요.",
-    "zh_CN": "打开做好的机器人，运行一下，再动手修改。",
-    "ja": "完成したロボットを開いて動かし、変えてみよう。"
-  },
-  {
-    "en": "Servo arm",
-    "ko": "서보 팔",
-    "zh_CN": "舵机机械臂",
-    "ja": "サーボアーム"
-  },
-  {
-    "en": "One servo lifts an arm. The simplest robot to read.",
-    "ko": "서보 하나가 팔을 들어 올려요. 가장 읽기 쉬운 로봇이에요.",
-    "zh_CN": "一个舵机抬起机械臂，是最容易看懂的机器人。",
-    "ja": "サーボ1つでアームを持ち上げます。いちばん読みやすいロボットです。"
-  },
-  {
-    "en": "Biped",
-    "ko": "이족 로봇",
-    "zh_CN": "双足机器人",
-    "ja": "二足ロボット"
-  },
-  {
-    "en": "Two legs, four servos. Drive it with WASD.",
-    "ko": "다리 두 개에 서보 네 개예요. WASD로 움직여요.",
-    "zh_CN": "两条腿，四个舵机。用 WASD 控制。",
-    "ja": "脚2本とサーボ4つ。WASDで動かします。"
-  },
-  {
-    "en": "Humanoid (experimental)",
-    "ko": "사람형 로봇 (실험용)",
-    "zh_CN": "人形机器人（实验性）",
-    "ja": "人型ロボット（実験用）"
-  },
-  {
-    "en": "Walks and picks up a box. Movement is still unstable.",
-    "ko": "걷고 상자를 집어요. 움직임은 아직 불안정해요.",
-    "zh_CN": "会走路、会捡箱子，但动作还不稳定。",
-    "ja": "歩いて箱を拾います。動きはまだ不安定です。"
-  },
-  {
     "en": "Construction-kit humanoid",
     "ko": "조립 키트 사람형 로봇",
     "zh_CN": "组装套件人形机器人",
     "ja": "組み立てキットの人型ロボット"
-  },
-  {
-    "en": "Built only from kit beams, plates and fasteners.",
-    "ko": "키트의 빔과 판, 나사만으로 만들었어요.",
-    "zh_CN": "只用套件里的梁、板和紧固件搭成。",
-    "ja": "キットの梁と板、留め具だけで作りました。"
-  },
-  {
-    "en": "Kit bridge",
-    "ko": "키트 다리",
-    "zh_CN": "套件桥梁",
-    "ja": "キットの橋"
-  },
-  {
-    "en": "The same kit parts, assembled into a bridge.",
-    "ko": "같은 키트 부품으로 다리를 만들었어요.",
-    "zh_CN": "用同样的套件零件搭成一座桥。",
-    "ja": "同じキット部品で橋を組み立てました。"
-  },
-  {
-    "en": "Learned biped",
-    "ko": "학습한 이족 로봇",
-    "zh_CN": "学习型双足机器人",
-    "ja": "学習した二足ロボット"
-  },
-  {
-    "en": "Walks with a learned policy. Hold W.",
-    "ko": "학습한 방식으로 걸어요. W를 누르고 있어요.",
-    "zh_CN": "用学习到的策略行走。按住 W。",
-    "ja": "学習した動きで歩きます。Wを押し続けよう。"
-  },
-  {
-    "en": "Open",
-    "ko": "열기",
-    "zh_CN": "打开",
-    "ja": "開く"
   },
   {
     "en": "Loading...",

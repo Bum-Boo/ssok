@@ -17,7 +17,7 @@ ssok/
     core/  (12 GDScript files)
     profiles/  (1 GDScript files)
     runtime/  (27 GDScript files)
-    screens/  (5 GDScript files)
+    screens/  (4 GDScript files)
     ui/  (23 GDScript files)
   presets/
   assets/
@@ -131,7 +131,6 @@ ssok/
 | [src/runtime/sonar_sensor.gd](../../src/runtime/sonar_sensor.gd) | SonarSensor |
 | [src/runtime/stage_evaluator.gd](../../src/runtime/stage_evaluator.gd) | StageEvaluator |
 | [src/runtime/wiring.gd](../../src/runtime/wiring.gd) | Wiring |
-| [src/screens/examples_screen.gd](../../src/screens/examples_screen.gd) | ExamplesScreen |
 | [src/screens/loading_screen.gd](../../src/screens/loading_screen.gd) | LoadingScreen |
 | [src/screens/menu_screen.gd](../../src/screens/menu_screen.gd) | MenuScreen |
 | [src/screens/stage_select_screen.gd](../../src/screens/stage_select_screen.gd) | StageSelectScreen |

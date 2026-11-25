@@ -155,9 +155,11 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    Title[타이틀] --> Select[스테이지 선택]
-    Title --> Lab[자유 제작 작업실]
-    Title --> Examples[예제 목록] --> Example[예제 작업실]
+    Title[타이틀: 플레이 / 자유 제작] -->|플레이| Select[스테이지 선택]
+    Title -->|자유 제작| Lab[자유 제작 작업실 lab 세션]
+    Select -->|Lab 카드| Lab
+    Lab --> Help[도움: 프로젝트 / 예제 불러오기 / 실험]
+    Help --> Experiments[실험: AI 카메라 / AI 동작 실험실]
     Select --> Loading[로딩] --> Stage[레벨 + 작업실 stage 세션]
     Stage --> Play[장면 / 지금 할 일 / 접이식 도구]
     Play --> Result{관측 결과}
@@ -167,6 +169,9 @@ flowchart LR
 ```
 
 [app.gd](../scenes/app.gd)는 타이틀 → 스테이지 선택 → 로딩 → 새 작업실을 연결해요.
+[ADR 0043](adr/0043-two-way-title-and-lab-owned-extras.md)에 따라 타이틀의 큰 버튼은 플레이(Play stages, 처음 포커스)와
+자유 제작(Free building) 두 개이고, 아래에 언어 선택과 설정이 남아요. 예제 목록 화면과 `example` 세션은 없어요.
+자유 제작을 나가면 타이틀로, 스테이지를 나가면 스테이지 선택으로 돌아가요.
 스테이지 선택에는 생성 이미지(`assets/stages/art`)·난이도·배우는 것을 담은 카드와 Lab 카드가 있어요. `stage`는 기존
 [StageLevels](../src/core/stage_levels.gd)의 레벨 씬으로 기본 바닥을 바꿔요.
 [StageHud](../src/ui/stage_hud.gd)는 중앙 진입 팝업 없이 목표·조립/배선/코드/실행 칩과
@@ -178,7 +183,7 @@ flowchart LR
 단계가 바뀌어도 패널은 첫 화면 이후 스스로 열리거나 닫히지 않아요. `T`/`N`은 트레이/프로그램 패널, `H`는 패널을 모두 숨기는
 감상 보기예요. 실행하면 패널이 숨고 멈추면 이전 상태로 돌아와요. 카메라는 불러오기·창 크기 변경·맞춤 버튼에서만 다시 잡고,
 패널이 만들고 있는 로봇을 가릴 때만 예외로 다시 잡아요. 새로 놓는 납작한 부품은 작업대에 눕혀 놓여요.
-자유 제작은 코드·블록·배선 탭만 보이고 조종 안내·스테이지·AI는 도움 메뉴에서 열어요.
+자유 제작은 코드·블록·배선 탭만 보이고 조종 안내·스테이지·AI 카메라는 도움 메뉴에서 열어요.
 부품 트레이는 종류별 제목 아래 그림 타일(한 줄 3개)로 나오고, 그림은 실제 메시에서 뽑아요. 블록은 종류를 나타내는 색 띠가 있는 카드로 그려요.
 어두운 테마는 배경만 어둡게 그리고 금속 부품이 비추는 하늘은 밝게 유지해요.
 가리키거나 초점을 둔 부품은 카드(그림·이름·실제 제품·정격·출처)가 트레이 아래에 나와요([ADR 0042](adr/0042-tray-pictures-and-part-cards.md)).
@@ -196,12 +201,15 @@ flowchart LR
 현재 값·목표와 유지 시간 두 줄을 표시해요. 조립 자세는 관측으로 취급하지 않으며 결과는 기존 판정기에서만 와요.
 [WorkshopFraming](../src/ui/workshop_framing.gd)은 그래프 메시와 레벨의 목표 표시 AABB를 합쳐 패널을 뺀 화면에 맞춰요.
 진입/재시도/예제 불러오기에 적용하고, 사용자 카메라 조작 뒤에는 자동 프레이밍을 중단해요.
-Lab 도움 메뉴에서 예제·직접 팔 조립·설정·프로젝트·튜토리얼을 열어요. 예제 교체는 기존 확인 절차를 거쳐요.
+Lab 도움 메뉴는 프로젝트(저장·열기·가져오기·JSON 내보내기)와 예제 불러오기가 맨 위에 있고, 그다음 튜토리얼·직접 팔 조립·
+조종 안내·스테이지 출제·설정, 마지막에 실험 하위 메뉴(AI 카메라 탭, AI 동작 실험실. 사람형 로봇이면 집기 실험실)가 있어요.
+예제 교체는 기존 확인 절차를 거쳐요. 스테이지의 도움 메뉴에는 예제와 실험이 없고, AI 탭과 동작 실험실 버튼도 숨겨요.
 스테이지의 답지는 별도 목표 스트립 메뉴에서 확인 후 불러오고 목표를 유지해요. Lab 출제는 남겨요.
-`example`과 세션 없는 직접 `main.tscn` 진입은 기존 도구 구성을 유지해요.
+세션 없는 직접 `main.tscn` 진입은 기존 도구 구성(머리줄의 프로젝트·AI 동작 실험실 버튼 포함)을 유지해요.
 웹 검사의 `?ssok_workshop=1` / `?ssok_verify=1` 직접 진입도 유지해요.
 레벨 씬 생성/에디터 조정은 [ADR 0028](adr/0028-game-screen-flow-and-stage-levels.md),
-바뀐 표시 계약은 [ADR 0030](adr/0030-scene-first-workshop-guidance.md)과 [0031](adr/0031-workshop-presentation-corrections.md)이에요.
+바뀐 표시 계약은 [ADR 0030](adr/0030-scene-first-workshop-guidance.md)과 [0031](adr/0031-workshop-presentation-corrections.md),
+두 갈래 타이틀과 Lab 도움 메뉴는 [ADR 0043](adr/0043-two-way-title-and-lab-owned-extras.md)이에요.
 
 ## 깃발 임무
 
