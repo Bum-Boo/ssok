@@ -22,6 +22,7 @@ func _run() -> void:
 		for id: String in group:
 			expected_all.append(id)
 	var catalog: Dictionary = MotionSnapshot._catalog()
+	_verify_part_ratings(catalog)
 	for id: String in expected_all:
 		_check(catalog.has(id), "allowed part remains loadable: " + id)
 		if not catalog.has(id):
@@ -63,6 +64,26 @@ func _run() -> void:
 		await process_frame
 	print("parts_tray_check: %d checks, %d failures" % [checks, failures])
 	quit(1 if failures else 0)
+
+
+func _verify_part_ratings(catalog: Dictionary) -> void:
+	var card := PartCard.new()
+	root.add_child(card)
+	var expected := {
+		"arduino_uno": ["20 mA", "50 mA"],
+		"servo": ["4.8 V"],
+		"hc_sr04": ["5 V", "15 mA"],
+		"battery_holder_4aa": ["6 V", "4.8 V"],
+	}
+	for id: String in expected:
+		card.show_part(catalog[id])
+		var values: Array[String] = []
+		for index: int in range(1, card._rows.get_child_count(), 2):
+			values.append((card._rows.get_child(index) as Label).text)
+		for value: String in expected[id]:
+			_check(values.has(value), "%s card displays %s" % [id, value])
+		_check(card._source.visible, id + " card displays its source")
+	card.free()
 
 
 func _verify_answer_parts(level: Dictionary) -> void:
