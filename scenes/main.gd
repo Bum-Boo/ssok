@@ -65,6 +65,8 @@ var _palette_drag: bool = false
 var _palette_dragged: bool = false
 var _palette_press_position: Vector2 = Vector2.ZERO
 var _port_indicators: PortIndicators
+## 3D cables, port highlights and the see-through frame of the wiring view.
+var wire_visuals: WireVisuals
 var program_tabs: TabContainer
 var part_search: LineEdit
 var part_category: OptionButton
@@ -231,6 +233,9 @@ func _ready() -> void:
 	navigation.placement_active_provider = func() -> bool: return assembly.placement_active
 	_port_indicators = PortIndicators.new()
 	add_child(_port_indicators)
+	wire_visuals = WireVisuals.new()
+	wire_visuals.name = "WireVisuals"
+	add_child(wire_visuals)
 	assembly.graph_changed.connect(func() -> void:
 		_colorize(assembly)
 		_refresh_port_indicators())
@@ -565,6 +570,9 @@ func _build_ui() -> void:
 	wiring_panel.power_toggled.connect(_on_power_toggled)
 	wiring_panel.power_tier = _power_tier
 	program_tabs.add_child(wiring_panel)
+	wiring_panel.focus_changed.connect(func(_endpoints: Array[Dictionary]) -> void: _refresh_wire_visuals())
+	wiring_panel.xray_toggled.connect(func(_on: bool) -> void: _refresh_wire_visuals())
+	program_tabs.tab_changed.connect(func(_tab: int) -> void: _refresh_wire_visuals())
 	stages = StagePanel.new()
 	stages.name = "Stages"
 	stages.assembly = assembly
@@ -1137,6 +1145,29 @@ func _refresh_port_indicators() -> void:
 		return
 	var selected: int = assembly.selected_part.graph_index if is_instance_valid(assembly.selected_part) else -1
 	_port_indicators.refresh(assembly.graph, selected, assembly.placement_state(), run_mode != null and run_mode.is_built())
+	_refresh_wire_visuals()
+
+
+func wiring_view_open() -> bool:
+	return wiring_panel != null and wiring_panel.is_visible_in_tree() and program_tabs.get_current_tab_control() == wiring_panel
+
+
+## Cables always show; the frame turns see-through and problem ports light up while
+## the learner works on wiring, and power problems also light up once Run reports them.
+func _refresh_wire_visuals() -> void:
+	if wire_visuals == null or wiring_panel == null or not wiring_panel.is_node_ready():
+		return
+	var running: bool = run_mode != null and run_mode.is_built()
+	var wiring: bool = wiring_view_open()
+	assembly.set_structure_xray(wiring and not running and wiring_panel.xray_toggle.button_pressed)
+	wire_visuals.focus = wiring_panel.focus if wiring and not running else ([] as Array[Dictionary])
+	var problems: Array[Dictionary] = []
+	if (wiring or running or _power_notice) and _power_tier() >= 1:
+		for problem: Dictionary in PowerNet.evaluate(assembly.graph, _power_on).problems:
+			if problem.part >= 0:
+				problems.append({"part": problem.part, "port": PowerNet.POWER_IN})
+	wire_visuals.problems = problems
+	wire_visuals.refresh(assembly.graph)
 
 
 func _on_delete_pressed() -> void:
@@ -1305,6 +1336,7 @@ func _on_mode_toggled(run: bool) -> void:
 		run_mode.power_on = _power_on
 		run_mode.build(assembly.graph)
 		_port_indicators.set_run_mode(run_mode)
+		wire_visuals.set_run_mode(run_mode)
 		_colorize(run_mode)
 		assembly.visible = false
 		assembly.process_mode = Node.PROCESS_MODE_DISABLED
@@ -1321,6 +1353,7 @@ func _on_mode_toggled(run: bool) -> void:
 		manual_controller.configure(null)
 		motion_program.configure(null, null)
 		_port_indicators.set_run_mode(null)
+		wire_visuals.set_run_mode(null)
 		run_mode.teardown()
 		assembly.visible = true
 		assembly.process_mode = Node.PROCESS_MODE_INHERIT
@@ -1390,6 +1423,7 @@ func _report_power() -> bool:
 		return false
 	var problem: Dictionary = problems[0]
 	_power_notice = true
+	_refresh_wire_visuals()
 	var label: String = ""
 	if problem.part >= 0:
 		label = assembly.graph.parts[problem.part].part_def.display_name
@@ -1408,6 +1442,7 @@ func _report_power() -> bool:
 
 func _on_power_toggled(on: bool) -> void:
 	_power_on = on
+	_refresh_wire_visuals()
 	if not run_mode.is_built():
 		return
 	run_mode.power_on = on

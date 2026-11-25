@@ -7,6 +7,10 @@ extends ScrollContainer
 
 ## Emitted when the learner flips the battery switch.
 signal power_toggled(on: bool)
+## Emitted when the ports the learner points at (menus or a hovered wire) change.
+signal focus_changed(endpoints: Array[Dictionary])
+## Emitted when the see-through structure toggle changes.
+signal xray_toggled(on: bool)
 
 ## Ports that feed other ports. Every wire runs from a port that needs something to one of these.
 const PROVIDER_TAGS: Array[StringName] = [&"power_source", &"driver_output"]
@@ -21,6 +25,10 @@ var pin_choice: OptionButton
 var connect_button: Button
 var power_switch: CheckButton
 var needs_power: Label
+var xray_toggle: CheckButton
+## Ports currently pointed at, mirrored in 3D by WireVisuals.
+var focus: Array[Dictionary] = []
+var _hovered: Array[Dictionary] = []
 var connections: VBoxContainer
 var sources: Array[Dictionary] = []
 var pins: Array[Dictionary] = []
@@ -48,19 +56,35 @@ func _ready() -> void:
 	source_choice.clip_text = true
 	source_choice.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	source_choice.tooltip_text = "Port to connect"
-	source_choice.item_selected.connect(func(_index: int) -> void: _refresh_pins())
+	source_choice.item_selected.connect(func(_index: int) -> void:
+		_refresh_pins()
+		_update_focus())
 	content.add_child(source_choice)
 	pin_choice = OptionButton.new()
 	pin_choice.fit_to_longest_item = false
 	pin_choice.clip_text = true
 	pin_choice.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	pin_choice.tooltip_text = "Connects to"
-	pin_choice.item_selected.connect(func(_index: int) -> void: refresh_actions())
+	pin_choice.item_selected.connect(func(_index: int) -> void:
+		refresh_actions()
+		_update_focus())
 	content.add_child(pin_choice)
 	connect_button = SsokTheme.button("Connect wire", "cpu")
 	connect_button.pressed.connect(_connect_wire)
 	content.add_child(connect_button)
 	content.add_child(HSeparator.new())
+	xray_toggle = CheckButton.new()
+	xray_toggle.text = "See-through frame"
+	xray_toggle.tooltip_text = "Make beams and plates see-through while this tab is open"
+	xray_toggle.button_pressed = true
+	xray_toggle.toggled.connect(func(on: bool) -> void: xray_toggled.emit(on))
+	content.add_child(xray_toggle)
+	var legend := Label.new()
+	legend.name = "WireLegend"
+	legend.text = "Thick orange wires carry power. Thin blue wires carry signals. Red marks a port with a problem."
+	legend.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	legend.label_settings = SsokTheme.dim_settings()
+	content.add_child(legend)
 	power_switch = CheckButton.new()
 	power_switch.text = "Battery switch on"
 	power_switch.button_pressed = true
@@ -127,6 +151,7 @@ func refresh() -> void:
 		source_choice.add_item(tr("Everything is connected"))
 		source_choice.set_item_disabled(0, true)
 	_refresh_pins()
+	_hovered = []
 	for child: Node in connections.get_children():
 		connections.remove_child(child)
 		child.queue_free()
@@ -138,6 +163,7 @@ func refresh() -> void:
 				continue
 			wires += 1
 			var row := HBoxContainer.new()
+			row.mouse_filter = Control.MOUSE_FILTER_PASS
 			connections.add_child(row)
 			var label := Label.new()
 			label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
@@ -145,6 +171,14 @@ func refresh() -> void:
 			label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			row.add_child(label)
+			var ends: Array[Dictionary] = [{"part": link.a_part, "port": link.a_port}, {"part": link.b_part, "port": link.b_port}]
+			row.mouse_entered.connect(func() -> void:
+				_hovered = ends
+				_update_focus())
+			row.mouse_exited.connect(func() -> void:
+				if _hovered == ends:
+					_hovered = []
+					_update_focus())
 			var button: Button = SsokTheme.button("", "trash")
 			button.tooltip_text = "Disconnect wire"
 			button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -155,6 +189,7 @@ func refresh() -> void:
 	_empty.visible = sources.is_empty() and wires == 0
 	_refresh_power()
 	refresh_actions()
+	_update_focus()
 
 
 func _refresh_pins() -> void:
@@ -230,6 +265,22 @@ func _refresh_power() -> void:
 	needs_power.visible = true
 
 
+## The hovered wire wins; otherwise the port picked in the menus and where it would go.
+func _update_focus() -> void:
+	var next: Array[Dictionary] = []
+	if not _hovered.is_empty():
+		next = _hovered.duplicate()
+	else:
+		if source_choice.selected >= 0 and source_choice.selected < sources.size():
+			next.append(sources[source_choice.selected])
+		if pin_choice.selected >= 0 and pin_choice.selected < pins.size():
+			next.append(pins[pin_choice.selected])
+	if next == focus:
+		return
+	focus = next
+	focus_changed.emit(focus)
+
+
 func _uses_power() -> bool:
 	return power_tier.is_valid() and int(power_tier.call()) >= 1
 
@@ -290,4 +341,5 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
 		source_choice.tooltip_text = tr("Port to connect")
 		pin_choice.tooltip_text = tr("Connects to")
+		xray_toggle.tooltip_text = tr("Make beams and plates see-through while this tab is open")
 		refresh()

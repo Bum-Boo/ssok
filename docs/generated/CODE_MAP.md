@@ -12,7 +12,7 @@ ssok/
     app.gd
     main.gd
   src/
-    assembly/  (4 GDScript files)
+    assembly/  (5 GDScript files)
     blocks/  (1 GDScript files)
     core/  (12 GDScript files)
     profiles/  (1 GDScript files)
@@ -90,6 +90,7 @@ ssok/
 | [src/assembly/part_node.gd](../../src/assembly/part_node.gd) | PartNode |
 | [src/assembly/port_indicators.gd](../../src/assembly/port_indicators.gd) | PortIndicators |
 | [src/assembly/transform_gizmo.gd](../../src/assembly/transform_gizmo.gd) | TransformGizmo |
+| [src/assembly/wire_visuals.gd](../../src/assembly/wire_visuals.gd) | WireVisuals |
 | [src/blocks/servo_program.gd](../../src/blocks/servo_program.gd) | ServoProgram |
 | [src/core/app_controller.gd](../../src/core/app_controller.gd) | AppController |
 | [src/core/board_profile.gd](../../src/core/board_profile.gd) | BoardProfile |

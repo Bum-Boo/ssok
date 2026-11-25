@@ -18,6 +18,11 @@ GUI가 버튼을 잡고 있는 동안에도 커서 레이를 갱신해요. 레�
 `PortIndicators`는 그래프에서 빈 기계 구멍 링과 링크당 볼트 머리를 파생해요. 끼우기 중에는
 모든 부품의 빈 구멍, 평소에는 선택 부품의 빈 구멍만 보여요. 실행 시 링은 숨기고 볼트는
 실제 몸체 변환을 따라가요. 기존 G/R/숫자 편집은 고급 조작 경로로 유지해요.
+`WireVisuals`는 그래프의 ELEC 링크를 3D 케이블로 그려요. 전원선(`power_source`/`power_sink`
+포트)은 굵은 주황, 신호선은 가는 파랑이에요. 배선 탭이 열려 있으면 `AssemblyMode.set_structure_xray()`가
+ELEC 포트 없는 구조 부품을 반투명하게 하고(탭의 토글로 끔), 탭 메뉴 선택·선 행 호버는
+`WiringPanel.focus_changed`로 해당 포트와 선을 강조해요. 배선 탭·실행 중·전원 경고 표시 중에는
+`PowerNet` 문제 부품의 `power_in` 포트를 빨간 표시로 깊이 테스트 없이 보여요. 모두 파생 표시이며 그래프를 바꾸지 않아요.
 명세와 M2 제외 범위는 [모듈형 조립](design/modular-build.md), 결정은 [ADR 0039](adr/0039-hole-targeted-snap-building.md)예요.
 
 ## 코드 실행과 제어권

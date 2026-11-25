@@ -15,6 +15,9 @@ static var BORDER: Color = Color("303b49")
 
 static var ERROR: Color = Color("ff9292")
 static var SHAFT: Color = Color("e6bb84")
+## 3D wire colours: power cables warm, signal wires cool, readable on both workbench themes.
+static var POWER_WIRE: Color = Color("ff9f43")
+static var SIGNAL_WIRE: Color = Color("6cb8ff")
 static var ui_scale: float = 1.0
 static var code_scale: float = 1.0
 static var dark: bool = true
@@ -38,6 +41,8 @@ static func configure(use_dark: bool, text_scale: float, source_scale: float) ->
 	BORDER = Color("303b49" if dark else "9aabbc")
 	ERROR = Color("ff9292" if dark else "a51d36")
 	SHAFT = Color("e6bb84" if dark else "895214")
+	POWER_WIRE = Color("ff9f43" if dark else "b85400")
+	SIGNAL_WIRE = Color("6cb8ff" if dark else "1d63c4")
 
 
 static func font_size(base: int) -> int:

@@ -147,6 +147,17 @@ func remove_selected() -> bool:
 	return true
 
 
+## Makes structural parts see-through so wires and electronics inside stay visible.
+func set_structure_xray(on: bool) -> void:
+	for part: PartNode in _part_nodes:
+		if is_instance_valid(part) and part.is_structural():
+			part.set_xray(on)
+
+
+func xray_part_count() -> int:
+	return _part_nodes.filter(func(part: PartNode) -> bool: return is_instance_valid(part) and part.xray).size()
+
+
 func select_part(part: PartNode) -> void:
 	if transform_active:
 		cancel_transform()

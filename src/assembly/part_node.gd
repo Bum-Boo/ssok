@@ -7,6 +7,12 @@ var graph_index: int = -1
 var _port_markers: Dictionary[StringName, Marker3D] = {}
 var _mesh_instance: MeshInstance3D
 var _preview_material: StandardMaterial3D
+var _xray_material: StandardMaterial3D
+## The override the mesh had before X-ray, restored when it ends.
+var _xray_previous: Material
+var xray: bool:
+	get:
+		return _xray_material != null and _mesh_instance.material_override == _xray_material
 
 
 func setup(definition: PartDef, index: int) -> void:
@@ -56,6 +62,38 @@ func set_placement_preview(blocked: bool) -> void:
 	for child: Node in get_children():
 		if child is StaticBody3D:
 			child.collision_layer = 0
+
+
+## Structural parts with no electrical ports, which X-ray turns see-through.
+func is_structural() -> bool:
+	for port: Port in part_def.ports:
+		if port.kind == Port.Kind.ELEC:
+			return false
+	return true
+
+
+## See-through view for wiring. Keeps the part's own colour; never edits shared materials.
+func set_xray(on: bool) -> void:
+	if on == xray:
+		return
+	if not on:
+		_mesh_instance.material_override = _xray_previous
+		_xray_previous = null
+		return
+	_xray_previous = _mesh_instance.material_override
+	var base: Color = Color(0.6, 0.64, 0.7)
+	var source: Material = _xray_previous
+	if source == null and _mesh_instance.mesh != null and _mesh_instance.mesh.get_surface_count() > 0:
+		source = _mesh_instance.mesh.surface_get_material(0)
+	if source is BaseMaterial3D:
+		base = (source as BaseMaterial3D).albedo_color
+	if _xray_material == null:
+		_xray_material = StandardMaterial3D.new()
+		_xray_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		_xray_material.depth_draw_mode = BaseMaterial3D.DEPTH_DRAW_DISABLED
+		_xray_material.cull_mode = BaseMaterial3D.CULL_BACK
+	_xray_material.albedo_color = Color(base, 0.22)
+	_mesh_instance.material_override = _xray_material
 
 
 func clear_placement_preview() -> void:
