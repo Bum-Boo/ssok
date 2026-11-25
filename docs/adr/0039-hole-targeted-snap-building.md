@@ -49,10 +49,10 @@ bolted to kit beams, and the stage answers depend on `car_chassis` named slots.
 
 ## Consequences
 
-Until a kit car passes the wall stage without changing the legacy car's checks, the wall-brake
-answer alone temporarily uses `RobotCarPreset`. With the 5 g ball caster the kit car keeps a
-residual caster jitter (about 0.06 m/s); a 20 g caster passed all three kit answers but made the
-legacy car miss its camera settle budgets on Linux CI, so it was not kept.
+The temporary M2d legacy wall answer followed a Linux camera regression from raising
+the shared caster mass to 20 g. The compact kit car now supplies the wall answer.
+Run mode applies the 20 g minimum solver mass only at fixed kit-hole caster mounts.
+The legacy mount uses the 5 g catalog mass.
 
 Saved graphs that use legacy parts still load and run. Tests that counted tray buttons or relied on
 the floor-grid spawn change. New placement logic is exposed as testable `AssemblyMode` calls so

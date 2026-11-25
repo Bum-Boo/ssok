@@ -322,6 +322,13 @@ func _make_joint(link: Dictionary) -> void:
 			add_child(drive)
 			servos[owner] = drive
 	else:
+		# The small standalone caster jitters under the kit chassis at 5 g.
+		# Apply the solver ballast only at kit holes so legacy mounts retain their dynamics.
+		if a_port.tag == &"kit_m4" and b_port.tag == &"kit_m4":
+			if a_def.caster_radius > 0.0:
+				body_a.mass = maxf(body_a.mass, 0.020)
+			if b_def.caster_radius > 0.0:
+				body_b.mass = maxf(body_b.mass, 0.020)
 		var fixed := Generic6DOFJoint3D.new()
 		add_child(fixed)
 		fixed.global_transform = Transform3D(Basis.IDENTITY, anchor)

@@ -8,11 +8,7 @@ static func builtins() -> Array[Dictionary]:
 			[StageDefinition.rule("max_height", "flag", 0.155, 100.0, 1.0)]),
 		StageDefinition.create("finish-line", "Cross the finish line", KitCarPreset.build(), RobotCarPreset.ANSWER_CODE,
 			[StageDefinition.rule("min_x", "*", 0.5, 100.0)]),
-		StageDefinition.create("wall-brake", "Brake before the wall", KitCarPreset.build(0.8), RobotCarPreset.BRAKE_CODE,
+		StageDefinition.create("wall-brake", "Brake before the wall", KitCarPreset.build_wall(0.8), RobotCarPreset.BRAKE_CODE,
 			[StageDefinition.rule("wall_distance", "*", 0.05, 0.10, 0.3), StageDefinition.rule("robot_speed", "*", 0.0, 0.015, 0.3), StageDefinition.rule("wall_contact", "*", 0, 0)])
 	]
-	for stage: Dictionary in stages:
-		if stage.id == "wall-brake":
-			# Keep the authored scene intact; ADR 0039 permits only this temporary answer.
-			stage.author_solution = ProjectStore.document(stage.title, RobotCarPreset.build(0.8), RobotCarPreset.BRAKE_CODE)
 	return stages

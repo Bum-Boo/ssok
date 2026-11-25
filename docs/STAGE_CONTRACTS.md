@@ -78,16 +78,11 @@ Answer loading lowers the moving arm about the new graph output shaft, without c
 metrics, limits, physics parameters or runtime conversion. Legacy presets and camera checks
 remain available. Source-specific measurements and test output are in [work M2](WORK_SUMMARY_M2.md).
 
-M2d temporarily uses `RobotCarPreset.build(0.8)` with the unchanged `BRAKE_CODE` only
-for the wall-brake author solution; its original kit `scene` document is preserved. Raise-flag and finish-line retain their kit answers;
-the tray remains the same 48-part allowlist and still hides `car_chassis`. The exception
-is this exact graph, checked by snapshot fingerprint and original source in
-`parts_tray_check`; it is not permission to expose legacy parts or use them in other
-answers. Both compact geometry / 15 g and 20 g caster candidates were rejected after
-legacy camera-rest regressions. Production kit geometry and caster mass remain unchanged.
-Remove the exception when a kit wall answer passes all stages and legacy regression checks.
-See [ADR 0039](adr/0039-hole-targeted-snap-building.md) and the M2d section of
-[work M2](WORK_SUMMARY_M2.md) for measurements and final test output.
+All three author solutions use curated tray parts, as checked by `parts_tray_check`.
+The wall answer uses the compact kit car with 65 mm wheels, the original `BRAKE_CODE`,
+and the same distance, speed, hold and contact rules. Run mode applies a minimum
+20 g solver mass to the caster on a fixed kit-hole connection. The legacy mount
+uses the catalog mass of 5 g. See [work M2](WORK_SUMMARY_M2.md) for the comparison.
 
 D-2 adds `cup_count` only for v2, `part_id="*"`, `target_index=-1`. It observes
 `RunMode.cup_object_count()`: unique movable bodies with `environment_role="object"` wholly
