@@ -72,6 +72,7 @@ ssok/
 
 | 파일 | 선언된 클래스 |
 |---|---|
+| [presets/beginner_builds.gd](../../presets/beginner_builds.gd) | BeginnerBuilds |
 | [presets/biped.gd](../../presets/biped.gd) | BipedPreset |
 | [presets/biped_gait.gd](../../presets/biped_gait.gd) | BipedGait |
 | [presets/biped_motion.gd](../../presets/biped_motion.gd) | BipedMotion |

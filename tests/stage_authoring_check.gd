@@ -12,7 +12,7 @@ func _run() -> void:
 	root.add_child(main)
 	await process_frame
 	var catalog: Array[Dictionary] = StageCatalog.builtins()
-	_check(catalog.size() == 3, "three executable stage definitions")
+	_check(catalog.size() == 5, "five executable stage definitions")
 	for stage: Dictionary in catalog:
 		_check(StageDefinition.valid(stage), "catalog stage schema: " + str(stage.get("id")))
 		var decoded: Dictionary = StageDefinition.parse(StageDefinition.serialize(stage))

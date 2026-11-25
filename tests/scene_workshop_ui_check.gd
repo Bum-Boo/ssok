@@ -52,24 +52,32 @@ func _run() -> void:
 	car.links = car.links.filter(func(link: Dictionary) -> bool: return link.a_port != &"pin_8" and link.b_port != &"pin_8")
 	_check(not WorkshopGuide.snapshot(car, RobotCarPreset.ANSWER_CODE, runtime, false).completed[1], "an incomplete driver input pair is not a completed wire step")
 	runtime.free()
+	# Saved workspaces from other runs must not change the opening state.
+	StageProgress.path = "user://scene_workshop_ui_check.json"
+	DirAccess.remove_absolute(StageProgress.path)
 	for level: Dictionary in StageLevels.all():
 		var main: Node3D = load("res://scenes/main.tscn").instantiate()
 		main.session = {"mode": "stage", "level": level}
 		root.add_child(main)
 		await _settle()
 		_check(not main.stage_hud.briefing.visible and not main.flag_mission.visible, level.id + " no central introduction")
-		_check(main._ui_root.get_node("PartsLibrary").visible and not main._side_panel.visible, level.id + " empty stage opens the parts tray")
-		_check(main.stage_hud.chips.size() == 4 and main._guide_phase == 0, level.id + " empty state points to assembly")
+		if level.get("start", "empty") == "partial":
+			# ADR 0044: a semi-assembled start opens the power wiring step.
+			_check(main._side_panel.visible and main._guide_phase == 1, level.id + " semi-assembled stage opens wiring (phase %d, panel %s)" % [main._guide_phase, main._side_panel.visible])
+		else:
+			_check(main._ui_root.get_node("PartsLibrary").visible and not main._side_panel.visible, level.id + " empty stage opens the parts tray")
+			_check(main.stage_hud.chips.size() == 4 and main._guide_phase == 0, level.id + " empty state points to assembly")
 		_check(main.goal_display.label != null and not main.goal_display.label.text.is_empty(), level.id + " goal label exists in screen space")
 		main._load_preset(StageLevels.starting_graph(level, StageLevels.stage_definition(level)), StageLevels.stage_definition(level).author_solution.source, "")
 		await _settle()
+		main._side_panel.visible = false
 		main.stage_hud.program_requested.emit()
 		_check(main._side_panel.visible, "program overlay can open")
 		main.stage_hud.program_requested.emit()
 		_check(not main._side_panel.visible, "program overlay can collapse")
 		main.code_edit.text = "invalid???"
 		await _settle()
-		_check(main._guide_phase == 2 and not main._side_panel.visible, "invalid source marks the code step without moving panels")
+		_check(not StageLevels.has_code(level) or (main._guide_phase == 2 and not main._side_panel.visible), "invalid source marks the code step without moving panels")
 		main.code_edit.text = StageLevels.stage_definition(level).author_solution.source
 		main.blocks.reset_source(main.code_edit.text)
 		await _settle()

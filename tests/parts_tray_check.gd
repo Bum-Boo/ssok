@@ -47,7 +47,10 @@ func _run() -> void:
 	await process_frame
 	for level: Dictionary in StageLevels.all():
 		_verify_answer_parts(level)
-		var main: Node3D = await _open({"mode": "stage", "level": level})
+		# Course levels limit the tray (ADR 0044); the inventory itself is checked unrestricted.
+		var open_level: Dictionary = level.duplicate(true)
+		open_level.parts = []
+		var main: Node3D = await _open({"mode": "stage", "level": open_level})
 		_verify_tray(main, expected_all, level.id)
 		# A stage filter may restrict the allowlist but must never expose a legacy id.
 		main.session.level.parts = ["car_chassis", "kit_beam_60", "servo"]

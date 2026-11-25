@@ -28,6 +28,7 @@ var next_button: Button
 var retry_button: Button
 var _result_title: Label
 var _result_detail: Label
+var unlock_label: Label
 var _result_icon: TextureRect
 var _has_next: bool = false
 var _rule: Dictionary = {}
@@ -156,6 +157,8 @@ func _build_goal_card() -> void:
 		chip.pressed.connect(func() -> void: phase_requested.emit(index))
 		chip_grid.add_child(chip)
 		chips.append(chip)
+		# Wiring-only levels (no code tab yet) do not show a Code step.
+		chip.visible = index != 2 or level.is_empty() or StageLevels.has_code(level)
 		for state: String in ["normal", "hover", "pressed", "focus"]:
 			var pill: StyleBoxFlat = chip.get_theme_stylebox(state).duplicate()
 			pill.content_margin_top = 3
@@ -226,6 +229,10 @@ func _build_result(box: VBoxContainer) -> void:
 	_result_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_result_detail = MenuScreen.text(box, "", 16)
 	_result_detail.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	unlock_label = MenuScreen.text(box, "", 15, false, SsokTheme.ACCENT)
+	unlock_label.name = "UnlockLabel"
+	unlock_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	unlock_label.visible = false
 	next_button = MenuScreen.primary(SsokTheme.button("Next stage", "chevron-right"))
 	next_button.name = "NextButton"
 	next_button.custom_minimum_size.y = 44
@@ -290,7 +297,8 @@ func _apply_goal_summary() -> void:
 		hint_label.tooltip_text = _goal_detail
 
 
-func show_success(detail: String, arguments: Array = []) -> void:
+## `unlocked` names what the next stage adds; it is shown as one short line.
+func show_success(detail: String, arguments: Array = [], unlocked: String = "") -> void:
 	briefing.visible = false
 	result.visible = true
 	run_action.visible = false
@@ -298,6 +306,9 @@ func show_success(detail: String, arguments: Array = []) -> void:
 	_result_icon.modulate = SsokTheme.ACCENT
 	SsokLocale.bind(_result_title, "Stage cleared!")
 	SsokLocale.bind(_result_detail, detail, arguments)
+	unlock_label.visible = not unlocked.is_empty() and _has_next
+	if unlock_label.visible:
+		SsokLocale.bind(unlock_label, "Next stage unlocks: %s", [unlocked], [0])
 	retry_button.theme_type_variation = &"Button" if _has_next else &"PrimaryButton"
 	next_button.visible = _has_next
 	retry_button.text = "Try again"
@@ -312,6 +323,7 @@ func show_failure(message: String) -> void:
 	_result_icon.modulate = SsokTheme.TEXT_DIM
 	SsokLocale.bind(_result_title, "Not yet")
 	SsokLocale.bind(_result_detail, message)
+	unlock_label.visible = false
 	retry_button.theme_type_variation = &"PrimaryButton"
 	next_button.visible = false
 	retry_button.text = "Try again"
@@ -326,7 +338,9 @@ func show_measurement(value: Variant) -> void:
 		SsokLocale.bind(measure_label, "Press “Run” to try it.")
 		return
 	var scale: float = 1.0 if rule.metric == "sonar_distance" else 100.0
-	if rule.max >= 50.0:
+	if rule.metric == "led_lit":
+		SsokLocale.bind(measure_label, "%s: %d%% (goal: at least %d%%)", [metric, roundi(float(value) * 100.0), roundi(rule.min * 100.0)], [0])
+	elif rule.max >= 50.0:
 		SsokLocale.bind(measure_label, "%s: %.1f cm (goal: at least %.1f cm)", [metric, float(value) * scale, rule.min * scale], [0])
 	else:
 		SsokLocale.bind(measure_label, "%s: %.1f cm (goal: %.1f-%.1f cm)", [metric, float(value) * scale, rule.min * scale, rule.max * scale], [0])

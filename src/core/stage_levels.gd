@@ -13,33 +13,75 @@ const PLANNED: Array[String] = ["Gap bridge", "Downhill cart", "Open the gate", 
 	"Line tracer", "Color sorting delivery", "Parallel parking", "Two-robot relay", "Budget challenge"]
 
 
+## Beginner course (design 2026-11-11 section 6): each level unlocks a few parts and one
+## tool. Levels 1-2 are wiring only; code tabs open at level 3. All use tier 1 power.
+const COURSE: Array[Dictionary] = [
+	{"unlocks": ["battery_holder_4aa", "microbit", "kit_led", "kit_plate_120_80"], "unlock_text": "Battery, board and LED"},
+	{"unlocks": ["tt_motor", "kit_wheel_90", "motor_driver", "kit_plate_220_120", "kit_beam_140", "kit_beam_100", "ball_caster", "kit_spacer_20", "kit_angle_bracket"], "unlock_text": "Motors and wheels"},
+	{"unlocks": ["kit_motor_12", "kit_u_bracket_small", "kit_weight_300", "flag"], "unlock_text": "Servo arm and the Blocks and Code tabs"},
+	{"unlocks": ["hc_sr04", "kit_plate_60_40", "kit_beam_60", "wheel_65"], "unlock_text": "Distance sensor and condition blocks"},
+	{"unlocks": [], "unlock_text": "Every beginner part, with building, wiring and code together"},
+]
+
+
 static func all() -> Array[Dictionary]:
-	return [
-		{"id": "raise-flag", "stage_id": "raise-flag", "number": "1",
+	var levels: Array[Dictionary] = [
+		{"id": "light-on", "stage_id": "light-on", "kind": "light-on", "art": "lab", "number": "1", "course": "Beginner",
+			"title": "Turn on the light", "topic": "Closing a circuit",
+			"goal": "Light the LED by connecting the battery.",
+			"story": "The board, LED and battery are already on the plate. Only the power cable is missing.",
+			"steps": ["Open the Wiring tab.", "Connect the battery to the board's power input.", "Check that the battery switch is on.", "Press “Run” and keep the LED lit for one second."],
+			"hint": "Power flows from the battery to the board. Connect them in the Wiring tab.",
+			"scene": "res://stages/raise_flag/level.tscn", "starter_code": BeginnerBuilds.LED_CODE,
+			"tabs": ["Wiring"], "power_tier": 1, "start": "partial", "metric_label": "LED brightness"},
+		{"id": "finish-line", "stage_id": "finish-line", "kind": "finish-line", "number": "2", "course": "Beginner",
+			"title": "Cross the finish line", "topic": "Motors need power",
+			"goal": "Move every part of your robot past the checkered finish line.",
+			"story": "The car is built and its program is ready. Power the motor driver and the board so the wheels turn.",
+			"steps": ["Open the Wiring tab.", "Connect the battery to the motor driver, then the driver to the board.", "Check that the battery switch is on.", "Press “Run” and move every part past the checkered line."],
+			"hint": "Motors get power through the motor driver. Connect battery → driver → board.",
+			"scene": "res://stages/finish_line/level.tscn", "starter_code": RobotCarPreset.ANSWER_CODE,
+			"tabs": ["Wiring"], "power_tier": 1, "start": "partial", "remove": ["hc_sr04"], "metric_label": "Distance driven"},
+		{"id": "raise-flag", "stage_id": "raise-flag", "kind": "raise-flag", "number": "3", "course": "Beginner",
 			"title": "Raise the flag", "topic": "Servo angle",
 			"goal": "Raise the flag up to the green line.",
-			"story": "Build a robot and attach the task flag. Raise it to the green line using your own mechanism.",
-			"steps": ["Attach a board, servo, arm and task flag, or design another mechanism.", "Wire the actuator to board pins.", "Write code using your wired pins, then press “Run”.", "Press “Run” and keep the flag on the green line for one second."],
+			"story": "The servo arm is built. Power it, then use the new Blocks and Code tabs to raise the flag.",
+			"steps": ["Connect the battery to the board and the board to the servo.", "Open Blocks or Code.", "Change the servo angle so the flag rises.", "Press “Run” and keep the flag on the green line for one second."],
 			"hint": "Wire the servo to a board pin, then use that pin in Servo(...). Try changing its angle.",
 			"scene": "res://stages/raise_flag/level.tscn", "starter_code": FLAG_STARTER,
-			"parts": [], "tabs": ["Blocks", "Code", "Wiring", "Controls"], "metric_label": "Flag height", "lower_arm": true},
-		{"id": "finish-line", "stage_id": "finish-line", "number": "2",
-			"title": "Cross the finish line", "topic": "Motor power and time",
-			"goal": "Move every part of your robot past the checkered finish line.",
-			"story": "Build your own moving robot. Every part must cross the finish line; tipping over is allowed.",
-			"steps": ["Attach a board, motor driver, motors and wheels to a chassis.", "Wire the actuator to board pins.", "Write code using your wired pins, then press “Run”.", "Press “Run” and move every part past the checkered line."],
-			"hint": "Wire board pins to the driver and the driver to the motors. Use those pins in your code.",
-			"scene": "res://stages/finish_line/level.tscn", "starter_code": CAR_STARTER,
-			"parts": [], "tabs": ["Blocks", "Code", "Wiring", "Controls"], "metric_label": "Distance driven"},
-		{"id": "wall-brake", "stage_id": "wall-brake", "number": "3",
+			"tabs": ["Blocks", "Code", "Wiring", "Controls"], "power_tier": 1, "start": "partial", "metric_label": "Flag height", "lower_arm": true},
+		{"id": "wall-brake", "stage_id": "wall-brake", "kind": "wall-brake", "number": "4", "course": "Beginner",
 			"title": "Brake before the wall", "topic": "Sensor and conditions",
 			"goal": "Stop inside the yellow zone without touching the wall.",
-			"story": "Build a robot that stops 5 to 10 cm from the wall. Any mechanism works; touching the wall does not count.",
-			"steps": ["Build a moving robot; add a distance sensor if you want.", "Wire the actuator to board pins.", "Write code using your wired pins, then press “Run”.", "Press “Run” and stay still inside the yellow zone."],
-			"hint": "A wired distance sensor can help. The goal measures your nearest part, not the sensor reading.",
+			"story": "The car has a distance sensor. Use a condition block to stop 5 to 10 cm from the wall.",
+			"steps": ["Power the driver, the board and the distance sensor.", "Read the sensor in Blocks or Code.", "Repeat while the wall is far, then stop.", "Press “Run” and stay still inside the yellow zone."],
+			"hint": "Use “Repeat while” with the sensor's distance. The goal measures your nearest part.",
 			"scene": "res://stages/wall_brake/level.tscn", "starter_code": RobotCarPreset.ANSWER_CODE,
-			"parts": [], "tabs": ["Blocks", "Code", "Wiring", "Controls"], "metric_label": "Distance to wall"},
+			"tabs": ["Blocks", "Code", "Wiring", "Controls"], "power_tier": 1, "start": "partial", "battery_on": "driver", "metric_label": "Distance to wall"},
+		{"id": "first-robot", "stage_id": "first-robot", "kind": "finish-line", "art": "finish-line", "number": "5", "course": "Beginner",
+			"title": "My first robot", "topic": "Build, wire and code",
+			"goal": "Build a robot from scratch and drive it past the finish line.",
+			"story": "An empty workbench this time. Use everything you learned: build, wire power and signals, then write the program.",
+			"steps": ["Build a car from the parts tray.", "Wire power and the motor signals.", "Write code using your wired pins.", "Press “Run” and move every part past the checkered line."],
+			"hint": "Start from the car you powered in stage 2. Remember the battery.",
+			"scene": "res://stages/finish_line/level.tscn", "starter_code": "",
+			"tabs": ["Blocks", "Code", "Wiring", "Controls"], "power_tier": 1, "start": "empty", "metric_label": "Distance driven"},
 	]
+	var allowed: Array = []
+	for index: int in levels.size():
+		for id: String in COURSE[index].unlocks:
+			if id not in allowed:
+				allowed.append(id)
+		levels[index]["parts"] = allowed.duplicate()
+		levels[index]["unlocks"] = COURSE[index].unlocks.duplicate()
+		levels[index]["unlock_text"] = COURSE[index].unlock_text
+	return levels
+
+
+## True when the level shows a programming tab (Blocks or Code).
+static func has_code(level: Dictionary) -> bool:
+	var tabs: Array = level.get("tabs", ["Blocks", "Code"])
+	return "Blocks" in tabs or "Code" in tabs
 
 
 static func find(id: String) -> Dictionary:
@@ -58,8 +100,20 @@ static func next_after(id: String) -> Dictionary:
 
 
 ## Lower the output-side mechanism around its graph-authored shaft, preserving holes.
-static func starting_graph(level: Dictionary, stage: Dictionary) -> ConnectionGraph:
+## With power tier 1, the author graph gains a battery; `wired` adds its power cables
+## (the answer), otherwise the learner closes the circuit (the semi-assembled start).
+static func starting_graph(level: Dictionary, stage: Dictionary, wired: bool = true) -> ConnectionGraph:
 	var graph: ConnectionGraph = ProjectStore.graph_from(stage.author_solution)
+	var removed: Array[StringName] = []
+	for id: String in level.get("remove", []):
+		removed.append(StringName(id))
+	BeginnerBuilds.without(graph, removed)
+	if int(level.get("power_tier", 0)) >= 1:
+		BeginnerBuilds.strip_power(graph)
+		if BeginnerBuilds._first(graph, &"battery_holder_4aa") < 0:
+			BeginnerBuilds.with_battery(graph, level.get("battery_on", "board") == "driver")
+		if wired:
+			BeginnerBuilds.wire_power(graph)
 	if not level.get("lower_arm", false):
 		return graph
 	for link: Dictionary in graph.links:

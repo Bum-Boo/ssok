@@ -158,6 +158,8 @@ sequenceDiagram
 
 ## 화면 흐름과 스테이지 레벨
 
+초급 과정(ADR 0044): `StageLevels.all()`이 다섯 레벨과 누적 `parts`를 만들고, `_enter_stage`는 저장본이 없으면 `start == "partial"`일 때 `StageLevels.starting_graph(level, stage, false)`(전원선 제거)와 `starter_code`를 불러요. 탭은 `level.tabs`, 성공 시 `StageHud.show_success`가 다음 레벨의 `unlock_text`를 보여요.
+
 ```mermaid
 flowchart LR
     Title[타이틀: 플레이 / 자유 제작] -->|플레이| Select[스테이지 선택]
