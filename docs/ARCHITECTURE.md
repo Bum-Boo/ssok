@@ -243,6 +243,17 @@ Godot은 외부 `StandardMaterial3D`와 128px 미세 노멀 맵 3장을 사용�
 UV 없는 기존 메쉬에 로컬 트라이플래너 매핑을 사용하며, 런타임 텍스처 생성이나 스레드는 없다.
 상세 워크플로는 `assets/materials/README.md` 참고.
 
+### 작업실 룩 (2026-11-26, ADR 0043)
+
+카탈로그 재질은 그대로 정본이다. 화면에서는 `WorkshopMaterials`가 지원 가능한 재질(불투명,
+픽셀 단위, 트라이플래너 노멀 맵 이하)을 공용 셰이더 `assets/shaders/workshop_part.gdshader`로
+바꿔 인스턴스별 표면 재정의로만 적용한다. 직접광·그림자는 Godot이, 주변광 대신 스튜디오 반구
+반사·Fresnel은 셰이더가 맡아 GL Compatibility에서 금속이 검게 죽지 않는다. 조명·배경·팔레트는
+`WorkshopLook`, 커팅매트·책상은 `WorkbenchSurface`와 `cutting_mat`/`workbench_desk` 셰이더,
+실행 모드 LED 후광·초음파 콘은 `LEDDevice`·`SonarBeam`이 맡는다. 모두 WebGL2에서 쓰는
+기능(방향광·그림자 맵·색 주변광·톤매핑·unshaded 알파/additive)만 사용한다. 전후 렌더는
+`tools/lookdev/capture_look.gd`로 같은 카메라에서 찍는다.
+
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)
 - 라이선스

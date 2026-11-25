@@ -295,28 +295,38 @@
         "src/ui/workshop_guide.gd",
         "src/ui/stage_goal_display.gd",
         "src/ui/workbench_surface.gd",
+        "src/ui/workshop_look.gd",
+        "src/ui/workshop_materials.gd",
+        "src/runtime/sonar_beam.gd",
         "src/ui/stage_hud.gd",
         "src/screens/stage_select_screen.gd",
         "src/ui/workshop_framing.gd",
         "src/core/part_tray.gd",
-        "tests/parts_tray_check.gd"
+        "tests/parts_tray_check.gd",
+        "tests/workshop_look_check.gd",
+        "tools/lookdev/capture_look.gd"
       ],
       "adrs": [
         "0025",
         "0028",
         "0030",
         "0031",
-        "0032"
+        "0032",
+        "0043"
       ],
       "watch": [
         "src/ui/workshop_guide.gd",
         "src/ui/stage_goal*.gd",
         "src/ui/workbench_surface.gd",
+        "src/ui/workshop_look.gd",
+        "src/ui/workshop_materials.gd",
+        "assets/shaders/*.gdshader",
         "src/ui/stage_hud.gd",
         "src/screens/stage_select_screen.gd",
         "tests/scene_workshop_ui_check.gd",
         "src/ui/workshop_framing.gd",
-        "tests/workshop_presentation_check.gd"
+        "tests/workshop_presentation_check.gd",
+        "tests/workshop_look_check.gd"
       ]
     }
   },
@@ -497,15 +507,15 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "0ecc2e14b1fe04416bcf1a6258862de7e6d883f3ae6a6f4766ad35b7be1186ac",
+        "scenes/main.gd": "5532fd4d559bea7557288b7900b4e2f3112d665934b27da7223d7a90da5bbd81",
         "src/runtime/mini_runtime.gd": "ac4d6c41534d0713b7c8fcf31ef89e0f4849b15a08dc08e9d5adbe6fca709546",
-        "src/runtime/run_mode.gd": "1cf420a90ca4a5ab48838c6fd9d32d206685f94b3a120cf493750516311e8efd",
+        "src/runtime/run_mode.gd": "2d0bdbce9000d6629bee4a5496566a7bf6521ddd9cb0af300aa1632cf3cccdd0",
         "src/ui/block_program_panel.gd": "4f0e2bde8356c36797a3ded83607337a3d992749acfe6abd0b9474032faf7925",
         "src/ui/project_panel.gd": "8778866482ba39592df7545e99f612991fa9d4046a65760fbf6984b6d459e038",
         "src/profiles/learner_program.gd": "811d7b1a41f6fc8e12ceaca3de0c864e4cf86d50f813039846acd7d32300aca9",
-        "src/runtime/stage_evaluator.gd": "78c3797f7c31e3bcd277a3dc7bf614422565f62dbfd44515f8290691bd4e8e77",
+        "src/runtime/stage_evaluator.gd": "273179c784b5bde230527b43899532ee719095305568cdfce4b55b948c570736",
         "src/ui/stage_panel.gd": "578b0b0a6f64605bfb51a68bdd58c3a4f30471d8731e44880abb0044f6e8455b",
-        "src/runtime/agent_camera_loop.gd": "a7c4c29ef0c3413ae0f4fb69b342bc4befc21b27128c417ce0a448659c2c431d",
+        "src/runtime/agent_camera_loop.gd": "e244f3602a8d6fe1a3a4f6cded7f30c41a5ed5c7e469f632d01f3f5dd615c386",
         "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
         "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c",
         "src/core/part_tray.gd": "93805076f3adb35e82ce297d2bc31b38abc17368226a4a60fa0dbecebe617af2",

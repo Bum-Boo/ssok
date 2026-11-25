@@ -1,5 +1,7 @@
 # 현재 방향과 문서 기준
 
+2026-11-26 그래픽 A안(미니어처 공작실) 로컬 후보: 데스크 램프 키·필·림 조명과 그림자, GL Compatibility에서 금속이 검게 죽지 않는 공용 부품 셰이더, 절차적 커팅매트·책상, LED 후광·초음파 감지 콘·스냅 링/고스트. 헤드리스 관련 33개 검사 PASS, 전후 렌더는 `tools/lookdev/capture_look.gd`. Web export·저사양 GPU 프레임 시간은 미측정, 바퀴 등 임시 메시는 별도 작업. [ADR 0043](adr/0043-miniature-workshop-look.md).
+
 2026-11-05 모듈형 조립(M1·M2): 구멍을 겨냥해 끼우는 조작, 48종 트레이, 키트 구멍이 있는 장치 9종이에요. 깃발과 결승선 답지는 키트 부품만 쓰고, 벽 앞 멈추기 답지는 볼 캐스터 떨림 때문에 임시로 옛 차를 써요(20 g 캐스터는 Linux 카메라 정착 검사 회귀로 되돌림). [ADR 0039](adr/0039-hole-targeted-snap-building.md), [작업 M1](WORK_SUMMARY_M1.md), [작업 M2](WORK_SUMMARY_M2.md), [백서](whitepaper/ssok-modular-construction.ko.md).
 
 2026-10-22 작업 D-3 로컬 후보: 현재 라우터 Stage/Lab의 브라우저 앵커와 종료 기한을 복구하고 컵 관측을 자유 환경 물체로 제한했어요. 115 suites 89 PASS/26 환경 FAIL로 D-2 통과 집합을 유지했어요. Web export는 DNS/템플릿·소켓 제약, Windows 실기는 미검증이에요. [원인·실측·인계](WORK_SUMMARY_D3.md).
@@ -21,9 +23,7 @@
 2026-10-11 r40 로컬 진단 수집: CLI 최상위error/turn.failed와 종료 경합 때의 영수증 유실을 수정. 실제Python71회귀+문서10/realpipes PASS, 독립Fable PASS. 과거r37원인은 복구불가·provider재시도0·앱/목표불변. [검증·한계](evidence/agent_camera_2026-10-10/completion/cli-diagnostics-r40/README.md).
 
 2026-10-11 r39 로컬 Title 보완: compact1152×648 로고·언어·설정이 모두 보이는 Opus작성 초안. Arch/Mac 기본32화면·확대28사례·Arch동적30검사 PASS/오류0, Astra26PNG/동일v4 bytes·독립Opus PASS. 원본r7패키지는 그대로, 신규빌드/통합/공개는 후속. [전후·실패·한계](evidence/agent_camera_2026-10-10/completion/title-mac-r39/README.md).
-
 2026-10-11 r26: 영상 하단 정지 선호를 실제AI 1회 시험했으나38px/14.9168cm jointFAIL입니다. 앱 미적용, 기준 불변. [결과·한계](evidence/agent_camera_2026-10-10/completion/lower-end-policy-r26/README.md).
-
 2026-10-11 r25: Mac SSH 연결을 확인했지만 공용 기기에는 비공개 코드를 보내지 않습니다. 최신 백업에 Arch 최종 원자료5폴더가 없고 현재 소스와도 다릅니다. [실측·회수 경로](evidence/agent_camera_2026-10-10/completion/host-raw-r25/README.md). [r24 공식 작업 인계](evidence/agent_camera_2026-10-10/completion/task-tool-r24/README.md)는 완료했습니다. 정밀도·계정·개인 Mac·Arch 원자료·통합 공개는 미완료입니다.
 2026-10-11 실행 초안: 앱fa868ca/0.3.1-projects-r7·operator r14 준비/Run/재관측/Stop 검증. r6~r19 수치·실패·버전은 [현재 근거와 보존된 이력](evidence/agent_camera_2026-10-10/completion/README.md)에서 확인. 정밀도 AI영상9/9·물리0/9는 미해결.
 

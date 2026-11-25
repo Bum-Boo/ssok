@@ -16,9 +16,9 @@ ssok/
     blocks/  (1 GDScript files)
     core/  (12 GDScript files)
     profiles/  (1 GDScript files)
-    runtime/  (27 GDScript files)
+    runtime/  (28 GDScript files)
     screens/  (5 GDScript files)
-    ui/  (23 GDScript files)
+    ui/  (25 GDScript files)
   presets/
   assets/
     blender/
@@ -37,6 +37,7 @@ ssok/
     parts/
     policies/
     power/
+    shaders/
     stages/
   addons/
     beehave/
@@ -128,6 +129,7 @@ ssok/
 | [src/runtime/robot_motion_program.gd](../../src/runtime/robot_motion_program.gd) | RobotMotionProgram |
 | [src/runtime/run_mode.gd](../../src/runtime/run_mode.gd) | RunMode |
 | [src/runtime/servo_drive.gd](../../src/runtime/servo_drive.gd) | ServoDrive |
+| [src/runtime/sonar_beam.gd](../../src/runtime/sonar_beam.gd) | SonarBeam |
 | [src/runtime/sonar_sensor.gd](../../src/runtime/sonar_sensor.gd) | SonarSensor |
 | [src/runtime/stage_evaluator.gd](../../src/runtime/stage_evaluator.gd) | StageEvaluator |
 | [src/runtime/wiring.gd](../../src/runtime/wiring.gd) | Wiring |
@@ -159,6 +161,8 @@ ssok/
 | [src/ui/workbench_surface.gd](../../src/ui/workbench_surface.gd) | WorkbenchSurface |
 | [src/ui/workshop_framing.gd](../../src/ui/workshop_framing.gd) | WorkshopFraming |
 | [src/ui/workshop_guide.gd](../../src/ui/workshop_guide.gd) | WorkshopGuide |
+| [src/ui/workshop_look.gd](../../src/ui/workshop_look.gd) | WorkshopLook |
+| [src/ui/workshop_materials.gd](../../src/ui/workshop_materials.gd) | WorkshopMaterials |
 
 보드와 언어는 논리 계층이에요. 실제 BoardProfile은 `src/core/`, MiniRuntime은
 `src/runtime/`에 있어요. `src/profiles/`의 폴더 존재만으로 구현을 판단하지 않아요.

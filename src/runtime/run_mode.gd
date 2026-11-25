@@ -16,6 +16,8 @@ var gears: Dictionary = {}
 var line_sensors: Dictionary = {}
 var buttons: Dictionary = {}
 var leds: Dictionary = {}
+## graph part index -> SonarBeam, created on the first program reading.
+var sonar_beams: Dictionary = {}
 var _part_visuals: Dictionary = {}
 var _graph: ConnectionGraph
 ## 0 keeps the original always-powered behaviour; 1 requires a connected, switched-on source.
@@ -109,6 +111,7 @@ func teardown() -> void:
 	line_sensors.clear()
 	buttons.clear()
 	leds.clear()
+	sonar_beams.clear()
 	_part_visuals.clear()
 	_body_offsets.clear()
 	_graph = null
@@ -223,6 +226,7 @@ func _add_part_geometry(body: RigidBody3D, definition: PartDef, offset: Transfor
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = definition.mesh
 	mesh.transform = offset
+	WorkshopMaterials.dress(mesh)
 	body.add_child(mesh)
 	_part_visuals[part] = mesh
 	if not definition.collision_points.is_empty():
@@ -490,6 +494,19 @@ func robot_rids(start: int) -> Array[RID]:
 		if rid not in result:
 			result.append(rid)
 	return result
+
+
+## Visual feedback for a program's sensor reading; physics and observations are unaffected.
+func show_sonar_reading(part: int, valid: bool, distance_cm: float) -> void:
+	if not is_built() or part < 0 or part >= bodies.size():
+		return
+	if not sonar_beams.has(part):
+		var beam := SonarBeam.new()
+		beam.run_mode = self
+		beam.part_index = part
+		add_child(beam)
+		sonar_beams[part] = beam
+	sonar_beams[part].ping(valid, distance_cm)
 
 
 func sonar_for_part(part: int) -> SonarSensor:

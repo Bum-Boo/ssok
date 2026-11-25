@@ -15,7 +15,16 @@ func distance() -> float:
 	return distance_cm()
 
 
+## Program-facing reading; also shows the sensing cone in run mode.
 func distance_cm() -> float:
+	var reading: float = measure_cm()
+	if is_instance_valid(run_mode):
+		run_mode.show_sonar_reading(part_index, last_valid, reading)
+	return reading
+
+
+## The same reading without any visual, for evaluators that observe on the learner's behalf.
+func measure_cm() -> float:
 	last_state = "unavailable"
 	last_valid = false
 	last_distance_cm = 401.0

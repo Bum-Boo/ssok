@@ -1,6 +1,6 @@
 # 0042 — Show tray parts as pictures and name the real product behind each
 
-- Status: accepted
+- Status: accepted; the dark-theme reflection mechanism (a lit neutral sky for kit metal) partially superseded by [0043](0043-miniature-workshop-look.md)
 - Date: 2026-11-12
 - Implements: owner feedback of 2026-11-11 that parts must be grounded in products that are actually sold, and step E2 of [ssok-redesign-20261111](../design/ssok-redesign-20261111.md).
 - Extends: 0039, 0040 and 0041. The curated tray, electrical tiers and docked panels remain accepted. No accepted scope is superseded.

@@ -4,6 +4,10 @@ extends Node3D
 ## Derived visual hints only. The graph remains the authority for occupancy.
 const RING_OUTER_RADIUS := 0.0032
 const RING_INNER_RADIUS := 0.0022
+## The ring mesh also carries a soft halo band drawn by the ring shader (ADR 0043).
+const HALO_OUTER_RADIUS := 0.0044
+const HALO_INNER_RADIUS := 0.0017
+const RING_SHADER: Shader = preload("res://assets/shaders/port_ring.gdshader")
 const FACE_OFFSET := 0.0003
 const BOLT_RADIUS := 0.0035
 const BOLT_HEIGHT := 0.0025
@@ -22,11 +26,11 @@ var _run_mode: RunMode
 func _init() -> void:
 	rings = MultiMeshInstance3D.new()
 	rings.name = "FreeHoleRings"
-	var ring_material := StandardMaterial3D.new()
-	ring_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	ring_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	ring_material.vertex_color_use_as_albedo = true
-	ring_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var ring_material := ShaderMaterial.new()
+	ring_material.shader = RING_SHADER
+	var band: float = HALO_OUTER_RADIUS - HALO_INNER_RADIUS
+	ring_material.set_shader_parameter("core_inner", (RING_INNER_RADIUS - HALO_INNER_RADIUS) / band)
+	ring_material.set_shader_parameter("core_outer", (RING_OUTER_RADIUS - HALO_INNER_RADIUS) / band)
 	rings.material_override = ring_material
 	rings.multimesh = _multimesh(_ring_mesh(), true)
 	rings.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -41,7 +45,8 @@ func _init() -> void:
 	bolts.multimesh = _multimesh(head, false)
 	var metal: StandardMaterial3D = load("res://assets/materials/chassis_metal.tres").duplicate()
 	metal.albedo_color = metal.albedo_color.lightened(0.18)
-	bolts.material_override = metal
+	var studio_metal: ShaderMaterial = WorkshopMaterials.variant(metal)
+	bolts.material_override = studio_metal if studio_metal != null else metal
 	add_child(bolts)
 
 
@@ -204,14 +209,18 @@ func _multimesh(mesh: Mesh, colors: bool) -> MultiMesh:
 func _ring_mesh() -> ArrayMesh:
 	var vertices := PackedVector3Array()
 	var normals := PackedVector3Array()
+	var uvs := PackedVector2Array()
 	var indices := PackedInt32Array()
 	for segment: int in RING_SEGMENTS:
 		var angle: float = TAU * float(segment) / float(RING_SEGMENTS)
 		var direction := Vector3(cos(angle), 0.0, sin(angle))
-		vertices.append(direction * RING_OUTER_RADIUS)
-		vertices.append(direction * RING_INNER_RADIUS)
+		# UV.x runs across the band (halo inner edge 0, halo outer edge 1) for the ring shader.
+		vertices.append(direction * HALO_OUTER_RADIUS)
+		vertices.append(direction * HALO_INNER_RADIUS)
 		normals.append(Vector3.UP)
 		normals.append(Vector3.UP)
+		uvs.append(Vector2(1.0, 0.0))
+		uvs.append(Vector2(0.0, 0.0))
 		var next: int = ((segment + 1) % RING_SEGMENTS) * 2
 		var current: int = segment * 2
 		indices.append_array(PackedInt32Array([current, next + 1, next, current, current + 1, next + 1]))
@@ -219,6 +228,7 @@ func _ring_mesh() -> ArrayMesh:
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
 	arrays[Mesh.ARRAY_NORMAL] = normals
+	arrays[Mesh.ARRAY_TEX_UV] = uvs
 	arrays[Mesh.ARRAY_INDEX] = indices
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)

@@ -1,20 +1,34 @@
 class_name WorkbenchSurface
 extends RefCounted
 
-## Visual mat above the existing collision surface; physics dimensions remain untouched.
+## Cutting mat on a desk above the existing collision surface; physics dimensions remain untouched.
+## The mat, its rim and the desk are decoration only (ADR 0031, 0043).
+
+const MAT_SIZE: Vector3 = Vector3(1.8, 0.018, 1.4)
+const MAT_POSITION: Vector3 = Vector3(0.25, 0.041, 0)
+const DESK_SIZE: float = 7.0
+const MAT_SHADER: Shader = preload("res://assets/shaders/cutting_mat.gdshader")
+const DESK_SHADER: Shader = preload("res://assets/shaders/workbench_desk.gdshader")
+
+
 static func decorate(ground: MeshInstance3D) -> void:
 	ground.visible = false
+	var parent: Node3D = ground.get_parent()
+	# The shaders work in world space; levels keep their ground at the origin, but follow it anyway.
+	var anchor: Transform3D = parent.global_transform if parent.is_inside_tree() else parent.transform
+	var center: Vector3 = anchor * MAT_POSITION
 	var mat := MeshInstance3D.new()
 	mat.name = "WorkbenchMat"
 	var shape := BoxMesh.new()
-	shape.size = Vector3(1.8, 0.018, 1.4)
+	shape.size = MAT_SIZE
 	mat.mesh = shape
-	mat.position = Vector3(0.25, 0.041, 0)
-	var material := StandardMaterial3D.new()
-	material.albedo_color = Color("c2d8cd")
-	material.roughness = 0.9
-	mat.material_override = material
-	ground.get_parent().add_child(mat)
+	mat.position = MAT_POSITION
+	var surface := ShaderMaterial.new()
+	surface.shader = MAT_SHADER
+	surface.set_shader_parameter("mat_center", Vector2(center.x, center.z))
+	surface.set_shader_parameter("mat_half_size", Vector2(MAT_SIZE.x, MAT_SIZE.z) * 0.5)
+	mat.material_override = surface
+	parent.add_child(mat)
 	# A lowered rim exposes thickness without lifting the graph or adding collision shapes.
 	var edge := MeshInstance3D.new()
 	edge.name = "WorkbenchEdge"
@@ -23,30 +37,24 @@ static func decorate(ground: MeshInstance3D) -> void:
 	edge.mesh = rim
 	edge.position = mat.position - Vector3(0, 0.009, 0)
 	var border := StandardMaterial3D.new()
-	border.roughness = 0.95
+	border.roughness = 0.9
 	edge.material_override = border
-	ground.get_parent().add_child(edge)
-	var grid := ImmediateMesh.new()
-	grid.surface_begin(Mesh.PRIMITIVE_LINES)
-	for index: int in 37:
-		var x: float = -0.65 + index * 0.05
-		grid.surface_add_vertex(Vector3(x, 0.0502, -0.7))
-		grid.surface_add_vertex(Vector3(x, 0.0502, 0.7))
-	for index: int in 29:
-		var z: float = -0.7 + index * 0.05
-		grid.surface_add_vertex(Vector3(-0.65, 0.0502, z))
-		grid.surface_add_vertex(Vector3(1.15, 0.0502, z))
-	grid.surface_end()
-	var lines := MeshInstance3D.new()
-	lines.name = "MatGrid"
-	lines.mesh = grid
-	lines.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	var ink := StandardMaterial3D.new()
-	ink.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	ink.albedo_color = Color("9ab9ac")
-	lines.material_override = ink
-	ground.get_parent().add_child(lines)
-	_stabilize_road_paint(ground.get_parent().get_parent())
+	parent.add_child(edge)
+	# The desk sits at the rim's base and dissolves into the backdrop; objects on the mat never touch it.
+	var desk := MeshInstance3D.new()
+	desk.name = "WorkbenchDesk"
+	var plane := PlaneMesh.new()
+	plane.size = Vector2(DESK_SIZE, DESK_SIZE)
+	desk.mesh = plane
+	desk.position = Vector3(MAT_POSITION.x, edge.position.y - rim.size.y * 0.5, MAT_POSITION.z)
+	desk.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var top := ShaderMaterial.new()
+	top.shader = DESK_SHADER
+	top.render_priority = Material.RENDER_PRIORITY_MIN
+	top.set_shader_parameter("fade_center", Vector2(center.x, center.z))
+	desk.material_override = top
+	parent.add_child(desk)
+	_stabilize_road_paint(parent.get_parent())
 
 
 static func _stabilize_road_paint(level: Node) -> void:
@@ -63,26 +71,20 @@ static func _stabilize_road_paint(level: Node) -> void:
 			visual.material_override = paint
 
 
-
 static func apply_theme(root: Node, dark: bool) -> void:
+	var values: Dictionary = WorkshopLook.palette(dark)
 	for visual: MeshInstance3D in root.find_children("*", "MeshInstance3D", true, false):
-		if visual.name == "WorkbenchMat":
-			visual.material_override.albedo_color = Color("293e3b" if dark else "c2d8cd")
+		if visual.name == "WorkbenchMat" and visual.material_override is ShaderMaterial:
+			var surface: ShaderMaterial = visual.material_override
+			surface.set_shader_parameter("mat_color", values.mat)
+			surface.set_shader_parameter("band_color", values.mat_band)
+			surface.set_shader_parameter("side_color", values.mat_side)
+			surface.set_shader_parameter("minor_color", values.mat_minor)
+			surface.set_shader_parameter("major_color", values.mat_major)
+			surface.set_shader_parameter("minor_strength", values.mat_minor_strength)
+			surface.set_shader_parameter("major_strength", values.mat_major_strength)
 		elif visual.name == "WorkbenchEdge":
-			visual.material_override.albedo_color = Color("162a28" if dark else "6e8d80")
-		elif visual.name == "MatGrid":
-			visual.material_override.albedo_color = Color("48625c" if dark else "9ab9ac")
+			visual.material_override.albedo_color = values.mat_edge
+		elif visual.name == "WorkbenchDesk" and visual.material_override is ShaderMaterial:
+			visual.material_override.set_shader_parameter("desk_color", values.desk)
 
-
-static func apply_environment(env: Environment, dark: bool) -> void:
-	var sky: ProceduralSkyMaterial = env.sky.sky_material
-	# Metal parts mirror the sky. A dark sky turned every plate and beam black, so the dark
-	# theme draws a plain dark background and keeps a dim neutral sky for reflections only.
-	env.background_mode = Environment.BG_COLOR if dark else Environment.BG_SKY
-	env.background_color = Color("101923")
-	env.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
-	sky.sky_top_color = Color("8b98a8") if dark else Color(0.78, 0.88, 0.91)
-	sky.sky_horizon_color = Color("a7b2bf") if dark else Color(0.84, 0.89, 0.95)
-	sky.ground_horizon_color = sky.sky_horizon_color
-	sky.ground_bottom_color = Color("6c7886") if dark else Color(0.78, 0.84, 0.84)
-	env.fog_light_color = Color("253341") if dark else Color(0.84, 0.89, 0.95)

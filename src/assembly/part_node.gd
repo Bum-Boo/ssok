@@ -1,12 +1,14 @@
 class_name PartNode
 extends Node3D
 
+const GHOST_SHADER: Shader = preload("res://assets/shaders/placement_ghost.gdshader")
+
 var part_def: PartDef
 var graph_index: int = -1
 
 var _port_markers: Dictionary[StringName, Marker3D] = {}
 var _mesh_instance: MeshInstance3D
-var _preview_material: StandardMaterial3D
+var _preview_material: ShaderMaterial
 
 
 func setup(definition: PartDef, index: int) -> void:
@@ -16,6 +18,7 @@ func setup(definition: PartDef, index: int) -> void:
 
 	var mesh_instance := MeshInstance3D.new()
 	mesh_instance.mesh = part_def.mesh
+	WorkshopMaterials.dress(mesh_instance)
 	add_child(mesh_instance)
 	_mesh_instance = mesh_instance
 
@@ -47,11 +50,9 @@ func setup(definition: PartDef, index: int) -> void:
 ## A transient ghost never changes the shared catalog mesh or its materials.
 func set_placement_preview(blocked: bool) -> void:
 	if _preview_material == null:
-		_preview_material = StandardMaterial3D.new()
-		_preview_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		_preview_material.cull_mode = BaseMaterial3D.CULL_DISABLED
-	var tint: Color = SsokTheme.ERROR if blocked else SsokTheme.ACCENT
-	_preview_material.albedo_color = Color(tint, 0.45)
+		_preview_material = ShaderMaterial.new()
+		_preview_material.shader = GHOST_SHADER
+	_preview_material.set_shader_parameter("tint", SsokTheme.ERROR if blocked else SsokTheme.ACCENT)
 	_mesh_instance.material_override = _preview_material
 	for child: Node in get_children():
 		if child is StaticBody3D:

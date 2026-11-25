@@ -1786,25 +1786,16 @@ func _notification(what: int) -> void:
 func _apply_scene_appearance() -> void:
 	var dark: bool = Preferences.dark_appearance()
 	WorkbenchSurface.apply_theme(self, dark)
-	if _workbench_environment != null:
-		WorkbenchSurface.apply_environment(_workbench_environment, dark)
+	WorkshopLook.apply(self, _workbench_environment, dark)
 
 
 func _dress_scene() -> void:
 	var env := Environment.new()
 	_workbench_environment = env
-	var sky_material := ProceduralSkyMaterial.new()
-	sky_material.sky_top_color = Color(0.78, 0.88, 0.91)
-	sky_material.sky_horizon_color = Color(0.84, 0.89, 0.95)
-	sky_material.ground_horizon_color = Color(0.84, 0.89, 0.95)
-	sky_material.ground_bottom_color = Color(0.78, 0.84, 0.84)
 	var sky := Sky.new()
-	sky.sky_material = sky_material
-	env.background_mode = Environment.BG_SKY
+	sky.sky_material = ProceduralSkyMaterial.new()
 	env.sky = sky
-	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(1, 1, 1)
-	env.ambient_light_energy = 0.35
+	WorkshopLook.install(self)
 	var world_env := WorldEnvironment.new()
 	world_env.environment = env
 	add_child(world_env)
