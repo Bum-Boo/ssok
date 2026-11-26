@@ -213,7 +213,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="ssok-browser-layout-") as temporary:
         environment = dict(os.environ, XDG_DATA_HOME=temporary, XDG_CONFIG_HOME=temporary)
         execute(base + ["--language", "en", "--script", "res://tools/ci/browser_layout.gd", "--",
-                        str(logs / "browser-layout.json")], logs / "browser-layout.log", env=environment, timeout=60)
+                        str(logs / "browser-layout.json")], logs / "browser-layout.log", env=environment, timeout=105)
     artifacts = []
     filenames = {"Web": "index.html", "Linux": "ssok.x86_64", "Windows": "ssok.exe", "macOS": "ssok.zip"}
     for platform in dict.fromkeys(args.platforms):

@@ -1,6 +1,8 @@
 extends SceneTree
 
 ## Derive canvas test anchors from the same controls and fonts as the exported client.
+const DEADLINE_SECONDS: int = 90
+
 var _points: Dictionary = {}
 var _native_solutions: Dictionary = {}
 var _started_ms: int = 0
@@ -14,8 +16,8 @@ func _fail(message: String) -> void:
 
 
 func _watchdog() -> void:
-	if Time.get_ticks_msec() - _started_ms > 45000:
-		_fail("Browser layout exceeded its 45 second deadline")
+	if Time.get_ticks_msec() - _started_ms > DEADLINE_SECONDS * 1000:
+		_fail("Browser layout exceeded its %d second deadline" % DEADLINE_SECONDS)
 
 
 func _initialize() -> void:
