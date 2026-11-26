@@ -123,6 +123,19 @@ func _run() -> void:
 							height = maxf(height, token.size.y)
 					_check(line.size.y <= height + 1.0, "default blocks are one action line " + level.id + locale)
 				await _capture(level.id + "-" + locale + "-" + appearance)
+				if main.stage_hud.hint_action.visible:
+					root.size = Vector2i(420, 720)
+					main._reveal_tab("Wiring")
+					main.stage_hud.hint_action.button_pressed = true
+					await _settle()
+					var hud: StageHud = main.stage_hud
+					var screen := Rect2(Vector2.ZERO, root.size)
+					_check(screen.encloses(hud.goal_card.get_global_rect()) and screen.encloses(hud.hint_answer_action.get_global_rect()), "narrow screen fits the hint and answer action " + level.id + locale + appearance)
+					_check(not hud.hint_action.get_global_rect().intersects(hud.run_action.get_global_rect()), "hint and Run remain separate " + locale + appearance)
+					_check(main.wiring_view_open() and main._side_panel.get_global_rect().position.y > hud.hint_panel.get_global_rect().end.y, "Wiring stays available below the open hint " + locale + appearance)
+					hud.close_hint()
+					root.size = Vector2i(1440, 900)
+					await _settle()
 			root.size = Vector2i(1152, 648)
 			_prefs.values.text_scale = 2.0
 			_prefs.changed.emit()
@@ -150,6 +163,7 @@ func _run() -> void:
 	root.add_child(lab)
 	await _settle()
 	_check(lab._guide_phase == 0 and lab._ui_root.get_node("PartsLibrary").visible and not lab._side_panel.visible, "Lab opens parts for empty assembly")
+	_check(not lab.stage_hud.hint_action.visible and lab.stage_hud.hint_panel == null, "the answer hint is absent in the Lab")
 	_check(not lab.examples_menu.visible and lab._starter_controls.all(func(c: Control) -> bool: return not c.visible), "starter answers leave the parts tray")
 	lab._on_microbit_arm_pressed()
 	await _settle()

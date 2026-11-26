@@ -217,6 +217,13 @@ func _native_routes() -> void:
 		if not await _workshop_ready(router, "stage"):
 			return
 		var workshop: Node3D = router.current
+		if workshop.stage_hud.hint_action.visible:
+			_point("game_hint_" + level.id, workshop.stage_hud.hint_action)
+			workshop.stage_hud.hint_action.button_pressed = true
+			await _settle()
+			_point("game_hint_load_" + level.id, workshop.stage_hud.hint_answer_action)
+			workshop.stage_hud.close_hint()
+			await _settle()
 		_point("game_solution_" + level.id, workshop.stage_hud.find_child("SolutionMenu", true, false))
 		workshop.stage_hud.solution_requested.emit()
 		await _confirmation_point("game_confirm_" + level.id, workshop._stage_replace_dialog)
