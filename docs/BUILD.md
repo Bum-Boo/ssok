@@ -224,8 +224,10 @@ Windows builds use an existing NSIS 3 compiler or automatically download SHA256-
 Debian NSIS 3.08 tools into the isolated output directory without administrator access.
 `--makensis /path/to/makensis` selects an existing compiler, and a rootless extracted NSIS uses
 `NSISDIR=/path/to/usr/share/nsis`. Default builds export all four targets. Every target's
-PCK is audited for development-only resources. Windows runtime verification runs separately
-on native Windows; Mac validation status is recorded separately rather than inferred.
+PCK is audited for development-only resources and the bundled workshop font. The Web preset
+also excludes construction-kit and modular-humanoid source OBJ directories, whose baked mesh
+resources stay in the pack. Windows runtime verification runs separately on native Windows;
+Mac validation status is recorded separately rather than inferred.
 
 ## Optional foreground AI operator
 

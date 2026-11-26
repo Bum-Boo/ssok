@@ -54,6 +54,7 @@ func _run() -> void:
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/own_build_messages.json")))
 	pickup_messages.append_array(JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization/modular_build_messages.json")))
 	_check(keys.size() >= 189, "complete translation inventory")
+	_check_bundled_font()
 	for locale: String in SsokLocale.LOCALES:
 		_check(SsokLocale.select_locale(locale, false) == OK, "switch " + locale)
 		await process_frame
@@ -121,6 +122,35 @@ func _run() -> void:
 	await process_frame
 	print("localization_check: %d checks, %d failure(s)" % [_checks, _failures])
 	quit(1 if _failures else 0)
+
+
+func _check_bundled_font() -> void:
+	var font: FontFile = SsokLocale.bundled_font
+	_check(font.get_face_count() == 1, "one bundled CJK font face")
+	for character: String in "Ωμ°×÷±→←↑↓·—–−…•한힝한ひらがなカタカナ腕啊座，。🐝":
+		_check(font.has_char(character.unicode_at(0)), "bundled learner glyph: " + character)
+	var code_space: float = SsokLocale.code_font.get_char_size(32, 20).x
+	for codepoint: int in range(32, 127):
+		_check(font.has_char(codepoint), "bundled ASCII glyph %d" % codepoint)
+		_check(is_equal_approx(SsokLocale.code_font.get_char_size(codepoint, 20).x, code_space),
+			"code glyph %d uses the same advance as the space used for tabs" % codepoint)
+	var narrow := TextLine.new()
+	var wide := TextLine.new()
+	narrow.add_string("i", SsokLocale.ui_font, 20, "en")
+	wide.add_string("W", SsokLocale.ui_font, 20, "en")
+	_check(narrow.get_line_width() < wide.get_line_width(), "UI keeps proportional Latin glyphs")
+	var shapes: Array[PackedInt32Array] = []
+	var text_server: TextServer = TextServerManager.get_primary_interface()
+	for locale: String in ["ja", "ko", "zh_CN"]:
+		var line := TextLine.new()
+		line.add_string("骨直令返", SsokLocale.ui_font, 20, locale)
+		var glyphs := PackedInt32Array()
+		for glyph: Dictionary in text_server.shaped_text_get_glyphs(line.get_rid()):
+			glyphs.append(glyph.index)
+		_check(glyphs.size() == 4 and not glyphs.has(0), locale + " shapes the bundled Han glyphs")
+		shapes.append(glyphs)
+	_check(shapes[0] != shapes[1] and shapes[0] != shapes[2] and shapes[1] != shapes[2],
+		"OpenType shapes Han glyphs for each regional locale")
 
 
 func _placeholders(value: String) -> PackedStringArray:

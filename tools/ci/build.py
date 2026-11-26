@@ -128,6 +128,8 @@ DOCUMENTATION_REFERENCES = (
     "tools/godot/make_hardware_meshes.gd",
     "tools/godot/make_levels.gd",
     "AGENTS.md",
+    "assets/fonts/README.md",
+    "assets/fonts/OFL.txt",
     "assets/materials/README.md",
     "assets/modular_humanoid/README.md",
     "presets/biped_motion.gd",
@@ -250,7 +252,9 @@ def main() -> None:
         elif platform == "macOS":
             pack = destination / "ssok.app/Contents/Resources/ssok.pck"
         with tempfile.TemporaryDirectory(prefix="ssok-pack-audit-") as temporary:
-            execute([args.godot, "--headless", "--path", temporary, "--script", str(PROJECT / "tools/ci/check_export.gd"), "--", str(pack), str(logs / f"{platform.lower()}-resources.json")], logs / f"{platform.lower()}-resources.log", cwd=Path(temporary))
+            execute([args.godot, "--headless", "--path", temporary, "--script", str(PROJECT / "tools/ci/check_export.gd"),
+                     "--", str(pack), str(logs / f"{platform.lower()}-resources.json"), platform],
+                    logs / f"{platform.lower()}-resources.log", cwd=Path(temporary))
         suffix = {"Web": "web", "Linux": "linux-x86_64", "Windows": "windows-x86_64", "macOS": "macos-universal"}[platform]
         archive = output / f"ssok-{args.version}-{suffix}.zip"
         package_zip(destination, archive)

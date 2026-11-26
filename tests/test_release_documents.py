@@ -41,6 +41,9 @@ class ReleaseDocumentsTest(unittest.TestCase):
             for notice in ["LICENSE", "THIRD_PARTY_NOTICES.md", "licenses/Godot-LICENSE.txt",
                            "licenses/Godot-COPYRIGHT.txt", "licenses/Lucide-LICENSE.txt", "licenses/Noto-OFL.txt"]:
                 self.assertTrue((extracted / notice).is_file(), notice)
+            self.assertIn("Ssok Sans", (extracted / "THIRD_PARTY_NOTICES.md").read_text(encoding="utf-8"))
+            source_license = Path(__file__).resolve().parents[1] / "assets/fonts/OFL.txt"
+            self.assertEqual(source_license.read_bytes(), (extracted / "licenses/Noto-OFL.txt").read_bytes())
 
 
 if __name__ == "__main__":

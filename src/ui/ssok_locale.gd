@@ -38,20 +38,21 @@ static func select_locale(locale: String, persist: bool = true, path: String = S
 
 
 static func update_fonts() -> void:
-	if ui_font == null:
-		bundled_font = load("res://assets/fonts/NotoSansCJK-Regular.ttc") as FontFile
-		ui_font = FontVariation.new()
-		ui_font.base_font = bundled_font
-		ui_bold_font = FontVariation.new()
-		ui_bold_font.base_font = bundled_font
-		ui_bold_font.variation_embolden = 0.8
-		code_font = FontVariation.new()
-		code_font.base_font = bundled_font
-	var locale: String = normalize(TranslationServer.get_locale())
-	var face: int = 1 if locale == "ko" else (2 if locale == "zh_CN" else 0)
-	ui_font.variation_face_index = face
-	ui_bold_font.variation_face_index = face
-	code_font.variation_face_index = face + 5
+	if ui_font != null:
+		return
+	# The single face supplies regional shapes through OpenType locl in the shaping locale.
+	bundled_font = load("res://assets/fonts/SsokSans-Regular.otf") as FontFile
+	var text_server: TextServer = TextServerManager.get_primary_interface()
+	ui_font = FontVariation.new()
+	ui_font.base_font = bundled_font
+	ui_font.opentype_features = {text_server.name_to_tag("pwid"): 1}
+	ui_bold_font = FontVariation.new()
+	ui_bold_font.base_font = bundled_font
+	ui_bold_font.opentype_features = ui_font.opentype_features
+	ui_bold_font.variation_embolden = 0.8
+	code_font = FontVariation.new()
+	code_font.base_font = bundled_font
+	code_font.opentype_features = {text_server.name_to_tag("kern"): 0, text_server.name_to_tag("liga"): 0}
 
 
 static func bind(label: Label, source: String, arguments: Array = [], translated_arguments: Array[int] = []) -> void:

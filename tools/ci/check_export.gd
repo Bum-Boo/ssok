@@ -5,7 +5,7 @@ var _files: Array[String] = []
 
 func _initialize() -> void:
 	var args: PackedStringArray = OS.get_cmdline_user_args()
-	if args.size() != 2 or not ProjectSettings.load_resource_pack(args[0]):
+	if args.size() != 3 or not ProjectSettings.load_resource_pack(args[0]):
 		push_error("Expected a readable export pack and output manifest path")
 		quit(1)
 		return
@@ -18,10 +18,17 @@ func _initialize() -> void:
 		if path.begins_with("res://tools/") or path.begins_with("res://tests/") or path.begins_with("res://docs/") or path.begins_with("res://build/") or ".blend" in path or path.get_file().begins_with(".env"):
 			push_error("Development-only resource included in export: " + path)
 			failures += 1
+		if args[2] == "Web" and (path.begins_with("res://assets/construction_kit/obj/") \
+				or path.begins_with("res://assets/modular_humanoid/obj/")):
+			push_error("Mesh generator source included in Web export: " + path)
+			failures += 1
 	for scene: String in ["res://scenes/app.tscn", "res://scenes/main.tscn", "res://stages/raise_flag/level.tscn"]:
 		if not ResourceLoader.exists(scene):
 			push_error("Missing application scene: " + scene)
 			failures += 1
+	if not ResourceLoader.exists("res://assets/fonts/SsokSans-Regular.otf", "FontFile"):
+		push_error("Missing bundled workshop font")
+		failures += 1
 	var identity: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/stage_runtime_identity.json")) if FileAccess.file_exists("res://assets/stage_runtime_identity.json") else {}
 	if not identity is Dictionary or not identity.has("res://src/runtime/stage_evaluator.gd"):
 		push_error("Missing stage runtime/model identity manifest")
