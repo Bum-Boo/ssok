@@ -1,6 +1,7 @@
 extends SceneTree
 
 const HardwareMeshes = preload("res://tools/godot/hardware_meshes.gd")
+const HardwareMeshComparison = preload("res://tests/hardware_mesh_comparison.gd")
 const CATALOG: String = "res://assets/construction_kit/catalog.json"
 const PARTS: String = "res://assets/construction_kit/parts/"
 const STRUCTURAL_KINDS: Array[String] = ["beam", "plate", "bracket", "spacer", "coupler", "pad"]
@@ -98,14 +99,15 @@ func _check_definition(specification: Dictionary) -> void:
 func _check_hardware_mesh(definition: PartDef) -> void:
 	var mesh: ArrayMesh = definition.mesh as ArrayMesh
 	var expected: ArrayMesh = HardwareMeshes.build(definition, mesh.get_aabb())
-	var matches: bool = expected != null and mesh.get_surface_count() == expected.get_surface_count()
-	_check(matches, "%s has all generated hardware surfaces" % definition.id)
+	var matches: bool = expected != null and mesh.get_surface_count() == expected.get_surface_count() \
+		and mesh.get_aabb() == expected.get_aabb()
+	_check(matches, "%s has all generated hardware surfaces and the exact bounds" % definition.id)
 	if not matches:
 		return
 	for index: int in mesh.get_surface_count():
 		var actual: StandardMaterial3D = mesh.surface_get_material(index) as StandardMaterial3D
 		var finish: StandardMaterial3D = expected.surface_get_material(index) as StandardMaterial3D
-		_check(mesh.surface_get_arrays(index) == expected.surface_get_arrays(index),
+		_check(HardwareMeshComparison.surface_matches(mesh, expected, index),
 			"%s surface %d preserves the generated hardware geometry" % [definition.id, index])
 		_check(actual != null and actual.resource_name == finish.resource_name
 			and actual.albedo_color.is_equal_approx(finish.albedo_color)

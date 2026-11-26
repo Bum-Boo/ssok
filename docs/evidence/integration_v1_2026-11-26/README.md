@@ -162,3 +162,35 @@ Godot은 격리된 APPDATA·LOCALAPPDATA에서 `--headless`로 실행했어요.
 `build/verification-hint-quote-taskaa5c/`, `build/beginner-hint-final-web-taskaa5c/`에 있어요. Web ZIP의 SHA-256은
 `e7ac249bb46c3ca175baf1b8e7cd4f261a028d3cf62af8168c95b412c511691a`예요.
 실제 브라우저 화면, 스크린샷, 렌더 전용 17개 검사는 대기예요.
+
+## Linux CI 회귀 수정 (항목 56)
+
+[Linux 실행 45733118207](https://github.com/Bum-Boo/ssok/actions/runs/45733118207)의 `80bdf60`은 122/125였어요.
+`construction_kit_check`에서 키트 휠·기어·LED의 여섯 표면이, `material_assets_check`에서
+볼 캐스터가 실패했어요. 실패 로그 끝부분에 볼 캐스터 이름이 빠져 있어 보관된 전체 검사 로그에서 확인했어요.
+렌더 카메라의 10초 변위는 2.025 mm로 2.000 mm 한계를 초과했어요.
+
+- 두 메시 검사는 같은 비교기를 사용해 재생성한 정점의 10 µm와 노멀 벡터의 0.0001 이내 차이를 허용해요.
+  표면 수·형식·인덱스·나머지 배열·AABB와 OBJ 복제 배열은 정확히 대조해요.
+- 카메라 홀드는 구르는 방향의 축 위치 게인을 1200에서 3200으로 올리고 축 속도 감쇠를 더해요.
+  새 위치 기준을 잡을 때 이전 적분치를 지우고 0.6% 미만의 듀티는 기존 기어박스 브레이크로 처리해요.
+  25% 듀티 상한, 12틱 안정화, 렌더 관측, Stop 제어권과 2 mm 합격 조건을 유지해요.
+- Windows에서 실제 물리 차를 25틱씩 세 번 주행시키고 600틱 준비 상태를 측정했어요.
+  같은 헤드리스 절차에서 변경 전 1.802 mm, 변경 후 0.405 mm였어요. 수정 후보와 전체 검사에서
+  0.405 mm를 각각 확인했어요. Stop 후에는 홀드 제어권과 모터 듀티가 해제됐어요.
+
+검증한 소스는 `1033758`에 수정사항을 적용한 Git 트리 `9c1c2b494a322022e11ec97b03fe3304b5aa6dd9`예요.
+초급 1~3단계 힌트도 이 트리에 들어 있어요. 검증을 마친 뒤 구현과 이 기록을 로컬 커밋했어요.
+
+| 검증 | 결과 |
+|---|---|
+| 격리 Windows Godot 4.7.2 headless | 109/109 통과. 시작 검사 2개, Godot 93개, Python 14개 스위트. POSIX 전용 하위 케이스 1개는 Windows에서 조건부로 건너뜀 |
+| 주요 스위트 | 새 `agent_camera_hold_check`, `agent_camera_loop_check`, `construction_kit_check` 13,702개, `material_assets_check` 27 재질·20 부품·118 표면, `beginner_course_check` 275개, `power_net_check`, `kit_robot_runtime_check` 통과 |
+| 문서 | `maintain.py --write`, `--review execution-flow`, `--check --base 1033758`, `test_maintain` 10개와 `test_release_documents` 1개 통과 |
+| Web | 공식 4.7.2 `web_nothreads` 템플릿으로 export exit 0, 오류·경고 0. 팩 1,101개, 브라우저 앵커 106개와 1~3단계 힌트 앵커 6개 확인 |
+
+근거는 `build/ci-56-baseline-task2b62/`, `build/verification-ci56-final-task2b62/`,
+`build/ci56-web-task2b62/`에 있어요. Web 빌드 메타데이터는 커밋 전 스테이징된 트리를
+`dirty_worktree=true`로 표시하며, 빌드 전후 트리 해시는 같아요.
+렌더 전용 17개와 Linux의 실제 카메라 재현은 새 GitHub 실행에서 확인할 범위예요.
+이번 수정에는 사용자 문구나 번역 변경이 없어요.
