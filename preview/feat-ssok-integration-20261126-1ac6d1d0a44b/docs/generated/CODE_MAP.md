@@ -49,6 +49,7 @@ ssok/
     blender/
     ci/
     docs/
+    fonts/
     godot/
     localization/
     lookdev/
