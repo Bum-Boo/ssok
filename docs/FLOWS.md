@@ -20,7 +20,8 @@ GUI가 버튼을 잡고 있는 동안에도 커서 레이를 갱신해요. 레�
 실제 몸체 변환을 따라가요. 기존 G/R/숫자 편집은 고급 조작 경로로 유지해요.
 `WireVisuals`는 그래프의 ELEC 링크를 3D 케이블로 그려요. 전원선(`power_source`/`power_sink`
 포트)은 굵은 주황, 신호선은 가는 파랑이에요. 배선 탭이 열려 있으면 `AssemblyMode.set_structure_xray()`가
-ELEC 포트 없는 구조 부품을 반투명하게 하고(탭의 토글로 끔), 탭 메뉴 선택·선 행 호버는
+ELEC 포트 없는 구조 부품을 반투명하게 해요. 토글을 끄거나 배선 패널을 닫으면 공작실 표면
+셰이더가 다시 보여요. 같은 배선 탭으로 패널을 다시 열면 현재 토글 값을 적용해요. 탭 메뉴 선택·선 행 호버는
 `WiringPanel.focus_changed`로 해당 포트와 선을 강조해요. 배선 탭·실행 중·전원 경고 표시 중에는
 `PowerNet` 문제 부품의 `power_in` 포트를 빨간 표시로 깊이 테스트 없이 보여요. 모두 파생 표시이며 그래프를 바꾸지 않아요.
 명세와 M2 제외 범위는 [모듈형 조립](design/modular-build.md), 결정은 [ADR 0039](adr/0039-hole-targeted-snap-building.md)예요.

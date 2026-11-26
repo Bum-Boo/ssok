@@ -1,5 +1,6 @@
 extends SceneTree
 
+const HardwareMeshes = preload("res://tools/godot/hardware_meshes.gd")
 const CATALOG: String = "res://assets/construction_kit/catalog.json"
 const PARTS: String = "res://assets/construction_kit/parts/"
 const STRUCTURAL_KINDS: Array[String] = ["beam", "plate", "bracket", "spacer", "coupler", "pad"]
@@ -52,13 +53,16 @@ func _check_definition(specification: Dictionary) -> void:
 	if definition == null:
 		return
 	_check(String(definition.id) == identity and definition.display_name == specification.name, "catalog identity and displayed name agree: " + identity)
-	_check(definition.mesh is ArrayMesh and definition.mesh.resource_path == specification.mesh, "part references its Blender mesh: " + identity)
+	_check(definition.mesh is ArrayMesh and definition.mesh.resource_path == specification.mesh, "part references the catalog mesh: " + identity)
 	_check(is_equal_approx(definition.mass_kg, specification.mass_kg) and definition.mass_kg > 0.0, "catalog owns positive part mass: " + identity)
 	_check(definition.merge_fixed_connections, "fixed merging retains independent authored part: " + identity)
 	_check(definition.ports.size() == specification.ports.size(), "all ports derive from shared catalog: " + identity)
-	for surface: int in definition.mesh.get_surface_count():
-		var material: Material = definition.mesh.surface_get_material(surface)
-		_check(material is StandardMaterial3D and material.resource_path.begins_with("res://assets/materials/"), "external PBR material on " + identity)
+	if identity in HardwareMeshes.KIT_IDS:
+		_check_hardware_mesh(definition)
+	else:
+		for surface: int in definition.mesh.get_surface_count():
+			var material: Material = definition.mesh.surface_get_material(surface)
+			_check(material is StandardMaterial3D and material.resource_path.begins_with("res://assets/materials/"), "external PBR material on " + identity)
 	var declared_ports: Dictionary = {}
 	for port_data: Dictionary in specification.ports:
 		_check(not declared_ports.has(port_data.id), "unique port " + identity + ":" + port_data.id)
@@ -89,6 +93,26 @@ func _check_definition(specification: Dictionary) -> void:
 		_check(definition.actuator_torque_nm > 0.0 and definition.actuator_drives_connected_body, "complete motor housing drives a separate connected structural part")
 	else:
 		_check(definition.actuator_torque_nm == 0.0, "structural and passive modules are not hidden actuators")
+
+
+func _check_hardware_mesh(definition: PartDef) -> void:
+	var mesh: ArrayMesh = definition.mesh as ArrayMesh
+	var expected: ArrayMesh = HardwareMeshes.build(definition, mesh.get_aabb())
+	var matches: bool = expected != null and mesh.get_surface_count() == expected.get_surface_count()
+	_check(matches, "%s has all generated hardware surfaces" % definition.id)
+	if not matches:
+		return
+	for index: int in mesh.get_surface_count():
+		var actual: StandardMaterial3D = mesh.surface_get_material(index) as StandardMaterial3D
+		var finish: StandardMaterial3D = expected.surface_get_material(index) as StandardMaterial3D
+		_check(mesh.surface_get_arrays(index) == expected.surface_get_arrays(index),
+			"%s surface %d preserves the generated hardware geometry" % [definition.id, index])
+		_check(actual != null and actual.resource_name == finish.resource_name
+			and actual.albedo_color.is_equal_approx(finish.albedo_color)
+			and is_equal_approx(actual.metallic, finish.metallic)
+			and is_equal_approx(actual.roughness, finish.roughness)
+			and actual.transparency == finish.transparency,
+			"%s surface %d preserves the generated PBR finish" % [definition.id, index])
 
 
 func _check_hole(identity: String, hole: Dictionary, ports: Dictionary, faces: PackedVector3Array) -> void:

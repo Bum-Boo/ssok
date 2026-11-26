@@ -81,14 +81,18 @@ func _check_unit() -> void:
 func _check_app() -> void:
 	root.size = Vector2i(1440, 900)
 	var main: Node3D = load("res://scenes/main.tscn").instantiate()
+	main.session = {"mode": "lab"}
 	root.add_child(main)
 	await process_frame
-	main._on_modular_pressed()
+	var graph: ConnectionGraph = KitCarPreset.build()
+	var holder: PartDef = load("res://assets/power/parts/battery_holder_4aa.tres")
+	graph.parts.append({"part_def": holder, "transform": Transform3D(Basis.IDENTITY, Vector3(0, 0.2, 0))})
+	main._load_preset(graph, "", "Wiring check")
 	await process_frame
 	var assembly: AssemblyMode = main.assembly
 	var panel: WiringPanel = main.wiring_panel
 	var visuals: WireVisuals = main.wire_visuals
-	_check(visuals.wire_count() > 0, "the kit humanoid's wires are drawn in 3D")
+	_check(visuals.wire_count() > 0, "the kit car's wires are drawn in 3D")
 	_check(assembly.xray_part_count() == 0, "the frame is solid outside the Wiring tab")
 	# The workshop part shader lives in per-surface overrides; X-ray uses material_override above it.
 	var frame: Array[PartNode] = []
@@ -99,7 +103,7 @@ func _check_app() -> void:
 	for part: PartNode in frame:
 		studio_before.append(_studio_surfaces(part))
 	_check(not frame.is_empty() and frame.all(func(part: PartNode) -> bool: return part._mesh_instance.material_override == null), "the solid frame shows the workshop part shader")
-	main.program_tabs.current_tab = panel.get_index()
+	main._on_phase_chip(1)
 	await process_frame
 	_check(main.wiring_view_open(), "the Wiring tab is open")
 	_check(assembly.xray_part_count() > 0, "beams and plates turn see-through on the Wiring tab")
@@ -123,12 +127,30 @@ func _check_app() -> void:
 		restored = restored and frame[index]._mesh_instance.material_override == null and _studio_surfaces(frame[index]) == studio_before[index]
 	_check(restored, "turning X-ray off restores the workshop part shader")
 	panel.xray_toggle.button_pressed = true
+	await process_frame
+	var board_port: Dictionary = {"part": _index(graph, &"microbit"), "port": PowerNet.POWER_IN}
+	var board_source: int = panel.sources.find(board_port)
+	_check(board_source >= 0 and board_port in visuals.problems, "the unpowered board gets a 3D problem marker in Wiring")
+	if board_source >= 0:
+		panel.source_choice.select(board_source)
+		panel.source_choice.item_selected.emit(board_source)
+		_check(board_port in visuals.focus, "choosing the board port updates the 3D focus while the frame is see-through")
+	var problem_count: int = visuals.problems.size()
+	var marker_material: StandardMaterial3D = visuals.markers.material_override
+	_check(marker_material.no_depth_test and marker_material.render_priority > 0, "port markers draw above the see-through frame")
 	# Hovering a wire row focuses both ends of that wire.
 	var row: Control = panel.connections.get_child(0)
 	row.mouse_entered.emit()
 	await process_frame
 	_check(panel.focus.size() == 2 and visuals.highlighted_wire_count() == 1, "hovering a wire highlights it in 3D")
+	_check(assembly.xray_part_count() >= frame.size() and board_port in visuals.problems and visuals.marker_count() == problem_count + 2, "hover, problem markers and the see-through frame coexist")
 	row.mouse_exited.emit()
+	main._on_phase_chip(1)
+	await process_frame
+	_check(assembly.xray_part_count() == 0 and visuals.marker_count() == 0, "closing the Wiring drawer restores the frame and clears highlights")
+	main._on_phase_chip(1)
+	await process_frame
+	_check(assembly.xray_part_count() >= frame.size() and board_port in visuals.problems, "reopening the same tab restores X-ray and problem markers")
 	main.program_tabs.current_tab = 2
 	await process_frame
 	_check(assembly.xray_part_count() == 0 and visuals.marker_count() == 0, "leaving the tab restores the frame and clears highlights")

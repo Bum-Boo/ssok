@@ -263,6 +263,10 @@ LED, 키트 휠 두 종과 기어 두 종을 만들고, 두 램프의 평면 사
 기능(방향광·그림자 맵·색 주변광·톤매핑·unshaded 알파/additive)만 사용한다. 전후 렌더는
 `tools/lookdev/capture_look.gd`로 같은 카메라에서 찍는다.
 
+배선 탭의 X-ray는 구조 부품에 반투명 `material_override`를 적용해 표면 셰이더보다 우선한다.
+토글을 끄거나 탭을 떠나면 기존 표면 셰이더가 다시 드러난다. 포트 선택·호버·미전원 표시는
+`WireVisuals`의 별도 메시여서 부품 재질을 바꾸지 않는다.
+
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)
 - 라이선스

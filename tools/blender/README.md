@@ -67,8 +67,8 @@ Every part stays below 5,000 exported triangles. Existing part envelopes and por
 are preserved: collision boxes currently come directly from the mesh AABB, so decorative
 geometry must not enlarge them. Materials distinguish plastic, rubber, brushed metal, PCB
 coating and indicator LEDs. The catalog and material-only workflow are documented in
-[`assets/materials/README.md`](../../assets/materials/README.md). Godot uses standard PBR
-with three baked micro-normal maps, without custom shaders or runtime texture generation.
+[`assets/materials/README.md`](../../assets/materials/README.md). The Godot catalog uses standard PBR
+with three baked micro-normal maps. The workshop derives per-instance shader overrides from those materials.
 Unused UV mappings are omitted so Boolean-generated UV differences do not create asset diffs.
 Before export, vertices are rounded to OBJ's micrometre precision and collapsed triangle
 fragments are removed. The geometry checker rejects degenerate triangles explicitly.

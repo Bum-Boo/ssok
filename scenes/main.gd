@@ -581,6 +581,7 @@ func _build_ui() -> void:
 	program_tabs.add_child(wiring_panel)
 	wiring_panel.focus_changed.connect(func(_endpoints: Array[Dictionary]) -> void: _refresh_wire_visuals())
 	wiring_panel.xray_toggled.connect(func(_on: bool) -> void: _refresh_wire_visuals())
+	wiring_panel.visibility_changed.connect(_refresh_wire_visuals)
 	program_tabs.tab_changed.connect(func(_tab: int) -> void: _refresh_wire_visuals())
 	stages = StagePanel.new()
 	stages.name = "Stages"

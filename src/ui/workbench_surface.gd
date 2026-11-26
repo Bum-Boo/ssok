@@ -87,4 +87,3 @@ static func apply_theme(root: Node, dark: bool) -> void:
 			visual.material_override.albedo_color = values.mat_edge
 		elif visual.name == "WorkbenchDesk" and visual.material_override is ShaderMaterial:
 			visual.material_override.set_shader_parameter("desk_color", values.desk)
-
