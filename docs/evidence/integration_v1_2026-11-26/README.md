@@ -66,3 +66,59 @@
 ## 번역 영향
 
 새 사용자 문구는 각 브랜치가 추가한 그대로예요. 통합에서 새로 만든 문구는 없어요.
+
+## 그래픽 A안 후속 통합 (항목 49)
+
+작업 범위는 `Aura-the-Guillotine/ssok-integrate-v1`에서 부품 메시·공작실 룩 두 브랜치를
+통합하고 배선·물리·릴리스 번들을 같은 제품 흐름에서 검증하는 것이에요. 기준은 `50f4c47`,
+병합은 `0118dd7`(메시 `3d74f50`)와 `e6d46ee`(룩 `9d19221`)예요.
+헤드리스 전체 재검증은 앱·테스트 소스 `ba1077c`, Web 패키지는 CI 도구 보완을 포함한
+깨끗한 `62997b4`에서 실행했어요. 그 사이 커밋에는 빌드 도구만 있어요.
+
+- **결정과 씬.** 타이틀 ADR 0043과 초급 과정 ADR 0044를 유지하고 룩 결정은
+  [ADR 0045](../../adr/0045-miniature-workshop-look.md)로 옮겼어요. ADR 색인, 문서 라우트와
+  코드·검사 참조를 맞췄어요. `scenes/main.gd`는 타이틀·Lab 도움 메뉴, 초급 과정 탭·반조립 시작,
+  3D 배선과 공작실 룩을 함께 연결해요.
+- **배선과 재질.** `WorkshopMaterials`는 부품 표면별 재정의를 적용해요. 구조 부품에만
+  알파 0.22의 전체 메시 `material_override`를 올리고, 토글을 끄거나 배선 패널을 닫으면 기존
+  표면 재질을 복원해요. 패널 가시성 변경도 연결해 같은 탭으로 다시 열 때 상태를 갱신해요.
+  `WireVisuals`가 포트 선택·배선 호버·미전원 표시를 별도 메시로 그려요. Lab의 전원선이 빠진
+  키트 차로 X-ray와 세 표시의 공존, 토글·탭 전환·재열기를 확인했어요.
+- **메시와 동작.** 새 LED는 `lens` 표면을 발광시키고 `glass` 돔 위치에 빌보드 후광을 붙여요.
+  런타임 밝기 0.5에서 후광 강도 0.8, Stop 뒤 비표시를 확인했어요. 초급 1단계는
+  `led_lit=1.0`을 1초 유지해 통과했어요. 키트 휠·기어·LED의 내장 PBR은 생성기와
+  버텍스 배열·재질 이름·색·금속성·거칠기·투명도를 대조해요. 캐스터·휠·램프의 물리 회귀 검사도 통과했어요.
+- **빌드와 문서.** 배포 문서에 메시 생성기와 재질 문서의 링크 대상을 추가했어요.
+  브라우저 좌표 도구는 배선 전용 1·2단계를 열 때 숨겨진 프로그램 앵커를 건너뛰어요.
+  다섯 초급 단계와 Lab을 순회해 앵커 100개를 생성했고 런타임 식별 해시를 갱신했어요.
+
+| 검증 | 결과 |
+|---|---|
+| Godot 4.7.2 Windows headless | 108/108 통과. import·앱 시작 2개, Godot 92개, Python 14개 스위트. Windows에서 POSIX 실행 권한 왕복 케이스 1개는 조건부 건너뜀 |
+| 배선·룩·키트 재질 | `wire_visuals_check` 31개, `workshop_look_check` 49개, `construction_kit_check` 13,702개 통과. `mesh_assets_check`, `material_assets_check` 통과 |
+| 전원·물리·초급 과정 | `power_net_check` 30개, `kit_robot_runtime_check` 110개, `beginner_course_check` 214개, `stage_own_build_check` 194개, `parts_pack_environment_check` 21개 통과. 벽 간격 0.05179–0.05180 m, 속도 0.00147–0.00156 m/s, 접촉 0. 10°·20° 램프 등판 통과 |
+| 씬·트레이·번역 | `game_flow_check`, `scene_workshop_ui_check`, `parts_tray_check`, `localization_check` 통과. 사용자 문구와 번역 변경 없음 |
+| 문서 | `maintain.py --write`, `--review execution-flow`, `--check --base 50f4c47`, `test_maintain` 10개와 `test_release_documents` 1개 통과 |
+| Web export | `build.py --platforms Web`, 공식 4.7.2 `web_nothreads_release.zip`, `--headless --export-release Web` exit 0, 오류·경고 0. `GODOT_THREADS_ENABLED = false` |
+| Web 팩 | 기본 감사 1,101개 파일·실패 0. 추가 로드 감사 35/35(셰이더 7, 메시 12, 썸네일 12, 스크립트 4). PCK SHA-256 `63c4ac205cd57a575932c857a6d1a6b29dcd0319f78d0e5e70faca2f29feb394` |
+
+초기 검증에서는 키트 재질 검사 23개와 배포 문서 링크 1개가 실패했어요. 키트 내장 PBR에는 생성기 대조를 적용했고 문서 번들에 링크 대상을 포함했어요. Web 빌드의 초기 실패는 배선 전용 단계의 숨은 프로그램 좌표와 좌표 생성 시간 초과였어요. 정합화 후 헤드리스 전체와 Web 빌드를 다시 실행했어요.
+
+`verify.py --match '^(?!camera_evaluator_lifecycle_check-|bridge_stop_owner_check$|agent_camera_rest_check$|.*-rendered$).+'`로
+헤드리스 목록만 실행했어요. 검사와 export의 APPDATA·LOCALAPPDATA를 각각 임시 폴더로 격리했어요.
+로컬 근거는 `build/verification-integration-v2-final-task79400/` 및
+`build/integration-v2-web-release-task79400/`에 있어요. Web ZIP은
+`ssok-integration-v2-web.zip`(SHA-256 `602fee8e38a74785c24e152bc45526e67de9607fe427b58abca0b59faaae6475`)이에요.
+
+### 분기별 일괄 렌더 검증 대기
+
+| 분기 | 대기 항목 |
+|---|---|
+| `ssok-stage1-simplify` · `ssok-e3-beginner-stages` | 두 갈래 타이틀과 Lab 도움 메뉴, 초급 5단계 잠금·패널·결과 카드, 네 언어 화면 |
+| `ssok-e2-part-specs` · `ssok-gfx-meshes` | 부품 정격 카드·트레이, 새 메시와 썸네일 12종, 램프 경계와 면 노멀 |
+| `ssok-3d-wire-visuals` · `ssok-gfx-workshop-look` | 밝음·어두움 테마에서 빔·판의 X-ray와 복원, 포트 선택·호버·빨간 마커, 커팅매트·스냅·LED 후광·소나 시인성 |
+| `ssok-wall-caster-fix` + `1ad5eaf` | 정지 상태와 TT 차의 카메라 정착. 카메라 수명주기 13종과 브리지/카메라/목표 UI 렌더 4종 |
+| 통합 Web | 실제 WebGL 화면·스크린샷과 Playwright 게이트. 초기 잠금에 맞춰 기존 Raise a flag 바로가기 스모크 흐름도 확인 |
+
+통합 검증에서는 사용자 요청에 따라 GUI·렌더 창과 브라우저를 열지 않았어요. GPU/WebGL의
+셰이더 표시와 화면 시인성은 위 일괄 검증에 남아 있어요. 로컬 브랜치와 패키지까지 준비했어요.
