@@ -29,6 +29,12 @@ travel projected on its rolling direction is opposed (1200% duty per meter) with
 The reference is retaken after each forward step, kept through brake steps and cleared by Stop or
 context revocation. Motors, torque limits and evaluator thresholds remain unchanged.
 
+Item 56 tunes that hold after the Linux rendered idle regression. The axle position gain is
+3200% duty per meter and the axle velocity damping is 240% duty per meter per second, both along
+the rolling direction. On acquiring a new axle reference, the controller clears its prior wheel-speed
+integral. Commands below 0.6% duty use zero-duty braking so the gearbox's passive friction still acts.
+The 25% cap, stop ownership, settle/capture gates and 2 mm idle regression limit remain in force.
+
 Stop and control/mode/source/graph changes revoke the generation. Old or consumed frames cannot act. Local Stop requires no model/network; the decision watchdog is 60 seconds. The camera trace shows the same PNG bytes, concise supplied decision summary and actual tool/result events. A reported outgoing-image receipt validates the supplied hash; it cannot prove a provider's preprocessing or cognition.
 
 An opt-in desktop TCP listener binds 127.0.0.1:8127 only with `--ssok-agent-bridge` and a token of at least 32 characters in `SSOK_AGENT_TOKEN`. It uses bounded nonblocking NDJSON, one request per connection, authenticated observation/finite actions/Stop only. Web starts no listener. A pending disconnect cancels; there is no reconnect/resume. The Python CLI/MCP adapter is external developer tooling, distinct from the existing isolated headless runner and motion-lab trials.

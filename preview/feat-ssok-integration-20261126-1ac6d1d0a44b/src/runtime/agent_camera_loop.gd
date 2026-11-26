@@ -13,7 +13,9 @@ const SETTLE_LIMIT: int = 240
 const DECISION_TIMEOUT_MS: int = 60000
 const HOLD_P: float = 8.0
 const HOLD_I: float = 16.0
-const HOLD_POSITION_P: float = 1200.0 # Duty percent per meter of axle travel.
+const HOLD_POSITION_P: float = 3200.0 # Duty percent per meter of axle travel.
+const HOLD_TRAVEL_D: float = 240.0 # Duty percent per meter per second of axle travel.
+const HOLD_BRAKE_DEADBAND: float = 0.6 # Duty percent below which the gearbox stays braked.
 var app: Node3D
 var controller: AppController
 var enabled: bool = false
@@ -191,6 +193,7 @@ func _physics_process(delta: float) -> void:
 		_stable = _stable + 1 if _at_rest() else 0
 		if _stable >= SETTLE_TICKS:
 			if _hold_positions.is_empty():
+				_hold_integral.clear()
 				for motor: DriveMotor in _channels:
 					_hold_positions[motor] = motor.wheel.global_position
 			_settle_tick = Engine.get_physics_frames()
@@ -240,14 +243,20 @@ func _hold_brake(delta: float) -> void:
 	# axle's displacement onto its rolling direction to correct creep and heading.
 	for motor: DriveMotor in _channels:
 		var axis: Vector3 = (motor.housing.global_basis * motor.axis_local).normalized()
+		var rolling: Vector3 = axis.cross(Vector3.UP).normalized()
 		var speed: float = (motor.wheel.angular_velocity - motor.housing.angular_velocity).dot(axis)
 		var integral: float = clampf(float(_hold_integral.get(motor, 0.0)) + speed * delta * HOLD_I, -25.0, 25.0)
 		_hold_integral[motor] = integral
 		var position: Vector3 = motor.wheel.global_position
 		var reference: Vector3 = _hold_positions.get(motor, position)
-		var travel: float = (position - reference).dot(axis.cross(Vector3.UP).normalized())
-		var duty: float = clampf(-speed * HOLD_P - integral - travel * HOLD_POSITION_P, -25.0, 25.0)
-		motor.motor_on("reverse" if duty < 0.0 else "forward", absf(duty))
+		var travel: float = (position - reference).dot(rolling)
+		var travel_speed: float = motor.wheel.linear_velocity.dot(rolling)
+		var duty: float = clampf(-speed * HOLD_P - integral - travel * HOLD_POSITION_P - travel_speed * HOLD_TRAVEL_D, -25.0, 25.0)
+		# Tiny nonzero duty bypasses the gearbox's passive friction in DriveMotor.
+		if absf(duty) < HOLD_BRAKE_DEADBAND:
+			motor.stop()
+		else:
+			motor.motor_on("reverse" if duty < 0.0 else "forward", absf(duty))
 
 
 func _exit_tree() -> void:

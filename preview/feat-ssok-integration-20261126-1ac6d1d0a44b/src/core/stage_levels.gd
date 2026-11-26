@@ -6,6 +6,8 @@ extends RefCounted
 
 const FLAG_STARTER: String = "arm = Servo(pin0)\narm.write(0)\nsleep(2000)\n"
 const CAR_STARTER: String = "left = Motor(pin0)\nright = Motor(pin12)\nleft.motor_on(\"forward\", 55)\nright.motor_on(\"forward\", 55)\nsleep(500)\nstop()\n"
+const HINT_WIRING: String = "In Wiring, pick the input under “Port to connect” and the output under “Connects to”. Then press “Connect wire”."
+const HINT_RUN: String = "Turn on the battery switch, then press “Run”."
 
 ## Planned course names (2026-09-30 plan). Shown as "coming soon"; not playable yet.
 const PLANNED: Array[String] = ["Gap bridge", "Downhill cart", "Open the gate", "Waving robot",
@@ -33,7 +35,7 @@ static func all() -> Array[Dictionary]:
 			"steps": ["Open the Wiring tab.", "Connect the battery to the board's power input.", "Check that the battery switch is on.", "Press “Run” and keep the LED lit for one second."],
 			"hint": "Power flows from the battery to the board. Connect them in the Wiring tab.",
 			"scene": "res://stages/raise_flag/level.tscn", "starter_code": BeginnerBuilds.LED_CODE,
-			"tabs": ["Wiring"], "power_tier": 1, "start": "partial", "metric_label": "LED brightness"},
+			"tabs": ["Wiring"], "power_tier": 1, "start": "partial", "metric_label": "LED brightness", "answer_hint": true},
 		{"id": "finish-line", "stage_id": "finish-line", "kind": "finish-line", "number": "2", "course": "Beginner",
 			"title": "Cross the finish line", "topic": "Motors need power",
 			"goal": "Move every part of your robot past the checkered finish line.",
@@ -41,7 +43,7 @@ static func all() -> Array[Dictionary]:
 			"steps": ["Open the Wiring tab.", "Connect the battery to the motor driver, then the driver to the board.", "Check that the battery switch is on.", "Press “Run” and move every part past the checkered line."],
 			"hint": "Motors get power through the motor driver. Connect battery → driver → board.",
 			"scene": "res://stages/finish_line/level.tscn", "starter_code": RobotCarPreset.ANSWER_CODE,
-			"tabs": ["Wiring"], "power_tier": 1, "start": "partial", "remove": ["hc_sr04"], "metric_label": "Distance driven"},
+			"tabs": ["Wiring"], "power_tier": 1, "start": "partial", "remove": ["hc_sr04"], "metric_label": "Distance driven", "answer_hint": true},
 		{"id": "raise-flag", "stage_id": "raise-flag", "kind": "raise-flag", "number": "3", "course": "Beginner",
 			"title": "Raise the flag", "topic": "Servo angle",
 			"goal": "Raise the flag up to the green line.",
@@ -49,7 +51,8 @@ static func all() -> Array[Dictionary]:
 			"steps": ["Connect the battery to the board and the board to the servo.", "Open Blocks or Code.", "Change the servo angle so the flag rises.", "Press “Run” and keep the flag on the green line for one second."],
 			"hint": "Wire the servo to a board pin, then use that pin in Servo(...). Try changing its angle.",
 			"scene": "res://stages/raise_flag/level.tscn", "starter_code": FLAG_STARTER,
-			"tabs": ["Blocks", "Code", "Wiring", "Controls"], "power_tier": 1, "start": "partial", "metric_label": "Flag height", "lower_arm": true},
+			"tabs": ["Blocks", "Code", "Wiring", "Controls"], "power_tier": 1, "start": "partial", "metric_label": "Flag height", "lower_arm": true,
+			"answer_hint": true, "answer_code_hint": "Open Code and use this program to raise the flag."},
 		{"id": "wall-brake", "stage_id": "wall-brake", "kind": "wall-brake", "number": "4", "course": "Beginner",
 			"title": "Brake before the wall", "topic": "Sensor and conditions",
 			"goal": "Stop inside the yellow zone without touching the wall.",
@@ -82,6 +85,24 @@ static func all() -> Array[Dictionary]:
 static func has_code(level: Dictionary) -> bool:
 	var tabs: Array = level.get("tabs", ["Blocks", "Code"])
 	return "Blocks" in tabs or "Code" in tabs
+
+
+## The same resolved answer graph supplies the guide and the applied build.
+static func answer_hint_links(graph: ConnectionGraph) -> Dictionary:
+	var power: Array[Dictionary] = []
+	var signals: Array[Dictionary] = []
+	for link: Dictionary in graph.links:
+		var source: PartDef = graph.parts[link.a_part].part_def
+		var target: PartDef = graph.parts[link.b_part].part_def
+		if RunMode._port(source, link.a_port).kind != Port.Kind.ELEC:
+			continue
+		var row: Dictionary = {"source": source.display_name, "source_part": link.a_part, "source_port": link.a_port,
+			"target": target.display_name, "target_part": link.b_part, "target_port": link.b_port}
+		if BeginnerBuilds._is_power(graph, link.a_part, link.a_port) or BeginnerBuilds._is_power(graph, link.b_part, link.b_port):
+			power.append(row)
+		else:
+			signals.append(row)
+	return {"power": power, "signals": signals}
 
 
 static func find(id: String) -> Dictionary:

@@ -308,32 +308,36 @@ func _port_of(endpoint: Dictionary) -> Port:
 
 func _endpoint_label(endpoint: Dictionary) -> String:
 	var definition: PartDef = assembly.graph.parts[endpoint.part].part_def
-	return "#%d %s / %s" % [endpoint.part + 1, tr(definition.display_name), port_name(endpoint.port)]
+	return port_label(endpoint.part, definition.display_name, endpoint.port)
+
+
+static func port_label(part: int, part_name: String, id: StringName) -> String:
+	return "#%d %s / %s" % [part + 1, TranslationServer.translate(part_name), port_name(id)]
 
 
 ## A learner-facing name for a port id such as `pin_0`, `power_out_2` or `trig_pin`.
-func port_name(id: StringName) -> String:
+static func port_name(id: StringName) -> String:
 	var text: String = String(id)
 	var number: String = text.get_slice("_", text.get_slice_count("_") - 1)
 	var numbered: bool = number.is_valid_int()
 	if text == "power_in":
-		return tr("Power")
+		return TranslationServer.translate("Power")
 	if text == "power":
-		return tr("Motor power")
+		return TranslationServer.translate("Motor power")
 	if text.begins_with("power_out"):
-		return tr("Power out %s") % number if numbered else tr("Power out")
+		return TranslationServer.translate("Power out %s") % number if numbered else TranslationServer.translate("Power out")
 	if text in ["signal", "signal_pin"]:
-		return tr("Signal")
+		return TranslationServer.translate("Signal")
 	if text == "trig_pin":
-		return tr("Trigger")
+		return TranslationServer.translate("Trigger")
 	if text == "echo_pin":
-		return tr("Echo")
+		return TranslationServer.translate("Echo")
 	if numbered and text.begins_with("pin_"):
-		return tr("Pin %s") % number
+		return TranslationServer.translate("Pin %s") % number
 	if numbered and text.begins_with("input_"):
-		return tr("Input %s") % number
+		return TranslationServer.translate("Input %s") % number
 	if numbered and text.begins_with("motor_"):
-		return tr("Motor output %s") % number
+		return TranslationServer.translate("Motor output %s") % number
 	return text
 
 

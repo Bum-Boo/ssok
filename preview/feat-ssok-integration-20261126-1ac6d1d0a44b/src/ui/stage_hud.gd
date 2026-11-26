@@ -14,6 +14,7 @@ signal parts_requested
 signal program_requested
 signal help_requested
 signal solution_requested
+signal load_hint_answer_requested
 signal reset_build_requested
 signal run_requested
 
@@ -35,9 +36,17 @@ var _rule: Dictionary = {}
 var chips: Array[Button] = []
 var chip_grid: GridContainer
 var help_action: Button
+var hint_action: Button
+var hint_panel: PanelContainer
+var hint_answer_action: Button
+var _hint_scroll: ScrollContainer
+var _hint_wire_labels: Array[Label] = []
 var _tool_actions: Array[Button] = []
 var _current_phase: int = 0
 var _top: HBoxContainer
+var _compact_goal: HBoxContainer
+var _goal_tag: Label
+var _goal_sentence: Label
 var _completed: Array = [false, false, false, false]
 var _compact_chips: bool = false
 var _layout_area: Rect2
@@ -79,6 +88,9 @@ func _build_goal_card() -> void:
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 4)
 	goal_card.add_child(box)
+	_compact_goal = HBoxContainer.new()
+	_compact_goal.hide()
+	box.add_child(_compact_goal)
 	var top := HBoxContainer.new()
 	_top = top
 	top.add_theme_constant_override("separation", 8)
@@ -89,12 +101,14 @@ func _build_goal_card() -> void:
 	back.pressed.connect(func() -> void: exit_pressed.emit())
 	top.add_child(back)
 	var number := Label.new()
+	_goal_tag = number
 	number.name = "GoalTag"
 	number.text = "Now"
 	number.add_theme_font_size_override("font_size", SsokTheme.font_size(14))
 	number.add_theme_color_override("font_color", SsokTheme.TEXT_DIM)
 	top.add_child(number)
 	var goal := Label.new()
+	_goal_sentence = goal
 	goal.name = "GoalSentence"
 	goal.text = level.get("goal", "")
 	goal.tooltip_text = level.get("goal", "")
@@ -103,10 +117,14 @@ func _build_goal_card() -> void:
 	goal.max_lines_visible = 1
 	goal.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	top.add_child(goal)
-	var hint_button: Button = SsokTheme.button("", "sparkles")
-	hint_button.name = "HintButton"
-	hint_button.tooltip_text = level.get("hint", "")
-	top.add_child(hint_button)
+	hint_action = SsokTheme.button("Hint", "sparkles")
+	hint_action.name = "HintButton"
+	hint_action.custom_minimum_size.x = 0
+	hint_action.clip_text = false
+	hint_action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	hint_action.toggle_mode = true
+	hint_action.visible = level.get("answer_hint", false)
+	top.add_child(hint_action)
 	# The step chips open the parts tray and the program panel, so the bar keeps only Help.
 	for entry: Array in [["Help", "book-open", help_requested]]:
 		var action: Button = SsokTheme.button(entry[0], entry[1])
@@ -182,10 +200,88 @@ func _build_goal_card() -> void:
 	problem_label.add_theme_color_override("font_color", SsokTheme.ERROR)
 	problem_label.visible = false
 	steps.add_child(problem_label)
+	if hint_action.visible:
+		_build_answer_hint(box)
 	# Preserve the integration handle; observations belong beside the world anchor.
 	measure_label = Label.new()
 	measure_label.visible = false
 	add_child(measure_label)
+
+
+func _build_answer_hint(parent: VBoxContainer) -> void:
+	var stage: Dictionary = StageLevels.stage_definition(level)
+	var wires: Dictionary = StageLevels.answer_hint_links(StageLevels.starting_graph(level, stage))
+	var card: Array = MenuScreen.card(0)
+	hint_panel = card[0]
+	hint_panel.name = "AnswerHint"
+	hint_panel.hide()
+	parent.add_child(hint_panel)
+	var body: VBoxContainer = card[1]
+	_hint_scroll = ScrollContainer.new()
+	_hint_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_hint_scroll.focus_mode = Control.FOCUS_ALL
+	body.add_child(_hint_scroll)
+	var guide := VBoxContainer.new()
+	guide.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	guide.add_theme_constant_override("separation", 5)
+	_hint_scroll.add_child(guide)
+	MenuScreen.text(guide, StageLevels.HINT_WIRING)
+	_add_hint_wires(guide, "Power wires to add", wires.power)
+	if level.has("answer_code_hint"):
+		MenuScreen.text(guide, level.answer_code_hint)
+		var code: Label = MenuScreen.text(guide, stage.author_solution.source.strip_edges(), 15)
+		code.name = "AnswerCode"
+		code.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		code.add_theme_font_override("font", SsokLocale.code_font)
+	_add_hint_wires(guide, "Wires already connected at the start", wires.signals)
+	_refresh_hint_wires()
+	MenuScreen.text(body, StageLevels.HINT_RUN)
+	hint_answer_action = SsokTheme.button("Load answer")
+	hint_answer_action.name = "LoadHintAnswer"
+	hint_answer_action.tooltip_text = "Replace your assembly and code with the author solution?"
+	hint_answer_action.clip_text = false
+	hint_answer_action.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	hint_answer_action.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	body.add_child(hint_answer_action)
+	hint_answer_action.pressed.connect(func() -> void: load_hint_answer_requested.emit())
+	hint_action.toggled.connect(func(open: bool) -> void:
+		hint_panel.visible = open
+		if open:
+			_hint_scroll.scroll_vertical = 0
+			_hint_scroll.grab_focus()
+		layout(_layout_area))
+
+
+func _add_hint_wires(parent: VBoxContainer, heading: String, wires: Array[Dictionary]) -> void:
+	MenuScreen.text(parent, heading, 15, false, SsokTheme.ACCENT)
+	for wire: Dictionary in wires:
+		var label: Label = MenuScreen.text(parent, "")
+		label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		label.set_meta("answer_wire", wire)
+		_hint_wire_labels.append(label)
+
+
+func _refresh_hint_wires() -> void:
+	for label: Label in _hint_wire_labels:
+		var wire: Dictionary = label.get_meta("answer_wire")
+		label.text = "%s → %s" % [WiringPanel.port_label(wire.source_part, wire.source, wire.source_port),
+			WiringPanel.port_label(wire.target_part, wire.target, wire.target_port)]
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
+		_refresh_hint_wires()
+
+
+func close_hint(return_focus: bool = false) -> bool:
+	if hint_panel == null or not hint_panel.is_visible_in_tree():
+		return false
+	hint_panel.hide()
+	hint_action.set_pressed_no_signal(false)
+	if return_focus:
+		hint_action.grab_focus()
+	layout(_layout_area)
+	return true
 
 
 func _modal(node_name: String) -> Control:
@@ -299,6 +395,7 @@ func _apply_goal_summary() -> void:
 
 ## `unlocked` names what the next stage adds; it is shown as one short line.
 func show_success(detail: String, arguments: Array = [], unlocked: String = "") -> void:
+	close_hint()
 	briefing.visible = false
 	result.visible = true
 	run_action.visible = false
@@ -316,6 +413,7 @@ func show_success(detail: String, arguments: Array = [], unlocked: String = "") 
 
 
 func show_failure(message: String) -> void:
+	close_hint()
 	briefing.visible = false
 	result.visible = true
 	run_action.visible = false
@@ -348,15 +446,24 @@ func show_measurement(value: Variant) -> void:
 
 func layout(area: Rect2) -> void:
 	_layout_area = area
+	if _hint_scroll != null:
+		_hint_scroll.custom_minimum_size.y = minf(get_viewport_rect().size.y * 0.28, 220.0)
 	var frame: StyleBoxFlat = goal_card.get_theme_stylebox("panel")
 	frame.bg_color = Color(SsokTheme.BG, 0.94)
 	frame.border_color = SsokTheme.BORDER
 	# Measure translated text, not the clipped Button minimum or a language breakpoint.
-	var goal: Label = find_child("GoalSentence", true, false)
+	# A phone-width window gives the goal its own line so Hint keeps its label.
+	var compact_goal: bool = area.size.x < 600.0
+	if _compact_goal.visible != compact_goal:
+		_goal_sentence.reparent(_compact_goal if compact_goal else _top, false)
+		if not compact_goal:
+			_top.move_child(_goal_sentence, 2)
+		_compact_goal.visible = compact_goal
+		_goal_tag.visible = not compact_goal
 	for action: Button in _tool_actions:
 		action.text = action.get_meta("tool_label")
 		action.custom_minimum_size.x = 36
-	var goal_width: float = goal.get_theme_font("font").get_string_size(tr(level.get("goal", "")), HORIZONTAL_ALIGNMENT_LEFT, -1, goal.get_theme_font_size("font_size")).x
+	var goal_width: float = 0.0 if compact_goal else _goal_sentence.get_theme_font("font").get_string_size(tr(level.get("goal", "")), HORIZONTAL_ALIGNMENT_LEFT, -1, _goal_sentence.get_theme_font_size("font_size")).x
 	var inner_width: float = area.size.x - goal_card.get_theme_stylebox("panel").get_minimum_size().x
 	var required: float = _top.get_combined_minimum_size().x + goal_width
 	for action: Button in _tool_actions:

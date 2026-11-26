@@ -286,6 +286,7 @@
     "workshop-ui": {
       "docs": [
         "docs/FLOWS.md",
+        "docs/LOCALIZATION.md",
         "docs/UIUX_REDESIGN.md",
         "docs/WORK_SUMMARY_A.md",
         "docs/WORK_SUMMARY_A2.md",
@@ -299,9 +300,11 @@
         "src/ui/workshop_materials.gd",
         "src/runtime/sonar_beam.gd",
         "src/ui/stage_hud.gd",
+        "src/core/stage_levels.gd",
         "src/screens/stage_select_screen.gd",
         "src/ui/workshop_framing.gd",
         "src/core/part_tray.gd",
+        "tests/beginner_course_check.gd",
         "tests/parts_tray_check.gd",
         "tests/workshop_look_check.gd",
         "tools/lookdev/capture_look.gd"
@@ -313,6 +316,7 @@
         "0031",
         "0032",
         "0043",
+        "0044",
         "0045"
       ],
       "watch": [
@@ -323,6 +327,8 @@
         "src/ui/workshop_materials.gd",
         "assets/shaders/*.gdshader",
         "src/ui/stage_hud.gd",
+        "src/core/stage_levels.gd",
+        "tests/beginner_course_check.gd",
         "src/screens/stage_select_screen.gd",
         "tests/scene_workshop_ui_check.gd",
         "src/ui/workshop_framing.gd",
@@ -508,7 +514,7 @@
     "execution-flow": {
       "document": "docs/FLOWS.md",
       "sources": {
-        "scenes/main.gd": "dedb5bab817d82691a0251fedff6c53d31270f62baeea759e8f373413c1dec74",
+        "scenes/main.gd": "5310adafb59589f0a1c7c8fec8ac96277445a793f3a0efc09956872182d405ec",
         "src/runtime/mini_runtime.gd": "ac4d6c41534d0713b7c8fcf31ef89e0f4849b15a08dc08e9d5adbe6fca709546",
         "src/runtime/run_mode.gd": "8946ab53b3e0ded369b741a4ee816fa1ce8303f5db4b09587948b7a716cf300c",
         "src/ui/block_program_panel.gd": "4f0e2bde8356c36797a3ded83607337a3d992749acfe6abd0b9474032faf7925",
@@ -516,12 +522,12 @@
         "src/profiles/learner_program.gd": "811d7b1a41f6fc8e12ceaca3de0c864e4cf86d50f813039846acd7d32300aca9",
         "src/runtime/stage_evaluator.gd": "b04a82892e7d5f277e7e12a54007fcbb08b399c6e9bc07ed0b01e9198da0e661",
         "src/ui/stage_panel.gd": "578b0b0a6f64605bfb51a68bdd58c3a4f30471d8731e44880abb0044f6e8455b",
-        "src/runtime/agent_camera_loop.gd": "7ef1c91c4efa98ebc402fc8e3a8aaaea9c66a6db2e390139dff18818db641706",
+        "src/runtime/agent_camera_loop.gd": "7a0227264b4ad900ce960a8c18017de3bf9abe953572ed956bdd32ce186d6c67",
         "src/runtime/agent_desktop_bridge.gd": "18dff9d719cd2a803e3b4cf21a0ebfd6390922e0bed5756b21d1df82f560bc7d",
         "src/runtime/agent_goal_inbox.gd": "7cf568d6fb008b9edf76846427d228c098f273b79e08f4021c15449f53b10d4c",
         "src/core/part_tray.gd": "93805076f3adb35e82ce297d2bc31b38abc17368226a4a60fa0dbecebe617af2",
         "src/core/stage_catalog.gd": "e7d5a264ad0d3863907c3a989b4c49eaf0133161981d451f1aff14864fd828bf",
-        "src/core/stage_levels.gd": "9ca2f27e5c21019ffae2d3d20dd1928b7fe07b4d77586a2c3f111abaa13d411a",
+        "src/core/stage_levels.gd": "5721b67edb159e3d18764ba2989d5de09d82ac0fc562ecb5fbe86277e97ef66a",
         "presets/kit_car.gd": "34ec62281a908cdd2142e2cfab41b3a8da5e190bfe9108eb73dbdeaa432021b2",
         "presets/kit_flag_arm.gd": "a204f97ca17ae041a4c2172c83a08b2b7355c3bab68a81d4a0f10d0fd8570c42"
       }

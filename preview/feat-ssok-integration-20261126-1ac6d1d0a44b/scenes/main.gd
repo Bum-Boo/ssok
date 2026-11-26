@@ -1016,6 +1016,8 @@ func _interest_hidden() -> bool:
 	if camera == null or assembly.graph.parts.is_empty() and session.get("mode", "") != "stage":
 		return false
 	var area: Rect2 = _camera_framing_rect()
+	if not area.has_area():
+		return false
 	for index: int in 8:
 		var point: Vector3 = bounds.get_endpoint(index)
 		if camera.is_position_behind(point) or not area.has_point(camera.unproject_position(point)):
@@ -1041,7 +1043,7 @@ func _camera_framing_rect() -> Rect2:
 		top = maxf(top, stage_hud.goal_card.get_global_rect().end.y)
 	var top_left: Vector2 = Vector2(_left_edge() + 12.0, top + 12.0)
 	var bottom_right: Vector2 = Vector2(program.position.x - 12.0 if _side_panel.visible else get_viewport().get_visible_rect().size.x - 12.0, get_viewport().get_visible_rect().size.y - 24.0)
-	return Rect2(top_left, bottom_right - top_left)
+	return Rect2(top_left, (bottom_right - top_left).max(Vector2.ZERO))
 
 
 func _part_category(definition: PartDef) -> int:
@@ -1280,6 +1282,9 @@ func _input(event: InputEvent) -> void:
 			and get_viewport().gui_get_focus_owner() == null and not assembly.placement_active \
 			and not (projects.visible or tutorial.visible or motion_lab.visible or pickup_lab.visible or _replace_dialog.visible or _delete_dialog.visible):
 		projects_button.grab_focus()
+		get_viewport().set_input_as_handled()
+		return
+	if event.is_action_pressed("ui_cancel") and stage_hud != null and stage_hud.close_hint(true):
 		get_viewport().set_input_as_handled()
 		return
 	if event.is_action_pressed("ui_cancel") and get_viewport().gui_get_focus_owner() == code_edit:
@@ -2028,6 +2033,7 @@ func _on_run_button_pressed() -> void:
 		_reset_attempt()
 		return
 	if stage_hud != null:
+		stage_hud.close_hint()
 		stage_hud.show_problem("")
 	_on_run_pressed()
 
@@ -2344,6 +2350,10 @@ func _build_stage_actions() -> void:
 	_stage_reset_dialog.confirmed.connect(_clear_stage_build)
 	add_child(_stage_reset_dialog)
 	stage_hud.solution_requested.connect(func() -> void: _stage_replace_dialog.popup_centered(Vector2i(mini(SsokTheme.font_size(420), int(get_viewport().get_visible_rect().size.x) - 48), 0)))
+	stage_hud.load_hint_answer_requested.connect(func() -> void:
+		stage_hud.close_hint()
+		_load_stage_solution()
+		stage_hud.run_action.grab_focus())
 	stage_hud.reset_build_requested.connect(func() -> void: _stage_reset_dialog.popup_centered(Vector2i(mini(SsokTheme.font_size(420), int(get_viewport().get_visible_rect().size.x) - 48), 0)))
 
 
