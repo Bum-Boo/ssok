@@ -221,13 +221,14 @@ func _native_routes() -> void:
 		workshop._stage_replace_dialog.confirmed.emit()
 		workshop._stage_replace_dialog.hide()
 		await _settle()
-		_point("game_program_" + level.id, workshop.stage_hud.chips[2])
-		workshop.stage_hud.phase_requested.emit(2)
-		workshop.program_tabs.current_tab = 0
-		await _settle()
-		var bar: TabBar = workshop.program_tabs.get_tab_bar()
-		_tab("game_code_tab_" + level.id, bar, 0)
-		_point("game_code_editor_" + level.id, workshop.code_edit)
+		if StageLevels.has_code(level):
+			_point("game_program_" + level.id, workshop.stage_hud.chips[2])
+			workshop.stage_hud.phase_requested.emit(2)
+			workshop.program_tabs.current_tab = 0
+			await _settle()
+			var bar: TabBar = workshop.program_tabs.get_tab_bar()
+			_tab("game_code_tab_" + level.id, bar, 0)
+			_point("game_code_editor_" + level.id, workshop.code_edit)
 		_point("game_run_" + level.id, workshop.stage_hud.run_action)
 		# Run becomes Reset robot in this session; no separate Stop button is visible.
 		_point("game_stop_" + level.id, workshop.stage_hud.run_action)
