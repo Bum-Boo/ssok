@@ -1,0 +1,23 @@
+--- a/addons/beehave/debug/debugger_messages.gd
++++ b/addons/beehave/debug/debugger_messages.gd
+@@ -2,7 +2,7 @@
+ 
+ 
+ static func can_send_message() -> bool:
+-	return not Engine.is_editor_hint() and OS.has_feature("editor")
++	return not Engine.is_editor_hint() and OS.has_feature("editor") and EngineDebugger.is_active()
+ 
+ 
+ static func register_tree(beehave_tree: Dictionary) -> void:
+--- a/addons/beehave/debug/global_debugger.gd
++++ b/addons/beehave/debug/global_debugger.gd
+@@ -7,7 +7,8 @@
+ 
+ 
+ func _enter_tree() -> void:
+-	EngineDebugger.register_message_capture("beehave", _on_debug_message)
++	if EngineDebugger.is_active():
++		EngineDebugger.register_message_capture("beehave", _on_debug_message)
+ 
+ 
+ func _on_debug_message(message: String, data: Array) -> bool:

@@ -1,0 +1,289 @@
+class_name AgentDesktopBridge
+extends Node
+
+## Opt-in, authenticated loopback NDJSON. One finite request per connection, no threads.
+const MAX_REQUEST: int = 1048576
+var loop: AgentCameraLoop
+var goal_inbox: AgentGoalInbox
+var _server := TCPServer.new()
+var _peer: StreamPeerTCP
+var _buffer: PackedByteArray = PackedByteArray()
+var _token: String = ""
+var _request_id: Variant
+var _pending: bool = false
+var _accepted_at: int = 0
+var _outgoing: PackedByteArray = PackedByteArray()
+var _sent: int = 0
+var _stop_peer: StreamPeerTCP
+var _stop_buffer: PackedByteArray = PackedByteArray()
+var _stop_reply: PackedByteArray = PackedByteArray()
+var _stop_accepted_at: int = 0
+var _queued_peer: StreamPeerTCP
+var _queued_buffer: PackedByteArray = PackedByteArray()
+var _queued_at: int = 0
+
+
+func is_listening() -> bool:
+	return _server.is_listening()
+
+
+func start() -> Error:
+	if OS.has_feature("web") or "--ssok-agent-bridge" not in OS.get_cmdline_user_args():
+		return ERR_UNAVAILABLE
+	_token = OS.get_environment("SSOK_AGENT_TOKEN")
+	if _token.length() < 32:
+		return ERR_UNAUTHORIZED
+	loop.operation_finished.connect(_finish)
+	return _server.listen(8127, "127.0.0.1")
+
+
+func _process(_delta: float) -> void:
+	if not _server.is_listening():
+		return
+	_poll_queued_peer()
+	_poll_stop_peer()
+	if _peer == null and _queued_peer != null:
+		# A monitor may have taken the primary slot first. Dispatch this request once,
+		# through the ordinary validator, after that slot closes; do not retry it.
+		_peer = _queued_peer
+		_buffer = _queued_buffer
+		_accepted_at = _queued_at
+		_pending = false
+		_request_id = null
+		_queued_peer = null
+		_queued_buffer = PackedByteArray()
+	if _peer == null and _server.is_connection_available():
+		_peer = _server.take_connection()
+		_buffer = PackedByteArray()
+		_pending = false
+		_request_id = null
+		_accepted_at = Time.get_ticks_msec()
+	if _peer == null:
+		return
+	_peer.poll()
+	if _peer.get_status() != StreamPeerTCP.STATUS_CONNECTED or Time.get_ticks_msec() - _accepted_at > 15000:
+		var was_pending: bool = _pending or not _outgoing.is_empty()
+		_close()
+		if was_pending:
+			loop.cancel("bridge_disconnected")
+		return
+	if not _outgoing.is_empty():
+		var end: int = mini(_sent + 16384, _outgoing.size())
+		var written: Array = _peer.put_partial_data(_outgoing.slice(_sent, end))
+		if written[0] != OK:
+			_close()
+			loop.cancel("bridge_send_failed")
+			return
+		_sent += int(written[1])
+		if _sent >= _outgoing.size():
+			_close()
+		return
+	if _pending:
+		return
+	var count: int = _peer.get_available_bytes()
+	if count <= 0 and _buffer.find(10) < 0:
+		return
+	if _buffer.size() + count > MAX_REQUEST:
+		_reply({"error": "request_too_large"})
+		return
+	if count > 0:
+		var chunk: Array = _peer.get_partial_data(mini(count, 16384))
+		if chunk[0] != OK:
+			_close()
+			return
+		_buffer.append_array(chunk[1])
+	var line: int = _buffer.find(10)
+	if line < 0:
+		return
+	if line != _buffer.size() - 1:
+		_reply({"error": "one_request_required"})
+		return
+	var value: Variant = JSON.parse_string(_buffer.slice(0, line).get_string_from_utf8())
+	# Echo only a bounded public correlation ID, even when authorization/args fail.
+	if value is Dictionary and value.get("id") is String and value.id.length() <= 128:
+		_request_id = value.id
+	if not value is Dictionary or value.get("token") != _token or not value.get("tool") is String or not value.get("args", {}) is Dictionary:
+		_reply({"error": "unauthorized_or_invalid_request"})
+		return
+	var result: Dictionary
+	match value.tool:
+		"describe":
+			result = loop.describe()
+		"observe":
+			result = loop.observe()
+		"drive_step":
+			result = loop.drive_step(value.get("args", {}))
+		"stop":
+			result = _stop_request(value.get("args", {}))
+		"trace_dispatch":
+			result = loop.receipt(value.get("args", {}))
+		"operator_poll":
+			result = goal_inbox.poll(value.get("args", {}))
+		"operator_leave":
+			result = goal_inbox.leave(value.get("args", {}))
+		_:
+			result = {"error": "unknown_tool"}
+	if result.get("pending", false):
+		_pending = true
+	else:
+		_reply(result)
+
+
+func _finish(result: Dictionary) -> void:
+	if _pending:
+		_pending = false
+		_reply(result)
+
+
+func _stop_request(args: Dictionary) -> Dictionary:
+	# Empty args retain emergency Stop. Actor/runner cleanup binds the exact owner;
+	# a stale cleanup acknowledges revocation without touching its replacement.
+	if not args.is_empty():
+		if args.size() != 3 or not args.get("episode_id") is String or args.episode_id.strip_edges().is_empty() or args.episode_id.length() > 256:
+			return {"error": "invalid_stop_context"}
+		for key: String in ["revision", "control_generation"]:
+			if not MotionSnapshot._is_integer(args.get(key)) or args[key] < 0:
+				return {"error": "invalid_stop_context"}
+		var current: Dictionary = loop.describe()
+		for key: String in ["episode_id", "revision", "control_generation"]:
+			if args[key] != current[key]:
+				return current.merged({"owner_revoked": true, "stop_scope": "context_replaced"})
+	loop.app._on_stop_pressed()
+	return loop.describe().merged({"owner_revoked": true, "stop_scope": "global" if args.is_empty() else "matched_context"})
+
+
+func _reply(result: Dictionary) -> void:
+	if _peer == null:
+		return
+	var response: Dictionary = {"id": _request_id}
+	if result.has("error"):
+		response.error = result.error
+	else:
+		response.data = result
+	_outgoing = (JSON.stringify(response) + "\n").to_utf8_buffer()
+	_sent = 0
+	if _outgoing.size() > 4194304:
+		_close()
+		loop.cancel("response_too_large")
+
+
+func _close() -> void:
+	if _peer != null:
+		_peer.disconnect_from_host()
+	_peer = null
+	_pending = false
+	_buffer.clear()
+	_request_id = null
+	_outgoing.clear()
+	_sent = 0
+
+
+func _exit_tree() -> void:
+	if is_instance_valid(loop) and loop.enabled:
+		loop.cancel("bridge_closed")
+	_close()
+	_close_stop()
+	_close_queued()
+	_server.stop()
+
+
+func _poll_stop_peer() -> void:
+	# Stop and read-only state polling must remain usable while a camera/action reply is pending.
+	if _peer != null and _stop_peer == null and _server.is_connection_available():
+		_stop_peer = _server.take_connection()
+		_stop_accepted_at = Time.get_ticks_msec()
+	if _stop_peer == null:
+		return
+	_stop_peer.poll()
+	if _stop_peer.get_status() != StreamPeerTCP.STATUS_CONNECTED or Time.get_ticks_msec() - _stop_accepted_at > 5000:
+		_close_stop()
+		return
+	if not _stop_reply.is_empty():
+		var written: Array = _stop_peer.put_partial_data(_stop_reply)
+		if written[0] != OK:
+			_close_stop()
+		else:
+			_stop_reply = _stop_reply.slice(int(written[1]))
+			if _stop_reply.is_empty():
+				_close_stop()
+		return
+	var available: int = _stop_peer.get_available_bytes()
+	if available <= 0:
+		return
+	if _stop_buffer.size() + available > 4096:
+		_close_stop()
+		return
+	var chunk: Array = _stop_peer.get_partial_data(available)
+	if chunk[0] != OK:
+		_close_stop()
+		return
+	_stop_buffer.append_array(chunk[1])
+	var newline: int = _stop_buffer.find(10)
+	if newline < 0:
+		return
+	var request: Variant = JSON.parse_string(_stop_buffer.slice(0, newline).get_string_from_utf8())
+	var correlation: Variant = null
+	if request is Dictionary and request.get("id") is String and request.id.length() <= 128:
+		correlation = request.id
+	var response: Dictionary = {"id": correlation}
+	if newline != _stop_buffer.size() - 1 or not request is Dictionary or request.get("token") != _token or not request.get("args", {}) is Dictionary:
+		response.error = "unauthorized_or_invalid_request"
+	elif request.get("tool") == "stop":
+		var result: Dictionary = _stop_request(request.get("args", {}))
+		if result.has("error"):
+			response.error = result.error
+		else:
+			response.data = result
+	elif request.get("tool") == "describe":
+		response.data = loop.describe()
+	elif request.get("tool") == "operator_poll":
+		var result: Dictionary = goal_inbox.poll(request.get("args", {}))
+		if result.has("error"):
+			response.error = result.error
+		else:
+			response.data = result
+	elif request.get("tool") == "operator_leave":
+		var result: Dictionary = goal_inbox.leave(request.get("args", {}))
+		if result.has("error"):
+			response.error = result.error
+		else:
+			response.data = result
+	elif request.get("tool") in ["observe", "drive_step", "trace_dispatch"]:
+		if _pending or _queued_peer != null:
+			response.error = "busy"
+		else:
+			# Accept order is not a tool capability. Keep one bounded undispatched
+			# actor request and immediately free this lane for local Stop/monitoring.
+			_queued_peer = _stop_peer
+			_queued_buffer = _stop_buffer
+			_queued_at = _stop_accepted_at
+			_stop_peer = null
+			_stop_buffer = PackedByteArray()
+			return
+	else:
+		response.error = "priority_tool_required"
+	_stop_reply = (JSON.stringify(response) + "\n").to_utf8_buffer()
+
+
+func _close_stop() -> void:
+	if _stop_peer != null:
+		_stop_peer.disconnect_from_host()
+	_stop_peer = null
+	_stop_buffer.clear()
+	_stop_reply.clear()
+
+
+func _poll_queued_peer() -> void:
+	if _queued_peer == null:
+		return
+	_queued_peer.poll()
+	if _queued_peer.get_status() != StreamPeerTCP.STATUS_CONNECTED or Time.get_ticks_msec() - _queued_at > 5000:
+		# Nothing has executed; dropping a waiting request cannot cancel an owner.
+		_close_queued()
+
+
+func _close_queued() -> void:
+	if _queued_peer != null:
+		_queued_peer.disconnect_from_host()
+	_queued_peer = null
+	_queued_buffer.clear()
