@@ -122,3 +122,43 @@
 
 통합 검증에서는 사용자 요청에 따라 GUI·렌더 창과 브라우저를 열지 않았어요. GPU/WebGL의
 셰이더 표시와 화면 시인성은 위 일괄 검증에 남아 있어요. 로컬 브랜치와 패키지까지 준비했어요.
+
+## 초급 1~3단계 힌트 (항목 54)
+
+사용자가 Web 프리뷰에서 첫 세 과제를 어떻게 시작할지 찾기 어렵다고 했어요.
+목표 줄에 `힌트`를 놓아 바로 배선을 확인하고, 필요할 때 완성 정답을 불러올 수 있게 했어요.
+작업 기준은 `80bdf60`, 전체 스위트는 앱·테스트 커밋 `469cc62`에서 시작했어요.
+실행 중 한국어 실행 인용부호만 `1372ee5`로 고쳤어요. 영향받는 번역·UI·실행 라벨 검사와 Web 빌드를
+`1372ee5`에서 다시 실행했어요.
+
+| 단계 | 카드에서 바로 확인하는 내용 |
+|---|---|
+| 1 불 켜기 | 배터리 출력 → 보드 전원, 처음부터 연결된 보드 핀 0 → LED 신호 |
+| 2 결승선 | 배터리 → 모터 드라이버 → 보드 전원, 부품 번호가 붙은 모터·보드의 기존 신호 배선 |
+| 3 깃발 | 배터리 → 보드 → 서보 전원, 핀 0 → 서보 신호, 실제 답지 코드 전체 |
+
+힌트는 작업실 목표 줄에서 토글해요. 열린 카드 아래에서 배선할 수 있고 Esc는 카드만 닫고
+힌트 버튼으로 포커스를 되돌려요. 폭 600px 미만의 스트립은 목표를 별도 줄로 옮겨요.
+`정답 불러오기`는 기존 답지 경로에서 부품·배선·코드를 적용하고, 사용자가 실행을 누를 때까지
+편집 상태로 둬요. 4·5단계와 Lab은 힌트 버튼을 숨겨요.
+
+첫 헤드리스 확인에서 좁은 일본어 목표 줄의 넘침과 편집 패널이 공간을 모두 차지할 때의 음수
+카메라 영역 오류를 재현했어요. 목표를 별도 줄로 옮기고 카메라 영역을 빈 사각형으로 처리한 뒤
+재검증했어요. 네 언어의 새 문구를 포함해 번역 원문과 세 PO를 맞췄고, 코드 미리보기에는
+번역을 적용하지 않아요. 과제 목표·물리와 계정·비용 변경은 없어요.
+
+| 검증 | 결과 |
+|---|---|
+| Windows Godot 4.7.2 헤드리스 | 108/108 통과. 시작 검사 2개, Godot 92개, Python 14개 스위트. Windows에서 POSIX 전용 하위 케이스 1개를 조건부로 건너뜀. 최종 한국어 표기 재검증 5/5 통과 |
+| 초급 과정 | `beginner_course_check` 275개 통과. Enter로 열기, Esc·버튼으로 닫기, 열린 채 실제 전원 연결, 정확한 답지 적용과 물리 클리어 확인 |
+| UI·번역 | `scene_workshop_ui_check` 621개, `localization_check` 63,164개 통과. 420×720에서 네 언어×두 테마의 카드·실행 버튼 위치와 배선 패널 접근을 확인 |
+| 문서 | `maintain.py --write`, `--review execution-flow`, `--check --base 80bdf60`, `test_maintain` 10개, `test_release_documents` 1개 통과 |
+| Web export | 공식 Godot 4.7.2 `web_nothreads_release.zip`, `build.py --platforms Web` exit 0 및 오류·경고 0. 팩 감사 1,101개 파일과 추가 자원 검사 25개 통과 |
+| Web 좌표 | 106개 중 힌트 열기·정답 불러오기 앵커는 1~3단계에만 6개 |
+
+Godot은 격리된 APPDATA·LOCALAPPDATA에서 `--headless`로 실행했어요.
+재현 시 `verify.py --match '^(?!camera_evaluator_lifecycle_check-|bridge_stop_owner_check$|agent_camera_rest_check$|.*-rendered$).+'`를
+사용해요. 근거는 `build/verification-hint-numbered-taskaa5c/`와
+`build/verification-hint-quote-taskaa5c/`, `build/beginner-hint-final-web-taskaa5c/`에 있어요. Web ZIP의 SHA-256은
+`e7ac249bb46c3ca175baf1b8e7cd4f261a028d3cf62af8168c95b412c511691a`예요.
+실제 브라우저 화면, 스크린샷, 렌더 전용 17개 검사는 대기예요.
