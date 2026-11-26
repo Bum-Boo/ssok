@@ -18,6 +18,17 @@ func _check(value: bool, label: String) -> void:
 		push_error("FAIL " + label)
 
 
+## Surfaces of a part visual that carry the workshop part shader as a per-surface override.
+func _studio_surfaces(part: PartNode) -> int:
+	var visual: MeshInstance3D = part._mesh_instance
+	var count: int = 0
+	for surface: int in visual.get_surface_override_material_count():
+		var override: Material = visual.get_surface_override_material(surface)
+		if override is ShaderMaterial and (override as ShaderMaterial).shader == WorkshopMaterials.SHADER:
+			count += 1
+	return count
+
+
 func _index(graph: ConnectionGraph, id: StringName) -> int:
 	for part: int in graph.parts.size():
 		if graph.parts[part].part_def.id == id:
@@ -79,10 +90,26 @@ func _check_app() -> void:
 	var visuals: WireVisuals = main.wire_visuals
 	_check(visuals.wire_count() > 0, "the kit humanoid's wires are drawn in 3D")
 	_check(assembly.xray_part_count() == 0, "the frame is solid outside the Wiring tab")
+	# The workshop part shader lives in per-surface overrides; X-ray uses material_override above it.
+	var frame: Array[PartNode] = []
+	for part: PartNode in assembly.find_children("*", "PartNode", true, false):
+		if part.is_structural() and _studio_surfaces(part) > 0:
+			frame.append(part)
+	var studio_before: Array[int] = []
+	for part: PartNode in frame:
+		studio_before.append(_studio_surfaces(part))
+	_check(not frame.is_empty() and frame.all(func(part: PartNode) -> bool: return part._mesh_instance.material_override == null), "the solid frame shows the workshop part shader")
 	main.program_tabs.current_tab = panel.get_index()
 	await process_frame
 	_check(main.wiring_view_open(), "the Wiring tab is open")
 	_check(assembly.xray_part_count() > 0, "beams and plates turn see-through on the Wiring tab")
+	_check(frame.all(func(part: PartNode) -> bool:
+		var cover: Material = part._mesh_instance.material_override
+		return part.xray and cover is StandardMaterial3D and (cover as StandardMaterial3D).transparency == BaseMaterial3D.TRANSPARENCY_ALPHA and (cover as StandardMaterial3D).albedo_color.a < 0.5), "X-ray covers the workshop shader with a see-through material")
+	var kept: bool = true
+	for index: int in frame.size():
+		kept = kept and _studio_surfaces(frame[index]) == studio_before[index]
+	_check(kept, "X-ray keeps the workshop surface overrides underneath")
 	var electronics_clear: bool = true
 	for part: PartNode in assembly.find_children("*", "PartNode", true, false):
 		if not part.is_structural() and part.xray:
@@ -91,6 +118,10 @@ func _check_app() -> void:
 	panel.xray_toggle.button_pressed = false
 	await process_frame
 	_check(assembly.xray_part_count() == 0, "the see-through toggle turns X-ray off")
+	var restored: bool = true
+	for index: int in frame.size():
+		restored = restored and frame[index]._mesh_instance.material_override == null and _studio_surfaces(frame[index]) == studio_before[index]
+	_check(restored, "turning X-ray off restores the workshop part shader")
 	panel.xray_toggle.button_pressed = true
 	# Hovering a wire row focuses both ends of that wire.
 	var row: Control = panel.connections.get_child(0)

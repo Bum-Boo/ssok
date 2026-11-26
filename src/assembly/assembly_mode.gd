@@ -44,7 +44,7 @@ var placement_active: bool:
 		return not _place.is_empty()
 var _place: Dictionary = {}
 var _ghost: MeshInstance3D
-var _ghost_material: StandardMaterial3D
+var _ghost_material: ShaderMaterial
 var _anchor_memory: Dictionary = {}
 var _press_part: PartNode
 var _press_position := Vector2.ZERO
@@ -803,8 +803,8 @@ func _start_place(definition: PartDef, moving: PartNode) -> void:
 	_ghost = MeshInstance3D.new()
 	_ghost.name = "PlacementGhost"
 	_ghost.mesh = definition.mesh
-	_ghost_material = StandardMaterial3D.new()
-	_ghost_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	_ghost_material = ShaderMaterial.new()
+	_ghost_material.shader = PartNode.GHOST_SHADER
 	_ghost.material_override = _ghost_material
 	_ghost.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_ghost)
@@ -1008,7 +1008,7 @@ func _refresh_ghost() -> void:
 	if _ghost == null:
 		return
 	_ghost.global_transform = _place.transform
-	_ghost_material.albedo_color = Color(SsokTheme.ERROR if _place.blocked else SsokTheme.ACCENT, 0.45)
+	_ghost_material.set_shader_parameter("tint", SsokTheme.ERROR if _place.blocked else SsokTheme.ACCENT)
 
 
 func _coincident_place_links() -> Array[Dictionary]:

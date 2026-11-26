@@ -1,6 +1,6 @@
 # 0031 — Frame subjects and theme the workbench presentation
 
-- Status: accepted; hint visibility partially superseded by [0032](0032-compact-workshop-presentation.md)
+- Status: accepted; hint visibility partially superseded by [0032](0032-compact-workshop-presentation.md); the original light mat/grid/sky/fog colour values and the line-mesh grid partially superseded by [0045](0045-miniature-workshop-look.md)
 - Date: 2026-10-22
 - Implements: owner task A-2, the fixed Claude design findings of 2026-10-22.
 - Extends: [0030](0030-scene-first-workshop-guidance.md), only its presentation.

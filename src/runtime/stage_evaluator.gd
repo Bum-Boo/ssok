@@ -161,7 +161,7 @@ func measurement(metric: String, part: int, run_mode: RunMode, selector: String 
 			var sensor: SonarSensor = run_mode.sonar_for_part(part)
 			if sensor == null:
 				return {"error": "sensor_missing"}
-			var distance: float = sensor.distance_cm()
+			var distance: float = sensor.measure_cm()
 			if sensor.last_state == "unavailable":
 				return {"error": "sensor_unavailable"}
 			return {"value": distance if sensor.last_valid else null, "state": sensor.last_state}

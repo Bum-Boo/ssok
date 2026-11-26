@@ -165,7 +165,7 @@ func _check_modes() -> void:
 		var part: PartNode = assembly.spawn_part(definition, Transform3D.IDENTITY)
 		var visual: MeshInstance3D = _visual_child(part)
 		valid_assembly = valid_assembly and visual != null and visual.mesh == definition.mesh
-	_check(valid_assembly, "assembly uses each materialized mesh without copying or overriding materials")
+	_check(valid_assembly, "assembly uses each materialized mesh; only the studio view of its catalog material overrides it")
 	var run_mode: RunMode = RunMode.new()
 	root.add_child(run_mode)
 	run_mode.build(assembly.graph)
@@ -186,7 +186,10 @@ func _visual_child(parent: Node) -> MeshInstance3D:
 			if visual.material_override != null:
 				return null
 			for surface: int in visual.mesh.get_surface_count():
-				if visual.get_surface_override_material(surface) != null:
+				# ADR 0045: the only allowed override is the derived studio surface of the same
+				# catalog material, so the catalog stays the single source of every value.
+				var override: Material = visual.get_surface_override_material(surface)
+				if override != null and override != WorkshopMaterials.variant(visual.mesh.surface_get_material(surface)):
 					return null
 			return visual
 	return null

@@ -1,8 +1,9 @@
 class_name LookDev
 extends RefCounted
 
-## Proposed workshop look, applied on top of the built scene so that it can be
-## compared with the current one before any of it moves into the app.
+## Proposed workshop look of 2026-11-11, applied on top of the built scene so that it can be
+## compared with the current one before any of it moves into the app. Superseded in the app by
+## WorkshopLook and the cutting-mat shader (ADR 0045); kept to reproduce the proposal renders.
 
 const BENCH: Color = Color("bcc1c8")
 const BENCH_EDGE: Color = Color("9fa4ab")
@@ -69,7 +70,9 @@ static func _lights(main: Node3D) -> void:
 
 static func _bench(main: Node3D) -> void:
 	for visual: MeshInstance3D in main.find_children("*", "MeshInstance3D", true, false):
-		if visual.name == "WorkbenchMat":
+		if visual.name == "WorkbenchMat" and visual.material_override is ShaderMaterial:
+			visual.material_override.set_shader_parameter("mat_color", BENCH)
+		elif visual.name == "WorkbenchMat":
 			visual.material_override.albedo_color = BENCH
 			visual.material_override.roughness = 0.95
 		elif visual.name == "WorkbenchEdge":

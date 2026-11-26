@@ -29,7 +29,9 @@ microtexture implementation differ between renderers; the materials are not pixe
 
 Godot uses local triplanar mapping because source OBJs intentionally omit UVs. Grain follows
 the moving part instead of sliding through world coordinates. Textures are baked at authoring
-time, with no runtime generation, threads, custom shader or Forward+-only feature. Blender
+time, with no runtime generation, threads or Forward+-only feature. These resources stay the
+source of every value: in the workshop, `src/ui/workshop_materials.gd` shows them through one
+shared WebGL2-safe shader as per-instance overrides (ADR 0045) and never edits them. Blender
 uses editable Object-coordinate Noise/Bump nodes at metre scale, including slight roughness
 variation; Godot keeps scalar roughness and uses the lightweight shared normal maps.
 

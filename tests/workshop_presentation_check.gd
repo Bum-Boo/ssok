@@ -45,7 +45,7 @@ func _run() -> void:
 		var scene_env: Environment = main._workbench_environment
 		var sky: ProceduralSkyMaterial = scene_env.sky.sky_material
 		var ground: MeshInstance3D = main._level.get_node("Ground/WorkbenchMat")
-		var grid: MeshInstance3D = main._level.get_node("Ground/MatGrid")
+		var surface: ShaderMaterial = ground.material_override
 		var edge: MeshInstance3D = main._level.get_node("Ground/WorkbenchEdge")
 		_check(edge.mesh.get_aabb().size.x > ground.mesh.get_aabb().size.x and edge.mesh.get_aabb().size.z > ground.mesh.get_aabb().size.z, "rim exposes a finite mat boundary")
 		_check(edge.position.y + edge.mesh.get_aabb().end.y < ground.position.y + ground.mesh.get_aabb().end.y, "rim remains below the work surface")
@@ -56,12 +56,13 @@ func _run() -> void:
 		_prefs.changed.emit()
 		var dark_env: Environment = main._workbench_environment
 		_check(dark_env.background_mode == Environment.BG_COLOR and dark_env.background_color.get_luminance() < 0.1, "dark scene background switches immediately")
-		_check(sky.sky_top_color.get_luminance() > 0.25, "the dark theme keeps a lit sky for metal parts to reflect")
-		_check(ground.material_override.albedo_color.get_luminance() < 0.3 and grid.material_override.albedo_color.get_luminance() < 0.4, "dark mat and grid switch immediately")
+		# ADR 0045: metal reflects the part shader's studio hemisphere, not the backdrop.
+		_check(WorkshopLook.DARK.env_top.get_luminance() > 0.25, "the dark theme keeps a lit studio for metal parts to reflect")
+		_check(surface.get_shader_parameter("mat_color").get_luminance() < 0.3 and surface.get_shader_parameter("minor_color").get_luminance() < 0.4, "dark mat and grid switch immediately")
 		_check(scene_env.fog_light_color.get_luminance() < 0.2, "dark fog color switches immediately")
 		_prefs.values.appearance = "light"
 		_prefs.changed.emit()
-		_check(sky.sky_top_color == Color(0.78, 0.88, 0.91) and ground.material_override.albedo_color == Color("c2d8cd"), "light background and mat retain original colors")
+		_check(sky.sky_top_color == WorkshopLook.LIGHT.sky_top and surface.get_shader_parameter("mat_color") == WorkshopLook.LIGHT.mat, "light background and mat return to the light palette")
 
 		for locale: String in ["en", "ko", "ja", "zh_CN"]:
 			SsokLocale.select_locale(locale, false)

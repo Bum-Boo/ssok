@@ -272,6 +272,8 @@ func _ensure_camera() -> void:
 	_camera.far = 20.0
 	_camera.fov = 60.0
 	_camera.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	# The robot's camera sees the world, not the workshop's sensing overlays.
+	_camera.cull_mask &= ~SonarBeam.LAYER
 	_viewport.add_child(_camera)
 	_camera.current = true
 

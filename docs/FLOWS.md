@@ -69,7 +69,12 @@ VM은 틱당 128개 연산과 실행 전체 10,000회 루프 진입, 시뮬레�
 B-2에서 `LineSensor(pin).value()/is_dark()`는 아래 방향 실제 레이와 표면 재질의 밝기를
 읽어요(0=검정, 1023=흰색, 경계 512; 보드 공통). `Button(pin).is_pressed()`는 버튼 전면
 충돌만 읽고, 해제 디바운스는 50 ms예요. `LED(pin).on()/off()/set(0..1)`은 인스턴스별
-발광 재질을 바꾸며 Stop 뒤 이전 VM 작업이 다시 켜지지 않아요. 새 장치도 전체 소스의
+발광 재질을 바꾸며 Stop 뒤 이전 VM 작업이 다시 켜지지 않아요. 켜진 LED는 렌즈 위 additive
+후광을 함께 켜요(상세 메시에서는 `lens` 재질 표면과 `glass` 돔, 옛 메시는 마지막 표면). 학습 코드가 초음파를 읽으면(`distance_cm()`·`distance()`·`time_pulse_us`)
+`RunMode.show_sonar_reading()`이 센서 레이와 같은 원점·축의 감지 콘(`SonarBeam`)을 측정 거리까지
+그리고 읽기가 멈추면 사라져요. Stage 평가는 `measure_cm()`으로 같은 값을 재되 콘을 그리지 않고,
+콘은 로봇 카메라가 렌더하지 않는 레이어 20에 있어요. 두 표시는 물리·관측·그래프에 되먹임하지 않아요
+([ADR 0045](adr/0045-miniature-workshop-look.md)). 새 장치도 전체 소스의
 그래프 배선 사전 검사와 기존 블록 왕복 경로를 써요. 기어는 API 없이 물리 구속으로 작동해요.
 `cup_object_count()`는 컵 방향·내부 경계에 든 `environment_role="object"` 자유 환경 물체만 관측하는 런타임 함수이며
 D-2의 Stage v2 `cup_count` 전체 대상 규칙이 같은 함수를 읽어요. 로봇/구조 부품·컵과 기계적으로 연결된 물체는 제외하고, 병합 몸체는 한 번만 세어요. [B-2 검증](evidence/parts_pack_v1_2026-10-22/README.md).

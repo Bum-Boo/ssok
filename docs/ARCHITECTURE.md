@@ -252,6 +252,17 @@ LED, 키트 휠 두 종과 기어 두 종을 만들고, 두 램프의 평면 사
 마운팅 구멍은 기존 `kit_m4` 포트 중심에 두고, 원본 메시의 AABB와 PartDef 설정을
 보존해요. 메시 교체 뒤에는 [트레이 썸네일](../tools/blender/README.md)도 같은 리소스에서 다시 렌더링해요.
 
+### 작업실 룩 (2026-11-26, ADR 0045)
+
+카탈로그 재질은 그대로 정본이다. 화면에서는 `WorkshopMaterials`가 지원 가능한 재질(불투명,
+픽셀 단위, 트라이플래너 노멀 맵 이하)을 공용 셰이더 `assets/shaders/workshop_part.gdshader`로
+바꿔 인스턴스별 표면 재정의로만 적용한다. 직접광·그림자는 Godot이, 주변광 대신 스튜디오 반구
+반사·Fresnel은 셰이더가 맡아 GL Compatibility에서 금속이 검게 죽지 않는다. 조명·배경·팔레트는
+`WorkshopLook`, 커팅매트·책상은 `WorkbenchSurface`와 `cutting_mat`/`workbench_desk` 셰이더,
+실행 모드 LED 후광·초음파 콘은 `LEDDevice`·`SonarBeam`이 맡는다. 모두 WebGL2에서 쓰는
+기능(방향광·그림자 맵·색 주변광·톤매핑·unshaded 알파/additive)만 사용한다. 전후 렌더는
+`tools/lookdev/capture_look.gd`로 같은 카메라에서 찍는다.
+
 - 첫 타겟 보드 (Arduino / ESP32 / 특정 상용 키트)
 - Jolt Physics 채택 여부 (웹 export 지원 확인 필요)
 - 라이선스

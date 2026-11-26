@@ -19,6 +19,7 @@ func install_wall(x: float) -> void:
 	var definition: PartDef = load("res://assets/parts/stage_wall.tres")
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = definition.mesh
+	WorkshopMaterials.dress(mesh)
 	wall.add_child(mesh)
 	var collision := CollisionShape3D.new()
 	var box := BoxShape3D.new()
