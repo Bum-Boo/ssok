@@ -16,7 +16,7 @@ def write_identity(project: Path) -> Path:
         if path.suffix in {".gd", ".tres", ".res", ".tscn"}
     }
     target = project / "assets/stage_runtime_identity.json"
-    target.write_text(json.dumps(hashes, sort_keys=True, indent=2) + "\n")
+    target.write_text(json.dumps(hashes, sort_keys=True, indent=2) + "\n", encoding="utf-8", newline="\n")
     return target
 
 
