@@ -264,8 +264,8 @@ func _add_hint_wires(parent: VBoxContainer, heading: String, wires: Array[Dictio
 func _refresh_hint_wires() -> void:
 	for label: Label in _hint_wire_labels:
 		var wire: Dictionary = label.get_meta("answer_wire")
-		label.text = "%s / %s → %s / %s" % [tr(wire.source), WiringPanel.port_name(wire.source_port),
-			tr(wire.target), WiringPanel.port_name(wire.target_port)]
+		label.text = "%s → %s" % [WiringPanel.port_label(wire.source_part, wire.source, wire.source_port),
+			WiringPanel.port_label(wire.target_part, wire.target, wire.target_port)]
 
 
 func _notification(what: int) -> void:

@@ -308,7 +308,11 @@ func _port_of(endpoint: Dictionary) -> Port:
 
 func _endpoint_label(endpoint: Dictionary) -> String:
 	var definition: PartDef = assembly.graph.parts[endpoint.part].part_def
-	return "#%d %s / %s" % [endpoint.part + 1, tr(definition.display_name), port_name(endpoint.port)]
+	return port_label(endpoint.part, definition.display_name, endpoint.port)
+
+
+static func port_label(part: int, part_name: String, id: StringName) -> String:
+	return "#%d %s / %s" % [part + 1, TranslationServer.translate(part_name), port_name(id)]
 
 
 ## A learner-facing name for a port id such as `pin_0`, `power_out_2` or `trig_pin`.

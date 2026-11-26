@@ -55,6 +55,8 @@ func _load_hint_answer(main: Node3D, level: Dictionary, stage: Dictionary, expec
 		var wire: Dictionary = label.get_meta("answer_wire")
 		power_wires += int(wire.target_port == PowerNet.POWER_IN)
 		_check(label.text.contains(" → ") and not label.text.contains(String(wire.source_port)), level.id + " lists a learner-facing wire direction")
+		_check(label.text.begins_with("#%d " % (wire.source_part + 1))
+			and label.text.contains(" → #%d " % (wire.target_part + 1)), level.id + " shows both matching Wiring part numbers")
 	_check(power_wires == expected_power_wires, level.id + " lists exactly the power wires for this answer")
 	var code: Label = hud.hint_panel.find_child("AnswerCode", true, false)
 	if level.id == "raise-flag":

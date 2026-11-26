@@ -96,8 +96,8 @@ static func answer_hint_links(graph: ConnectionGraph) -> Dictionary:
 		var target: PartDef = graph.parts[link.b_part].part_def
 		if RunMode._port(source, link.a_port).kind != Port.Kind.ELEC:
 			continue
-		var row: Dictionary = {"source": source.display_name, "source_port": link.a_port,
-			"target": target.display_name, "target_port": link.b_port}
+		var row: Dictionary = {"source": source.display_name, "source_part": link.a_part, "source_port": link.a_port,
+			"target": target.display_name, "target_part": link.b_part, "target_port": link.b_port}
 		if BeginnerBuilds._is_power(graph, link.a_part, link.a_port) or BeginnerBuilds._is_power(graph, link.b_part, link.b_port):
 			power.append(row)
 		else:
