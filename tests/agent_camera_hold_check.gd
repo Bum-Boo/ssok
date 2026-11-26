@@ -50,10 +50,21 @@ func _run() -> void:
 	print("camera_hold_idle_drift_m=", travel.length(), " delta=", travel)
 	_check(travel.length() <= 0.002, "camera car drifts at most 2 mm over 10 seconds")
 	_check(loop.enabled and loop.state == "ready" and loop.png.is_empty(), "only physics runs in the headless fixture")
+	# Request the same sub-deadband duty on both sides of the state transition.
+	var motor: DriveMotor = loop._channels[0]
+	var axis: Vector3 = (motor.housing.global_basis * motor.axis_local).normalized()
+	var speed: float = (motor.wheel.angular_velocity - motor.housing.angular_velocity).dot(axis)
+	loop._hold_positions[motor] = motor.wheel.global_position
+	loop._hold_integral[motor] = 0.3 - speed * loop.HOLD_P
+	loop._hold_brake(0.0)
+	_check(motor.braking and motor.duty == 0.0, "ready hold uses gearbox braking for small corrections")
+	loop._start_settle()
+	loop._hold_brake(0.0)
+	_check(not motor.braking and is_equal_approx(motor.duty, -0.003), "settling retains small PI corrections")
 	app._on_stop_pressed()
 	_check(not loop.enabled and loop._hold_positions.is_empty(), "Stop revokes the hold")
-	for motor: DriveMotor in app.run_mode.motors.values():
-		_check(motor.duty == 0.0, "Stop restores ordinary zero-duty braking")
+	for stopped_motor: DriveMotor in app.run_mode.motors.values():
+		_check(stopped_motor.duty == 0.0, "Stop restores ordinary zero-duty braking")
 	_finish(app)
 
 

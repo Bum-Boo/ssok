@@ -194,3 +194,28 @@ Godot은 격리된 APPDATA·LOCALAPPDATA에서 `--headless`로 실행했어요.
 `dirty_worktree=true`로 표시하며, 빌드 전후 트리 해시는 같아요.
 렌더 전용 17개와 Linux의 실제 카메라 재현은 새 GitHub 실행에서 확인할 범위예요.
 이번 수정에는 사용자 문구나 번역 변경이 없어요.
+
+## Linux CI 회귀 2차 수정 (항목 56)
+
+[Linux 실행 45747016222](https://github.com/Bum-Boo/ssok/actions/runs/45747016222)의 `eeba0d7d`는 121/126이었어요.
+`material_assets_check`는 통과했고, 메시 실패는 두 키트 휠의 표면 0(고무)에 남았어요.
+렌더 카메라의 네 검사에서 정착 후 관측이 준비되지 않았어요. `drive_stop`은 13~14 FPS에서
+전진 행동 뒤 정착 중에 기한을 넘겼어요. 14.653 mm의 변위도 준비 상태 확인이 실패한 뒤에 측정됐어요.
+
+- 카메라의 정착·캡처 중에는 `80bdf60`의 바퀴 속도 PI와 축 위치 게인 1200을 적용해요.
+  1차 수정이 정착 중에 추가했던 축 속도 감쇠, 적분치 초기화와 미세 브레이크 전환을 제거했어요.
+  `ready`에서만 0.6% 미만 듀티에 기어박스 브레이크를 사용해요. 관측 준비 조건과 2 mm 기준은 유지해요.
+- 두 키트 휠의 고무 트레드는 오각형 끝면을 고정된 삼각형 순서로 만들고 `SurfaceTool.index()`의 정확 일치
+  정점 병합을 생략해요. Windows 재현에서 약 2~4 nm의 정점 변동만으로 기존 병합 정점 수가 1개 늘었어요.
+  Linux 로그는 실패 표면을 기록하므로 이 실험으로 비교가 깨질 수 있는 경로를 확인했어요.
+  기존 인덱스를 펼쳐 새 메시와 대조한 결과, 40/90 mm 휠의 삼각형 모서리 4,608/6,144개에서 순서·위치·노멀 차이가 0이었어요.
+  표면 수·형식·인덱스·AABB 비교 규칙을 유지했어요.
+
+Windows Godot 4.7.2는 격리 APPDATA·LOCALAPPDATA에서 `--headless`로 실행했어요.
+`verify.py`의 가져오기·메인 씬 로드, Godot 7개 스위트와 Python 문서 2개 스위트가 통과했어요(11/11).
+`maintain.py --check --base eeba0d7`도 통과했어요. `construction_kit_check`는 13,702개,
+`material_assets_check`는 118개 표면, `beginner_course_check`는 275개 검사에서 모두 통과했어요.
+카메라의 10초 준비 상태 변위는 1.622 mm였어요. 새 회귀 검사는 같은 0.3% 듀티가 준비 상태에서는
+브레이크를 걸고 정착 중에는 PI 보정으로 적용됨을 확인했어요. 로그는 `build/verification-ci56-r2-final-task292b/`와
+`build/verification-ci56-r2-state-task292b/`에 있어요. Linux의 네 렌더 검사와 두 타이어 표면의
+교차 플랫폼 결과는 새 GitHub 실행에서 확인해요. 사용자 문구·번역 변경은 없어요.

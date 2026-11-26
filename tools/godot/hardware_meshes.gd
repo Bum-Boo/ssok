@@ -175,6 +175,7 @@ func _wheel(radius: float) -> void:
 			shape[corner] = shape[corner].rotated(angle)
 		_prism(shape, -4.2, 4.2, "cream")
 	# Low-profile staggered tread is built to the original rolling radius.
+	var tread_cap := PackedInt32Array([4, 0, 1, 1, 2, 3, 3, 4, 1])
 	for index: int in segments / 2:
 		var step: float = TAU * index / (segments / 2)
 		for side: float in [-1, 1]:
@@ -182,7 +183,7 @@ func _wheel(radius: float) -> void:
 			var tooth := PackedVector2Array([_polar(radius - 0.7, angle - 0.062),
 				_polar(radius, angle - 0.043), _polar(radius, angle), _polar(radius, angle + 0.043),
 				_polar(radius - 0.7, angle + 0.062)])
-			_prism(tooth, minf(0.40 * side, 4.90 * side), maxf(0.40 * side, 4.90 * side), "rubber")
+			_prism(tooth, minf(0.40 * side, 4.90 * side), maxf(0.40 * side, 4.90 * side), "rubber", tread_cap)
 
 
 func _gearbox(definition: PartDef, high_ratio: bool) -> void:
@@ -407,7 +408,8 @@ func _box(center: Vector3, size: Vector3, finish: String) -> void:
 	_prism(shape, center.z - half.z, center.z + half.z, finish)
 
 
-func _prism(shape: PackedVector2Array, base: float, top: float, finish: String) -> void:
+func _prism(shape: PackedVector2Array, base: float, top: float, finish: String,
+		cap_indices := PackedInt32Array()) -> void:
 	var twice_area := 0.0
 	for i: int in shape.size():
 		twice_area += shape[i].cross(shape[(i + 1) % shape.size()])
@@ -415,7 +417,8 @@ func _prism(shape: PackedVector2Array, base: float, top: float, finish: String) 
 		shape.reverse()
 	for i: int in shape.size():
 		_wall(finish, shape[i], shape[(i + 1) % shape.size()], base, top)
-	var corners: PackedInt32Array = Geometry2D.triangulate_polygon(shape)
+	# The convex tread cap has fixed topology regardless of angle or float rounding.
+	var corners: PackedInt32Array = Geometry2D.triangulate_polygon(shape) if cap_indices.is_empty() else cap_indices
 	for i: int in range(0, corners.size(), 3):
 		var a: Vector2 = shape[corners[i]]
 		var b: Vector2 = shape[corners[i + 1]]
@@ -480,7 +483,9 @@ func _mesh(id: String, envelope: AABB) -> ArrayMesh:
 		return null
 	for finish: String in _surfaces:
 		var surface: SurfaceTool = _surfaces[finish]
-		surface.index()
+		# Keep tire triangles in emission order. Exact float welding varies across platforms.
+		if finish != "rubber" or id not in ["kit_wheel_40", "kit_wheel_90"]:
+			surface.index()
 		var arrays: Array = surface.commit_to_arrays()
 		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 		for i: int in vertices.size():
