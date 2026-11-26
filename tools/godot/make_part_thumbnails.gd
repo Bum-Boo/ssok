@@ -2,7 +2,7 @@ extends SceneTree
 
 ## Renders one transparent picture per tray part from its real mesh, for the parts tray.
 ## Needs a real display (not --headless), from the repository root:
-##   godot --path . --resolution 384x384 -s tools/godot/make_part_thumbnails.gd
+##   godot --path . --resolution 384x384 -s tools/godot/make_part_thumbnails.gd -- [part id ...]
 ## Pictures are written to res://assets/part_thumbnails/<part id>.png at 128x128.
 
 const OUTPUT: String = "res://assets/part_thumbnails/"
@@ -26,6 +26,13 @@ func _run() -> void:
 				if definition != null:
 					catalog.append(definition)
 	catalog = PartTray.definitions(catalog)
+	var requested: PackedStringArray = OS.get_cmdline_user_args()
+	if not requested.is_empty():
+		catalog = catalog.filter(func(definition: PartDef) -> bool: return String(definition.id) in requested)
+		if catalog.size() != requested.size():
+			push_error("Expected unique tray part IDs: %s" % [requested])
+			quit(1)
+			return
 
 	var stage := Node3D.new()
 	root.add_child(stage)

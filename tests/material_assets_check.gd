@@ -4,6 +4,7 @@ extends SceneTree
 ## godot --headless --path . -s tests/material_assets_check.gd
 
 const PartMaterials = preload("res://tools/godot/part_materials.gd")
+const HardwareMeshes = preload("res://tools/godot/hardware_meshes.gd")
 const TEXTURE_DIRECTORY: String = "res://assets/materials/textures"
 
 var _failures: Array[String] = []
@@ -100,8 +101,11 @@ func _check_meshes() -> void:
 		if definition == null:
 			continue
 		_definitions.append(definition)
-		var source: ArrayMesh = load("res://assets/parts/%s.obj" % definition.id) as ArrayMesh
 		var mesh: ArrayMesh = definition.mesh as ArrayMesh
+		if String(definition.id) in HardwareMeshes.LEGACY_IDS:
+			_check_local_hardware(definition, mesh)
+			continue
+		var source: ArrayMesh = load("res://assets/parts/%s.obj" % definition.id) as ArrayMesh
 		_check(source != null and mesh != null, "%s source and materialized meshes exist" % definition.id)
 		if source == null or mesh == null:
 			continue
@@ -128,6 +132,29 @@ func _check_meshes() -> void:
 		_check(valid_geometry, "%s exactly preserves all source vertex/index/normal arrays and AABB" % definition.id)
 		_check(valid_materials, "%s surfaces resolve the correct shared catalog materials" % definition.id)
 	_check(_definitions.size() == 20, "all 20 robot part definitions are checked")
+
+
+func _check_local_hardware(definition: PartDef, mesh: ArrayMesh) -> void:
+	_check(mesh != null and mesh.resource_path == PartMaterials.mesh_path(definition.id),
+		"%s uses its persistent hardware mesh" % definition.id)
+	if mesh == null:
+		return
+	var source: ArrayMesh = HardwareMeshes.build(definition, mesh.get_aabb())
+	var valid: bool = source != null and source.get_surface_count() == mesh.get_surface_count()
+	_check(valid, "%s baked hardware mesh matches the generator surface count" % definition.id)
+	if not valid:
+		return
+	for index: int in mesh.get_surface_count():
+		var expected := source.surface_get_material(index) as StandardMaterial3D
+		var material := mesh.surface_get_material(index) as StandardMaterial3D
+		valid = valid and mesh.surface_get_arrays(index) == source.surface_get_arrays(index)
+		valid = valid and material != null and material.resource_name == expected.resource_name
+		if material != null:
+			valid = valid and material.albedo_color.is_equal_approx(expected.albedo_color)
+			valid = valid and is_equal_approx(material.roughness, expected.roughness)
+			valid = valid and is_equal_approx(material.metallic, expected.metallic)
+		_surface_count += 1
+	_check(valid, "%s exactly preserves baked geometry and resolves its local finishes" % definition.id)
 
 
 func _check_modes() -> void:
